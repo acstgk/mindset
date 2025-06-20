@@ -1,0 +1,1100 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "GK Mindset",
+    "theme_author": "Adam Snape",
+    "theme_version": "0.0.1",
+    "theme_documentation_url": "https://gymking.com/",
+    "theme_support_url": "https://gymking.com"
+  },
+  {
+    "name": "Countdown",
+    "settings": [
+      {
+        "type": "text",
+        "id": "countdown-date",
+        "info": "MM/DD/YY 11:11 AM",
+        "label": "Enter Date"
+      },
+      {
+        "type": "header",
+        "content": "Product Card Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "countdown-product-check",
+        "label": "Enable Product Card Countdown",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "countdown-title",
+        "info": "Countdown Title",
+        "label": "Enter Title"
+      },
+      {
+        "type": "text",
+        "id": "countdown-tag",
+        "info": "Countdown Tag",
+        "label": "Enter Tag"
+      },
+      {
+        "type": "image_picker",
+        "id": "countdown-decal",
+        "info": "Image should be 746px x 200px, with a transparent bg if required.",
+        "label": "Countdown Decal Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "decal-check",
+        "label": "Force Decal On",
+        "info": "Displays the chosen decal ALL THE TIME - turn off if you want the decal to be controlled by the countdown timer.",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Announcement Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "countdown-announcement-check",
+        "label": "Enable Announcement Countdown",
+        "info": "Will display first on countdown",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "countdown-announcement-title",
+        "label": "Announcement Countdown Title"
+      },
+      {
+        "type": "text",
+        "id": "countdown-announcement-text",
+        "label": "Announcement Countdown Text"
+      },
+      {
+        "type": "url",
+        "id": "countdown-announcement-url",
+        "label": "Announcement Countdown URL"
+      }
+    ]
+  },
+  {
+    "name": "Collection Content Images",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Mens 1st Content Spot"
+      },
+      {
+        "type": "image_picker",
+        "id": "img-mens-content",
+        "label": "Image",
+        "info": "Mens Content Spot | Collection Page"
+      },
+      {
+        "type": "url",
+        "id": "urlm-plp-content",
+        "label": "Men's Content Spot | URL"
+      },
+      {
+        "type": "text",
+        "id": "videom-plp-content",
+        "label": "Men's Content Spot | VIDEO URL"
+      },
+      {
+        "type": "header",
+        "content": "Mens 2nd Content Spot"
+      },
+      {
+        "type": "image_picker",
+        "id": "img-mens-content-2",
+        "label": "Image",
+        "info": "Mens Content Spot | Collection Page"
+      },
+      {
+        "type": "url",
+        "id": "urlm-plp-content-2",
+        "label": "Men's Content Spot | URL"
+      },
+      {
+        "type": "text",
+        "id": "videom-plp-content-2",
+        "label": "Men's Content Spot | VIDEO URL"
+      },
+      {
+        "type": "header",
+        "content": "Mens 3rd Content Spot"
+      },
+      {
+        "type": "image_picker",
+        "id": "img-mens-content-3",
+        "label": "Image",
+        "info": "Mens Content Spot | Collection Page"
+      },
+      {
+        "type": "url",
+        "id": "urlm-plp-content-3",
+        "label": "Men's Content Spot | URL"
+      },
+      {
+        "type": "text",
+        "id": "videom-plp-content-3",
+        "label": "Men's Content Spot | VIDEO URL"
+      },
+      {
+        "type": "header",
+        "content": "Womens 1st Content Spot"
+      },
+      {
+        "type": "image_picker",
+        "id": "img-womens-content",
+        "label": "Image",
+        "info": "Womens Content Spot | Collection Page"
+      },
+      {
+        "type": "url",
+        "id": "urlw-plp-content",
+        "label": "Women's Content Spot | URL"
+      },
+      {
+        "type": "text",
+        "id": "videow-plp-content",
+        "info": "Video",
+        "label": "Women's Content Spot | VIDEO URL"
+      },
+      {
+        "type": "header",
+        "content": "Womens 2nd Content Spot"
+      },
+      {
+        "type": "image_picker",
+        "id": "img-womens-content-2",
+        "label": "Image",
+        "info": "Womens Content Spot | Collection Page"
+      },
+      {
+        "type": "url",
+        "id": "urlw-plp-content-2",
+        "label": "Women's Content Spot | URL"
+      },
+      {
+        "type": "text",
+        "id": "videow-plp-content-2",
+        "info": "Video",
+        "label": "Women's Content Spot | VIDEO URL"
+      },
+      {
+        "type": "header",
+        "content": "Womens 3rd Content Spot"
+      },
+      {
+        "type": "image_picker",
+        "id": "img-womens-content-3",
+        "label": "Image",
+        "info": "Womens Content Spot | Collection Page"
+      },
+      {
+        "type": "url",
+        "id": "urlw-plp-content-3",
+        "label": "Women's Content Spot | URL"
+      },
+      {
+        "type": "text",
+        "id": "videow-plp-content-3",
+        "label": "Women's Content Spot | VIDEO URL"
+      },
+      {
+        "type": "header",
+        "content": "Kids 1st Content Spot"
+      },
+      {
+        "type": "image_picker",
+        "id": "img-kids-content",
+        "label": "Image",
+        "info": "Kids Content Spot | Collection Page"
+      },
+      {
+        "type": "url",
+        "id": "urlk-plp-content",
+        "label": "Kids's Content Spot | URL"
+      },
+      {
+        "type": "text",
+        "id": "videok-plp-content",
+        "label": "Kids's Content Spot | VIDEO URL"
+      },
+      {
+        "type": "header",
+        "content": "Kids 2nd Content Spot"
+      },
+      {
+        "type": "image_picker",
+        "id": "img-kids-content-2",
+        "label": "Image",
+        "info": "Kids Content Spot | Collection Page"
+      },
+      {
+        "type": "url",
+        "id": "urlk-plp-content-2",
+        "label": "Kid's Content Spot | URL"
+      },
+      {
+        "type": "text",
+        "id": "videok-plp-content-2",
+        "label": "Kid's Content Spot | VIDEO URL"
+      },
+      {
+        "type": "header",
+        "content": "Kids 3rd Content Spot"
+      },
+      {
+        "type": "image_picker",
+        "id": "img-kids-content-3",
+        "label": "Image",
+        "info": "Kids Content Spot | Collection Page"
+      },
+      {
+        "type": "url",
+        "id": "urlk-plp-content-3",
+        "label": "Kid's Content Spot | URL"
+      },
+      {
+        "type": "text",
+        "id": "videok-plp-content-3",
+        "label": "Kid's Content Spot | VIDEO URL"
+      }
+    ]
+  },
+  {
+    "name": "Highlighted Menu",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Hightlighted Menu Item Text",
+        "info": "Set a custom background and text color for two highlighted menu items."
+      },
+      {
+        "type": "text",
+        "id": "highlighted-keyword",
+        "label": "Highlighted Keyword"
+      },
+      {
+        "type": "color",
+        "id": "highlighted-button_color",
+        "label": "Button colour",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "highlighted-text_color",
+        "label": "Text colour",
+        "default": "#fff"
+      },
+      {
+        "type": "text",
+        "id": "highlighted-keyword-alt",
+        "label": "Highlighted Keyword"
+      },
+      {
+        "type": "color",
+        "id": "highlighted-button_color-alt",
+        "label": "Button colour",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "highlighted-text_color-alt",
+        "label": "Text colour",
+        "default": "#fff"
+      },
+      {
+        "type": "header",
+        "content": "Quick Links Icons",
+        "info": "Set up to 3 quick links with icons for the bottom of the menus"
+      },
+      {
+        "type": "image_picker",
+        "id": "franchise-img-1",
+        "label": "Image 1",
+        "info": "100px x 100px recommended"
+      },
+      {
+        "type": "url",
+        "id": "franchise-url-1",
+        "label": "URL 1"
+      },
+      {
+        "type": "color",
+        "id": "franchise-bg-1",
+        "label": "Background Colour 1",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "select",
+        "id": "franchise-gender-1",
+        "label": "Gender 1",
+        "info": "Is is a gender specific link?",
+        "options": [
+          {
+            "value": "0",
+            "label": "Not Specific"
+          },
+          {
+            "value": "1",
+            "label": "Mens"
+          },
+          {
+            "value": "2",
+            "label": "Womens"
+          },
+          {
+            "value": "3",
+            "label": "Kids"
+          }
+        ],
+        "default": "0"
+      },
+      {
+        "type": "image_picker",
+        "id": "franchise-img-2",
+        "label": "Image 2",
+        "info": "100px x 100px recommended"
+      },
+      {
+        "type": "url",
+        "id": "franchise-url-2",
+        "label": "URL 2"
+      },
+      {
+        "type": "color",
+        "id": "franchise-bg-2",
+        "label": "Background Colour 2",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "select",
+        "id": "franchise-gender-2",
+        "label": "Gender 2",
+        "info": "Is is a gender specific link?",
+        "options": [
+          {
+            "value": "0",
+            "label": "Not Specific"
+          },
+          {
+            "value": "1",
+            "label": "Mens"
+          },
+          {
+            "value": "2",
+            "label": "Womens"
+          },
+          {
+            "value": "3",
+            "label": "Kids"
+          }
+        ],
+        "default": "0"
+      },
+      {
+        "type": "image_picker",
+        "id": "franchise-img-3",
+        "label": "Image 3",
+        "info": "100px x 100px recommended"
+      },
+      {
+        "type": "url",
+        "id": "franchise-url-3",
+        "label": "URL 3"
+      },
+      {
+        "type": "color",
+        "id": "franchise-bg-3",
+        "label": "Background Colour 3",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "select",
+        "id": "franchise-gender-3",
+        "label": "Gender 3",
+        "info": "Is is a gender specific link?",
+        "options": [
+          {
+            "value": "0",
+            "label": "Not Specific"
+          },
+          {
+            "value": "1",
+            "label": "Mens"
+          },
+          {
+            "value": "2",
+            "label": "Womens"
+          },
+          {
+            "value": "3",
+            "label": "Kids"
+          }
+        ],
+        "default": "0"
+      }
+    ]
+  },
+  {
+    "name": "Nav MENS",
+    "settings": [
+      {
+        "type": "text",
+        "id": "nav-link-1",
+        "label": "Menu title",
+        "info": "Which top level menu item should this be linked to?",
+        "default": "MENS"
+      },
+      {
+        "type": "header",
+        "content": "Sub Menus",
+        "info": "These are the submenus that will appear when the user hovers over the top level menu item."
+      },
+      {
+        "type": "link_list",
+        "id": "nav-submenu-a-1",
+        "label": "Submenu 1"
+      },
+      {
+        "type": "link_list",
+        "id": "nav-submenu-b-1",
+        "label": "Submenu 2"
+      },
+      {
+        "type": "link_list",
+        "id": "nav-mobilemenu-1",
+        "label": "Mobile Menu"
+      },
+      {
+        "type": "header",
+        "content": "Menu Media"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- MEDIA BLOCK 1 --"
+      },
+      {
+        "type": "image_picker",
+        "id": "nav-img-a-1",
+        "label": "Image 1",
+        "info": "250px x 250px recommended"
+      },
+      {
+        "type": "url",
+        "id": "nav-url-a-1",
+        "label": "Mens Nav Image URL 1"
+      },
+      {
+        "type": "text",
+        "id": "nav-txt-a-1",
+        "info": "Text under Image",
+        "label": "Mens Nav Image 1 Text"
+      },
+      {
+        "type": "video",
+        "id": "nav-video-a-1",
+        "label": "video",
+        "info": "optional*"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- MEDIA BLOCK 2 --"
+      },
+      {
+        "type": "image_picker",
+        "id": "nav-img-b-1",
+        "label": "Image 2",
+        "info": "250px x 250px recommended"
+      },
+      {
+        "type": "url",
+        "id": "nav-url-b-1",
+        "label": "Mens Nav Image URL 2"
+      },
+      {
+        "type": "text",
+        "id": "nav-txt-b-1",
+        "info": "Text under Image",
+        "label": "Mens Nav Image 1 Text"
+      },
+      {
+        "type": "video",
+        "id": "nav-video-b-1",
+        "label": "video",
+        "info": "optional*"
+      }
+    ]
+  },
+  {
+    "name": "Nav WOMENS",
+    "settings": [
+      {
+        "type": "text",
+        "id": "nav-link-2",
+        "label": "Menu title",
+        "info": "Which top level menu item should this be linked to?",
+        "default": "WOMENS"
+      },
+      {
+        "type": "header",
+        "content": "Sub Menus",
+        "info": "These are the submenus that will appear when the user hovers over the top level menu item."
+      },
+      {
+        "type": "link_list",
+        "id": "nav-submenu-a-2",
+        "label": "Submenu 1"
+      },
+      {
+        "type": "link_list",
+        "id": "nav-submenu-b-2",
+        "label": "Submenu 2"
+      },
+      {
+        "type": "link_list",
+        "id": "nav-mobilemenu-2",
+        "label": "Mobile Menu"
+      },
+      {
+        "type": "header",
+        "content": "Menu Media"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- MEDIA BLOCK 1 --"
+      },
+      {
+        "type": "image_picker",
+        "id": "nav-img-a-2",
+        "label": "Image 1",
+        "info": "250px x 250px recommended"
+      },
+      {
+        "type": "url",
+        "id": "nav-url-a-2",
+        "label": "Image 1 URL"
+      },
+      {
+        "type": "text",
+        "id": "nav-txt-a-2",
+        "info": "Text under Image",
+        "label": "Image 1 Text"
+      },
+      {
+        "type": "video",
+        "id": "nav-video-a-2",
+        "label": "Video 1",
+        "info": "optional*"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- MEDIA BLOCK 2 --"
+      },
+      {
+        "type": "image_picker",
+        "id": "nav-img-b-2",
+        "label": "Image 2",
+        "info": "250px x 250px recommended"
+      },
+      {
+        "type": "url",
+        "id": "nav-url-b-2",
+        "label": "Image 2 URL"
+      },
+      {
+        "type": "text",
+        "id": "nav-txt-b-2",
+        "info": "Text under Image",
+        "label": "Image 2 Text"
+      },
+      {
+        "type": "video",
+        "id": "nav-video-b-2",
+        "label": "Video 2",
+        "info": "optional*"
+      }
+    ]
+  },
+  {
+    "name": "Nav KIDS",
+    "settings": [
+      {
+        "type": "text",
+        "id": "nav-link-3",
+        "label": "Menu title",
+        "info": "Which top level menu item should this be linked to?",
+        "default": "KIDS"
+      },
+      {
+        "type": "header",
+        "content": "Sub Menus",
+        "info": "These are the submenus that will appear when the user hovers over the top level menu item."
+      },
+      {
+        "type": "link_list",
+        "id": "nav-submenu-a-3",
+        "label": "Submenu 1"
+      },
+      {
+        "type": "link_list",
+        "id": "nav-submenu-b-3",
+        "label": "Submenu 2"
+      },
+      {
+        "type": "link_list",
+        "id": "nav-mobilemenu-3",
+        "label": "Mobile Menu"
+      },
+      {
+        "type": "header",
+        "content": "Menu Media"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- MEDIA BLOCK 1 --"
+      },
+      {
+        "type": "image_picker",
+        "id": "nav-img-a-3",
+        "label": "Image 1",
+        "info": "250px x 250px recommended"
+      },
+      {
+        "type": "url",
+        "id": "nav-url-a-3",
+        "label": "Image 1 URL"
+      },
+      {
+        "type": "text",
+        "id": "nav-txt-a-3",
+        "info": "Text under Image",
+        "label": "Image 1 Text"
+      },
+      {
+        "type": "video",
+        "id": "nav-video-a-3",
+        "label": "Video 1",
+        "info": "optional*"
+      },
+      {
+        "type": "paragraph",
+        "content": "-- MEDIA BLOCK 2 --"
+      },
+      {
+        "type": "image_picker",
+        "id": "nav-img-b-3",
+        "label": "Image 2",
+        "info": "250px x 250px recommended"
+      },
+      {
+        "type": "url",
+        "id": "nav-url-b-3",
+        "label": "Image 2 URL"
+      },
+      {
+        "type": "text",
+        "id": "nav-txt-b-3",
+        "info": "Text under Image",
+        "label": "Image 2 Text"
+      },
+      {
+        "type": "video",
+        "id": "nav-video-b-3",
+        "label": "Video 2",
+        "info": "optional*"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General"
+      },
+      {
+        "type": "color",
+        "id": "heading_color",
+        "label": "Heading",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "text_color",
+        "label": "Body text",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "text_light_color",
+        "label": "Body light text",
+        "default": "#6a6a6a"
+      },
+      {
+        "type": "color",
+        "id": "link_color",
+        "label": "Link color",
+        "default": "#6a6a6a"
+      },
+      {
+        "type": "color",
+        "id": "background",
+        "label": "Background",
+        "default": "#eaeaea"
+      },
+      {
+        "type": "color",
+        "id": "light_background",
+        "label": "Light background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "accent_background",
+        "label": "Light background",
+        "default": "#f6f6f6"
+      },
+      {
+        "type": "color",
+        "id": "product_on_sale_color",
+        "label": "On sale accent",
+        "default": "#f94c43"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "color",
+        "id": "button_background",
+        "label": "Background",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Header"
+      },
+      {
+        "type": "color",
+        "id": "header_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "header_heading_color",
+        "label": "Heading and icons",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "header_light_color",
+        "label": "Light text",
+        "default": "#6a6a6a"
+      },
+      {
+        "type": "header",
+        "content": "Footer"
+      },
+      {
+        "type": "color",
+        "id": "footer_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "footer_heading_color",
+        "label": "Heading",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "footer_text_color",
+        "label": "Text",
+        "default": "#6a6a6a"
+      },
+      {
+        "type": "header",
+        "content": "Sidebar navigation"
+      },
+      {
+        "type": "color",
+        "id": "navigation_background",
+        "label": "Background",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "navigation_text_color",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter popup"
+      },
+      {
+        "type": "color",
+        "id": "newsletter_popup_background",
+        "label": "Background",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "newsletter_popup_text_color",
+        "label": "Text",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Secondary elements",
+        "info": "This is used in modals and other secondary elements."
+      },
+      {
+        "type": "color",
+        "id": "secondary_elements_background",
+        "label": "Background",
+        "default": "#1b1b1b"
+      },
+      {
+        "type": "color",
+        "id": "secondary_elements_text_color",
+        "label": "Text",
+        "default": "#ffffff"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Headings"
+      },
+      {
+        "type": "font_picker",
+        "id": "heading_font",
+        "label": "Font",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "select",
+        "id": "heading_size",
+        "label": "Size",
+        "info": "All headings (small and large) will be adjusted.",
+        "options": [
+          {
+            "value": "small",
+            "label": "Small"
+          },
+          {
+            "value": "normal",
+            "label": "Normal"
+          },
+          {
+            "value": "large",
+            "label": "Large"
+          }
+        ],
+        "default": "small"
+      },
+      {
+        "type": "checkbox",
+        "id": "uppercase_heading",
+        "label": "Display headings in uppercase",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Body text"
+      },
+      {
+        "type": "font_picker",
+        "id": "text_font",
+        "label": "Font",
+        "default": "helvetica_n4"
+      },
+      {
+        "type": "range",
+        "id": "base_text_font_size",
+        "label": "Base size",
+        "min": 13,
+        "max": 17,
+        "unit": "px",
+        "default": 14
+      }
+    ]
+  },
+  {
+    "name": "Animation",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_page_transition",
+        "label": "Show page transition",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_button_transition",
+        "label": "Show button transition",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_image_zooming",
+        "label": "Show image zoom effect",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_element_staggering",
+        "label": "Reveal elements one by one",
+        "info": "This setting displays blog post and product grid element one after the other.",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Search",
+    "settings": [
+      {
+        "type": "select",
+        "id": "search_mode",
+        "label": "Search only...",
+        "options": [
+          {
+            "value": "product",
+            "label": "Products only"
+          },
+          {
+            "value": "product,page",
+            "label": "Products and pages"
+          },
+          {
+            "value": "product,article",
+            "label": "Products and articles"
+          },
+          {
+            "value": "product,article,page",
+            "label": "Products, articles and pages"
+          }
+        ],
+        "default": "product,article"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Accounts"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "info": "https://www.facebook.com/shopify",
+        "label": "Facebook"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter",
+        "info": "https://twitter.com/shopify",
+        "label": "Twitter"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest",
+        "info": "https://www.pinterest.com/shopify",
+        "label": "Pinterest"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "info": "https://instagram.com/shopify",
+        "label": "Instagram"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo",
+        "info": "https://vimeo.com/shopify",
+        "label": "Vimeo"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr",
+        "info": "https://shopify.tumblr.com",
+        "label": "Tumblr"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "info": "https://www.youtube.com/user/shopify",
+        "label": "YouTube"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "info": "https://www.tiktok.com/shopify",
+        "label": "TikTok"
+      },
+      {
+        "type": "text",
+        "id": "social_linkedin",
+        "info": "https://linkedin.com/in/shopify",
+        "label": "LinkedIn"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat",
+        "info": "https://snapchat.com/add/shopify",
+        "label": "Snapchat"
+      },
+      {
+        "type": "text",
+        "id": "social_fancy",
+        "info": "https://fancy.com/Shopify",
+        "label": "Fancy"
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Image",
+        "info": "96 x 96px .png recommended"
+      }
+    ]
+  },
+  {
+    "name": "Product Buffer",
+    "settings": [
+      {
+        "type": "range",
+        "id": "product_buffer",
+        "min": 1,
+        "max": 25,
+        "step": 1,
+        "label": "Product Buffer",
+        "default": 5
+      }
+    ]
+  },
+]
