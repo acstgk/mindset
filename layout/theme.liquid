@@ -289,9 +289,8 @@
   </head>
 
   <body class="{% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }}">
-    <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
-    <span class="LoadingBar"></span>
-    <div class="PageOverlay"></div>
+    <a class="u-visually-hidden" href="#main" alt="skip to content">{{ 'header.navigation.skip_to_content' | t }}</a>
+    <div class="PageOverlay" aria-disabled></div>
 
     {% section 'sidebar-menu' %}
     {% section 'cart-drawer' %}
