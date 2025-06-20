@@ -1,0 +1,62 @@
+<style>
+    @font-face {
+        font-family: "Regular";
+        src: url("{{ 'font-regular.woff' | asset_url }}") format("woff"), url("{{ 'font-regular.ttf' | asset_url }}") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+    }
+
+  @font-face {
+    font-family: "Regular";
+    src: url("{{ 'font-regular-bold.woff' | asset_url }}") format("woff");
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Condensed";
+    font-style: normal;
+    src: url("{{ 'font-condensed.woff' | asset_url }}") format("woff"), url("{{  'font-condensed.ttf' | asset_url }}") format("truetype");
+  }
+
+  @font-face {
+    font-family: 'regular-fallback';
+    src: local(Verdana);
+    size-adjust: 90%;
+    ascent-override: 114%;
+    descent-override: 52%;
+    line-gap-override: 0%;
+  }
+
+  @font-face {
+    font-family: 'condensed-fallback';
+    src: local(Impact);
+    size-adjust: 100%;
+    ascent-override: 126%;
+    descent-override: 48%;
+    line-gap-override: normal;
+    font-weight: 400;
+  }
+
+
+  {{ settings.heading_font | font_face: font_display: 'fallback' }}
+  {{ settings.text_font | font_face: font_display: 'fallback' }}
+
+  {{ text_font_bold | font_face: font_display: 'fallback' }}
+  {{ text_font_italic | font_face: font_display: 'fallback' }}
+  {{ text_font_bold_italic | font_face: font_display: 'fallback' }}
+
+  :root {
+    --emphasis-heading-font-family : condensed, condensed-fallback, san-serif;
+    --emphasis-heading-font-weight : 400;
+    --emphasis-heading-font-style  : normal;
+
+    --heading-font-family : regular, regular-fallback, sans-serif;
+    --heading-font-weight : 700;
+    --heading-font-style  : normal;
+
+    --text-font-family : regular, regular-fallback, sans-serif;
+    --text-font-weight : 400;
+    --text-font-style  : normal;
+  }
+</style>
