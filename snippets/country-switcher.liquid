@@ -1,0 +1,165 @@
+{% if localization.available_countries.size > 1 %}
+  <localization-form>
+    {% form 'localization' %}
+      <div class="disclosure">
+        <button type="button" class="disclosure__button" aria-expanded="false" aria-controls="CountryList">
+          {{ localization.country.currency.iso_code }}
+
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+          </svg>
+        </button>
+
+        <ul id="" role="list" class="CountryList disclosure__list" hidden style="position:absolute;">
+          {% for country in localization.available_countries %}
+            {% if country.iso_code == localization.country.iso_code %}
+              {% assign list_position = -8 %}
+            {% else %}
+              {% case country.iso_code %}
+                {% when 'GB' %}
+                  {% assign list_position = -7 %}
+                {% when 'US' %}
+                  {% assign list_position = -6 %}
+                {% when 'IE' %}
+                  {% assign list_position = -5 %}
+                {% when 'NL' %}
+                  {% assign list_position = -4 %}
+                {% when 'AU' %}
+                  {% assign list_position = -3 %}
+                {% when 'DE' %}
+                  {% assign list_position = -2 %}
+                {% when 'CA' %}
+                  {% assign list_position = -1 %}
+                {% else %}
+                  {% assign list_position = 1 %}
+              {% endcase %}
+            {% endif %}
+
+            {% if forloop.first and list_position == 1 %}
+              {% assign border_location = 'border-top:1px solid rgba(27,27,27,0.15);' %}
+            {% elsif forloop.index == 2 and first_selected %}
+              {% assign border_location = 'border-top:1px solid rgba(27,27,27,0.15);' %}
+              {% assign first_selected = false %}
+            {% else %}
+              {% assign border_location = '' %}
+              {% assign first_selected = true %}
+            {% endif %}
+
+            <li class="disclosure__item" tabindex="-1" style="order:{{ list_position }};{{ border_location }}">
+              <a
+                href="#"
+                {% if country.iso_code == localization.country.iso_code %}
+                  aria-current="true" class="current-country"
+                {% endif %}
+                data-value="{{ country.iso_code }}"
+              >
+                {{ country.name }} ({{ country.currency.iso_code }}
+                {{ country.currency.symbol }})
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+
+        <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+      </div>
+    {% endform %}
+  </localization-form>
+  <style>
+    .disclosure__button {
+      background-color: transparent;
+      border: none;
+      font-weight: 400;
+      min-width: max-content;
+      margin-top: 5px;
+    }
+    .disclosure__button .icon {
+      width: 12px;
+    }
+
+    .CountryList {
+      position: absolute;
+      background-color: white;
+      padding: 20px;
+      max-height: 35vh !important;
+      overflow-y: scroll;
+      margin-left: 5px;
+      scrollbar-color: #e4e4e4;
+      scrollbar-width: thin;
+      border: solid 1px rgba(27, 27, 27, 0.1);
+      display: flex;
+      flex-direction: column;
+      right: 30px;
+      width: 270px;
+      margin-top: 10px;
+    }
+
+    .CountryList li {
+      display: block !important;
+      padding-block: 10px;
+    }
+
+    @media screen and (max-width: 1139px) {
+      .CountryList {
+        border-block: 1px solid rgba(27, 27, 27, 0.15);
+        box-shadow: -5px -5px 0px 5px white, 0 3px 6px 0px rgba(27, 27, 27, 0.15);
+        left: -5px;
+        max-height: 80dvh !important;
+        border-inline: none;
+        right: 0;
+        width: calc(100vw - 65px);
+        z-index: 1;
+        margin-top: 0px;
+      }
+      .countrydesktop {
+        display: none;
+      }
+      .countrymobile .disclosure__button {
+        font-weight: lighter !important;
+        padding-bottom: 10px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+      .countrymobile {
+        display: block;
+        padding-inline-start: 20px;
+        padding-top: 5px;
+        height: 45px;
+        background: #f6f6f6;
+        transition: left 0.15s ease;
+      }
+    }
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--accent-background);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: #ccc;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #999;
+    }
+
+    .current-country {
+      font-weight: bold;
+    }
+    /* mobile nav */
+    .mobile-navigation .CountryList {
+      max-height: 30vh;
+    }
+    .mobile-navigation .disclosure__item {
+      width: 100% !important;
+      padding-left: 0;
+    }
+    .mobile-navigation .disclosure__button {
+      padding-left: 0px;
+    }
+  </style>
+{% endif %}
