@@ -1,0 +1,97 @@
+{%- if section.settings.enable_bar -%}
+  {%- unless section.settings.home_page_only and template != 'index' -%}
+    <div id="announcement_splide" class="splide">
+      <div class="announcement_track splide__track">
+        <div class="announcement_list splide__list">
+          {% for block in section.blocks %}
+            <a href="{{ block.settings.link1 | escape }}" class="announcement_content splide__slide">
+              <b class="announcement_content-title">{{ block.settings.title | escape }}</b>
+              <span class="announcement_content-text">
+                {{ block.settings.subcontent1 | escape }}
+              </span>
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        let splide = new Splide('#announcement_splide', {
+          type: 'loop',
+          autoplay: true,
+          interval: 5000,
+          pagination: false
+        });
+
+        splide.on('overflow', function (isOverflow) {
+          splide.options = {
+            ...splide.options,
+            arrows: isOverflow,
+            drag: isOverflow
+          };
+        });
+
+        splide.mount();
+      });
+    </script>
+  {%- endunless -%}
+{%- endif -%}
+{% schema %}
+{
+  "name": "Announcement bar",
+  "class": "announcement",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_bar",
+      "label": "Enable bar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "home_page_only",
+      "label": "Home page only",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#1b1b1b"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#ffffff"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "announcement_slider",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "ANNOUCEMENT"
+        },
+        {
+          "type": "text",
+          "id": "subcontent1",
+          "label": "Sub Text",
+          "default": "More Info"
+        },
+        {
+          "type": "url",
+          "id": "link1",
+          "label": "Link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
