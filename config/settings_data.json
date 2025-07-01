@@ -1,0 +1,70 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "favicon": "shopify://shop_images/Gym_King_Logo.png",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify://shop_images/gymking-logo.svg"
+        }
+      },
+      "announcement": {
+        "type": "announcement",
+        "blocks": {
+          "announcement_slider_Qw6CQD": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "Announcement 1",
+              "subcontent1": "More Info",
+              "link1": "shopify://products/gk-gift-card"
+            }
+          },
+          "announcement_slider_ij8XhU": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "Announcement 2",
+              "subcontent1": "click here",
+              "link1": "/"
+            }
+          }
+        },
+        "block_order": [
+          "announcement_slider_Qw6CQD",
+          "announcement_slider_ij8XhU"
+        ],
+        "settings": {
+          "enable_bar": true,
+          "home_page_only": false,
+          "background": "#1b1b1b",
+          "text_color": "#ffffff"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {}
+      },
+      "sidebar-menu": {
+        "type": "sidebar-menu",
+        "settings": {}
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {}
+      },
+      "wishlist-app-settings": {
+        "type": "wishlist-app-settings",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  }
+}
