@@ -1,62 +1,87 @@
-<style>
+{% style %}
+    {% comment %} FONTS {% endcomment %}
     @font-face {
-        font-family: "Regular";
-        src: url("{{ 'font-regular.woff' | asset_url }}") format("woff"), url("{{ 'font-regular.ttf' | asset_url }}") format("truetype");
-        font-weight: 400;
-        font-style: normal;
+      font-family: "Regular";
+      src: url("{{ 'font-regular.woff' | asset_url }}") format("woff"), url("{{ 'font-regular.ttf' | asset_url }}") format("truetype");
+      font-weight: 400;
+      font-style: normal;
     }
 
-  @font-face {
-    font-family: "Regular";
-    src: url("{{ 'font-regular-bold.woff' | asset_url }}") format("woff");
-    font-weight: 700;
-    font-style: normal;
+    @font-face {
+      font-family: "Regular";
+      src: url("{{ 'font-regular-bold.woff' | asset_url }}") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Condensed";
+      font-style: normal;
+      src: url("{{ 'font-condensed.woff' | asset_url }}") format("woff"), url("{{  'font-condensed.ttf' | asset_url }}") format("truetype");
+    }
+
+    @font-face {
+      font-family: 'regular-fallback';
+      src: local(Verdana);
+      size-adjust: 90%;
+      ascent-override: 114%;
+      descent-override: 52%;
+      line-gap-override: 0%;
+    }
+
+    @font-face {
+      font-family: 'condensed-fallback';
+      src: local(Impact);
+      size-adjust: 100%;
+      ascent-override: 126%;
+      descent-override: 48%;
+      line-gap-override: normal;
+      font-weight: 400;
+    }
+
+
+    {{ settings.heading_font | font_face: font_display: 'fallback' }}
+    {{ settings.text_font | font_face: font_display: 'fallback' }}
+
+    {{ text_font_bold | font_face: font_display: 'fallback' }}
+    {{ text_font_italic | font_face: font_display: 'fallback' }}
+    {{ text_font_bold_italic | font_face: font_display: 'fallback' }}
+
+    :root {
+      --emphasis-heading-font-family : condensed, condensed-fallback, san-serif;
+      --emphasis-heading-font-weight : 400;
+      --emphasis-heading-font-style  : normal;
+
+      --heading-font-family : regular, regular-fallback, sans-serif;
+      --heading-font-weight : 700;
+      --heading-font-style  : normal;
+
+      --text-font-family : regular, regular-fallback, sans-serif;
+      --text-font-weight : 400;
+      --text-font-style  : normal;
+
+      --txt-0: clamp(0.8rem, 0.09vi + 0.78rem, 0.86rem);
+      --txt-1: clamp(1rem, 0.22vi + 0.94rem, 1.14rem);
+      --txt-2: clamp(1.25rem, 0.43vi + 1.13rem, 1.52rem);
+      --txt-3: clamp(1.56rem, 0.73vi + 1.36rem, 2.03rem);
+      --txt-4: clamp(1.95rem, 1.18vi + 1.63rem, 2.71rem);
+      --txt-5: clamp(2.44rem, 1.83vi + 1.94rem, 3.61rem);
+    }
+
+
+    {% comment %} COLOURS {% endcomment %}
+
+    :root {
+    --color-white: #fff;
+    --color-off-white: #f6f6f6;
+    --color-black: #1b1b1b;
+    --color-light-grey: #d3d3d3;
+    --color-grey:rgb(122, 122, 122);
   }
 
-  @font-face {
-    font-family: "Condensed";
-    font-style: normal;
-    src: url("{{ 'font-condensed.woff' | asset_url }}") format("woff"), url("{{  'font-condensed.ttf' | asset_url }}") format("truetype");
-  }
+   {% comment %} STRUCTURE {% endcomment %}
 
-  @font-face {
-    font-family: 'regular-fallback';
-    src: local(Verdana);
-    size-adjust: 90%;
-    ascent-override: 114%;
-    descent-override: 52%;
-    line-gap-override: 0%;
-  }
-
-  @font-face {
-    font-family: 'condensed-fallback';
-    src: local(Impact);
-    size-adjust: 100%;
-    ascent-override: 126%;
-    descent-override: 48%;
-    line-gap-override: normal;
-    font-weight: 400;
-  }
-
-
-  {{ settings.heading_font | font_face: font_display: 'fallback' }}
-  {{ settings.text_font | font_face: font_display: 'fallback' }}
-
-  {{ text_font_bold | font_face: font_display: 'fallback' }}
-  {{ text_font_italic | font_face: font_display: 'fallback' }}
-  {{ text_font_bold_italic | font_face: font_display: 'fallback' }}
-
-  :root {
-    --emphasis-heading-font-family : condensed, condensed-fallback, san-serif;
-    --emphasis-heading-font-weight : 400;
-    --emphasis-heading-font-style  : normal;
-
-    --heading-font-family : regular, regular-fallback, sans-serif;
-    --heading-font-weight : 700;
-    --heading-font-style  : normal;
-
-    --text-font-family : regular, regular-fallback, sans-serif;
-    --text-font-weight : 400;
-    --text-font-style  : normal;
-  }
-</style>
+   :root {
+    --max-width: 1920px;
+   }
+{% endstyle %}
