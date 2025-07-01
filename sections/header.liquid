@@ -1,0 +1,37 @@
+<a href="" class="header_icon">{%- render 'icon' with 'nav' -%}</a>
+
+{% if section.settings.logo %}
+  <a href="{{ routes.root_url }}" class="header_logo">
+    {{  section.settings.logo | image_url: width: 500 | image_tag: width: 500 }}
+  </a>
+{% endif %}
+
+<div class="header_icon-container">
+  <div class="countrydesktop">{%- render 'country-switcher' -%}</div>
+
+  {% if customer %}
+    <a href="" class="header_icon icon_account">{%- render 'icon' with 'logged-in' -%}</a>
+  {% else %}
+    <a href="" class="header_icon icon_account">{%- render 'icon' with 'logged-out' -%}</a>
+  {% endif %}
+
+  {% render 'wishlist-app-links', linkType: 'wishlist-page-link' %}
+  <a href="" class="header_icon">{%- render 'icon' with 'search' -%}</a>
+  <a href="" class="header_icon">{%- render 'icon' with 'cart' -%}</a>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "header",
+  "class": "header",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Logo",
+      "id": "logo"
+    }
+  ]
+}
+{% endschema %}
