@@ -5,6 +5,7 @@
       src: url("{{ 'font-regular.woff' | asset_url }}") format("woff"), url("{{ 'font-regular.ttf' | asset_url }}") format("truetype");
       font-weight: 400;
       font-style: normal;
+      font-display: swap;
     }
 
     @font-face {
@@ -12,12 +13,14 @@
       src: url("{{ 'font-regular-bold.woff' | asset_url }}") format("woff");
       font-weight: 700;
       font-style: normal;
+      font-display: swap;
     }
 
     @font-face {
       font-family: "Condensed";
       font-style: normal;
       src: url("{{ 'font-condensed.woff' | asset_url }}") format("woff"), url("{{  'font-condensed.ttf' | asset_url }}") format("truetype");
+      font-display: swap;
     }
 
     @font-face {
@@ -27,6 +30,7 @@
       ascent-override: 114%;
       descent-override: 52%;
       line-gap-override: 0%;
+      font-display: fallback;
     }
 
     @font-face {
@@ -37,6 +41,7 @@
       descent-override: 48%;
       line-gap-override: normal;
       font-weight: 400;
+      font-display: fallback;
     }
 
 
@@ -60,12 +65,13 @@
       --text-font-weight : 400;
       --text-font-style  : normal;
 
-      --txt-0: clamp(0.8rem, 0.09vi + 0.78rem, 0.86rem);
-      --txt-1: clamp(1rem, 0.22vi + 0.94rem, 1.14rem);
-      --txt-2: clamp(1.25rem, 0.43vi + 1.13rem, 1.52rem);
-      --txt-3: clamp(1.56rem, 0.73vi + 1.36rem, 2.03rem);
-      --txt-4: clamp(1.95rem, 1.18vi + 1.63rem, 2.71rem);
-      --txt-5: clamp(2.44rem, 1.83vi + 1.94rem, 3.61rem);
+      --txt-sm: clamp(0.75rem, 0.05vi + 0.7rem, 0.79rem);
+      --txt-p: clamp(0.8rem, 0.09vi + 0.78rem, 0.86rem);
+      --txt-h4: clamp(1rem, 0.22vi + 0.94rem, 1.14rem);
+      --txt-h3: clamp(1.25rem, 0.43vi + 1.13rem, 1.52rem);
+      --txt-h2: clamp(1.56rem, 0.73vi + 1.36rem, 2.03rem);
+      --txt-h1: clamp(1.95rem, 1.18vi + 1.63rem, 2.71rem);
+      --txt-xl: clamp(2.44rem, 1.83vi + 1.94rem, 3.61rem);
 
       --letter-spacing: 0.15rem;
     }
@@ -74,14 +80,14 @@
     {% comment %} COLOURS {% endcomment %}
 
     :root {
-    --color-white: #fff;
-    --color-off-white: #f6f6f6;
-    --color-black: #1b1b1b;
-    --color-light-grey: #d3d3d3;
-    --color-grey:rgb(122, 122, 122);
-    --color-warning: #f94c43;
-    --color-success: #86b829;
-    --color-info: #5497A7;
+    --c-white: #fff;
+    --c-off-white: #f6f6f6;
+    --c-black: #1b1b1b;
+    --c-light-grey: #d3d3d3;
+    --c-grey:rgb(122, 122, 122);
+    --c-warning: #f94c43;
+    --c-success: #86b829;
+    --c-info: #5497A7;
   }
 
    {% comment %} STRUCTURE {% endcomment %}

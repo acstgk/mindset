@@ -20,14 +20,6 @@
       "announcement": {
         "type": "announcement",
         "blocks": {
-          "announcement_slider_Qw6CQD": {
-            "type": "announcement_slider",
-            "settings": {
-              "title": "Announcement 1",
-              "subcontent1": "More Info",
-              "link1": "shopify://products/gk-gift-card"
-            }
-          },
           "announcement_slider_ij8XhU": {
             "type": "announcement_slider",
             "settings": {
@@ -35,11 +27,19 @@
               "subcontent1": "click here",
               "link1": "/"
             }
+          },
+          "announcement_slider_Qw6CQD": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "Announcement 1",
+              "subcontent1": "More Info",
+              "link1": "shopify://products/gk-gift-card"
+            }
           }
         },
         "block_order": [
-          "announcement_slider_Qw6CQD",
-          "announcement_slider_ij8XhU"
+          "announcement_slider_ij8XhU",
+          "announcement_slider_Qw6CQD"
         ],
         "settings": {
           "enable_bar": true,

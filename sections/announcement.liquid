@@ -1,6 +1,6 @@
 {%- if section.settings.enable_bar -%}
   {%- unless section.settings.home_page_only and template != 'index' -%}
-    <div id="announcement_splide" class="splide">
+    <announcement-bar id="announcement_splide" class="splide">
       <div class="announcement_track splide__track">
         <div class="announcement_list splide__list">
           {% for block in section.blocks %}
@@ -13,30 +13,34 @@
           {% endfor %}
         </div>
       </div>
-    </div>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        let splide = new Splide('#announcement_splide', {
-          type: 'loop',
-          autoplay: true,
-          interval: 5000,
-          pagination: false
-        });
-
-        splide.on('overflow', function (isOverflow) {
-          splide.options = {
-            ...splide.options,
-            arrows: isOverflow,
-            drag: isOverflow
-          };
-        });
-
-        splide.mount();
-      });
-    </script>
+    </announcement-bar>
   {%- endunless -%}
 {%- endif -%}
+{% javascript %}
+  class AnnouncementCarousel extends HTMLElement {
+    connectedCallback() {
+      this.classList.add('splide');
+      const splide = new Splide(this, {
+        type: 'loop',
+        autoplay: true,
+        interval: 5000,
+        pagination: false,
+      });
+
+      splide.on('overflow', (isOverflow) => {
+        splide.options = {
+          ...splide.options,
+          arrows: isOverflow,
+          drag: isOverflow,
+        };
+      });
+
+      splide.mount();
+    }
+  }
+
+  customElements.define('announcement-bar', AnnouncementCarousel);
+{% endjavascript %}
 {% schema %}
 {
   "name": "Announcement bar",

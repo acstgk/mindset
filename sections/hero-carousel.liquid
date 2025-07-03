@@ -1,19 +1,254 @@
-<div class="limited-w v-margin">test</div>
+<hero-carousel>
+  <div class="hero_track splide__track">
+    <div class="hero_list splide__list">
+      {%- for block in section.blocks -%}
+        <div class="hero_slide splide__slide" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+          {% assign preload = 'auto' %}
+          {% unless forloop.first %}
+            {% assign preload = 'none' %}
+          {% endunless %}
+
+          {% if block.settings.mobile_video %}
+            {{
+              block.settings.mobile_video.preview_image
+              | image_url: width: 1, height: 1
+              | image_tag: width: 1, class: 'hero_slide-color'
+            }}
+
+            {% assign poster_image = block.settings.mobile_poster
+              | image_url: height: '800px'
+              | default: block.settings.mobile_video.preview_image
+            %}
+
+            {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.mobile_video.aspect_ratio %}
+
+            {{
+              block.settings.mobile_video
+              | video_tag:
+                autoplay: true,
+                loop: true,
+                muted: true,
+                playsinline: true,
+                class: 'hero_slide-video mob-only',
+                poster: poster_image,
+                preload: preload,
+                style: aspect_ratio
+            }}
+          {% else %}
+            {{
+              block.settings.mobile_poster
+              | image_url: height: 800
+              | image_tag: height: 800, class: 'hero_slide-video mob-only'
+            }}
+          {% endif %}
+          {% if block.settings.desktop_video %}
+            {% assign poster_image = block.settings.desktop_poster
+              | image_url: width: '1270px'
+              | default: block.settings.desktop_video.preview_image
+            %}
+
+            {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.desktop_video.aspect_ratio %}
+            {{
+              block.settings.desktop_video
+              | video_tag:
+                autoplay: true,
+                loop: true,
+                muted: true,
+                playsinline: true,
+                class: 'hero_slide-video mob-hide',
+                poster: poster_image,
+                preload: preload,
+                style: aspect_ratio
+            }}
+          {% else %}
+            {{
+              block.settings.desktop_poster
+              | image_url: width: '1270px'
+              | image_tag: width: 1270, class: 'hero_slide-video mob-hide'
+            }}
+          {% endif %}
+          <div class="hero_slide-content">
+            {% if block.settings.overlay_url %}
+              <a href="{{ block.settings.overlay_url }}" class="hero_slide-overlay"></a>
+            {% endif %}
+
+            {% if block.settings.lockup_img %}
+              {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in' }}
+            {% endif %}
+            {% unless block.settings.title == '' %}
+              <h2 class="h1 fade-in">{{ block.settings.title }}</h2>
+            {% endunless %}
+            {% unless block.settings.subtitle == '' %}
+              <p
+                class="h3 fade-in"
+                {% if block.settings.subtitle_first %}
+                  style="order:-1"
+                {% endif %}
+              >
+                {{ block.settings.subtitle }}
+              </p>
+            {% endunless %}
+            {% unless block.settings.cta1 == '' %}
+              <div class="hero_slide-ctas fade-in">
+                <a href="{{ block.settings.url1 }}" class="button button-inverted">{{ block.settings.cta1 }}</a>
+                {% unless block.settings.cta2 == '' %}
+                  <a href="{{ block.settings.url2 }}" class="button button-inverted">{{ block.settings.cta2 }}</a>
+                {% endunless %}
+              </div>
+            {% endunless %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</hero-carousel>
+
+{% javascript %}
+  class HeroCarousel extends HTMLElement {
+    constructor() {
+      super();
+      this.splide = null;
+    }
+
+    connectedCallback() {
+      this.classList.add('splide');
+
+      let autoplay = true;
+      if (Shopify.designMode) autoplay = false;
+
+      this.splide = new Splide(this, {
+        type: 'fade',
+        autoplay: autoplay,
+        interval: 5000,
+        arrows: false,
+      });
+
+      this.splide.on('overflow', (isOverflow) => {
+        this.splide.options = {
+          ...this.splide.options,
+          pagination: isOverflow,
+          drag: isOverflow,
+        };
+      });
+
+      this.splide.on('pagination:mounted', (data) => {
+        if (data.items.length > 1) {
+          data.items.forEach((item) => {
+            item.button.textContent = '0' + String(item.page + 1);
+          });
+        }
+      });
+
+      this.splide.mount();
+    }
+  }
+
+  customElements.define('hero-carousel', HeroCarousel);
+{% endjavascript %}
 
 {% schema %}
 {
   "name": "Slideshow",
   "class": "shopify-section--hero-carousel",
+  "tag": "section",
   "max_blocks": 9,
+  "limit": 1,
   "settings": [],
-  "blocks": [],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Main Media"
+        },
+        {
+          "type": "video",
+          "id": "mobile_video",
+          "label": "Mobile Video",
+          "info": "Recommended: Portrait video "
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_poster",
+          "label": "Mobile Cover Image"
+        },
+        {
+          "type": "video",
+          "id": "desktop_video",
+          "label": "Desktop Video",
+          "info": "Recommended: Landscape video"
+        },
+        {
+          "type": "image_picker",
+          "id": "desktop_poster",
+          "label": "Desktop Cover Image"
+        },
+        {
+          "type": "url",
+          "id": "overlay_url",
+          "label": "Overlay Link"
+        },
+        {
+          "type": "header",
+          "content": "Slide Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "lockup_img",
+          "label": "Lockup Image",
+          "info": "Try to use an image with a transparent background"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Slide Title"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Slide Subtitle"
+        },
+        {
+          "type": "checkbox",
+          "label": "Subtitle first?",
+          "id": "subtitle_first",
+          "default": false
+        },
+        {
+          "type": "header",
+          "content": "Slide CTA's"
+        },
+        {
+          "type": "text",
+          "id": "cta1",
+          "label": "Button 1 CTA"
+        },
+        {
+          "type": "url",
+          "id": "url1",
+          "label": "Button 1 URL"
+        },
+        {
+          "type": "text",
+          "id": "cta2",
+          "label": "Button 2 CTA"
+        },
+        {
+          "type": "url",
+          "id": "url2",
+          "label": "Button 2 URL"
+        }
+      ]
+    }
+  ],
   "presets": [
-     {
-      "category": "Carousel",
+    {
+      "category": "Carousels",
       "name": "Hero Slideshow",
       "settings": {},
-      "blocks": [
-      ]
+      "blocks": []
     }
   ]
 }

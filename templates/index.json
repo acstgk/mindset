@@ -9,12 +9,12 @@
  */
 {
   "sections": {
-    "main": {
+    "hero": {
       "type": "hero-carousel",
       "settings": {}
     }
   },
   "order": [
-    "main"
+    "hero"
   ]
 }
