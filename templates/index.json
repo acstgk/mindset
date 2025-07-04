@@ -11,6 +11,63 @@
   "sections": {
     "hero": {
       "type": "hero-carousel",
+      "blocks": {
+        "image_i7tBKt": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Energy Flex Mobile Banner.mp4",
+            "mobile_poster": "shopify://shop_images/Energy-Flex-Mobile-Banner.jpg",
+            "desktop_video": "shopify://files/videos/Energy Flex Desktop Banner.mp4",
+            "desktop_poster": "shopify://shop_images/gym21.jpg",
+            "overlay_url": "",
+            "title": "Energy / Flex 2.0",
+            "subtitle": "New colourways for your sessions.",
+            "subtitle_first": false,
+            "cta1": "Shop Flex",
+            "url1": "",
+            "cta2": "Shop Energy",
+            "url2": ""
+          }
+        },
+        "image_4tA8AN": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Team GKW - Mobile Banner.mp4",
+            "desktop_video": "shopify://files/videos/Team GKW - Desktop Banner.mp4",
+            "overlay_url": "",
+            "title": "GKW Summer",
+            "subtitle": "This season it's",
+            "subtitle_first": true,
+            "cta1": "Shop now",
+            "url1": "",
+            "cta2": "",
+            "url2": ""
+          }
+        },
+        "image_McwRfJ": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Spring Sale - Mobile Banner Mens.mp4",
+            "mobile_poster": "shopify://shop_images/maisie2.jpg",
+            "desktop_video": "shopify://files/videos/Spring Sale - Desktop Banner Mens.mp4",
+            "desktop_poster": "shopify://shop_images/Maisie_trying_on_our_Gym_King_Womens_fleecewear.jpg",
+            "overlay_url": "",
+            "lockup_img": "shopify://shop_images/Limitless-X-Maisie-1.png",
+            "title": "",
+            "subtitle": "",
+            "subtitle_first": false,
+            "cta1": "",
+            "url1": "",
+            "cta2": "",
+            "url2": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_i7tBKt",
+        "image_4tA8AN",
+        "image_McwRfJ"
+      ],
       "settings": {}
     }
   },
