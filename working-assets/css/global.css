@@ -14,7 +14,7 @@ html {
     scrollbar-width: thin;
 }
 
-@media screen and (width <= 400px) {
+@media screen and (width <=400px) {
     html {
         scrollbar-gutter: stable;
     }
@@ -485,6 +485,8 @@ body.no-scroll .page-overlay {
 .hero_slide {
     width: 100vw;
     display: grid;
+    overflow: hidden;
+    max-height: calc(100vh - 90px) !important;
 }
 
 .hero_slide-color {
@@ -530,6 +532,8 @@ video {
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
+    position: absolute;
+    inset: 0;
 }
 
 .hero_slide-lockup {
@@ -590,6 +594,7 @@ video {
         width: 24px;
         height: 24px;
         text-shadow: 0 0 5px var(--c-grey);
+        cursor: pointer;
 
         &.is-active {
             color: var(--c-white);
@@ -599,10 +604,6 @@ video {
 }
 
 @media screen and (min-width: 768px) {
-    .hero_slide {
-        overflow: hidden;
-        max-height: 100vh;
-    }
 
     #hero_carousel .splide__pagination {
         justify-content: flex-end;
