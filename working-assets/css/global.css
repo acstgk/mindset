@@ -127,18 +127,17 @@ a {
     width: 1px;
 }
 
-.page-overlay {
+page-overlay {
     position: fixed;
     inset: 0;
-    backdrop-filter: brightness(0.95) blur(2px);
+    backdrop-filter: brightness(0.9) blur(2px);
     z-index: 10;
-
     opacity: 0;
     visibility: hidden;
     transition: opacity .15s, visibility .15s
 }
 
-body.no-scroll .page-overlay {
+body.no-scroll page-overlay {
     opacity: 1;
     visibility: visible;
 }
@@ -165,7 +164,7 @@ body.no-scroll .page-overlay {
     opacity: 0;
     position: relative;
     top: 10%;
-    transition: all 0.6s ease;
+    transition: all 0.6s var(--overshoot-bezier);
 }
 
 .splide__slide.is-active .fade-in {
@@ -230,6 +229,14 @@ body.no-scroll .page-overlay {
         background-color: #fff;
         box-shadow: inset 0 0 2px 0 grey
     }
+}
+
+button {
+    margin: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .button {
@@ -340,7 +347,7 @@ body.no-scroll .page-overlay {
     display: grid;
     grid-template-columns: auto 2fr 1fr;
     gap: 15px;
-    padding: 0 25px;
+    padding-inline: min(25px, 3vw);
     background-color: var(--c-white);
     color: var(--c-black);
 
@@ -397,6 +404,25 @@ body.no-scroll .page-overlay {
     color: var(--c-black);
     font-size: var(--txt-sm);
     letter-spacing: var(--letter-spacing);
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        background-color: var(--c-black);
+        bottom: -4px;
+        left: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform .15s var(--overshoot-bezier);
+        width: 100%;
+        height: 2px;
+    }
+
+    &:hover::after {
+        transform: scaleX(1)
+    }
 }
 
 .header_icon-container {
@@ -441,7 +467,6 @@ body.no-scroll .page-overlay {
     text-align: center;
     height: 38px;
     place-content: center;
-    cursor: pointer;
 }
 
 #announcement_splide {
@@ -457,22 +482,28 @@ body.no-scroll .page-overlay {
         left: 0;
         width: 24px;
         height: 24px;
-        translate: -100% -50%;
+        translate: -150% -50%;
         border: none;
         background: none;
         transform: rotate(180deg);
+
 
         & svg {
             width: 100%;
             height: 100%;
             opacity: 0.33;
+            transition: opacity 0.1s var(--overshoot-bezier);
+        }
+
+        &:hover svg {
+            opacity: 0.66;
         }
     }
 
     & .splide__arrow--next {
         right: 0;
         left: auto;
-        translate: 100% -50%;
+        translate: 150% -50%;
         transform: rotate(0deg);
     }
 }
@@ -498,9 +529,10 @@ body.no-scroll .page-overlay {
 
 .announcement_content-text {
     color: var(--c-grey);
-    text-transform: lowercase;
-    line-height: 1.1;
-    letter-spacing: calc(var(--letter-spacing) / 2);
+    letter-spacing: var(--letter-spacing);
+    line-height: 0.75;
+    text-transform: uppercase;
+    font-size: 10px;
 }
 
 
@@ -638,8 +670,7 @@ video {
 }
 
 @media screen and (min-width: 768px) {
-
-    #hero_carousel .splide__pagination {
+    .shopify-section--hero-carousel .splide__pagination {
         justify-content: flex-end;
     }
 }
@@ -654,6 +685,9 @@ slide-drawer {
     z-index: 11;
     width: min(375px, 95%);
     box-shadow: 0 0 5px var(--c-grey);
+    translate: -100% 0;
+    transition: translate 0.15s ease-out, visibility 0.2s ease-out;
+    visibility: hidden;
 
     &.left {
         left: 0;
@@ -663,5 +697,11 @@ slide-drawer {
     &.right {
         right: 0;
         translate: 100% 0;
+    }
+
+    &[open] {
+        opacity: 1;
+        translate: 0 0;
+        visibility: visible;
     }
 }
