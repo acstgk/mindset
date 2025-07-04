@@ -111,6 +111,11 @@ a {
     display: none !important;
 }
 
+.content-bleed {
+    width: min(90vw, 1270px);
+    padding: 10vw 0;
+}
+
 .visually-hidden {
     overflow: hidden;
     position: absolute !important;
@@ -148,7 +153,7 @@ body.no-scroll .page-overlay {
 
 .mob-hide {
     display: none;
-    visibility: none;
+    visibility: hidden;
 }
 
 .Icon {
@@ -304,6 +309,21 @@ body.no-scroll .page-overlay {
     }
 }
 
+/* GLOBAL DESKTOP  */
+
+@media screen and (width > 768px) {
+    .mob-only {
+        display: none !important;
+        visibility: none !important;
+    }
+
+    .mob-hide {
+        display: initial;
+        visibility: visible;
+    }
+
+}
+
 
 /* HEADER  */
 
@@ -320,13 +340,25 @@ body.no-scroll .page-overlay {
     display: grid;
     grid-template-columns: auto 2fr 1fr;
     gap: 15px;
-    padding: 0 15px;
+    padding: 0 25px;
     background-color: var(--c-white);
     color: var(--c-black);
 
     & .Icon {
         height: 24px;
         stroke-width: 1.5;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #shopify-section-header {
+        justify-content: center;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+    }
+
+    .countrydesktop {
+        display: block !important;
     }
 }
 
@@ -346,10 +378,32 @@ body.no-scroll .page-overlay {
     }
 }
 
+.header_nav {
+    min-width: max-content;
+}
+
+.header_desktop-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    justify-content: flex-start;
+    padding: 0;
+}
+
+.header_menu-item a {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--c-black);
+    font-size: var(--txt-sm);
+    letter-spacing: var(--letter-spacing);
+}
+
 .header_icon-container {
     display: flex;
     gap: 10px;
     justify-content: flex-end;
+    margin: 0 0 0 auto;
 }
 
 .header_icon {
@@ -359,10 +413,6 @@ body.no-scroll .page-overlay {
     color: var(--c-black);
 
     & .iwish-counter {
-        display: none;
-    }
-
-    &.icon_account {
         display: none;
     }
 
@@ -451,22 +501,6 @@ body.no-scroll .page-overlay {
     text-transform: lowercase;
     line-height: 1.1;
     letter-spacing: calc(var(--letter-spacing) / 2);
-}
-
-
-/* GLOBAL DESKTOP  */
-
-@media screen and (width > 768px) {
-    .mob-only {
-        display: none;
-        visibility: none;
-    }
-
-    .mob-hide {
-        display: initial;
-        visibility: visible;
-    }
-
 }
 
 

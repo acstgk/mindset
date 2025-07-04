@@ -1,19 +1,30 @@
-<a href="" class="header_icon">{%- render 'icon' with 'nav' -%}</a>
+<a href="" class="header_icon mob-only">{%- render 'icon' with 'nav' -%}</a>
+<nav class="header_nav mob-hide">
+  <ul class="header_desktop-menu ">
+    {% for link in section.settings.main_menu.links %}
+      <li class="header_menu-item">
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
 
 {% if section.settings.logo %}
   <a href="{{ routes.root_url }}" class="header_logo">
-    {{  section.settings.logo | image_url: width: 500 | image_tag: width: 500 }}
+    {{ section.settings.logo | image_url: width: 500 | image_tag: width: 500 }}
   </a>
 {% endif %}
 
 <div class="header_icon-container">
   <div class="countrydesktop">{%- render 'country-switcher' -%}</div>
 
-  {% if customer %}
-    <a href="" class="header_icon icon_account">{%- render 'icon' with 'logged-in' -%}</a>
-  {% else %}
-    <a href="" class="header_icon icon_account">{%- render 'icon' with 'logged-out' -%}</a>
-  {% endif %}
+  <a href="" class="header_icon icon_account mob-hide">
+    {% if customer %}
+      {%- render 'icon' with 'logged-in' -%}
+    {% else %}
+      {%- render 'icon' with 'logged-out' -%}
+    {% endif %}
+  </a>
 
   {% render 'wishlist-app-links', linkType: 'wishlist-page-link' %}
   <a href="" class="header_icon">{%- render 'icon' with 'search' -%}</a>
@@ -31,6 +42,15 @@
       "type": "image_picker",
       "label": "Logo",
       "id": "logo"
+    },
+    {
+      "type": "header",
+      "content": "Naivgation"
+    },
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Main Header Menu"
     }
   ]
 }
