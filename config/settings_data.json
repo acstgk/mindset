@@ -14,7 +14,8 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify://shop_images/gymking-logo.svg"
+          "logo": "shopify://shop_images/gymking-logo.svg",
+          "main_menu": "test-desktop-main-menu"
         }
       },
       "announcement": {
