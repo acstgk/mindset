@@ -643,3 +643,25 @@ video {
         justify-content: flex-end;
     }
 }
+
+/* NAV DRAWER */
+
+slide-drawer {
+    position: fixed;
+    height: 100%;
+    background: var(--c-white);
+    top: 0;
+    z-index: 11;
+    width: min(375px, 95%);
+    box-shadow: 0 0 5px var(--c-grey);
+
+    &.left {
+        left: 0;
+        translate: -100% 0;
+    }
+
+    &.right {
+        right: 0;
+        translate: 100% 0;
+    }
+}
