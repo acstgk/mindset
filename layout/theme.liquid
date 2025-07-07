@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ shop.locale }}">
+
   <head>
     <!-- Start of Shoplift scripts -->
     {% render 'shoplift' %}
@@ -308,16 +309,16 @@
     <a class="visually-hidden" href="#main" alt="skip to content">{{ 'header.navigation.skip_to_content' | t }}</a>
     <page-overlay aria-disabled></page-overlay>
 
-    {% section 'header' %}
-    {% section 'sidebar-menu' %}
-    {% section 'announcement' %}
+    {% section 'header-main' %}
+    {% section 'drawer-nav' %}
+    {% section 'header-announcement' %}
 
     <main id="main" role="main">
       {{ content_for_layout }}
     </main>
 
-    {% section 'footer' %}
-    {% section 'cart-drawer' %}
+    {% section 'footer-main' %}
+    {% section 'drawer-cart' %}
 
     <!-- included iwish_v2 with footer my added---------- -->
     {% section 'wishlist-app-settings' %}

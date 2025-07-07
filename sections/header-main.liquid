@@ -1,18 +1,20 @@
 {% assign keywordvar = settings['highlighted-keyword'] | downcase %}
 {% assign keywordvaralt = settings['highlighted-keyword-alt'] | downcase %}
 
+
 <button class="drawer-button header_icon mob-only" data-target="navDrawer" aria-label="Open navigation menu">
   {%- render 'icon' with 'nav' -%}
 </button>
 <nav class="header_nav mob-hide">
   <ul class="header_desktop-menu ">
     {% for link in section.settings.main_menu.links %}
+      {% assign gender = link.title | downcase %}
       <li class="header_menu-item" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-{{link.title}}">
         <a href="{{ link.url }}">{{ link.title }}</a>
         {% if link.links != blank %}
           <div id="dropdown-{{link.title}}" class="header_menu-dropdown" aria-hidden="true">
-            <div class="dropdown_col_1 dropdown_col">
-              <ul class="dropdown_col_1-links">
+            <div class="dropdown_col">
+              <ul class="dropdown_col-links">
                 {% for child_link in link.links %}
                   {% assign link_title = child_link.title | downcase %}
                   {% if child_link.links.size > 0 %}
@@ -28,10 +30,18 @@
                   {% endif %}
                 {% endfor %}
               </ul>
-              {% render 'menu-quick-links' %}
+              {% render 'menu-quick-links' with gender as gender %}
             </div>
-            <div class="dropdown_col_2 dropdown_col">
-              {% render 'menu-sub-menu' with settings.nav-submenu-a-1 as menu %}
+            <div class="dropdown_col">
+              <div class="dropdown_sub-menus">
+                {% for i in (1..2) %}
+                  {% assign sub-menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
+                  {% render 'menu-sub-menu' with settings[sub-menu] as menu %}
+                {% endfor %}
+              </div>
+            </div>
+            <div class="dropdown_col">
+              {% render 'menu-visual-links' with gender as gender %}
             </div>
           </div>
         {% endif %}

@@ -1,0 +1,12 @@
+<div class="menu_visual-links">
+  {% for i in (1..2) %}
+    <div class="menu_visual-link img-overlay">
+      {% assign img = 'nav-img-' | append: i | append: '-' | append: gender %}
+      {% assign url = 'nav-url-' | append: i | append: '-' | append: gender %}
+      {% assign txt = 'nav-txt-' | append: i | append: '-' | append: gender %}
+
+      <img src="{{ settings[img] | image_url: width: 500 }}" alt="" height="500" width="500">
+      <a href="{{ settings[url] }}">{{ settings[txt] }}</a>
+    </div>
+  {% endfor %}
+</div>

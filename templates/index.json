@@ -10,7 +10,7 @@
 {
   "sections": {
     "hero": {
-      "type": "hero-carousel",
+      "type": "carousel-hero",
       "blocks": {
         "image_i7tBKt": {
           "type": "image",

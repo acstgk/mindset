@@ -341,15 +341,15 @@
             "label": "Not Specific"
           },
           {
-            "value": "1",
+            "value": "mens",
             "label": "Mens"
           },
           {
-            "value": "2",
+            "value": "womens",
             "label": "Womens"
           },
           {
-            "value": "3",
+            "value": "kids",
             "label": "Kids"
           }
         ],
@@ -383,15 +383,15 @@
             "label": "Not Specific"
           },
           {
-            "value": "1",
+            "value": "mens",
             "label": "Mens"
           },
           {
-            "value": "2",
+            "value": "womens",
             "label": "Womens"
           },
           {
-            "value": "3",
+            "value": "kids",
             "label": "Kids"
           }
         ],
@@ -425,15 +425,15 @@
             "label": "Not Specific"
           },
           {
-            "value": "1",
+            "value": "mens",
             "label": "Mens"
           },
           {
-            "value": "2",
+            "value": "womens",
             "label": "Womens"
           },
           {
-            "value": "3",
+            "value": "kids",
             "label": "Kids"
           }
         ],
@@ -458,12 +458,12 @@
       },
       {
         "type": "link_list",
-        "id": "nav-submenu-a-1",
+        "id": "nav-submenu-1-mens",
         "label": "Submenu 1"
       },
       {
         "type": "link_list",
-        "id": "nav-submenu-b-1",
+        "id": "nav-submenu-2-mens",
         "label": "Submenu 2"
       },
       {
@@ -481,26 +481,20 @@
       },
       {
         "type": "image_picker",
-        "id": "nav-img-a-1",
+        "id": "nav-img-1-mens",
         "label": "Image 1",
         "info": "250px x 250px recommended"
       },
       {
         "type": "url",
-        "id": "nav-url-a-1",
+        "id": "nav-url-1-mens",
         "label": "Mens Nav Image URL 1"
       },
       {
         "type": "text",
-        "id": "nav-txt-a-1",
+        "id": "nav-txt-1-mens",
         "info": "Text under Image",
         "label": "Mens Nav Image 1 Text"
-      },
-      {
-        "type": "video",
-        "id": "nav-video-a-1",
-        "label": "video",
-        "info": "optional*"
       },
       {
         "type": "paragraph",
@@ -508,26 +502,20 @@
       },
       {
         "type": "image_picker",
-        "id": "nav-img-b-1",
+        "id": "nav-img-2-mens",
         "label": "Image 2",
         "info": "250px x 250px recommended"
       },
       {
         "type": "url",
-        "id": "nav-url-b-1",
+        "id": "nav-url-2-mens",
         "label": "Mens Nav Image URL 2"
       },
       {
         "type": "text",
-        "id": "nav-txt-b-1",
+        "id": "nav-txt-2-mens",
         "info": "Text under Image",
         "label": "Mens Nav Image 1 Text"
-      },
-      {
-        "type": "video",
-        "id": "nav-video-b-1",
-        "label": "video",
-        "info": "optional*"
       }
     ]
   },
@@ -548,12 +536,12 @@
       },
       {
         "type": "link_list",
-        "id": "nav-submenu-a-2",
+        "id": "nav-submenu-1-womens",
         "label": "Submenu 1"
       },
       {
         "type": "link_list",
-        "id": "nav-submenu-b-2",
+        "id": "nav-submenu-2-womens",
         "label": "Submenu 2"
       },
       {
@@ -571,26 +559,20 @@
       },
       {
         "type": "image_picker",
-        "id": "nav-img-a-2",
+        "id": "nav-img-1-womens",
         "label": "Image 1",
         "info": "250px x 250px recommended"
       },
       {
         "type": "url",
-        "id": "nav-url-a-2",
+        "id": "nav-url-1-womens",
         "label": "Image 1 URL"
       },
       {
         "type": "text",
-        "id": "nav-txt-a-2",
+        "id": "nav-txt-1-womens",
         "info": "Text under Image",
         "label": "Image 1 Text"
-      },
-      {
-        "type": "video",
-        "id": "nav-video-a-2",
-        "label": "Video 1",
-        "info": "optional*"
       },
       {
         "type": "paragraph",
@@ -598,26 +580,20 @@
       },
       {
         "type": "image_picker",
-        "id": "nav-img-b-2",
+        "id": "nav-img-2-womens",
         "label": "Image 2",
         "info": "250px x 250px recommended"
       },
       {
         "type": "url",
-        "id": "nav-url-b-2",
+        "id": "nav-url-2-womens",
         "label": "Image 2 URL"
       },
       {
         "type": "text",
-        "id": "nav-txt-b-2",
+        "id": "nav-txt-2-womens",
         "info": "Text under Image",
         "label": "Image 2 Text"
-      },
-      {
-        "type": "video",
-        "id": "nav-video-b-2",
-        "label": "Video 2",
-        "info": "optional*"
       }
     ]
   },
@@ -638,17 +614,17 @@
       },
       {
         "type": "link_list",
-        "id": "nav-submenu-a-3",
+        "id": "nav-submenu-1-kids",
         "label": "Submenu 1"
       },
       {
         "type": "link_list",
-        "id": "nav-submenu-b-3",
+        "id": "nav-submenu-2-kids",
         "label": "Submenu 2"
       },
       {
         "type": "link_list",
-        "id": "nav-mobilemenu-3",
+        "id": "nav-mobilemenu-kids",
         "label": "Mobile Menu"
       },
       {
@@ -661,26 +637,20 @@
       },
       {
         "type": "image_picker",
-        "id": "nav-img-a-3",
+        "id": "nav-img-1-kids",
         "label": "Image 1",
         "info": "250px x 250px recommended"
       },
       {
         "type": "url",
-        "id": "nav-url-a-3",
+        "id": "nav-url-1-kids",
         "label": "Image 1 URL"
       },
       {
         "type": "text",
-        "id": "nav-txt-a-3",
+        "id": "nav-txt-1-kids",
         "info": "Text under Image",
         "label": "Image 1 Text"
-      },
-      {
-        "type": "video",
-        "id": "nav-video-a-3",
-        "label": "Video 1",
-        "info": "optional*"
       },
       {
         "type": "paragraph",
@@ -688,313 +658,21 @@
       },
       {
         "type": "image_picker",
-        "id": "nav-img-b-3",
+        "id": "nav-img-2-kids",
         "label": "Image 2",
         "info": "250px x 250px recommended"
       },
       {
         "type": "url",
-        "id": "nav-url-b-3",
+        "id": "nav-url-2-kids",
         "label": "Image 2 URL"
       },
       {
         "type": "text",
-        "id": "nav-txt-b-3",
+        "id": "nav-txt-2-kids",
         "info": "Text under Image",
         "label": "Image 2 Text"
       },
-      {
-        "type": "video",
-        "id": "nav-video-b-3",
-        "label": "Video 2",
-        "info": "optional*"
-      }
-    ]
-  },
-  {
-    "name": "Colors",
-    "settings": [
-      {
-        "type": "header",
-        "content": "General"
-      },
-      {
-        "type": "color",
-        "id": "heading_color",
-        "label": "Heading",
-        "default": "#1b1b1b"
-      },
-      {
-        "type": "color",
-        "id": "text_color",
-        "label": "Body text",
-        "default": "#1b1b1b"
-      },
-      {
-        "type": "color",
-        "id": "text_light_color",
-        "label": "Body light text",
-        "default": "#6a6a6a"
-      },
-      {
-        "type": "color",
-        "id": "link_color",
-        "label": "Link color",
-        "default": "#6a6a6a"
-      },
-      {
-        "type": "color",
-        "id": "background",
-        "label": "Background",
-        "default": "#eaeaea"
-      },
-      {
-        "type": "color",
-        "id": "light_background",
-        "label": "Light background",
-        "default": "#ffffff"
-      },
-      {
-        "type": "color",
-        "id": "accent_background",
-        "label": "Light background",
-        "default": "#f6f6f6"
-      },
-      {
-        "type": "color",
-        "id": "product_on_sale_color",
-        "label": "On sale accent",
-        "default": "#f94c43"
-      },
-      {
-        "type": "header",
-        "content": "Buttons"
-      },
-      {
-        "type": "color",
-        "id": "button_background",
-        "label": "Background",
-        "default": "#1b1b1b"
-      },
-      {
-        "type": "color",
-        "id": "button_text_color",
-        "label": "Text",
-        "default": "#ffffff"
-      },
-      {
-        "type": "header",
-        "content": "Header"
-      },
-      {
-        "type": "color",
-        "id": "header_background",
-        "label": "Background",
-        "default": "#ffffff"
-      },
-      {
-        "type": "color",
-        "id": "header_heading_color",
-        "label": "Heading and icons",
-        "default": "#1b1b1b"
-      },
-      {
-        "type": "color",
-        "id": "header_light_color",
-        "label": "Light text",
-        "default": "#6a6a6a"
-      },
-      {
-        "type": "header",
-        "content": "Footer"
-      },
-      {
-        "type": "color",
-        "id": "footer_background",
-        "label": "Background",
-        "default": "#ffffff"
-      },
-      {
-        "type": "color",
-        "id": "footer_heading_color",
-        "label": "Heading",
-        "default": "#1b1b1b"
-      },
-      {
-        "type": "color",
-        "id": "footer_text_color",
-        "label": "Text",
-        "default": "#6a6a6a"
-      },
-      {
-        "type": "header",
-        "content": "Sidebar navigation"
-      },
-      {
-        "type": "color",
-        "id": "navigation_background",
-        "label": "Background",
-        "default": "#1b1b1b"
-      },
-      {
-        "type": "color",
-        "id": "navigation_text_color",
-        "label": "Text",
-        "default": "#ffffff"
-      },
-      {
-        "type": "header",
-        "content": "Newsletter popup"
-      },
-      {
-        "type": "color",
-        "id": "newsletter_popup_background",
-        "label": "Background",
-        "default": "#1b1b1b"
-      },
-      {
-        "type": "color",
-        "id": "newsletter_popup_text_color",
-        "label": "Text",
-        "default": "#ffffff"
-      },
-      {
-        "type": "header",
-        "content": "Secondary elements",
-        "info": "This is used in modals and other secondary elements."
-      },
-      {
-        "type": "color",
-        "id": "secondary_elements_background",
-        "label": "Background",
-        "default": "#1b1b1b"
-      },
-      {
-        "type": "color",
-        "id": "secondary_elements_text_color",
-        "label": "Text",
-        "default": "#ffffff"
-      }
-    ]
-  },
-  {
-    "name": "Typography",
-    "settings": [
-      {
-        "type": "header",
-        "content": "Headings"
-      },
-      {
-        "type": "font_picker",
-        "id": "heading_font",
-        "label": "Font",
-        "default": "helvetica_n4"
-      },
-      {
-        "type": "select",
-        "id": "heading_size",
-        "label": "Size",
-        "info": "All headings (small and large) will be adjusted.",
-        "options": [
-          {
-            "value": "small",
-            "label": "Small"
-          },
-          {
-            "value": "normal",
-            "label": "Normal"
-          },
-          {
-            "value": "large",
-            "label": "Large"
-          }
-        ],
-        "default": "small"
-      },
-      {
-        "type": "checkbox",
-        "id": "uppercase_heading",
-        "label": "Display headings in uppercase",
-        "default": true
-      },
-      {
-        "type": "header",
-        "content": "Body text"
-      },
-      {
-        "type": "font_picker",
-        "id": "text_font",
-        "label": "Font",
-        "default": "helvetica_n4"
-      },
-      {
-        "type": "range",
-        "id": "base_text_font_size",
-        "label": "Base size",
-        "min": 13,
-        "max": 17,
-        "unit": "px",
-        "default": 14
-      }
-    ]
-  },
-  {
-    "name": "Animation",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "show_page_transition",
-        "label": "Show page transition",
-        "default": false
-      },
-      {
-        "type": "checkbox",
-        "id": "show_button_transition",
-        "label": "Show button transition",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_image_zooming",
-        "label": "Show image zoom effect",
-        "default": true
-      },
-      {
-        "type": "checkbox",
-        "id": "show_element_staggering",
-        "label": "Reveal elements one by one",
-        "info": "This setting displays blog post and product grid element one after the other.",
-        "default": false
-      }
-    ]
-  },
-  {
-    "name": "Search",
-    "settings": [
-      {
-        "type": "select",
-        "id": "search_mode",
-        "label": "Search only...",
-        "options": [
-          {
-            "value": "product",
-            "label": "Products only"
-          },
-          {
-            "value": "product,page",
-            "label": "Products and pages"
-          },
-          {
-            "value": "product,article",
-            "label": "Products and articles"
-          },
-          {
-            "value": "product,article,page",
-            "label": "Products, articles and pages"
-          }
-        ],
-        "default": "product,article"
-      }
     ]
   },
   {

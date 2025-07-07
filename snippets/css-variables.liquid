@@ -24,6 +24,13 @@
     }
 
     @font-face {
+      font-family: "Signature";
+      font-style: normal;
+      src: url("{{ 'font-signature.otf' | asset_url }}"), url("{{  'font-signature.ttf' | asset_url }}") format("truetype");
+      font-display: swap;
+    }
+
+    @font-face {
       font-family: 'regular-fallback';
       src: local(Verdana);
       size-adjust: 90%;
@@ -53,6 +60,7 @@
     {{ text_font_bold_italic | font_face: font_display: 'fallback' }}
 
     :root {
+
       --emphasis-heading-font-family : condensed, condensed-fallback, san-serif;
       --emphasis-heading-font-weight : 400;
       --emphasis-heading-font-style  : normal;
@@ -81,10 +89,11 @@
 
     :root {
     --c-white: #fff;
-    --c-off-white: #f6f6f6;
-    --c-black: #1b1b1b;
+    --c-off-white: #f6f7EB;
+    --c-black: #1f1f1f;
     --c-light-grey: #d3d3d3;
-    --c-grey:rgb(122, 122, 122);
+    --c-grey: #949697;
+    --c-dark-grey: #414042;
     --c-warning: #f94c43;
     --c-success: #86b829;
     --c-info: #5497A7;
@@ -94,6 +103,16 @@
 
    :root {
     --max-width: 1920px;
-    --overshoot-bezier: cubic-bezier(.32, .09, .46, 1.3)
+    --overshoot-bezier: cubic-bezier(.32, .09, .46, 1.3);
+    --drop-shadow: 0 0 5px var(--c-grey);
+   }
+
+   ul.dropdown-links a.desktop--highlighted--menu-alt {
+      background-color: {{ settings.highlighted-button_color-alt }};
+    color: {{ settings.highlighted-text_color-alt }};
+  }
+  ul.dropdown-links a.desktop--highlighted--menu {
+    background-color: {{ settings.highlighted-button_color }};
+    color: {{ settings.highlighted-text_color }};
    }
 {% endstyle %}
