@@ -1,0 +1,95 @@
+{% assign keywordvar = settings['highlighted-keyword'] | downcase %}
+{% assign keywordvaralt = settings['highlighted-keyword-alt'] | downcase %}
+
+<button class="drawer-button header_icon mob-only" data-target="navDrawer" aria-label="Open navigation menu">
+  {%- render 'icon' with 'nav' -%}
+</button>
+<nav class="header_nav mob-hide">
+  <ul class="header_desktop-menu ">
+    {% for link in section.settings.main_menu.links %}
+      <li class="header_menu-item" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-{{link.title}}">
+        <a href="{{ link.url }}">{{ link.title }}</a>
+        {% if link.links != blank %}
+          <div id="dropdown-{{link.title}}" class="header_menu-dropdown" aria-hidden="true">
+            <div class="dropdown_col_1 dropdown_col">
+              <ul class="dropdown_col_1-links">
+                {% for child_link in link.links %}
+                  {% assign link_title = child_link.title | downcase %}
+                  {% if child_link.links.size > 0 %}
+                  {% else %}
+                    <li>
+                      <a
+                        href="{{ child_link.url }}"
+                        class="{% if link_title == keywordvaralt %} desktop--highlighted--menu-alt {% endif %} {% if link_title == keywordvar %} desktop--highlighted--menu {% endif %}"
+                      >
+                        {{- child_link.title -}}
+                      </a>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+              {% render 'menu-quick-links' %}
+            </div>
+            <div class="dropdown_col_2 dropdown_col">
+              {% render 'menu-sub-menu' with settings.nav-submenu-a-1 as menu %}
+            </div>
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>
+
+{% if section.settings.logo %}
+  <a href="{{ routes.root_url }}" class="header_logo">
+    {{ section.settings.logo | image_url: width: 500 | image_tag: width: 500 }}
+  </a>
+{% endif %}
+
+<div class="header_icon-container">
+  <div class="countrydesktop" aria-label="Country selector">{%- render 'country-switcher' -%}</div>
+
+  <a href="" class="header_icon icon_account mob-hide">
+    {% if customer %}
+      {%- render 'icon' with 'logged-in' -%}
+    {% else %}
+      {%- render 'icon' with 'logged-out' -%}
+    {% endif %}
+  </a>
+
+  {% render 'wishlist-app-links', linkType: 'wishlist-page-link' %}
+  <a href="{{ routes.search_url }}" class="header_icon" aria-label="search">{%- render 'icon' with 'search' -%}</a>
+  <a
+    href="{{ routes.cart_url }}"
+    class="drawer-button header_icon"
+    data-target="cartDrawer"
+    aria-label="Open cart drawer"
+  >
+    {%- render 'icon' with 'cart' -%}
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "tag": "header",
+  "class": "header",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "image_picker",
+      "label": "Logo",
+      "id": "logo"
+    },
+    {
+      "type": "header",
+      "content": "Naivgation"
+    },
+    {
+      "type": "link_list",
+      "id": "main_menu",
+      "label": "Main Header Menu"
+    }
+  ]
+}
+{% endschema %}
