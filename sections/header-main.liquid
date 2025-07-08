@@ -22,7 +22,7 @@
                     <li>
                       <a
                         href="{{ child_link.url }}"
-                        class="{% if link_title == keywordvaralt %} desktop--highlighted--menu-alt {% endif %} {% if link_title == keywordvar %} desktop--highlighted--menu {% endif %}"
+                        class="{%- if link_title == keywordvaralt -%}desktop--highlighted--menu-alt{%- endif -%} {%- if link_title == keywordvar -%}desktop--highlighted--menu {%- endif -%}"
                       >
                         {{- child_link.title -}}
                       </a>

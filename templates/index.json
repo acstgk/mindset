@@ -69,9 +69,67 @@
         "image_McwRfJ"
       ],
       "settings": {}
+    },
+    "section_value_props_FBFJKV": {
+      "type": "section-value-props",
+      "blocks": {
+        "subtle_text_block_fbX7Vw": {
+          "type": "subtle-text-block",
+          "settings": {
+            "title": "FREE Standard UK Delivery over £75",
+            "block_link": "shopify://pages/help-centre-delivery-and-orders",
+            "bg_colour": "#f6f7eb",
+            "txt_colour": "#1b1b1b",
+            "icon": "truck"
+          }
+        },
+        "subtle_text_block_7LKcb6": {
+          "type": "subtle-text-block",
+          "settings": {
+            "title": "SALE | up to 50% OFF",
+            "block_link": "shopify://collections/spring-sale",
+            "bg_colour": "#f6f7eb",
+            "txt_colour": "#1b1b1b",
+            "icon": "tag"
+          }
+        },
+        "subtle_text_block_f3eyqD": {
+          "type": "subtle-text-block",
+          "settings": {
+            "title": "Easy 30 day returns",
+            "block_link": "shopify://pages/help-centre-returns",
+            "bg_colour": "#f6f7eb",
+            "txt_colour": "#1b1b1b",
+            "icon": "return"
+          }
+        }
+      },
+      "block_order": [
+        "subtle_text_block_fbX7Vw",
+        "subtle_text_block_7LKcb6",
+        "subtle_text_block_f3eyqD"
+      ],
+      "name": "Value Proposition Bar",
+      "settings": {}
+    },
+    "section_split_banner_CHJbCm": {
+      "type": "section-split-banner",
+      "name": "Split Banner",
+      "settings": {
+        "img1": "shopify://shop_images/MENS_1a9629b6-7958-4402-aaff-c2461f89b21e.jpg",
+        "title_mens": "Mens",
+        "url1": "shopify://collections/mens",
+        "img2": "shopify://shop_images/WOMENS_0763ca30-0eb8-4033-bd17-f4e07a4110ce.jpg",
+        "title_womens": "Womens",
+        "url2": "shopify://collections/womens",
+        "hide_second": false,
+        "full_width": false
+      }
     }
   },
   "order": [
-    "hero"
+    "hero",
+    "section_value_props_FBFJKV",
+    "section_split_banner_CHJbCm"
   ]
 }
