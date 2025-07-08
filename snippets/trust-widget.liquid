@@ -1,0 +1,26 @@
+{%- case trust-widget -%}
+  {% when 'micro' %}
+    {%- assign widgetID = '5419b6ffb0d04a076446a9af' -%}
+    {% assign widget_height = '20px' %}
+  {% when 'slider' %}
+    {%- assign widgetID = '54ad5defc6454f065c28af8b' -%}
+    {% assign widget_height = '100%' %}
+  {% when 'carousel' %}
+    {%- assign widgetID = '53aa8912dec7e10d38f59f36' -%}
+    {% assign widget_height = '140px%' %}
+{%- endcase -%}
+
+<div
+  class="trustpilot-widget"
+  data-locale="en-GB"
+  data-template-id="{{ widgetID }}"
+  data-businessunit-id="59b1e0eb0000ff0005aaa970"
+  data-style-height="{{ widget_height }}"
+  data-style-width="100%"
+  data-text-color="#1b1b1b"
+  data-tags="SelectedReview"
+>
+  <a href="https://uk.trustpilot.com/review/thegymking.com" target="_blank" rel="noopener"
+    >We're rated Excellent on Trustpilot</a
+  >
+</div>

@@ -116,18 +116,19 @@ function sideMenuGenderSelect(event) {
   menuSlider.style.left = `-${menuNum}%`;
 
   // update the active menu item
-  const menuBtns = Array.from(event.target.parentNode.children).filter((child) => child !== event.target);
+  const menuBtns = Array.from(event.target.parentNode.children).filter(
+    (child) => child !== event.target
+  );
   menuBtns.forEach((button) => {
     button.classList.remove("active"); // just an example action
   });
   menuController.resetMenus();
-  event.target.classList.add('active');
+  event.target.classList.add("active");
 }
 
 document
   .querySelector(".side_menu-header")
   .addEventListener("click", sideMenuGenderSelect);
-
 
 // ===================
 // DRAWER MENU SUB MENU CONTROLS
@@ -202,3 +203,77 @@ class SubMenuController {
 
 const drawer = document.getElementById("navDrawer");
 const menuController = new SubMenuController(drawer);
+
+// ===================
+// CONTENT ACCORDIAN
+// ===================
+// elements just need the following:
+//  1.  .accordian-items > .accordian-header + .accordian-content
+
+if (!customElements.get("content-accordian")) {
+  customElements.define(
+    "content-accordian",
+    class ContentAccordian extends HTMLElement {
+      constructor() {
+        super();
+        this._handleHeaderClick = this._handleHeaderClick.bind(this);
+      }
+
+      connectedCallback() {
+        this.headers = this.querySelectorAll(".accordian-header");
+        this.contents = this.querySelectorAll(".accordian-content");
+        this._addCloseButtons();
+
+        this.headers.forEach((header, index) => {
+          header.setAttribute("aria-expanded", "false");
+          header.addEventListener("click", this._handleHeaderClick);
+        });
+
+        this.contents.forEach((content) => {
+          content.setAttribute("aria-hidden", "true");
+        });
+      }
+
+      _addCloseButtons() {
+        const iconHTML = `
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="Icon Icon--close rotate135">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M18 6l-12 12"></path>
+            <path d="M6 6l12 12"></path>
+          </svg>`;
+
+        this.headers.forEach((header) => {
+          const iconContainer = document.createElement("span");
+          iconContainer.innerHTML = iconHTML;
+          header.appendChild(iconContainer);
+        });
+      }
+
+      _handleHeaderClick(event) {
+        const header = event.currentTarget;
+        const content = header.nextElementSibling;
+
+        if (!content || !content.classList.contains("accordian-content")) return;
+
+        const isOpen = header.classList.contains("active");
+
+        this.headers.forEach((h) => {
+          h.classList.remove("active");
+          h.setAttribute("aria-expanded", "false");
+        });
+
+        this.contents.forEach((c) => {
+          c.setAttribute("aria-hidden", "true");
+        });
+
+        if (!isOpen) {
+          header.classList.add("active");
+          header.setAttribute("aria-expanded", "true");
+          content.setAttribute("aria-hidden", "false");
+        }
+      }
+    }
+  );
+}

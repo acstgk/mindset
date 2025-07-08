@@ -134,8 +134,24 @@ a {
 
 .rotate180 {
     transform: rotate(180deg);
-    transform-origin: center;
 }
+
+.rotate90 {
+    transform: rotate(90deg);
+}
+
+.rotate45 {
+    transform: rotate(45deg);
+}
+
+.rotate135 {
+    transform: rotate(-135deg);
+}
+
+.rotate405 {
+    transform: rotate(405deg);
+}
+
 
 page-overlay {
     position: fixed;
@@ -382,6 +398,73 @@ button {
     }
 }
 
+/* ACCORDION */
+
+content-accordian {
+    margin: 30px 0;
+    display: block;
+    font-size: var(--txt-h4);
+}
+
+.accordian-item {
+    border-bottom: 1px solid var(--c-light-grey);
+
+    &:first-child {
+        border-top: 1px solid var(--c-light-grey);
+    }
+
+    &.active {
+        & svg {
+            transform: rotate(0);
+            color: var(--c-dark-grey)
+        }
+    }
+}
+
+.accordian-header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+    font-weight: 700;
+
+    & svg {
+        height: 21px;
+        color: var(--c-grey);
+        transition: transform 0.2s var(--overshoot-bezier);
+    }
+
+    &.active {
+        &+.accordian-content {
+            height: fit-content;
+            padding-bottom: 15px;
+        }
+
+        & svg {
+            transform: rotate(0);
+        }
+    }
+}
+
+.accordian-content {
+    height: 0;
+    overflow: hidden;
+    list-style: none;
+    display: flex;
+    gap: 5px;
+    flex-flow: column;
+    margin: 0;
+    margin-left: 15px;
+    padding: 0;
+    transition: height 0.2s var(--overshoot-bezier);
+
+    & a {
+        text-decoration: none;
+        height: 24px;
+        display: block;
+    }
+}
 
 /* HEADER  */
 
@@ -390,7 +473,6 @@ button {
     width: 100vw;
     height: 50px;
     border-bottom: 1px solid #d3d3d3;
-    box-shadow: var(--drop-shadow);
     position: sticky;
     top: 0;
     left: 0;
@@ -750,7 +832,7 @@ ul.dropdown_col-links {
     border-top: 1px solid var(--c-light-grey);
     scrollbar-width: thin;
     overflow-y: scroll;
-
+    padding-bottom: 55px;
 
     & ul {
         margin: 0;
@@ -1163,6 +1245,118 @@ slide-drawer .quick_links-link {
         max-width: min(65%, 175px);
     }
 }
+
+/* FOOTER */
+footer.section--footer {
+    max-width: var(--max-width);
+    padding-top: 60px;
+    margin: 60px 20px 0;
+    border-top: 1px solid var(--c-grey);
+    color: var(--c-grey);
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    height: 24px;
+    justify-content: center;
+    margin: 15px 0;
+    padding: 0;
+    gap: 24px;
+
+    & li {
+        width: 24px;
+
+        &:first-child {
+            margin-right: -5px;
+        }
+    }
+
+    & a {
+        display: block;
+        height: 100%;
+
+        &:hover svg {
+            fill: var(--c-dark-grey);
+            color: var(--c-dark-grey);
+        }
+    }
+
+    & svg {
+        width: 100%;
+        fill: var(--c-grey);
+        transition: fill 0.2s ease;
+    }
+}
+
+.footer-socials span {
+    text-align: center;
+    letter-spacing: calc(var(--letter-spacing) * 2);
+    display: block;
+    margin: 0 auto;
+    font-size: var(--txt-h5);
+    color: var(--c-grey);
+}
+
+.footer-copyright {
+    background-color: var(--c-off-white);
+    margin: 20px -5vw 0;
+    padding: 20px;
+    color:
+        color-mix(in lab, var(--c-off-white), black 50%);
+    text-align: center;
+}
+
+@media screen and (width > 768px) {
+    .footer-container {
+        display: flex;
+        gap: 5vw;
+        margin-bottom: 60px;
+    }
+
+    footer.section--footer {
+        width: var(--max-width);
+        margin: 60px auto 0;
+
+        & .footer-socials {
+            width: 25vw;
+        }
+
+        & content-accordian {
+            flex-grow: 1;
+            display: flex;
+            justify-content: stretch;
+            gap: 15px;
+            margin: 0 0 60px;
+
+            & svg {
+                display: none;
+            }
+
+            & .accordian-item {
+                border: none !important;
+                flex: 1 0 auto;
+            }
+
+            & .accordian-header {
+                pointer-events: none;
+                font-size: var(--txt-p);
+                margin-bottom: 10px;
+                color: var(--c-dark-grey);
+            }
+
+            & .accordian-content {
+                height: fit-content;
+                margin: 0;
+                gap: 10px;
+                font-size: var(--txt-p);
+            }
+        }
+    }
+
+
+}
+
 
 /* 3rd THIRD PARTY OVERRIDES */
 

@@ -1,0 +1,88 @@
+<div class="footer-container max-width">
+  <div class="footer-socials">
+    <ul class="social-links">
+      {% if settings.social_fb != '' %}
+        <li>
+          <a href="{{ settings.social_fb }}" target="_blank">
+            {% render 'icon' with 'fb' %}
+          </a>
+        </li>
+      {% endif %}
+      {% if settings.social_ig != '' %}
+        <li>
+          <a href="{{ settings.social_ig }}" target="_blank">
+            {% render 'icon' with 'ig' %}
+          </a>
+        </li>
+      {% endif %}
+      {% if settings.social_yt != '' %}
+        <li>
+          <a href="{{ settings.social_yt }}" target="_blank">
+            {% render 'icon' with 'yt' %}
+          </a>
+        </li>
+      {% endif %}
+      {% if settings.social_tt != '' %}
+        <li>
+          <a href="{{ settings.social_tt }}" target="_blank">
+            {% render 'icon' with 'tt' %}
+          </a>
+        </li>
+      {% endif %}
+    </ul>
+    <span>@GYMKING</span>
+  </div>
+
+  <content-accordian>
+    {% for i in (1..4) %}
+      {% assign menu = 'menu-' | append: i %}
+      {% assign menu = section.settings[menu] %}
+      <div class="accordian-item item-{{ i }}">
+        <div class="accordian-header" aria-controls="accordian-content-{{ i }}" role="button" tabindex="0">{{ menu.title }}</div>
+        <ul class="accordian-content" id="accordian-content-{{ i }}">
+          {% for link in menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </content-accordian>
+</div>
+{% render 'trust-widget' with 'carousel' %}
+<div class="footer-copyright">
+  <p class="footer-author">
+    © {{ 'now' | date: '%Y' }} GYM KING LIMITED IS A LIMITED COMPANY REGISTERED IN ENGLAND WITH REGISTERED NUMBER
+    09476649. VAT REGISTRATION: GB211871333
+  </p>
+</div>
+{% schema %}
+{
+  "name": "Footer",
+  "class": "section--footer",
+  "limit": 1,
+  "tag": "footer",
+  "settings": [
+    { "type": "paragraph", "content": "Menus in the footer will only display top level links" },
+    {
+      "type": "link_list",
+      "id": "menu-1",
+      "label": "Menu 1"
+    },
+    {
+      "type": "link_list",
+      "id": "menu-2",
+      "label": "Menu 2"
+    },
+    {
+      "type": "link_list",
+      "id": "menu-3",
+      "label": "Menu 3"
+    },
+    {
+      "type": "link_list",
+      "id": "menu-4",
+      "label": "Menu 4"
+    }
+  ]
+}
+{% endschema %}

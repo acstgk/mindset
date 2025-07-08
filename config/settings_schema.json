@@ -663,69 +663,39 @@
       },
       {
         "type": "text",
-        "id": "social_facebook",
+        "id": "social_fb",
         "info": "https://www.facebook.com/shopify",
         "label": "Facebook"
       },
       {
         "type": "text",
-        "id": "social_twitter",
-        "info": "https://twitter.com/shopify",
-        "label": "Twitter"
-      },
-      {
-        "type": "text",
-        "id": "social_pinterest",
-        "info": "https://www.pinterest.com/shopify",
-        "label": "Pinterest"
-      },
-      {
-        "type": "text",
-        "id": "social_instagram",
+        "id": "social_ig",
         "info": "https://instagram.com/shopify",
         "label": "Instagram"
       },
       {
         "type": "text",
-        "id": "social_vimeo",
-        "info": "https://vimeo.com/shopify",
-        "label": "Vimeo"
-      },
-      {
-        "type": "text",
-        "id": "social_tumblr",
-        "info": "https://shopify.tumblr.com",
-        "label": "Tumblr"
-      },
-      {
-        "type": "text",
-        "id": "social_youtube",
+        "id": "social_yt",
         "info": "https://www.youtube.com/user/shopify",
         "label": "YouTube"
       },
       {
         "type": "text",
-        "id": "social_tiktok",
+        "id": "social_tt",
         "info": "https://www.tiktok.com/shopify",
         "label": "TikTok"
       },
       {
         "type": "text",
-        "id": "social_linkedin",
-        "info": "https://linkedin.com/in/shopify",
-        "label": "LinkedIn"
-      },
-      {
-        "type": "text",
-        "id": "social_snapchat",
+        "id": "social_sc",
         "info": "https://snapchat.com/add/shopify",
         "label": "Snapchat"
       },
       {
         "type": "text",
-        "id": "social_fancy",
-        "info": "https://fancy.com/Shopify",
-        "label": "Fancy"
+        "id": "social_x",
+        "info": "https://twitter.com/shopify",
+        "label": "Twitter / X"
       }
     ]
   },
