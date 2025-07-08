@@ -43,17 +43,14 @@
     "nav-img-2-kids": "shopify://shop_images/matching.jpg",
     "nav-url-2-kids": "shopify://collections/mini-me-girls",
     "nav-txt-2-kids": "Mini Me Girls",
+    "social_fb": "https://www.facebook.com/gymking/",
+    "social_ig": "https://www.instagram.com/gymking/",
+    "social_yt": "https://www.youtube.com/channel/UCMo0t3vIAyl-peoNAcIwi9g/videos",
+    "social_tt": "https://www.tiktok.com/@thegymking/",
     "favicon": "shopify://shop_images/Gym_King_Logo.png",
     "nav-mobilemenu-1": "mens-side-menu",
     "nav-mobilemenu-2": "womens-side-menu",
     "sections": {
-      "header-main": {
-        "type": "header-main",
-        "settings": {
-          "logo": "shopify://shop_images/gymking-logo.svg",
-          "main_menu": "test-desktop-main-menu"
-        }
-      },
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
@@ -97,9 +94,21 @@
         "type": "wishlist-app-settings",
         "settings": {}
       },
+      "header-main": {
+        "type": "header-main",
+        "settings": {
+          "logo": "shopify://shop_images/gymking-logo.svg",
+          "main_menu": "test-desktop-main-menu"
+        }
+      },
       "footer-main": {
         "type": "footer-main",
-        "settings": {}
+        "settings": {
+          "menu-1": "help",
+          "menu-2": "footer",
+          "menu-3": "brand-menu",
+          "menu-4": "legal"
+        }
       }
     },
     "content_for_index": []

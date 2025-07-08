@@ -1,0 +1,141 @@
+{% for block in section.blocks %}
+  {% if block.settings.block_link %}
+    <a
+      class="info-strip__block countdown-container"
+      href="{{ block.settings.block_link.url }}"
+      style="background:{{ block.settings.bg_colour }};color:{{block.settings.txt_colour}}"
+    >
+      {% unless block.settings.icon == 'noicon' %}{% render 'icon' with block.settings.icon %}{% endunless %}
+      <p>
+        {{- block.settings.title }}
+      </p>
+    </a>
+  {% endif %}
+{% endfor %}
+
+{% stylesheet %}
+  .info-strip {
+    margin-block: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: stretch;
+    justify-content: stretch;
+    font-size: var(--txt--2);
+    text-wrap: pretty;
+    text-align: center;
+
+    & .countdown-decal {
+      display: inline-block;
+    }
+
+    & svg {
+      min-width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+  }
+  .info-strip__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: var(--accent-background);
+    padding: 5px 10px;
+    flex: 1 1 0;
+    position: relative;
+    align-content: center;
+    text-decoration: none;
+    transition: filter 0.2s ease;
+
+    & > p,
+    & > a {
+      flex-grow: 1;
+    }
+  }
+
+  @media screen and (width > 641px) {
+    .info-strip {
+      flex-direction: row;
+      gap: 15px;
+
+      & a:hover {
+        filter: brightness(0.96);
+      }
+    }
+
+    .info-strip__block {
+      padding: 10px 20px;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Announcement Block Banner",
+  "class": "info-strip max-width",
+  "limit": 1,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "subtle-text-block",
+      "name": "Announcement",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "will be displayed after countdown timer - if displayed."
+        },
+        {
+          "type": "url",
+          "id": "block_link",
+          "label": "Link URL"
+        },
+        {
+          "type": "color",
+          "id": "bg_colour",
+          "label": "Background Colour"
+        },
+        {
+          "type": "select",
+          "id": "txt_colour",
+          "label": "Text Colour",
+          "options": [
+            { "label": "Black", "value": "#1b1b1b" },
+            {
+              "value": "white",
+              "label": "White"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Show Icon",
+          "options": [
+            { "label": "No Icon", "value": "noicon" },
+            { "value": "yt", "label": "Youtube" },
+            { "value": "tt", "label": "Tiktok" },
+            { "value": "check", "label": "Checkmark" },
+            { "value": "close", "label": "Close (x)" },
+            { "value": "tag", "label": "Sale Tag" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "star", "label": "Star" },
+            { "value": "return", "label": "Return" },
+            { "value": "parcel", "label": "Parcel" },
+            { "value": "giftcard", "label": "Gift Card" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Value Proposition Bar",
+      "category": "General"
+    }
+  ]
+}
+{% endschema %}

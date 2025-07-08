@@ -116,9 +116,10 @@ a {
     display: none !important;
 }
 
-.content-bleed {
+.max-width {
     width: min(90vw, 1270px);
-    padding: 10vw 0;
+    padding: 1vw 0;
+    margin: 0 auto;
 }
 
 .visually-hidden {
@@ -380,7 +381,9 @@ button {
 
     & img {
         object-fit: cover;
-        z-index: -1
+        z-index: -1;
+        scale: 1;
+        transition: scale 30s linear;
     }
 
     & a {
@@ -394,7 +397,21 @@ button {
         text-transform: uppercase;
         text-decoration: none;
         color: var(--c-white);
-        text-shadow: 0 0 7px var(--c-dark-grey);
+        text-shadow: 0 0 1px var(--c-grey);
+        transition: font-size 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    &:hover {
+        & img {
+            scale: 2;
+            filter: brightness(1.1);
+        }
+
+        & a {
+            font-size: calc(var(--txt-h1) * 1.1);
+            text-shadow: 0 0 5px var(--c-dark-grey);
+
+        }
     }
 }
 
@@ -605,7 +622,7 @@ content-accordian {
 
 .dropdown_col {
     width: max-content;
-    padding: 10px 40px;
+    padding: 10px 40px 30px;
     flex: 1 0 185px;
     width: 100%;
     overflow: hidden;
