@@ -445,13 +445,6 @@
     "name": "Nav MENS",
     "settings": [
       {
-        "type": "text",
-        "id": "nav-link-1",
-        "label": "Menu title",
-        "info": "Which top level menu item should this be linked to?",
-        "default": "MENS"
-      },
-      {
         "type": "header",
         "content": "Sub Menus",
         "info": "These are the submenus that will appear when the user hovers over the top level menu item."
@@ -468,7 +461,7 @@
       },
       {
         "type": "link_list",
-        "id": "nav-mobilemenu-1",
+        "id": "nav-mobilemenu-mens",
         "label": "Mobile Menu"
       },
       {
@@ -523,13 +516,6 @@
     "name": "Nav WOMENS",
     "settings": [
       {
-        "type": "text",
-        "id": "nav-link-2",
-        "label": "Menu title",
-        "info": "Which top level menu item should this be linked to?",
-        "default": "WOMENS"
-      },
-      {
         "type": "header",
         "content": "Sub Menus",
         "info": "These are the submenus that will appear when the user hovers over the top level menu item."
@@ -546,7 +532,7 @@
       },
       {
         "type": "link_list",
-        "id": "nav-mobilemenu-2",
+        "id": "nav-mobilemenu-womens",
         "label": "Mobile Menu"
       },
       {
@@ -600,13 +586,6 @@
   {
     "name": "Nav KIDS",
     "settings": [
-      {
-        "type": "text",
-        "id": "nav-link-3",
-        "label": "Menu title",
-        "info": "Which top level menu item should this be linked to?",
-        "default": "KIDS"
-      },
       {
         "type": "header",
         "content": "Sub Menus",

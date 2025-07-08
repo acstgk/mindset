@@ -1,4 +1,74 @@
-<slide-drawer aria-hidden="true" id="navDrawer" side="left"> test </slide-drawer>
+{% assign keywordvar = settings['highlighted-keyword'] | downcase %}
+{% assign keywordvaralt = settings['highlighted-keyword-alt'] | downcase %}
+
+<slide-drawer aria-hidden="true" id="navDrawer" side="left">
+  <header class="side_menu-header">
+    <div class="side_menu-header-item active" data-gender="mens">Mens</div>
+    <div class="side_menu-header-item" data-gender="womens">Womens</div>
+    <div class="side_menu-header-item" data-gender="kids">Kids</div>
+  </header>
+
+  <div class="countrymobile">{%- render 'country-switcher' -%}</div>
+
+  <div class="side_menu-slider">
+    {% for menu in (1..3) %}
+      {% case menu %}
+        {% when 1 %}
+          {% assign gender = 'mens' %}
+        {% when 2 %}
+          {% assign gender = 'womens' %}
+        {% else %}
+          {% assign gender = 'kids' %}
+      {% endcase %}
+      {% assign mobile_menu = 'nav-mobilemenu-' | append: gender %}
+      <div class="side_menu-menu">
+        <ul id="side_menu-{{- gender -}}" role="navigation">
+          {% for link in settings[mobile_menu].links %}
+            {% assign link_title = link.title | downcase %}
+            <li>
+              <a
+                href="{{ link.url }}"
+                class="{% if link_title == keywordvaralt %} mobile--highlighted--menu-alt {% endif %} {% if link_title == keywordvar %} mobile--highlighted--menu {% endif %}"
+              >
+                {{- link.title -}}
+              </a>
+            </li>
+          {% endfor %}
+          {% for i in (1..2) %}
+            {% assign sub-menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
+            <li>
+              <a class="side_menu-sub-menu-button" data-sub-menu="{{ settings[sub-menu].handle }}">
+                <span>{{ settings[sub-menu].title | split: '-' | last }}</span>{% render 'icon' with 'arrow' -%}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% render 'menu-visual-links' with gender as gender, class: 'side_menu-visual-links' %}
+
+        {% for i in (1..2) %}
+          {% assign sub-menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
+          <div class="side_menu-sub-menu link-{{ menu }}" data-sub-menu="{{ settings[sub-menu].handle }}">
+            {% render 'menu-sub-menu' with settings[sub-menu] as menu, back: true %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+
+  <footer class="side_menu-footer">
+    <p class="h2">My Account</p>
+    <div class="side_menu-account-links">
+      {% if customer %}
+        <a href="{{ routes.account_logout_url }}" class="BrandMenuItem"> Log Out </a>
+        <a href="/apps/iwish"> Wishlist </a>
+        <a href="{{ routes.account_url }}"> Account </a>
+      {% else %}
+        <a href="{{  routes.account_register_url }}" class="BrandMenuItem"> Create Account </a>
+        <a href="{{ routes.account_login_url }}" class="BrandMenuItem"> Log in </a>
+      {% endif %}
+    </div>
+  </footer>
+</slide-drawer>
 
 {% schema %}
 {

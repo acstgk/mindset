@@ -1,7 +1,15 @@
-<div class="dropdown_sub-menu">
-  <b class="sub-menu_title">{{ menu.title | split: "-" | last }}</b>
+<div class="sub_menu">
+  <b class="sub-menu_title">
+    {% if back %}
+      {% render 'icon' with 'arrow', class: "rotate180 sub_menu-close" %}
+      {{ menu.title }}
+    {% else %}
+      {{ menu.title | split: '-' | last }}
+    {% endif %}
+  </b>
+
   <ul class="sub_menu-items">
-  {% for link in menu.links %}
+    {% for link in menu.links %}
       <li class="sub_menu-item" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-{{link.title}}">
         <a href="{{ link.url }}">{{ link.title }}</a>
       </li>

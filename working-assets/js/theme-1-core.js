@@ -100,3 +100,105 @@ if (!customElements.get("page-overlay")) {
     }
   );
 }
+
+// ===================
+// DRAWER MENU GENDER SELECTION
+// ===================
+
+function sideMenuGenderSelect(event) {
+  //check that a menu item is clicked
+  const gender = event.target.getAttribute("data-gender");
+  if (!gender) return;
+
+  // slide the nav to the correct menu
+  const menuNum = gender == "kids" ? 200 : gender == "womens" ? 100 : 0;
+  const menuSlider = document.querySelector(".side_menu-slider");
+  menuSlider.style.left = `-${menuNum}%`;
+
+  // update the active menu item
+  const menuBtns = Array.from(event.target.parentNode.children).filter((child) => child !== event.target);
+  menuBtns.forEach((button) => {
+    button.classList.remove("active"); // just an example action
+  });
+  menuController.resetMenus();
+  event.target.classList.add('active');
+}
+
+document
+  .querySelector(".side_menu-header")
+  .addEventListener("click", sideMenuGenderSelect);
+
+
+// ===================
+// DRAWER MENU SUB MENU CONTROLS
+// ===================
+
+class SubMenuController {
+  constructor(drawerElement) {
+    this.drawer = drawerElement;
+    this.activeMenus = new Set();
+
+    this.subMenuButtons = this.drawer.querySelectorAll(
+      ".side_menu-sub-menu-button"
+    );
+    this.subMenus = this.drawer.querySelectorAll(".side_menu-sub-menu");
+
+    this._bindEvents();
+  }
+
+  _bindEvents() {
+    this.subMenuButtons.forEach((button) => {
+      const targetHandle = button.dataset.subMenu;
+      button.addEventListener("click", () => this.openSubMenu(targetHandle));
+    });
+
+    this.subMenus.forEach((menu) => {
+      const closeBtn = menu.querySelector(".sub_menu-close");
+      if (closeBtn) {
+        closeBtn.addEventListener("click", () =>
+          this.closeSubMenu(menu.dataset.subMenu)
+        );
+      }
+    });
+  }
+
+  openSubMenu(handle) {
+    const menu = this._getMenuByHandle(handle);
+    if (menu) {
+      menu.style.transform = "translateX(-100%)";
+      menu.style.opacity = "1";
+      menu.style.pointerEvents = "auto";
+      this.activeMenus.add(menu);
+    }
+  }
+
+  closeSubMenu(handle) {
+    const menu = this._getMenuByHandle(handle);
+    if (menu) {
+      this._closeActions(menu);
+      this.activeMenus.delete(menu);
+    }
+  }
+
+  resetMenus() {
+    this.activeMenus.forEach((menu) => {
+      this._closeActions(menu);
+    });
+    this.activeMenus.clear();
+  }
+
+  _getMenuByHandle(handle) {
+    return this.drawer.querySelector(
+      `.side_menu-sub-menu[data-sub-menu="${handle}"]`
+    );
+  }
+
+  _closeActions(menu) {
+    menu.style.transform = "translateX(0)";
+    menu.style.opacity = "0";
+    menu.style.pointerEvents = "none";
+  }
+}
+
+const drawer = document.getElementById("navDrawer");
+const menuController = new SubMenuController(drawer);
