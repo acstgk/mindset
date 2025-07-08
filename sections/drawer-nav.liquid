@@ -35,10 +35,10 @@
             </li>
           {% endfor %}
           {% for i in (1..2) %}
-            {% assign sub-menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
+            {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
             <li>
-              <a class="side_menu-sub-menu-button" data-sub-menu="{{ settings[sub-menu].handle }}">
-                <span>{{ settings[sub-menu].title | split: '-' | last }}</span>{% render 'icon' with 'arrow' -%}
+              <a class="side_menu-sub-menu-button" data-sub-menu="{{ settings[sub_menu].handle }}">
+                <span>{{ settings[sub_menu].title | split: '-' | last }}</span>{% render 'icon' with 'arrow' -%}
               </a>
             </li>
           {% endfor %}
@@ -46,9 +46,9 @@
         {% render 'menu-visual-links' with gender as gender, class: 'side_menu-visual-links' %}
 
         {% for i in (1..2) %}
-          {% assign sub-menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
-          <div class="side_menu-sub-menu link-{{ menu }}" data-sub-menu="{{ settings[sub-menu].handle }}">
-            {% render 'menu-sub-menu' with settings[sub-menu] as menu, back: true %}
+          {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
+          <div class="side_menu-sub-menu link-{{ menu }}" data-sub-menu="{{ settings[sub_menu].handle }}">
+            {% render 'menu-sub-menu' with settings[sub_menu] as menu, back: true %}
           </div>
         {% endfor %}
       </div>
