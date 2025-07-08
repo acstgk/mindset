@@ -1,0 +1,108 @@
+<div
+  {% unless section.settings.full_width %}
+    class="max-width"
+  {% endunless %}
+  {% if section.settings.hide_second %}
+    style="grid-template-columns: 1fr; grid-template-rows: 1fr;" !important;
+  {% endif %}
+  id="split-banner"
+>
+  <div class="img-overlay">
+    {{ section.settings.img1 | image_url: width: '1000px' | image_tag }}
+    <a href="{{ section.settings.url1 }}">{{ section.settings.title_mens }}</a>
+  </div>
+
+  {% unless section.settings.hide_second %}
+    <div class="img-overlay">
+      <a href="{{ section.settings.url2 }}">{{ section.settings.title_womens }}</a>
+      {{ section.settings.img2 | image_url: width: '1000px' | image_tag }}
+    </div>
+  {% endunless %}
+
+</div>
+
+{% stylesheet %}
+  #split-banner {
+    text-shadow: 0 0 20px rgba(27, 27, 27, 0.2);
+    display: flex;
+    overflow: hidden;
+    & .img-overlay {
+      min-height: 45vh;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Split Banner",
+  "class": "section-split-banner",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Block One"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img1",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_mens",
+      "default": "Mens",
+      "label": "Title"
+    },
+    {
+      "type": "url",
+      "id": "url1",
+      "label": "URL"
+    },
+
+    {
+      "type": "header",
+      "content": "Block Two"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img2",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title_womens",
+      "default": "Womens",
+      "label": "Title"
+    },
+    {
+      "type": "url",
+      "id": "url2",
+      "label": "URL"
+    },
+    {
+      "type": "header",
+      "content": "Blocks Height"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_second",
+      "label": "One Block Only",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make blocks fill width of screen",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Banner",
+      "category": "Visual Navigation"
+    }
+  ]
+}
+{% endschema %}
