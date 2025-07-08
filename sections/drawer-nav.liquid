@@ -51,10 +51,10 @@
             {% render 'menu-sub-menu' with settings[sub_menu] as menu, back: true %}
           </div>
         {% endfor %}
+        {% render 'menu-quick-links' with gender as gender %}
       </div>
     {% endfor %}
   </div>
-
   <footer class="side_menu-footer">
     <p class="h2">My Account</p>
     <div class="side_menu-account-links">

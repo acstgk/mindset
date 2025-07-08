@@ -750,7 +750,7 @@ ul.dropdown_col-links {
     border-top: 1px solid var(--c-light-grey);
     scrollbar-width: thin;
     overflow-y: scroll;
-    padding-bottom: 15px;
+
 
     & ul {
         margin: 0;
@@ -1143,4 +1143,30 @@ slide-drawer {
         max-width: min(45%, 175px);
         padding: 8px 0;
     }
+}
+
+slide-drawer .quick_links {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    bottom: 0;
+    height: 50px;
+}
+
+slide-drawer .quick_links-link {
+    border-left: 1px solid color-mix(in lab, var(--btn-bg), white 15%);
+
+    & img {
+        max-width: min(65%, 175px);
+    }
+}
+
+/* 3rd THIRD PARTY OVERRIDES */
+
+#fc_frame,
+#fc_frame.fc-widget-normal {
+    z-index: 5 !important;
 }

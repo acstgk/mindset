@@ -4,8 +4,7 @@
     {% assign settings_url = 'franchise-url-' | append: i %}
     {% assign settings_bg = 'franchise-bg-' | append: i %}
     {% assign settings_gender = 'franchise-gender-' | append: i %}
-
-    {% if  settings[settings_gender] == gender or settings[settings_gender] == "0" %}
+    {% if settings[settings_gender] == gender or settings[settings_gender] == '0' %}
       {% if settings[settings_img] and settings[settings_url] %}
         <a
           href="{{ settings[settings_url].url }}"
