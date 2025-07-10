@@ -125,11 +125,52 @@
         "hide_second": false,
         "full_width": false
       }
+    },
+    "gender_selector_iPE3Hb": {
+      "type": "gender-selector",
+      "name": "Gender Selector",
+      "settings": {
+        "showKids": false
+      }
+    },
+    "gender_categories_9Tkx7m": {
+      "type": "gender-categories",
+      "name": "Shop by Category",
+      "settings": {
+        "gendered": true,
+        "title": "",
+        "img1m": "shopify://shop_images/Capture_33copy_612a139e-44ce-48e9-a8a6-92d03bd0ecfa.jpg",
+        "bold1m": "hats",
+        "url1m": "",
+        "img2m": "shopify://shop_images/RELENTLESSCAMOTEE_RELENTLESSSHORT-BLACKSST-BOF3ZSHR-BOF43_06.jpg",
+        "bold2m": "backs",
+        "url2m": "",
+        "img3m": "shopify://shop_images/RELENTLESSCAMOTEE_RELENTLESSSHORT-BLACKSST-BOF3ZSHR-BOF43_07.jpg",
+        "bold3m": "tees",
+        "url3m": "",
+        "img4m": "shopify://shop_images/RELENTLESSCAMOTEE_RELENTLESSSHORT-BLACKSST-BOF3ZSHR-BOF43_01.jpg",
+        "bold4m": "twins",
+        "url4m": "",
+        "img1w": "shopify://shop_images/CHALLENGE_RELAXED_FIT_HOOD_365_FLARED_YOGA_LEGGING_-_REGULAR_-_STORM_BLUE_BUBBLEGUM_PINK_WHD-BOES7_WTB-BOFQM_59.jpg",
+        "bold1w": "flares",
+        "url1w": "",
+        "img2w": "shopify://shop_images/CHALLENGE_RELAXED_FIT_HOOD_365_FLARED_YOGA_LEGGING_-_REGULAR_-_STORM_BLUE_BUBBLEGUM_PINK_WHD-BOES7_WTB-BOFQM_54_81e73fbb-fca3-4643-9f63-9957e6383725.jpg",
+        "bold2w": "co-ords",
+        "url2w": "",
+        "img3w": "shopify://shop_images/LIMITLESSSEAMLESSSCULPTMICROBRA_LIMITLESSSEAMLESSSCULPTSHORT3-_LIMITLESSOVERSIZEDHOOD_LIMITLESSWAFFLESCRUNCHIE-DEEPREDACIDWASHDEEPREDACIDWASHWASHEDLIGHTGREYDEEPREDWBT-BOEU8WSR-BOEU9WH.jpg",
+        "bold3w": "hoodies",
+        "url3w": "",
+        "img4w": "shopify://shop_images/LIMITLESSRIBTANK_LIMITLESSRELAXEDFITSHORT-WHITEWASHEDBLACKWVS-BOEUIWSR-BOEUE_b9ca959a-cba7-4ab9-8a19-314d114a2cca.jpg",
+        "bold4w": "vests",
+        "url4w": ""
+      }
     }
   },
   "order": [
     "hero",
     "section_value_props_FBFJKV",
-    "section_split_banner_CHJbCm"
+    "section_split_banner_CHJbCm",
+    "gender_selector_iPE3Hb",
+    "gender_categories_9Tkx7m"
   ]
 }

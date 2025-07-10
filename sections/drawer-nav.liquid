@@ -1,11 +1,11 @@
 {% assign keywordvar = settings['highlighted-keyword'] | downcase %}
 {% assign keywordvaralt = settings['highlighted-keyword-alt'] | downcase %}
 
-<slide-drawer aria-hidden="true" id="navDrawer" side="left">
+<slide-drawer aria-hidden="true" id="navDrawer" data-side="left">
   <header class="side_menu-header">
-    <div class="side_menu-header-item active" data-gender="mens">Mens</div>
-    <div class="side_menu-header-item" data-gender="womens">Womens</div>
-    <div class="side_menu-header-item" data-gender="kids">Kids</div>
+    <div id="side_menu-mens" class="side_menu-header-item active" role="button" tabindex="0" data-gender="mens">Mens</div>
+    <div id="side_menu-womens" class="side_menu-header-item" role="button" tabindex="0" data-gender="womens">Womens</div>
+    <div id="side_menu-kids" class="side_menu-header-item" role="button" tabindex="0" data-gender="kids">Kids</div>
   </header>
 
   <div class="countrymobile">{%- render 'country-switcher' -%}</div>
@@ -22,7 +22,7 @@
       {% endcase %}
       {% assign mobile_menu = 'nav-mobilemenu-' | append: gender %}
       <div class="side_menu-menu">
-        <ul id="side_menu-{{- gender -}}" role="navigation">
+        <ul id="{{- gender -}}_gender-switch" class="gender-btn" role="navigation">
           {% for link in settings[mobile_menu].links %}
             {% assign link_title = link.title | downcase %}
             <li>

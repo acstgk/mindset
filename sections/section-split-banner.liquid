@@ -15,7 +15,7 @@
   {% unless section.settings.hide_second %}
     <div class="img-overlay">
       <a href="{{ section.settings.url2 }}">{{ section.settings.title_womens }}</a>
-      {{ section.settings.img2 | image_url: width: '1000px' | image_tag }}
+      {{ section.settings.img2 | image_url: width: '1000px' | image_tag: loading: "lazy" }}
     </div>
   {% endunless %}
 

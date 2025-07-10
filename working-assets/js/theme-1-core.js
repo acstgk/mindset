@@ -10,7 +10,7 @@ if (!customElements.get("slide-drawer")) {
     class SlideDrawer extends HTMLElement {
       constructor() {
         super();
-        this.side = this.getAttribute("side");
+        this.side = this.dataset.side;
       }
 
       connectedCallback() {
@@ -77,6 +77,48 @@ document.querySelectorAll(".drawer-button").forEach((btn) => {
 });
 
 // ===================
+// DRAWER MENU GENDER SELECTION
+// ===================
+
+class SideMenuGenderSelector {
+  constructor(headerSelector) {
+    this.header = document.querySelector(headerSelector);
+    if (!this.header) return;
+
+    this._bindEvents();
+    this._restoreLastSelection();
+  }
+
+  _bindEvents() {
+    this.header.addEventListener("click", this._handleGenderSelect.bind(this));
+  }
+
+  _handleGenderSelect(event) {
+    const button = event.target.closest("[data-gender]");
+    if (!button) return;
+
+    const gender = button.dataset.gender;
+    const menuOffset = { kids: 200, womens: 100 }[gender] || 0;
+    document.querySelector(".side_menu-slider").style.left = `-${menuOffset}%`;
+
+    localStorage.setItem("menu_gender", gender);
+
+    const siblings = [...button.parentElement.children];
+    siblings.forEach((el) => el.classList.toggle("active", el === button));
+
+    menuController.resetMenus();
+  }
+
+  _restoreLastSelection() {
+    const lastGender = localStorage.getItem("menu_gender");
+    if (lastGender) {
+      const match = this.header.querySelector(`[data-gender="${lastGender}"]`);
+      match?.click();
+    }
+  }
+}
+
+// ===================
 // PAGE OVERLAY CLASS
 // ===================
 
@@ -101,34 +143,9 @@ if (!customElements.get("page-overlay")) {
   );
 }
 
-// ===================
-// DRAWER MENU GENDER SELECTION
-// ===================
-
-function sideMenuGenderSelect(event) {
-  //check that a menu item is clicked
-  const gender = event.target.getAttribute("data-gender");
-  if (!gender) return;
-
-  // slide the nav to the correct menu
-  const menuNum = gender == "kids" ? 200 : gender == "womens" ? 100 : 0;
-  const menuSlider = document.querySelector(".side_menu-slider");
-  menuSlider.style.left = `-${menuNum}%`;
-
-  // update the active menu item
-  const menuBtns = Array.from(event.target.parentNode.children).filter(
-    (child) => child !== event.target
-  );
-  menuBtns.forEach((button) => {
-    button.classList.remove("active"); // just an example action
-  });
-  menuController.resetMenus();
-  event.target.classList.add("active");
-}
-
-document
-  .querySelector(".side_menu-header")
-  .addEventListener("click", sideMenuGenderSelect);
+document.addEventListener("DOMContentLoaded", () => {
+  new SideMenuGenderSelector(".side_menu-header");
+});
 
 // ===================
 // DRAWER MENU SUB MENU CONTROLS
@@ -255,7 +272,8 @@ if (!customElements.get("content-accordian")) {
         const header = event.currentTarget;
         const content = header.nextElementSibling;
 
-        if (!content || !content.classList.contains("accordian-content")) return;
+        if (!content || !content.classList.contains("accordian-content"))
+          return;
 
         const isOpen = header.classList.contains("active");
 

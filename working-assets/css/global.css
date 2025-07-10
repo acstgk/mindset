@@ -17,13 +17,16 @@
 body {
     font-family: var(--text-font-family);
     color: var(--c-black);
-    overflow-x: hidden;
     margin: 0;
     touch-action: pan-y;
     width: 100%;
     height: 100%;
     font-size: var(--txt-p);
     scrollbar-width: thin;
+}
+
+main {
+    display: block;
 }
 
 
@@ -41,18 +44,21 @@ h2,
     font-size: var(--txt-h2);
     text-transform: uppercase;
     font-family: var(--heading-font-family);
-    font-weight: var(--heading-font-weight)
+    font-weight: var(--heading-font-weight);
+    text-align: center;
 }
 
 h3,
 .h3 {
     font-size: var(--txt-h3);
+    text-align: center;
 }
 
 h4,
 .h4 {
     font-size: var(--txt-h4);
     font-weight: 400;
+    text-align: center;
 }
 
 h5,
@@ -187,14 +193,16 @@ body.no-scroll page-overlay {
     visibility: hidden;
     opacity: 0;
     position: relative;
-    top: 10%;
-    transition: all 0.6s var(--overshoot-bezier);
+    transform: translateY(100%);
+    transition: all 0.4s var(--overshoot-bezier);
 }
 
-.splide__slide.is-active .fade-in {
+.splide__slide.is-active .fade-in,
+.fade-in.active {
     visibility: visible;
     opacity: 1;
-    top: 0;
+    transform: translateY(0);
+    transition-delay: 0.4s;
 }
 
 
@@ -377,33 +385,32 @@ button {
         object-position: center;
         z-index: -1;
         scale: 1;
-        transition: scale 20s linear;
+        transition: scale 10s linear;
         width: 100%;
         height: 100%;
     }
 
     & a {
-        grid-area: 1 / 1;
-        place-content: center;
+        align-content: center;
         text-align: center;
         font-family: var(--emphasis-heading-font-family);
         font-size: var(--txt-h1);
         text-transform: uppercase;
         text-decoration: none;
         color: var(--c-white);
-        text-shadow: 0 0 1px var(--c-grey);
+        text-shadow: 0 0 3px color-mix(in lab, var(--c-dark-grey), transparent 50%);
         transition: font-size 0.2s ease, text-shadow 0.2s ease;
     }
 
     &:hover {
         & img {
-            scale: 1.5;
+            scale: 1.2;
             filter: brightness(1.1);
         }
 
         & a {
             font-size: calc(var(--txt-h1) * 1.1);
-            text-shadow: 0 0 5px var(--c-dark-grey);
+            text-shadow: 0 0 5px color-mix(in lab, var(--c-dark-grey), transparent 40%);
 
         }
     }
@@ -572,7 +579,7 @@ content-accordian {
 
 .header_menu-item:has(.header_menu-dropdown:hover)>a,
 .header_menu-item>a:hover,
-.gender-btn.active {
+.header_menu-item .gender-btn.active {
     &::after {
         content: "";
         display: block;
@@ -1122,6 +1129,7 @@ video {
     letter-spacing: var(--letter-spacing);
 }
 
+
 .hero_slide-ctas {
     display: flex;
     gap: 10px;
@@ -1263,7 +1271,7 @@ footer.section--footer {
     max-width: var(--max-width);
     padding-top: 60px;
     margin: 60px 20px 0;
-    border-top: 1px solid var(--c-grey);
+    border-top: 1px solid var(--c-light-grey);
     color: var(--c-grey);
 }
 

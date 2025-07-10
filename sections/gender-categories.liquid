@@ -1,0 +1,278 @@
+<h3>SHOP {{ section.settings.title }} BY CATEGORY</h3>
+
+<div class="gender-category-wrapper">
+  {% if section.settings.gendered %}
+    <div id="womens-categories" class="womens-gender-filter fade-in">
+      <h4 class="no-gender-filter">WOMENS</h4>
+      <div class="category-grid shop-by-category">
+        {% for i in (1..4) %}
+          {% assign img = 'img' | append: i | append: 'w' %}
+          {% assign url = 'url' | append: i | append: 'w' %}
+          {% assign txt = 'bold' | append: i | append: 'w' %}
+          <div class="categorylink img-overlay">
+            {{ section.settings[img] | image_url: width: 800 | image_tag: loading: 'lazy' }}
+            {% if section.settings[txt] %}
+              <a class="categorytitle" href="{{ section.settings[url] }}">{{ section.settings[txt] }}</a>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  <div id="mens-categories" class="mens-gender-filter fade-in">
+    {% if section.settings.gendered %}
+      <h4 class="no-gender-filter">MENS</h4>
+    {% endif %}
+    <div class="category-grid shop-by-category">
+      {% for i in (1..4) %}
+        {% assign img = 'img' | append: i | append: 'm' %}
+        {% assign url = 'url' | append: i | append: 'm' %}
+        {% assign txt = 'bold' | append: i | append: 'm' %}
+        <div class="categorylink img-overlay">
+          {{ section.settings[img] | image_url: width: 800 | image_tag: loading: 'lazy' }}
+          {% if section.settings[txt] %}
+            <a class="categorytitle" href="{{ section.settings[url] }}">{{ section.settings[txt] }}</a>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .shop-by-category .categorylink {
+    aspect-ratio: 1;
+    aspect-ratio: 1 / 1;
+  }
+  .shop-by-category .categorylink {
+    position: relative;
+
+    & img {
+      object-fit: cover;
+      filter: brightness(1);
+      transition: scale 10s ease;
+    }
+
+    &:hover img {
+      filter: brightness(1.1);
+      scale: 1.2;
+    }
+
+    &:hover p {
+      scale: 1.1;
+      transform: translateY(-48%);
+      text-shadow: 0 0 30px rgba(27, 27, 27, 0.65);
+    }
+  }
+
+  .gender-category-wrapper {
+    display: grid;
+    overflow-y: hidden;
+
+    & > div {
+      grid-area: 1 / 1;
+    }
+  }
+
+  .category-grid {
+    width: 1230px;
+    max-width: 85vw;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+
+  .category-grid a {
+    overflow: hidden;
+  }
+
+  .category-grid img {
+    transition: scale 10s ease;
+    scale: 1;
+    z-index: -1;
+    position: relative;
+  }
+
+  .category-grid a:hover > img {
+    scale: 1.2;
+  }
+
+  @media screen and (width > 1000px) {
+    .category-grid {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr;
+    }
+  }
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Shop by Category",
+  "class": "section-gender-categories",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "gendered",
+      "label": "Show both genders?",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Add info to Title",
+      "info": "'Shop' {X} 'by Category'"
+    },
+    {
+      "type": "image_picker",
+      "id": "img1m",
+      "label": "Men's Box 1: Image"
+    },
+
+    {
+      "type": "text",
+      "id": "bold1m",
+      "label": "Men's Box 1: Bold"
+    },
+
+    {
+      "type": "url",
+      "id": "url1m",
+      "label": "Men's Box 1: URL"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img2m",
+      "label": "Men's Box 2: Image"
+    },
+
+    {
+      "type": "text",
+      "id": "bold2m",
+      "label": "Men's Box 2: Bold"
+    },
+
+    {
+      "type": "url",
+      "id": "url2m",
+      "label": "Men's Box 2: URL"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img3m",
+      "label": "Men's Box 3: Image"
+    },
+
+    {
+      "type": "text",
+      "id": "bold3m",
+      "label": "Men's Box 3: Bold"
+    },
+
+    {
+      "type": "url",
+      "id": "url3m",
+      "label": "Men's Box 3: URL"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img4m",
+      "label": "Men's Box 4: Image"
+    },
+
+    {
+      "type": "text",
+      "id": "bold4m",
+      "label": "Men's Box 4: Bold"
+    },
+
+    {
+      "type": "url",
+      "id": "url4m",
+      "label": "Men's Box 4: URL"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img1w",
+      "label": "Women's Box 1: Image"
+    },
+
+    {
+      "type": "text",
+      "id": "bold1w",
+      "label": "Women's Box 1: Bold"
+    },
+
+    {
+      "type": "url",
+      "id": "url1w",
+      "label": "Women's Box 1: URL"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img2w",
+      "label": "Women's Box 2: Image"
+    },
+
+    {
+      "type": "text",
+      "id": "bold2w",
+      "label": "Women's Box 2: Bold"
+    },
+
+    {
+      "type": "url",
+      "id": "url2w",
+      "label": "Women's Box 2: URL"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img3w",
+      "label": "Women's Box 3: Image"
+    },
+
+    {
+      "type": "text",
+      "id": "bold3w",
+      "label": "Women's Box 3: Bold"
+    },
+
+    {
+      "type": "url",
+      "id": "url3w",
+      "label": "Women's Box 3: URL"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "img4w",
+      "label": "Women's Box 4: Image"
+    },
+
+    {
+      "type": "text",
+      "id": "bold4w",
+      "label": "Women's Box 4: Bold"
+    },
+    {
+      "type": "url",
+      "id": "url4w",
+      "label": "Women's Box 4: URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Category",
+      "category": "Gender Specific"
+    }
+  ]
+}
+{% endschema %}

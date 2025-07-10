@@ -1,0 +1,62 @@
+<button id="mens_gender-switch" data-gender="mens" class="gender-btn" aria-expanded="false">MENS</button>
+<button id="womens_gender-switch" data-gender="womens" class="gender-btn" aria-expanded="false">WOMENS</button>
+{% if section.settings.showKids %}
+  <button id="kids_gender-switch" data-gender="kids" class="gender-btn" aria-expanded="false">KIDS</button>
+{% endif %}
+
+{% stylesheet %}
+  .section-gender-switch {
+    margin: 15px auto;
+    width: 100%;
+    padding: 15px 5vw;
+    display: flex;
+    gap: 15px;
+    background: var(--c-white);
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    top: 50px;
+    z-index: 2;
+    border-bottom: 1px solid var(--c-light-grey);
+
+    & .gender-btn {
+      font-size: var(--txt-h1);
+      font-family: var(--emphasis-heading-font-family);
+      color: var(--c-grey);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--c-dark-grey);
+      }
+
+      &.active {
+        color: var(--c-black);
+      }
+    }
+  }
+{% endstylesheet %}
+
+<script type="text/javascript" src="{{ 'gender-selector.min.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Gender Selector",
+  "class": "section-gender-switch",
+  "tag": "section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "default": false,
+      "id": "showKids",
+      "label": "Show Kids Option?"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gender Selector",
+      "category": "Gender Specific"
+    }
+  ]
+}
+{% endschema %}
