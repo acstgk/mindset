@@ -57,17 +57,20 @@ h3,
 h4,
 .h4 {
     font-size: var(--txt-h4);
-    font-weight: 400;
     text-align: center;
+    color: var(--c-grey);
 }
 
 h5,
 .h5 {
     font-size: var(--txt-p);
     font-weight: 400;
+    color: var(--c-grey);
 }
 
-p, a, button {
+p,
+a,
+button {
     font-size: var(--txt-p);
     font-family: var(--text-font-family);
 
@@ -220,7 +223,7 @@ body.no-scroll page-overlay {
     height: min(50%, 25px);
     margin: 0 auto;
     position: relative;
-    width: 8.33333px
+    width: 8.33333px;
 }
 
 .loader,
@@ -246,6 +249,12 @@ body.no-scroll page-overlay {
     animation-delay: 0s;
     left: auto;
     right: calc(var(--height)/2)
+}
+
+.gender-loader {
+    grid-area: 1 / 1;
+    opacity: 1;
+    transition: opacity 0.15s ease;
 }
 
 .inverted {

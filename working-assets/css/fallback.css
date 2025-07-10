@@ -12,3 +12,9 @@
     opacity: 1;
     visibility: visible;
 }
+
+.gender-loader {
+    display: none;
+    height: 0;
+    opacity: 0;
+}

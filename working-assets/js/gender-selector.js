@@ -2,6 +2,7 @@ class GenderSelector {
   constructor() {
     this.genderButtons = document.querySelectorAll(".gender-btn");
     this.noGenderElements = document.querySelectorAll(".no-gender-filter");
+    this.loaderElements = document.querySelectorAll(".gender-loader");
     this._bindEvents();
     this._initFromStorage();
   }
@@ -58,6 +59,7 @@ class GenderSelector {
 
     // Hide no-gender-filter elements
     this.noGenderElements.forEach((el) => (el.style.display = "none"));
+    this.loaderElements.forEach((el) => (el.style.opacity = "0"));
   }
 }
 

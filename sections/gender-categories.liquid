@@ -1,6 +1,7 @@
 <h3>SHOP {{ section.settings.title }} BY CATEGORY</h3>
 
 <div class="gender-category-wrapper">
+  <div class="loader gender-loader"></div>
   {% if section.settings.gendered %}
     <div id="womens-categories" class="womens-gender-filter fade-in">
       <h4 class="no-gender-filter">WOMENS</h4>
@@ -30,7 +31,14 @@
         {% assign url = 'url' | append: i | append: 'm' %}
         {% assign txt = 'bold' | append: i | append: 'm' %}
         <div class="categorylink img-overlay">
-          {{ section.settings[img] | image_url: width: 800 | image_tag: loading: 'lazy', sizes: "(min-width: 1000px) 25vw, 50vw", widths: "190, 390, 540, 780, 960, 1280" }}
+          {{
+            section.settings[img]
+            | image_url: width: 800
+            | image_tag:
+              loading: 'lazy',
+              sizes: '(min-width: 1000px) 25vw, 50vw',
+              widths: '190, 390, 540, 780, 960, 1280'
+          }}
           {% if section.settings[txt] %}
             <a class="categorytitle" href="{{ section.settings[url] }}">{{ section.settings[txt] }}</a>
           {% endif %}
@@ -39,74 +47,7 @@
     </div>
   </div>
 </div>
-
-{% stylesheet %}
-  .shop-by-category .categorylink {
-    aspect-ratio: 1;
-    aspect-ratio: 1 / 1;
-  }
-  .shop-by-category .categorylink {
-    position: relative;
-
-    & img {
-      object-fit: cover;
-      filter: brightness(1);
-      transition: scale 10s ease;
-    }
-
-    &:hover img {
-      filter: brightness(1.1);
-      scale: 1.2;
-    }
-
-    &:hover p {
-      scale: 1.1;
-      transform: translateY(-48%);
-      text-shadow: 0 0 30px rgba(27, 27, 27, 0.65);
-    }
-  }
-
-  .gender-category-wrapper {
-    display: grid;
-    overflow-y: hidden;
-
-    & > div {
-      grid-area: 1 / 1;
-    }
-  }
-
-  .category-grid {
-    width: 1230px;
-    max-width: 85vw;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-gap: 10px;
-  }
-
-  .category-grid a {
-    overflow: hidden;
-  }
-
-  .category-grid img {
-    transition: scale 10s ease;
-    scale: 1;
-    z-index: -1;
-    position: relative;
-  }
-
-  .category-grid a:hover > img {
-    scale: 1.2;
-  }
-
-  @media screen and (width > 1000px) {
-    .category-grid {
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 1fr;
-    }
-  }
-{% endstylesheet %}
+<link rel="stylesheet" href="{{ 'gender-categories.min.css' | asset_url }}">
 {% schema %}
 {
   "name": "Shop by Category",
