@@ -12,7 +12,7 @@
           style="--btn-bg:{{ settings[settings_bg] }};"
           loading="lazy"
         >
-          {{- settings[settings_img] | image_url: height: '100px' | image_tag -}}
+          {{- settings[settings_img] | image_url: height: '100px' | image_tag: loading: 'lazy' -}}
         </a>
       {% endif %}
     {% endif %}
