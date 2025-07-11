@@ -1,7 +1,7 @@
-<h3>SHOP {{ section.settings.title }} BY CATEGORY</h3>
+<h3>Shop {{ section.settings.title }} by Category</h3>
 
-<div class="gender-category-wrapper">
-  <div class="loader gender-loader"></div>
+<div class="gender-wrapper">
+  <div class="loader grid-loader gender-loader"></div>
   {% if section.settings.gendered %}
     <div id="womens-categories" class="womens-gender-filter fade-in">
       <h4 class="no-gender-filter">WOMENS</h4>
@@ -51,7 +51,7 @@
 {% schema %}
 {
   "name": "Shop by Category",
-  "class": "section-gender-categories",
+  "class": "section-gender-categories max-width",
   "tag": "section",
   "settings": [
     {

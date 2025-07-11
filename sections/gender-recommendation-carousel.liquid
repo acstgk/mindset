@@ -1,0 +1,49 @@
+<h3>Recomended for You</h3>
+
+<div class="gender-wrapper">
+  <div class="loader grid-loader gender-loader"></div>
+  <div id="womens-recomendations" class="womens-gender-filter fade-in">
+    <h4 class="no-gender-filter">WOMENS</h4>
+    <div class="gender-recommendations-carousel ">
+      {% render 'product-card', product:  all_products['gym-king-365-wrap-front-legging-aquatic-blue'], columns: 2 %}
+      {% render 'product-card', product:  all_products['gym-king-365-full-zip-funnel-white'], columns: 2  %}
+      {% render 'product-card', product:  all_products['gym-king-formation-asymetric-bra-washed-lemon-sherbert'], columns: 2  %}
+    </div>
+  </div
+  >
+  <div id="mens-recomendations" class="mens-gender-filter fade-in">
+    <h4 class="no-gender-filter">MENS</h4>
+    <div class="gender-recommendations-carousel ">
+      {% render 'product-card', product:  all_products['gym-king-365-wrap-front-legging-aquatic-blue'] %}
+      {% render 'product-card', product:  all_products['gym-king-365-full-zip-funnel-white'] %}
+      {% render 'product-card', product:  all_products['gym-king-formation-asymetric-bra-washed-lemon-sherbert'] %}
+    </div>
+  </div>
+</div>
+
+
+
+{% stylesheet %}
+  .gender-recommendations-carousel {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: 0 auto;
+    gap: 15px;
+    flex-flow: row nowrap;
+  }
+
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Recommendation Carousel",
+  "class": "section-gender-recommendation-carousel max-width",
+  "limit": 1,
+  "settings": [],
+  "presets": [
+    {
+      "name": "Product Recommendation Carousel",
+      "category": "Gender Specific"
+    }
+  ]
+}
+{% endschema %}

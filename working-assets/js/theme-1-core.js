@@ -113,10 +113,14 @@ class SideMenuGenderSelector {
     const lastGender = localStorage.getItem("menu_gender");
     if (lastGender) {
       const match = this.header.querySelector(`[data-gender="${lastGender}"]`);
-      match?.click();
+      match.click();
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  new SideMenuGenderSelector(".side_menu-header");
+});
 
 // ===================
 // PAGE OVERLAY CLASS
@@ -127,25 +131,38 @@ if (!customElements.get("page-overlay")) {
     "page-overlay",
     class PageOverlay extends HTMLElement {
       connectedCallback() {
-        this.addEventListener("click", this._closeAll.bind(this));
+        this.addEventListener("click", this.closeAllOverlays.bind(this));
       }
 
-      _closeAll() {
-        document.body.classList.remove("no-scroll");
-        const drawers = document.querySelectorAll("slide-drawer");
-        drawers.forEach((drawer) => {
-          if (drawer.getAttribute("aria-hidden") == "false") {
-            drawer.close();
+      closeAllOverlays() {
+        // allow scrolling
+        this.closeThis();
+        // close any open drawers
+        this._closeLoop("slide-drawer");
+        // close any mobile qatb modals
+        this._closeLoop(".mqatb-modal");
+      }
+
+      _closeLoop(query) {
+        const els = document.querySelectorAll(query);
+        els.forEach((el) => {
+          if (el.getAttribute("aria-hidden") == "false") {
+            el.classList.remove("active");
+            el.close();
           }
         });
+      }
+
+      closeThis() {
+        document.body.classList.remove("no-scroll");
+      }
+
+      openThis() {
+        document.body.classList.add("no-scroll");
       }
     }
   );
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  new SideMenuGenderSelector(".side_menu-header");
-});
 
 // ===================
 // DRAWER MENU SUB MENU CONTROLS
@@ -241,7 +258,7 @@ if (!customElements.get("content-accordian")) {
         this.contents = this.querySelectorAll(".accordian-content");
         this._addCloseButtons();
 
-        this.headers.forEach((header, index) => {
+        this.headers.forEach((header) => {
           header.setAttribute("aria-expanded", "false");
           header.addEventListener("click", this._handleHeaderClick);
         });
@@ -291,6 +308,82 @@ if (!customElements.get("content-accordian")) {
           header.setAttribute("aria-expanded", "true");
           content.setAttribute("aria-hidden", "false");
         }
+      }
+    }
+  );
+}
+
+// ===================
+// Product Cards
+// ===================
+if (!customElements.get("product-card")) {
+  customElements.define(
+    "product-card",
+    class ProductCard extends HTMLElement {
+      constructor() {
+        super();
+        //this.observeDOMChanges();
+      }
+
+      connectedCallback() {
+        this._init();
+        this._moveMobileQB();
+      }
+
+      _init() {
+        // add click listeners to all the desktop quick add to basket buttons
+        const desktopButtons =
+          this.querySelectorAll(".qatb-btn:not([data-click-added])") || [];
+
+        desktopButtons.forEach((btn) => {
+          btn.setAttribute("data-click-added", "true");
+          btn.addEventListener("click", (e) => {
+            console.log("Add to Bag clicked", e.currentTarget.dataset.vId);
+          });
+        });
+
+        // add click listeners to the open mobile qatb button
+        const openmqatbBtn = this.querySelector(
+          ".mqatb-show:not([data-click-added])"
+        );
+        openmqatbBtn.setAttribute("data-click-added", "true");
+        openmqatbBtn.addEventListener("click", (event) => this._openMobileQB(event));
+
+
+        // add click listeners to the mobile quick add to basket buttons
+
+
+        // add click listeners to the Iwish buttons
+        const el = this.querySelector(".iWishColl:not([data-click-added])");
+        el.setAttribute("data-click-added", "true");
+        if (typeof iWish !== "undefined" && iWish.iwishAddClick) {
+          iWish.iwishAddClick(el);
+        }
+
+        // add click listeners to the modal close button
+        const close = this.querySelector(".mqatb-close");
+        close.addEventListener("click", (event) => this._closeMobileQB(event));
+      }
+
+      _openMobileQB(event) {
+        const modalID = event.target.dataset.id;
+        const modalEl = document.getElementById(modalID);
+        modalEl.classList.add("active");
+        modalEl.setAttribute("aria-hidden", "false");
+        document.querySelector("page-overlay").openThis();
+      }
+
+      _closeMobileQB(event) {
+        const modal = event.target.closest('.mqatb-modal');
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        document.querySelector("page-overlay").closeThis();
+      }
+
+      _moveMobileQB() {
+        const modal = this.querySelector(".mqatb-modal");
+        const body = document.body;
+        body.appendChild(modal);
       }
     }
   );

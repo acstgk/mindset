@@ -1,3 +1,15 @@
+{% doc %}
+  SVG Icon server
+
+  @param {string} icon - name of the requested icon
+  @param {string} [class] - add cusotom class to the icon
+
+  @example
+  {% render 'example-snippet', icon: 'cart', class: "custom-class" %}
+{% enddoc %}
+
+
+
 {%- capture icon_class -%}Icon Icon--{{ icon }} {{class}} {%- endcapture -%}
 
 {%- case icon -%}

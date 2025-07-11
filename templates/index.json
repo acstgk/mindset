@@ -164,6 +164,11 @@
         "bold4w": "vests",
         "url4w": ""
       }
+    },
+    "gender_recommendation_carousel_QMFmBV": {
+      "type": "gender-recommendation-carousel",
+      "name": "Product Recommendation Carousel",
+      "settings": {}
     }
   },
   "order": [
@@ -171,6 +176,7 @@
     "section_value_props_FBFJKV",
     "section_split_banner_CHJbCm",
     "gender_selector_iPE3Hb",
-    "gender_categories_9Tkx7m"
+    "gender_categories_9Tkx7m",
+    "gender_recommendation_carousel_QMFmBV"
   ]
 }

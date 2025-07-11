@@ -24,19 +24,8 @@
   }
 }
 
-.gender-category-wrapper {
-  display: grid;
-  overflow-y: hidden;
-  place-items: center;
-
-  &>div {
-    grid-area: 1 / 1;
-  }
-}
-
 .category-grid {
-  width: 1230px;
-  max-width: 85vw;
+  max-width: 90vw;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

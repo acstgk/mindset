@@ -14,6 +14,7 @@ class GenderSelector {
   }
 
   _initFromStorage() {
+    this.loaderElements.forEach((el) => (el.style.opacity = "0"));
     const storedGender = localStorage.getItem("content-gender");
     let matchButton = null;
 

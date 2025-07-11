@@ -1,0 +1,22 @@
+{% doc %}
+  Formatted Product title
+
+  @param {object} product - Product object
+
+  @example
+  {% render 'product-title', product: 'Featured Product'%}
+{% enddoc %}
+
+{%- if product.title contains '-' or product.title contains '–' %}
+  {%- assign product_title = product.title | replace: '–', '-' | split: '-' -%}
+  <a class="Title" href="{{ product.url }}">
+    <span class="title">
+      {{- product.title | remove: 'Gym King ' | remove: product_title.last | remove_last: '-' | strip -}}
+    </span>
+    <span class="colour">{{ product_title.last }}</span>
+  </a>
+{%- else -%}
+  <a class="Title" href="{{ product.url }}">
+    <span class="title">{{ product.title | remove: 'Gym King ' | strip }}</span>
+  </a>
+{%- endif -%}

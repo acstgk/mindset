@@ -34,6 +34,21 @@
       }
     }
   }
+  .gender-wrapper {
+    display: grid;
+    overflow-y: hidden;
+    place-items: center;
+    min-height: calc(90vw / 4);
+
+    & > div {
+      grid-area: 1 / 1;
+    }
+
+    .mens-gender-filter,
+    .womens-gender-filter {
+      width: 100%;
+    }
+  }
 {% endstylesheet %}
 
 <script type="text/javascript" src="{{ 'gender-selector.min.js' | asset_url }}" defer></script>
