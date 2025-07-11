@@ -67,7 +67,7 @@
   {% render 'wishlist-app-links', linkType: 'list-product', product: product %}
 
   {% unless product.requires_selling_plan or product.metafields.custom.product_set or product.available == false %}
-    <a class="mqatb-show" href="javascript:void(0)" role="button" aria-expanded="false" data-id="mqatb-{{product.id }}">
+    <a class="mqatb-show round-btn" href="javascript:void(0)" role="button" aria-expanded="false" data-id="mqatb-{{product.id }}">
       {% render 'icon' with 'cart' as icon %}
     </a>
   {% endunless %}
@@ -82,7 +82,7 @@
     </div>
     select size:
     {{ qatb_buttons }}
-    <div class="mqatb-close">{% render 'icon' with 'close' as icon %}</div>
+    <div class="mqatb-close round-btn">{% render 'icon' with 'close' as icon %}</div>
   </div>
 </product-card>
 
@@ -167,20 +167,6 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      width: 30px;
-      height: 30px;
-      display: grid;
-      place-items: center;
-      backdrop-filter: blur(3px);
-      border-radius: 14px;
-      background: color-mix(in lab, var(--c-white), transparent 70%);
-      box-shadow: 0 0 4px color-mix(in lab, var(--c-dark-grey), transparent 70%);
-
-      & svg {
-        width: 15px;
-        height: 15px;
-        stroke: var(--c-dark-grey);
-      }
     }
 
     .mqatb-show {
@@ -190,7 +176,6 @@
       & svg {
         width: 18px;
         height: 18px;
-
       }
     }
 
@@ -309,7 +294,6 @@
       top: 18px;
       right: 18px;
       position: absolute;
-      height: 24px;
     }
   }
 

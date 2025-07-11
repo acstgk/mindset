@@ -447,6 +447,24 @@ button {
     margin: 15px auto 0;
 }
 
+.round-btn {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
+    background: color-mix(in lab, var(--c-white), transparent 70%);
+    box-shadow: 0 0 4px color-mix(in lab, var(--c-dark-grey), transparent 70%);
+
+    & svg {
+        width: 15px;
+        height: 15px;
+        stroke: var(--c-dark-grey);
+    }
+}
+
 /* GLOBAL DESKTOP  */
 
 @media screen and (width > 768px) {

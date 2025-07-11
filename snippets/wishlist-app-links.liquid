@@ -13,7 +13,7 @@
   </a>
 {% elsif linkType == 'list-product' %}
   <a
-    class="iWishAdd iWishColl iwishcheck {% if iwishtop -%}iwish-top{%- endif -%}"
+    class="iWishAdd iWishColl iwishcheck {% if iwishtop -%}iwish-top{%- endif -%} round-btn"
     href="javascript:void(0)"
     data-variant="{{ product.variants.first.id }}"
     data-product="{{ product.id }}"
