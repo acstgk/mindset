@@ -8,7 +8,7 @@
   id="split-banner"
 >
   <div class="img-overlay">
-    {{ section.settings.img1 | image_url: width: 1, height: 1 | image_tag: width: 1 }}
+    {{ section.settings.img1 | image_url: width: 1, height: 1 | image_tag: width: 1 , alt: "background color" }}
     {{
       section.settings.img1
       | image_url: width: '1240px'
@@ -20,7 +20,7 @@
   {% unless section.settings.hide_second %}
     <div class="img-overlay">
       <a href="{{ section.settings.url2 }}">{{ section.settings.title_womens }}</a>
-      {{ section.settings.img2 | image_url: width: 1, height: 1 | image_tag: width: 1 }}
+      {{ section.settings.img2 | image_url: width: 1, height: 1 | image_tag: width: 1, alt: "background color" }}
       {{
         section.settings.img2
         | image_url: width: '1240px'
