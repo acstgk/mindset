@@ -103,50 +103,6 @@
   </div>
 </hero-carousel>
 
-{% javascript %}
-  class HeroCarousel extends HTMLElement {
-    constructor() {
-      super();
-      this.splide = null;
-    }
-
-    connectedCallback() {
-      this.classList.add('splide');
-
-      let autoplay = true;
-      if (Shopify.designMode) autoplay = false;
-
-      this.splide = new Splide(this, {
-        type: 'fade',
-        autoplay: autoplay,
-        interval: 5000,
-        arrows: false,
-        rewind: true
-      });
-
-      this.splide.on('overflow', (isOverflow) => {
-        this.splide.options = {
-          ...this.splide.options,
-          pagination: isOverflow,
-          drag: isOverflow,
-        };
-      });
-
-      this.splide.on('pagination:mounted', (data) => {
-        if (data.items.length > 1) {
-          data.items.forEach((item) => {
-            item.button.textContent = '0' + String(item.page + 1);
-          });
-        }
-      });
-
-      this.splide.mount();
-    }
-  }
-
-  customElements.define('hero-carousel', HeroCarousel);
-{% endjavascript %}
-
 {% schema %}
 {
   "name": "Slideshow",

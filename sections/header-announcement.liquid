@@ -21,42 +21,7 @@
     </announcement-bar>
   {%- endunless -%}
 {%- endif -%}
-{% javascript %}
-  class AnnouncementCarousel extends HTMLElement {
-    constructor() {
-      super();
-    }
 
-    connectedCallback() {
-      this.classList.add('splide');
-      let transType = 'loop';
-      let autoplay = true;
-      if (Shopify.designMode) {
-        autoplay = false;
-        transType = 'slide';
-      }
-
-      this.splide = new Splide(this, {
-        type: transType,
-        autoplay: autoplay,
-        interval: 5000,
-        pagination: false,
-      });
-
-      this.splide.on('overflow', (isOverflow) => {
-        this.splide.options = {
-          ...this.splide.options,
-          arrows: isOverflow,
-          drag: isOverflow,
-        };
-      });
-
-      this.splide.mount();
-    }
-  }
-
-  customElements.define('announcement-bar', AnnouncementCarousel);
-{% endjavascript %}
 {% schema %}
 {
   "name": "Announcement bar",
