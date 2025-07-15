@@ -49,6 +49,14 @@ if (!customElements.get("slide-drawer")) {
       open() {
         document.body.classList.add("no-scroll");
         this.setAttribute("aria-hidden", "false");
+        setTimeout(() => {
+          const lastCartItem = this.querySelectorAll('.fade-in');
+          if (lastCartItem) {
+            lastCartItem.forEach((item) => {
+              item.classList.add('active');
+            });
+          }
+        }, 5);
       }
 
       close() {
@@ -328,7 +336,6 @@ if (!customElements.get("product-card")) {
     class ProductCard extends HTMLElement {
       constructor() {
         super();
-        //this.observeDOMChanges();
       }
 
       connectedCallback() {
@@ -599,6 +606,10 @@ class CartAPI {
       const existingDrawer = document.querySelector("#cartDrawer");
 
       if (newDrawer && existingDrawer) {
+        const firstListItem = newDrawer.querySelector("li");
+        if (firstListItem) {
+          firstListItem.classList.add("fade-in", "no-height");
+        }
         existingDrawer.replaceWith(newDrawer);
       }
     } catch (error) {
@@ -715,8 +726,10 @@ if (!customElements.get("line-item")) {
 }
 
 // ===================
-// Global Event Listeners etc
+// Global functions and logic
 // ===================
+
+
 
 function openCartDrawerIfNotOnCartPage() {
   if (theme.pageType != "cart") {
@@ -726,5 +739,7 @@ function openCartDrawerIfNotOnCartPage() {
     });
   }
 }
+
+
 
 document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);

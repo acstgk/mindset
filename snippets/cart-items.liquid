@@ -52,6 +52,8 @@
     display: flex;
     flex-flow: column;
     flex: 1 1 auto;
+    overflow-y: auto;
+    height: 100%;
   }
 
   .cart_items-list {
@@ -63,6 +65,7 @@
       padding-bottom: 15px;
       border-bottom: 1px solid var(--c-light-grey);
       overflow-y: hidden;
+      flex: 0 0 auto;
     }
 
     & line-item {

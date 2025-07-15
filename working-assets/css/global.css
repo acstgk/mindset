@@ -293,6 +293,8 @@ body.no-scroll page-overlay {
 .fade-out {
     height: 0;
     transform: translateY(-100%);
+    padding: 0;
+    margin: 0
 }
 
 .splide__slide.is-active .fade-in,
@@ -301,6 +303,11 @@ body.no-scroll page-overlay {
     opacity: 1;
     transform: translateY(0);
     transition-delay: 0.4s;
+    height: auto;
+}
+
+.no-height {
+    height: 0;
 }
 
 
