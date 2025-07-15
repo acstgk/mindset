@@ -3,9 +3,9 @@
     <div class="hero_list splide__list">
       {%- for block in section.blocks -%}
         <div class="hero_slide splide__slide" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
-          {% assign preload = 'auto' %}
+          {% assign preload = 'lazy' %}
           {% unless forloop.first %}
-            {% assign preload = 'none' %}
+            {% assign preload = 'eager' %}
           {% endunless %}
 
           {% if block.settings.mobile_video %}
@@ -38,7 +38,7 @@
             {{
               block.settings.mobile_poster
               | image_url: height: 800
-              | image_tag: height: 800, class: 'hero_slide-video mob-only'
+              | image_tag: height: 800, class: 'hero_slide-video mob-only', loading: preload
             }}
           {% endif %}
           {% if block.settings.desktop_video %}
@@ -64,7 +64,7 @@
             {{
               block.settings.desktop_poster
               | image_url: width: '1270px'
-              | image_tag: width: 1270, class: 'hero_slide-video mob-hide'
+              | image_tag: width: 1270, class: 'hero_slide-video mob-hide', loading: preload
             }}
           {% endif %}
           <div class="hero_slide-content">
