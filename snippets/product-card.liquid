@@ -68,7 +68,7 @@
   {% render 'wishlist-app-links', linkType: 'list-product', product: product %}
 
   {% unless product.requires_selling_plan or product.metafields.custom.product_set or product.available == false %}
-    <a class="mqatb-show round-btn" href="javascript:void(0)" role="button" aria-expanded="false" data-target="mqatb-{{product.id}}">
+    <a class="mqatb-show round-btn" href="javascript:void(0)" role="button" aria-label="open the mobile quick add modal" aria-expanded="false" data-target="mqatb-{{product.id}}">
       {% render 'icon' with 'cart' as icon %}
     </a>
   {% endunless %}

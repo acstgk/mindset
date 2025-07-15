@@ -51,7 +51,7 @@
 </nav>
 
 {% if section.settings.logo %}
-  <a href="{{ routes.root_url }}" class="header_logo">
+  <a href="{{ routes.root_url }}" aria-label="Link to Homepage" class="header_logo">
     {{ section.settings.logo | image_url: width: 540 | image_tag: width: 540, sizes: "200px", widths: "540, 200, 80" }}
   </a>
 {% endif %}

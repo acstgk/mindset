@@ -3,28 +3,28 @@
     <ul class="social-links">
       {% if settings.social_fb != '' %}
         <li>
-          <a href="{{ settings.social_fb }}" target="_blank">
+          <a href="{{ settings.social_fb }}" target="_blank" aria-label="Follow us on Facebook">
             {% render 'icon' with 'fb' %}
           </a>
         </li>
       {% endif %}
       {% if settings.social_ig != '' %}
         <li>
-          <a href="{{ settings.social_ig }}" target="_blank">
+          <a href="{{ settings.social_ig }}" target="_blank" aria-label="Follow us on Instagram">
             {% render 'icon' with 'ig' %}
           </a>
         </li>
       {% endif %}
       {% if settings.social_yt != '' %}
         <li>
-          <a href="{{ settings.social_yt }}" target="_blank">
+          <a href="{{ settings.social_yt }}" target="_blank" aria-label="Follow us on Youtube">
             {% render 'icon' with 'yt' %}
           </a>
         </li>
       {% endif %}
       {% if settings.social_tt != '' %}
         <li>
-          <a href="{{ settings.social_tt }}" target="_blank">
+          <a href="{{ settings.social_tt }}" target="_blank" aria-label="Follow us on TikTok">
             {% render 'icon' with 'tt' %}
           </a>
         </li>
