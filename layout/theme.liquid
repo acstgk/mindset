@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="{{ shop.locale }}">
-
   <head>
     <!-- Start of Shoplift scripts -->
     {% render 'shoplift' %}
@@ -253,7 +252,6 @@
     <link rel="stylesheet" href="{{ 'global.min.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'global-desktop.min.css' | asset_url }}" media="(min-width: 768px)">
 
-
     <script>
       //old gtag used by fospha and taggstar
       (function (w, d, s, l, i) {
@@ -318,7 +316,10 @@
     </main>
 
     {% section 'footer-main' %}
-    {% section 'drawer-cart' %}
+
+    {% unless request.page_type == 'cart' %}
+      {% section 'drawer-cart' %}
+    {% endunless %}
 
     <!-- included iwish_v2 with footer my added---------- -->
     {% section 'wishlist-app-settings' %}

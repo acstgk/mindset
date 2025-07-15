@@ -24,13 +24,14 @@
 {% capture qatb_buttons %}
   <div class="qatb-btns">
     {% for variant in product.variants %}
-      <button
+      <a
+        href="{{ routes.cart_add_url }}?id={{ variant.id }}&quantity=1"
         id="qatb-btn--{{ variant.id }}"
         class="{%if variant.inventory_quantity > 0 and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% assign oos = true %}{% endif %}"
         data-v-id="{{ variant.id }}"
       >
         {{ variant.title | replace: 'One Size', 'Add to Bag' }}
-      </button>
+      </a>
     {% endfor %}
   </div>
   {% if oos %}
@@ -67,7 +68,7 @@
   {% render 'wishlist-app-links', linkType: 'list-product', product: product %}
 
   {% unless product.requires_selling_plan or product.metafields.custom.product_set or product.available == false %}
-    <a class="mqatb-show round-btn" href="javascript:void(0)" role="button" aria-expanded="false" data-id="mqatb-{{product.id }}">
+    <a class="mqatb-show round-btn" href="javascript:void(0)" role="button" aria-expanded="false" data-target="mqatb-{{product.id}}">
       {% render 'icon' with 'cart' as icon %}
     </a>
   {% endunless %}
@@ -82,256 +83,8 @@
     </div>
     select size:
     {{ qatb_buttons }}
-    <div class="mqatb-close round-btn">{% render 'icon' with 'close' as icon %}</div>
+    <div class="mqatb-close round-btn">{% render 'icon' with 'plus' as icon, class: "close-icon" %}</div>
   </div>
 </product-card>
 
-{% stylesheet %}
-  product-card {
-    display: flex;
-    flex-flow: column nowrap;
-    max-height: 100vh;
-    width: 100%;
-    margin: 0 auto;
-    position: relative;
-    margin-bottom: 20px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid var(--c-light-grey);
 
-
-    & .product_card-media {
-      aspect-ratio: 35 / 50;
-      position: relative;
-      overflow-y: hidden;
-    }
-
-    & .product_card-images {
-      display: grid;
-      grid-template-columns: repeat(2, 100%);
-      overflow: auto hidden;
-      scroll-snap-align: start;
-      white-space: nowrap;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: thin;
-      place-items: center;
-      width: 100%;
-      height: 100%;
-    }
-
-    & img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-      display: block;
-      scroll-snap-align: start;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    & img:first-of-type {
-      height: 100%;
-      z-index: -2;
-    }
-
-    & :nth-child(-n + 3) {
-      grid-area: 1 / 1;
-    }
-
-    & .product_card-info {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    & .datb {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      height: 0;
-      background: var(--c-white);
-      backdrop-filter: blur(4px);
-      transition: height 0.15s ease, opacity 0.14s ease-in;
-      display: none;
-      padding: 20px 10px;
-      opacity: 0;
-      text-align: center;
-
-      & p {
-        padding-bottom: 10px;
-      }
-    }
-
-    .iWishColl,
-    .mqatb-show {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-    }
-
-    .mqatb-show {
-      top: 54px;
-      background: var(--c-white);
-
-      & svg {
-        width: 18px;
-        height: 18px;
-      }
-    }
-
-    & .Price--saving {
-      position: absolute;
-      top: 15px;
-      color: white;
-      background: var(--c-black);
-      font-weight: 700;
-      font-size: var(--txt-p);
-    }
-  }
-
-  product-card,
-  .mqatb-modal {
-    & .Title {
-      justify-content: space-between;
-      padding-top: 1em;
-      padding-bottom: 0.25em;
-
-      & .title {
-        padding-right: 5px;
-      }
-
-      & .colour {
-        text-align: right;
-      }
-    }
-  }
-
-  .qatb-btns {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .qatb-btn,
-  .qatb-btn--oos {
-    min-width: 24px;
-    height: 24px;
-    padding-bottom: 1px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    font-size: var(--txt-h4);
-  }
-
-  .qatb-btn--oos {
-    color: var(--c-light-grey);
-    border-color: transparent;
-    pointer-events: none;
-  }
-
-  .qatb-btn {
-    border-bottom-color: var(--c-grey);
-    color: var(--c-dark-grey);
-
-    &:hover {
-      color: var(--c-black);
-      border-bottom-width: 2px;
-      padding-bottom: 0;
-      font-weight: 700;
-      border-bottom-color: var(--c-black);
-      transition: scale 0.1s ease;
-
-      &:active {
-        scale: 0.9;
-      }
-    }
-  }
-
-  .mqatb-modal {
-    text-align: center;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    position: fixed !important;
-    transition-delay: 0s !important;
-    bottom: 0;
-    width: 100vw;
-    max-height: 90vh;
-    padding: 0 0 20px;
-    z-index: 10;
-    background: var(--c-white);
-    box-shadow: 0 0 4px color-mix(in lab, var(--c-black), transparent 70%);
-
-    & .mqatb-img {
-      max-height: 100vw;
-      width: 100vw;
-      overflow: hidden;
-
-      & img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: top center;
-      }
-    }
-    & .mqatb-info {
-      padding: 0 20px 15px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid var(--c-light-grey);
-      border-top: 1px solid var(--c-light-grey);
-      background-color: var(--c-off-white);
-
-      & .Title,
-      & .Price--wrapper {
-        font-size: var(--txt-h4);
-      }
-    }
-
-    & .qatb-btns {
-      padding: 5px 10px 0;
-    }
-
-    & .mqatb-close {
-      top: 18px;
-      right: 18px;
-      position: absolute;
-    }
-  }
-
-  @media screen and (width > 768px) {
-    .mqatb-modal {
-      display: none !important;
-    }
-
-    product-card {
-      & .product_card-images {
-        grid-template-columns: 100%;
-      }
-      & img {
-        grid-area: 1 / 1;
-        &:last-of-type {
-          opacity: 0;
-          transition: opacity 0.35s ease;
-        }
-      }
-
-      & .datb {
-        display: block;
-      }
-
-      .mqatb-show {
-        display: none;
-      }
-
-      &:hover {
-        & img:last-of-type {
-          opacity: 1;
-        }
-
-        & .datb {
-          height: fit-content;
-          opacity: 1;
-        }
-      }
-    }
-  }
-{% endstylesheet %}

@@ -68,11 +68,15 @@ if (!customElements.get("slide-drawer")) {
 
 document.querySelectorAll(".drawer-button").forEach((btn) => {
   btn.addEventListener("click", (event) => {
-    event.preventDefault();
-    const drawer = document.getElementById(
-      event.target.closest(".drawer-button").getAttribute("data-target")
-    );
-    drawer.open();
+    const target = event.target
+      .closest(".drawer-button")
+      .getAttribute("data-target");
+    const drawer = document.getElementById(target);
+
+    if (!(theme.pageType === "cart" && target === "cartDrawer")) {
+      event.preventDefault();
+      drawer.open();
+    }
   });
 });
 
@@ -148,6 +152,7 @@ if (!customElements.get("page-overlay")) {
         els.forEach((el) => {
           if (el.getAttribute("aria-hidden") == "false") {
             el.classList.remove("active");
+            el.setAttribute("aria-hidden", "true");
             el.close();
           }
         });
@@ -316,6 +321,7 @@ if (!customElements.get("content-accordian")) {
 // ===================
 // Product Cards
 // ===================
+
 if (!customElements.get("product-card")) {
   customElements.define(
     "product-card",
@@ -332,13 +338,48 @@ if (!customElements.get("product-card")) {
 
       _init() {
         // add click listeners to all the desktop quick add to basket buttons
-        const desktopButtons =
+        const qatbButtons =
           this.querySelectorAll(".qatb-btn:not([data-click-added])") || [];
 
-        desktopButtons.forEach((btn) => {
+        qatbButtons.forEach((btn) => {
           btn.setAttribute("data-click-added", "true");
           btn.addEventListener("click", (e) => {
-            console.log("Add to Bag clicked", e.currentTarget.dataset.vId);
+            e.preventDefault();
+            const targetButton = e.currentTarget;
+            const targetSize = targetButton.innerText;
+
+            // remove any existing cart errors
+            const errors = targetButton
+              .closest(".qatb-btns")
+              .parentElement.querySelectorAll(".cart-error");
+            errors.forEach((error) => {
+              error.remove();
+            });
+
+            targetButton.innerHTML = `<div class="loader"></div>`; // add the loading animation
+
+            //add the product/s
+            Cart.addItems(targetButton.dataset.vId)
+              .then(() => {
+                //if success
+                targetButton.innerHTML = targetSize;
+                //close the modal so cart can open
+                const modal = document.getElementById(
+                  `mqatb-${this.dataset.prodId}`
+                );
+                modal ? modal.classList.remove("active") : "";
+              })
+              .catch((error) => {
+                // if error
+                targetButton.innerHTML = targetSize;
+
+                // display an error message next to the qatb buttons
+                const errorBox = document.createElement("div");
+                errorBox.className = "cart-error warning";
+                errorBox.textContent =
+                  error.description || "Sorry, something went wrong.";
+                targetButton.closest(".qatb-btns").before(errorBox);
+              });
           });
         });
 
@@ -347,11 +388,9 @@ if (!customElements.get("product-card")) {
           ".mqatb-show:not([data-click-added])"
         );
         openmqatbBtn.setAttribute("data-click-added", "true");
-        openmqatbBtn.addEventListener("click", (event) => this._openMobileQB(event));
-
-
-        // add click listeners to the mobile quick add to basket buttons
-
+        openmqatbBtn.addEventListener("click", (event) =>
+          this._openMobileQB(event)
+        );
 
         // add click listeners to the Iwish buttons
         const el = this.querySelector(".iWishColl:not([data-click-added])");
@@ -366,7 +405,7 @@ if (!customElements.get("product-card")) {
       }
 
       _openMobileQB(event) {
-        const modalID = event.target.dataset.id;
+        const modalID = event.target.dataset.target;
         const modalEl = document.getElementById(modalID);
         modalEl.classList.add("active");
         modalEl.setAttribute("aria-hidden", "false");
@@ -374,7 +413,7 @@ if (!customElements.get("product-card")) {
       }
 
       _closeMobileQB(event) {
-        const modal = event.target.closest('.mqatb-modal');
+        const modal = event.target.closest(".mqatb-modal");
         modal.classList.remove("active");
         modal.setAttribute("aria-hidden", "true");
         document.querySelector("page-overlay").closeThis();
@@ -388,3 +427,304 @@ if (!customElements.get("product-card")) {
     }
   );
 }
+
+// ===================
+// CART CLASS
+// ===================
+
+class CartAPI {
+  constructor() {
+    this.cart = {};
+    this.loadCart = this.loadCart.bind(this);
+    this.addItems = this.addItems.bind(this);
+    this.removeItem = this.removeItem.bind(this);
+    this.updateLineItem = this.updateLineItem.bind(this);
+    this.dispatchCartUpdate = this.dispatchCartUpdate.bind(this);
+    this.loadCart();
+  }
+
+  // Dispatches a custom event when the cart data changes
+  dispatchCartUpdate(eventName = "cart:updated") {
+    const event = new CustomEvent(eventName, {
+      bubbles: true, // Allow event to bubble up the DOM
+      detail: { cart: this.cart },
+    });
+    document.dispatchEvent(event);
+    console.log(`Custom event '${eventName}' dispatched`);
+  }
+
+  // get the cart data so we can include it with the custom event
+  async loadCart() {
+    try {
+      const res = await fetch("/cart.js");
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      const data = await res.json();
+      console.log("Cart JSON data loaded:", data);
+      this.cart = data;
+      this.dispatchCartUpdate("cart:loaded"); // Notify UI components
+    } catch (error) {
+      console.error("Error loading cart.js:", error);
+    }
+  }
+
+  // == add one or more items to the cart ==
+  // will accept:
+  // 1: a single variant ID,
+  // 2: an array of product ID's - [1211,2222,333]
+  // 3: an array of cart objects - [{ id: 1211, quantity: 1 },{ id: 2222, quantity: 3 },{ id: 333, quantity: 2 },]
+
+  async addItems(items) {
+    let normalizedItems = [];
+
+    if (Array.isArray(items)) {
+      normalizedItems = items.map((item) =>
+        typeof item === "object" ? item : { id: item, quantity: 1 }
+      );
+    } else if (typeof items === "object") {
+      normalizedItems = [items]; // single object like { id, quantity }
+    } else {
+      normalizedItems = [{ id: items, quantity: 1 }]; // single id
+    }
+
+    try {
+      const res = await fetch("/cart/add.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: normalizedItems }),
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        console.error("Shopify Add to Cart Error:", errorData);
+        // could dispatch an error event here
+        return Promise.reject(errorData);
+      }
+
+      const data = await res.json();
+      console.log("Item/s added successfully:", data);
+      await this.loadCart();
+      this.dispatchCartUpdate("cart:itemsAdded");
+      return data;
+    } catch (error) {
+      console.error("Network or unexpected error during addItems:", error);
+      return Promise.reject(error);
+    }
+  }
+
+  // == remove an item from the cart ==
+  // lineItemKey must be line item key or variant ID ( variant id will automatically remove first instance only)
+  async removeItem(lineItemKey) {
+    try {
+      const res = await fetch("/cart/change.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: lineItemKey, quantity: 0 }),
+      });
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      const data = await res.json();
+      console.log("Item removed:", data);
+      await this.loadCart(); // Reload cart data and dispatch update
+      this.dispatchCartUpdate("cart:itemRemoved");
+      return data;
+    } catch (error) {
+      console.error("Error removing item:", error);
+      return Promise.reject(error);
+    }
+  }
+
+  // == update a line in the cart==
+  async updateLineItem(lineItemKey, quantity) {
+    try {
+      const res = await fetch("/cart/change.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: lineItemKey, quantity: quantity }),
+      });
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      const data = await res.json();
+      console.log("Line Item Updated:", data);
+      await this.loadCart(); // Reload cart data and dispatch update
+      this.dispatchCartUpdate("cart:lineItemUpdated");
+      return data;
+    } catch (error) {
+      console.error("Error updating item:", error);
+      return Promise.reject(error);
+    }
+  }
+
+  // == clear all items out of the cart and send the cart update event ==
+  async clearAll() {
+    try {
+      const res = await fetch("/cart/clear.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      const data = await res.json();
+      console.log("Cart cleared:", data);
+      await this.loadCart(); // Reload cart data and dispatch update
+      this.dispatchCartUpdate("cart:cleared");
+      return data;
+    } catch (error) {
+      console.error("Error clearing cart:", error);
+      return Promise.reject(error);
+    }
+  }
+
+  // == convert the money to the right format ==
+  formatMoney(amount) {
+    const format = window.theme.moneyFormat;
+    const value = amount / 100;
+    const formatted = format.replace("{{amount}}", value.toFixed(2));
+    return formatted.replace(/\.00$/, ""); // only strip ".00", leave ".50" etc.
+  }
+
+  // == update the value in the checkout button ==
+  updateCheckoutTotal(value) {
+    document.querySelector(".cart-total").innerHTML = Cart.formatMoney(value);
+  }
+
+  async getLineItems() {
+    try {
+      const res = await fetch("/?sections=drawer-cart");
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      const data = await res.json();
+      const html = data["drawer-cart"];
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const newDrawer = doc.querySelector("#cartDrawer");
+      const existingDrawer = document.querySelector("#cartDrawer");
+
+      if (newDrawer && existingDrawer) {
+        existingDrawer.replaceWith(newDrawer);
+      }
+    } catch (error) {
+      console.error("Failed to fetch drawer-cart section:", error);
+    }
+  }
+}
+
+window.Cart = new CartAPI();
+
+// ===================
+// CART LINE ITEMS
+// ===================
+
+if (!customElements.get("line-item")) {
+  customElements.define(
+    "line-item",
+    class LineItem extends HTMLElement {
+      connectedCallback() {
+        this.lineItemKey = this.dataset.key;
+        this.itemIndex = this.dataset.index;
+        this._bindQuantityControls();
+      }
+
+      _bindQuantityControls() {
+        let lastQty = 0;
+        const selector = this.querySelector(".quantity-selector");
+        const input = selector.querySelector(".qty-input");
+        const lineItemKey = this.lineItemKey;
+
+        // Handle +/- buttons
+        selector.querySelectorAll("[data-new-qty]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const newQty = parseInt(btn.dataset.newQty, 10);
+            if (!isNaN(newQty)) {
+              Cart.updateLineItem(lineItemKey, newQty).then(() => {
+                // remove the element from the DOM if newQty is zero
+                if (newQty === 0) this.removeItemEl();
+
+                // update the quantity selector values
+                input.value = newQty;
+                selector.querySelector(".quantity-minus").dataset.newQty =
+                  newQty - 1;
+                selector.querySelector(".quantity-plus").dataset.newQty =
+                  newQty + 1;
+
+                // update the line total.
+                this.querySelector(".cart_item-total").innerHTML =
+                  Cart.formatMoney(
+                    Cart.cart.items[this.itemIndex].line_price,
+                    Cart.cart.currency
+                  );
+
+                // update the cart total
+                Cart.updateCheckoutTotal(
+                  Cart.cart.total_price,
+                  Cart.cart.currency
+                );
+              });
+            }
+          });
+        });
+
+        // Handle input blur and Enter/Tab keys
+        const commitChange = () => {
+          const newQty = parseInt(input.value, 10);
+          if (!isNaN(newQty) && newQty !== lastQty) {
+            lastQty = newQty;
+            Cart.updateLineItem(lineItemKey, newQty);
+          }
+        };
+
+        input.addEventListener("change", commitChange);
+        input.addEventListener("blur", commitChange);
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === "Tab") {
+            commitChange();
+          }
+        });
+
+        // Handle remove button
+        const removeBtn = selector.querySelector(".quantity-zero");
+        if (removeBtn) {
+          removeBtn.addEventListener("click", () => {
+            Cart.removeItem(lineItemKey).then(() => {
+              this.removeItemEl();
+            });
+          });
+        }
+      }
+
+      removeItemEl() {
+        const el = this;
+        requestAnimationFrame(() => {
+          el.classList.add("fade-out");
+          el.addEventListener(
+            "transitionend",
+            () => {
+              el.parentElement.remove();
+              Cart.updateCheckoutTotal(
+                Cart.cart.total_price,
+                Cart.cart.currency
+              );
+            },
+            {
+              once: true,
+            }
+          );
+        });
+      }
+
+    }
+  );
+}
+
+// ===================
+// Global Event Listeners etc
+// ===================
+
+function openCartDrawerIfNotOnCartPage() {
+  if (theme.pageType != "cart") {
+    Cart.getLineItems().then(() => {
+      const drawer = document.getElementById("cartDrawer");
+      if (drawer) drawer.open();
+    });
+  }
+}
+
+document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
