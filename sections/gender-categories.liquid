@@ -11,7 +11,14 @@
           {% assign url = 'url' | append: i | append: 'w' %}
           {% assign txt = 'bold' | append: i | append: 'w' %}
           <div class="categorylink img-overlay">
-            {{ section.settings[img] | image_url: width: 800 | image_tag: loading: 'lazy' }}
+            {{
+            section.settings[img]
+            | image_url: width: 800
+            | image_tag:
+              loading: 'lazy',
+              sizes: '(min-width: 1000px) 25vw, 50vw',
+              widths: '190, 390, 540, 780, 960, 1280'
+          }}
             {% if section.settings[txt] %}
               <a class="categorytitle" href="{{ section.settings[url] }}">{{ section.settings[txt] }}</a>
             {% endif %}
