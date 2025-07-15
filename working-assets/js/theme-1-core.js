@@ -590,7 +590,12 @@ class CartAPI {
 
   // == update the value in the checkout button ==
   updateCheckoutTotal(value) {
-    document.querySelector(".cart-total").innerHTML = Cart.formatMoney(value);
+    let totalPoint = document.querySelector(".cart-total");
+    if (value === 0) {
+      Cart.getLineItems();
+    } else {
+      totalPoint.innerHTML = Cart.formatMoney(value);
+    }
   }
 
   async getLineItems() {
@@ -610,7 +615,10 @@ class CartAPI {
         if (firstListItem) {
           firstListItem.classList.add("fade-in", "no-height");
         }
-        existingDrawer.replaceWith(newDrawer);
+
+        const closeBtn = existingDrawer.querySelector(".drawer-close");
+        existingDrawer.innerHTML = newDrawer.innerHTML;
+        if (closeBtn) existingDrawer.appendChild(closeBtn);
       }
     } catch (error) {
       console.error("Failed to fetch drawer-cart section:", error);

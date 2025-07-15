@@ -97,6 +97,10 @@ a {
     letter-spacing: var(--letter-spacing);
 }
 
+.txt-center {
+    text-align: center;
+}
+
 .success,
 .warning,
 .info {
