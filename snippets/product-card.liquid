@@ -3,23 +3,13 @@
 
   @param {object} product - Product object
   @param {string} [loading] - Defaults to "lazy" but can be changed to "eager" or "auto"
-  @param {number} [columns] - the number of columns on desktop - accepts values between 2 and 5
 
   @example
-  {% render 'example-snippet', product: 'Featured Products', loading: "lazy", columns: 4 %}
+  {% render 'example-snippet', product: 'Featured Products', loading: "lazy"%}
 {% enddoc %}
 
-{% case columns %}
-  {% when 2 %}
-    {% assign sizes = '(min-width: 541px) 50vw, 100vw' %}
-  {% when 3 %}
-    {% assign sizes = '(min-width: 961px) 33vw, (min-width: 541px) 50vw, 100vw' %}
-  {% when 5 %}
-    {% assign sizes = '(min-width: 961px) 20vw, (min-width: 781px) 25vw, (min-width: 541px) 33vw, (min-width: 391px) 50vw, 100vw' %}
-  {% else %}
-    {% assign sizes = '(min-width: 961px) 25vw, (min-width: 781px) 33vw, (min-width: 541px) 50vw, 100vw' %}
-{% endcase %}
-{% assign widths = '190, 390, 540, 780, 960, 1280, 1920' %}
+{% assign sizes = '(min-width: 1200px) 25vw, (min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw' %}
+{% assign widths = '300, 450, 600, 750, 900, 1200, 1800' %}
 
 {% capture qatb_buttons %}
   <div class="qatb-btns">
@@ -48,7 +38,7 @@
   <div class="product_card-media">
     <a class="product_card-images" href="{{ product.url }}">
       <div class="loader grid-loader"></div>
-      {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: loading }}
+      {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager' }}
       {{ product.featured_image | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading }}
       {% if product.images[2] %}
         {{ product.images[2] | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading }}
@@ -68,7 +58,14 @@
   {% render 'wishlist-app-links', linkType: 'list-product', product: product %}
 
   {% unless product.requires_selling_plan or product.metafields.custom.product_set or product.available == false %}
-    <a class="mqatb-show round-btn" href="javascript:void(0)" role="button" aria-label="open the mobile quick add modal" aria-expanded="false" data-target="mqatb-{{product.id}}">
+    <a
+      class="mqatb-show round-btn"
+      href="javascript:void(0)"
+      role="button"
+      aria-label="open the mobile quick add modal"
+      aria-expanded="false"
+      data-target="mqatb-{{product.id}}"
+    >
       {% render 'icon' with 'cart' as icon %}
     </a>
   {% endunless %}
@@ -83,8 +80,6 @@
     </div>
     select size:
     {{ qatb_buttons }}
-    <div class="mqatb-close round-btn">{% render 'icon' with 'plus' as icon, class: "close-icon" %}</div>
+    <div class="mqatb-close round-btn">{% render 'icon' with 'plus' as icon, class: 'close-icon' %}</div>
   </div>
 </product-card>
-
-
