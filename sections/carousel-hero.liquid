@@ -12,7 +12,7 @@
             {{
               block.settings.mobile_video.preview_image
               | image_url: width: 1, height: 1
-              | image_tag: width: 1, class: 'hero_slide-color', alt: "background color"
+              | image_tag: width: 1, class: 'hero_slide-color', alt: 'background color'
             }}
 
             {% assign poster_image = block.settings.mobile_poster
@@ -21,19 +21,19 @@
             %}
 
             {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.mobile_video.aspect_ratio %}
+            {% assign video_src = block.settings.mobile_video.sources | where: "format", "mp4" | first %}
 
-            {{
-              block.settings.mobile_video
-              | video_tag:
-                autoplay: true,
-                loop: true,
-                muted: true,
-                playsinline: true,
-                class: 'hero_slide-video mob-only',
-                poster: poster_image,
-                preload: preload,
-                style: aspect_ratio
-            }}
+            <video
+              playsinline="true"
+              loop="loop"
+              muted="muted"
+              class="hero_slide-video mob-only"
+              poster="{{ poster_image }}"
+              style="{{ aspect_ratio }}"
+            >
+              <source data-splide-lazy="{{ video_src.url }}" type="video/mp4">
+            </video>
+
           {% else %}
             {{
               block.settings.mobile_poster
@@ -48,18 +48,19 @@
             %}
 
             {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.desktop_video.aspect_ratio %}
-            {{
-              block.settings.desktop_video
-              | video_tag:
-                autoplay: true,
-                loop: true,
-                muted: true,
-                playsinline: true,
-                class: 'hero_slide-video mob-hide',
-                poster: poster_image,
-                preload: preload,
-                style: aspect_ratio
-            }}
+                        {% assign video_src = block.settings.desktop_video.sources | where: "format", "mp4" | first %}
+
+
+            <video
+              playsinline="true"
+              loop="loop"
+              muted="muted"
+              class="hero_slide-video mob-hide"
+              poster="{{ poster_image }}"
+              style="{{ aspect_ratio }}"
+            >
+              <source data-splide-lazy="{{ video_src.url }}" type="video/mp4">
+            </video>
           {% else %}
             {{
               block.settings.desktop_poster

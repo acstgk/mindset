@@ -1,43 +1,46 @@
 import Splide from "./splide.min.js";
 
+const Shopify = window.Shopify;
+const theme = window.theme;
+const iWish = window.iWish;
+
 // ===================
 // Annoucement Carousel
 // ===================
-  class AnnouncementCarousel extends HTMLElement {
-    constructor() {
-      super();
-    }
-
-    connectedCallback() {
-      this.classList.add("splide");
-      let transType = "loop";
-      let autoplay = true;
-      if (Shopify.designMode) {
-        autoplay = false;
-        transType = "slide";
-      }
-
-      this.splide = new Splide(this, {
-        type: transType,
-        autoplay: autoplay,
-        interval: 5000,
-        pagination: false,
-      });
-
-      this.splide.on("overflow", (isOverflow) => {
-        this.splide.options = {
-          ...this.splide.options,
-          arrows: isOverflow,
-          drag: isOverflow,
-        };
-      });
-
-      this.splide.mount();
-    }
+class AnnouncementCarousel extends HTMLElement {
+  constructor() {
+    super();
   }
 
-customElements.define("announcement-bar", AnnouncementCarousel);
+  connectedCallback() {
+    this.classList.add("splide");
+    let transType = "loop";
+    let autoplay = true;
+    if (Shopify.designMode) {
+      autoplay = false;
+      transType = "slide";
+    }
 
+    this.splide = new Splide(this, {
+      type: transType,
+      autoplay: autoplay,
+      interval: 5000,
+      pagination: false,
+    });
+
+    this.splide.on("overflow", (isOverflow) => {
+      this.splide.options = {
+        ...this.splide.options,
+        arrows: isOverflow,
+        drag: isOverflow,
+      };
+    });
+
+    this.splide.mount();
+  }
+}
+
+customElements.define("announcement-bar", AnnouncementCarousel);
 
 // ===================
 // Hero Carousel
@@ -52,15 +55,14 @@ class HeroCarousel extends HTMLElement {
   connectedCallback() {
     this.classList.add("splide");
 
-    let autoplay = true;
-    if (Shopify.designMode) autoplay = false;
-
     this.splide = new Splide(this, {
       type: "fade",
-      autoplay: autoplay,
+      autoplay: true,
       interval: 5000,
       arrows: false,
       rewind: true,
+      lazyLoad: "nearby",
+      preloadPages: 1,
     });
 
     this.splide.on("overflow", (isOverflow) => {
@@ -76,6 +78,37 @@ class HeroCarousel extends HTMLElement {
         data.items.forEach((item) => {
           item.button.textContent = "0" + String(item.page + 1);
         });
+      }
+    });
+
+    this.splide.on("active", (slide) => {
+      const mobVid = slide.slide.querySelector(".mob-only");
+      const deskVid = slide.slide.querySelector(".mob-hide");
+      const width = window.innerWidth;
+
+      if (!mobVid.classList.contains("splide-loaded")) {
+        mobVid.classList.add("splide-loaded");
+        deskVid.classList.add("splide-loaded");
+        mobVid.load();
+        deskVid.load();
+      }
+
+      if (width < 768) {
+        mobVid.play();
+      } else {
+        deskVid.play();
+      }
+    });
+
+    this.splide.on("inactive", (slide) => {
+      const mobVid = slide.slide.querySelector(".mob-only");
+      const deskVid = slide.slide.querySelector(".mob-hide");
+      const width = window.innerWidth;
+
+      if (width < 768) {
+        mobVid.pause();
+      } else {
+        deskVid.pause();
       }
     });
 
@@ -98,6 +131,8 @@ if (!customElements.get("slide-drawer")) {
       constructor() {
         super();
         this.side = this.dataset.side;
+        this._onTouchStart = this._onTouchStart.bind(this);
+        this._onTouchEnd = this._onTouchEnd.bind(this);
       }
 
       connectedCallback() {
@@ -111,15 +146,6 @@ if (!customElements.get("slide-drawer")) {
         this.appendChild(closeBtn);
         this._startX = 0;
         this._endX = 0;
-
-        this.addEventListener("touchstart", (e) => {
-          this._startX = e.touches[0].clientX;
-        });
-
-        this.addEventListener("touchend", (e) => {
-          this._endX = e.changedTouches[0].clientX;
-          this._handleSwipe();
-        });
       }
 
       _handleSwipe() {
@@ -136,6 +162,11 @@ if (!customElements.get("slide-drawer")) {
       open() {
         document.body.classList.add("no-scroll");
         this.setAttribute("aria-hidden", "false");
+        this.addEventListener("touchstart", this._onTouchStart, {
+          passive: true,
+        });
+        this.addEventListener("touchend", this._onTouchEnd, { passive: true });
+
         setTimeout(() => {
           const lastCartItem = this.querySelectorAll(".fade-in");
           if (lastCartItem) {
@@ -149,8 +180,19 @@ if (!customElements.get("slide-drawer")) {
       close() {
         document.body.classList.remove("no-scroll");
         this.setAttribute("aria-hidden", "true");
+        this.removeEventListener("touchstart", this._onTouchStart);
+        this.removeEventListener("touchend", this._onTouchEnd);
       }
-    }
+
+      _onTouchStart(e) {
+        this._startX = e.touches[0].clientX;
+      }
+
+      _onTouchEnd(e) {
+        this._endX = e.changedTouches[0].clientX;
+        this._handleSwipe();
+      }
+    },
   );
 }
 
@@ -260,7 +302,7 @@ if (!customElements.get("page-overlay")) {
       openThis() {
         document.body.classList.add("no-scroll");
       }
-    }
+    },
   );
 }
 
@@ -274,7 +316,7 @@ class SubMenuController {
     this.activeMenus = new Set();
 
     this.subMenuButtons = this.drawer.querySelectorAll(
-      ".side_menu-sub-menu-button"
+      ".side_menu-sub-menu-button",
     );
     this.subMenus = this.drawer.querySelectorAll(".side_menu-sub-menu");
 
@@ -291,7 +333,7 @@ class SubMenuController {
       const closeBtn = menu.querySelector(".sub_menu-close");
       if (closeBtn) {
         closeBtn.addEventListener("click", () =>
-          this.closeSubMenu(menu.dataset.subMenu)
+          this.closeSubMenu(menu.dataset.subMenu),
         );
       }
     });
@@ -324,7 +366,7 @@ class SubMenuController {
 
   _getMenuByHandle(handle) {
     return this.drawer.querySelector(
-      `.side_menu-sub-menu[data-sub-menu="${handle}"]`
+      `.side_menu-sub-menu[data-sub-menu="${handle}"]`,
     );
   }
 
@@ -409,7 +451,7 @@ if (!customElements.get("content-accordian")) {
           content.setAttribute("aria-hidden", "false");
         }
       }
-    }
+    },
   );
 }
 
@@ -459,7 +501,7 @@ if (!customElements.get("product-card")) {
                 targetButton.innerHTML = targetSize;
                 //close the modal so cart can open
                 const modal = document.getElementById(
-                  `mqatb-${this.dataset.prodId}`
+                  `mqatb-${this.dataset.prodId}`,
                 );
                 modal ? modal.classList.remove("active") : "";
               })
@@ -479,11 +521,11 @@ if (!customElements.get("product-card")) {
 
         // add click listeners to the open mobile qatb button
         const openmqatbBtn = this.querySelector(
-          ".mqatb-show:not([data-click-added])"
+          ".mqatb-show:not([data-click-added])",
         );
         openmqatbBtn.setAttribute("data-click-added", "true");
         openmqatbBtn.addEventListener("click", (event) =>
-          this._openMobileQB(event)
+          this._openMobileQB(event),
         );
 
         // add click listeners to the Iwish buttons
@@ -518,7 +560,7 @@ if (!customElements.get("product-card")) {
         const body = document.body;
         body.appendChild(modal);
       }
-    }
+    },
   );
 }
 
@@ -574,7 +616,7 @@ class CartAPI {
 
     if (Array.isArray(items)) {
       normalizedItems = items.map((item) =>
-        typeof item === "object" ? item : { id: item, quantity: 1 }
+        typeof item === "object" ? item : { id: item, quantity: 1 },
       );
     } else if (typeof items === "object") {
       normalizedItems = [items]; // single object like { id, quantity }
@@ -707,7 +749,7 @@ class CartAPI {
         existingDrawer.innerHTML = newDrawer.innerHTML;
         if (closeBtn) existingDrawer.appendChild(closeBtn);
         const emptyContent = existingDrawer.querySelector(
-          "div.cart_items-list"
+          "div.cart_items-list",
         );
         if (emptyContent) {
           emptyContent.classList.add("active");
@@ -720,6 +762,7 @@ class CartAPI {
 }
 
 window.Cart = new CartAPI();
+const Cart = window.Cart;
 
 // ===================
 // CART LINE ITEMS
@@ -761,13 +804,13 @@ if (!customElements.get("line-item")) {
                 this.querySelector(".cart_item-total").innerHTML =
                   Cart.formatMoney(
                     Cart.cart.items[this.itemIndex].line_price,
-                    Cart.cart.currency
+                    Cart.cart.currency,
                   );
 
                 // update the cart total
                 Cart.updateCheckoutTotal(
                   Cart.cart.total_price,
-                  Cart.cart.currency
+                  Cart.cart.currency,
                 );
               });
             }
@@ -812,16 +855,16 @@ if (!customElements.get("line-item")) {
               el.parentElement.remove();
               Cart.updateCheckoutTotal(
                 Cart.cart.total_price,
-                Cart.cart.currency
+                Cart.cart.currency,
               );
             },
             {
               once: true,
-            }
+            },
           );
         });
       }
-    }
+    },
   );
 }
 
