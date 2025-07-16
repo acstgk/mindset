@@ -1164,11 +1164,9 @@ product-card,
 .qatb-btn,
 .qatb-btn--oos {
     min-width: 24px;
-    height: 24px;
-    padding-bottom: 1px;
+    height: 18px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    font-size: var(--txt-h4);
 }
 
 .qatb-btn--oos {
