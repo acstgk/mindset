@@ -143,6 +143,7 @@
 
     {% render 'globale-js' %}
 
+    <link rel="stylesheet" href="{{ 'critical.min.css' | asset_url }}">
     <link rel="preload" href="{{ 'global.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ 'global.min.css' | asset_url }}"></noscript>
 
