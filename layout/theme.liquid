@@ -140,8 +140,8 @@
     {{ content_for_header }}
 
     {% render 'css-variables' %}
-
     {% render 'globale-js' %}
+    {%- render 'country-switcher-global' -%}
 
     <link rel="stylesheet" href="{{ 'critical.min.css' | asset_url }}">
     <link rel="preload" href="{{ 'global.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
