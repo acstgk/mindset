@@ -140,8 +140,6 @@
     {{ content_for_header }}
 
     {% render 'css-variables' %}
-    {% render 'globale-js' %}
-    {%- render 'country-switcher-global' -%}
 
     <link rel="stylesheet" href="{{ 'critical.min.css' | asset_url }}">
     <link rel="preload" href="{{ 'global.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -171,7 +169,7 @@
     {% endunless %}
 
     {% render 'js-variables' %}
-    <script type="module" src="{{ 'theme.min.js' | asset_url }}"></script>
+    <script type="module" src="{{ 'main.js' | asset_url }}"></script>
 
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" defer></script>
 
@@ -216,10 +214,7 @@
                   }
                   var discountAmount = 0;
                   for (let temp = 0; temp < data.details.discounts.length; temp++) {
-                    if (
-                      data.details.discounts[temp].couponCode != '' &&
-                      data.details.discounts[temp].discountTypeId == 1
-                    ) {
+                    if (data.details.discounts[temp].couponCode != '' && data.details.discounts[temp].discountTypeId == 1) {
                       discountAmount = data.details.discounts[temp].customerPriceInMerchantCurrency;
                     }
                   }
@@ -297,7 +292,7 @@
     </script>
 
     {% if request.design_mode %}
-      <script src="{{ 'designmode.min.js' | asset_url }}" defer></script>
+      <script src="{{ 'designmode.js' | asset_url }}" defer></script>
     {% endif %}
 
     <!-- included iwish_v2 with footer my added---------- -->
@@ -368,21 +363,21 @@
 
     <!-- Begin Shopify-Clearpay / klarna JavaScript Snippet (v1.0.9) -->
     {% if template.name == 'product' or template.name == 'cart' %}
-    <script>
-      window.variantnaThemeGlobals={};
-      {%case template.name%}
-      {% when "product" %}
-        {% if product.first_available_variant.price %}
-          window.variantnaThemeGlobals.data_purchase_amount = {{ product.first_available_variant.price }};
-        {% endif %}
-        window.variantnaThemeGlobals.productVariants={{product.variants|json}};
-        window.variantnaThemeGlobals.documentCopy=document.cloneNode(true);
-      {% when "cart" %}
-        window.variantnaThemeGlobals.data_purchase_amount={{cart.total_price}};
-        window.variantnaThemeGlobals.documentCopy=document.cloneNode(true);
-        {%endcase%}
-    </script>
-  {% endif %}
+      <script>
+        window.variantnaThemeGlobals={};
+        {%case template.name%}
+        {% when "product" %}
+          {% if product.first_available_variant.price %}
+            window.variantnaThemeGlobals.data_purchase_amount = {{ product.first_available_variant.price }};
+          {% endif %}
+          window.variantnaThemeGlobals.productVariants={{product.variants|json}};
+          window.variantnaThemeGlobals.documentCopy=document.cloneNode(true);
+        {% when "cart" %}
+          window.variantnaThemeGlobals.data_purchase_amount={{cart.total_price}};
+          window.variantnaThemeGlobals.documentCopy=document.cloneNode(true);
+          {%endcase%}
+      </script>
+    {% endif %}
 
     <!-- Google Tag Manager (noscript) -->
     <iframe
@@ -405,5 +400,7 @@
     {% endunless %}
 
     <link rel="stylesheet" href="{{ 'splide-core.min.css' | asset_url }}">
+    {% render 'globale-js' %}
+    {%- render 'country-switcher-global' -%}
   </body>
 </html>

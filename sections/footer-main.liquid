@@ -38,8 +38,8 @@
       {% assign menu = 'menu-' | append: i %}
       {% assign menu = section.settings[menu] %}
       <div class="accordian-item item-{{ i }}">
-        <div class="accordian-header" aria-controls="accordian-content-{{ i }}" role="button" tabindex="0">{{ menu.title }}</div>
-        <ul class="accordian-content" id="accordian-content-{{ i }}">
+        <div class="accordian-header active" aria-controls="accordian-content-{{ i }}" role="button" tabindex="0">{{ menu.title }}</div>
+        <ul class="accordian-content " id="accordian-content-{{ i }}">
           {% for link in menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}

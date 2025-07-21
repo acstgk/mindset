@@ -1,8 +1,7 @@
-import Splide from "./splide.min.js";
+/* global Shopify, theme, iWish */
 
-const Shopify = window.Shopify;
-const theme = window.theme;
-const iWish = window.iWish;
+import Splide from "./splide.min.js";
+import { SplideUtil } from "./SplideUtil.js";
 
 // ===================
 // Annoucement Carousel
@@ -29,91 +28,6 @@ if (!customElements.get("announcement-bar")) {
           autoplay: autoplay,
           interval: 5000,
           pagination: false,
-        });
-
-        this.splide.on("overflow", (isOverflow) => {
-          this.splide.options = {
-            ...this.splide.options,
-            arrows: isOverflow,
-            drag: isOverflow,
-          };
-        });
-
-        this.splide.mount();
-      }
-    },
-  );
-}
-
-// ===================
-// Splide Utils
-// ===================
-class SplideUtil {
-  /**
-   * Sets up Splide structure for a target element:
-   * - Wraps all child nodes in the necessary Splide markup
-   * - Returns the list element, or undefined if not possible
-   */
-  static splideHTML(target) {
-    target.classList.add("splide");
-
-    const track = document.createElement("div");
-    const list = document.createElement("div");
-    track.classList.add("splide__track");
-    list.classList.add("splide__list");
-
-    // Move all children into the splide__list
-    while (target.firstChild) {
-      list.appendChild(target.firstChild);
-    }
-    track.appendChild(list);
-    target.appendChild(track);
-
-    return list;
-  }
-}
-
-// ===================
-// Product Recommendations
-// ===================
-
-if (!customElements.get("product-carousel")) {
-  customElements.define(
-    "product-carousel",
-    class ProductCarousel extends HTMLElement {
-      constructor() {
-        super();
-        this.splide = null;
-      }
-
-      connectedCallback() {
-        SplideUtil.splideHTML(this);
-
-        this.splide = new Splide(this, {
-          type: "loop",
-          gap: 12,
-          pagination: false,
-          trimSpace: false,
-          focus: "center",
-          width: "min(90vw, 1270px)",
-          fixedWidth: "25%",
-          breakpoints: {
-            1270: {
-              fixedWidth: "25%",
-            },
-            1100: {
-              fixedWidth: "33%",
-            },
-            800: {
-              fixedWidth: "50%",
-            },
-            500: {
-              fixedWidth: "75%",
-            },
-            400: {
-              fixedWidth: "100%",
-            },
-          },
         });
 
         this.splide.on("overflow", (isOverflow) => {
@@ -204,23 +118,20 @@ if (!customElements.get("hero-carousel")) {
       }
 
       loadAndPlayVideo(slide) {
+        if (!slide) return;
+
         const width = window.innerWidth;
-        let video;
+        let video = width < 768 ? slide.querySelector(".mob-only") : slide.querySelector(".mob-hide");
 
-        if (width < 768) {
-          video = slide.querySelector(".mob-only");
-        } else {
-          video = slide.querySelector(".mob-hide");
+        if (!video) return;
+
+        const source = video.querySelector("source[data-src-lazy]");
+        if (source && !source.src) {
+          source.src = source.getAttribute("data-src-lazy");
+          video.load();
         }
 
-        if (video) {
-          const source = video.querySelector("source[data-src-lazy]");
-          if (source && !source.src) {
-            source.src = source.getAttribute("data-src-lazy");
-            video.load();
-          }
-          video.play();
-        }
+        video.play();
       }
     },
   );
@@ -481,80 +392,6 @@ const drawer = document.getElementById("navDrawer");
 const menuController = new SubMenuController(drawer);
 
 // ===================
-// CONTENT ACCORDIAN
-// ===================
-// elements just need the following:
-//  1.  .accordian-items > .accordian-header + .accordian-content
-
-if (!customElements.get("content-accordian")) {
-  customElements.define(
-    "content-accordian",
-    class ContentAccordian extends HTMLElement {
-      constructor() {
-        super();
-        this._handleHeaderClick = this._handleHeaderClick.bind(this);
-      }
-
-      connectedCallback() {
-        this.headers = this.querySelectorAll(".accordian-header");
-        this.contents = this.querySelectorAll(".accordian-content");
-        this._addCloseButtons();
-
-        this.headers.forEach((header) => {
-          header.setAttribute("aria-expanded", "false");
-          header.addEventListener("click", this._handleHeaderClick);
-        });
-
-        this.contents.forEach((content) => {
-          content.setAttribute("aria-hidden", "true");
-        });
-      }
-
-      _addCloseButtons() {
-        const iconHTML = `
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="Icon Icon--close rotate135">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M18 6l-12 12"></path>
-            <path d="M6 6l12 12"></path>
-          </svg>`;
-
-        this.headers.forEach((header) => {
-          const iconContainer = document.createElement("span");
-          iconContainer.innerHTML = iconHTML;
-          header.appendChild(iconContainer);
-        });
-      }
-
-      _handleHeaderClick(event) {
-        const header = event.currentTarget;
-        const content = header.nextElementSibling;
-
-        if (!content || !content.classList.contains("accordian-content")) return;
-
-        const isOpen = header.classList.contains("active");
-
-        this.headers.forEach((h) => {
-          h.classList.remove("active");
-          h.setAttribute("aria-expanded", "false");
-        });
-
-        this.contents.forEach((c) => {
-          c.setAttribute("aria-hidden", "true");
-        });
-
-        if (!isOpen) {
-          header.classList.add("active");
-          header.setAttribute("aria-expanded", "true");
-          content.setAttribute("aria-hidden", "false");
-        }
-      }
-    },
-  );
-}
-
-// ===================
 // Product Cards
 // ===================
 
@@ -614,6 +451,7 @@ if (!customElements.get("product-card")) {
 
         // add click listeners to the open mobile qatb button
         const openmqatbBtn = this.querySelector(".mqatb-show:not([data-click-added])");
+        if (!openmqatbBtn) return;
         openmqatbBtn.setAttribute("data-click-added", "true");
         openmqatbBtn.addEventListener("click", (event) => this._openMobileQB(event));
 
@@ -646,6 +484,7 @@ if (!customElements.get("product-card")) {
 
       _moveMobileQB() {
         const modal = this.querySelector(".mqatb-modal");
+        if (!modal) return;
         const body = document.body;
         body.appendChild(modal);
       }
@@ -955,3 +794,55 @@ function openCartDrawerIfNotOnCartPage() {
 }
 
 document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
+
+// ===================
+// DYNAMIC IMPORTS
+// ===================
+
+
+class LazyComponentLoader {
+  /**
+   * @param {string} selector - Custom element selector (e.g. 'product-carousel')
+   * @param {Function} importFn - Function that returns the dynamic import (e.g. () => import('./ProductCarousel.js'))
+   */
+
+  constructor(selector, importFn) {
+    this.selector = selector;
+    this.importFn = importFn;
+    this.element = document.querySelector(selector);
+    this.tagName = selector;
+
+    if (!this.element || customElements.get(this.tagName)) return;
+
+    this.init();
+  }
+
+  init() {
+    this.checkAndLoad = this.checkAndLoad.bind(this);
+    this.checkAndLoad();
+    window.addEventListener("scroll", this.checkAndLoad, { passive: true });
+    window.addEventListener("resize", this.checkAndLoad);
+  }
+
+  checkAndLoad() {
+    const rect = this.element.getBoundingClientRect();
+    if ((rect.top) - window.innerHeight <= 200) {
+      this.loadAndDefine();
+      window.removeEventListener("scroll", this.checkAndLoad);
+      window.removeEventListener("resize", this.checkAndLoad);
+    }
+  }
+
+  loadAndDefine() {
+    this.importFn().then((module) => {
+      if (!customElements.get(this.tagName)) {
+        customElements.define(this.tagName, module.default);
+      }
+    });
+  }
+}
+
+new LazyComponentLoader("product-carousel", () => import("./ProductCarousel.js"));
+new LazyComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
+
+

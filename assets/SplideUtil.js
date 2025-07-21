@@ -1,0 +1,2 @@
+export class SplideUtil{static splideHTML(d){d.classList.add("splide");const e=document.createElement("div"),i=document.createElement("div");for(e.classList.add("splide__track"),i.classList.add("splide__list");d.firstChild;)i.appendChild(d.firstChild);return e.appendChild(i),d.appendChild(e),i}}
+//# sourceMappingURL=SplideUtil.js.map
