@@ -7,134 +7,224 @@ const iWish = window.iWish;
 // ===================
 // Annoucement Carousel
 // ===================
-class AnnouncementCarousel extends HTMLElement {
-  constructor() {
-    super();
-  }
+if (!customElements.get("announcement-bar")) {
+  customElements.define(
+    "announcement-bar",
+    class AnnouncementCarousel extends HTMLElement {
+      constructor() {
+        super();
+      }
 
-  connectedCallback() {
-    this.classList.add("splide");
-    let transType = "loop";
-    let autoplay = true;
-    if (Shopify.designMode) {
-      autoplay = false;
-      transType = "slide";
+      connectedCallback() {
+        this.classList.add("splide");
+        let transType = "loop";
+        let autoplay = true;
+        if (Shopify.designMode) {
+          autoplay = false;
+          transType = "slide";
+        }
+
+        this.splide = new Splide(this, {
+          type: transType,
+          autoplay: autoplay,
+          interval: 5000,
+          pagination: false,
+        });
+
+        this.splide.on("overflow", (isOverflow) => {
+          this.splide.options = {
+            ...this.splide.options,
+            arrows: isOverflow,
+            drag: isOverflow,
+          };
+        });
+
+        this.splide.mount();
+      }
+    },
+  );
+}
+
+// ===================
+// Splide Utils
+// ===================
+class SplideUtil {
+  /**
+   * Sets up Splide structure for a target element:
+   * - Wraps all child nodes in the necessary Splide markup
+   * - Returns the list element, or undefined if not possible
+   */
+  static splideHTML(target) {
+    target.classList.add("splide");
+
+    const track = document.createElement("div");
+    const list = document.createElement("div");
+    track.classList.add("splide__track");
+    list.classList.add("splide__list");
+
+    // Move all children into the splide__list
+    while (target.firstChild) {
+      list.appendChild(target.firstChild);
     }
+    track.appendChild(list);
+    target.appendChild(track);
 
-    this.splide = new Splide(this, {
-      type: transType,
-      autoplay: autoplay,
-      interval: 5000,
-      pagination: false,
-    });
-
-    this.splide.on("overflow", (isOverflow) => {
-      this.splide.options = {
-        ...this.splide.options,
-        arrows: isOverflow,
-        drag: isOverflow,
-      };
-    });
-
-    this.splide.mount();
+    return list;
   }
 }
 
-customElements.define("announcement-bar", AnnouncementCarousel);
+// ===================
+// Product Recommendations
+// ===================
+
+if (!customElements.get("product-carousel")) {
+  customElements.define(
+    "product-carousel",
+    class ProductCarousel extends HTMLElement {
+      constructor() {
+        super();
+        this.splide = null;
+      }
+
+      connectedCallback() {
+        SplideUtil.splideHTML(this);
+
+        this.splide = new Splide(this, {
+          type: "loop",
+          gap: 12,
+          pagination: false,
+          trimSpace: false,
+          focus: "center",
+          width: "min(90vw, 1270px)",
+          fixedWidth: "25%",
+          breakpoints: {
+            1270: {
+              fixedWidth: "25%",
+            },
+            1100: {
+              fixedWidth: "33%",
+            },
+            800: {
+              fixedWidth: "50%",
+            },
+            500: {
+              fixedWidth: "75%",
+            },
+            400: {
+              fixedWidth: "100%",
+            },
+          },
+        });
+
+        this.splide.on("overflow", (isOverflow) => {
+          this.splide.options = {
+            ...this.splide.options,
+            arrows: isOverflow,
+            drag: isOverflow,
+          };
+        });
+
+        this.splide.mount();
+      }
+    },
+  );
+}
 
 // ===================
 // Hero Carousel
 // ===================
 
-class HeroCarousel extends HTMLElement {
-  constructor() {
-    super();
-    this.splide = null;
-  }
+if (!customElements.get("hero-carousel")) {
+  customElements.define(
+    "hero-carousel",
+    class HeroCarousel extends HTMLElement {
+      constructor() {
+        super();
+        this.splide = null;
+      }
 
-  connectedCallback() {
-    this.classList.add("splide");
-
-    this.splide = new Splide(this, {
-      type: "fade",
-      autoplay: true,
-      interval: 5000,
-      arrows: false,
-      rewind: true,
-      lazyLoad: "nearby",
-      preloadPages: 1,
-    });
-
-    this.splide.on("overflow", (isOverflow) => {
-      this.splide.options = {
-        ...this.splide.options,
-        pagination: isOverflow,
-        drag: isOverflow,
-      };
-    });
-
-    this.splide.on("pagination:mounted", (data) => {
-      if (data.items.length > 1) {
-        data.items.forEach((item) => {
-          item.button.textContent = "0" + String(item.page + 1);
+      connectedCallback() {
+        SplideUtil.splideHTML(this);
+        this.splide = new Splide(this, {
+          type: "fade",
+          autoplay: true,
+          interval: 5000,
+          arrows: false,
+          rewind: true,
+          lazyLoad: "nearby",
+          preloadPages: 1,
+          pauseOnHover: true,
         });
+
+        this.splide.on("overflow", (isOverflow) => {
+          this.splide.options = {
+            ...this.splide.options,
+            pagination: isOverflow,
+            drag: isOverflow,
+          };
+        });
+
+        this.splide.on("pagination:mounted", (data) => {
+          if (data.items.length > 1) {
+            data.items.forEach((item) => {
+              item.button.textContent = "0" + String(item.page + 1);
+            });
+          }
+        });
+
+        this.splide.on("ready", () => {
+          const firstSlide = this.splide.root.querySelector("#splide01-slide01");
+          this.loadAndPlayVideo(firstSlide);
+        });
+
+        this.splide.on("active", (slide) => {
+          this.loadAndPlayVideo(slide.slide);
+        });
+
+        this.splide.on("resized", () => {
+          const slideIndex = this.splide.index;
+          const slideEl = this.splide.Components.Slides.get(slideIndex)[slideIndex].slide;
+
+          this.loadAndPlayVideo(slideEl);
+        });
+
+        this.splide.on("inactive", (slide) => {
+          const mobVid = slide.slide.querySelector(".mob-only");
+          const deskVid = slide.slide.querySelector(".mob-hide");
+          const width = window.innerWidth;
+
+          if (width < 768) {
+            mobVid.pause();
+          } else {
+            deskVid.pause();
+          }
+        });
+
+        this.splide.mount();
       }
-    });
 
-    this.splide.on("ready", () => {
-      const firstSlide = this.splide.root.querySelector("#splide01-slide01");
-      this.loadAndPlayVideo(firstSlide);
-    });
+      loadAndPlayVideo(slide) {
+        const width = window.innerWidth;
+        let video;
 
-    this.splide.on("active", (slide) => {
-      this.loadAndPlayVideo(slide.slide);
-    });
+        if (width < 768) {
+          video = slide.querySelector(".mob-only");
+        } else {
+          video = slide.querySelector(".mob-hide");
+        }
 
-    this.splide.on("resized", () => {
-      const slideIndex = this.splide.index;
-      const slideEl = this.splide.Components.Slides.get(slideIndex)[slideIndex].slide;
-
-      this.loadAndPlayVideo(slideEl);
-    });
-
-    this.splide.on("inactive", (slide) => {
-      const mobVid = slide.slide.querySelector(".mob-only");
-      const deskVid = slide.slide.querySelector(".mob-hide");
-      const width = window.innerWidth;
-
-      if (width < 768) {
-        mobVid.pause();
-      } else {
-        deskVid.pause();
+        if (video) {
+          const source = video.querySelector("source[data-src-lazy]");
+          if (source && !source.src) {
+            source.src = source.getAttribute("data-src-lazy");
+            video.load();
+          }
+          video.play();
+        }
       }
-    });
-
-    this.splide.mount();
-  }
-
-  loadAndPlayVideo(slide) {
-    const mobVid = slide.querySelector(".mob-only");
-    const deskVid = slide.querySelector(".mob-hide");
-    const width = window.innerWidth;
-
-    if (width < 768) {
-      if (!mobVid.classList.contains("splide-loaded")) {
-        mobVid.classList.add("splide-loaded");
-        mobVid.load();
-      }
-
-      mobVid.play();
-    } else {
-      if (!deskVid.classList.contains("splide-loaded")) {
-        deskVid.classList.add("splide-loaded");
-        deskVid.load();
-      }
-      deskVid.play();
-    }
-  }
+    },
+  );
 }
-
-customElements.define("hero-carousel", HeroCarousel);
 
 // ===================
 // SLIDING DRAWER CLASS
@@ -223,9 +313,7 @@ if (!customElements.get("slide-drawer")) {
 
 document.querySelectorAll(".drawer-button").forEach((btn) => {
   btn.addEventListener("click", (event) => {
-    const target = event.target
-      .closest(".drawer-button")
-      .getAttribute("data-target");
+    const target = event.target.closest(".drawer-button").getAttribute("data-target");
     const drawer = document.getElementById(target);
 
     if (!(theme.pageType === "cart" && target === "cartDrawer")) {
@@ -333,9 +421,7 @@ class SubMenuController {
     this.drawer = drawerElement;
     this.activeMenus = new Set();
 
-    this.subMenuButtons = this.drawer.querySelectorAll(
-      ".side_menu-sub-menu-button",
-    );
+    this.subMenuButtons = this.drawer.querySelectorAll(".side_menu-sub-menu-button");
     this.subMenus = this.drawer.querySelectorAll(".side_menu-sub-menu");
 
     this._bindEvents();
@@ -350,9 +436,7 @@ class SubMenuController {
     this.subMenus.forEach((menu) => {
       const closeBtn = menu.querySelector(".sub_menu-close");
       if (closeBtn) {
-        closeBtn.addEventListener("click", () =>
-          this.closeSubMenu(menu.dataset.subMenu),
-        );
+        closeBtn.addEventListener("click", () => this.closeSubMenu(menu.dataset.subMenu));
       }
     });
   }
@@ -383,9 +467,7 @@ class SubMenuController {
   }
 
   _getMenuByHandle(handle) {
-    return this.drawer.querySelector(
-      `.side_menu-sub-menu[data-sub-menu="${handle}"]`,
-    );
+    return this.drawer.querySelector(`.side_menu-sub-menu[data-sub-menu="${handle}"]`);
   }
 
   _closeActions(menu) {
@@ -449,8 +531,7 @@ if (!customElements.get("content-accordian")) {
         const header = event.currentTarget;
         const content = header.nextElementSibling;
 
-        if (!content || !content.classList.contains("accordian-content"))
-          return;
+        if (!content || !content.classList.contains("accordian-content")) return;
 
         const isOpen = header.classList.contains("active");
 
@@ -492,8 +573,7 @@ if (!customElements.get("product-card")) {
 
       _init() {
         // add click listeners to all the desktop quick add to basket buttons
-        const qatbButtons =
-          this.querySelectorAll(".qatb-btn:not([data-click-added])") || [];
+        const qatbButtons = this.querySelectorAll(".qatb-btn:not([data-click-added])") || [];
 
         qatbButtons.forEach((btn) => {
           btn.setAttribute("data-click-added", "true");
@@ -503,9 +583,7 @@ if (!customElements.get("product-card")) {
             const targetSize = targetButton.innerText;
 
             // remove any existing cart errors
-            const errors = targetButton
-              .closest(".qatb-btns")
-              .parentElement.querySelectorAll(".cart-error");
+            const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
             errors.forEach((error) => {
               error.remove();
             });
@@ -518,9 +596,7 @@ if (!customElements.get("product-card")) {
                 //if success
                 targetButton.innerHTML = targetSize;
                 //close the modal so cart can open
-                const modal = document.getElementById(
-                  `mqatb-${this.dataset.prodId}`,
-                );
+                const modal = document.getElementById(`mqatb-${this.dataset.prodId}`);
                 modal ? modal.classList.remove("active") : "";
               })
               .catch((error) => {
@@ -530,21 +606,16 @@ if (!customElements.get("product-card")) {
                 // display an error message next to the qatb buttons
                 const errorBox = document.createElement("div");
                 errorBox.className = "cart-error warning";
-                errorBox.textContent =
-                  error.description || "Sorry, something went wrong.";
+                errorBox.textContent = error.description || "Sorry, something went wrong.";
                 targetButton.closest(".qatb-btns").before(errorBox);
               });
           });
         });
 
         // add click listeners to the open mobile qatb button
-        const openmqatbBtn = this.querySelector(
-          ".mqatb-show:not([data-click-added])",
-        );
+        const openmqatbBtn = this.querySelector(".mqatb-show:not([data-click-added])");
         openmqatbBtn.setAttribute("data-click-added", "true");
-        openmqatbBtn.addEventListener("click", (event) =>
-          this._openMobileQB(event),
-        );
+        openmqatbBtn.addEventListener("click", (event) => this._openMobileQB(event));
 
         // add click listeners to the Iwish buttons
         const el = this.querySelector(".iWishColl:not([data-click-added])");
@@ -633,9 +704,7 @@ class CartAPI {
     let normalizedItems = [];
 
     if (Array.isArray(items)) {
-      normalizedItems = items.map((item) =>
-        typeof item === "object" ? item : { id: item, quantity: 1 },
-      );
+      normalizedItems = items.map((item) => (typeof item === "object" ? item : { id: item, quantity: 1 }));
     } else if (typeof items === "object") {
       normalizedItems = [items]; // single object like { id, quantity }
     } else {
@@ -766,9 +835,7 @@ class CartAPI {
         const closeBtn = existingDrawer.querySelector(".drawer-close");
         existingDrawer.innerHTML = newDrawer.innerHTML;
         if (closeBtn) existingDrawer.appendChild(closeBtn);
-        const emptyContent = existingDrawer.querySelector(
-          "div.cart_items-list",
-        );
+        const emptyContent = existingDrawer.querySelector("div.cart_items-list");
         if (emptyContent) {
           emptyContent.classList.add("active");
         }
@@ -813,23 +880,14 @@ if (!customElements.get("line-item")) {
 
                 // update the quantity selector values
                 input.value = newQty;
-                selector.querySelector(".quantity-minus").dataset.newQty =
-                  newQty - 1;
-                selector.querySelector(".quantity-plus").dataset.newQty =
-                  newQty + 1;
+                selector.querySelector(".quantity-minus").dataset.newQty = newQty - 1;
+                selector.querySelector(".quantity-plus").dataset.newQty = newQty + 1;
 
                 // update the line total.
-                this.querySelector(".cart_item-total").innerHTML =
-                  Cart.formatMoney(
-                    Cart.cart.items[this.itemIndex].line_price,
-                    Cart.cart.currency,
-                  );
+                this.querySelector(".cart_item-total").innerHTML = Cart.formatMoney(Cart.cart.items[this.itemIndex].line_price, Cart.cart.currency);
 
                 // update the cart total
-                Cart.updateCheckoutTotal(
-                  Cart.cart.total_price,
-                  Cart.cart.currency,
-                );
+                Cart.updateCheckoutTotal(Cart.cart.total_price, Cart.cart.currency);
               });
             }
           });
@@ -871,10 +929,7 @@ if (!customElements.get("line-item")) {
             "transitionend",
             () => {
               el.parentElement.remove();
-              Cart.updateCheckoutTotal(
-                Cart.cart.total_price,
-                Cart.cart.currency,
-              );
+              Cart.updateCheckoutTotal(Cart.cart.total_price, Cart.cart.currency);
             },
             {
               once: true,

@@ -4,41 +4,126 @@
   <div class="loader grid-loader gender-loader"></div>
   <div id="womens-recommendations" class="womens-gender-filter fade-in">
     <h4 class="no-gender-filter">WOMENS</h4>
-    <div class="gender-recommendations-carousel ">
-      {% render 'product-card', product:  all_products['gym-king-365-wrap-front-legging-aquatic-blue'], columns: 2 %}
-      {% render 'product-card', product:  all_products['gym-king-365-full-zip-funnel-white'], columns: 2  %}
-      {% render 'product-card', product:  all_products['gym-king-formation-asymetric-bra-washed-lemon-sherbert'], columns: 2  %}
-    </div>
-  </div
-  >
+    <product-carousel class="gender-recommendations-carousel product-grid">
+      {% for product in section.settings['fallback-1'].products limit: 12 %}
+        {% render 'product-card', product: product, class: 'splide__slide' %}
+      {% endfor %}
+    </product-carousel>
+  </div>
+
   <div id="mens-recommendations" class="mens-gender-filter fade-in">
     <h4 class="no-gender-filter">MENS</h4>
-    <div class="gender-recommendations-carousel ">
-      {% render 'product-card', product:  all_products['gym-king-365-wrap-front-legging-aquatic-blue'] %}
-      {% render 'product-card', product:  all_products['gym-king-365-full-zip-funnel-white'] %}
-      {% render 'product-card', product:  all_products['gym-king-formation-asymetric-bra-washed-lemon-sherbert'] %}
-    </div>
+    <product-carousel class="gender-recommendations-carousel product-grid">
+      {% for product in section.settings['fallback-2'].products limit: 12 %}
+        {% render 'product-card', product: product, class: 'splide__slide' %}
+      {% endfor %}
+    </product-carousel>
   </div>
 </div>
-
-
-
+<div class="gender-wrapper">
+  <div class="recommendation-ctas womens-gender-filter fade-in">
+    {% if section.settings['best_sellers-1'] -%}
+      <a href="{{ section.settings.best_sellers-1.url }}" class="button button-primary">{{- section.settings['best_sellers-1'].title -}}</a>
+    {%- endif %}
+    {% if section.settings['new-1'] -%}
+      <a href="{{ section.settings.new-1.url }}" class="button button-primary">{{ section.settings['new-1'].title }}</a>
+    {%- endif %}
+  </div>
+  <div class="recommendation-ctas mens-gender-filter fade-in">
+    {% if section.settings['best_sellers-2'] -%}
+      <a href="{{ section.settings.best_sellers-2.url }}" class="button button-primary">
+        {{- section.settings['best_sellers-2'].title -}}
+      </a>
+    {% endif %}
+    {% if section.settings['new-2'] %}
+      <a href="{{ section.settings.new-2.url }}" class="button button-primary">{{ section.settings['new-2'].title }}</a>
+    {%- endif %}
+  </div>
+</div>
 {% stylesheet %}
-  .gender-recommendations-carousel {
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    margin: 0 auto;
-    gap: 15px;
-    flex-flow: row nowrap;
+  product-carousel {
+    display: block;
+    width: 100%;
+    min-height: calc(150vw / 4);
   }
 
+  .splide__arrows {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 6px;
+  }
+
+  .splide__arrow {
+    display: grid;
+    fill: var(--c-grey);
+    transition: fill 0.2s ease;
+    &:hover {
+      fill: var(--c-dark-grey);
+    }
+
+    & svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .recommendation-ctas {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+
+    & a {
+      flex: 1 1 max-content;
+    }
+  }
 {% endstylesheet %}
 {% schema %}
 {
   "name": "Recommendation Carousel",
   "class": "section-gender-recommendation-carousel max-width",
   "limit": 1,
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Womens's Recommendations"
+    },
+    {
+      "type": "collection",
+      "id": "fallback-1",
+      "label": "Women's Fallback Collection"
+    },
+    {
+      "type": "collection",
+      "id": "best_sellers-1",
+      "label": "Womens's Best Sellers Collection"
+    },
+    {
+      "type": "collection",
+      "id": "new-1",
+      "label": "Womens's New Collection"
+    },
+    {
+      "type": "header",
+      "content": "Mens's Recommendations"
+    },
+    {
+      "type": "collection",
+      "id": "fallback-2",
+      "label": "Men's Fallback Collection"
+    },
+    {
+      "type": "collection",
+      "id": "best_sellers-2",
+      "label": "Mens's Best Sellers Collection"
+    },
+    {
+      "type": "collection",
+      "id": "new-2",
+      "label": "Mens's New Collection"
+    }
+  ],
   "presets": [
     {
       "name": "Product Recommendation Carousel",

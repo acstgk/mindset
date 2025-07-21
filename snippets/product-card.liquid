@@ -3,10 +3,14 @@
 
   @param {object} product - Product object
   @param {string} [loading] - Defaults to "lazy" but can be changed to "eager" or "auto"
+  @param {string} [class] - add a custom class - ideal for splider
 
   @example
-  {% render 'example-snippet', product: 'Featured Products', loading: "lazy"%}
+  {% render 'example-snippet', product: 'Featured Products', loading: "lazy", class: "custom-class"%}
 {% enddoc %}
+
+{% assign loading = loading | default: 'lazy' %}
+
 
 {% assign sizes = '(min-width: 1200px) 25vw, (min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw' %}
 {% assign widths = '300, 450, 600, 750, 900, 1200, 1800' %}
@@ -31,9 +35,7 @@
   {% endif %}
 {% endcapture %}
 
-{% assign loading = loading | default: 'lazy' %}
-
-<product-card data-prod-id="{{ product.id }}">
+<product-card data-prod-id="{{ product.id }}" {%- if class -%} class="{{ class }}"{%- endif -%}>
   {% comment %} images and interactions {% endcomment %}
   <div class="product_card-media">
     <a class="product_card-images" href="{{ product.url }}">

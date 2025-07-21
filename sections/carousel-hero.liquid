@@ -1,107 +1,86 @@
 <hero-carousel>
-  <div class="hero_track splide__track">
-    <div class="hero_list splide__list">
-      {%- for block in section.blocks -%}
-        <div class="hero_slide splide__slide" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
-          {% assign preload = 'lazy' %}
-          {% unless forloop.first %}
-            {% assign preload = 'eager' %}
-          {% endunless %}
+  {%- for block in section.blocks -%}
+    <div class="hero_slide  splide__slide" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+      {% assign preload = 'lazy' %}
+      {% unless forloop.first %}
+        {% assign preload = 'eager' %}
+      {% endunless %}
 
-          {% if block.settings.mobile_video %}
-            {{
-              block.settings.mobile_video.preview_image
-              | image_url: width: 1, height: 1
-              | image_tag: width: 1, class: 'hero_slide-color', alt: 'background color'
-            }}
+      {% if block.settings.mobile_video %}
+        {{ block.settings.mobile_video.preview_image | image_url: width: 1, height: 1 | image_tag: width: 1, class: 'hero_slide-color', alt: 'background color' }}
 
-            {% assign poster_image = block.settings.mobile_poster
-              | image_url: height: '800px'
-              | default: block.settings.mobile_video.preview_image
-            %}
+        {% assign poster_image = block.settings.mobile_poster | image_url: height: '800px' | default: block.settings.mobile_video.preview_image %}
 
-            {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.mobile_video.aspect_ratio %}
-            {% assign video_src = block.settings.mobile_video.sources | where: "format", "mp4" | first %}
+        {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.mobile_video.aspect_ratio %}
+        {% assign video_src = block.settings.mobile_video.sources | where: 'format', 'mp4' | first %}
 
-            <video
-              playsinline="true"
-              loop="loop"
-              muted="muted"
-              class="hero_slide-video mob-only"
-              poster="{{ poster_image }}"
-              style="{{ aspect_ratio }}"
-            >
-              <source data-splide-lazy="{{ video_src.url }}" type="video/mp4">
-            </video>
+        <video
+          playsinline="true"
+          loop="loop"
+          muted="muted"
+          class="hero_slide-video mob-only"
+          poster="{{ poster_image }}"
+          style="{{ aspect_ratio }}"
+        >
+          <source data-src-lazy="{{ video_src.url }}" type="video/mp4">
+        </video>
 
-          {% else %}
-            {{
-              block.settings.mobile_poster
-              | image_url: height: 800
-              | image_tag: height: 800, class: 'hero_slide-video mob-only', loading: preload
-            }}
-          {% endif %}
-          {% if block.settings.desktop_video %}
-            {% assign poster_image = block.settings.desktop_poster
-              | image_url: width: '1270px'
-              | default: block.settings.desktop_video.preview_image
-            %}
+      {% else %}
+        {{ block.settings.mobile_poster | image_url: height: 800 | image_tag: height: 800, class: 'hero_slide-video mob-only', loading: preload }}
+      {% endif %}
 
-            {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.desktop_video.aspect_ratio %}
-                        {% assign video_src = block.settings.desktop_video.sources | where: "format", "mp4" | first %}
+      {% if block.settings.desktop_video %}
+        {% assign poster_image = block.settings.desktop_poster | image_url: width: '1270px' | default: block.settings.desktop_video.preview_image %}
 
+        {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.desktop_video.aspect_ratio %}
+        {% assign video_src = block.settings.desktop_video.sources | where: 'format', 'mp4' | first %}
 
-            <video
-              playsinline="true"
-              loop="loop"
-              muted="muted"
-              class="hero_slide-video mob-hide"
-              poster="{{ poster_image }}"
-              style="{{ aspect_ratio }}"
-            >
-              <source data-splide-lazy="{{ video_src.url }}" type="video/mp4">
-            </video>
-          {% else %}
-            {{
-              block.settings.desktop_poster
-              | image_url: width: '1270px'
-              | image_tag: width: 1270, class: 'hero_slide-video mob-hide', loading: preload
-            }}
-          {% endif %}
-          <div class="hero_slide-content">
-            {% if block.settings.overlay_url %}
-              <a href="{{ block.settings.overlay_url }}" class="hero_slide-overlay"></a>
+        <video
+          playsinline="true"
+          loop="loop"
+          muted="muted"
+          class="hero_slide-video mob-hide"
+          poster="{{ poster_image }}"
+          style="{{ aspect_ratio }}"
+        >
+          <source data-src-lazy="{{ video_src.url }}" type="video/mp4">
+        </video>
+      {% else %}
+        {{ block.settings.desktop_poster | image_url: width: '1270px' | image_tag: width: 1270, class: 'hero_slide-video mob-hide', loading: preload }}
+      {% endif %}
+
+      <div class="hero_slide-content">
+        {% if block.settings.overlay_url %}
+          <a href="{{ block.settings.overlay_url }}" class="hero_slide-overlay"></a>
+        {% endif %}
+
+        {% if block.settings.lockup_img %}
+          {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in' }}
+        {% endif %}
+        {% unless block.settings.title == '' %}
+          <h2 class="h1 fade-in">{{ block.settings.title }}</h2>
+        {% endunless %}
+        {% unless block.settings.subtitle == '' %}
+          <p
+            class="h3 fade-in"
+            {% if block.settings.subtitle_first %}
+              style="order:-1"
             {% endif %}
-
-            {% if block.settings.lockup_img %}
-              {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in' }}
-            {% endif %}
-            {% unless block.settings.title == '' %}
-              <h2 class="h1 fade-in">{{ block.settings.title }}</h2>
-            {% endunless %}
-            {% unless block.settings.subtitle == '' %}
-              <p
-                class="h3 fade-in"
-                {% if block.settings.subtitle_first %}
-                  style="order:-1"
-                {% endif %}
-              >
-                {{ block.settings.subtitle }}
-              </p>
-            {% endunless %}
-            {% unless block.settings.cta1 == '' %}
-              <div class="hero_slide-ctas fade-in">
-                <a href="{{ block.settings.url1 }}" class="button button-inverted">{{ block.settings.cta1 }}</a>
-                {% unless block.settings.cta2 == '' %}
-                  <a href="{{ block.settings.url2 }}" class="button button-inverted">{{ block.settings.cta2 }}</a>
-                {% endunless %}
-              </div>
+          >
+            {{ block.settings.subtitle }}
+          </p>
+        {% endunless %}
+        {% unless block.settings.cta1 == '' %}
+          <div class="hero_slide-ctas fade-in">
+            <a href="{{ block.settings.url1 }}" class="button button-inverted">{{ block.settings.cta1 }}</a>
+            {% unless block.settings.cta2 == '' %}
+              <a href="{{ block.settings.url2 }}" class="button button-inverted">{{ block.settings.cta2 }}</a>
             {% endunless %}
           </div>
-        </div>
-      {% endfor %}
+        {% endunless %}
+      </div>
     </div>
-  </div>
+  {% endfor %}
 </hero-carousel>
 
 {% schema %}

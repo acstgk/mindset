@@ -16,7 +16,7 @@
           "type": "image",
           "settings": {
             "mobile_video": "shopify://files/videos/Energy Flex Mobile Banner.mp4",
-            "mobile_poster": "shopify://shop_images/Energy-Flex-Mobile-Banner.jpg",
+            "mobile_poster": "shopify://shop_images/arm-back-muscles.jpg",
             "desktop_video": "shopify://files/videos/Energy Flex Desktop Banner.mp4",
             "desktop_poster": "shopify://shop_images/gym21.jpg",
             "overlay_url": "",
@@ -29,34 +29,19 @@
             "url2": ""
           }
         },
-        "image_4tA8AN": {
-          "type": "image",
-          "settings": {
-            "mobile_video": "shopify://files/videos/Team GKW - Mobile Banner.mp4",
-            "desktop_video": "shopify://files/videos/Team GKW - Desktop Banner.mp4",
-            "overlay_url": "",
-            "title": "GKW Summer",
-            "subtitle": "This season it's",
-            "subtitle_first": true,
-            "cta1": "Shop now",
-            "url1": "",
-            "cta2": "",
-            "url2": ""
-          }
-        },
         "image_McwRfJ": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/Spring Sale - Mobile Banner Mens.mp4",
-            "mobile_poster": "shopify://shop_images/maisie2.jpg",
-            "desktop_video": "shopify://files/videos/Spring Sale - Desktop Banner Mens.mp4",
-            "desktop_poster": "shopify://shop_images/Maisie_trying_on_our_Gym_King_Womens_fleecewear.jpg",
+            "mobile_video": "shopify://files/videos/Limitless x Maisie Mobile Banner.mp4",
+            "mobile_poster": "shopify://shop_images/maisie10.jpg",
+            "desktop_video": "shopify://files/videos/Limitless x Maisie Desktop Banner.mp4",
+            "desktop_poster": "shopify://shop_images/image2.jpg",
             "overlay_url": "",
             "lockup_img": "shopify://shop_images/Limitless-X-Maisie-1.png",
-            "title": "",
-            "subtitle": "",
-            "subtitle_first": false,
-            "cta1": "",
+            "title": "New Collaboration",
+            "subtitle": "By Maisie. For you.",
+            "subtitle_first": true,
+            "cta1": "Shop now",
             "url1": "",
             "cta2": "",
             "url2": ""
@@ -65,7 +50,6 @@
       },
       "block_order": [
         "image_i7tBKt",
-        "image_4tA8AN",
         "image_McwRfJ"
       ],
       "settings": {}
@@ -168,7 +152,14 @@
     "gender_recommendation_carousel_QMFmBV": {
       "type": "gender-recommendation-carousel",
       "name": "Product Recommendation Carousel",
-      "settings": {}
+      "settings": {
+        "fallback-1": "bestsellers-womens",
+        "best_sellers-1": "womens-bestsellers",
+        "new-1": "womens-new",
+        "fallback-2": "mens-bestsellers-2",
+        "best_sellers-2": "mens-bestsellers-2",
+        "new-2": "mens-new"
+      }
     }
   },
   "order": [
