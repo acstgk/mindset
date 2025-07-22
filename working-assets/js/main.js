@@ -308,6 +308,7 @@ class CartAPI {
     this.removeItem = this.removeItem.bind(this);
     this.updateLineItem = this.updateLineItem.bind(this);
     this.dispatchCartUpdate = this.dispatchCartUpdate.bind(this);
+    this.cartIcon = document.getElementById("header_cart-icon");
     this.loadCart();
   }
 
@@ -331,6 +332,7 @@ class CartAPI {
       const data = await res.json();
       console.log("Cart JSON data loaded:", data);
       this.cart = data;
+      this.cart.item_count > 0 ? this.cartIcon.classList.add("cart-not-empty") : this.cartIcon.classList.remove("cart-not-empty");
       this.dispatchCartUpdate("cart:loaded"); // Notify UI components
     } catch (error) {
       console.error("Error loading cart.js:", error);
@@ -389,8 +391,8 @@ class CartAPI {
         body: JSON.stringify({ id: lineItemKey, quantity: 0 }),
       });
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+
       const data = await res.json();
-      console.log("Item removed:", data);
       await this.loadCart(); // Reload cart data and dispatch update
       this.dispatchCartUpdate("cart:itemRemoved");
       return data;

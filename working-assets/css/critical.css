@@ -422,14 +422,14 @@ ul.dropdown_col-links {
   position: relative;
   color: var(--c-black);
   scale: 1;
-  transition: scale 0.15s var(--overshoot-bezier), color 0.15s;
+  transition: scale 0.15s var(--overshoot-bezier) ;
 
   & .iwish-counter {
     display: none;
   }
 
   &:after {
-    background: #1b1b1b;
+    background-color: var(--c-black);
     border-radius: 4px;
     box-shadow: 0 0 0 2px var(--c-white);
     content: "";
@@ -439,12 +439,16 @@ ul.dropdown_col-links {
     right: 0px;
     top: 2px;
     transform: scale(0);
-    transition: transform .2s ease-in-out;
+    transition: transform .2s var(--overshoot-bezier);
+    transition-delay: 0.2s;
     width: 8px;
   }
 
+  &.cart-not-empty:after {
+    transform: scale(1);
+  }
+
   &:hover {
-    color: var(--c-grey);
     scale: 1.1;
   }
 }
