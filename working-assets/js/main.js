@@ -621,19 +621,29 @@ class ComponentLoader {
   }
 
   init() {
-    this.observer = new IntersectionObserver((entries, obs) => {
-      const entry = entries[0];
-      if (entry.isIntersecting) {
-        this.loadAndDefine();
-        obs.disconnect();
-      }
-    }, {
-      root: null,
-      rootMargin: "0px 0px 200px 0px",
-      threshold: 0,
-    });
+    const target = this.element.closest(".shopify-section") || this.element;
+    const rect = target.getBoundingClientRect();
+    if (rect.top <= window.innerHeight) {
+      this.loadAndDefine();
+      return;
+    }
 
-    this.observer.observe(this.element.closest(".shopify-section" ) || this.element);
+    this.observer = new IntersectionObserver(
+      (entries, obs) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          this.loadAndDefine();
+          obs.disconnect();
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px 0px 200px 0px",
+        threshold: 0,
+      },
+    );
+
+    this.observer.observe(target);
   }
 
   loadAndDefine() {
