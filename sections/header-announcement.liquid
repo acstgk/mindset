@@ -1,3 +1,10 @@
+{%- capture countdown_settings -%}
+{
+"end": {{ settings.countdown-date | json }},
+"copy": {{ settings.countdown-announcement-text | json }}
+}
+{%- endcapture -%}
+
 {%- if section.settings.enable_bar -%}
   {%- unless section.settings.home_page_only and template != 'index' -%}
     <announcement-bar id="announcement_splide">
@@ -11,9 +18,13 @@
               {{ block.shopify_attributes }}
             >
               <b class="announcement_content-title">{{ block.settings.title | escape }} </b>
-              <span class="announcement_content-text">
-                {{ block.settings.subcontent1 | escape }}
-              </span>
+              {% if block.settings.enable_countdown %}
+                <countdown-timer data-countdown='{{ countdown_settings | strip_newlines  }}'></countdown-timer>
+              {% else %}
+                <span class="announcement_content-text">
+                  {{ block.settings.subcontent1 | escape }}
+                </span>
+              {% endif %}
             </a>
           {% endfor %}
         </div>
@@ -74,6 +85,14 @@
           "type": "url",
           "id": "link1",
           "label": "Link"
+        },
+
+        {
+          "type": "checkbox",
+          "id": "enable_countdown",
+          "label": "Enable Countdown",
+          "default": false,
+          "info": "This will override the sub text and display a countdown timer instead"
         }
       ]
     }

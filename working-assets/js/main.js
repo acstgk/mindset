@@ -652,6 +652,7 @@ class ComponentLoader {
 window.ComponentLoader = ComponentLoader; // Export for global access
 
 new ComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
+new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
 new ComponentLoader("product-card", () => import("./ProductCard.js"));
 new ComponentLoader("product-carousel", () => import("./ProductCarousel.js"));
 new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));

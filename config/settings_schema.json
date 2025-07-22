@@ -14,7 +14,7 @@
         "type": "text",
         "id": "countdown-date",
         "info": "MM/DD/YY 11:11 AM",
-        "label": "Enter Date"
+        "label": "Enter End Date"
       },
       {
         "type": "header",
@@ -56,26 +56,11 @@
         "content": "Announcement Settings"
       },
       {
-        "type": "checkbox",
-        "id": "countdown-announcement-check",
-        "label": "Enable Announcement Countdown",
-        "info": "Will display first on countdown",
-        "default": false
-      },
-      {
-        "type": "text",
-        "id": "countdown-announcement-title",
-        "label": "Announcement Countdown Title"
-      },
-      {
         "type": "text",
         "id": "countdown-announcement-text",
-        "label": "Announcement Countdown Text"
-      },
-      {
-        "type": "url",
-        "id": "countdown-announcement-url",
-        "label": "Announcement Countdown URL"
+        "label": "Announcement Countdown Text",
+        "info": "text displayed inline before countdown",
+        "default": "Ends in"
       }
     ]
   },
