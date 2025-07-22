@@ -19,7 +19,10 @@
 {% assign loading = loading | default: 'lazy' %}
 {% assign sizes = '(min-width: 1200px) 25vw, (min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw' %}
 {% assign widths = '300, 450, 600, 750, 900, 1200, 1800' %}
-
+{% assign show_timer = false %}
+{% if product.tags contains settings['countdown-tag'] and settings['countdown-product-check'] %}
+  {% assign show_timer = true %}
+{% endif %}
 {% capture qatb_buttons %}
   <div class="qatb-btns">
     {% for variant in product.variants %}
@@ -40,22 +43,25 @@
   {% endif %}
 {% endcapture %}
 
-<product-card data-prod-id="{{ product.id }}" {%- if class -%} class="{{ class }}"{%- endif -%}>
+<product-card
+  data-prod-id="{{ product.id }}"
+  {%- if class -%}
+    class="{{ class }}"
+  {%- endif -%}
+>
   {% comment %} images and interactions {% endcomment %}
   <div class="product_card-media">
+    {% if show_timer or settings['decal-check'] %}
+      {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: sizes: sizes, widths: widths, loading: 'lazy', class: 'product_card-decal' }}
+    {% endif %}
     <a class="product_card-images" href="{{ product.url }}">
       <div class="loader grid-loader"></div>
       {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager' }}
-
-      {% if product.tags contains settings.countdown-tag and settings.decal-check or settings.countdown-product-check%}
-        {{ settings.countdown-decal | image_url: width: 950 | image_tag: sizes: sizes, widths: widths, loading: 'lazy', class: 'product_card-decal' }}
-      {% endif %}
 
       {{ product.featured_image | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading }}
       {% if product.images[2] %}
         {{ product.images[2] | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading }}
       {% endif %}
-
     </a>
 
     <div class="datb">
@@ -64,10 +70,10 @@
   </div>
 
   <div class="product_card-info">
-    {% if product.tags contains settings.countdown-tag and settings.countdown-product-check %}
-    <div class="countdown-wrapper">
-      <countdown-timer data-countdown='{{ countdown_settings | strip_newlines  }}'></countdown-timer>
-    </div>
+    {% if show_timer %}
+      <div class="countdown-wrapper">
+        <countdown-timer data-countdown="{{ countdown_settings | strip_newlines | escape }}"></countdown-timer>
+      </div>
     {% endif %}
     {% render 'product-title', product: product %}
     {% render 'product-price', product: product %}
