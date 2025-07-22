@@ -26,7 +26,7 @@ export default class ProductCarousel extends HTMLElement {
           fixedWidth: "25%",
         },
         1100: {
-          fixedWidth: "33%",
+          fixedWidth: "calc(33% - 12px)",
         },
         800: {
           fixedWidth: "50%",
