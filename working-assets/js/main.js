@@ -613,10 +613,8 @@ class LazyComponentLoader {
     this.selector = selector;
     this.importFn = importFn;
     this.element = document.querySelector(selector);
-    this.tagName = selector;
 
-    if (!this.element || customElements.get(this.tagName)) return;
-
+    if (!this.element || customElements.get(this.selector)) return;
     this.init();
   }
 
@@ -638,12 +636,14 @@ class LazyComponentLoader {
 
   loadAndDefine() {
     this.importFn().then((module) => {
-      if (!customElements.get(this.tagName)) {
-        customElements.define(this.tagName, module.default);
+      if (!customElements.get(this.selector)) {
+        customElements.define(this.selector, module.default);
       }
     });
   }
 }
+
+window.LazyComponentLoader = LazyComponentLoader; // Export for global access
 
 new LazyComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
 new LazyComponentLoader("product-card", () => import("./ProductCard.js"));
