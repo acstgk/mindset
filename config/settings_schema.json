@@ -41,7 +41,7 @@
       {
         "type": "image_picker",
         "id": "countdown-decal",
-        "info": "Image should be 746px x 200px, with a transparent bg if required.",
+        "info": "recommended: 950px x 500px full bleed image with transparent background.",
         "label": "Countdown Decal Image"
       },
       {

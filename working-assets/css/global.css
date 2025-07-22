@@ -1080,6 +1080,16 @@ product-card {
         height: 100%;
     }
 
+    & .product_card-decal {
+        height: auto;
+        max-width: 50%;
+        bottom: 1em;
+        position: absolute;
+        display: block;
+        opacity: 1;
+        right: 0;
+    }
+
     & img {
         height: 100%;
         width: 100%;
