@@ -15,6 +15,7 @@ export default class ProductCarousel extends HTMLElement {
     SplideUtil.splideHTML(this);
     this.splide = new Splide(this, {
       type: "loop",
+      start: 1,
       gap: 12,
       pagination: false,
       trimSpace: false,
