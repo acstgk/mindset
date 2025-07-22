@@ -21,6 +21,19 @@ class CountdownManager {
     this.interval = setInterval(() => this.tick(), 1000);
   }
 
+  endCountdown() {
+    clearInterval(this.interval);
+    window.dispatchEvent(new CustomEvent("countdown:ended"));
+    this.subscribers.forEach((el) => {
+      const parent = el.parentElement;
+      if (parent.classList.contains("splide__slide")) {
+        el.closest(".splide").splide.remove(`#${parent.id}`); // Remove from Splide if applicable
+      } else {
+        parent.remove();
+      }
+    });
+  }
+
   tick() {
     if (!this.endTime) return;
     const now = new Date();
@@ -28,9 +41,7 @@ class CountdownManager {
     let text;
 
     if (diff <= 0) {
-      text = "Time's up!";
-      clearInterval(this.interval);
-      this.subscribers.forEach((el) => (el.parentElement.remove()));
+      this.endCountdown();
     } else {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
@@ -41,12 +52,12 @@ class CountdownManager {
       if (days > 0) totalTime += `${days}D&nbsp;&nbsp;`;
       if (hours > 0 || days > 0) totalTime += `${hours}H&nbsp;&nbsp;`;
       if (minutes > 0 || hours > 0 || days > 0) totalTime += `${minutes}M&nbsp;&nbsp;`;
-      if (seconds > 0 || minutes > 0 || hours > 0 || days > 0) totalTime += `${seconds}S`;
+      totalTime += `${seconds}S`;
 
       text = `${this.copy} <b> ${totalTime}</b>`;
       this.subscribers.forEach((el) => (el.innerHTML = text));
+      return diff;
     }
-
   }
 
   register(el) {
