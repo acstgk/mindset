@@ -1,7 +1,5 @@
-/* global Shopify, theme, iWish */
-
+/* global Shopify, theme */
 import Splide from "./splide.min.js";
-import { SplideUtil } from "./SplideUtil.js";
 
 // ===================
 // Annoucement Carousel
@@ -39,99 +37,6 @@ if (!customElements.get("announcement-bar")) {
         });
 
         this.splide.mount();
-      }
-    },
-  );
-}
-
-// ===================
-// Hero Carousel
-// ===================
-
-if (!customElements.get("hero-carousel")) {
-  customElements.define(
-    "hero-carousel",
-    class HeroCarousel extends HTMLElement {
-      constructor() {
-        super();
-        this.splide = null;
-      }
-
-      connectedCallback() {
-        SplideUtil.splideHTML(this);
-        this.splide = new Splide(this, {
-          type: "fade",
-          autoplay: true,
-          interval: 5000,
-          arrows: false,
-          rewind: true,
-          lazyLoad: "nearby",
-          preloadPages: 1,
-          pauseOnHover: true,
-        });
-
-        this.splide.on("overflow", (isOverflow) => {
-          this.splide.options = {
-            ...this.splide.options,
-            pagination: isOverflow,
-            drag: isOverflow,
-          };
-        });
-
-        this.splide.on("pagination:mounted", (data) => {
-          if (data.items.length > 1) {
-            data.items.forEach((item) => {
-              item.button.textContent = "0" + String(item.page + 1);
-            });
-          }
-        });
-
-        this.splide.on("ready", () => {
-          const firstSlide = this.splide.root.querySelector("#splide01-slide01");
-          this.loadAndPlayVideo(firstSlide);
-        });
-
-        this.splide.on("active", (slide) => {
-          this.loadAndPlayVideo(slide.slide);
-        });
-
-        this.splide.on("resized", () => {
-          const slideIndex = this.splide.index;
-          const slideEl = this.splide.Components.Slides.get(slideIndex)[slideIndex].slide;
-
-          this.loadAndPlayVideo(slideEl);
-        });
-
-        this.splide.on("inactive", (slide) => {
-          const mobVid = slide.slide.querySelector(".mob-only");
-          const deskVid = slide.slide.querySelector(".mob-hide");
-          const width = window.innerWidth;
-
-          if (width < 768) {
-            mobVid.pause();
-          } else {
-            deskVid.pause();
-          }
-        });
-
-        this.splide.mount();
-      }
-
-      loadAndPlayVideo(slide) {
-        if (!slide) return;
-
-        const width = window.innerWidth;
-        let video = width < 768 ? slide.querySelector(".mob-only") : slide.querySelector(".mob-hide");
-
-        if (!video) return;
-
-        const source = video.querySelector("source[data-src-lazy]");
-        if (source && !source.src) {
-          source.src = source.getAttribute("data-src-lazy");
-          video.load();
-        }
-
-        video.play();
       }
     },
   );
@@ -281,49 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ===================
-// PAGE OVERLAY CLASS
-// ===================
-
-if (!customElements.get("page-overlay")) {
-  customElements.define(
-    "page-overlay",
-    class PageOverlay extends HTMLElement {
-      connectedCallback() {
-        this.addEventListener("click", this.closeAllOverlays.bind(this));
-      }
-
-      closeAllOverlays() {
-        // allow scrolling
-        this.closeThis();
-        // close any open drawers
-        this._closeLoop("slide-drawer");
-        // close any mobile qatb modals
-        this._closeLoop(".mqatb-modal");
-      }
-
-      _closeLoop(query) {
-        const els = document.querySelectorAll(query);
-        els.forEach((el) => {
-          if (el.getAttribute("aria-hidden") == "false") {
-            el.classList.remove("active");
-            el.setAttribute("aria-hidden", "true");
-            el.close();
-          }
-        });
-      }
-
-      closeThis() {
-        document.body.classList.remove("no-scroll");
-      }
-
-      openThis() {
-        document.body.classList.add("no-scroll");
-      }
-    },
-  );
-}
-
-// ===================
 // DRAWER MENU SUB MENU CONTROLS
 // ===================
 
@@ -392,101 +254,43 @@ const drawer = document.getElementById("navDrawer");
 const menuController = new SubMenuController(drawer);
 
 // ===================
-// Product Cards
+// PAGE OVERLAY CLASS
 // ===================
 
-if (!customElements.get("product-card")) {
+if (!customElements.get("page-overlay")) {
   customElements.define(
-    "product-card",
-    class ProductCard extends HTMLElement {
-      constructor() {
-        super();
-      }
-
+    "page-overlay",
+    class PageOverlay extends HTMLElement {
       connectedCallback() {
-        this._init();
-        this._moveMobileQB();
+        this.addEventListener("click", this.closeAllOverlays.bind(this));
       }
 
-      _init() {
-        // add click listeners to all the desktop quick add to basket buttons
-        const qatbButtons = this.querySelectorAll(".qatb-btn:not([data-click-added])") || [];
+      closeAllOverlays() {
+        // allow scrolling
+        this.closeThis();
+        // close any open drawers
+        this._closeLoop("slide-drawer");
+        // close any mobile qatb modals
+        this._closeLoop(".mqatb-modal");
+      }
 
-        qatbButtons.forEach((btn) => {
-          btn.setAttribute("data-click-added", "true");
-          btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            const targetButton = e.currentTarget;
-            const targetSize = targetButton.innerText;
-
-            // remove any existing cart errors
-            const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
-            errors.forEach((error) => {
-              error.remove();
-            });
-
-            targetButton.innerHTML = `<div class="loader"></div>`; // add the loading animation
-
-            //add the product/s
-            Cart.addItems(targetButton.dataset.vId)
-              .then(() => {
-                //if success
-                targetButton.innerHTML = targetSize;
-                //close the modal so cart can open
-                const modal = document.getElementById(`mqatb-${this.dataset.prodId}`);
-                modal ? modal.classList.remove("active") : "";
-              })
-              .catch((error) => {
-                // if error
-                targetButton.innerHTML = targetSize;
-
-                // display an error message next to the qatb buttons
-                const errorBox = document.createElement("div");
-                errorBox.className = "cart-error warning";
-                errorBox.textContent = error.description || "Sorry, something went wrong.";
-                targetButton.closest(".qatb-btns").before(errorBox);
-              });
-          });
+      _closeLoop(query) {
+        const els = document.querySelectorAll(query);
+        els.forEach((el) => {
+          if (el.getAttribute("aria-hidden") == "false") {
+            el.classList.remove("active");
+            el.setAttribute("aria-hidden", "true");
+            el.close();
+          }
         });
-
-        // add click listeners to the open mobile qatb button
-        const openmqatbBtn = this.querySelector(".mqatb-show:not([data-click-added])");
-        if (!openmqatbBtn) return;
-        openmqatbBtn.setAttribute("data-click-added", "true");
-        openmqatbBtn.addEventListener("click", (event) => this._openMobileQB(event));
-
-        // add click listeners to the Iwish buttons
-        const el = this.querySelector(".iWishColl:not([data-click-added])");
-        el.setAttribute("data-click-added", "true");
-        if (typeof iWish !== "undefined" && iWish.iwishAddClick) {
-          iWish.iwishAddClick(el);
-        }
-
-        // add click listeners to the modal close button
-        const close = this.querySelector(".mqatb-close");
-        close.addEventListener("click", (event) => this._closeMobileQB(event));
       }
 
-      _openMobileQB(event) {
-        const modalID = event.target.dataset.target;
-        const modalEl = document.getElementById(modalID);
-        modalEl.classList.add("active");
-        modalEl.setAttribute("aria-hidden", "false");
-        document.querySelector("page-overlay").openThis();
+      closeThis() {
+        document.body.classList.remove("no-scroll");
       }
 
-      _closeMobileQB(event) {
-        const modal = event.target.closest(".mqatb-modal");
-        modal.classList.remove("active");
-        modal.setAttribute("aria-hidden", "true");
-        document.querySelector("page-overlay").closeThis();
-      }
-
-      _moveMobileQB() {
-        const modal = this.querySelector(".mqatb-modal");
-        if (!modal) return;
-        const body = document.body;
-        body.appendChild(modal);
+      openThis() {
+        document.body.classList.add("no-scroll");
       }
     },
   );
@@ -686,7 +490,7 @@ class CartAPI {
 }
 
 window.Cart = new CartAPI();
-const Cart = window.Cart;
+export const Cart = window.Cart;
 
 // ===================
 // CART LINE ITEMS
@@ -799,7 +603,6 @@ document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
 // DYNAMIC IMPORTS
 // ===================
 
-
 class LazyComponentLoader {
   /**
    * @param {string} selector - Custom element selector (e.g. 'product-carousel')
@@ -826,7 +629,7 @@ class LazyComponentLoader {
 
   checkAndLoad() {
     const rect = this.element.getBoundingClientRect();
-    if ((rect.top) - window.innerHeight <= 200) {
+    if (rect.top - window.innerHeight <= 200) {
       this.loadAndDefine();
       window.removeEventListener("scroll", this.checkAndLoad);
       window.removeEventListener("resize", this.checkAndLoad);
@@ -842,7 +645,7 @@ class LazyComponentLoader {
   }
 }
 
+new LazyComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
+new LazyComponentLoader("product-card", () => import("./ProductCard.js"));
 new LazyComponentLoader("product-carousel", () => import("./ProductCarousel.js"));
 new LazyComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
-
-

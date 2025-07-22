@@ -1,0 +1,94 @@
+import Splide from "./splide.min.js";
+import { SplideUtil } from "./SplideUtil.js";
+
+// ===================
+// Hero Carousel
+// ===================
+if (!customElements.get("hero-carousel")) {
+  customElements.define(
+    "hero-carousel",
+    class HeroCarousel extends HTMLElement {
+      constructor() {
+        super();
+        this.splide = null;
+      }
+
+      connectedCallback() {
+        SplideUtil.splideHTML(this);
+        this.splide = new Splide(this, {
+          type: "fade",
+          autoplay: true,
+          interval: 5000,
+          arrows: false,
+          rewind: true,
+          lazyLoad: "nearby",
+          preloadPages: 1,
+          pauseOnHover: true,
+        });
+
+        this.splide.on("overflow", (isOverflow) => {
+          this.splide.options = {
+            ...this.splide.options,
+            pagination: isOverflow,
+            drag: isOverflow,
+          };
+        });
+
+        this.splide.on("pagination:mounted", (data) => {
+          if (data.items.length > 1) {
+            data.items.forEach((item) => {
+              item.button.textContent = "0" + String(item.page + 1);
+            });
+          }
+        });
+
+        this.splide.on("ready", () => {
+          const firstSlide = this.splide.root.querySelector("#splide01-slide01");
+          this.loadAndPlayVideo(firstSlide);
+        });
+
+        this.splide.on("active", (slide) => {
+          this.loadAndPlayVideo(slide.slide);
+        });
+
+        this.splide.on("resized", () => {
+          const slideIndex = this.splide.index;
+          const slideEl = this.splide.Components.Slides.get(slideIndex)[slideIndex].slide;
+
+          this.loadAndPlayVideo(slideEl);
+        });
+
+        this.splide.on("inactive", (slide) => {
+          const mobVid = slide.slide.querySelector(".mob-only");
+          const deskVid = slide.slide.querySelector(".mob-hide");
+          const width = window.innerWidth;
+
+          if (width < 768) {
+            mobVid.pause();
+          } else {
+            deskVid.pause();
+          }
+        });
+
+        this.splide.mount();
+      }
+
+      loadAndPlayVideo(slide) {
+        if (!slide) return;
+
+        const width = window.innerWidth;
+        let video = width < 768 ? slide.querySelector(".mob-only") : slide.querySelector(".mob-hide");
+
+        if (!video) return;
+
+        const source = video.querySelector("source[data-src-lazy]");
+        if (source && !source.src) {
+          source.src = source.getAttribute("data-src-lazy");
+          video.load();
+        }
+
+        video.play();
+      }
+    }
+  );
+}
