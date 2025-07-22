@@ -9,9 +9,14 @@
   {% render 'example-snippet', product: 'Featured Products', loading: "lazy", class: "custom-class"%}
 {% enddoc %}
 
+{%- capture countdown_settings -%}
+{
+"end": {{ settings.countdown-date | json }},
+"copy": {{ settings.countdown-announcement-text | json }}
+}
+{%- endcapture -%}
+
 {% assign loading = loading | default: 'lazy' %}
-
-
 {% assign sizes = '(min-width: 1200px) 25vw, (min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw' %}
 {% assign widths = '300, 450, 600, 750, 900, 1200, 1800' %}
 
@@ -53,6 +58,11 @@
   </div>
 
   <div class="product_card-info">
+    {% if product.tags contains settings.countdown-tag and settings.countdown-product-check %}
+    <div class="countdown-wrapper">
+      <countdown-timer data-countdown='{{ countdown_settings | strip_newlines  }}'></countdown-timer>
+    </div>
+    {% endif %}
     {% render 'product-title', product: product %}
     {% render 'product-price', product: product %}
   </div>

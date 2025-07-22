@@ -9,6 +9,10 @@
  */
 {
   "current": {
+    "countdown-date": "07/23/25 09:47 PM",
+    "countdown-product-check": true,
+    "countdown-tag": "365",
+    "countdown-decal": "shopify://shop_images/Bank_Hol_24_Hours_Decal.png",
     "highlighted-keyword": "Sale",
     "franchise-img-1": "shopify://shop_images/white-brand-hub.png",
     "franchise-url-1": "shopify://pages/the-brand-hub",
@@ -60,7 +64,8 @@
             "settings": {
               "title": "Announcement 2",
               "subcontent1": "click here",
-              "link1": "/"
+              "link1": "/",
+              "enable_countdown": true
             }
           },
           "announcement_slider_Qw6CQD": {
@@ -68,7 +73,8 @@
             "settings": {
               "title": "Announcement 1",
               "subcontent1": "More Info",
-              "link1": "shopify://products/gk-gift-card"
+              "link1": "shopify://products/gk-gift-card",
+              "enable_countdown": false
             }
           }
         },

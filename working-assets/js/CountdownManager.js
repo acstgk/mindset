@@ -28,18 +28,25 @@ class CountdownManager {
     let text;
 
     if (diff <= 0) {
-      text = this.copy || "Time's up!";
+      text = "Time's up!";
       clearInterval(this.interval);
-      this.interval = null;
+      this.subscribers.forEach((el) => (el.parentElement.remove()));
     } else {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
-      text = `${this.copy} <b style="color:var(--c-dark-grey);"> ${days}D&nbsp;&nbsp;${hours}H&nbsp;&nbsp;${minutes}M&nbsp;&nbsp;${seconds}S</b>`;
+
+      let totalTime = ``;
+      if (days > 0) totalTime += `${days}D&nbsp;&nbsp;`;
+      if (hours > 0 || days > 0) totalTime += `${hours}H&nbsp;&nbsp;`;
+      if (minutes > 0 || hours > 0 || days > 0) totalTime += `${minutes}M&nbsp;&nbsp;`;
+      if (seconds > 0 || minutes > 0 || hours > 0 || days > 0) totalTime += `${seconds}S`;
+
+      text = `${this.copy} <b> ${totalTime}</b>`;
+      this.subscribers.forEach((el) => (el.innerHTML = text));
     }
 
-    this.subscribers.forEach((el) => (el.innerHTML = text));
   }
 
   register(el) {
