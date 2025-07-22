@@ -1,0 +1,20 @@
+
+{% layout none %}
+
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}</title>
+  {{ content_for_header }}
+  {% comment %} <link rel="stylesheet" href="{{ 'gift_card.css' | asset_url }}">
+  <script src="{{ 'gift_card.js' | asset_url }}" defer></script> {% endcomment %}
+</head>
+<body>
+  <div class="gift-card-container">
+    <h1>{{  gift_card.message}} </h1>
+    <p>{{  gift_card.send_on }}</p>
+  </div>
+</body>
+</html>
