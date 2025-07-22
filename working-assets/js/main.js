@@ -1,4 +1,4 @@
-/* global Shopify, theme */
+/* global IntersectionObserver, Shopify, theme */
 import Splide from "./splide.min.js";
 
 // ===================
@@ -603,7 +603,7 @@ document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
 // DYNAMIC IMPORTS
 // ===================
 
-class LazyComponentLoader {
+class ComponentLoader {
   /**
    * @param {string} selector - Custom element selector (e.g. 'product-carousel')
    * @param {Function} importFn - Function that returns the dynamic import (e.g. () => import('./ProductCarousel.js'))
@@ -619,22 +619,26 @@ class LazyComponentLoader {
   }
 
   init() {
-    this.checkAndLoad = this.checkAndLoad.bind(this);
-    this.checkAndLoad();
-    window.addEventListener("scroll", this.checkAndLoad, { passive: true });
-    window.addEventListener("resize", this.checkAndLoad);
-  }
+    this.observer = new IntersectionObserver((entries, obs) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        this.loadAndDefine();
+        obs.disconnect();
+      }
+    }, {
+      root: null,
+      rootMargin: "0px 0px 200px 0px",
+      threshold: 0,
+    });
 
-  checkAndLoad() {
-    const rect = this.element.getBoundingClientRect();
-    if (rect.top - window.innerHeight <= 200) {
-      this.loadAndDefine();
-      window.removeEventListener("scroll", this.checkAndLoad);
-      window.removeEventListener("resize", this.checkAndLoad);
-    }
+    this.observer.observe(this.element.closest(".shopify-section" ) || this.element);
   }
 
   loadAndDefine() {
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer = null;
+    }
     this.importFn().then((module) => {
       if (!customElements.get(this.selector)) {
         customElements.define(this.selector, module.default);
@@ -643,9 +647,9 @@ class LazyComponentLoader {
   }
 }
 
-window.LazyComponentLoader = LazyComponentLoader; // Export for global access
+window.ComponentLoader = ComponentLoader; // Export for global access
 
-new LazyComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
-new LazyComponentLoader("product-card", () => import("./ProductCard.js"));
-new LazyComponentLoader("product-carousel", () => import("./ProductCarousel.js"));
-new LazyComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
+new ComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
+new ComponentLoader("product-card", () => import("./ProductCard.js"));
+new ComponentLoader("product-carousel", () => import("./ProductCarousel.js"));
+new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
