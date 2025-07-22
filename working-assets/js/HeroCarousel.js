@@ -4,10 +4,7 @@ import { SplideUtil } from "./SplideUtil.js";
 // ===================
 // Hero Carousel
 // ===================
-if (!customElements.get("hero-carousel")) {
-  customElements.define(
-    "hero-carousel",
-    class HeroCarousel extends HTMLElement {
+export default class HeroCarousel extends HTMLElement {
       constructor() {
         super();
         this.splide = null;
@@ -90,5 +87,3 @@ if (!customElements.get("hero-carousel")) {
         video.play();
       }
     }
-  );
-}
