@@ -703,14 +703,6 @@ content-accordian {
     }
 }
 
-.countrymobile {
-    margin: 0;
-    padding: 0 20px;
-    height: 35px;
-    align-content: center;
-    line-height: 3;
-}
-
 .side_menu-slider {
     display: grid;
     flex: 1 1 auto;

@@ -166,14 +166,7 @@ slide-drawer {
     align-items: center;
   }
 
-  .countrydesktop {
-    display: block !important;
-  }
-}
 
-.countrydesktop {
-  display: grid;
-  place-content: center;
 }
 
 .header_logo {
