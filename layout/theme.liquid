@@ -9,18 +9,57 @@
       {%- if request.page_type == 'product' -%}
        const window.myCurrentProduct = {{ product | json }};
       {%- endif -%}
+      window.dataLayer = window.dataLayer || [];
 
       function gtag(){
-        window.dataLayer = window.dataLayer || [];
         window.dataLayer.push(arguments);
       }
+
       gtag('js', new Date());
 
       gtag('config', 'G-5VYXHDTFF7',{
         'content_group': "{{ template.name }}"
       });
 
-      window.dataLayer = window.dataLayer || [];
+          //old gtag used by fospha and taggstar
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-PT4PRKB');
+
+      // Gtag
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+        functionality_storage: 'denied',
+        personalization_storage: 'denied',
+        security_storage: 'granted',
+        wait_for_update: 2000,
+      });
+      gtag('set', 'ads_data_redaction', true);
+      gtag('set', 'url_passthrough', true);
+
+      // taggstar global-e tracking
+      var glegem =
+        window['glegem'] ||
+        function () {
+          (window['glegem'].q = window['glegem'].q || []).push(arguments);
+        };
+      glegem('OnCheckoutStepLoaded', function (data) {
+        window.gleConfData = data;
+      });
     </script>
 
     <!-- Clarity -->
@@ -247,48 +286,6 @@
       });
 
       var variantStock = {};
-    </script>
-
-    <script>
-      //old gtag used by fospha and taggstar
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-PT4PRKB');
-
-      // Gtag
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('consent', 'default', {
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: 'denied',
-        functionality_storage: 'denied',
-        personalization_storage: 'denied',
-        security_storage: 'granted',
-        wait_for_update: 2000,
-      });
-      gtag('set', 'ads_data_redaction', true);
-      gtag('set', 'url_passthrough', true);
-
-      // taggstar global-e tracking
-      var glegem =
-        window['glegem'] ||
-        function () {
-          (window['glegem'].q = window['glegem'].q || []).push(arguments);
-        };
-      glegem('OnCheckoutStepLoaded', function (data) {
-        window.gleConfData = data;
-      });
     </script>
 
     {% if request.design_mode %}
