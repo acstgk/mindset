@@ -93,6 +93,17 @@
     }
 }
 
+:not(.rtf) ul,
+:not(.rtf) ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    padding: 0;
+
+}
+
 /* GLOBAL  */
 
 @view-transition {
@@ -541,8 +552,6 @@ content-accordian {
 .accordian-content {
     height: 0;
     overflow: hidden;
-    list-style: none;
-    display: flex;
     gap: 5px;
     flex-flow: column;
     margin: 0;
@@ -617,7 +626,7 @@ content-accordian {
     & ul {
         margin: 0;
         padding: 0 20px;
-        list-style: none;
+        flex-flow: column nowrap;
 
         & li a {
             display: block;
@@ -933,10 +942,7 @@ footer.section--footer {
 }
 
 .social-links {
-    list-style: none;
-    display: flex;
     height: 24px;
-    justify-content: center;
     margin: 15px 0;
     padding: 0;
     gap: 24px;
@@ -974,6 +980,10 @@ footer.section--footer {
     margin: 0 auto;
     font-size: var(--txt-h5);
     color: var(--c-grey);
+}
+
+body:has(.yotpo-widget-loyalty-floater-widget) .footer-copyright {
+    margin-bottom: 40px;
 }
 
 .footer-copyright {
