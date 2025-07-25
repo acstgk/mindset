@@ -4,28 +4,28 @@
       {% if settings.social_fb != '' %}
         <li>
           <a href="{{ settings.social_fb }}" target="_blank" aria-label="Follow us on Facebook">
-            {% render 'icon' with 'icon' as 'fb' %}
+            {% render 'icon' with 'fb' as icon %}
           </a>
         </li>
       {% endif %}
       {% if settings.social_ig != '' %}
         <li>
           <a href="{{ settings.social_ig }}" target="_blank" aria-label="Follow us on Instagram">
-            {% render 'icon' with 'icon' as 'ig' %}
+            {% render 'icon' with 'ig' as icon %}
           </a>
         </li>
       {% endif %}
       {% if settings.social_yt != '' %}
         <li>
           <a href="{{ settings.social_yt }}" target="_blank" aria-label="Follow us on Youtube">
-            {% render 'icon' with  'icon' as 'yt' %}
+            {% render 'icon' with 'yt' as icon %}
           </a>
         </li>
       {% endif %}
       {% if settings.social_tt != '' %}
         <li>
           <a href="{{ settings.social_tt }}" target="_blank" aria-label="Follow us on TikTok">
-            {% render 'icon' with 'icon' as  'tt' %}
+            {% render 'icon' with 'tt' as icon %}
           </a>
         </li>
       {% endif %}
