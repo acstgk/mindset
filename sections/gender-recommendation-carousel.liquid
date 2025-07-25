@@ -44,7 +44,17 @@
   product-carousel {
     display: block;
     width: 100%;
+
+     & .splide__slide {
+      scale: 1;
+      transition: scale 0.3s var(--overshoot-bezier) ;
+
+      &:not(.is-active) {
+        scale: 0.9;
+      }
+    }
   }
+
 
   .splide__arrows {
     display: flex;
