@@ -48,14 +48,10 @@
     {% endfor %}
   </content-accordian>
 </div>
+
 {% render 'trust-widget' with 'carousel' %}
-<ul class="payment-icons">
-  {% for type in shop.enabled_payment_types %}
-    <li class="payment-icon">
-      {{ type | payment_type_svg_tag }}
-    </li>
-  {% endfor %}
-</ul>
+{% render 'payment-icons' %}
+
 <div class="footer-copyright">
   <p class="footer-author">
     © {{ 'now' | date: '%Y' }} GYM KING LIMITED IS A LIMITED COMPANY REGISTERED IN ENGLAND WITH REGISTERED NUMBER
