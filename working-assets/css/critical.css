@@ -490,9 +490,11 @@ ul.dropdown_col-links {
   }
 }
 
-.sub_menu-items {
+ul.sub_menu-items {
   padding-left: 0;
-  margin-top: 0.65em
+  margin-top: 0.65em;
+  flex-flow: column nowrap;
+  gap: 0px;
 }
 
 .sub_menu-item {
