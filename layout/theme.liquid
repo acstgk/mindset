@@ -176,8 +176,6 @@
       <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: '96px' }}" type="image/png">
     {%- endif -%}
 
-    {{ content_for_header }}
-
     {% render 'css-variables' %}
 
     <link rel="stylesheet" href="{{ 'critical.min.css' | asset_url }}">
@@ -187,6 +185,8 @@
     <noscript>
       <link rel="stylesheet" href="{{ 'fallback.min.css' | asset_url }}">
     </noscript>
+
+    {{ content_for_header }}
   </head>
 
   <body class="{%- if template.directory -%}template-{{ template.directory | handle }}{%- endif -%} template-{{ template.name | handle }}">
