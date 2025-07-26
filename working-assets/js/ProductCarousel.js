@@ -49,6 +49,17 @@ export default class ProductCarousel extends HTMLElement {
       };
     });
 
+    this.splide.on("move", (newIndex, prevIndex, destIndex) => {
+      // Remove any existing "about-to-be-active" class
+      this.querySelectorAll(".splide__slide").forEach((slide) => {
+        slide.classList.remove("is-active");
+      });
+
+      // Add the class to the upcoming slide
+      const nextSlide = this.splide.Components.Slides.getAt(destIndex).slide;
+      nextSlide.classList.add("is-active");
+    });
+
     this.splide.mount();
   }
 }
