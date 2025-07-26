@@ -16,7 +16,7 @@
   </div>
 {% endif %}
 
-<style>
+{% stylesheet %}
   .section--cart_content {
     max-width: 800px;
   }
@@ -63,12 +63,14 @@
       display: block;
        grid-area: 1 / 4 / 2 / 5;
     }
+  }
+
   @media screen and (width > 768px) {
     .cart-header > div:nth-child(2) {
       display: block;
     }
   }
-</style>
+{% endstylesheet %}
 
 {% schema %}
 {
