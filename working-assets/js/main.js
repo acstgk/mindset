@@ -665,7 +665,7 @@ document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
 
 class ComponentLoader {
   /**
-   * @param {string} selector - Custom element selector (e.g. 'product-carousel')
+   * @param {string} selector - Custom element selector (e.g. 'productcard-carousel')
    * @param {Function} importFn - Function that returns the dynamic import (e.g. () => import('./ProductCarousel.js'))
    */
 
@@ -719,9 +719,8 @@ class ComponentLoader {
 
 window.ComponentLoader = ComponentLoader; // Export for global access
 
-new ComponentLoader("free-delivery", () => import("./FreeDelivery.js"));
 new ComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
 new ComponentLoader("product-card", () => import("./ProductCard.js"));
 new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
-new ComponentLoader("product-carousel", () => import("./ProductCarousel.js"));
+new ComponentLoader("productcard-carousel", () => import("./ProductCarousel.js"));
 new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));

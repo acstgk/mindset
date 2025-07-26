@@ -4,20 +4,20 @@
   <div class="loader grid-loader gender-loader"></div>
   <div id="womens-recommendations" class="womens-gender-filter fade-in">
     <h4 class="no-gender-filter">WOMENS</h4>
-    <product-carousel class="gender-recommendations-carousel product-grid">
+    <productcard-carousel class="gender-recommendations-carousel product-grid">
       {% for product in section.settings['fallback-1'].products limit: 12 %}
         {% render 'product-card', product: product, class: 'splide__slide' %}
       {% endfor %}
-    </product-carousel>
+    </productcard-carousel>
   </div>
 
   <div id="mens-recommendations" class="mens-gender-filter fade-in">
     <h4 class="no-gender-filter">MENS</h4>
-    <product-carousel class="gender-recommendations-carousel product-grid">
+    <productcard-carousel class="gender-recommendations-carousel product-grid">
       {% for product in section.settings['fallback-2'].products limit: 12 %}
         {% render 'product-card', product: product, class: 'splide__slide' %}
       {% endfor %}
-    </product-carousel>
+    </productcard-carousel>
   </div>
 </div>
 <div class="gender-wrapper">
@@ -41,7 +41,7 @@
   </div>
 </div>
 {% stylesheet %}
-  product-carousel {
+  productcard-carousel {
     display: block;
     width: 100%;
 
@@ -61,13 +61,13 @@
   }
 
 
-  .splide__arrows {
+   productcard-carousel .splide__arrows {
     display: flex;
     justify-content: flex-end;
     padding-bottom: 6px;
   }
 
-  .splide__arrow {
+   productcard-carousel .splide__arrow {
     display: grid;
     fill: var(--c-grey);
     transition: fill 0.2s ease;
@@ -81,7 +81,7 @@
     }
   }
 
-  .recommendation-ctas {
+   productcard-carousel .recommendation-ctas {
     display: flex;
     justify-content: center;
     gap: 1rem;
