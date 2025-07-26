@@ -1119,12 +1119,16 @@ product-card,
     border-bottom-color: var(--c-grey);
     color: var(--c-dark-grey);
 
+    &:has(> .loader) {
+        border-bottom-color: transparent;
+    }
+
     & .loader {
         scale: 0.5;
         margin-top: -3px;
     }
 
-    &:hover {
+    &:not(:has(> .loader)):hover {
         color: var(--c-black);
         border-bottom-width: 2px;
         padding-bottom: 0;
