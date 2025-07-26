@@ -587,6 +587,64 @@ if (!customElements.get("line-item")) {
 }
 
 // ===================
+// FREE DELIVERY INFORMATION
+// ===================
+
+if (!customElements.get("free-delivery")) {
+  customElements.define(
+    "free-delivery",
+    class FreeDelivery extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.progressBar = this.querySelector(".free-delivery_status-bar");
+        this.textElement = this.querySelector(".free-delivery_text");
+        this.Options = JSON.parse(this.getAttribute("data-settings"));
+
+        this.thresholdValue = this.Options.thresholdValue;
+        this.thresholdName = this.Options.thresholdName;
+        this.threshold2Show = this.Options.threshold2Show;
+        this.threshold2Value = this.Options.threshold2Value;
+        this.threshold2Name = this.Options.threshold2Name;
+
+        document.addEventListener("cart:loaded", this.updateProgress);
+      }
+
+      updateProgress = (event) => {
+        const cart = event.detail.cart;
+        let message;
+        let newProgress = "100%";
+        let bgColor = "var(--c-grey)";
+
+        if (cart.total_price >= this.threshold2Value && this.threshold2Show) {
+          message = `<span class="success">Enjoy! You've unlocked <b>FREE ${this.threshold2Name}</b>.</span>`;
+          newProgress = "100";
+          bgColor = "var(--c-success)";
+        } else if (cart.total_price >= this.thresholdValue) {
+          message = `<span class="success">You've unlocked <b>FREE ${this.thresholdName}</b>.</span>`;
+          newProgress = "100";
+          bgColor = "var(--c-success)";
+          if (this.threshold2Show) {
+            message += `<br>Spend <b>${Cart.formatMoney(this.threshold2Value - cart.total_price)}</b> more for FREE ${this.threshold2Name}.`;
+            newProgress = Math.min(100, (cart.total_price / this.threshold2Value) * 100);
+          }
+        } else {
+          message = `Spend <b>${Cart.formatMoney(this.thresholdValue - cart.total_price)}</b> more for FREE ${this.thresholdName}.`;
+          newProgress = Math.min(100, (cart.total_price / this.thresholdValue) * 100);
+          bgColor = "var(--c-grey)";
+        }
+
+        this.textElement.innerHTML = message;
+        this.progressBar.style.setProperty("--pc-progress", `${newProgress}%`);
+        this.progressBar.style.setProperty("--bg-color", `${bgColor}`);
+      };
+    },
+  );
+}
+
+// ===================
 // Global functions and logic
 // ===================
 
@@ -661,6 +719,7 @@ class ComponentLoader {
 
 window.ComponentLoader = ComponentLoader; // Export for global access
 
+new ComponentLoader("free-delivery", () => import("./FreeDelivery.js"));
 new ComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
 new ComponentLoader("product-card", () => import("./ProductCard.js"));
 new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
