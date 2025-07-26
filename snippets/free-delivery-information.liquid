@@ -1,0 +1,71 @@
+<free-delivery>
+  {%- if customer.tags contains 'Active Subscriber' -%}
+    <p class="free-delivery_text">Your Unlimited FREE Delivery Subscription is: <span class="success">active</span></p>
+  {% else %}
+    <p class="free-delivery_text">
+      {%- if cart.total_price >= settings['delivery-threshold2-value'] and settings['show-delivery-threshold2'] -%}
+        <span class="success">Congratulations. You've earned FREE {{ settings['delivery-threshold2-name'] }}.</span>
+        {% assign progress = 100 %}
+
+      {% elsif cart.total_price >= settings['delivery-threshold-value'] %}
+        <span class="success">Congratulations. You've earned FREE {{ settings['delivery-threshold-name'] }}.</span>
+        {% assign progress = 100 %}
+        {%- if settings['show-delivery-threshold2'] -%}
+          <br>
+          Spend an additional {{ settings['delivery-threshold2-value'] | minus: cart.total_price | money_without_trailing_zeros }} for FREE {{ settings['delivery-threshold2-name'] }}.
+          {% assign progress = cart.total_price | times: 100 | divided_by: settings['delivery-threshold2-value'] %}
+        {%- endif -%}
+
+      {% else %}
+        Spend an additional {{ settings['delivery-threshold-value'] | minus: cart.total_price | money_without_trailing_zeros }} for FREE {{ settings['delivery-threshold-name'] }}.
+        {% assign progress = cart.total_price | times: 100 | divided_by: settings['delivery-threshold-value'] %}
+      {%- endif -%}
+    </p>
+    <div class="free-delivery_status-bar" style="--pc-progress: {{ progress }}%;"></div>
+  {% endif %}
+</free-delivery>
+
+{% stylesheet %}
+  free-delivery {
+    & .free-delivery_text {
+      text-align: center;
+      font-size: var(--txt-sm);
+      width: 100%;
+
+      & span {
+        margin-bottom: 0.5em;
+      }
+    }
+
+    & .free-delivery_status-bar {
+      --pc-progress: attr(data-progress, 0%);
+
+      margin: 1em 0 0.5em;
+      height: 2px;
+      width: 100%;
+      background-color: var(--c-light-grey);
+
+      &::before {
+        content: '';
+        display: block;
+        height: 100%;
+        width: var(--pc-progress);
+        background-color: var(--c-grey);
+        transition: width 0.3s var(--overshoot-bezier);
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: relative;
+        top: -5px;
+        left: calc(var(--pc-progress) - 4px);
+        height: 8px;
+        width: 8px;
+        border-radius: 4px;
+        background-color: var(--c-dark-grey);
+        transition: left 0.3s var(--overshoot-bezier);
+      }
+    }
+  }
+{% endstylesheet %}

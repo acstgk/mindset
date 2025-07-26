@@ -47,13 +47,15 @@
   .cart-footer {
     border: 0;
     padding-top: 10px;
-    font-weight: 700;
-    font-size: var(--txt-h4);
+    gap: 0;
     grid-template-columns: 1fr;
     display: flex;
     justify-content: flex-end;
+    flex-flow: column nowrap;
+
     & .checkout-button {
       font-size: var(--txt-h4);
+      font-weight: 700;
       width: 100%;
     }
   }
@@ -61,7 +63,7 @@
   @media screen and (width > 500px) {
     .cart-header > div:last-child {
       display: block;
-       grid-area: 1 / 4 / 2 / 5;
+      grid-area: 1 / 4 / 2 / 5;
     }
   }
 

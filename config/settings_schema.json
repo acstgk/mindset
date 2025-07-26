@@ -640,6 +640,55 @@
     ]
   },
   {
+    "name": "Delivery Information",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Main Free Delivery Threshold",
+        "info": "Set the main free delivery threshold for the site."
+      },
+      {
+        "type": "number",
+        "id": "delivery-threshold-value",
+        "label": "Delivery Threshold Value",
+        "info": "Set the value for free delivery in pence.",
+        "default": 7500
+      },
+      {
+        "type": "text",
+        "id": "delivery-threshold-name",
+        "label": "Delivery Service Name",
+        "default": "UK Standard Delivery"
+      },
+      {
+        "type": "header",
+        "content": "Secondary Free Delivery Threshold",
+        "info": "Activate and set a second free delivery threshold for the site."
+      },
+      {
+        "type": "checkbox",
+        "id": "show-delivery-threshold2",
+        "label": "Show 2nd Delivery Threshold",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "delivery-threshold2-value",
+        "label": "Delivery Threshold Value",
+        "info": "Set the value for free delivery in pence.",
+        "default": 12500,
+        "visible_if": "{{ settings.show-delivery-threshold2 == true }}"
+      },
+      {
+        "type": "text",
+        "id": "delivery-threshold2-name",
+        "label": "Delivery Service Name",
+        "default": "UK Express Delivery",
+        "visible_if": "{{ settings.show-delivery-threshold2 == true }}"
+      }
+    ]
+  },
+  {
     "name": "Social media",
     "settings": [
       {
