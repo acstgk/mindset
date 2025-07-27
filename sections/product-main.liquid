@@ -1,0 +1,96 @@
+{% assign widths = '600,750,900,1200,1920,2400,3000' | split: ',' %}
+
+<pdp-carousel>
+  {% for image in product.images %}
+    {% unless forloop.index == 2 %}
+      {% assign base_url = image | image_url: width: 1111 | remove: '1111' | prepend: request.origin %}
+      {% assign img_widths = '' %}
+      {% for width in widths %}
+        {% assign img_widths = img_widths | append: base_url | append: width | append: ' ' | append: width | append: 'w, ' %}
+      {% endfor %}
+      {% assign img_widths = img_widths | remove_last: ',' %}
+
+      <div class="pdp_slide splide__slide">
+        <img
+          width="{{ image.width }}"
+          height="{{ image.height }}"
+          alt="{{ image.alt }}"
+          {% if forloop.first %}
+            loading="eager"
+            src="{{ base_url }}3000"
+            srcset="{{ img_widths }}"
+          {% else %}
+            data-splide-lazy-srcset="{{ img_widths }}"
+            data-splide-lazy="{{ base_url }}3000"
+          {% endif %}
+          sizes="200vw"
+        >
+      </div>
+    {% endunless %}
+  {% endfor %}
+</pdp-carousel>
+
+<script type="module" src="{{ 'main-pdp.js' | asset_url }}"></script>
+
+{% stylesheet %}
+  pdp-carousel {
+    max-height: calc(100vh - 88px);
+    overflow: hidden;
+
+    & .splide__list {
+      width: 100%;
+
+      & div {
+        width: 100%;
+        height: auto;
+      }
+
+      & img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    & .splide__pagination {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      translate: -50% 0;
+      width: max-content;
+      max-width: 90%;
+      backdrop-filter: blur(2px);
+      background-color: color-mix(in srgb, var(--c-black), transparent 90%);
+      padding: 7px 14px;
+      border-radius: 14px;
+      gap: 7px;
+      place-content: center;
+
+      & li {
+        display: grid;
+        place-items: center;
+      }
+
+      & button {
+        border-radius: 50%;
+        height: 7px;
+        width: 7px;
+        background-color: color-mix(in srgb, var(--c-white), transparent 75%);
+        padding: 0;
+
+        &.is-active {
+          background-color: var(--c-white);
+        }
+      }
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Main Product Block",
+  "class": "section--product_main",
+  "limit": 1,
+  "settings": []
+}
+{% endschema %}
