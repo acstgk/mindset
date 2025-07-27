@@ -7,7 +7,7 @@
 
     <script>
       {%- if request.page_type == 'product' -%}
-       const window.myCurrentProduct = {{ product | json }};
+        window.myCurrentProduct = {{ product | json }};
       {%- endif -%}
       window.dataLayer = window.dataLayer || [];
 
