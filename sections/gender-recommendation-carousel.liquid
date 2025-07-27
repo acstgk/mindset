@@ -41,26 +41,6 @@
   </div>
 </div>
 {% stylesheet %}
-  productcard-carousel {
-    display: block;
-    width: 100%;
-
-     & .splide__slide {
-      scale: 1;
-      transition: scale 0.3s var(--overshoot-bezier) ;
-
-      &:not(.is-active) {
-        scale: 0.9;
-      }
-
-      /* &:has(+ .is-active),
-      &.is-active + .splide__slide {
-        scale: 0.95;
-      } */
-    }
-  }
-
-
    productcard-carousel .splide__arrows {
     display: flex;
     justify-content: flex-end;
@@ -81,15 +61,32 @@
     }
   }
 
-   productcard-carousel .recommendation-ctas {
+ .recommendation-ctas {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 2rem;
     flex-wrap: wrap;
+    width: 100%;
 
     & a {
       flex: 1 1 max-content;
+    }
+  }
+
+  @media screen and (min-width: 800px) {
+    productcard-carousel .splide__slide {
+      scale: 1;
+      transition: scale 0.3s var(--overshoot-bezier) ;
+
+      &:not(.is-active) {
+        scale: 0.9;
+      }
+
+      /* &:has(+ .is-active),
+      &.is-active + .splide__slide {
+        scale: 0.95;
+      } */
     }
   }
 {% endstylesheet %}

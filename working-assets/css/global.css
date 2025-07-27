@@ -20,6 +20,11 @@
     margin: 0 auto;
 }
 
+.splide {
+    display: block;
+    width: 100%;
+}
+
 .product-grid:not(.splide) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
