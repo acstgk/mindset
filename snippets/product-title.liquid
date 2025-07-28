@@ -7,12 +7,18 @@
   {% render 'product-title', product: 'Featured Product'%}
 {% enddoc %}
 
+{% if template == 'product' %}
+  {% assign element_type = "h1" %}
+{% else %}
+  {% assign element_type = "span" %}
+{% endif %}
+
 {%- if product.title contains '-' or product.title contains '–' %}
   {%- assign product_title = product.title | replace: '–', '-' | split: '-' -%}
   <a class="Title" href="{{ product.url }}">
-    <span class="title">
+    <{{element_type}} class="h4 title">
       {{- product.title | remove: 'Gym King ' | remove: product_title.last | remove_last: '-' | strip -}}
-    </span>
+    </{{element_type}} >
     <span class="colour">{{ product_title.last }}</span>
   </a>
 {%- else -%}
