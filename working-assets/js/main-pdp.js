@@ -10,6 +10,12 @@ if (!customElements.get("pdp-carousel")) {
     class PDPCarousel extends HTMLElement {
       constructor() {
         super();
+        this.availableHeight =
+          (window.innerHeight * 0.95) -
+          30 - // replace this for AtB button element when created
+          document.getElementById("shopify-section-header-main").getBoundingClientRect().height -
+          document.getElementById("shopify-section-header-announcement").getBoundingClientRect().height -
+          document.getElementById("product-summary").getBoundingClientRect().height;
         this.splide = null;
         this.zoomBtn = document.createElement("button");
         this.zoomBtn.className = "pdp-zoom-btn round-btn";
@@ -27,10 +33,13 @@ if (!customElements.get("pdp-carousel")) {
                                     </svg>`;
         this.zoomBtn.addEventListener("click", () => this._zoom());
         this.zoomEl = document.createElement("div");
+        this.style.maxHeight = `${this.availableHeight}px`;
+
       }
 
       connectedCallback() {
         this._splideInit();
+
         this.appendChild(this.zoomBtn);
       }
 
@@ -44,6 +53,14 @@ if (!customElements.get("pdp-carousel")) {
           perPage: 1,
           lazyLoad: "nearby",
         });
+
+        this.splide.on(
+          "move",
+          () => {
+            this.style.maxHeight = "max-content";
+          },
+          { once: true },
+        );
 
         this.splide.mount();
       };
