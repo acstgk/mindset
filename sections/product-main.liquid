@@ -30,6 +30,22 @@
   {% endfor %}
 </pdp-carousel>
 
+<aside id="product-details" class="max-width">
+  <div class="" id="product-summary">
+    {% render 'product-title' with product as 'product' %}
+    {% render 'product-price' with product as 'product' %}
+    {% unless product.type == 'Tracksuit Set' %}
+      <div
+        class="yotpo-widget-instance"
+        data-yotpo-instance-id="1008278"
+        data-yotpo-product-id="{{product.id}}"
+        data-yotpo-cart-product-id="{{item.product.id}}"
+        data-yotpo-section-id="{{template.name}}"
+      ></div>
+    {% endunless %}
+  </div>
+</aside>
+
 <script type="module" src="{{ 'main-pdp.js' | asset_url }}"></script>
 
 {% stylesheet %}
@@ -40,6 +56,7 @@
     opacity: 0;
     transform: scale(0.95);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    background-color: var(--c-off-white);
 
     & img {
       object-fit: cover;
@@ -55,7 +72,10 @@
 
   pdp-carousel {
     max-height: calc(100vh - 88px);
+    max-height: none;
     overflow: hidden;
+    scroll-margin-top: 50px;
+    transition: max-height 0.5s var(--overshoot-bezier);
 
     & .splide__list {
       width: 100%;
@@ -102,6 +122,50 @@
           background-color: var(--c-white);
         }
       }
+    }
+  }
+
+  #product-details {
+    & #product-summary {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+
+      & .yotpo-widget-instance {
+        grid-area: 2 / 2 / 3 / 3;
+        display: block;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
+    & .Title {
+      grid-area: 1 / 1 / 2 / 3;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    & .Price--wrapper {
+      grid-area: 2 / 1 / 3 / 2;
+      & span {
+        font-weight: 700;
+      }
+    }
+
+    & .Price--wrapper,
+    & h1.title {
+      font-size: var(--txt-h4);
+      gap: 0.4em;
+      margin: 0;
+      text-transform: none;
+      letter-spacing: normal;
+      font-family: var(--text-font-family);
+      text-align: left;
+      font-weight: 400;
+    }
+
+    & .Price--saving {
+      margin: 0 auto 0 0;
     }
   }
 {% endstylesheet %}
