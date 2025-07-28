@@ -12,6 +12,15 @@
 
 [hidden] {
     display: none !important;
+    opacity: 0 !important;
+    transform: scale(0) !important;
+}
+
+[visible],
+.visible {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: scale(1) !important;
 }
 
 .max-width {
@@ -635,8 +644,9 @@ content-accordian {
     height: max-content;
     padding: 10px 20px;
 }
-#cartDrawer .side_menu-footer > * {
-margin: 5px auto;
+
+#cartDrawer .side_menu-footer>* {
+    margin: 5px auto;
 }
 
 #cartDrawer .checkout-button {
