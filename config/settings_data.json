@@ -118,6 +118,53 @@
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "8962992520437913685": {
+        "type": "shopify://apps/yotpo-loyalty-rewards/blocks/loader-app-embed-block/2f9660df-5018-4e02-9868-ee1fb88d6ccd",
+        "disabled": false,
+        "settings": {
+          "inject_modules_loader": true,
+          "inject_sdk_loader": false
+        }
+      },
+      "7570552984445421165": {
+        "type": "shopify://apps/yotpo-product-reviews/blocks/settings/eb7dfd7d-db44-4334-bc49-c893b51b36cf",
+        "disabled": false,
+        "settings": {}
+      },
+      "17428600031447253342": {
+        "type": "shopify://apps/attentive/blocks/attn-tag/8df62c72-8fe4-407e-a5b3-72132be30a0d",
+        "disabled": false,
+        "settings": {}
+      },
+      "12526071353035850722": {
+        "type": "shopify://apps/amp-back-in-stock/blocks/app-embed/bfa6a8c4-24e2-411a-9396-e35031b33f34",
+        "disabled": false,
+        "settings": {}
+      },
+      "6403324215520875301": {
+        "type": "shopify://apps/mst-wishlist-marketing-flow/blocks/v3-app-embed/7f9269b0-1b45-4d0c-8479-faf04f05d8ac",
+        "disabled": false,
+        "settings": {
+          "multi_language": false,
+          "drawer_title": "My Wishlist",
+          "share_page_title": "Wishlist",
+          "login_msg": "Wishlist is not saved permanently yet. Please <a class=\"link-text\" href=\"/account/login\">log in</a> or <a class=\"link-text\" href=\"/account/register\">Create Account</a> to save it.",
+          "empty_msg": "<h4>Your wishlist is empty!</h4> \r\n<p>Explore more and shortlist some items</p>",
+          "enable_drawer": false,
+          "multi_category": false,
+          "open_drawer_on": "1",
+          "float_icon": false,
+          "heart_icon_color": "#000000",
+          "iwish_count_color": "#ffffff",
+          "icon_position": "middle-left",
+          "custom_icon": "",
+          "variant_selector": "[name=id]",
+          "option_selector": "",
+          "custom_settings": "{\"show_price_on_login\": \"false\", \"show_vendor\": \"false\", \"cart_counter\": \".cart-count-bubble span:first-of-type\", \"custom_filters\": \"facet-filters-form, .facet-filters__sort\", \"custom_delay\": \"500\", \"remove_all_wishlist\": \"false\",\"hide_cart_btn\": \"false\"}"
+        }
+      }
+    }
   }
 }
