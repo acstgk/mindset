@@ -51,6 +51,7 @@ h2,
 h3,
 .h3 {
   font-size: var(--txt-h3);
+  font-family: var(--text-font-family);
   text-transform: uppercase;
   text-align: center;
 }
@@ -58,6 +59,7 @@ h3,
 h4,
 .h4 {
   font-size: var(--txt-h4);
+  font-family: var(--text-font-family);
   text-align: center;
   color: var(--c-grey);
 }
@@ -65,6 +67,7 @@ h4,
 h5,
 .h5 {
   font-size: var(--txt-p);
+  font-family: var(--text-font-family);
   font-weight: 400;
   color: var(--c-grey);
 }
@@ -128,15 +131,16 @@ a {
 .Title {
   display: flex;
   align-items: center;
-  color: var(--c-black);
 
   & .title {
     font-weight: 700;
+    color: var(--c-black);
   }
 
   & .colour {
     color: var(--c-grey);
     font-size: var(--txt-sm);
+    flex: 0 0 auto;
   }
 }
 

@@ -21,6 +21,7 @@
     visibility: visible !important;
     opacity: 1 !important;
     transform: scale(1) !important;
+    height: auto !important;
 }
 
 .max-width {
@@ -1099,6 +1100,7 @@ product-card,
 
         & .title {
             padding-right: 5px;
+            font-size: var(--txt-p);
         }
 
         & .colour {
