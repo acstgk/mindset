@@ -1,0 +1,50 @@
+{% assign is_set = product.metafields.custom.product_set %}
+
+{% if is_set %}
+  {% for part in is_set.value %}
+    {% assign product_number = forloop.index %}
+    <a href="{{ part.url }}">
+      <h4 class="part_title">{{ part.title | remove: 'Gym King' }}</h4>
+    </a>
+    <div
+      class="yotpo-widget-instance"
+      data-yotpo-instance-id="1008278"
+      data-yotpo-product-id="{{part.id}}"
+      data-yotpo-section-id="{{template.name}}"
+    ></div>
+    <ul class="atc_form-sizes">
+      {% for variant in part.variants %}
+        <li>
+          <input
+            type="radio"
+            name="id-{{ product_number }}"
+            value="{{ variant.id }}"
+            id="variant-{{ variant.id }}"
+            {% unless variant.available %}
+              disabled
+            {% endunless %}
+          >
+          <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endfor %}
+
+{% else %}
+  <ul class="atc_form-sizes">
+    {% for variant in product.variants %}
+      <li>
+        <input
+          type="radio"
+          name="id"
+          value="{{ variant.id }}"
+          id="variant-{{ variant.id }}"
+          {% unless variant.available %}
+            disabled
+          {% endunless %}
+        >
+        <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

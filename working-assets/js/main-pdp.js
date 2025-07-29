@@ -1,3 +1,5 @@
+/* global IntersectionObserver */
+
 import Splide from "./splide.min.js";
 import { SplideUtil } from "./SplideUtil.js";
 import Panzoom from "./panzoom.js";
@@ -13,7 +15,7 @@ if (!customElements.get("pdp-carousel")) {
         super();
         this.availableHeight =
           window.innerHeight * 0.95 -
-          30 - // replace this for AtB button element when created
+          document.querySelector(".atc_form-button").getBoundingClientRect().height - // replace this for AtB button element when created
           document.getElementById("shopify-section-header-main").getBoundingClientRect().height -
           document.getElementById("shopify-section-header-announcement").getBoundingClientRect().height -
           document.getElementById("product-summary").getBoundingClientRect().height;
@@ -117,7 +119,7 @@ if (!customElements.get("pdp-carousel")) {
         // Initialize Panzoom
         setTimeout(() => {
           const panzoom = Panzoom(zoomImg, {
-            canvas: true,
+            // canvas: true,
             maxScale: 2,
             minScale: 0.5,
             startScale: 0.5,
@@ -156,5 +158,79 @@ if (!customElements.get("pdp-carousel")) {
 // Add to Cart Form
 // ===================
 if (!customElements.get("enhanced-atc")) {
-  customElements.define("enhanced-atc", class EnhancedATC extends HTMLElement {});
+  customElements.define(
+    "enhanced-atc",
+    class EnhancedATC extends HTMLElement {
+      constructor() {
+        super();
+        this.isButtonVisible = true;
+      }
+
+      connectedCallback() {
+        this.atcButtonPosition = this.querySelector(".atc_form-button-spacer");
+        this.actualForm = this.closest("form");
+        this.atcButton = this.querySelector(".atc_form-button");
+        this.atcButton.innerText = "Select Size";
+
+        this._currentSubmitHandler = this._scrollToSizes;
+        this._submitDispatcher = (event) => {
+          event.preventDefault();
+          this._currentSubmitHandler(event);
+        };
+        this.actualForm.addEventListener("submit", this._submitDispatcher);
+        this.actualForm.addEventListener("change", this._watchSizeSelection);
+        this._handleStickyButton();
+        this._setObserver();
+      }
+
+      _scrollToSizes = (event) => {
+        event.preventDefault();
+        document.getElementById("product-details").scrollIntoView({ behavior: "smooth", block: "start" });
+      };
+
+      _watchSizeSelection = (event) => {
+        if (event.target.type === "radio" && event.target.name.startsWith("id")) {
+          const allGroups = this.querySelectorAll(".atc_form-sizes");
+          const allSelected = Array.from(allGroups).every((group) => {
+            return group.querySelector('input[type="radio"]:checked');
+          });
+
+          if (allSelected) {
+            this.atcButton.innerText = "Add to Bag";
+            this._currentSubmitHandler = this._addToCart;
+          }
+        }
+      };
+
+      _addToCart = (event) => {
+        console.log(event);
+      };
+
+      _setObserver = () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              this.isButtonVisible = entry.isIntersecting;
+              this._handleStickyButton();
+            });
+          },
+          {
+            root: null, // viewport
+            rootMargin: "-50px 0px 0px 0px",
+            threshold: 0,
+          },
+        );
+
+        observer.observe(this.atcButtonPosition);
+      };
+
+      _handleStickyButton = () => {
+        if (!this.isButtonVisible && window.innerWidth < 768) {
+          this.atcButton.classList.add("is_sticky", "to_sticky");
+        } else {
+          this.atcButton.classList.remove("is_sticky", "to_sticky");
+        }
+      };
+    },
+  );
 }

@@ -82,26 +82,13 @@
           {% render 'icon' with 'ruler' as icon %}
         </a>
       </div>
-      <ul>
-        {% for variant in product.variants %}
-          <li>
-            <input
-              type="radio"
-              name="id"
-              value="{{ variant.id }}"
-              id="variant-{{ variant.id }}"
-              {% unless variant.available %}
-                disabled
-              {% endunless %}
-            >
-            <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
-          </li>
-        {% endfor %}
-      </ul>
+
+      {% render 'size-selector' with product as product %}
+
       {% comment %}  Quantity Selector  {% endcomment %}
       <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
       {% comment %} Add to Cart button  {% endcomment %}
-      <button type="submit" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button>
+      <div class="atc_form-button-spacer"><button type="submit" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button></div>
     </enhanced-atc>
   </form>
 </aside>

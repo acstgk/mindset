@@ -1,10 +1,23 @@
 form#atc_form {
+
+  & .yotpo-reviews-star-ratings-widget {
+    margin: 0 0 -10px 0 !important;
+  }
+
+  & .atc_form-sizes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.5em), 70px));
+    gap: 0.5em;
+  }
+
   & input[type='radio'] {
     display: none;
   }
 
   & label {
     border: 1px var(--c-black) solid;
+    width: 100%;
+    padding-inline: 0;
 
     &::after {
       background-color: var(--c-off-white);
@@ -13,6 +26,13 @@ form#atc_form {
     &:hover::after {
       top: 0;
     }
+  }
+
+  .part_title {
+    color: var(--c-dark-grey);
+    text-align: left;
+    margin: 0;
+
   }
 
   input[type='radio']:checked+label {
@@ -62,8 +82,34 @@ form#atc_form {
     }
   }
 
+  .atc_form-button-spacer,
+  .atc_form-button {
+    min-height: 42px;
+  }
+
   .atc_form-button {
     width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+  }
+
+  .is_sticky {
+    position: fixed;
+  }
+
+  .to_sticky {
+    animation: toSticky 300ms ease;
+  }
+
+  @keyframes toSticky {
+    from {
+      transform: translateY(100%);
+    }
+
+    to {
+      transform: translateY(0);
+    }
   }
 }
 
@@ -190,6 +236,8 @@ pdp-carousel {
 }
 
 #product-details {
+  scroll-margin-top: 50px;
+
   & #product-summary {
     display: grid;
     grid-template-columns: 6fr 4fr;
