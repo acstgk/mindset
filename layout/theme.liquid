@@ -384,23 +384,24 @@
       style="display:none;visibility:hidden"
     ></iframe>
     <!-- End Google Tag Manager (noscript) -->
-{% unless template == 'product' %}
-  <script
-    src="//eu.fw-cdn.com/12832973/808139.js"
-    chat="true"
-    defer
-  ></script>
-{% else %}
-  <script type="application/ld+json">
-    {{ product | structured_data }}
-  </script>
+    {% unless template == 'product' %}
+      <script src="//eu.fw-cdn.com/12832973/808139.js" chat="true" defer></script>
+    {% else %}
+      <script type="application/ld+json">
+        {{ product | structured_data }}
+      </script>
 
-  <style>
-    .yotpo-widget-loyalty-floater-widget.yotpo-widget-override-css {
-      display: none !important;
-    }
-  </style>
-{% endunless %}
+      <style>
+        .yotpo-widget-loyalty-floater-widget.yotpo-widget-override-css {
+          display: none !important;
+        }
+
+        #fc_frame {
+          display: none;
+          visibility: hidden;
+        }
+      </style>
+    {% endunless %}
 
     <link rel="stylesheet" href="{{ 'splide-core.min.css' | asset_url }}">
     {% render 'globale-js' %}
