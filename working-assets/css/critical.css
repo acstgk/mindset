@@ -28,13 +28,6 @@ body {
 main {
   display: block;
 }
-
-#attentive_creative {
-  bottom: 35% !important;
-  rotate: -90deg;
-  right: -50px !important;
-}
-
 #fc_frame {
   bottom: 95px !important;
   right: 5px !important;
