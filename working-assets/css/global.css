@@ -340,10 +340,17 @@ button {
     box-shadow: 0 0 4px color-mix(in lab, var(--c-dark-grey), transparent 70%);
 
     & svg {
+        /* overwriting 3rd party css */
         width: 15px;
         height: 15px;
         stroke: var(--c-dark-grey);
     }
+}
+
+.iWishAdd svg {
+    width: 15px !important;
+    height: 15px !important;
+    fill: var(--c-grey);
 }
 
 /* GLOBAL DESKTOP  */
@@ -990,8 +997,8 @@ product-card {
         display: grid;
         grid-template-columns: repeat(2, 100%);
         overflow: auto hidden;
-        scroll-snap-align: start;
         white-space: nowrap;
+        scroll-snap-align: start;
         scroll-snap-type: x mandatory;
         scrollbar-width: thin;
         place-items: center;

@@ -11,7 +11,7 @@ if (!customElements.get("pdp-carousel")) {
       constructor() {
         super();
         this.availableHeight =
-          (window.innerHeight * 0.95) -
+          window.innerHeight * 0.95 -
           30 - // replace this for AtB button element when created
           document.getElementById("shopify-section-header-main").getBoundingClientRect().height -
           document.getElementById("shopify-section-header-announcement").getBoundingClientRect().height -
@@ -34,12 +34,10 @@ if (!customElements.get("pdp-carousel")) {
         this.zoomBtn.addEventListener("click", () => this._zoom());
         this.zoomEl = document.createElement("div");
         this.style.maxHeight = `${this.availableHeight}px`;
-
       }
 
       connectedCallback() {
         this._splideInit();
-
         this.appendChild(this.zoomBtn);
       }
 
@@ -113,4 +111,11 @@ if (!customElements.get("pdp-carousel")) {
       };
     },
   );
+}
+
+// ===================
+// Add to Cart Form
+// ===================
+if (!customElements.get("enhanced-atc")) {
+  customElements.define("enhanced-atc", class EnhancedATC extends HTMLElement {});
 }

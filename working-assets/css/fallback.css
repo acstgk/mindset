@@ -18,3 +18,13 @@
     height: 0;
     opacity: 0;
 }
+
+.pdp-carousel-wrapper {
+    & .iWish-btn {
+        display: none;
+    }
+}
+
+.pdp-zoom-btn.round-btn {
+    top: 2em;
+}

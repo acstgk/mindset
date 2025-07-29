@@ -1,34 +1,54 @@
+{% comment %} set images sizes  {% endcomment %}
 {% assign widths = '600,750,900,1200,1920,2400,3000' | split: ',' %}
 
-<pdp-carousel>
-  {% for image in product.images %}
-    {% unless forloop.index == 2 %}
-      {% assign base_url = image | image_url: width: 1111 | remove: '1111' | prepend: request.origin %}
-      {% assign img_widths = '' %}
-      {% for width in widths %}
-        {% assign img_widths = img_widths | append: base_url | append: width | append: ' ' | append: width | append: 'w, ' %}
-      {% endfor %}
-      {% assign img_widths = img_widths | remove_last: ',' %}
-
-      <div class="pdp_slide splide__slide">
-        <img
-          width="{{ image.width }}"
-          height="{{ image.height }}"
-          alt="{{ image.alt }}"
-          {% if forloop.first %}
-            loading="eager"
-            src="{{ base_url }}3000"
-            srcset="{{ img_widths }}"
-          {% else %}
-            data-splide-lazy-srcset="{{ img_widths }}"
-            data-splide-lazy="{{ base_url }}3000"
-          {% endif %}
-          sizes="200vw"
-        >
-      </div>
-    {% endunless %}
+{% comment %} set the shown price - either calculate for 'sets' or use product price {% endcomment %}
+{% if product.metafields.custom.product_set %}
+  {% assign product_price = 0 %}
+  {% assign product_compare_price = 0 %}
+  {% for product in product.metafields.custom.product_set.value %}
+    {% assign product_price = product_price | plus: product.selected_or_first_available_variant.price %}
+    {% assign product_compare_price = product_compare_price | plus: product.selected_or_first_available_variant.compare_at_price %}
   {% endfor %}
-</pdp-carousel>
+{% else %}
+  {% assign product_price = product.selected_or_first_available_variant.price %}
+  {% assign product_compare_price = product.selected_or_first_available_variant.compare_at_price %}
+{% endif %}
+
+<div class="pdp-carousel-wrapper">
+  <pdp-carousel>
+    {% for image in product.images %}
+      {% unless forloop.index == 2 %}
+        {% assign base_url = image | image_url: width: 1111 | remove: '1111' | prepend: request.origin %}
+        {% assign img_widths = '' %}
+        {% for width in widths %}
+          {% assign img_widths = img_widths | append: base_url | append: width | append: ' ' | append: width | append: 'w, ' %}
+        {% endfor %}
+        {% assign img_widths = img_widths | remove_last: ',' %}
+
+        <div class="pdp_slide splide__slide">
+          <img
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            alt="{{ image.alt }}"
+            {% if forloop.first %}
+              loading="eager"
+              src="{{ base_url }}3000"
+              srcset="{{ img_widths }}"
+            {% else %}
+              data-splide-lazy-srcset="{{ img_widths }}"
+              data-splide-lazy="{{ base_url }}3000"
+            {% endif %}
+            sizes="200vw"
+          >
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </pdp-carousel>
+
+  {% unless product.tags contains 'set' %}
+    <div class="round-btn iWish-btn" data-wishlisticon>{% render 'wishlist-app-links', linkType: 'single-product' %}</div>
+  {% endunless %}
+</div>
 
 <aside id="product-details" class="max-width">
   <div class="" id="product-summary">
@@ -44,11 +64,113 @@
       ></div>
     {% endunless %}
   </div>
+
+  {% render 'bnpl' with product_price as price %}
+
+  <form id="atc_form" method="post" action="{{ routes.cart_add_url }}">
+    <enhanced-atc>
+      <div class="atc_form-header">
+        <p>select size:</p>
+        <a href="/pages/size-guide" target="_blank">
+          <span>size guide</span>
+          {% render 'icon' with 'ruler' as icon %}
+        </a>
+      </div>
+      <ul>
+        {% for variant in product.variants %}
+          <li>
+            <input
+              type="radio"
+              name="id"
+              value="{{ variant.id }}"
+              id="variant-{{ variant.id }}"
+              {% unless variant.available %}
+                disabled
+              {% endunless %}
+            >
+            <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
+          </li>
+        {% endfor %}
+      </ul>
+      {% comment %}  Quantity Selector  {% endcomment %}
+      <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
+      {% comment %} Add to Cart button  {% endcomment %}
+      <button type="submit" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button>
+    </enhanced-atc>
+  </form>
 </aside>
 
 <script type="module" src="{{ 'main-pdp.js' | asset_url }}"></script>
 
 {% stylesheet %}
+  form#atc_form {
+    & input[type='radio'] {
+      display: none;
+    }
+
+    & label {
+      border: 1px var(--c-black) solid;
+
+      &::after {
+        background-color: var(--c-off-white);
+      }
+
+      &:hover::after {
+        top: 0;
+      }
+    }
+
+    input[type='radio']:checked + label {
+      border: 1px solid var(--c-grey);
+
+      &::after {
+        top: 0;
+        background-color: var(--c-light-grey);
+      }
+    }
+
+    input[type='radio']:disabled + label {
+      color: var(--c-grey);
+      border: 1px solid var(--c-light-grey);
+      overflow: hidden;
+
+      &:after {
+        rotate: -33deg;
+        top: 50%;
+        height: 1px;
+        background-color: var(--c-light-grey);
+      }
+    }
+
+    .atc_form-header {
+      display: flex;
+      flex-flow: row nowrap;
+      border-top: 1px solid var(--c-grey);
+      padding-top: 1em;
+      justify-content: space-between;
+      align-items: center;
+
+      & svg {
+        height: 2em;
+      }
+
+      & a {
+        display: flex;
+        width: max-content;
+        gap: 0.5em;
+        align-items: center;
+
+        & span {
+          width: max-content;
+          flex: 0 0 auto;
+        }
+      }
+    }
+
+    .atc_form-button {
+      width: 100%;
+    }
+  }
   .pdp-zoom-wrapper {
     position: absolute;
     inset: 0 0 0 0;
@@ -67,26 +189,57 @@
   .pdp-zoom-close-btn.round-btn {
     position: absolute;
     right: 2em;
+    top: calc(1.5em + 40px);
+    background-color: white;
+
+    & svg {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
+  .pdp-zoom-close-btn.round-btn {
     top: 2em;
   }
 
+  .pdp-carousel-wrapper {
+    position: relative;
+    & .iWish-btn {
+      position: absolute;
+      top: 1.5em;
+      right: 2em;
+      fill: var(--c-grey);
+    }
+  }
+
   pdp-carousel {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    flex-flow: row wrap;
+    scroll-snap-align: start;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
     max-height: calc(100vh - 88px);
     max-height: none;
     overflow: hidden;
     scroll-margin-top: 50px;
     transition: max-height 0.5s var(--overshoot-bezier);
 
-    & .splide__list {
-      width: 100%;
+    & > .pdp_slide:nth-child(n + 2) {
+      display: none;
+    }
 
-      & div {
-        width: 100%;
-        height: auto;
-      }
+    & .splide__list {
+      width: 100vw;
+    }
+
+    & .pdp_slide {
+      width: 100%;
+      height: auto;
 
       & img {
-        width: 100%;
+        width: 100vw;
         height: auto;
         object-fit: cover;
       }
@@ -128,7 +281,7 @@
   #product-details {
     & #product-summary {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 6fr 4fr;
       column-gap: 1em;
 
       & .yotpo-widget-instance {
@@ -162,6 +315,7 @@
       font-family: var(--text-font-family);
       text-align: left;
       font-weight: 400;
+      flex-wrap: wrap;
     }
 
     & .Price--saving {
