@@ -65,7 +65,6 @@ if (!customElements.get("pdp-carousel")) {
 
       _zoom = () => {
         document.body.style.overflowY = "hidden";
-        console.log("panzoom:: start");
 
         const targetImg = this.querySelector(".is-active > img");
         if (!targetImg) return;
@@ -114,22 +113,14 @@ if (!customElements.get("pdp-carousel")) {
         document.body.appendChild(zoomEl);
 
         //calculate the initial pan position
-        const { width: parentWidth, height: parentHeight } = zoomEl.getBoundingClientRect();
-        const { width: imgWidth, height: imgHeight } = zoomImg.getBoundingClientRect();
-        const offsetX = (parentWidth - imgWidth) / 2 ;
-        const offsetY = (parentHeight - imgHeight) / 2;
-
-        console.log(offsetX, offsetY);
-
 
         // Initialize Panzoom
         setTimeout(() => {
           const panzoom = Panzoom(zoomImg, {
+            canvas: true,
             maxScale: 2,
             minScale: 0.5,
             startScale: 0.5,
-            startX: -offsetX * 6,
-            startY: -offsetY * 5,
           });
 
           zoomEl.addEventListener("wheel", panzoom.zoomWithWheel);

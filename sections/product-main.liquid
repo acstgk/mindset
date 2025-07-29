@@ -18,7 +18,7 @@
   <pdp-carousel>
     {% for image in product.images %}
       {% unless forloop.index == 2 %}
-        {% assign base_url = image | image_url: width: 1111 | remove: '1111' | prepend: request.origin %}
+        {% assign base_url = image | image_url: width: 1111 | remove: '1111' %}
         {% assign img_widths = '' %}
         {% for width in widths %}
           {% assign img_widths = img_widths | append: base_url | append: width | append: ' ' | append: width | append: 'w, ' %}
@@ -32,11 +32,11 @@
             alt="{{ image.alt }}"
             {% if forloop.first %}
               loading="eager"
-              src="{{ base_url }}9000"
+              src="{{ base_url }}3000"
               srcset="{{ img_widths }}"
             {% else %}
               data-splide-lazy-srcset="{{ img_widths }}"
-              data-splide-lazy="{{ base_url }}9000"
+              data-splide-lazy="{{ base_url }}3000"
             {% endif %}
             sizes="200vw"
           >
@@ -205,18 +205,12 @@
     height: 125px;
     position: absolute;
     right: 2em;
-    bottom: 2em;
+    transition: all 0.1s;
     background-color: white;
   }
 
   .pdp-zoom-close-btn.round-btn {
     top: 2em;
-  }
-
-  .pdp-zoom-img {
-    position: absolute;
-    top: 0;
-    left: 0;
   }
 
   .pdp-carousel-wrapper {
