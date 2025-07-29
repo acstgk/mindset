@@ -107,6 +107,12 @@ a {
   color: var(--c-grey);
   filter: brightness(1);
   transition: color .2s ease, filter .2s ease;
+  display: inline-flex;
+  gap: 0.15em;
+
+  & .Icon {
+    height: 1.1em;
+  }
 
   &:hover {
     color: var(--c-dark-grey)

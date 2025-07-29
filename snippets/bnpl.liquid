@@ -8,7 +8,7 @@
       {% else %}
         pay in 30 days with Klarna. <br>
       {% endif %}
-      <a href="/pages/klarna-terms-conditions">Learn More</a>
+      <a href="/pages/klarna-terms-conditions">Learn More {% render 'icon' with 'external' as icon %}</a>
     </span>
   </div>
   <div class="bnpl-placement">
@@ -16,7 +16,7 @@
     <span>
       or make 4 interest-free payments of <strong>{{ price | divided_by: 4 | money_without_trailing_zeros }}</strong> with ClearPay.
       <br>
-      <a href="/pages/clearpay-terms-conditions">Learn More</a>
+      <a href="/pages/clearpay-terms-conditions">Learn More {% render 'icon' with 'external' as icon %}</a>
     </span>
   </div>
 </div>
