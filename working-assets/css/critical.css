@@ -29,6 +29,25 @@ main {
   display: block;
 }
 
+#attentive_creative {
+  bottom: 35% !important;
+  rotate: -90deg;
+  right: -50px !important;
+}
+
+#fc_frame {
+  bottom: 95px !important;
+  right: 5px !important;
+}
+
+@media screen and (width > 750px ) {
+  #attentive_creative {
+    bottom: 40px !important;
+    rotate: 0deg;
+    right: 5px !important;
+  }
+}
+
 /* TEXT */
 
 h1,
@@ -528,6 +547,7 @@ ul.sub_menu-items {
   color: var(--c-black);
   scale: 1;
   transition: scale 0.15s var(--overshoot-bezier);
+  padding: 0;
 
   & .iwish-counter {
     display: none;
