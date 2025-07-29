@@ -1,0 +1,40 @@
+<div class="payment--options ge-hide-display-none ge-hide">
+  <div class="bnpl-placement">
+    {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+    <span>
+      {% if price >= 3000 %}
+        or make 3 interest-free payments of <strong>{{ price | divided_by: 3 | money_without_trailing_zeros }}</strong> with Klarna.
+        <br>
+      {% else %}
+        pay in 30 days with Klarna. <br>
+      {% endif %}
+      <a href="/pages/klarna-terms-conditions">Learn More</a>
+    </span>
+  </div>
+  <div class="bnpl-placement">
+    {{ 'afterpay' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+    <span>
+      or make 4 interest-free payments of <strong>{{ price | divided_by: 4 | money_without_trailing_zeros }}</strong> with ClearPay.
+      <br>
+      <a href="/pages/clearpay-terms-conditions">Learn More</a>
+    </span>
+  </div>
+</div>
+
+{% stylesheet %}
+
+.payment--options {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
+  margin-block: 1em;
+  border-top: 1px solid var(--c-grey);
+  padding-top: 1em;
+}
+  .bnpl-placement {
+    font-size: var(--txt-sm);
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+{% endstylesheet %}
