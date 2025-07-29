@@ -1,5 +1,6 @@
 import Splide from "./splide.min.js";
 import { SplideUtil } from "./SplideUtil.js";
+import Panzoom from "./panzoom.js";
 
 // ===================
 // PDP Main Carousel
@@ -32,7 +33,6 @@ if (!customElements.get("pdp-carousel")) {
                                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" />
                                     </svg>`;
         this.zoomBtn.addEventListener("click", () => this._zoom());
-        this.zoomEl = document.createElement("div");
         this.style.maxHeight = `${this.availableHeight}px`;
       }
 
@@ -64,50 +64,98 @@ if (!customElements.get("pdp-carousel")) {
       };
 
       _zoom = () => {
+        document.body.style.overflowY = "hidden";
+        console.log("panzoom:: start");
+
         const targetImg = this.querySelector(".is-active > img");
+        if (!targetImg) return;
+
         const imgUrl = targetImg.src;
-        this.zoomEl.className = "pdp-zoom-wrapper";
-        let zoomImg = document.createElement("img");
+
+        const zoomEl = document.createElement("div");
+        zoomEl.className = "pdp-zoom-wrapper";
+
+        const zoomImg = document.createElement("img");
         zoomImg.className = "pdp-zoom-img";
         zoomImg.src = imgUrl;
 
-        let zoomClose = document.createElement("button");
+        const zoomClose = document.createElement("button");
         zoomClose.className = "pdp-zoom-close-btn round-btn";
-        zoomClose.innerHTML = `  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    class="Icon Icon--plus rotate45"
-                                  >
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" />
-                                  </svg>`;
-        zoomClose.addEventListener("click", () => this._unzoom());
+        zoomClose.innerHTML = `
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="Icon Icon--plus rotate45"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M12 5l0 14" />
+            <path d="M5 12l14 0" />
+          </svg>`;
+        zoomClose.addEventListener("click", this._unzoom);
 
-        this.zoomEl.appendChild(zoomImg);
-        this.zoomEl.appendChild(zoomClose);
-        document.body.appendChild(this.zoomEl);
-        //animate the element into view
+        const zoomRange = document.createElement("input");
+        zoomRange.type = "range";
+        zoomRange.min = "0.5";
+        zoomRange.max = "2";
+        zoomRange.step = "0.1";
+        zoomRange.value = "1"; // default zoom level
+        zoomRange.setAttribute("orient", "vertical");
+        zoomRange.className = "pdp-zoom-range";
+
+        // Append elements
+        zoomEl.appendChild(zoomImg);
+        zoomEl.appendChild(zoomClose);
+        zoomEl.appendChild(zoomRange);
+        document.body.appendChild(zoomEl);
+
+        //calculate the initial pan position
+        const { width: parentWidth, height: parentHeight } = zoomEl.getBoundingClientRect();
+        const { width: imgWidth, height: imgHeight } = zoomImg.getBoundingClientRect();
+        const offsetX = (parentWidth - imgWidth) / 2 ;
+        const offsetY = (parentHeight - imgHeight) / 2;
+
+        console.log(offsetX, offsetY);
+
+
+        // Initialize Panzoom
+        setTimeout(() => {
+          const panzoom = Panzoom(zoomImg, {
+            maxScale: 2,
+            minScale: 0.5,
+            startScale: 0.5,
+            startX: -offsetX * 6,
+            startY: -offsetY * 5,
+          });
+
+          zoomEl.addEventListener("wheel", panzoom.zoomWithWheel);
+          zoomRange.addEventListener("input", (event) => {
+            panzoom.zoom(event.target.valueAsNumber);
+          });
+          zoomImg.addEventListener("panzoomzoom", (e) => {
+            zoomRange.value = e.detail.scale.toFixed(1);
+          });
+        }, 300);
+
+        // Animate into view
         requestAnimationFrame(() => {
-          this.zoomEl.classList.add("visible");
+          zoomEl.classList.add("visible");
         });
       };
 
       _unzoom = () => {
-        if (!this.zoomEl) return;
-        this.zoomEl.classList.remove("visible");
+        const zoomEl = document.querySelector(".pdp-zoom-wrapper");
+        if (!zoomEl) return;
+        document.body.style.overflowY = "auto";
+        zoomEl.classList.remove("visible");
 
-        // Wait for the transition to complete before removing
-        this.zoomEl.addEventListener(
-          "transitionend",
-          () => {
-            this.zoomEl.remove();
-          },
-          { once: true },
-        );
+        setTimeout(() => {
+          zoomEl.remove();
+        }, 500);
       };
     },
   );
