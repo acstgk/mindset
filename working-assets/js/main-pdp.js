@@ -1,6 +1,7 @@
 /* global IntersectionObserver */
 
 import Splide from "./splide.min.js";
+import { Cart } from "./main.js";
 import { SplideUtil } from "./SplideUtil.js";
 import Panzoom from "./panzoom.js";
 
@@ -173,8 +174,8 @@ if (!customElements.get("enhanced-atc")) {
         this.atcButtonPosition = this.querySelector(".atc_form-button-spacer");
         this.actualForm = this.closest("form");
         this.atcButton = this.querySelector(".atc_form-button");
-        this.atcButton.innerText = "Select Size";
-
+        this.allGroups = this.querySelectorAll(".atc_form-sizes");
+        this.allGroups.length > 1 ? (this.atcButton.innerText = "Select Sizes") : (this.atcButton.innerText = "Select Size");
         this._currentSubmitHandler = this._scrollToSizes;
         this.actualForm.addEventListener("submit", this._submitDispatcher);
         this.actualForm.addEventListener("change", this._watchSizeSelection);
@@ -197,8 +198,7 @@ if (!customElements.get("enhanced-atc")) {
       // watch the size selection block/s and update the submission function if all blocks/products have a size selected.
       _watchSizeSelection = (event) => {
         if (event.target.type === "radio" && event.target.name.startsWith("id")) {
-          const allGroups = this.querySelectorAll(".atc_form-sizes");
-          const allSelected = Array.from(allGroups).every((group) => {
+          const allSelected = Array.from(this.allGroups).every((group) => {
             return group.querySelector('input[type="radio"]:checked');
           });
 
@@ -210,8 +210,16 @@ if (!customElements.get("enhanced-atc")) {
       };
 
       // the add to cart submission method for when all products have selected sizes
-      _addToCart = (event) => {
-        console.log(event);
+      _addToCart = () => {
+        this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;"></div>`
+        const selectedRadios = this.querySelectorAll('.atc_form-sizes input[type="radio"]:checked');
+        const items = Array.from(selectedRadios).map(radio => ({
+          id: radio.value,
+          quantity: 1,
+        }));
+        if (items.length > 0) {
+          Cart.addItems(items);
+        }
       };
 
       // set the intersection observer to allow the dynamic add to cart button.
