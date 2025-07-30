@@ -34,7 +34,7 @@ main {
 }
 
 #attentive_overlay {
-  z-index: 5 !important;
+  z-index: 3 !important;
 }
 
 @media screen and (width > 750px ) {
