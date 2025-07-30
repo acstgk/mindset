@@ -330,7 +330,7 @@ class CartAPI {
         throw new Error(`HTTP error! Status: ${res.status}`);
       }
       const data = await res.json();
-      console.log("Cart JSON data loaded:", data);
+      console.log("Cart JSON data:", data);
       this.cart = data;
       this.cart.item_count > 0 ? this.cartIcon.classList.add("cart-not-empty") : this.cartIcon.classList.remove("cart-not-empty");
       this.dispatchCartUpdate("cart:loaded"); // Notify UI components
@@ -371,7 +371,6 @@ class CartAPI {
       }
 
       const data = await res.json();
-      console.log("Item/s added successfully:", data);
       await this.loadCart();
       this.dispatchCartUpdate("cart:itemsAdded");
       return data;
@@ -412,7 +411,6 @@ class CartAPI {
       });
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
       const data = await res.json();
-      console.log("Line Item Updated:", data);
       await this.loadCart(); // Reload cart data and dispatch update
       this.dispatchCartUpdate("cart:lineItemUpdated");
       return data;
@@ -431,7 +429,6 @@ class CartAPI {
       });
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
       const data = await res.json();
-      console.log("Cart cleared:", data);
       await this.loadCart(); // Reload cart data and dispatch update
       this.dispatchCartUpdate("cart:cleared");
       return data;
@@ -687,7 +684,6 @@ if (!customElements.get("free-delivery")) {
         this.threshold2Name = this.Options.threshold2Name;
 
         document.addEventListener("cart:loaded", this.updateProgress);
-        this.updateProgress();
       }
 
       updateProgress = (event) => {

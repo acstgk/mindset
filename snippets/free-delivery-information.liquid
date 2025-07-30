@@ -16,14 +16,17 @@
       {%- if cart.total_price >= settings['delivery-threshold2-value'] and settings['show-delivery-threshold2'] -%}
         <span class="success">Enjoy! You've unlocked FREE {{ settings['delivery-threshold2-name'] }}.</span>
         {% assign progress = 100 %}
+        {% assign bg_color = 'var(--c-success)' %}
 
       {% elsif cart.total_price >= settings['delivery-threshold-value'] %}
         <span class="success"> You've unlocked FREE {{ settings['delivery-threshold-name'] }}.</span>
         {% assign progress = 100 %}
+        {% assign bg_color = 'var(--c-success)' %}
         {%- if settings['show-delivery-threshold2'] -%}
           <br>
           Spend {{ settings['delivery-threshold2-value'] | minus: cart.total_price | money_without_trailing_zeros }} more for FREE {{ settings['delivery-threshold2-name'] }}.
           {% assign progress = cart.total_price | times: 100 | divided_by: settings['delivery-threshold2-value'] %}
+          {% assign bg_color = 'var(--c-grey)' %}
         {%- endif -%}
 
       {% else %}
@@ -31,7 +34,7 @@
         {% assign progress = cart.total_price | times: 100 | divided_by: settings['delivery-threshold-value'] %}
       {%- endif -%}
     </p>
-    <div class="free-delivery_status-bar" style="--pc-progress: {{ progress }}%;"></div>
+    <div class="free-delivery_status-bar" style="--pc-progress: {{ progress }}%;--bg-color:{{ bg_color }}"></div>
   {% endif %}
 </free-delivery>
 
@@ -54,7 +57,7 @@
       --pc-progress: attr(data-progress, 0%);
       --bg-color: var(--c-grey);
 
-      margin: .5em 0;
+      margin: 0.5em 0;
       height: 2px;
       width: 100%;
       background-color: var(--c-light-grey);
