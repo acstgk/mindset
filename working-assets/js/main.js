@@ -453,7 +453,9 @@ class CartAPI {
   updateCheckoutTotal(value) {
     let totalPoint = document.querySelector(".cart-total");
     if (value === 0) {
+      totalPoint.parentElement.remove();
       Cart.getLineItems();
+
     } else {
       totalPoint.innerHTML = Cart.formatMoney(value);
     }
