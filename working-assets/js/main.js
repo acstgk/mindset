@@ -690,7 +690,8 @@ if (!customElements.get("free-delivery")) {
       }
 
       updateProgress = (event) => {
-        if (!this.deliveryStatus) { // only run if not an active free delivery subscriber
+        if (!this.deliveryStatus) {
+          // only run if not an active free delivery subscriber
           const cart = event.detail.cart;
           let message;
           let newProgress = "100%";
@@ -720,8 +721,20 @@ if (!customElements.get("free-delivery")) {
           this.progressBar.style.setProperty("--pc-progress", `${newProgress}%`);
           this.progressBar.style.setProperty("--bg-color", `${bgColor}`);
 
-          // update the displayed free delivery information on PDP
-
+          // dispatch a custom dleivery status updated event for pdp page to pick up
+          const deliveryEvent = new CustomEvent("delivery:statusUpdated", {
+            bubbles: true,
+            detail: {
+              thresholdReached: cart.total_price >= this.thresholdValue,
+              threshold2Reached: this.threshold2Show && cart.total_price >= this.threshold2Value,
+              threshold2Show: this.threshold2Show,
+              thresholdValue: this.thresholdValue,
+              thresholdName: this.thresholdName,
+              threshold2Value: this.threshold2Value,
+              threshold2Name: this.threshold2Name,
+            },
+          });
+          document.dispatchEvent(deliveryEvent);
         }
       };
     },

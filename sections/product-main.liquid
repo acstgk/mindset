@@ -179,7 +179,7 @@
     </div>
     <div class="confidence_blocks-block accent-bg">
       {% render 'icon', icon: 'parcel', class: 'ani-bounce' %}
-      <div class="free-delivery-status">
+      <freedelivery-info>
         {%- if customer.tags contains 'Active Subscriber' -%}
           <p class="free-delivery_text">Your Unlimited FREE Delivery Subscription is: <span class="success">active</span></p>
         {% else %}
@@ -203,7 +203,7 @@
             {%- endif -%}
           </p>
         {% endif %}
-      </div>
+      </freedelivery-info>
     </div>
   </div>
 </aside>

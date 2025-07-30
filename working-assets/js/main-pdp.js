@@ -198,14 +198,13 @@ if (!customElements.get("enhanced-atc")) {
       // watch the size selection block/s and update the submission function if all blocks/products have a size selected.
       _watchSizeSelection = (event) => {
         if (event.target.type === "radio" && event.target.name.startsWith("id")) {
-            const selectedSizes = Array.from(this.allGroups)
-            .map((group) => {
-              const checked = group.querySelector('input[type="radio"]:checked');
-              return checked ? checked.dataset.size || checked.getAttribute("data-size") || checked.value : null;
-            });
+          const selectedSizes = Array.from(this.allGroups).map((group) => {
+            const checked = group.querySelector('input[type="radio"]:checked');
+            return checked ? checked.dataset.size || checked.getAttribute("data-size") || checked.value : null;
+          });
 
-            const allSelected = selectedSizes.every(Boolean);
-            const selectedSizesStr = selectedSizes.filter(Boolean).join(", ");
+          const allSelected = selectedSizes.every(Boolean);
+          const selectedSizesStr = selectedSizes.filter(Boolean).join(", ");
 
           if (allSelected) {
             this.atcButton.innerHTML = `<b>Add to Bag</b> <span>| size: ${selectedSizesStr}</span>`;
@@ -216,7 +215,7 @@ if (!customElements.get("enhanced-atc")) {
 
       // the add to cart submission method for when all products have selected sizes
       _addToCart = () => {
-        const atcButtonContent = this.atcButton.innerHTML
+        const atcButtonContent = this.atcButton.innerHTML;
         this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;"></div>`;
         const selectedRadios = this.querySelectorAll('.atc_form-sizes input[type="radio"]:checked');
         const items = Array.from(selectedRadios).map((radio) => ({
@@ -259,6 +258,47 @@ if (!customElements.get("enhanced-atc")) {
         } else {
           this.atcButton.classList.remove("is_sticky", "to_sticky");
         }
+      };
+    },
+  );
+}
+
+// ===================
+// Manage the delivery status
+// ===================
+
+if (!customElements.get("freedelivery-info")) {
+  customElements.define(
+    "freedelivery-info",
+    class DeliveryInfo extends HTMLElement {
+      connectedCallback() {
+        document.addEventListener("delivery:statusUpdated", this.updateInfo);
+      }
+
+      updateInfo = (event) => {
+        const details = event.detail;
+        console.log(details);
+        const copyEl = this.querySelector(".free-delivery_text");
+        let msg = "";
+
+        console.log("threshold check", details.thresholdReached && !details.threshold2Reached);
+
+        if (details.thresholdReached && (!details.threshold2Reached || !details.threshold2Show)) {
+          msg = `<strong>You've unlocked ${details.thresholdName}.</strong>`;
+        } else if (!details.threshold2Reached || !details.threshold2Show) {
+          msg = `FREE ${details.thresholdName} over ${Cart.formatMoney(details.thresholdValue)}.`;
+        }
+
+        if (details.threshold2Show) {
+          msg != "" ? (msg += `<br>`) : "";
+          if (details.threshold2Reached) {
+            msg += `<strong>You've unlocked ${details.threshold2Name}.</strong>`;
+          } else {
+            msg += `FREE ${details.threshold2Name} over ${Cart.formatMoney(details.threshold2Value)}.`;
+          }
+        }
+
+        copyEl.innerHTML = msg;
       };
     },
   );
