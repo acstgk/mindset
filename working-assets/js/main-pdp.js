@@ -211,15 +211,20 @@ if (!customElements.get("enhanced-atc")) {
 
       // the add to cart submission method for when all products have selected sizes
       _addToCart = () => {
-        this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;"></div>`
+        this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;"></div>`;
         const selectedRadios = this.querySelectorAll('.atc_form-sizes input[type="radio"]:checked');
-        const items = Array.from(selectedRadios).map(radio => ({
+        const items = Array.from(selectedRadios).map((radio) => ({
           id: radio.value,
           quantity: 1,
         }));
         if (items.length > 0) {
           Cart.addItems(items);
         }
+        window.addEventListener("cart:itemsAdded", () => {
+          setTimeout(() => {
+            this.atcButton.innerText = "Add to Bag";
+          }, 300);
+        });
       };
 
       // set the intersection observer to allow the dynamic add to cart button.
