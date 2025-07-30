@@ -302,3 +302,47 @@ pdp-carousel {
     margin: 0;
   }
 }
+
+.product_details-confidence-blocks {
+  & .confidence_blocks-block {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    a {
+      color: var(--c-dark-grey);
+    }
+
+    & svg {
+      width: 2em;
+      color: var(--c-dark-grey);
+    }
+
+    & > *:last-child {
+      flex: 1 1 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &:hover {
+      & svg.ani-drive {
+        animation: drive 1s;
+      }
+
+      & svg.ani-spin {
+        animation: spin 1s;
+      }
+
+      & svg.ani-bounce {
+        animation: bounce 1s;
+      }
+    }
+  }
+
+  & .window {
+    overflow: hidden;
+    width: min-content;
+  }
+}

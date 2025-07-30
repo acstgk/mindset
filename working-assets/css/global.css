@@ -330,7 +330,7 @@ button {
     font-size: calc(var(--txt-sm) * 0.9);
     margin: 15px auto 0;
     max-width: 90%;
-    padding: 5px 10px ;
+    padding: 5px 10px;
 
 }
 
@@ -1388,4 +1388,47 @@ ul.CountryList {
 
 .mobile-navigation .disclosure__button {
     padding-left: 0px;
+}
+
+/* Animations */
+
+@keyframes drive {
+    0%,
+    100% {
+        transform: translateX(0px);
+    }
+
+    50% {
+        transform: translateX(110%);
+    }
+
+    51% {
+        transform: translateX(-100%)
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    50%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-14%);
+    }
+
+    75% {
+        transform: translateY(-7%);
+    }
 }

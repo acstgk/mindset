@@ -167,6 +167,45 @@
       <div href="#" class="BIS_trigger button button-secondary" data-product-data="{{  product | json | escape }}">Size out of stock?</div>
     {% endif %}
   </div>
+
+  <div class="product_details-confidence-blocks">
+    <div class="confidence_blocks-block accent-bg">
+      <div class="window">{% render 'icon', icon: 'truck', class: 'ani-drive' %}</div>
+      <dispatch-timer>Order now for delivery in 1 - 2 working days</dispatch-timer>
+    </div>
+    <div class="confidence_blocks-block accent-bg">
+      {% render 'icon', icon: 'star', class: 'ani-spin' %}
+      <a href="https://uk.trustpilot.com/review/thegymking.com?stars=5" target="_blank">35,000+ 5 star reviews. {% render 'icon', icon: 'external' %}</a>
+    </div>
+    <div class="confidence_blocks-block accent-bg">
+      {% render 'icon', icon: 'parcel', class: 'ani-bounce' %}
+      <div class="free-delivery-status">
+        {%- if customer.tags contains 'Active Subscriber' -%}
+          <p class="free-delivery_text">Your Unlimited FREE Delivery Subscription is: <span class="success">active</span></p>
+        {% else %}
+          <p class="free-delivery_text">
+            {%- if cart.total_price >= settings['delivery-threshold2-value'] and settings['show-delivery-threshold2'] -%}
+             <strong> Enjoy! You've unlocked FREE {{ settings['delivery-threshold2-name'] }}</strong>.
+
+            {% elsif cart.total_price >= settings['delivery-threshold-value'] %}
+              <strong>You've unlocked FREE {{ settings['delivery-threshold-name'] }}</strong>.
+              {%- if settings['show-delivery-threshold2'] -%}
+                <br>
+                FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value']  | money_without_trailing_zeros }}.
+              {%- endif -%}
+
+            {% else %}
+              FREE {{ settings['delivery-threshold-name'] }} over {{ settings['delivery-threshold-value']  | money_without_trailing_zeros }}.
+              {%- if settings['show-delivery-threshold2'] -%}
+                <br>
+                FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value']  | money_without_trailing_zeros }}.
+              {%- endif -%}
+            {%- endif -%}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
 </aside>
 
 {% render 'drawer-size-guide' with product as product %}
