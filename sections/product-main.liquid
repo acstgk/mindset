@@ -52,7 +52,7 @@
 
 <aside id="product-details" class="max-width">
   <div class="" id="product-summary">
-    {% render 'product-title' with product as 'product' %}
+    {% render 'product-title' with product as 'product', heading: 'true' %}
     {% render 'product-price' with product as 'product' %}
     {% unless product.type == 'Tracksuit Set' %}
       <div
