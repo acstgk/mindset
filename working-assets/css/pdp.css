@@ -84,7 +84,7 @@ form#atc_form {
 
   .atc_form-button-spacer,
   .atc_form-button {
-    min-height: 42px;
+    min-height: 55px;
   }
 
   .atc_form-button {
@@ -92,6 +92,7 @@ form#atc_form {
     bottom: 0;
     left: 0;
     z-index: 4;
+    height: 55px;
 
     & span {
       font-weight: 400;
@@ -289,5 +290,15 @@ pdp-carousel {
 
   & .Price--saving {
     margin: 0 auto 0 0;
+  }
+}
+
+.product_details-sizing {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+
+  .BIS_trigger {
+    margin: 0;
   }
 }

@@ -28,6 +28,7 @@ body {
 main {
   display: block;
 }
+
 #fc_frame {
   bottom: 95px !important;
   right: 5px !important;
@@ -37,7 +38,7 @@ main {
   z-index: 3 !important;
 }
 
-@media screen and (width > 750px ) {
+@media screen and (width > 750px) {
   #attentive_creative {
     bottom: 40px !important;
     rotate: 0deg;
@@ -212,15 +213,22 @@ a {
   }
 }
 
-:not(.rtf) ul,
-:not(.rtf) ol {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1em;
-  padding: 0;
+:not(.rtf) {
 
+  & p {
+    margin: 0;
+    padding: 0;
+  }
+
+  & ul,
+  & ol {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    padding: 0;
+  }
 }
 
 /* NAV DRAWER */

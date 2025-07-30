@@ -1,4 +1,7 @@
 {% comment %} set images sizes  {% endcomment %}
+
+{% assign is_set = product.metafields.custom.product_set %}
+{% assign oos = false %}
 {% assign widths = '600,750,900,1200,1920,2400,3000' | split: ',' %}
 
 {% comment %} set the shown price - either calculate for 'sets' or use product price {% endcomment %}
@@ -83,7 +86,59 @@
         </a>
       </div>
 
-      {% render 'size-selector' with product as product %}
+      {% if is_set %}
+        {% for part in is_set.value %}
+          {% assign product_number = forloop.index %}
+          <a href="{{ part.url }}">
+            <h4 class="part_title">{{ part.title | remove: 'Gym King' }}</h4>
+          </a>
+          <div
+            class="yotpo-widget-instance"
+            data-yotpo-instance-id="1008278"
+            data-yotpo-product-id="{{part.id}}"
+            data-yotpo-section-id="{{template.name}}"
+          ></div>
+          <ul class="atc_form-sizes">
+            {% for variant in part.variants %}
+              <li>
+                <input
+                  type="radio"
+                  name="id-{{ product_number }}"
+                  value="{{ variant.id }}"
+                  id="variant-{{ variant.id }}"
+                  data-available-qty="{{ variant.inventory_quantity }}"
+                  data-size="{{ variant.title }}"
+                  {% unless variant.available %}
+                    disabled
+                  {% endunless %}
+                >
+                <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+
+      {% else %}
+        <ul class="atc_form-sizes">
+          {% for variant in product.variants %}
+            <li>
+              <input
+                type="radio"
+                name="id"
+                value="{{ variant.id }}"
+                id="variant-{{ variant.id }}"
+                data-available-qty="{{ variant.inventory_quantity }}"
+                data-size="{{ variant.title }}"
+                {% unless variant.available %}
+                  {%- assign oos = true -%}
+                  disabled
+                {% endunless %}
+              >
+              <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
 
       {% comment %}  Quantity Selector  {% endcomment %}
       <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
@@ -91,9 +146,30 @@
       <div class="atc_form-button-spacer"><button type="submit" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button></div>
     </enhanced-atc>
   </form>
+
+  <div class="product_details-sizing accent-bg">
+    {% assign description = product.description %}
+
+    {% if description contains 'fit</h4>' %}
+      {% assign split_anchor = 'fit</h4>' %}
+    {% elsif description contains 'Fit</h4>' %}
+      {% assign split_anchor = 'Fit</h4>' %}
+    {% endif %}
+
+    {% assign parts = description | split: split_anchor %}
+    {% if parts.size > 1 %}
+      {% assign after_fit = parts[1] | split: '<h4' %}
+      {% assign size_and_fit_content = after_fit[0] %}
+      <div>{{ size_and_fit_content }}</div>
+    {% endif %}
+
+    {% if oos %}
+      <div href="#" class="BIS_trigger button button-secondary" data-product-data="{{  product | json | escape }}">Size out of stock?</div>
+    {% endif %}
+  </div>
 </aside>
 
-{% render 'drawer-size-guide' with product as product%}
+{% render 'drawer-size-guide' with product as product %}
 
 <script type="module" src="{{ 'main-pdp.js' | asset_url }}"></script>
 <link rel="stylesheet" href="{{ 'pdp.min.css' | asset_url }}">

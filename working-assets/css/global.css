@@ -101,6 +101,12 @@ body.no-scroll page-overlay {
     z-index: 11;
 }
 
+.accent-bg {
+    background-color: var(--c-off-white);
+    padding: 1em;
+    margin-block: 1em;
+}
+
 .no-scroll {
     overflow: hidden;
 }
@@ -324,7 +330,7 @@ button {
     font-size: calc(var(--txt-sm) * 0.9);
     margin: 15px auto 0;
     max-width: 90%;
-    padding: 10px 10px 5px;
+    padding: 5px 10px ;
 
 }
 
