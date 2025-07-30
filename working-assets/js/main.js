@@ -495,171 +495,6 @@ window.Cart = new CartAPI();
 export const Cart = window.Cart;
 
 // ===================
-// CART LINE ITEMS
-// ===================
-
-if (!customElements.get("line-item")) {
-  customElements.define(
-    "line-item",
-    class LineItem extends HTMLElement {
-      connectedCallback() {
-        this.lineItemKey = this.dataset.key;
-        this.itemIndex = this.dataset.index;
-        this._bindQuantityControls();
-      }
-
-      _bindQuantityControls() {
-        let lastQty = 0;
-        const selector = this.querySelector(".quantity-selector");
-        const input = selector.querySelector(".qty-input");
-        const lineItemKey = this.lineItemKey;
-
-        // Handle +/- buttons
-        selector.querySelectorAll("[data-new-qty]").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            const newQty = parseInt(btn.dataset.newQty, 10);
-            if (!isNaN(newQty)) {
-              Cart.updateLineItem(lineItemKey, newQty).then(() => {
-                // remove the element from the DOM if newQty is zero
-                if (newQty === 0) this.removeItemEl();
-
-                // update the quantity selector values
-                input.value = newQty;
-                selector.querySelector(".quantity-minus").dataset.newQty = newQty - 1;
-                selector.querySelector(".quantity-plus").dataset.newQty = newQty + 1;
-
-                // update the line total.
-                this.querySelector(".cart_item-total").innerHTML = Cart.formatMoney(Cart.cart.items[this.itemIndex].line_price, Cart.cart.currency);
-
-                // update the cart total
-                Cart.updateCheckoutTotal(Cart.cart.total_price, Cart.cart.currency);
-              });
-            }
-          });
-        });
-
-        // Handle input blur and Enter/Tab keys
-        const commitChange = () => {
-          const newQty = parseInt(input.value, 10);
-          if (!isNaN(newQty) && newQty !== lastQty) {
-            lastQty = newQty;
-            Cart.updateLineItem(lineItemKey, newQty);
-          }
-        };
-
-        input.addEventListener("change", commitChange);
-        input.addEventListener("blur", commitChange);
-        input.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === "Tab") {
-            commitChange();
-          }
-        });
-
-        // Handle remove button
-        const removeBtn = selector.querySelector(".quantity-zero");
-        if (removeBtn) {
-          removeBtn.addEventListener("click", () => {
-            Cart.removeItem(lineItemKey).then(() => {
-              this.removeItemEl();
-            });
-          });
-        }
-      }
-
-      removeItemEl() {
-        const el = this;
-        requestAnimationFrame(() => {
-          el.classList.add("fade-out");
-          el.addEventListener(
-            "transitionend",
-            () => {
-              el.parentElement.remove();
-              Cart.updateCheckoutTotal(Cart.cart.total_price, Cart.cart.currency);
-            },
-            {
-              once: true,
-            },
-          );
-        });
-      }
-    },
-  );
-}
-
-// ===================
-// FREE DELIVERY INFORMATION
-// ===================
-
-if (!customElements.get("free-delivery")) {
-  customElements.define(
-    "free-delivery",
-    class FreeDelivery extends HTMLElement {
-      constructor() {
-        super();
-      }
-
-      connectedCallback() {
-        this.progressBar = this.querySelector(".free-delivery_status-bar");
-        this.textElement = this.querySelector(".free-delivery_text");
-        this.Options = JSON.parse(this.getAttribute("data-settings"));
-
-        this.thresholdValue = this.Options.thresholdValue;
-        this.thresholdName = this.Options.thresholdName;
-        this.threshold2Show = this.Options.threshold2Show;
-        this.threshold2Value = this.Options.threshold2Value;
-        this.threshold2Name = this.Options.threshold2Name;
-
-        document.addEventListener("cart:loaded", this.updateProgress);
-      }
-
-      updateProgress = (event) => {
-        const cart = event.detail.cart;
-        let message;
-        let newProgress = "100%";
-        let bgColor = "var(--c-grey)";
-
-        if (cart.total_price >= this.threshold2Value && this.threshold2Show) {
-          message = `<span class="success">Enjoy! You've unlocked <b>FREE ${this.threshold2Name}</b>.</span>`;
-          newProgress = "100";
-          bgColor = "var(--c-success)";
-        } else if (cart.total_price >= this.thresholdValue) {
-          message = `<span class="success">You've unlocked <b>FREE ${this.thresholdName}</b>.</span>`;
-          newProgress = "100";
-          bgColor = "var(--c-success)";
-          if (this.threshold2Show) {
-            message += `<br>Spend <b>${Cart.formatMoney(this.threshold2Value - cart.total_price)}</b> more for FREE ${this.threshold2Name}.`;
-            newProgress = Math.min(100, (cart.total_price / this.threshold2Value) * 100);
-          }
-        } else {
-          message = `Spend <b>${Cart.formatMoney(this.thresholdValue - cart.total_price)}</b> more for FREE ${this.thresholdName}.`;
-          newProgress = Math.min(100, (cart.total_price / this.thresholdValue) * 100);
-          bgColor = "var(--c-grey)";
-        }
-
-        this.textElement.innerHTML = message;
-        this.progressBar.style.setProperty("--pc-progress", `${newProgress}%`);
-        this.progressBar.style.setProperty("--bg-color", `${bgColor}`);
-      };
-    },
-  );
-}
-
-// ===================
-// Global functions and logic
-// ===================
-
-function openCartDrawerIfNotOnCartPage() {
-  if (theme.pageType != "cart") {
-    Cart.getLineItems().then(() => {
-      const drawer = document.getElementById("cartDrawer");
-      if (drawer) drawer.open();
-    });
-  }
-}
-
-document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
-
-// ===================
 // DYNAMIC IMPORTS
 // ===================
 
@@ -724,3 +559,179 @@ new ComponentLoader("product-card", () => import("./ProductCard.js"));
 new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
 new ComponentLoader("productcard-carousel", () => import("./ProductCarousel.js"));
 new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
+
+
+// ===================
+// CART LINE ITEMS
+// ===================
+
+if (!customElements.get("line-item")) {
+  customElements.define(
+    "line-item",
+    class LineItem extends HTMLElement {
+      connectedCallback() {
+        this.lineItemKey = this.dataset.key;
+        this._bindQuantityControls();
+      }
+
+      _bindQuantityControls() {
+        let lastQty = 0;
+        const selector = this.querySelector(".quantity-selector");
+        const input = selector.querySelector(".qty-input");
+        const lineItemKey = this.lineItemKey;
+
+        // Handle +/- buttons
+        selector.querySelectorAll("[data-new-qty]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const newQty = parseInt(btn.dataset.newQty, 10);
+            if (!isNaN(newQty)) {
+              Cart.updateLineItem(lineItemKey, newQty).then(() => {
+                // remove the element from the DOM if newQty is zero
+                if (newQty === 0) this.removeItemEl();
+
+                // update the quantity selector values
+                input.value = newQty;
+                selector.querySelector(".quantity-minus").dataset.newQty = newQty - 1;
+                selector.querySelector(".quantity-plus").dataset.newQty = newQty + 1;
+
+                // update the line total.
+                this.querySelector(".cart_item-total").innerHTML = Cart.formatMoney(Cart.cart.items[this.dataset.index].line_price, Cart.cart.currency);
+
+                // update the cart total
+                Cart.updateCheckoutTotal(Cart.cart.total_price, Cart.cart.currency);
+              });
+            }
+          });
+        });
+
+        // Handle input blur and Enter/Tab keys
+        const commitChange = () => {
+          const newQty = parseInt(input.value, 10);
+          if (!isNaN(newQty) && newQty !== lastQty) {
+            lastQty = newQty;
+            Cart.updateLineItem(lineItemKey, newQty);
+          }
+        };
+
+        input.addEventListener("change", commitChange);
+        input.addEventListener("blur", commitChange);
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === "Tab") {
+            commitChange();
+          }
+        });
+
+        // Handle remove button
+        const removeBtn = selector.querySelector(".quantity-zero");
+        if (removeBtn) {
+          removeBtn.addEventListener("click", () => {
+            Cart.removeItem(lineItemKey).then(() => {
+              this.removeItemEl();
+            });
+          });
+        }
+      }
+
+      removeItemEl() {
+        const el = this;
+        requestAnimationFrame(() => {
+          el.classList.add("fade-out");
+          el.addEventListener(
+            "transitionend",
+            () => {
+              const index = el.dataset.index;
+              const allLineItems = document.querySelectorAll("line-item");
+                allLineItems.forEach((item) => {
+                const itemIndex = parseInt(item.dataset.index, 10);
+                if (itemIndex > index) {
+                  item.dataset.index = itemIndex - 1;
+                }
+                });
+
+              el.parentElement.remove();
+              Cart.updateCheckoutTotal(Cart.cart.total_price, Cart.cart.currency);
+            },
+            {
+              once: true,
+            },
+          );
+        });
+      }
+    },
+  );
+}
+
+// ===================
+// FREE DELIVERY INFORMATION
+// ===================
+
+if (!customElements.get("free-delivery")) {
+  customElements.define(
+    "free-delivery",
+    class FreeDelivery extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.progressBar = this.querySelector(".free-delivery_status-bar");
+        this.textElement = this.querySelector(".free-delivery_text");
+        this.Options = JSON.parse(this.getAttribute("data-settings"));
+
+        this.thresholdValue = this.Options.thresholdValue;
+        this.thresholdName = this.Options.thresholdName;
+        this.threshold2Show = this.Options.threshold2Show;
+        this.threshold2Value = this.Options.threshold2Value;
+        this.threshold2Name = this.Options.threshold2Name;
+
+        document.addEventListener("cart:loaded", this.updateProgress);
+        this.updateProgress();
+      }
+
+      updateProgress = (event) => {
+        const cart = event.detail.cart;
+        let message;
+        let newProgress = "100%";
+        let bgColor = "var(--c-grey)";
+
+        if (cart.total_price >= this.threshold2Value && this.threshold2Show) {
+          message = `<span class="success">Enjoy! You've unlocked <b>FREE ${this.threshold2Name}</b>.</span>`;
+          newProgress = "100";
+          bgColor = "var(--c-success)";
+        } else if (cart.total_price >= this.thresholdValue) {
+          message = `<span class="success">You've unlocked <b>FREE ${this.thresholdName}</b>.</span>`;
+          newProgress = "100";
+          bgColor = "var(--c-success)";
+          if (this.threshold2Show) {
+            message += `<br>Spend <b>${Cart.formatMoney(this.threshold2Value - cart.total_price)}</b> more for FREE ${this.threshold2Name}.`;
+            newProgress = Math.min(100, (cart.total_price / this.threshold2Value) * 100);
+            bgColor = "var(--c-grey)";
+          }
+        } else {
+          message = `Spend <b>${Cart.formatMoney(this.thresholdValue - cart.total_price)}</b> more for FREE ${this.thresholdName}.`;
+          newProgress = Math.min(100, (cart.total_price / this.thresholdValue) * 100);
+          bgColor = "var(--c-grey)";
+        }
+
+        this.textElement.innerHTML = message;
+        this.progressBar.style.setProperty("--pc-progress", `${newProgress}%`);
+        this.progressBar.style.setProperty("--bg-color", `${bgColor}`);
+      };
+    },
+  );
+}
+
+// ===================
+// Global functions and logic
+// ===================
+
+function openCartDrawerIfNotOnCartPage() {
+  if (theme.pageType != "cart") {
+    Cart.getLineItems().then(() => {
+      const drawer = document.getElementById("cartDrawer");
+      if (drawer) drawer.open();
+    });
+  }
+}
+
+document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
