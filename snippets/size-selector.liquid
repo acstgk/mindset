@@ -20,6 +20,7 @@
             name="id-{{ product_number }}"
             value="{{ variant.id }}"
             id="variant-{{ variant.id }}"
+            data-available-qty="{{ variant.inventory_quantity }}"
             {% unless variant.available %}
               disabled
             {% endunless %}
@@ -39,6 +40,7 @@
           name="id"
           value="{{ variant.id }}"
           id="variant-{{ variant.id }}"
+          data-available-qty="{{ variant.inventory_quantity }}"
           {% unless variant.available %}
             disabled
           {% endunless %}
