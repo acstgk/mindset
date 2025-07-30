@@ -15,10 +15,10 @@ if (!customElements.get("pdp-carousel")) {
         super();
         this.availableHeight =
           window.innerHeight * 0.95 -
-          document.querySelector(".atc_form-button").getBoundingClientRect().height - // replace this for AtB button element when created
-          document.getElementById("shopify-section-header-main").getBoundingClientRect().height -
-          document.getElementById("shopify-section-header-announcement").getBoundingClientRect().height -
-          document.getElementById("product-summary").getBoundingClientRect().height;
+          document.querySelector(".atc_form-button").getBoundingClientRect().height - // atb button
+          document.getElementById("shopify-section-header-main").getBoundingClientRect().height - // header
+          document.getElementById("shopify-section-header-announcement").getBoundingClientRect().height - //annoucement bar
+          document.getElementById("product-summary").getBoundingClientRect().height; // product summary information
         this.splide = null;
         this.zoomBtn = document.createElement("button");
         this.zoomBtn.className = "pdp-zoom-btn round-btn";
@@ -39,11 +39,12 @@ if (!customElements.get("pdp-carousel")) {
       }
 
       connectedCallback() {
-        this._splideInit();
+        this._splideMainInit();
         this.appendChild(this.zoomBtn);
       }
 
-      _splideInit = () => {
+      // initialise the Main splide slider for the product images
+      _splideMainInit = () => {
         SplideUtil.splideHTML(this);
         this.splide = new Splide(this, {
           type: "loop",
@@ -65,6 +66,7 @@ if (!customElements.get("pdp-carousel")) {
         this.splide.mount();
       };
 
+      // create and display the panzoom zoom overlay element
       _zoom = () => {
         document.body.style.overflowY = "hidden";
 
@@ -140,6 +142,7 @@ if (!customElements.get("pdp-carousel")) {
         });
       };
 
+      // destroy the panzoom element when close button is clicked
       _unzoom = () => {
         const zoomEl = document.querySelector(".pdp-zoom-wrapper");
         if (!zoomEl) return;
@@ -173,21 +176,25 @@ if (!customElements.get("enhanced-atc")) {
         this.atcButton.innerText = "Select Size";
 
         this._currentSubmitHandler = this._scrollToSizes;
-        this._submitDispatcher = (event) => {
-          event.preventDefault();
-          this._currentSubmitHandler(event);
-        };
         this.actualForm.addEventListener("submit", this._submitDispatcher);
         this.actualForm.addEventListener("change", this._watchSizeSelection);
         this._handleStickyButton();
         this._setObserver();
       }
 
+      // overrides the default submit event and calls the correct function based on size selection
+      _submitDispatcher = (event) => {
+        event.preventDefault();
+        this._currentSubmitHandler(event);
+      };
+
+      // if no size/s are selected scroll the user to select size on form submission attempt
       _scrollToSizes = (event) => {
         event.preventDefault();
         document.getElementById("product-details").scrollIntoView({ behavior: "smooth", block: "start" });
       };
 
+      // watch the size selection block/s and update the submission function if all blocks/products have a size selected.
       _watchSizeSelection = (event) => {
         if (event.target.type === "radio" && event.target.name.startsWith("id")) {
           const allGroups = this.querySelectorAll(".atc_form-sizes");
@@ -202,10 +209,12 @@ if (!customElements.get("enhanced-atc")) {
         }
       };
 
+      // the add to cart submission method for when all products have selected sizes
       _addToCart = (event) => {
         console.log(event);
       };
 
+      // set the intersection observer to allow the dynamic add to cart button.
       _setObserver = () => {
         const observer = new IntersectionObserver(
           (entries) => {
@@ -224,6 +233,7 @@ if (!customElements.get("enhanced-atc")) {
         observer.observe(this.atcButtonPosition);
       };
 
+      // the method called by an intersection event on the add to cart original position
       _handleStickyButton = () => {
         if (!this.isButtonVisible && window.innerWidth < 768) {
           this.atcButton.classList.add("is_sticky", "to_sticky");
