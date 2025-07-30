@@ -198,12 +198,17 @@ if (!customElements.get("enhanced-atc")) {
       // watch the size selection block/s and update the submission function if all blocks/products have a size selected.
       _watchSizeSelection = (event) => {
         if (event.target.type === "radio" && event.target.name.startsWith("id")) {
-          const allSelected = Array.from(this.allGroups).every((group) => {
-            return group.querySelector('input[type="radio"]:checked');
-          });
+            const selectedSizes = Array.from(this.allGroups)
+            .map((group) => {
+              const checked = group.querySelector('input[type="radio"]:checked');
+              return checked ? checked.dataset.size || checked.getAttribute("data-size") || checked.value : null;
+            });
+
+            const allSelected = selectedSizes.every(Boolean);
+            const selectedSizesStr = selectedSizes.filter(Boolean).join(", ");
 
           if (allSelected) {
-            this.atcButton.innerText = "Add to Bag";
+            this.atcButton.innerHTML = `<b>Add to Bag</b> <span>| size: ${selectedSizesStr}</span>`;
             this._currentSubmitHandler = this._addToCart;
           }
         }
@@ -211,6 +216,7 @@ if (!customElements.get("enhanced-atc")) {
 
       // the add to cart submission method for when all products have selected sizes
       _addToCart = () => {
+        const atcButtonContent = this.atcButton.innerHTML
         this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;"></div>`;
         const selectedRadios = this.querySelectorAll('.atc_form-sizes input[type="radio"]:checked');
         const items = Array.from(selectedRadios).map((radio) => ({
@@ -222,7 +228,7 @@ if (!customElements.get("enhanced-atc")) {
         }
         window.addEventListener("cart:itemsAdded", () => {
           setTimeout(() => {
-            this.atcButton.innerText = "Add to Bag";
+            this.atcButton.innerHTML = atcButtonContent;
           }, 300);
         });
       };
