@@ -322,7 +322,6 @@ pdp-carousel {
     & > *:last-child {
       flex: 1 1 100%;
       display: flex;
-      justify-content: center;
       align-items: center;
     }
 

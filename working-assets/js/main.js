@@ -684,38 +684,45 @@ if (!customElements.get("free-delivery")) {
         this.threshold2Show = this.Options.threshold2Show;
         this.threshold2Value = this.Options.threshold2Value;
         this.threshold2Name = this.Options.threshold2Name;
+        this.deliveryStatus = this.dataset.deliveryStatus === "true"; // force a boolean value
 
         document.addEventListener("cart:loaded", this.updateProgress);
       }
 
       updateProgress = (event) => {
-        const cart = event.detail.cart;
-        let message;
-        let newProgress = "100%";
-        let bgColor = "var(--c-grey)";
+        if (!this.deliveryStatus) { // only run if not an active free delivery subscriber
+          const cart = event.detail.cart;
+          let message;
+          let newProgress = "100%";
+          let bgColor = "var(--c-grey)";
 
-        if (cart.total_price >= this.threshold2Value && this.threshold2Show) {
-          message = `<span class="success">Enjoy! You've unlocked <b>FREE ${this.threshold2Name}</b>.</span>`;
-          newProgress = "100";
-          bgColor = "var(--c-success)";
-        } else if (cart.total_price >= this.thresholdValue) {
-          message = `<span class="success">You've unlocked <b>FREE ${this.thresholdName}</b>.</span>`;
-          newProgress = "100";
-          bgColor = "var(--c-success)";
-          if (this.threshold2Show) {
-            message += `<br>Spend <b>${Cart.formatMoney(this.threshold2Value - cart.total_price)}</b> more for FREE ${this.threshold2Name}.`;
-            newProgress = Math.min(100, (cart.total_price / this.threshold2Value) * 100);
+          // update the cart free delivery status
+          if (cart.total_price >= this.threshold2Value && this.threshold2Show) {
+            message = `<span class="success">Enjoy! You've unlocked <b>FREE ${this.threshold2Name}</b>.</span>`;
+            newProgress = "100";
+            bgColor = "var(--c-success)";
+          } else if (cart.total_price >= this.thresholdValue) {
+            message = `<span class="success">You've unlocked <b>FREE ${this.thresholdName}</b>.</span>`;
+            newProgress = "100";
+            bgColor = "var(--c-success)";
+            if (this.threshold2Show) {
+              message += `<br>Spend <b>${Cart.formatMoney(this.threshold2Value - cart.total_price)}</b> more for FREE ${this.threshold2Name}.`;
+              newProgress = Math.min(100, (cart.total_price / this.threshold2Value) * 100);
+              bgColor = "var(--c-grey)";
+            }
+          } else {
+            message = `Spend <b>${Cart.formatMoney(this.thresholdValue - cart.total_price)}</b> more for FREE ${this.thresholdName}.`;
+            newProgress = Math.min(100, (cart.total_price / this.thresholdValue) * 100);
             bgColor = "var(--c-grey)";
           }
-        } else {
-          message = `Spend <b>${Cart.formatMoney(this.thresholdValue - cart.total_price)}</b> more for FREE ${this.thresholdName}.`;
-          newProgress = Math.min(100, (cart.total_price / this.thresholdValue) * 100);
-          bgColor = "var(--c-grey)";
-        }
 
-        this.textElement.innerHTML = message;
-        this.progressBar.style.setProperty("--pc-progress", `${newProgress}%`);
-        this.progressBar.style.setProperty("--bg-color", `${bgColor}`);
+          this.textElement.innerHTML = message;
+          this.progressBar.style.setProperty("--pc-progress", `${newProgress}%`);
+          this.progressBar.style.setProperty("--bg-color", `${bgColor}`);
+
+          // update the displayed free delivery information on PDP
+
+        }
       };
     },
   );
