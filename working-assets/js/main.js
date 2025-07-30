@@ -452,7 +452,6 @@ class CartAPI {
     if (value === 0) {
       totalPoint.parentElement.remove();
       Cart.getLineItems();
-
     } else {
       totalPoint.innerHTML = Cart.formatMoney(value);
     }
@@ -559,7 +558,6 @@ new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
 new ComponentLoader("productcard-carousel", () => import("./ProductCarousel.js"));
 new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
 
-
 // ===================
 // CART LINE ITEMS
 // ===================
@@ -609,6 +607,10 @@ if (!customElements.get("line-item")) {
           if (!isNaN(newQty) && newQty !== lastQty) {
             lastQty = newQty;
             Cart.updateLineItem(lineItemKey, newQty);
+            // update the cart total
+            selector.querySelector(".quantity-minus").dataset.newQty = newQty - 1;
+            selector.querySelector(".quantity-plus").dataset.newQty = newQty + 1;
+            Cart.updateCheckoutTotal(Cart.cart.total_price, Cart.cart.currency);
           }
         };
 
@@ -640,12 +642,12 @@ if (!customElements.get("line-item")) {
             () => {
               const index = el.dataset.index;
               const allLineItems = document.querySelectorAll("line-item");
-                allLineItems.forEach((item) => {
+              allLineItems.forEach((item) => {
                 const itemIndex = parseInt(item.dataset.index, 10);
                 if (itemIndex > index) {
                   item.dataset.index = itemIndex - 1;
                 }
-                });
+              });
 
               el.parentElement.remove();
               Cart.updateCheckoutTotal(Cart.cart.total_price, Cart.cart.currency);
