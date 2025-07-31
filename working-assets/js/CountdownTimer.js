@@ -1,4 +1,7 @@
-import countdownManager from "./CountdownManager.js";
+import { CountdownManager } from "./CountdownManager.js";
+
+// Use the shared instance for all CountdownTimer components
+const countdownManager = CountdownManager.getInstance('sharedSaleEnd');
 
 // element requires a data-coundown attribute with JSON data
 // e.g. <countdown-timer data-countdown='{"end": "2023-12-31T23:59:59Z", "copy": "Sale ends in"}

@@ -1,10 +1,15 @@
 /* global setInterval, clearInterval*/
 class CountdownManager {
-  static instance;
+  static instances = new Map();
+
+  static getInstance(name = 'default') {
+    if (!this.instances.has(name)) {
+      this.instances.set(name, new CountdownManager());
+    }
+    return this.instances.get(name);
+  }
 
   constructor() {
-    if (CountdownManager.instance) return CountdownManager.instance;
-    CountdownManager.instance = this;
     this.endTime = null;
     this.copy = "Time's up!";
     this.subscribers = new Set();
@@ -69,4 +74,6 @@ class CountdownManager {
   }
 }
 
-export default new CountdownManager(); // Always return the same instance
+// Export both the class and a default instance
+export { CountdownManager };
+export default CountdownManager.getInstance('default'); // Default shared instance
