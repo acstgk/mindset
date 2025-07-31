@@ -313,38 +313,159 @@ if (!customElements.get("dispatch-timer")) {
       constructor() {
         super();
         this.timer = null;
+        this.diffHours = 0;
+        this.cutoffHours = 19; // 7 PM
+        this.cutoffFriHours = 13; // 1 PM
+        this.cutoffMins = 30;
+        this.settings = {};
+        this.useSaturdayDelivery = false;
       }
 
       connectedCallback() {
         this.endpoint = this.querySelector(".countdown-endpoint");
+        this.etaEndpoint = this.querySelector(".eta-endpoint");
+        this.serviceEndpoint = this.querySelector(".service-endpoint");
+        this.settings = JSON.parse(this.dataset.settings);
+        this.initialContent = this.innerHTML;
         this.timerInit();
+        this.updateDeliveryInfo();
       }
 
       getNextDispatchTime() {
         const now = new Date();
         const dispatchTime = new Date(now);
-        dispatchTime.setHours(19, 0, 0, 0); // Set to 7 PM
+        dispatchTime.setHours(this.cutoffHours, this.cutoffMins, 0, 0);
 
-        // If it's past 7 PM, set for next day
+        // If current time is past cutoff, set for next business day
         if (now > dispatchTime) {
           dispatchTime.setDate(dispatchTime.getDate() + 1);
+          this.adjustForWeekend(dispatchTime);
         }
 
+        if (this.settings.isSaturday) {
+          // Calculate the next Saturday
+          const nextSaturday = new Date(now);
+          const dayOfWeek = nextSaturday.getDay();
+          const daysUntilSaturday = (6 - dayOfWeek + 7) % 7 || 7;
+          nextSaturday.setDate(nextSaturday.getDate() + daysUntilSaturday);
+          nextSaturday.setHours(this.cutoffFriHours, 0, 0, 0);
+
+          // Calculate ETA for Saturday delivery
+          const saturdayETA = new Date(nextSaturday);
+          // Saturday delivery arrives on Saturday itself
+          // Compare with normal ETA
+          const normalETA = this.calculateETA(dispatchTime);
+
+          if (saturdayETA < normalETA) {
+            // Saturday delivery is quicker
+            this.useSaturdayDelivery = true;
+            // Set dispatchTime to be Friday at cutoffFriHours
+            const fridayBeforeSaturday = new Date(nextSaturday);
+            fridayBeforeSaturday.setDate(nextSaturday.getDate() - 1); // Friday before Saturday
+            fridayBeforeSaturday.setHours(this.cutoffFriHours, 0, 0, 0);
+            dispatchTime.setTime(fridayBeforeSaturday.getTime());
+          }
+        }
+
+
+        // If it's Friday, use earlier cutoff time
+        if (dispatchTime.getDay() === 5 && dispatchTime.getHours < this.cutoffFriHours) {
+          dispatchTime.setHours(this.cutoffFriHours, 0, 0, 0);
+        }
+
+        const diff = dispatchTime - now;
+        this.hoursDiff = Math.floor(diff / (1000 * 60 * 60));
+        console.log("Dispatch Date :: ", dispatchTime);
+
         return dispatchTime;
+      }
+
+      adjustForWeekend(date) {
+        const day = date.getDay();
+        if (day === 6) {
+          // Saturday
+          if (this.settings.isSaturday) {
+            return date;
+          }
+          date.setDate(date.getDate() + 2); // Move to Mondayz
+        } else if (day === 0) {
+          // Sunday
+          date.setDate(date.getDate() + 1); // Move to Monday
+        }
+        return date;
+      }
+
+      calculateETA(dispatchDate) {
+        let deliveryDate = new Date(dispatchDate);
+        const transitDays = this.settings.transitTime || 2;
+
+        // Add transit days
+        deliveryDate.setDate(deliveryDate.getDate() + transitDays);
+
+        // Adjust for weekends if needed
+        if (!this.settings.isWeekend) {
+          const day = deliveryDate.getDay();
+          if (day === 0) {
+            // Sunday
+            deliveryDate.setDate(deliveryDate.getDate() + 1);
+          } else if (day === 6 && !this.settings.isSaturday) {
+            // Saturday
+            deliveryDate.setDate(deliveryDate.getDate() + 2);
+          }
+        }
+
+        return deliveryDate;
+      }
+
+      formatDate(date) {
+        return new Intl.DateTimeFormat("en-GB", {
+          weekday: "long",
+          month: "long",
+          day: "numeric",
+        })
+          .format(date)
+          .replace(/(\w+)(\s)/, "$1,$2");
+      }
+
+      updateDeliveryInfo() {
+        const dispatchDate = this.getNextDispatchTime();
+        let etaDate;
+
+        if (this.useSaturdayDelivery) {
+          // If using Saturday delivery, find the next Saturday from dispatch
+          etaDate = new Date(dispatchDate);
+          while (etaDate.getDay() !== 6) {
+            etaDate.setDate(etaDate.getDate() + 1);
+          }
+        } else {
+          etaDate = this.calculateETA(dispatchDate);
+        }
+
+        if (this.etaEndpoint) {
+          const deliveryText = this.useSaturdayDelivery ? `on ${this.formatDate(etaDate)}` : `by ${this.formatDate(etaDate)}`;
+          this.etaEndpoint.textContent = deliveryText;
+        }
+
+        if (this.serviceEndpoint) {
+          const serviceName = this.useSaturdayDelivery ? "UK Saturday Delivery" : this.settings.fastestService;
+          this.serviceEndpoint.textContent = serviceName;
+        }
       }
 
       timerInit() {
         const nextDispatch = this.getNextDispatchTime();
 
-        // Create a separate instance for dispatch timers
-        const dispatchTimer = CountdownManager.getInstance('dispatch');
-        dispatchTimer.configure(nextDispatch, 'within');
-        dispatchTimer.register(this.endpoint);
+        if (this.hoursDiff < 16 && this.hoursDiff > 1) {
+          // Create a separate instance for dispatch timers
+          const dispatchTimer = CountdownManager.getInstance("dispatch");
+          dispatchTimer.configure(nextDispatch, "within");
+          dispatchTimer.register(this.endpoint);
+        }
       }
 
       disconnectedCallback() {
         if (this.endpoint) {
-          const dispatchTimer = CountdownManager.getInstance('dispatch');
+          const dispatchTimer = CountdownManager.getInstance("dispatch");
           dispatchTimer.unregister(this.endpoint);
         }
       }
