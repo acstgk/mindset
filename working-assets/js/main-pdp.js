@@ -38,7 +38,7 @@ if (!customElements.get("pdp-carousel")) {
                                     </svg>`;
         this.zoomBtn.addEventListener("click", () => this._zoom());
 
-        window.innerWidth < 768 ? this.style.maxHeight = `${this.availableHeight}px` : "";
+        window.innerWidth < 768 ? (this.style.maxHeight = `${this.availableHeight}px`) : "";
       }
 
       connectedCallback() {
@@ -48,6 +48,15 @@ if (!customElements.get("pdp-carousel")) {
 
       // initialise the Main splide slider for the product images
       _splideMainInit = () => {
+        const shouldUseThumbs = window.innerWidth > 1200;
+        const thumbCarouselEl = document.querySelector("thumbnail-carousel");
+        let thumbSplide = null;
+
+        // If thumbnails should be used and exist AND have an initialized Splide
+        if (shouldUseThumbs && thumbCarouselEl && thumbCarouselEl.splide) {
+          thumbSplide = thumbCarouselEl.splide;
+        }
+
         SplideUtil.splideHTML(this);
         this.splide = new Splide(this, {
           type: "loop",
@@ -57,6 +66,10 @@ if (!customElements.get("pdp-carousel")) {
           perPage: 1,
           lazyLoad: "nearby",
         });
+
+          if (thumbSplide) {
+            this.splide.sync(thumbSplide);
+          }
 
         this.splide.on(
           "move",
@@ -368,7 +381,6 @@ if (!customElements.get("dispatch-timer")) {
           }
         }
 
-
         // If it's Friday, use earlier cutoff time
         if (dispatchTime.getDay() === 5 && dispatchTime.getHours < this.cutoffFriHours) {
           dispatchTime.setHours(this.cutoffFriHours, 0, 0, 0);
@@ -442,7 +454,7 @@ if (!customElements.get("dispatch-timer")) {
 
         if (this.etaEndpoint) {
           const deliveryText = this.useSaturdayDelivery ? `on <span class="date">${this.formatDate(etaDate)}<span>` : `by <span class="date">${this.formatDate(etaDate)}</span>`;
-          this.etaEndpoint.innerHTML= deliveryText;
+          this.etaEndpoint.innerHTML = deliveryText;
         }
 
         if (this.serviceEndpoint) {
@@ -466,6 +478,102 @@ if (!customElements.get("dispatch-timer")) {
         if (this.endpoint) {
           const dispatchTimer = CountdownManager.getInstance("dispatch");
           dispatchTimer.unregister(this.endpoint);
+        }
+      }
+    },
+  );
+}
+
+// ===================
+// PDP thumbs Carousel
+// ===================
+if (!customElements.get("thumbnail-carousel")) {
+  customElements.define(
+    "thumbnail-carousel",
+    class ThumbnailsCarousel extends HTMLElement {
+      constructor() {
+        super();
+        this.splide = null;
+        this._onResize = this._onResize.bind(this);
+      }
+
+      connectedCallback() {
+        this._maybeInitSplide();
+        window.addEventListener("resize", this._onResize);
+      }
+
+      disconnectedCallback() {
+        this._destroySplide();
+        window.removeEventListener("resize", this._onResize);
+      }
+
+      _onResize() {
+        this._maybeInitSplide();
+      }
+
+      _maybeInitSplide() {
+        if (window.innerWidth > 1200) {
+          if (!this.splide) {
+            this._initSplide();
+          }
+        } else {
+          this._destroySplide();
+        }
+      }
+
+      _calculateHeight = () => {
+        let estWidth = document.querySelector("pdp-carousel").getBoundingClientRect().width - 150;
+        return estWidth / 0.72 + "px";
+      };
+
+      _updateHeight = () => {
+        requestAnimationFrame(() => {
+          const track = this.querySelector(".splide__track");
+          const carousel = document.querySelector("pdp-carousel");
+
+          if (track && carousel) {
+            track.style.height = carousel.getBoundingClientRect().height + "px";
+          }
+        });
+      };
+
+      _initSplide = () => {
+        if (!this.classList.contains("is-initialized")) {
+          SplideUtil.splideHTML(this);
+        } else {
+          this.classList.add("splide");
+        }
+
+        this.splide = new Splide(this, {
+          type: "slide",
+          direction: "ttb",
+          height: this._calculateHeight(),
+          fixedHeight: 200,
+          fixedWidth: 150,
+          lazyLoad: "sequential",
+          gap: "10px",
+          pagination: false,
+          arrows: false,
+          wheel: true,
+          drag: true,
+          isNavigation: true,
+        });
+
+        this.splide.mount();
+
+        if (document.querySelector("pdp-carousel")?.splide) {
+          // If main carousel is already mounted and we’re adding thumbs later, sync dynamically
+          document.querySelector("pdp-carousel").splide.sync(this.splide);
+        }
+        window.addEventListener("resize", this._updateHeight);
+      };
+
+      _destroySplide() {
+        if (this.splide) {
+          window.removeEventListener("resize", this._updateHeight);
+          this.splide.destroy();
+          this.splide = null;
+          this.classList.remove("splide");
         }
       }
     },

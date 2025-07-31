@@ -18,40 +18,56 @@
   {% assign product_compare_price = product.selected_or_first_available_variant.compare_at_price %}
 {% endif %}
 
-<div class="pdp-carousel-wrapper">
-  <pdp-carousel>
-    {% for image in product.images %}
-      {% unless forloop.index == 2 %}
-        {% assign base_url = image | image_url: width: 1111 | remove: '1111' %}
-        {% assign img_widths = '' %}
-        {% for width in widths %}
-          {% assign img_widths = img_widths | append: base_url | append: width | append: ' ' | append: width | append: 'w, ' %}
-        {% endfor %}
-        {% assign img_widths = img_widths | remove_last: ',' %}
+<div class="pdp-carousels-wrapper">
+    <thumbnail-carousel>
+      {% for image in product.images %}
+        {% unless forloop.index == 2 %}
+          <div class="thumbs_slide splide__slide">
+            <img
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              alt="{{ image.alt }} thumbnail"
+              data-splide-lazy="{{ image | image_url: width: 150 }}"
+            >
+          </div>
+        {% endunless %}
+      {% endfor %}
+    </thumbnail-carousel>
 
-        <div class="pdp_slide splide__slide">
-          <img
-            width="{{ image.width }}"
-            height="{{ image.height }}"
-            alt="{{ image.alt }}"
-            {% if forloop.first %}
-              loading="eager"
-              src="{{ base_url }}3000"
-              srcset="{{ img_widths }}"
-            {% else %}
-              data-splide-lazy-srcset="{{ img_widths }}"
-              data-splide-lazy="{{ base_url }}3000"
-            {% endif %}
-            sizes="200vw"
-          >
-        </div>
-      {% endunless %}
-    {% endfor %}
-  </pdp-carousel>
+  <div class="pdp-carousel-wrapper">
+    <pdp-carousel>
+      {% for image in product.images %}
+        {% unless forloop.index == 2 %}
+          {% assign base_url = image | image_url: width: 1111 | remove: '1111' %}
+          {% assign img_widths = '' %}
+          {% for width in widths %}
+            {% assign img_widths = img_widths | append: base_url | append: width | append: ' ' | append: width | append: 'w, ' %}
+          {% endfor %}
+          {% assign img_widths = img_widths | remove_last: ',' %}
 
-  {% unless product.tags contains 'set' %}
-    <div class="round-btn iWish-btn" data-wishlisticon>{% render 'wishlist-app-links', linkType: 'single-product' %}</div>
-  {% endunless %}
+          <div class="pdp_slide splide__slide">
+            <img
+              width="{{ image.width }}"
+              height="{{ image.height }}"
+              alt="{{ image.alt }}"
+              {% if forloop.first %}
+                loading="eager"
+                src="{{ base_url }}3000"
+                srcset="{{ img_widths }}"
+              {% else %}
+                data-splide-lazy-srcset="{{ img_widths }}"
+                data-splide-lazy="{{ base_url }}3000"
+              {% endif %}
+              sizes="200vw"
+            >
+          </div>
+        {% endunless %}
+      {% endfor %}
+    </pdp-carousel>
+    {% unless product.tags contains 'set' %}
+      <div class="round-btn iWish-btn" data-wishlisticon>{% render 'wishlist-app-links', linkType: 'single-product' %}</div>
+    {% endunless %}
+  </div>
 </div>
 
 <aside id="product-details" class="max-width">
@@ -91,7 +107,7 @@
         {% for part in is_set.value %}
           {% assign product_number = forloop.index %}
           <a href="{{ part.url }}">
-            <h4 class="part_title">{{ part.title | remove: 'Gym King' }}</h4>
+            <h4 class="h5 part_title">{{ part.title | remove: 'Gym King' }}</h4>
           </a>
           <div
             class="yotpo-widget-instance"
