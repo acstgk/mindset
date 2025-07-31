@@ -19,7 +19,7 @@
             >
               <b class="announcement_content-title">{{ block.settings.title | escape }} </b>
               {% if block.settings.enable_countdown %}
-                <countdown-timer data-countdown='{{ countdown_settings | strip_newlines  }}'></countdown-timer>
+                <countdown-timer class="announcement_content-text" data-countdown='{{ countdown_settings | strip_newlines  }}'></countdown-timer>
               {% else %}
                 <span class="announcement_content-text">
                   {{ block.settings.subcontent1 | escape }}
