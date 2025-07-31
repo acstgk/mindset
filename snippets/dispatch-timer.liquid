@@ -1,0 +1,14 @@
+{%- capture delivery_options -%}
+  {
+    "transitTime": {{ settings.transit_time | json }},
+    "fastestService": {{ settings.fastest_delivery_service_name | json }},
+    "isWeekend": {{ settings.enable_weekend_delivery | json }},
+    "isSaturday": {{ settings.enable_saturday_delivery | json }}
+  }
+{%- endcapture -%}
+
+<dispatch-timer data-settings="{{ delivery_options | strip_newlines | escape }}">
+  <b>Order&nbsp;<span class="countdown-endpoint">now</span></b> <br>
+  for delivery <span class="eta-endpoint">within {{ settings.transit_time }} {% unless settings.enable_weekend_delivery %}working{% endunless %} days</span> <br>
+  <small>when you select <span class="service-endpoint">{{  settings.fastest_delivery_service_name}}</span> at checkout</small>
+</dispatch-timer>
