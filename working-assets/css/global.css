@@ -868,13 +868,13 @@ footer.section--footer {
 }
 
 ul.social-links {
-    height: 24px;
+    height: 28px;
     margin: 15px 0;
     padding: 0;
-    gap: 24px;
+    gap: 16px;
 
     & li {
-        width: 24px;
+        width: 28px;
 
         &:first-child {
             margin-right: -5px;
@@ -882,9 +882,10 @@ ul.social-links {
     }
 
     & a {
-        display: block;
         height: 100%;
         text-align: center;
+        display: grid;
+        place-items: center;
 
         &:hover svg {
             fill: var(--c-dark-grey);
@@ -893,10 +894,9 @@ ul.social-links {
     }
 
     & svg {
-        max-width: 65%;
-        max-height: 50%;
         fill: var(--c-grey);
         transition: fill 0.2s ease;
+        height: 18px;
     }
 }
 
@@ -1237,14 +1237,15 @@ product-card,
             grid-template-columns: 100%;
 
             & img {
-            width: calc(100% - 2px);
-            height: calc(100% - 2px);
+                width: calc(100% - 2px);
+                height: calc(100% - 2px);
             }
         }
 
         & a {
             display: inline;
         }
+
         & a img {
             grid-area: 1 / 1;
 
@@ -1402,6 +1403,7 @@ ul.CountryList {
 /* Animations */
 
 @keyframes drive {
+
     0%,
     100% {
         transform: translateX(0px);
@@ -1427,6 +1429,7 @@ ul.CountryList {
 }
 
 @keyframes bounce {
+
     0%,
     50%,
     100% {

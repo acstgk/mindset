@@ -375,8 +375,6 @@ if (!customElements.get("dispatch-timer")) {
 
         const diff = dispatchTime - now;
         this.hoursDiff = Math.floor(diff / (1000 * 60 * 60));
-        console.log("Dispatch Date :: ", dispatchTime);
-
         return dispatchTime;
       }
 
@@ -442,8 +440,8 @@ if (!customElements.get("dispatch-timer")) {
         }
 
         if (this.etaEndpoint) {
-          const deliveryText = this.useSaturdayDelivery ? `on ${this.formatDate(etaDate)}` : `by ${this.formatDate(etaDate)}`;
-          this.etaEndpoint.textContent = deliveryText;
+          const deliveryText = this.useSaturdayDelivery ? `on <span class="date">${this.formatDate(etaDate)}<span>` : `by <span class="date">${this.formatDate(etaDate)}</span>`;
+          this.etaEndpoint.innerHTML= deliveryText;
         }
 
         if (this.serviceEndpoint) {

@@ -342,4 +342,8 @@ pdp-carousel {
     overflow: hidden;
     width: 2.1em;
   }
+
+  & .date {
+    color: var(--c-success);
+  }
 }
