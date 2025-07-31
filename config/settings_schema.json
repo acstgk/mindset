@@ -636,12 +636,46 @@
         "id": "nav-txt-2-kids",
         "info": "Text under Image",
         "label": "Image 2 Text"
-      },
+      }
     ]
   },
   {
     "name": "Delivery Information",
     "settings": [
+      {
+        "type": "header",
+        "content": "Delivery Settings",
+        "info": "These settings will be used to calculate the delivery ETA on site."
+      },
+      {
+        "type": "range",
+        "id": "transit_time",
+        "label": "Expected Transit Time (in days)",
+        "default": 2,
+        "min": 0,
+        "max": 14,
+        "info": "set the longest expected transit time for the fastest current service"
+      },
+      {
+        "type": "text",
+        "label": "Fastest Delivery Service Name",
+        "id": "fastest_delivery_service_name",
+        "default": "UK Express Delivery"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_weekend_delivery",
+        "label": "Enable Weekend Delivery?",
+        "default": false,
+        "info": "If enabled, weekends will be treated as possible delivery days."
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_saturday_delivery",
+        "label": "Is saturday Delivery available?",
+        "default": true,
+        "info": "If enabled, Saturday delivery service will offered on Thurs/Fri."
+      },
       {
         "type": "header",
         "content": "Main Free Delivery Threshold",
@@ -757,5 +791,5 @@
         "default": 5
       }
     ]
-  },
+  }
 ]
