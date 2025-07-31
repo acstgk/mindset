@@ -216,8 +216,13 @@ hr {
   margin: 0 0 0 auto;
 }
 
+
 .rtf>* {
   text-align: left !important;
+
+  &:first-child {
+    margin-top: 0;
+  }
 
   & a {
     text-decoration: underline;

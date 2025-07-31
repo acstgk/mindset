@@ -354,7 +354,36 @@ pdp-carousel {
   }
 }
 
-/* @media screen and (width >=768px) {
+.colour-selection {
+  margin-top: 1em;
+  border-top: 1px solid var(--c-light-grey);
+  padding-top: 1em;
+
+  & p {
+    margin-bottom: 1em;
+  }
+}
+
+.colour-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+}
+
+.colour-swatches {
+  width: 100%;
+  margin: 0px;
+  aspect-ratio: 1;
+  overflow: hidden;
+
+  & img {
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+@media screen and (width >=768px) {
   .section--product_main {
     max-width: 90vw;
     display: grid;
@@ -373,4 +402,4 @@ pdp-carousel {
       grid-area: 2 / 1 / 3 / 2;
     }
   }
-} */
+}

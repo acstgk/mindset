@@ -1,0 +1,37 @@
+<div class="colour-selection">
+  {% for tag in product.tags %}
+      {% if tag contains 'style:' %}
+         <p>more colours:</p>
+        <div class="colour-grid">
+            {% assign found_products = '' %}
+            {% for collection in product.collections %}
+              {% paginate collection.products by 1200 %}
+                {% for product in collection.products %}
+                  {% if product.tags contains tag %}
+                    {% unless found_products contains product.id %}
+                      {% assign found_products = found_products | append: ' ' | append: product.id %}
+                      <a
+                        style="background: {{ product.metafields.product.colour.value.hex }}"
+                        class="colour-swatches {% if this_url == product.url %}active{% endif %}"
+                        href="{% if this_url == product.url %}#{%else%}{{ product.url }}{% endif %}"
+                        pid="{{ product.id }}"
+                      >
+                        {{ product.featured_image | image_url: width: 400 | image_tag: width: 400, widths: '100, 150, 200, 300, 400', sizes: '(max-width: 500px) 25vw, (max-width: 1006px) 105px, 8vw' }}
+                        {% assign color_name = product.title | replace: '–', '-' | split: '-' %}
+                        {% comment %} <span>{{ color_name[-1] }}</span> {% endcomment %}
+                        {% comment %}
+                          {% if section.settings.show_color_swatch %}
+                            <div class="colourtype" style="border-top:1px solid white; height: 3px;"></div>
+                          {% endif %}
+                        {% endcomment %}
+                      </a>
+                    {% endunless %}
+                  {% endif %}
+                {% endfor %}
+              {% endpaginate %}
+            {% endfor %}
+        </div>
+        {% break %}
+      {% endif %}
+    {% endfor %}
+</div>
