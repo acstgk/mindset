@@ -4,6 +4,7 @@ import Splide from "./splide.min.js";
 import { Cart } from "./main.js";
 import { SplideUtil } from "./SplideUtil.js";
 import Panzoom from "./panzoom.js";
+import { CountdownManager } from "./CountdownManager.js";
 
 // ===================
 // PDP Main Carousel
@@ -277,11 +278,8 @@ if (!customElements.get("freedelivery-info")) {
 
       updateInfo = (event) => {
         const details = event.detail;
-        console.log(details);
         const copyEl = this.querySelector(".free-delivery_text");
         let msg = "";
-
-        console.log("threshold check", details.thresholdReached && !details.threshold2Reached);
 
         if (details.thresholdReached && (!details.threshold2Reached || !details.threshold2Show)) {
           msg = `<strong>You've unlocked ${details.thresholdName}.</strong>`;
@@ -300,6 +298,56 @@ if (!customElements.get("freedelivery-info")) {
 
         copyEl.innerHTML = msg;
       };
+    },
+  );
+}
+
+// ===================
+// Dispatch Timer Countdown
+// ===================
+
+if (!customElements.get("dispatch-timer")) {
+  customElements.define(
+    "dispatch-timer",
+    class DispatchTimer extends HTMLElement {
+      constructor() {
+        super();
+        this.timer = null;
+      }
+
+      connectedCallback() {
+        this.endpoint = this.querySelector(".countdown-endpoint");
+        this.timerInit();
+      }
+
+      getNextDispatchTime() {
+        const now = new Date();
+        const dispatchTime = new Date(now);
+        dispatchTime.setHours(19, 0, 0, 0); // Set to 7 PM
+
+        // If it's past 7 PM, set for next day
+        if (now > dispatchTime) {
+          dispatchTime.setDate(dispatchTime.getDate() + 1);
+        }
+
+        return dispatchTime;
+      }
+
+      timerInit() {
+        const nextDispatch = this.getNextDispatchTime();
+
+        // Create a separate instance for dispatch timers
+        const dispatchTimer = CountdownManager.getInstance('dispatch');
+        dispatchTimer.configure(nextDispatch, 'within');
+        dispatchTimer.register(this.endpoint);
+      }
+
+      disconnectedCallback() {
+        if (this.endpoint) {
+          const dispatchTimer = CountdownManager.getInstance('dispatch');
+          dispatchTimer.unregister(this.endpoint);
+        }
+      }
     },
   );
 }
