@@ -3,6 +3,7 @@
 // ===================
 // elements just need the following:
 //  1.  .accordian-items > .accordian-header + .accordian-content
+
 export default class ContentAccordian extends HTMLElement {
   constructor() {
     super();
@@ -16,7 +17,6 @@ export default class ContentAccordian extends HTMLElement {
 
     this.headers.forEach((header) => {
       header.setAttribute("aria-expanded", "false");
-      header.classList.remove("active");
       header.addEventListener("click", this._handleHeaderClick);
     });
 

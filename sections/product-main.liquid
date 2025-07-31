@@ -185,20 +185,20 @@
         {% else %}
           <p class="free-delivery_text">
             {%- if cart.total_price >= settings['delivery-threshold2-value'] and settings['show-delivery-threshold2'] -%}
-             <strong> Enjoy! You've unlocked FREE {{ settings['delivery-threshold2-name'] }}</strong>.
+              <strong> Enjoy! You've unlocked FREE {{ settings['delivery-threshold2-name'] }}</strong>.
 
             {% elsif cart.total_price >= settings['delivery-threshold-value'] %}
               <strong>You've unlocked FREE {{ settings['delivery-threshold-name'] }}</strong>.
               {%- if settings['show-delivery-threshold2'] -%}
                 <br>
-                FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value']  | money_without_trailing_zeros }}.
+                FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value'] | money_without_trailing_zeros }}.
               {%- endif -%}
 
             {% else %}
-              FREE {{ settings['delivery-threshold-name'] }} over {{ settings['delivery-threshold-value']  | money_without_trailing_zeros }}.
+              FREE {{ settings['delivery-threshold-name'] }} over {{ settings['delivery-threshold-value'] | money_without_trailing_zeros }}.
               {%- if settings['show-delivery-threshold2'] -%}
                 <br>
-                FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value']  | money_without_trailing_zeros }}.
+                FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value'] | money_without_trailing_zeros }}.
               {%- endif -%}
             {%- endif -%}
           </p>
@@ -207,6 +207,8 @@
     </div>
   </div>
 </aside>
+
+{% render 'product-decscription' %}
 
 {% render 'drawer-size-guide' with product as product %}
 

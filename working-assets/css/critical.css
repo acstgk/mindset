@@ -91,7 +91,8 @@ h5,
 
 p,
 a,
-button {
+button,
+li {
   font-size: var(--txt-p);
   font-family: var(--text-font-family);
   text-decoration: none;
@@ -118,6 +119,14 @@ a {
 }
 
 /* TEXT */
+
+hr {
+  background-color: var(--c-light-grey);
+  border: 0;
+  height: 1px;
+  margin: 1.5em 0;
+}
+
 .uppercase {
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing);
@@ -207,29 +216,29 @@ a {
   margin: 0 0 0 auto;
 }
 
-.rtf {
+.rtf>* {
+  text-align: left !important;
+
   & a {
     text-decoration: underline;
   }
 }
 
-:not(.rtf) {
-
-  & p {
-    margin: 0;
-    padding: 0;
-  }
-
-  & ul,
-  & ol {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1em;
-    padding: 0;
-  }
+:not(.rtf)>p {
+  margin: 0;
+  padding: 0;
 }
+
+:not(.rtf)>ul,
+:not(.rtf)>ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1em;
+  padding: 0;
+}
+
 
 /* NAV DRAWER */
 
