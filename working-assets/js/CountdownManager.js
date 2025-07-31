@@ -54,9 +54,9 @@ class CountdownManager {
       const seconds = Math.floor((diff / 1000) % 60);
 
       let totalTime = ``;
-      if (days > 0) totalTime += `${days}D&nbsp;&nbsp;`;
-      if (hours > 0 || days > 0) totalTime += `${hours}H&nbsp;&nbsp;`;
-      if (minutes > 0 || hours > 0 || days > 0) totalTime += `${minutes}M&nbsp;&nbsp;`;
+      if (days > 0) totalTime += `${days}D&nbsp;`;
+      if (hours > 0 || days > 0) totalTime += `${hours}H&nbsp;`;
+      if (minutes > 0 || hours > 0 || days > 0) totalTime += `${minutes}M&nbsp;`;
       totalTime += `${seconds}S`;
 
       text = `${this.copy} <b> ${totalTime}</b>`;

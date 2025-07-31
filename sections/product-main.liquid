@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="{{ 'pdp.min.css' | asset_url }}">
 {% comment %} set images sizes  {% endcomment %}
 
 {% assign is_set = product.metafields.custom.product_set %}
@@ -54,7 +55,7 @@
 </div>
 
 <aside id="product-details" class="max-width">
-  <div class="" id="product-summary">
+  <div id="product-summary">
     {% render 'product-title' with product as 'product', heading: 'true' %}
     {% render 'product-price' with product as 'product' %}
     {% unless product.type == 'Tracksuit Set' %}
@@ -215,7 +216,6 @@
 {% render 'drawer-size-guide' with product as product %}
 
 <script type="module" src="{{ 'main-pdp.js' | asset_url }}"></script>
-<link rel="stylesheet" href="{{ 'pdp.min.css' | asset_url }}">
 
 {% schema %}
 {

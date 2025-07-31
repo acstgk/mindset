@@ -17,8 +17,9 @@
                         pid="{{ product.id }}"
                       >
                         {{ product.featured_image | image_url: width: 400 | image_tag: width: 400, widths: '100, 150, 200, 300, 400', sizes: '(max-width: 500px) 25vw, (max-width: 1006px) 105px, 8vw' }}
+                        {% comment %}
                         {% assign color_name = product.title | replace: '–', '-' | split: '-' %}
-                        {% comment %} <span>{{ color_name[-1] }}</span> {% endcomment %}
+                        <span>{{ color_name[-1] }}</span> {% endcomment %}
                         {% comment %}
                           {% if section.settings.show_color_swatch %}
                             <div class="colourtype" style="border-top:1px solid white; height: 3px;"></div>

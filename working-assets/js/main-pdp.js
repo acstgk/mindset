@@ -37,7 +37,8 @@ if (!customElements.get("pdp-carousel")) {
                                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" />
                                     </svg>`;
         this.zoomBtn.addEventListener("click", () => this._zoom());
-        this.style.maxHeight = `${this.availableHeight}px`;
+
+        window.innerWidth < 768 ? this.style.maxHeight = `${this.availableHeight}px` : "";
       }
 
       connectedCallback() {
