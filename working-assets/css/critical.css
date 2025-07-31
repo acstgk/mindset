@@ -344,6 +344,8 @@ ul.header_desktop-menu {
   letter-spacing: var(--letter-spacing);
   position: relative;
   min-height: 24px;
+  display: grid;
+  place-content: center;
 
   &::before {
     content: "";

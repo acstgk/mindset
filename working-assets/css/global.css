@@ -368,7 +368,7 @@ button {
     }
 
     .mob-hide {
-        display: initial;
+        display: inherit;
         visibility: visible;
     }
 
@@ -385,6 +385,7 @@ button {
     & a {
         position: absolute;
         inset: 0;
+        display: block;
     }
 
     & img {
@@ -1234,8 +1235,16 @@ product-card,
     product-card {
         & .product_card-images {
             grid-template-columns: 100%;
+
+            & img {
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            }
         }
 
+        & a {
+            display: inline;
+        }
         & a img {
             grid-area: 1 / 1;
 

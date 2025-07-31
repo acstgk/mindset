@@ -342,6 +342,6 @@ pdp-carousel {
 
   & .window {
     overflow: hidden;
-    width: min-content;
+    width: 2.1em;
   }
 }
