@@ -673,6 +673,7 @@ ul.sub_menu-items {
   padding: 5px 0;
   font-size: var(--txt-sm);
   width: 100%;
+  height: 38px;
 }
 
 .announcement_content-title {

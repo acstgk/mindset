@@ -169,6 +169,7 @@ form#atc_form {
 .pdp-carousel-wrapper {
   position: relative;
   height: min-content;
+  width: 100%;
 
   & .iWish-btn {
     position: absolute;
@@ -448,13 +449,13 @@ thumbnail-carousel {
 
   thumbnail-carousel {
     display: block;
-    width: 0px;
+    width: 150px;
     opacity: 0;
-    transition: opacity 0.2s ease, width 0.2s ease;
+    transition: opacity 0.2s ease;
 
     &.splide {
-      width: 150px;
       opacity: 1;
+      width: 150px
     }
 
     & .thumbs_slide {
