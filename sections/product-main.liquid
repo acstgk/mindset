@@ -27,6 +27,7 @@
               width="{{ image.width }}"
               height="{{ image.height }}"
               alt="{{ image.alt }} thumbnail"
+              fetchpriority="low"
               data-splide-lazy="{{ image | image_url: width: 150 }}"
             >
           </div>
@@ -51,6 +52,7 @@
               height="{{ image.height }}"
               alt="{{ image.alt }}"
               {% if forloop.first %}
+                fetchpriority="high"
                 loading="eager"
                 src="{{ base_url }}3000"
                 srcset="{{ img_widths }}"
@@ -58,7 +60,7 @@
                 data-splide-lazy-srcset="{{ img_widths }}"
                 data-splide-lazy="{{ base_url }}3000"
               {% endif %}
-              sizes="200vw"
+              sizes="(min-width: 1200px) calc(90vw - 550px), (min-width: 768px) 50vw, 100vw'"
             >
           </div>
         {% endunless %}
