@@ -3,8 +3,9 @@
 import Splide from "./splide.min.js";
 import { Cart } from "./main.js";
 import { SplideUtil } from "./SplideUtil.js";
-import Panzoom from "./panzoom.js";
 import { CountdownManager } from "./CountdownManager.js";
+import Panzoom from "./panzoom.js";
+
 
 // ===================
 // PDP Main Carousel
@@ -172,6 +173,7 @@ if (!customElements.get("pdp-carousel")) {
     },
   );
 }
+
 
 // ===================
 // Add to Cart Form
@@ -453,7 +455,8 @@ if (!customElements.get("dispatch-timer")) {
         }
 
         if (this.etaEndpoint) {
-          const deliveryText = this.useSaturdayDelivery ? `on <span class="date">${this.formatDate(etaDate)}<span>` : `by <span class="date">${this.formatDate(etaDate)}</span>`;
+          const prefix = new Date().getDay() == 5 ? "tomorrow," : "on";
+          const deliveryText = this.useSaturdayDelivery ? `${prefix} <span class="date">${this.formatDate(etaDate)}<span>` : `by <span class="date">${this.formatDate(etaDate)}</span>`;
           this.etaEndpoint.innerHTML = deliveryText;
         }
 
@@ -522,17 +525,16 @@ if (!customElements.get("thumbnail-carousel")) {
       }
 
       _calculateHeight = () => {
-        let estWidth = document.querySelector("pdp-carousel").getBoundingClientRect().width - 150;
-        return estWidth / 0.72 + "px";
+        let estHeight = document.querySelector("pdp-carousel").getBoundingClientRect().height;
+        return estHeight + "px";
       };
 
       _updateHeight = () => {
         requestAnimationFrame(() => {
           const track = this.querySelector(".splide__track");
-          const carousel = document.querySelector("pdp-carousel");
 
-          if (track && carousel) {
-            track.style.height = carousel.getBoundingClientRect().height + "px";
+          if (track) {
+            track.style.height = this._calculateHeight();
           }
         });
       };
@@ -557,6 +559,7 @@ if (!customElements.get("thumbnail-carousel")) {
           wheel: true,
           drag: true,
           isNavigation: true,
+          wheelSleep: 300
         });
 
         this.splide.mount();
