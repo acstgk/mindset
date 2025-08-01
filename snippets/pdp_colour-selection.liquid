@@ -1,7 +1,7 @@
 <div class="colour-selection">
   {% for tag in product.tags %}
       {% if tag contains 'style:' %}
-         <p>more colours:</p>
+         <p>colours:</p>
         <div class="colour-grid">
             {% assign found_products = '' %}
             {% for collection in product.collections %}
