@@ -6,7 +6,6 @@ import { SplideUtil } from "./SplideUtil.js";
 import { CountdownManager } from "./CountdownManager.js";
 import Panzoom from "./panzoom.js";
 
-
 // ===================
 // PDP Main Carousel
 // ===================
@@ -68,9 +67,9 @@ if (!customElements.get("pdp-carousel")) {
           lazyLoad: "nearby",
         });
 
-          if (thumbSplide) {
-            this.splide.sync(thumbSplide);
-          }
+        if (thumbSplide) {
+          this.splide.sync(thumbSplide);
+        }
 
         this.splide.on(
           "move",
@@ -174,7 +173,6 @@ if (!customElements.get("pdp-carousel")) {
   );
 }
 
-
 // ===================
 // Add to Cart Form
 // ===================
@@ -192,6 +190,7 @@ if (!customElements.get("enhanced-atc")) {
         this.actualForm = this.closest("form");
         this.atcButton = this.querySelector(".atc_form-button");
         this.allGroups = this.querySelectorAll(".atc_form-sizes");
+        this.quantityWarningEl = this.querySelector(".quantity-warning");
         this.allGroups.length > 1 ? (this.atcButton.innerText = "Select Sizes") : (this.atcButton.innerText = "Select Size");
         this._currentSubmitHandler = this._scrollToSizes;
         this.actualForm.addEventListener("submit", this._submitDispatcher);
@@ -226,6 +225,16 @@ if (!customElements.get("enhanced-atc")) {
           if (allSelected) {
             this.atcButton.innerHTML = `<b>Add to Bag</b> <span>| size: ${selectedSizesStr}</span>`;
             this._currentSubmitHandler = this._addToCart;
+          }
+
+          if (this.allGroups.length == 1) {
+            const availableQty = this.querySelector('input[type="radio"]:checked').dataset.availableQty;
+            if (availableQty < 15) {
+              availableQty == 1 ? (this.quantityWarningEl.textContent = `Hurry! this is the last one.`) : (this.quantityWarningEl.textContent = `Popular - only ${availableQty} left!`);
+              this.quantityWarningEl.classList.add("warning-active");
+            } else {
+              this.quantityWarningEl.classList.remove("warning-active");
+            }
           }
         }
       };
@@ -559,7 +568,7 @@ if (!customElements.get("thumbnail-carousel")) {
           wheel: true,
           drag: true,
           isNavigation: true,
-          wheelSleep: 300
+          wheelSleep: 300,
         });
 
         this.splide.mount();
