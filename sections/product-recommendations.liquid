@@ -1,0 +1,10 @@
+<product-recommendations data-product-id="{{ product.id }}" data-style="{{  product.tags | where: "style:" | first }}">
+
+</product-recommendations>
+{% schema %}
+{
+  "name": "Product Recommendations",
+  "class": "section--product-recommendations",
+  "settings": []
+}
+{% endschema %}

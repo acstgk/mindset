@@ -19,21 +19,21 @@
 {% endif %}
 
 <div class="pdp-carousels-wrapper">
-    <thumbnail-carousel>
-      {% for image in product.images %}
-        {% unless forloop.index == 2 %}
-          <div class="thumbs_slide splide__slide">
-            <img
-              width="{{ image.width }}"
-              height="{{ image.height }}"
-              alt="{{ image.alt }} thumbnail"
-              fetchpriority="low"
-              data-splide-lazy="{{ image | image_url: width: 150 }}"
-            >
-          </div>
-        {% endunless %}
-      {% endfor %}
-    </thumbnail-carousel>
+  <thumbnail-carousel>
+    {% for image in product.images %}
+      {% unless forloop.index == 2 %}
+        <div class="thumbs_slide splide__slide">
+          <img
+            width="{{ image.width }}"
+            height="{{ image.height }}"
+            alt="{{ image.alt }} thumbnail"
+            fetchpriority="low"
+            data-splide-lazy="{{ image | image_url: width: 150 }}"
+          >
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </thumbnail-carousel>
 
   <div class="pdp-carousel-wrapper">
     <pdp-carousel>
@@ -168,19 +168,12 @@
 
   <div class="product_details-sizing accent-bg">
     {% assign description = product.description %}
-
-    {% if description contains 'fit</h4>' %}
-      {% assign split_anchor = 'fit</h4>' %}
-    {% elsif description contains 'Fit</h4>' %}
-      {% assign split_anchor = 'Fit</h4>' %}
-    {% endif %}
-
-    {% assign parts = description | split: split_anchor %}
-    {% if parts.size > 1 %}
-      {% assign after_fit = parts[1] | split: '<h4' %}
-      {% assign size_and_fit_content = after_fit[0] %}
-      <div>{{ size_and_fit_content }}</div>
-    {% endif %}
+    {% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
+      <script>console.log(`{{ description }}`)</script>
+    {% assign description_elements = description | split: '||' %}
+    <div>
+      {{ description_elements | where: 'Model' }}
+    </div>
 
     {% if oos %}
       <div href="#" class="BIS_trigger button button-secondary" data-product-data="{{  product | json | escape }}">Size out of stock?</div>

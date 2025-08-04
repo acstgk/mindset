@@ -1,0 +1,55 @@
+ {% for collection in product.collections %}
+      {% if collection.metafields.Collection.franchise_name %}
+        <a href="{{ collection.url}}" alt="collection.title" class="button button-primary">
+          {% render 'icon' with 'arrow-left' %} Explore the full
+          {{ collection.metafields.Collection.franchise_name | capitalize }} Collection {% render 'icon' with 'arrow' as icon -%}</a
+        >
+        {% break %}
+      {% endif %}
+    {% endfor %}
+    {% if product.vendor == 'Accessories' %}
+      {% assign type_link = '/collections/vendors?q=Accessories&sort_by=price-descending' %}
+      {% assign category = 'Accessories' %}
+      {% assign last_letter = 's' %}
+    {% else %}
+      {% assign last_letter = product.type | slice: -1 %}
+      {% assign type_link = '/collections/types?q='
+        | append: product.type
+        | append: '&filter.p.vendor='
+        | append: product.vendor
+      %}
+      {% assign category = product.type %}
+      {%- unless last_letter == 's' %}
+        {% assign category = category | append: 's' %}
+      {% endunless %}
+    {% endif %}
+    <a href="{{ type_link }}" class="button button-primary">
+      Find more {{ category -}}
+      {% render 'icon' with 'arrow' as icon -%}
+    </a>
+
+{% stylesheet %}
+  .section--product-view-more {
+    margin-block: 4em;
+    padding-block: 6em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 1.5em;
+
+    & a {
+      display: flex;
+      min-width: max-content;
+    }
+  }
+{% endstylesheet %}
+
+
+{% schema %}
+{
+  "name": "View More Buttons",
+  "class": "section--product-view-more accent-bg",
+  "settings": []
+}
+{% endschema %}

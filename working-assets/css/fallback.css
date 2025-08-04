@@ -28,3 +28,7 @@
 .pdp-zoom-btn.round-btn {
     top: 2em;
 }
+
+#completethelook--mobile .product-options {
+    display: none;
+}

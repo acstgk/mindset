@@ -1,0 +1,167 @@
+{% for tag in product.tags %}
+  {% if tag contains 'productlink:' %}
+    {% assign linked_products = tag | remove: 'productlink:' | split: '+' %}
+
+    {% if linked_products.size >= 1 %}
+      {% assign instockcount = 0 %}
+      {% assign product_handles = '' %}
+      {% for linked_product in linked_products %}
+        {% for collection in product.collections %}
+          {% paginate collection.products by 1000 %}
+            {% for product in collection.products %}
+              {% assign linked_product_id = linked_product | plus: 0 %}
+              {% if product.id == linked_product_id and product.available %}
+                {% unless product_handles contains product.handle %}
+                  {% assign product_handles = product_handles | append: '+' | append: product.handle %}
+                  {% assign instockcount = instockcount | plus: 1 %}
+                {% endunless %}
+              {% endif %}
+            {% endfor %}
+          {% endpaginate %}
+        {% endfor %}
+      {% endfor %}
+
+      {% if instockcount > 0 %}
+        <h2 class="h1">COMPLETE THE LOOK</h2>
+        <productcard-carousel id="completethelook" class="">
+          {% assign product_handles = product_handles | remove_first: '+' | split: '+' %}
+          {% for handle in product_handles %}
+            {%- render 'product-card' with all_products[handle] as product, class: 'splide__slide' -%}
+          {% endfor %}
+        </productcard-carousel>
+
+        <div id="completethelook--mobile" class="max-width">
+          {% for handle in product_handles %}
+            {% assign handle_product = all_products[handle] %}
+            <div data-price="{{ handle_product.price }}" data-title="{{ handle_product.title }}" data-gender="{{ gender }}" data-id="{{ handle_product.id }}" class="completethelook--product">
+              <a href="{{ handle_product.url }}" alt="{{ handle_product.title }}">{{ handle_product.featured_image | image_url: width: 3250 | image_tag: class: 'completethelook--product--image' }}</a>
+              <div class="completethelook--product--content">
+                <div class="recommendations-pricecontainer">
+                  {% render 'product-title' with handle_product as product %}
+                  {% render 'product-price' with handle_product as product %}
+                </div>
+                <div id="options-{{handle_product.id}}" class="product-options">
+                  <select id="atc{{handle_product.id}}" data-productid="{{handle_product.id}}" class="button product-select" required>
+                    {% if handle_product.variants.size == 1 %}
+                      One Size
+                    {%- else %}
+                      <option value="" disabled selected>Select Size</option>
+                    {% endif %}
+                    {% for variant in handle_product.variants %}
+                      {% if variant.inventory_quantity > settings.product_buffer or variant.inventory_policy == 'continue' %}
+                        <option
+                          {% comment %} START Global-e VAT tag {% endcomment %}
+                          {% if variant.taxable == false %}
+                            data-product-vat="0"
+                          {% endif %}
+                          {% if variant.metafields.GlobalE.product_meta != blank %}
+                            data-product-meta="{{variant.metafields.GlobalE.product_meta | json | escape}}"
+                          {% endif %}
+                          {% comment %}END Global-e VAT tag {% endcomment %}
+                          value="{{ variant.id }}"
+                          data-price="{{variant.price | money_without_trailing_zeros}}"
+                        >
+                          {% if handle_product.variants.size == 1 %}One Size{% else %}{{ variant.title }}{% endif %}
+                        </option>
+                      {% else %}
+                        <option class="disabled" disabled>{{ variant.title }}</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                  <button class="button button-primary atc-btn-contents">Add to Bag</button>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endif %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% stylesheet %}
+
+
+  .section--complete-the-look {
+    margin-block: 4em;
+    padding-bottom: 6em;
+
+
+    .completethelook--product--content {
+      & .button {
+        width: min(220px, 100%);
+      }
+    }
+
+    .completethelook--product {
+      display: grid;
+      grid-template-columns: minmax(120px, 1fr) 1.5fr;
+      gap: 1em;
+
+      &:not(:last-child) {
+        margin-bottom: 1.5em;
+        border-bottom: 1px solid var(--c-grey);
+        padding-bottom: 1.5em;
+      }
+
+      .product-options {
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+      }
+
+      & .Title {
+        font-size: var(--txt-h4);
+        display: flex;
+        flex-flow: column;
+        align-items: flex-start;
+      }
+
+      & .colour {
+        display: inline-block;
+      }
+
+      & .Price--wrapper {
+        font-size: var(--txt-h3);
+        margin-top: 0.5em;
+      }
+
+      & .Price--wraper {
+        margin: 0 0 0 1em;
+      }
+    }
+  }
+
+  #completethelook--mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  @media screen and (min-width: 768px) {
+    productcard-carousel {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1em;
+
+      &.splide {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section--complete-the-look {
+      #completethelook--mobile {
+        display: none;
+      }
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Complete the Look",
+  "class": "section--complete-the-look accent-bg",
+  "settings": []
+}
+{% endschema %}

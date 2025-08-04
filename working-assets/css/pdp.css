@@ -146,6 +146,7 @@ form#atc_form {
   & svg {
     width: 15px;
     height: 15px;
+    stroke: var(--c-dark-grey);
   }
 }
 
@@ -175,10 +176,6 @@ form#atc_form {
     position: absolute;
     top: 1.5em;
     right: 2em;
-
-    & svg {
-      fill: var(--c-dark-grey);
-    }
   }
 }
 
@@ -207,12 +204,6 @@ pdp-carousel {
   & .pdp_slide {
     width: 100%;
     height: auto;
-
-    & img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
   }
 
   & .splide__pagination {
@@ -369,7 +360,7 @@ pdp-carousel {
 
 .colour-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 100%;
 }
@@ -381,7 +372,6 @@ pdp-carousel {
   overflow: hidden;
 
   & img {
-    object-fit: cover;
     object-position: top;
   }
 }
@@ -391,6 +381,10 @@ thumbnail-carousel {
 }
 
 @media screen and (width >=768px) {
+
+  pdp-carousel {
+    max-height: fit-content !important;  /* override the size adjustment made for mobile with js */
+  }
 
   .product_details-confidence-blocks {
     display: flex;
@@ -470,7 +464,6 @@ thumbnail-carousel {
     & img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
     }
   }
 }

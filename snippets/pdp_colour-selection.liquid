@@ -1,13 +1,13 @@
 <div class="colour-selection">
-  {% for tag in product.tags %}
-      {% if tag contains 'style:' %}
-         <p>colours:</p>
+  {% assign style_tag = product.tags | where: 'style:' | first %}
+      {% if style_tag %}
+         <p>other colours:</p>
         <div class="colour-grid">
             {% assign found_products = '' %}
             {% for collection in product.collections %}
-              {% paginate collection.products by 1200 %}
+              {% paginate collection.products by 1000 %}
                 {% for product in collection.products %}
-                  {% if product.tags contains tag %}
+                  {% if product.tags contains style_tag %}
                     {% unless found_products contains product.id %}
                       {% assign found_products = found_products | append: ' ' | append: product.id %}
                       <a
@@ -34,5 +34,4 @@
         </div>
         {% break %}
       {% endif %}
-    {% endfor %}
 </div>

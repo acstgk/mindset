@@ -15,7 +15,7 @@ export default class ProductCarousel extends HTMLElement {
     SplideUtil.splideHTML(this);
     this.splide = new Splide(this, {
       type: "loop",
-      start: 1,
+      start: 2,
       gap: 12,
       pagination: false,
       trimSpace: false,
@@ -47,6 +47,8 @@ export default class ProductCarousel extends HTMLElement {
         arrows: isOverflow,
         drag: isOverflow,
       };
+
+      this.classList.toggle("no-carousel", !isOverflow);
     });
 
     this.splide.on("move", (newIndex, prevIndex, destIndex) => {

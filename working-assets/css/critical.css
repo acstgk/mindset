@@ -46,6 +46,12 @@ main {
   }
 }
 
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 /* TEXT */
 
 h1,
@@ -329,7 +335,6 @@ slide-drawer {
   width: min-content;
 
   & img {
-    height: 80%;
     width: min(40vw, 200px);
   }
 }

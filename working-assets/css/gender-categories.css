@@ -7,7 +7,6 @@
   position: relative;
 
   & img {
-    object-fit: cover;
     filter: brightness(1);
     transition: scale 10s ease;
   }

@@ -3,7 +3,19 @@
     "product-main": {
       "type": "product-main",
       "settings": {}
+    },
+    "complete-the-look": {
+      "type": "complete-the-look"
+    },
+    "reviews": {
+      "type": "yotpo-main-review-widget"
+    },
+    "product-recommendations": {
+      "type": "product-recommendations"
+    },
+    "view-more": {
+      "type": "product-view-more"
     }
   },
-  "order": ["product-main"]
+  "order": ["product-main", "complete-the-look", "reviews", "product-recommendations", "view-more"]
 }
