@@ -23,7 +23,7 @@ export default class ProductRecommendations extends HTMLElement {
           heading.textContent = "You might also like";
           this.parentNode.insertBefore(heading, this);
 
-          const carousel = document.createElement("productcard-carousel");
+          const carousel = this.querySelector("productcard-carousel");
           this.innerHTML = "";
           this.appendChild(carousel);
 

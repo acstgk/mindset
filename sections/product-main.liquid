@@ -170,7 +170,6 @@
   <div class="product_details-sizing accent-bg">
     {% assign description = product.description %}
     {% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
-      <script>console.log(`{{ description }}`)</script>
     {% assign description_elements = description | split: '||' %}
     <div>
       {{ description_elements | where: 'Model' }}

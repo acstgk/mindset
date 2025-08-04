@@ -1,6 +1,20 @@
-<product-recommendations data-product-id="{{ product.id }}" data-style="{{  product.tags | where: "style:" | first }}">
+{% assign is_set = product.metafields.custom.product_set %}
+{% if is_set %}
+  {% for part in is_set.value %}
+    {% if forloop.first %}
+      {% assign product_id = part.id %}
+      {% assign tag = part.tags | where: "style:" | first %}
+    {% endif %}
+  {% endfor %}
+{% else %}
+  {% assign product_id = product.id %}
+  {% assign tag = product.tags | where: "style:" | first %}
+{% endif %}
 
+<product-recommendations data-product-id="{{ product_id }}" data-style="{{ tag }}">
+  <productcard-carousel></productcard-carousel>
 </product-recommendations>
+
 {% schema %}
 {
   "name": "Product Recommendations",
