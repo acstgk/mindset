@@ -1,4 +1,4 @@
-/* global IntersectionObserver, Shopify, theme */
+/* global MutationObserver IntersectionObserver, Shopify, theme */
 import Splide from "./splide.min.js";
 
 // ===================
@@ -497,33 +497,69 @@ export const Cart = window.Cart;
 // ===================
 
 class ComponentLoader {
-  /**
-   * @param {string} selector - Custom element selector (e.g. 'productcard-carousel')
-   * @param {Function} importFn - Function that returns the dynamic import (e.g. () => import('./ProductCarousel.js'))
-   */
+  static uninitializedLoaders = [];
+  static sharedObserver = null;
 
   constructor(selector, importFn) {
     this.selector = selector;
     this.importFn = importFn;
-    this.element = document.querySelector(selector);
 
-    if (!this.element || customElements.get(this.selector)) return;
-    this.init();
+    if (customElements.get(this.selector)) return;
+
+    const existingEl = document.querySelector(selector);
+
+    if (existingEl) {
+      this.init();
+    } else {
+      ComponentLoader.registerLoader(this);
+    }
+  }
+
+  static registerLoader(loaderInstance) {
+    ComponentLoader.uninitializedLoaders.push(loaderInstance);
+    if (!ComponentLoader.sharedObserver) {
+      ComponentLoader.sharedObserver = new MutationObserver(ComponentLoader.handleMutations);
+      ComponentLoader.sharedObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+      });
+    }
+  }
+
+  static handleMutations(mutations) {
+    for (const mutation of mutations) {
+      for (const node of mutation.addedNodes) {
+        if (!(node instanceof HTMLElement)) continue;
+
+        ComponentLoader.uninitializedLoaders = ComponentLoader.uninitializedLoaders.filter((loader) => {
+          if (node.matches?.(loader.selector) || node.querySelector?.(loader.selector)) {
+            loader.loadAndDefine();
+            return false; // remove from list once initialized
+          }
+          return true;
+        });
+
+        // Disconnect if all have been initialized
+        if (ComponentLoader.uninitializedLoaders.length === 0) {
+          ComponentLoader.sharedObserver.disconnect();
+          ComponentLoader.sharedObserver = null;
+        }
+      }
+    }
   }
 
   init() {
-    const target = this.element.closest(".shopify-section") || this.element;
-    const rect = target.getBoundingClientRect();
+    const target = document.querySelector(this.selector)?.closest(".shopify-section") || document.querySelector(this.selector);
+    const rect = target?.getBoundingClientRect();
 
-    if (rect.top <= window.innerHeight) {
+    if (!rect || rect.top <= window.innerHeight) {
       this.loadAndDefine();
       return;
     }
 
     this.observer = new IntersectionObserver(
       (entries, obs) => {
-        const entry = entries[0];
-        if (entry.isIntersecting) {
+        if (entries[0].isIntersecting) {
           this.loadAndDefine();
           obs.disconnect();
         }
@@ -543,6 +579,7 @@ class ComponentLoader {
       this.observer.disconnect();
       this.observer = null;
     }
+
     this.importFn().then((module) => {
       if (!customElements.get(this.selector)) {
         customElements.define(this.selector, module.default);
