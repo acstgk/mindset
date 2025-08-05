@@ -394,7 +394,6 @@ button {
 .iWishAdd svg {
     width: 15px !important;
     height: 15px !important;
-    fill: var(--c-white);
 }
 
 /* GLOBAL DESKTOP  */
@@ -1035,8 +1034,7 @@ product-card {
     }
 
     & .product_card-images {
-        display: grid;
-        grid-template-columns: repeat(2, 100%);
+        display: flex;
         overflow: auto hidden;
         white-space: nowrap;
         scroll-snap-align: start;
@@ -1045,6 +1043,12 @@ product-card {
         place-items: center;
         width: 100%;
         height: 100%;
+    }
+
+    & .product_card-first-image {
+        display: grid;
+        flex: 0 0 100%;
+        align-items: center;
     }
 
     & .product_card-decal {
@@ -1269,6 +1273,7 @@ product-card,
     product-card {
         & .product_card-images {
             grid-template-columns: 100%;
+            display: grid;
 
             & img {
                 width: calc(100% - 2px);
@@ -1280,10 +1285,10 @@ product-card,
             display: inline;
         }
 
-        & a img {
+        & a > img {
             grid-area: 1 / 1;
 
-            &:nth-of-type(3) {
+            &:nth-of-type(1) {
                 opacity: 0;
                 transition: opacity 0.35s ease;
             }
@@ -1298,7 +1303,7 @@ product-card,
         }
 
         &:hover {
-            & img:nth-of-type(3) {
+            & a > img:nth-of-type(1) {
                 opacity: 1;
             }
 
