@@ -189,6 +189,7 @@ if (!customElements.get("enhanced-atc")) {
         this.atcButtonPosition = this.querySelector(".atc_form-button-spacer");
         this.actualForm = this.closest("form");
         this.atcButton = this.querySelector(".atc_form-button");
+        this.totalRadio = this.querySelectorAll('input[type="radio"]').length;
         this.allGroups = this.querySelectorAll(".atc_form-sizes");
         this.quantityWarningEl = this.querySelector(".quantity-warning");
         this.allGroups.length > 1 ? (this.atcButton.innerText = "Select Sizes") : (this.atcButton.innerText = "Select Size");
@@ -223,8 +224,9 @@ if (!customElements.get("enhanced-atc")) {
           const allSelected = selectedSizes.every(Boolean);
           const selectedSizesStr = selectedSizes.filter(Boolean).join(", ");
 
-          if (allSelected) {
-            this.atcButton.innerHTML = `<b>Add to Bag</b> <span>| size: ${selectedSizesStr}</span>`;
+        if (allSelected) {
+          const sizeCopy = this.totalRadio > 1 ? `<span>| size: ${selectedSizesStr}</span>` : "";
+            this.atcButton.innerHTML = `<b>Add to Bag</b> ${sizeCopy}`;
             this._currentSubmitHandler = this._addToCart;
           }
 
