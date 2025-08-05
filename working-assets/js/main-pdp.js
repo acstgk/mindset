@@ -197,6 +197,8 @@ if (!customElements.get("enhanced-atc")) {
         this.actualForm.addEventListener("change", this._watchSizeSelection);
         this._handleStickyButton();
         this._setObserver();
+        this._watchSizeSelection();
+
       }
 
       // overrides the default submit event and calls the correct function based on size selection
@@ -212,12 +214,13 @@ if (!customElements.get("enhanced-atc")) {
       };
 
       // watch the size selection block/s and update the submission function if all blocks/products have a size selected.
-      _watchSizeSelection = (event) => {
-        if (event.target.type === "radio" && event.target.name.startsWith("id")) {
+      _watchSizeSelection = () => {
+        console.log('checking radios :: started');
+
           const selectedSizes = Array.from(this.allGroups).map((group) => {
             const checked = group.querySelector('input[type="radio"]:checked');
             return checked ? checked.dataset.size || checked.getAttribute("data-size") || checked.value : null;
-          });
+          })
 
           const allSelected = selectedSizes.every(Boolean);
           const selectedSizesStr = selectedSizes.filter(Boolean).join(", ");
@@ -229,13 +232,13 @@ if (!customElements.get("enhanced-atc")) {
 
           if (this.allGroups.length == 1) {
             const availableQty = this.querySelector('input[type="radio"]:checked').dataset.availableQty;
-            if (availableQty < 15) {
+            if (availableQty < 15 && availableQty > 0) {
               availableQty == 1 ? (this.quantityWarningEl.textContent = `Hurry! this is the last one.`) : (this.quantityWarningEl.textContent = `Popular - only ${availableQty} left!`);
               this.quantityWarningEl.classList.add("warning-active");
             } else {
               this.quantityWarningEl.classList.remove("warning-active");
             }
-          }
+
         }
       };
 
