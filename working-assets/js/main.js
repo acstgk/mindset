@@ -70,6 +70,7 @@ if (!customElements.get("slide-drawer")) {
         this.appendChild(closeBtn);
         this._startX = 0;
         this._endX = 0;
+        this.searchElement = document.querySelector("predictive-search");
       }
 
       _handleSwipe() {
@@ -84,6 +85,7 @@ if (!customElements.get("slide-drawer")) {
       }
 
       open() {
+        this.searchElement.close(); //close the searchbar only if open
         document.body.classList.add("no-scroll");
         this.setAttribute("aria-hidden", "false");
         this.addEventListener("touchstart", this._onTouchStart, {
@@ -272,6 +274,8 @@ if (!customElements.get("page-overlay")) {
         this._closeLoop("slide-drawer");
         // close any mobile qatb modals
         this._closeLoop(".mqatb-modal");
+        //close the searchbar
+        document.querySelector("predictive-search").close();
       }
 
       _closeLoop(query) {
@@ -491,6 +495,53 @@ class CartAPI {
 
 window.Cart = new CartAPI();
 export const Cart = window.Cart;
+
+// ===================
+// PREDICTIVE SEARCH
+// ===================
+
+if (!customElements.get("predictive-search")) {
+  customElements.define(
+    "predictive-search",
+    class PredictiveSearch extends HTMLElement {
+      constructor() {
+        super();
+        this.isOpen = false;
+        this.pageOverlay = document.querySelector("page-overlay");
+        this.pageHeader = document.getElementById("shopify-section-header-main");
+      }
+
+      connectedCallback() {
+        this.searchButton = document.getElementById("header_search-icon");
+        this.searchButton.addEventListener("click", this._handleOpenClose);
+        this.closeButton = this.querySelector(".search_form-close");
+        this.closeButton.addEventListener("click", this._handleOpenClose);
+      }
+
+      _handleOpenClose = (event) => {
+        event.preventDefault();
+        this.setAttribute("aria-hidden", this.isOpen);
+        if (this.isOpen) {
+          this.pageOverlay.closeThis();
+          setTimeout(() => {
+            this.pageHeader.style.zIndex = 5;
+          }, 150);
+        } else {
+          this.pageOverlay.openThis();
+          this.pageHeader.style.zIndex = 11;
+        }
+
+        this.isOpen = !this.isOpen; // update the isOpen status for next click
+      };
+
+      close = () => {
+        this.setAttribute("aria-hidden", "true");
+        this.pageHeader.style.zIndex = 5;
+        this.isOpen = false;
+      };
+    },
+  );
+}
 
 // ===================
 // DYNAMIC IMPORTS

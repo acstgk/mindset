@@ -372,9 +372,9 @@ pdp-carousel {
   aspect-ratio: 1;
   overflow: hidden;
 
-  & img {
+  /* & img {
     object-position: top;
-  }
+  } */
 }
 
 thumbnail-carousel {
