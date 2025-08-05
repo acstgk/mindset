@@ -215,8 +215,6 @@ if (!customElements.get("enhanced-atc")) {
 
       // watch the size selection block/s and update the submission function if all blocks/products have a size selected.
       _watchSizeSelection = () => {
-        console.log('checking radios :: started');
-
           const selectedSizes = Array.from(this.allGroups).map((group) => {
             const checked = group.querySelector('input[type="radio"]:checked');
             return checked ? checked.dataset.size || checked.getAttribute("data-size") || checked.value : null;
