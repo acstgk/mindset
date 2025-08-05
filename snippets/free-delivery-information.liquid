@@ -37,6 +37,7 @@
       {% else %}
         Spend {{ settings['delivery-threshold-value'] | minus: cart.total_price | money_without_trailing_zeros }} more for FREE {{ settings['delivery-threshold-name'] }}.
         {% assign progress = cart.total_price | times: 100 | divided_by: settings['delivery-threshold-value'] %}
+         {% assign bg_color = 'var(--c-grey)' %}
       {%- endif -%}
     </p>
     <div class="free-delivery_status-bar" style="--pc-progress: {{ progress }}%;--bg-color:{{ bg_color }}"></div>
