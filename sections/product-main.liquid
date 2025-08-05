@@ -91,8 +91,11 @@
 
   <form id="atc_form" method="post" action="{{ routes.cart_add_url }}">
     <enhanced-atc>
+
       <div class="atc_form-header">
+        {% unless product.variants_count == 1 %}
         <p>select your size:</p>
+        {% endunless %}
         <a
           href="/pages/size-guide"
           target="_blank"
@@ -130,6 +133,9 @@
                   {% unless variant.available %}
                     disabled
                   {% endunless %}
+                  {% if part.variants_count == 1 %}
+                    checked
+                  {% endif %}
                 >
                 <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
               </li>
@@ -138,7 +144,7 @@
         {% endfor %}
 
       {% else %}
-        <ul class="atc_form-sizes">
+        <ul class="atc_form-sizes {% if product.variants_count == 1 %}visually-hidden{% endif %}">
           {% for variant in product.variants %}
             <li>
               <input
@@ -152,6 +158,9 @@
                   {%- assign oos = true -%}
                   disabled
                 {% endunless %}
+                {% if product.variants_count == 1 %}
+                  checked
+                {% endif %}
               >
               <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
             </li>
@@ -162,7 +171,7 @@
       {% comment %}  Quantity Selector  {% endcomment %}
       <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
       {% comment %} Add to Cart button  {% endcomment %}
-       <span class="quantity-warning warning"></span>
+      <span class="quantity-warning warning"></span>
       <div class="atc_form-button-spacer"><button type="submit" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button></div>
     </enhanced-atc>
   </form>
