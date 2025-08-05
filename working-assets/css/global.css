@@ -1283,7 +1283,7 @@ product-card,
         & a img {
             grid-area: 1 / 1;
 
-            &:last-of-type {
+            &:nth-of-type(3) {
                 opacity: 0;
                 transition: opacity 0.35s ease;
             }
@@ -1298,7 +1298,7 @@ product-card,
         }
 
         &:hover {
-            & img:last-of-type {
+            & img:nth-of-type(3) {
                 opacity: 1;
             }
 
