@@ -21,7 +21,7 @@
   </div>
 </div>
 <div class="gender-wrapper">
-  <div class="recommendation-ctas womens-gender-filter fade-in">
+  <div class="recommendation-ctas womens-gender-filter fade-in max-width">
     {% if section.settings['best_sellers-1'] -%}
       <a href="{{ section.settings.best_sellers-1.url }}" class="button button-primary">{{- section.settings['best_sellers-1'].title -}}</a>
     {%- endif %}
@@ -29,7 +29,7 @@
       <a href="{{ section.settings.new-1.url }}" class="button button-primary">{{ section.settings['new-1'].title }}</a>
     {%- endif %}
   </div>
-  <div class="recommendation-ctas mens-gender-filter fade-in">
+  <div class="recommendation-ctas mens-gender-filter fade-in max-width">
     {% if section.settings['best_sellers-2'] -%}
       <a href="{{ section.settings.best_sellers-2.url }}" class="button button-primary">
         {{- section.settings['best_sellers-2'].title -}}
@@ -67,7 +67,6 @@
     gap: 1rem;
     margin-top: 2rem;
     flex-wrap: wrap;
-    width: 100%;
 
     & a {
       flex: 1 1 max-content;
@@ -79,7 +78,7 @@
 {% schema %}
 {
   "name": "Recommendation Carousel",
-  "class": "section-gender-recommendation-carousel max-width",
+  "class": "section-gender-recommendation-carousel",
   "limit": 1,
   "settings": [
     {
