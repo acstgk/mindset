@@ -23,7 +23,7 @@
   }
 }
 
-.section-gender-categories .gender-wrapper > div {
+.section-gender-categories .gender-wrapper > div:not(.loader) {
   width: 100%;
 }
 

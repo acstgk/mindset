@@ -1,0 +1,87 @@
+<h3 style="margin-top: 3em">Shop {{ section.settings.title }} by Size</h3>
+
+<div class="gender-wrapper">
+  <div id="womens-sbs" class="womens-gender-filter fade-in max-width">
+    <h4 class="no-gender-filter">WOMENS</h4>
+    <ul class="sizes">
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/womens?filter.v.option.size=6&filter.v.option.size=6-8&filter.v.option.size=4-6">6</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/womens?filter.v.option.size=8&filter.v.option.size=6-8">8</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/womens?filter.v.option.size=10&filter.v.option.size=10-12">10</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/womens?filter.v.option.size=12&filter.v.option.size=10-12">12</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/womens?filter.v.option.size=14&filter.v.option.size=14-16">14</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/womens?filter.v.option.size=16&filter.v.option.size=14-16">16</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/womens?filter.v.option.size=18&filter.v.option.size=18-20">18</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/womens">Shop All</a></li>
+    </ul>
+  </div>
+  <div id="mens-sbs" class="mens-gender-filter fade-in max-width">
+    <h4 class="no-gender-filter">MENS</h4>
+    <ul class="sizes">
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/mens?filter.v.option.size=XS">XS</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/mens?filter.v.option.size=S&filter.v.option.size=S%2FM">S</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/mens?filter.v.option.size=M&filter.v.option.size=S%2FM">M</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/mens?filter.v.option.size=L&filter.v.option.size=L%2FXL">L</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/mens?filter.v.option.size=XL&filter.v.option.size=L%2FXL">XL</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/mens?filter.v.option.size=XXL">XXL</a></li>
+      <li><a class="button button-primary" href="{{ routes.collections_url }}/all/mens">Shop All</a></li>
+    </ul>
+  </div>
+</div>
+
+{% stylesheet %}
+  #womens-sbs,
+  #mens-sbs {
+    padding-top: 0;
+  }
+  ul.sizes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em;
+
+    & a {
+      display: block;
+      width: 100%;
+      font-size: var(--txt-h3);
+    }
+  }
+
+  #mens-sbs ul.sizes li:last-child {
+    grid-column: 1 / -1;
+  }
+  #womens-sbs ul.sizes li:last-child {
+    grid-column: 2 / -1;
+  }
+
+  @media screen and (width > 500px) {
+    ul.sizes {
+      display: flex;
+      gap: 0.5em;
+
+      & a {
+        width: auto;
+      }
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Recommendation Carousel",
+  "class": "section-gender-shop-size",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Add info to Title",
+      "info": "'Shop' {X} 'by Price'"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by Size",
+      "category": "Gender Specific"
+    }
+  ]
+}
+{% endschema %}

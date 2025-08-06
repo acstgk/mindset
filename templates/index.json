@@ -149,6 +149,10 @@
         "url4w": ""
       }
     },
+    "gender-shop-by-size" : {
+      "type": "gender-shop-by-size",
+      "name": "Shop By Size"
+    },
     "gender_recommendation_carousel_QMFmBV": {
       "type": "gender-recommendation-carousel",
       "name": "Product Recommendation Carousel",
@@ -168,6 +172,7 @@
     "section_split_banner_CHJbCm",
     "gender_selector_iPE3Hb",
     "gender_categories_9Tkx7m",
+    "gender-shop-by-size",
     "gender_recommendation_carousel_QMFmBV"
   ]
 }
