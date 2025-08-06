@@ -23,6 +23,10 @@
   }
 }
 
+.section-gender-categories .gender-wrapper > div {
+  width: 100%;
+}
+
 .category-grid {
   max-width: 90vw;
   width: 100%;
