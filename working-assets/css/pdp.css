@@ -292,6 +292,7 @@ pdp-carousel {
   display: flex;
   justify-content: space-between;
   flex-flow: row nowrap;
+  gap: .5em;
 
   .BIS_trigger {
     margin: 0;
@@ -396,6 +397,8 @@ thumbnail-carousel {
   height: min-content;
   padding-block: 0.5em;
   margin: 0.5em 0;
+  font-weight: 700;
+  letter-spacing: 0.15ch;
 }
 
 @media screen and (width >=768px) {
