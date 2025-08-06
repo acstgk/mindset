@@ -377,7 +377,41 @@ pdp-carousel {
   width: 100%;
   margin: 0px;
   aspect-ratio: 1;
-  overflow: hidden;
+  border: 1px solid white;
+  position: relative;
+
+  &.active {
+    border-color: var(--c-black);
+    cursor: default;
+  }
+
+  & .tooltip {
+    display: none;
+    position: absolute;
+    background: var(--c-off-white);
+    padding: 0.5em;
+    top: calc(100% + 5px);
+    left: 5px;
+    width: max-content;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: -10px;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid var(--c-off-white);
+    }
+  }
+
+  &:hover {
+    z-index: 1;
+
+    & .tooltip {
+      display: block;
+    }
+  }
 
   /* & img {
     object-position: top;
@@ -472,6 +506,7 @@ thumbnail-carousel {
   thumbnail-carousel {
     display: block;
     width: 150px;
+    flex: 1 0 150px;
     opacity: 0;
     transition: opacity 0.2s ease;
 
