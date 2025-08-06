@@ -15,7 +15,7 @@ class GenderSelector {
 
   _initFromStorage() {
     this.loaderElements.forEach((el) => (el.style.opacity = "0"));
-    const storedGender = localStorage.getItem("content-gender");
+    const storedGender = localStorage.getItem("GK::gender--content");
     let matchButton = null;
 
     if (storedGender) {
@@ -34,7 +34,7 @@ class GenderSelector {
 
   _handleGenderClick(button) {
     const gender = button.dataset.gender;
-    localStorage.setItem("content-gender", gender);
+    localStorage.setItem("GK::gender--content", gender);
 
     // Remove active from all buttons
     this.genderButtons.forEach((btn) => btn.classList.remove("active"));

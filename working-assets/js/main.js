@@ -166,7 +166,7 @@ class SideMenuGenderSelector {
     const menuOffset = { kids: 200, womens: 100 }[gender] || 0;
     document.querySelector(".side_menu-slider").style.left = `-${menuOffset}%`;
 
-    localStorage.setItem("menu_gender", gender);
+    localStorage.setItem("GK::gender--menu", gender);
 
     const siblings = [...button.parentElement.children];
     siblings.forEach((el) => el.classList.toggle("active", el === button));
@@ -175,7 +175,7 @@ class SideMenuGenderSelector {
   }
 
   _restoreLastSelection() {
-    const lastGender = localStorage.getItem("menu_gender");
+    const lastGender = localStorage.getItem("GK::gender--menu");
     if (lastGender) {
       const match = this.header.querySelector(`[data-gender="${lastGender}"]`);
       match.click();
