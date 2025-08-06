@@ -1,0 +1,119 @@
+{%- if predictive_search.performed -%}
+  {%- if predictive_search.resources.queries.size > 0 -%}
+    <div class="predictive_search-terms max-width">
+      <ul role="listbox" aria-label="Popular search terms" class="predictive_search-terms-list">
+        <li>popular terms:</li>
+        {%- for query in predictive_search.resources.queries limit: 5 -%}
+          {% assign query_text = query.text | remove: 'gym king' | strip %}
+          {% if query_text != predictive_search.terms %}
+            <li role="option">
+              <a href="{{ query.url | remove: "gym+king+" }}">
+                {{ query_text }}
+              </a>
+            </li>
+          {% endif %}
+        {%- endfor -%}
+      </ul>
+    </div>
+  {% endif %}
+
+  <div class="predictive_search-grid">
+    <div class="predictive_search-products" role="listbox">
+      {%- if predictive_search.resources.products.size > 0 -%}
+        <h4 class="predictive_search-heading">Products</h4>
+        {%- for product in predictive_search.resources.products -%}
+          {%- render 'product-card' with product as product -%}
+        {%- endfor -%}
+      {% else %}
+        <p>No Product Suggestions Found</p>
+      {% endif %}
+    </div>
+    <div class="predictive-search__container">
+      {%- if predictive_search.resources.collections.size > 0 -%}
+        {%- for collection in predictive_search.resources.collections -%}
+          {% if collection.products_count > 5 and collection.metafields.collection.hidden != 'Hide' %}
+            {% assign collectionis = true %}
+          {% endif %}
+        {% endfor %}
+        {% if collectionis %}
+          <div class="predictive_search-section">
+            <h4 class="predictive_search-heading">Collections</h4>
+            <ul role="listbox">
+              {%- for collection in predictive_search.resources.collections -%}
+                {% if collection.products_count > 5 and collection.metafields.collection.hidden != 'Hide' %}
+                  <li role="option">
+                    <a href="{{ collection.url }}">
+                      {{ collection.title | highlight: predictive_search.terms -}}
+                      <small>
+                        <i>({{ collection.all_products_count }} products)</i></small
+                      ></a
+                    >
+                  </li>
+                {% endif %}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {% endif %}
+      {% endif %}
+      {%- if predictive_search.resources.pages.size > 0 -%}
+        <div class="predictive_search-section">
+          <h4 class="predictive_search-heading">Pages</h4>
+          <ul role="listbox">
+            {%- for page in predictive_search.resources.pages limit: 5 -%}
+              <li role="option">
+                <a href="{{ page.url }}">
+                  {{ page.title | highlight: predictive_search.terms }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {% endif %}
+      {%- if predictive_search.resources.articles.size > 0 -%}
+        {%- for article in predictive_search.resources.articles limit: 5 -%}
+          {% assign last_date = article.created_at | date: '%Y' %}
+          {% assign this_year = 'now' | date: '%Y' %}
+          {% assign article_age = this_year | minus: last_date %}
+          {% if article_age < 3 %}
+            {% assign articleis = true %}
+          {% endif %}
+        {% endfor %}
+        {% if articleis %}
+          <div class="predictive_search-section">
+            <h4 class="predictive_search-heading">Articles</h4>
+            <ul role="listbox">
+              {%- for article in predictive_search.resources.articles limit: 5 -%}
+                {% assign last_date = article.created_at | date: '%Y' %}
+                {% assign this_year = 'now' | date: '%Y' %}
+                {% assign article_age = this_year | minus: last_date %}
+                {% if article_age < 3 %}
+                  <li role="option">
+                    <a href="{{ article.url }}">
+                      {{ article.title | truncate: 35 | highlight: predictive_search.terms }}
+                    </a>
+                  </li>
+                {% endif %}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {% endif %}
+      {% endif %}
+      {% comment %} <div class="predictive_search-section">
+        <h4 class="predictive_search-heading">Useful Links</h4>
+        <ul role="listbox">
+          <li role="option">
+            <a href="/pages/help-centre"> Help Centre </a>
+          </li>
+          <li role="option">
+            <a href="/pages/size-guide"> Size Guide </a>
+          </li>
+          <li role="option">
+            <a href="/pages/about-us"> About Gym King </a>
+          </li>
+        </ul>
+      </div> {% endcomment %}
+    </div>
+  </div>
+
+  <a href="{{ routes.search_url }}?type=product&q={{ predictive_search.terms | escape }}" class="accent-bg predictive_search-view-all"> view all results for “{{ predictive_search.terms }}” {% render 'icon', icon: 'arrow' %} </a>
+{%- endif -%}

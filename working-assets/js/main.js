@@ -1,4 +1,4 @@
-/* global MutationObserver IntersectionObserver, Shopify, theme */
+/* global MutationObserver IntersectionObserver, Shopify, theme, clearTimeout */
 import Splide from "./splide.min.js";
 
 // ===================
@@ -507,6 +507,7 @@ if (!customElements.get("predictive-search")) {
       constructor() {
         super();
         this.isOpen = false;
+        this.searchTerm = "";
         this.pageOverlay = document.querySelector("page-overlay");
         this.pageHeader = document.getElementById("shopify-section-header-main");
       }
@@ -516,19 +517,80 @@ if (!customElements.get("predictive-search")) {
         this.searchButton.addEventListener("click", this._handleOpenClose);
         this.closeButton = this.querySelector(".search_form-close");
         this.closeButton.addEventListener("click", this._handleOpenClose);
+        this.inputField = this.querySelector(".search_form-terms-input");
+        this.inputField.addEventListener(
+          "input",
+          this.debounce((event) => {
+            this._onInputChange(event);
+          }),
+        );
       }
+
+      debounce = (fn, delay = 500) => {
+        let timeout;
+        return function (...args) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => fn.apply(this, args), delay);
+        };
+      };
+
+      _onInputChange = () => {
+        this.searchTerm = this.inputField.value.trim();
+        if (this.searchTerm.length == 0) this._resetResults();
+        if (this.searchTerm.length < 3) return; // only run if search term is greater than 2 letters
+
+        this._getSearchResults();
+      };
+
+      _getSearchResults = () => {
+        fetch(
+          `/search/suggest?q=${this.searchTerm}&resources[limit]=10&resources[limit_scope]=each&resources[type]=product,page,collection,article,query&resources[options][fields]=body,product_type,title,variants.sku&section_id=predictive-search-results`,
+        )
+          .then((response) => {
+            if (!response.ok) {
+              var error = new Error(response.status);
+              throw error;
+            }
+
+            return response.text();
+          })
+          .then((text) => {
+            this._resetResults();
+            if (!customElements.get("product-card")) {
+              import("./ProductCard.js").then((module) => {
+                customElements.define("product-card", module.default);
+              });
+            }
+            const resultsMarkup = new DOMParser().parseFromString(text, "text/html").querySelector("#shopify-section-predictive-search-results").innerHTML;
+            const resultEL = document.createElement("div");
+            resultEL.classList.add("predictive-search--results");
+            resultEL.innerHTML = resultsMarkup;
+            this.appendChild(resultEL);
+          })
+          .catch((error) => {
+            throw error;
+          });
+      };
+
+      _resetResults = () => {
+        if (this.querySelector(".predictive-search--results")) this.querySelector(".predictive-search--results").remove();
+      };
 
       _handleOpenClose = (event) => {
         event.preventDefault();
         this.setAttribute("aria-hidden", this.isOpen);
         if (this.isOpen) {
+          this.inputField.blur();
           this.pageOverlay.closeThis();
           setTimeout(() => {
             this.pageHeader.style.zIndex = 5;
+            this.style.visibility = "hidden"
           }, 150);
         } else {
           this.pageOverlay.openThis();
+          this.style.visibility = "visible"
           this.pageHeader.style.zIndex = 11;
+          this.inputField.focus();
         }
 
         this.isOpen = !this.isOpen; // update the isOpen status for next click
@@ -536,6 +598,7 @@ if (!customElements.get("predictive-search")) {
 
       close = () => {
         this.setAttribute("aria-hidden", "true");
+        this.style.visibility = "hidden";
         this.pageHeader.style.zIndex = 5;
         this.isOpen = false;
       };

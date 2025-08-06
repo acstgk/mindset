@@ -1,6 +1,5 @@
 <predictive-search id="search" aria-hidden="true">
   <form class="max-width" id="search_form" action="{{ routes.search_url }}">
-    <button type="submit" value="Search" aria-label="submit search term">{% render 'icon', icon: 'search' %}</button>
     <input type="hidden" name="type" value="product">
     <input
       id="Search"
@@ -8,14 +7,14 @@
       type="search"
       name="q"
       value=""
-      placeholder="Search..."
+      placeholder="type to search..."
       role="combobox"
       aria-expanded="false"
       aria-owns="predictive-search-results"
       aria-controls="predictive-search-results"
-      autofocus
       required
     >
+      <button type="submit" value="Search" aria-label="submit search term">{% render 'icon', icon: 'search' %}</button>
       <button class="search_form-close" aria-label="close search">{% render 'icon', icon: 'plus', class: 'rotate45' %}</button>
   </form>
 </predictive-search>
