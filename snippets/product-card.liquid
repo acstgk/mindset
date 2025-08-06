@@ -9,19 +9,19 @@
   {% render 'example-snippet', product: 'Featured Products', loading: "lazy", class: "custom-class" %}
 {% enddoc %}
 
-{%- capture countdown_settings -%}
-{
-"end": {{ settings.countdown-date | json }},
-"copy": {{ settings.countdown-announcement-text | json }}
-}
-{%- endcapture -%}
-
 {% assign loading = loading | default: 'lazy' %}
 {% assign sizes = '(min-width: 1200px) 25vw, (min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw' %}
 {% assign widths = '300, 450, 600, 750, 900, 1200, 1800' %}
 {% assign show_timer = false %}
 {% if product.tags contains settings['countdown-tag'] and settings['countdown-product-check'] %}
   {% assign show_timer = true %}
+
+  {%- capture countdown_settings -%}
+    {
+    "end": {{ settings.countdown-date | json }},
+    "copy": {{ settings.countdown-announcement-text | json }}
+    }
+  {%- endcapture -%}
 {% endif %}
 {% capture qatb_buttons %}
   <div class="qatb-btns">
@@ -67,10 +67,10 @@
     </a>
 
     {% unless product.requires_selling_plan or product.metafields.custom.product_set or product.available == false %}
-    <div class="datb">
-      {{ qatb_buttons }}
-    </div>
-  {% endunless %}
+      <div class="datb">
+        {{ qatb_buttons }}
+      </div>
+    {% endunless %}
   </div>
 
   <div class="product_card-info">
@@ -97,18 +97,17 @@
       {% render 'icon' with 'cart' as icon %}
     </a>
 
-
-  <div class="fade-in mqatb-modal" id="mqatb-{{ product.id }}" aria-hidden="true">
-    <div class="mqatb-img">
-      {{ product.featured_image | image_url: width: 780 | image_tag: sizes: '100vw', widths: widths, loading: 'lazy' }}
+    <div class="fade-in mqatb-modal" id="mqatb-{{ product.id }}" aria-hidden="true">
+      <div class="mqatb-img">
+        {{ product.featured_image | image_url: width: 780 | image_tag: sizes: '100vw', widths: widths, loading: 'lazy' }}
+      </div>
+      <div class="mqatb-info">
+        {% render 'product-title', product: product %}
+        {% render 'product-price', product: product %}
+      </div>
+      select your size:
+      {{ qatb_buttons }}
+      <div class="mqatb-close round-btn">{% render 'icon' with 'plus' as icon, class: 'close-icon' %}</div>
     </div>
-    <div class="mqatb-info">
-      {% render 'product-title', product: product %}
-      {% render 'product-price', product: product %}
-    </div>
-    select your size:
-    {{ qatb_buttons }}
-    <div class="mqatb-close round-btn">{% render 'icon' with 'plus' as icon, class: 'close-icon' %}</div>
-  </div>
   {% endunless %}
 </product-card>
