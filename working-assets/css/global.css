@@ -1476,6 +1476,12 @@ product-card,
             }
         }
 
+        & a>.product_card-first-image {
+            opacity: 1;
+            transition: opacity 0.35s ease;
+
+        }
+
         & .datb {
             display: block;
         }
@@ -1487,6 +1493,10 @@ product-card,
         &:hover {
             & a>img:nth-of-type(1) {
                 opacity: 1;
+            }
+
+            & a>.product_card-first-image {
+                opacity: 0
             }
 
             & .datb {
