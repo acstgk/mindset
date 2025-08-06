@@ -12,18 +12,25 @@ export default class ProductRecommendations extends HTMLElement {
   }
 
   _getRecommendations = () => {
+    //create the header element and add to the dom
+    const heading = document.createElement("h2");
+    heading.classList.add("h1");
+    heading.textContent = "You might also like";
+    this.parentNode.insertBefore(heading, this);
+    const loader = document.createElement("div");
+    loader.classList.add("loader");
+    this.appendChild(loader);
+
     fetch(window.Shopify.routes.root + `recommendations/products?sections=product-dynamic-cards&product_id=${this.productID}&limit=12&intent=related`)
-      .then((response) => response.json()) // Use .json()
+      .then((response) => response.json())
       .then((data) => {
         const html = data["product-dynamic-cards"];
 
         if (html && html.length > 0) {
-          const heading = document.createElement("h2");
-          heading.classList.add("h1");
-          heading.textContent = "You might also like";
-          this.parentNode.insertBefore(heading, this);
+          // if there is some data then ->
 
-          const carousel = this.querySelector("productcard-carousel");
+          const carousel = this.querySelector("productcard-carousel"); // find the carousel
+
           this.innerHTML = "";
           this.appendChild(carousel);
 

@@ -1,3 +1,5 @@
+/* global Node */
+
 // ===================
 // Splide Utils
 // ===================
@@ -17,7 +19,15 @@ export class SplideUtil {
 
     // Move all children into the splide__list
     while (target.firstChild) {
-      list.appendChild(target.firstChild);
+      const child = target.firstChild;
+
+      if (child.nodeType === Node.ELEMENT_NODE && child.classList.contains("splide__slide")) {
+        list.appendChild(child);
+      } else if (child.nodeType === Node.ELEMENT_NODE && child.classList.contains("splide__decal")) {
+        track.appendChild(child);
+      } else {
+        child.remove();
+      }
     }
     track.appendChild(list);
     target.appendChild(track);

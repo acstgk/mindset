@@ -22,7 +22,7 @@
 
   {% if instockcount > 0 and product.type != 'Tracksuit Set' and tag != '' %}
     <h2 class="h1">COMPLETE THE LOOK</h2>
-    <productcard-carousel id="completethelook" class="">
+    <productcard-carousel id="completethelook">
       {% assign product_handles = product_handles | remove_first: '+' | split: '+' %}
       {% for handle in product_handles %}
         {%- render 'product-card' with all_products[handle] as product, class: 'splide__slide' -%}
@@ -146,8 +146,6 @@
   @media screen and (min-width: 768px) {
     productcard-carousel {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1em;
 
       &.splide {
         grid-template-columns: 1fr;
@@ -160,7 +158,7 @@
       }
 
       #completethelook {
-        display: inherit;
+        display: grid;
       }
     }
   }

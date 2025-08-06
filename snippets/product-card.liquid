@@ -74,13 +74,13 @@
   </div>
 
   <div class="product_card-info">
+    {% render 'product-title', product: product %}
+    {% render 'product-price', product: product %}
     {% if show_timer %}
       <div class="countdown-wrapper">
         <countdown-timer data-countdown="{{ countdown_settings | strip_newlines | escape }}"></countdown-timer>
       </div>
     {% endif %}
-    {% render 'product-title', product: product %}
-    {% render 'product-price', product: product %}
   </div>
 
   {% render 'wishlist-app-links', linkType: 'list-product', product: product %}

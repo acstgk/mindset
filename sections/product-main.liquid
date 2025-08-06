@@ -31,6 +31,7 @@
 {% endif %}
 
 <div class="pdp-carousels-wrapper">
+  {% comment %} START:: thumbnail navigation carousel {% endcomment %}
   <thumbnail-carousel>
     {% for image in product.images %}
       {% unless forloop.index == 2 %}
@@ -46,9 +47,15 @@
       {% endunless %}
     {% endfor %}
   </thumbnail-carousel>
+  {% comment %} END:: thumbnail navigation carousel {% endcomment %}
 
+  {% comment %} START:: main carousel {% endcomment %}
   <div class="pdp-carousel-wrapper">
     <pdp-carousel>
+      {% if show_timer or settings['decal-check'] %}
+        {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: loading: 'lazy', class: 'splide__decal' }}
+      {% endif %}
+
       {% for image in product.images %}
         {% unless forloop.index == 2 %}
           {% assign base_url = image | image_url: width: 1111 | remove: '1111' %}
@@ -57,7 +64,6 @@
             {% assign img_widths = img_widths | append: base_url | append: width | append: ' ' | append: width | append: 'w, ' %}
           {% endfor %}
           {% assign img_widths = img_widths | remove_last: ',' %}
-
           <div class="pdp_slide splide__slide">
             <img
               width="{{ image.width }}"
@@ -82,6 +88,7 @@
       <div class="round-btn iWish-btn" data-wishlisticon>{% render 'wishlist-app-links', linkType: 'single-product' %}</div>
     {% endunless %}
   </div>
+  {% comment %} END:: main carousel {% endcomment %}
 </div>
 
 <aside id="product-details" class="max-width">
