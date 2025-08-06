@@ -29,7 +29,7 @@
       <a
         href="{{ routes.cart_add_url }}?id={{ variant.id }}&quantity=1"
         id="qatb-btn--{{ variant.id }}"
-        class="{%if variant.inventory_quantity > 0 and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% assign oos = true %}{% endif %}"
+        class="{%if variant.inventory_quantity != 0 and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% assign oos = true %}{% endif %}"
         data-v-id="{{ variant.id }}"
       >
         {{ variant.title | replace: 'One Size', 'Add to Bag' }}
@@ -66,9 +66,11 @@
       {% endif %}
     </a>
 
+    {% unless product.requires_selling_plan or product.metafields.custom.product_set or product.available == false %}
     <div class="datb">
       {{ qatb_buttons }}
     </div>
+  {% endunless %}
   </div>
 
   <div class="product_card-info">
@@ -94,7 +96,7 @@
     >
       {% render 'icon' with 'cart' as icon %}
     </a>
-  {% endunless %}
+
 
   <div class="fade-in mqatb-modal" id="mqatb-{{ product.id }}" aria-hidden="true">
     <div class="mqatb-img">
@@ -108,4 +110,5 @@
     {{ qatb_buttons }}
     <div class="mqatb-close round-btn">{% render 'icon' with 'plus' as icon, class: 'close-icon' %}</div>
   </div>
+  {% endunless %}
 </product-card>
