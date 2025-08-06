@@ -964,7 +964,7 @@ video {
 .hero_slide-content h2,
 .hero_slide-content p {
     color: white;
-    font-size: 4rem;
+    font-size: var(--txt-xl);
     margin: 0;
     line-height: 1;
     margin-top: 10px;
@@ -1495,7 +1495,7 @@ product-card,
                 opacity: 1;
             }
 
-            & a>.product_card-first-image {
+            & a>.product_card-first-image:has(+img) {
                 opacity: 0
             }
 
