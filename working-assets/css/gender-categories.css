@@ -1,5 +1,4 @@
 .shop-by-category .categorylink {
-  aspect-ratio: 1;
   aspect-ratio: 1 / 1;
 }
 
@@ -23,7 +22,7 @@
   }
 }
 
-.section-gender-categories .gender-wrapper > div:not(.loader) {
+.section-gender-categories .gender-wrapper>div:not(.loader) {
   width: 100%;
 }
 
@@ -52,7 +51,13 @@
   scale: 1.2;
 }
 
-@media screen and (width > 1000px) {
+@media screen and (width > 600px) {
+  .category-grid {
+    max-height: 40vh;
+  }
+}
+
+@media screen and (width > 900px) {
   .category-grid {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
