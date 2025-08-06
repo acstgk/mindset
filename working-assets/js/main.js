@@ -556,12 +556,20 @@ if (!customElements.get("predictive-search")) {
           })
           .then((text) => {
             this._resetResults();
+            //ensure the productCard module has been imported
+            //ensure the productCard module has been imported
             if (!customElements.get("product-card")) {
               import("./ProductCard.js").then((module) => {
                 customElements.define("product-card", module.default);
               });
             }
             const resultsMarkup = new DOMParser().parseFromString(text, "text/html").querySelector("#shopify-section-predictive-search-results").innerHTML;
+            // if there are countdowns in the returned HTML ensure the countdown module/s have been imported
+            if (resultsMarkup.includes('countdown-timer') && !customElements.get("product-card")) {
+                 import("./CountdownTimer.js").then((module) => {
+                   customElements.define("countdown-timer", module.default);
+                 });
+               }
             const resultEL = document.createElement("div");
             resultEL.classList.add("predictive-search--results");
             resultEL.innerHTML = resultsMarkup;
