@@ -1236,7 +1236,7 @@ product-card {
     & .product_card-decal {
         bottom: 1em;
         position: absolute;
-        right: 0;
+        right: 2px;
         z-index: 1;
         height: auto;
         width: auto;
