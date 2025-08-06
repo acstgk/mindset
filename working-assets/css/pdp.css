@@ -288,6 +288,12 @@ pdp-carousel {
   }
 }
 
+.countdown-wrapper {
+  text-align: center;
+  margin-top: 0;
+  width: 100%;
+}
+
 .product_details-sizing {
   display: flex;
   justify-content: space-between;

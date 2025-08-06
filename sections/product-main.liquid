@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="{{ 'pdp.min.css' | asset_url }}">
 {% comment %} set images sizes  {% endcomment %}
-
 {% assign is_set = product.metafields.custom.product_set %}
 {% assign oos = false %}
 {% assign widths = '600,750,900,1200,1920,2400,3000' | split: ',' %}
@@ -16,6 +15,19 @@
 {% else %}
   {% assign product_price = product.selected_or_first_available_variant.price %}
   {% assign product_compare_price = product.selected_or_first_available_variant.compare_at_price %}
+{% endif %}
+
+{% comment %} do we need to load a countdown component and capture the countdown settings?? {% endcomment %}
+{% assign show_timer = false %}
+{% if product.tags contains settings['countdown-tag'] and settings['countdown-product-check'] %}
+  {% assign show_timer = true %}
+
+  {%- capture countdown_settings -%}
+  {
+  "end": {{ settings.countdown-date | json }},
+  "copy": {{ settings.countdown-announcement-text | json }}
+  }
+  {%- endcapture -%}
 {% endif %}
 
 <div class="pdp-carousels-wrapper">
@@ -91,10 +103,9 @@
 
   <form id="atc_form" method="post" action="{{ routes.cart_add_url }}">
     <enhanced-atc>
-
       <div class="atc_form-header">
         {% unless product.variants_count == 1 %}
-        <p>select your size:</p>
+          <p>select your size:</p>
         {% endunless %}
         <a
           href="/pages/size-guide"
@@ -175,6 +186,12 @@
       <div class="atc_form-button-spacer"><button type="submit" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button></div>
     </enhanced-atc>
   </form>
+
+  {% if show_timer %}
+    <div class="warning countdown-wrapper accent-bg">
+      <countdown-timer data-countdown="{{ countdown_settings | strip_newlines | escape }}"></countdown-timer>
+    </div>
+  {% endif %}
 
   <div class="product_details-sizing accent-bg">
     {% assign description = product.description %}
