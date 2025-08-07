@@ -52,7 +52,7 @@
     height: 100%;
     overflow: auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 0 0.65em;
   }
 
@@ -78,9 +78,27 @@
     justify-content: center;
   }
 
+  .product-grid-insert {
+    margin-bottom: 20px;
+    aspect-ratio: 1;
+
+    & img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @media screen and (width > 420px) {
+    .product-grid-insert {
+      grid-column: span 2;
+      aspect-ratio: unset;
+
+    }
+  }
+
   @media screen and (width > 500px) {
     infinite-scroll {
-      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
     }
 
   }
