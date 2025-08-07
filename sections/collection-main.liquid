@@ -4,22 +4,21 @@
     <div class="previousNav grid-nav max-width accent-bg">
       <a href="{{ paginate.previous.url }}">{% render 'icon', icon: 'arrow', class: 'rotate180' %} Go to Previous Page</a>
       {% if paginate.current_page > 2 %}
-        <a href="{{ paginate.parts[0].url }}" class=" first-page">Go to First Page{% render 'icon', icon: 'arrow', class: 'rotate-90' %}</a>
+        <a href="{{ paginate.parts[0].url }}" id="first-page">Go to First Page{% render 'icon', icon: 'arrow', class: 'rotate-90' %}</a>
       {% endif %}
     </div>
   {% endif %}
 
-  {% render "product-grid-filters" with collection.products as product_list %}
-  {% render "product-grid" with collection.products as product_list %}
-
+  {% render 'product-grid-filters' with collection.products as product_list %}
+  {% render 'product-grid' with collection.products as product_list %}
 
   {% if paginate.next.is_link %}
-    <div id="infinite-trigger" class="grid-nav accent-bg max-width">
-      <a href="{{ paginate.next.url }}" class="loading-spinner">Go to Next Page {% render 'icon', icon: 'arrow' %}</a>
+    <div class="grid-nav accent-bg max-width">
+      <a id="infinite-trigger" href="{{ paginate.next.url }}">Go to Next Page {% render 'icon', icon: 'arrow' %}</a>
     </div>
   {% else %}
-    <div id="back-to-top" class="grid-nav accent-bg max-width">
-      <a href="#">Back to Top{% render 'icon', icon: 'arrow', class: 'rotate-90' %}</a>
+    <div class="grid-nav accent-bg max-width">
+      <a id="back-to-top" href="#">Back to Top{% render 'icon', icon: 'arrow', class: 'rotate-90' %}</a>
     </div>
   {% endif %}
 {%- endpaginate -%}

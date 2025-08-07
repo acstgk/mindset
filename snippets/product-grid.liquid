@@ -11,9 +11,9 @@
       {% assign current_page = paginate.current_page | modulo: 3 %}
       {% case current_page %}
         {% when 0 -%}
-          {%- assign banner_location = 7 %}
-        {% when 2 -%}
           {%- assign banner_location = 11 %}
+        {% when 2 -%}
+          {%- assign banner_location = 7 %}
         {% when 1 -%}
           {%- assign banner_location = 13 %}
       {% endcase %}

@@ -65,9 +65,12 @@
       display: flex;
       align-items: center;
       gap: 0.5em;
+      width: 100%;
+      flex: 0 1 auto;
     }
   }
 
+  #first-page,
   #infinite-trigger {
     display: flex;
     justify-content: flex-end;
