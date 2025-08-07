@@ -30,6 +30,17 @@
   {%- endcapture -%}
 {% endif %}
 
+{% capture product_details %}
+  {
+    "productId": {{ product.id | json }},
+    "productName": {{ product.title | remove: "Gym King" | strip | json }},
+    "productGender": {{ product.vendor | json }},
+    "productImg": {{ product.featured_image | image_url: width: 300 | json  }},
+    "productPrice": {{ product.price | json }}
+  }
+{% endcapture %}
+
+{% comment %} START:: Carousels {% endcomment %}
 <div class="pdp-carousels-wrapper">
   {% comment %} START:: thumbnail navigation carousel {% endcomment %}
   <thumbnail-carousel>
@@ -90,8 +101,10 @@
   </div>
   {% comment %} END:: main carousel {% endcomment %}
 </div>
+{% comment %} END:: Carousels {% endcomment %}
 
-<aside id="product-details" class="max-width">
+{% comment %} START:: Product Details {% endcomment %}
+<aside id="product-details" class="max-width" data-details="{{ product_details | escape }}">
   <div id="product-summary">
     {% render 'product-title' with product as 'product', heading: 'true' %}
     {% render 'product-price' with product as 'product' %}
@@ -254,7 +267,7 @@
 
   {% render 'pdp_colour-selection' %}
 </aside>
-
+{% comment %} END:: Product Details {% endcomment %}
 {% render 'pdp_description-tabs' %}
 
 {% render 'drawer-size-guide' with product as product %}
