@@ -35,6 +35,7 @@
     "productId": {{ product.id | json }},
     "productName": {{ product.title | remove: "Gym King" | strip | json }},
     "productGender": {{ product.vendor | json }},
+    "productUrl": {{ product.url | json }},
     "productImg": {{ product.featured_image | image_url: width: 300 | json  }},
     "productPrice": {{ product.price | json }}
   }
