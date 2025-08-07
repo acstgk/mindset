@@ -902,8 +902,10 @@ content-accordian {
 /* HERO CSS */
 
 
-.shopify-section--hero-carousel {
-    max-height: calc(100vh - 90px);
+.shopify-section--hero-carousel,
+.hero_slide-content {
+    max-height: calc(100vh - 130px);
+    min-height: 300px;
     overflow: hidden;
 }
 
@@ -915,7 +917,8 @@ hero-carousel {
     width: 100vw;
     display: grid;
     overflow: hidden;
-    max-height: calc(100vh - 90px) !important;
+    max-height: calc(100vh - 130px) !important;
+    min-height: 300px;
     grid-area: 1 / 1;
     position: relative;
 
@@ -1138,10 +1141,6 @@ ul.social-links {
     color: var(--c-grey);
 }
 
-body:has(.yotpo-widget-loyalty-floater-widget) .footer-copyright {
-    margin-bottom: 40px;
-}
-
 .payment-icons {
     margin: 40px 0 0;
 }
@@ -1149,7 +1148,7 @@ body:has(.yotpo-widget-loyalty-floater-widget) .footer-copyright {
 .footer-copyright {
     background-color: var(--c-off-white);
     margin: 20px -5vw 0;
-    padding: 20px;
+    padding: 20px 20px 50px;
     color:
         color-mix(in lab, var(--c-off-white), black 50%);
     text-align: center;

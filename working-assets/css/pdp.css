@@ -181,6 +181,7 @@ form#atc_form {
 }
 
 pdp-carousel {
+  aspect-ratio: 0.723;
   width: 100%;
   overflow-x: auto;
   display: flex;
