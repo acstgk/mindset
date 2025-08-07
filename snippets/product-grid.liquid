@@ -1,5 +1,5 @@
- {% assign position_count = 0 %}
- <infinite-scroll class="max-width">
+{% assign position_count = 0 %}
+<infinite-scroll class="max-width">
   {%- for product in product_list -%}
     {% assign lazyload = 'lazy' %}
     {% if forloop.index0 < 5 %}
@@ -24,7 +24,7 @@
         {% if gender == 'boys' or gender == 'girls' %}
           {% assign gender_key = 'kids' %}
         {% endif %}
-        {%  assign gender_letter = gender_key | slice: 0, 1 %}
+        {% assign gender_letter = gender_key | slice: 0, 1 %}
 
         {% assign tier = '3' %}
         {% if paginate.current_page >= 3 and current_page == 0 %}
@@ -44,7 +44,7 @@
 
         <article class="product-grid-insert">
           <a data-gender="{{ collection.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}">
-            {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 640px) 100vw, (max-width: 1140px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazyload' }}
+            {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1220px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: "lazy" }}
           </a>
         </article>
       {% endif %}
