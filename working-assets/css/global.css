@@ -1210,6 +1210,16 @@ ul.social-links {
 
 /* PRODUCT CARDS */
 
+/* .splide__slide {
+    & .product_card-info {
+        height: 0;
+    }
+
+    &.is-active .product_card-info {
+        height: auto;
+    }
+} */
+
 product-card {
     display: flex;
     flex-flow: column nowrap;
@@ -1279,7 +1289,10 @@ product-card {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        height: auto;
+        height: fit-content;
+        overflow-y: hidden;
+        transition: height 0.1s var(--overshoot-bezier);
     }
 
     & .countdown-wrapper {
@@ -1287,7 +1300,7 @@ product-card {
         color: var(--c-white);
         background-color: var(--c-black);
         padding: 0.6em 0 0.4em;
-        margin: 0.5em 0 -0.5em;
+        margin: 0.5em 0 0;
         line-height: 1;
         min-height: 27px;
     }
