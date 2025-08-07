@@ -5,6 +5,7 @@ import { Cart } from "./main.js";
 import { SplideUtil } from "./SplideUtil.js";
 import { CountdownManager } from "./CountdownManager.js";
 import Panzoom from "./panzoom.js";
+import RecentlyViewed from "./RecentlyViewed.js"
 
 // ===================
 // PDP Main Carousel
@@ -172,6 +173,14 @@ if (!customElements.get("pdp-carousel")) {
     },
   );
 }
+
+// ===================
+// Update the product localstorage object
+// ===================
+
+const recentlyViewed = new RecentlyViewed();
+recentlyViewed.updateProductList();
+
 
 // ===================
 // Add to Cart Form

@@ -1,5 +1,6 @@
 /* global MutationObserver IntersectionObserver, Shopify, theme, clearTimeout */
 import Splide from "./splide.min.js";
+import RecentlyViewed from "./RecentlyViewed.js";
 
 // ===================
 // Annoucement Carousel
@@ -916,3 +917,10 @@ function openCartDrawerIfNotOnCartPage() {
 }
 
 document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
+
+// ===================
+// Update the product localstorage object
+// ===================
+
+const recentlyViewed = new RecentlyViewed();
+recentlyViewed.checkProductListDates();
