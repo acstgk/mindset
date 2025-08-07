@@ -1,0 +1,36 @@
+<div class="rtf">
+  <h1 class="center">{{ collection.title }}</h1>
+  {{ collection.description }}
+</div>
+
+{% if collection.all_types.size > 1 %}
+  <product-types class="product_type-bar">
+    {%- for filter in collection.filters  -%}
+      {% if filter.label == 'Product Type' %}
+        {% assign sorted_values = filter.values | sort: 'count' | reverse %}
+        {% for option in sorted_values %}
+          {% if option.count > 0 %}
+            <a href="{{ collection.url }}?{{ option.param_name }}={{ option.label }}"
+              class="splide__slide"
+              {% if option.active %}
+                style="font-weight:700"
+              {% else %}
+                data-param-name="{{ option.param_name }}" data-param-label="{{ option.label }}"
+              {% endif %}
+            >
+              {{ option.label }}<i>({{ option.count }})</i>
+            </a>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  </product-types>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collection Header",
+  "class": "section--collection-header max-width",
+  "settings": []
+}
+{% endschema %}

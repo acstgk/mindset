@@ -109,6 +109,12 @@ li {
   }
 }
 
+p {
+  max-width: 65ch;
+  margin-inline: auto;
+}
+
+
 a {
   color: var(--c-grey);
   filter: brightness(1);
@@ -139,8 +145,9 @@ hr {
   letter-spacing: var(--letter-spacing);
 }
 
-.txt-center {
+.center {
   text-align: center;
+  margin: 0 auto;
 }
 
 .success,
@@ -225,7 +232,6 @@ hr {
 
 
 .rtf>* {
-  text-align: left !important;
 
   &:first-child {
     margin-top: 0;
@@ -239,6 +245,7 @@ hr {
 :not(.rtf)>p {
   margin: 0;
   padding: 0;
+  max-width: none;
 }
 
 :not(.rtf)>ul,

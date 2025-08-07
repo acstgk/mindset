@@ -426,7 +426,6 @@ thumbnail-carousel {
 .quantity-warning {
   width: 100%;
   text-align: center;
-  text-transform: uppercase;
   height: 0;
   overflow: hidden;
   transition: height 0.2s var(--overshoot-bezier), padding 0.2s var(--overshoot-bezier), margin 0.2s var(--overshoot-bezier);
