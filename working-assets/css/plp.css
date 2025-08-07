@@ -42,6 +42,37 @@
     }
   }
 
+  infinite-scroll {
+    height: 100%;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 0 0.2em;
+  }
+
+  .grid-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+
+  #infinite-trigger {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #back-to-top {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media screen and (width > 500px) {
+    infinite-scroll {
+      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    }
+
+  }
+
   @media screen and (width > 700px) {
     .section--collection-header {
       & .rtf {
@@ -53,5 +84,11 @@
           flex: 1 0 33%
         }
       }
+    }
+  }
+
+  @media screen and (width > 1020px) {
+    infinite-scroll {
+      grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
     }
   }

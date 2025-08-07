@@ -99,13 +99,18 @@ h5,
 p,
 a,
 button,
-li {
+li,
+span {
   font-size: var(--txt-p);
   font-family: var(--text-font-family);
   text-decoration: none;
 
   &:first-child {
     margin: 0;
+  }
+
+  & .Icon {
+    height: 1.1rem;
   }
 }
 
@@ -121,10 +126,6 @@ a {
   transition: color .2s ease, filter .2s ease;
   display: inline-flex;
   gap: 0.15em;
-
-  & .Icon {
-    height: 1.1em;
-  }
 
   &:hover {
     color: var(--c-dark-grey)

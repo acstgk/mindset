@@ -117,6 +117,10 @@ productcard-carousel {
     transform: rotate(45deg);
 }
 
+.rotate-90 {
+    transform: rotate(-90deg);
+}
+
 .rotate135 {
     transform: rotate(-135deg);
 }
