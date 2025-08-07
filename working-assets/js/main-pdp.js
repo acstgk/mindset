@@ -179,7 +179,7 @@ if (!customElements.get("pdp-carousel")) {
 // ===================
 
 const recentlyViewed = new RecentlyViewed();
-recentlyViewed.updateProductList();
+recentlyViewed.addProductToList();
 
 
 // ===================
