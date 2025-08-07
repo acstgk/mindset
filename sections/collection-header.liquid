@@ -10,11 +10,13 @@
         {% assign sorted_values = filter.values | sort: 'count' | reverse %}
         {% for option in sorted_values %}
           {% if option.count > 0 %}
-            <a href="{{ collection.url }}?{{ option.param_name }}={{ option.label }}"
+            <a
               class="splide__slide"
               {% if option.active %}
+                href="{{ collection.url }}"
                 style="font-weight:700"
               {% else %}
+                href="{{ collection.url }}?{{ option.param_name }}={{ option.label }}"
                 data-param-name="{{ option.param_name }}" data-param-label="{{ option.label }}"
               {% endif %}
             >

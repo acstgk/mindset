@@ -4,9 +4,9 @@
       "type": "collection-header",
       "settings": {}
     },
-    "collection-grid": {
-      "type": "collection-grid"
+    "collection-main": {
+      "type": "collection-main"
     }
   },
-  "order": ["collection-header","collection-grid"]
+  "order": ["collection-header","collection-main"]
 }

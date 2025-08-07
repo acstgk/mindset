@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "header": {
+      "type": "search-header",
+      "settings": {}
+    },
+    "search-main": {
+      "type": "search-main"
+    }
+  },
+  "order": ["header", "search-main"]
+}

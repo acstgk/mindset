@@ -513,7 +513,8 @@ predictive-search {
     }
 }
 
-#search_form {
+#search_form,
+#search_page-form {
     display: flex;
     justify-content: center;
     margin: 1.5em auto;
