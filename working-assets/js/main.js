@@ -718,6 +718,7 @@ new ComponentLoader("product-card", () => import("./ProductCard.js"));
 new ComponentLoader("productcard-carousel", () => import("./ProductCarousel.js"));
 new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
 new ComponentLoader("product-recommendations", () => import("./ProductRecommendations.js"));
+new ComponentLoader("personal-recommendations", () => import("./PersonalisedCarousel.js"));
 new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
 
 // ===================

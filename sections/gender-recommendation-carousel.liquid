@@ -2,23 +2,33 @@
 
 <div class="gender-wrapper">
   <div class="loader grid-loader gender-loader"></div>
-  <div id="womens-recommendations" class="womens-gender-filter fade-in">
+  <personal-recommendations id="womens-recommendations" class="womens-gender-filter fade-in">
     <h4 class="no-gender-filter">WOMENS</h4>
-    <productcard-carousel class="gender-recommendations-carousel product-grid">
-      {% for product in section.settings['fallback-1'].products limit: 12 %}
-        {% render 'product-card', product: product, class: 'splide__slide' %}
-      {% endfor %}
-    </productcard-carousel>
-  </div>
 
-  <div id="mens-recommendations" class="mens-gender-filter fade-in">
+    {% comment %} use JS to render the productcard-carousel here {% endcomment %}
+
+    <noscript>
+      <productcard-carousel class="gender-recommendations-carousel product-grid">
+        {% for product in section.settings['fallback-1'].products limit: 4 %}
+          {% render 'product-card', product: product, class: 'splide__slide' %}
+        {% endfor %}
+      </productcard-carousel>
+    </noscript>
+  </personal-recommendations>
+
+  <personal-recommendations id="mens-recommendations" class="mens-gender-filter fade-in">
     <h4 class="no-gender-filter">MENS</h4>
-    <productcard-carousel class="gender-recommendations-carousel product-grid">
-      {% for product in section.settings['fallback-2'].products limit: 12 %}
-        {% render 'product-card', product: product, class: 'splide__slide' %}
-      {% endfor %}
-    </productcard-carousel>
-  </div>
+
+    {% comment %} use JS to render the productcard-carousel here {% endcomment %}
+
+    <noscript>
+      <productcard-carousel class="gender-recommendations-carousel product-grid">
+        {% for product in section.settings['fallback-2'].products limit: 4 %}
+          {% render 'product-card', product: product, class: 'splide__slide' %}
+        {% endfor %}
+      </productcard-carousel>
+    </noscript>
+  </personal-recommendations>
 </div>
 <div class="gender-wrapper">
   <div class="recommendation-ctas womens-gender-filter fade-in max-width">

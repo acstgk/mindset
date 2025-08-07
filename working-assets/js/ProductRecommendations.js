@@ -9,6 +9,12 @@ export default class ProductRecommendations extends HTMLElement {
     this.productID = this.dataset.productId;
     this.productStyle = this.dataset.style;
     this._getRecommendations();
+
+    if (!customElements.get("product-carousel")) {
+      import("./ProductCarousel.js").then((module) => {
+        customElements.define("product-carousel", module.default);
+      });
+    }
   }
 
   _getRecommendations = () => {
@@ -29,7 +35,7 @@ export default class ProductRecommendations extends HTMLElement {
         if (html && html.length > 0) {
           // if there is some data then ->
 
-          const carousel = this.querySelector("productcard-carousel"); // find the carousel
+          const carousel = document.createElement("productcard-carousel"); // find the carousel
 
           this.innerHTML = "";
           this.appendChild(carousel);
