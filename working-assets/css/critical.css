@@ -185,7 +185,9 @@ hr {
   & .colour {
     color: var(--c-grey);
     font-size: var(--txt-sm);
-    flex: 0 0 auto;
+    flex: 0 1 auto;
+    text-wrap: pretty;
+    text-wrap: balanced;
   }
 }
 
@@ -231,6 +233,8 @@ hr {
 
 
 .rtf>* {
+
+  text-align: left !important;
 
   &:first-child {
     margin-top: 0;

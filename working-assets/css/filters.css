@@ -1,0 +1,15 @@
+filters-menu-bar {
+  display: block;
+  position: sticky;
+  top: 49px;
+  min-height: 40px;
+  width: 100%;
+  margin: 0 !important;
+  border-block: 1px solid var(--c-light-grey);
+  z-index: 2;
+
+  & a {
+    padding: 0.2em 0.6em;
+    border-right: 1px solid var(--c-grey)
+  }
+}

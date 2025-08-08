@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="{{ 'plp.min.css' | asset_url }}">
 {%- paginate collection.products by 22 -%}
+  {% render 'product-grid-filters' with collection.products as product_list %}
+
   {% if paginate.previous %}
     <div class="previousNav grid-nav max-width accent-bg">
       <a href="{{ paginate.previous.url }}">{% render 'icon', icon: 'arrow', class: 'rotate180' %} Go to Previous Page</a>
@@ -9,15 +11,14 @@
     </div>
   {% endif %}
 
-  {% render 'product-grid-filters' with collection.products as product_list %}
-  {% render 'product-grid' with collection.products as product_list %}
+  {% render 'product-grid' with collection.products as product_list, page: paginate.current_page, nexturl: paginate.next.url %}
 
   {% if paginate.next.is_link %}
-    <div class="grid-nav accent-bg max-width">
+    <div class="grid-nav accent-bg max-width"  id="pagination-next">
       <a id="infinite-trigger" href="{{ paginate.next.url }}">Go to Next Page {% render 'icon', icon: 'arrow' %}</a>
     </div>
   {% else %}
-    <div class="grid-nav accent-bg max-width">
+    <div class="grid-nav accent-bg max-width" id="pagination-next" id="pagination-next">
       <a id="back-to-top" href="#">Back to Top{% render 'icon', icon: 'arrow', class: 'rotate-90' %}</a>
     </div>
   {% endif %}

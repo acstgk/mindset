@@ -15,8 +15,8 @@
     gap: 1em;
     justify-content: center;
     align-items: center;
-    border-block: 1px solid var(--c-light-grey);
-    padding: 1em 3em;
+    border-top: 1px solid var(--c-light-grey);
+    padding: 1em 1.5em;
     height: 3.5em;
 
     &.splide.no-carousel:not(.is-active) {
@@ -33,7 +33,7 @@
       position: absolute;
       top: 50%;
       translate: 0 -50%;
-      left: 0;
+      left: -1.5em;
       display: grid;
 
       & svg {
@@ -44,7 +44,7 @@
 
     & .splide__arrow--next {
       left: auto;
-      right: 0;
+      right: -1.5em;
     }
   }
 
@@ -108,6 +108,8 @@
 
   @media screen and (width > 700px) {
     .section--collection-header {
+      padding-top: 0;
+
       & .rtf {
         display: flex;
         align-items: center;

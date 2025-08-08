@@ -381,6 +381,11 @@ pdp-carousel {
   border: 1px solid white;
   position: relative;
 
+  & > img {
+    margin-bottom: -0.5em;
+    height: 100%;
+  }
+
   &.active {
     border-color: var(--c-black);
     cursor: default;

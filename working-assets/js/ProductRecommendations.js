@@ -27,16 +27,20 @@ export default class ProductRecommendations extends HTMLElement {
     loader.classList.add("loader");
     this.appendChild(loader);
 
-    fetch(window.Shopify.routes.root + `recommendations/products?sections=product-dynamic-cards&product_id=${this.productID}&limit=12&intent=related`)
-      .then((response) => response.json())
-      .then((data) => {
+    (async () => {
+      try {
+        const response = await fetch(
+          `${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${this.productID}&limit=12&intent=related`
+        );
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
         const html = data["product-dynamic-cards"];
 
         if (html && html.length > 0) {
           // if there is some data then ->
-
           const carousel = document.createElement("productcard-carousel"); // find the carousel
-
           this.innerHTML = "";
           this.appendChild(carousel);
 
@@ -62,6 +66,9 @@ export default class ProductRecommendations extends HTMLElement {
             observer.observe(this, { childList: true, subtree: true });
           }
         }
-      });
+      } catch (error) {
+        console.error("Failed to fetch product recommendations:", error);
+      }
+    })();
   };
 }

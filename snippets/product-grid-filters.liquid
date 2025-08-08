@@ -1,1 +1,5 @@
-{% comment %} product filtering goes here {% endcomment %}
+<link rel="stylesheet" href="{{ 'filters.min.css' | asset_url }}">
+
+<filters-menu-bar class="inline-flex accent-bg">
+  <a class="inline-flex">{%render 'icon', icon: 'filters' %} Filters</a>
+</filters-menu-bar>

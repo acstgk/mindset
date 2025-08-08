@@ -1,4 +1,4 @@
-/* global MutationObserver IntersectionObserver, Shopify, theme, clearTimeout */
+/* global MutationObserver IntersectionObserver, Shopify, theme, clearTimeout sessionStorage location URL */
 import Splide from "./splide.min.js";
 import RecentlyViewed from "./RecentlyViewed.js";
 
@@ -566,11 +566,11 @@ if (!customElements.get("predictive-search")) {
             }
             const resultsMarkup = new DOMParser().parseFromString(text, "text/html").querySelector("#shopify-section-predictive-search-results").innerHTML;
             // if there are countdowns in the returned HTML ensure the countdown module/s have been imported
-            if (resultsMarkup.includes('countdown-timer') && !customElements.get("product-card")) {
-                 import("./CountdownTimer.js").then((module) => {
-                   customElements.define("countdown-timer", module.default);
-                 });
-               }
+            if (resultsMarkup.includes("countdown-timer") && !customElements.get("product-card")) {
+              import("./CountdownTimer.js").then((module) => {
+                customElements.define("countdown-timer", module.default);
+              });
+            }
             const resultEL = document.createElement("div");
             resultEL.classList.add("predictive-search--results");
             resultEL.innerHTML = resultsMarkup;
@@ -593,11 +593,11 @@ if (!customElements.get("predictive-search")) {
           this.pageOverlay.closeThis();
           setTimeout(() => {
             this.pageHeader.style.zIndex = 5;
-            this.style.visibility = "hidden"
+            this.style.visibility = "hidden";
           }, 150);
         } else {
           this.pageOverlay.openThis();
-          this.style.visibility = "visible"
+          this.style.visibility = "visible";
           this.pageHeader.style.zIndex = 11;
           this.inputField.focus();
         }
@@ -916,6 +916,24 @@ function openCartDrawerIfNotOnCartPage() {
     });
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const rawData = sessionStorage.getItem("GK::clickedProductId");
+  if (!rawData) return;
+
+  try {
+    const clickedProductData = JSON.parse(rawData);
+    const currentPath = location.pathname;
+    const previousPath = document.referrer ? new URL(document.referrer).pathname : "";
+
+    if (clickedProductData.path !== currentPath && clickedProductData.path !== previousPath) {
+      sessionStorage.removeItem("GK::clickedProductId");
+    }
+  } catch (e) {
+    console.error("Failed to parse GK::clickedProductId:", e);
+    sessionStorage.removeItem("GK::clickedProductId"); // cleanup bad data
+  }
+});
 
 document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
 

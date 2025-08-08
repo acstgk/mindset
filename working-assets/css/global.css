@@ -30,6 +30,12 @@
     margin: 0 auto;
 }
 
+.inline-flex {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
 .splide__decal {
     display: none;
     position: absolute;
@@ -1225,11 +1231,16 @@ ul.social-links {
     }
 } */
 
+article:has(product-card) {
+    scroll-margin-top: 105px;
+}
+
 product-card {
     display: flex;
     flex-flow: column nowrap;
     max-height: 100vh;
     width: 100%;
+    max-width: 400px;
     margin: 0 auto;
     position: relative;
     margin-bottom: 20px;

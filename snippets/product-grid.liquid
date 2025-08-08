@@ -1,5 +1,5 @@
 {% assign position_count = 0 %}
-<infinite-scroll class="max-width">
+<infinite-scroll class="max-width" data-next-page="{{ nexturl }}">
   {%- for product in product_list -%}
     {% assign lazyload = 'lazy' %}
     {% if forloop.index0 < 5 %}
@@ -11,9 +11,9 @@
       {% assign current_page = paginate.current_page | modulo: 3 %}
       {% case current_page %}
         {% when 0 -%}
-          {%- assign banner_location = 11 %}
-        {% when 2 -%}
           {%- assign banner_location = 7 %}
+        {% when 2 -%}
+          {%- assign banner_location = 11 %}
         {% when 1 -%}
           {%- assign banner_location = 13 %}
       {% endcase %}
@@ -27,11 +27,11 @@
         {% assign gender_letter = gender_key | slice: 0, 1 %}
 
         {% assign tier = '3' %}
-        {% if paginate.current_page >= 3 and current_page == 0 %}
+        {% if paginate.current_page >= 3 and current_page == 0 and forloop.last == false%}
           {% assign tier = '3' %}
-        {% elsif paginate.current_page >= 2 and current_page == 2 %}
+        {% elsif paginate.current_page >= 2 and current_page == 2 and forloop.last == false%}
           {% assign tier = '2' %}
-        {% else %}
+        {% elsif forloop.last == false %}
           {% assign tier = '' %}
         {% endif %}
 
@@ -51,6 +51,6 @@
     {% endif %}
 
     {% comment %} ---- Product Cards ---- {% endcomment %}
-    {%- render 'product-card', product: product, loading: lazyload -%}
+    <article data-page="{{ page }}" id="product-id-{{- product.id -}}">{%- render 'product-card', product: product, loading: lazyload -%}</article>
   {%- endfor -%}
 </infinite-scroll>
