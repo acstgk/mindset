@@ -3,174 +3,173 @@
 <filters-menu-bar class="inline-flex accent-bg">
   {% comment %} Wrapper {% endcomment %}
   <div class="max-width">
-    {% comment %} Sort By Options {% endcomment %}
-    <div class="sortby-container">
-      <label>Sort by:</label>
-      <select name="sort_by" id="SortBy">
-        {%- for option in group.sort_options -%}
-          <option
-            value="{{ option.value | escape }}"
-            {% if option.value == group.sort_by %}
-              selected="selected"
-            {% endif %}
-          >
-            {{ option.name | escape }}
-          </option>
-        {%- endfor -%}
-      </select>
-    </div>
+    {% comment %} Mobile Filters Button {% endcomment %}
+    <a class="inline-flex mobile-filter-button drawer-button" data-target="productFilters" aria-label="Open mobile filters">{% render 'icon', icon: 'filters' %} Filters</a>
 
-    {% comment %} Mobile Filters {% endcomment %}
-    <div class="filterby-container">
-      {% comment %} Mobile Filters Button {% endcomment %}
-      <a class="inline-flex mobile-filter-button">{% render 'icon', icon: 'filters' %} Filters</a>
-
+    <slide-drawer aria-hidden="true" id="productFilters" data-side="right">
       <form id="filter-form">
-        <span> Filter by:</span>
-        {% assign active_count = 0 %}
-        {%- for filter in group.filters -%}
-          {% unless request.path contains '/mens' and filter.label == 'Gender' or request.path contains '/womens' and filter.label == 'Gender' %}
-            <div class="filter_item filter_item-{{- filter.label | handleize -}}" >
-              <div class="filter_item-name item-{{- filter.label | handleize -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
-                {{ filter.label }}
-                {%- if filter.active_values.size > 0 -%}
-                  {% assign active_count = active_count | plus: 1 %}
-                  <i>({{ filter.active_values.size }})</i>
-                {%- endif -%}
-              </div>
+        {% comment %} Mobile Filters {% endcomment %}
+        <div class="filterby-container">
+          <span> Filter by:</span>
+          {% assign active_count = 0 %}
 
-              {%- case filter.type -%}
-                {%- when 'list' -%}
-                  <div id="filter-{{ filter.label | handleize }}" class="filter_item-values">
-                    <p>{{ filter.label }}</p>
-                    <ul>
-                      {% comment %} sort the product types by quantity {% endcomment %}
-                      {% assign sorted_values = filter.values %}
-                      {% if filter.label == 'Product Type' %}
-                        {% assign sorted_values = filter.values | sort: 'count' | reverse %}
-                      {% endif %}
-
-                      {%- for filter_value in sorted_values -%}
-                        <li class="filter_value-checkbox">
-                          <input
-                            type="checkbox"
-                            name="{{ filter_value.param_name }}"
-                            value="{{ filter_value.value }}"
-                            id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
-                            {% if filter_value.active -%}
-                              checked
-                            {%- endif %}
-                            {% if filter_value.count == 0 and filter_value.active == false -%}
-                              disabled
-                            {%- endif %}
-                          >
-                          <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}" class="filter_value-label {% if filter_value.count == 0 and filter_value.active == false -%}disabled-label{% endif %}">
-                            {%- case filter.presentation -%}
-                              {%- when 'swatch' -%}
-                                <div class="swatch" style="background: {{ filter_value.swatch.color }};border-color:{{ filter_value.swatch.color | color_darken: 15 }}"></div>
-                              {%- when 'image' -%}
-                                {{ filter_value.swatch.image | image_url: width: 15 | image_tag: alt: filter_value.swatch.image.alt, class: 'swatch' }}
-                            {%- endcase -%}
-                            {{ filter_value.label }} ({{ filter_value.count }})
-                          </label>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
+          <content-accordian>
+            {%- for filter in group.filters -%}
+              {% unless request.path contains '/mens' and filter.label == 'Gender' or request.path contains '/womens' and filter.label == 'Gender' %}
+                <div class="accordian-items filter_item filter_item-{{- filter.label | handleize -}} ">
+                  <div class="accordian-header filter_item-name item-{{- filter.label | handleize -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
+                    {{ filter.label }}
+                    {%- if filter.active_values.size > 0 -%}
+                      {% assign active_count = active_count | plus: 1 %}
+                      <i>({{ filter.active_values.size }})</i>
+                    {%- endif -%}
                   </div>
-                {%- when 'price_range' -%}
-                  <div id="filter-{{ filter.label | handleize }}" class="filter_item-values  filter_item-price-range">
-                    {% liquid
-                      if filter.min_value.value
-                        assign min_value = filter.min_value.value | money_without_currency | floor
-                        assign active_count = active_count | plus: 1
-                      else
-                        assign min_value = ''
-                      endif
-
-                      if filter.max_value.value
-                        assign max_value = filter.max_value.value | money_without_currency | floor
-                        assign active_count = active_count | plus: 1
-                      else
-                        assign max_value = ''
-                      endif
-                    %}
-                    <p>{{ filter.label }}</p>
-                    <div class="price_range-sliders">
-                      <!-- from slider -->
-                      <input id="fromSlider" type="range" min="0" step="1" max="{{ filter.range_max | money_without_currency | floor }}" value="{% if min_value != '' %}{{ min_value }}{% else %}0{% endif %}">
-
-                      <!-- to slider -->
-                      <input
-                        id="toSlider"
-                        type="range"
-                        min="0"
-                        step="1"
-                        max="{{ filter.range_max | money_without_currency | floor }}"
-                        value="{% if max_value != '' %}{{ max_value }}{% else %}{{ filter.range_max | money_without_currency | floor }}{% endif %}"
-                      >
-                    </div>
-                    <div class="price-divisions">
-                      <div class="price-low">{{ cart.currency.symbol }}0</div>
-                      <div class="price-mid">
-                        {{ cart.currency.symbol -}}
-                        {{- filter.range_max | divided_by: 2 | money_without_currency }}
+                  {%- case filter.type -%}
+                    {%- when 'list' -%}
+                      <div id="filter-{{ filter.label | handleize }}" class="filter_item-values accordian-content">
+                        <p class="mob-hide">{{ filter.label }}</p>
+                        <ul>
+                          {% comment %} sort the product types by quantity {% endcomment %}
+                          {% assign sorted_values = filter.values %}
+                          {% if filter.label == 'Product Type' %}
+                            {% assign sorted_values = filter.values | sort: 'count' | reverse %}
+                          {% endif %}
+                          {%- for filter_value in sorted_values -%}
+                            <li class="filter_value-checkbox">
+                              <input
+                                type="checkbox"
+                                name="{{ filter_value.param_name }}"
+                                value="{{ filter_value.value }}"
+                                id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                                {% if filter_value.active -%}
+                                  checked
+                                {%- endif %}
+                                {% if filter_value.count == 0 and filter_value.active == false -%}
+                                  disabled
+                                {%- endif %}
+                              >
+                              <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}" class="filter_value-label {% if filter_value.count == 0 and filter_value.active == false -%}disabled-label{% endif %}">
+                                {%- case filter.presentation -%}
+                                  {%- when 'swatch' -%}
+                                    <div class="swatch" style="background: {{ filter_value.swatch.color }};border-color:{{ filter_value.swatch.color | color_darken: 15 }}"></div>
+                                  {%- when 'image' -%}
+                                    {{ filter_value.swatch.image | image_url: width: 15 | image_tag: alt: filter_value.swatch.image.alt, class: 'swatch' }}
+                                {%- endcase -%}
+                                {{ filter_value.label }} ({{ filter_value.count }})
+                              </label>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                          <input type="submit" value="Apply" class="filter-apply button button-secondary">
                       </div>
-                      <div class="price-high">
-                        {{ cart.currency.symbol -}}
-                        {{- filter.range_max | money_without_currency | floor }}
-                      </div>
-                    </div>
-
-                    <div class="price-selector">
-                      <!-- from input -->
-                      <div class="filter-group-display__price-range-from">
-                        <label for="Filter-{{ filter.min_value.param_name }}">From</label>
-                        <div class="price-input">
-                          <span class="price-input-currency">{{ cart.currency.symbol }}</span>
+                    {%- when 'price_range' -%}
+                      <div id="filter-{{ filter.label | handleize }}" class="filter_item-values accordian-content filter_item-price-range">
+                        {% liquid
+                          if filter.min_value.value
+                            assign min_value = filter.min_value.value | money_without_currency | floor
+                            assign active_count = active_count | plus: 1
+                          else
+                            assign min_value = ''
+                          endif
+                          if filter.max_value.value
+                            assign max_value = filter.max_value.value | money_without_currency | floor
+                            assign active_count = active_count | plus: 1
+                          else
+                            assign max_value = ''
+                          endif
+                        %}
+                        <p class="mob-hide">{{ filter.label }}</p>
+                        <div class="price_range-sliders">
+                          <!-- from slider -->
+                          <input id="fromSlider" type="range" min="0" step="1" max="{{ filter.range_max | money_without_currency | floor }}" value="{% if min_value != '' %}{{ min_value }}{% else %}0{% endif %}">
+                          <!-- to slider -->
                           <input
-                            name="{{ filter.min_value.param_name }}"
-                            id="Filter-{{ filter.min_value.param_name }}"
-                            class="fromInput"
-                            value="{{ min_value }}"
-                            type="number"
-                            placeholder="0"
+                            id="toSlider"
+                            type="range"
                             min="0"
                             step="1"
                             max="{{ filter.range_max | money_without_currency | floor }}"
+                            value="{% if max_value != '' %}{{ max_value }}{% else %}{{ filter.range_max | money_without_currency | floor }}{% endif %}"
                           >
                         </div>
-                      </div>
-
-                      <!-- to input -->
-                      <div class="filter-group-display__price-range-to">
-                        <label for="Filter-{{ filter.max_value.param_name }}">To</label>
-                        <div class="price-input">
-                          <span class="price-input-currency">{{ cart.currency.symbol }}</span>
-                          <input
-                            name="{{ filter.max_value.param_name }}"
-                            id="Filter-{{ filter.max_value.param_name }}"
-                            class="toInput"
-                            value="{{ max_value }}"
-                            type="number"
-                            placeholder="{{ filter.range_max | money_without_currency | floor }}"
-                            min="0"
-                            step="1"
-                            max="{{ filter.range_max | money_without_currency | floor }}"
-                          >
+                        <div class="price-divisions">
+                          <div class="price-low">{{ cart.currency.symbol }}0</div>
+                          <div class="price-mid">
+                            {{ cart.currency.symbol -}}
+                            {{- filter.range_max | divided_by: 2 | money_without_currency }}
+                          </div>
+                          <div class="price-high">
+                            {{ cart.currency.symbol -}}
+                            {{- filter.range_max | money_without_currency | floor }}
+                          </div>
                         </div>
+                        <div class="price-selector">
+                          <!-- from input -->
+                          <div class="filter-group-display__price-range-from">
+                            <label for="Filter-{{ filter.min_value.param_name }}">From</label>
+                            <div class="price-input">
+                              <span class="price-input-currency">{{ cart.currency.symbol }}</span>
+                              <input
+                                name="{{ filter.min_value.param_name }}"
+                                id="Filter-{{ filter.min_value.param_name }}"
+                                class="fromInput button button-secondary"
+                                value="{{ min_value }}"
+                                type="number"
+                                placeholder="0"
+                                min="0"
+                                step="1"
+                                max="{{ filter.range_max | money_without_currency | floor }}"
+                              >
+                            </div>
+                          </div>
+                          <!-- to input -->
+                          <div class="filter-group-display__price-range-to">
+                            <label for="Filter-{{ filter.max_value.param_name }}">To</label>
+                            <div class="price-input">
+                              <span class="price-input-currency">{{ cart.currency.symbol }}</span>
+                              <input
+                                name="{{ filter.max_value.param_name }}"
+                                id="Filter-{{ filter.max_value.param_name }}"
+                                class="toInput button button-secondary"
+                                value="{{ max_value }}"
+                                type="number"
+                                placeholder="{{ filter.range_max | money_without_currency | floor }}"
+                                min="0"
+                                step="1"
+                                max="{{ filter.range_max | money_without_currency | floor }}"
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        {% if template.name == 'search' %}
+                          <input hidden value="{{ search.terms }}" name="q">
+                        {% endif %}
+                        <input hidden value="1" name="page">
+                        <input type="submit" value="Apply" class="filter-apply button button-secondary">
                       </div>
-                    </div>
-                    {% if template.name == 'search' %}
-                      <input hidden value="{{ search.terms }}" name="q">
-                    {% endif %}
-                    <input hidden value="1" name="page">
-                    <input type="submit" value="Apply" class="filter-apply">
-                  </div>
-              {%- endcase -%}
-            </div>
-          {% endunless %}
-        {% endfor %}
+                  {%- endcase -%}
+                </div>
+              {% endunless %}
+            {% endfor %}
+          </content-accordian>
+        </div>
+        {% comment %} Sort By Options {% endcomment %}
+        <div class="sortby-container">
+          <label>Sort by:</label>
+          <select name="sort_by" id="SortBy">
+            {%- for option in group.sort_options -%}
+              <option
+                value="{{ option.value | escape }}"
+                {% if option.value == group.sort_by %}
+                  selected="selected"
+                {% endif %}
+              >
+                {{ option.name | escape }}
+              </option>
+            {%- endfor -%}
+          </select>
+        </div>
       </form>
-    </div>
+    </slide-drawer>
   </div>
 </filters-menu-bar>

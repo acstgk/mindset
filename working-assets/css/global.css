@@ -36,6 +36,15 @@
     gap: 0.5em;
 }
 
+input[type="checkbox"] {
+    accent-color: var(--c-black);
+}
+
+select {
+    border-radius: 0;
+    padding: 0.5em 0.8em;
+}
+
 .splide__decal {
     display: none;
     position: absolute;

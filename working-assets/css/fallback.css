@@ -32,3 +32,8 @@
 #completethelook--mobile .product-options {
     display: none;
 }
+
+.filter-apply {
+    display: block;
+    margin: 0 auto;
+}

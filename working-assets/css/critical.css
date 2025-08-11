@@ -270,7 +270,7 @@ slide-drawer {
   height: 100%;
   background: var(--c-white);
   top: 0;
-  z-index: 11;
+  z-index: 12;
   width: min(375px, 95%);
   box-shadow: var(--drop-shadow);
   translate: -100% 0;
