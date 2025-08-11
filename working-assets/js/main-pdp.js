@@ -1,11 +1,10 @@
-/* global IntersectionObserver */
+/* global IntersectionObserver Cart*/
 
 import Splide from "./splide.min.js";
-import { Cart } from "./main.js";
 import { SplideUtil } from "./SplideUtil.js";
 import { CountdownManager } from "./CountdownManager.js";
 import Panzoom from "./panzoom.js";
-import RecentlyViewed from "./RecentlyViewed.js"
+import RecentlyViewed from "./RecentlyViewed.js";
 
 // ===================
 // PDP Main Carousel
@@ -181,7 +180,6 @@ if (!customElements.get("pdp-carousel")) {
 const recentlyViewed = new RecentlyViewed();
 recentlyViewed.addProductToList();
 
-
 // ===================
 // Add to Cart Form
 // ===================
@@ -208,7 +206,6 @@ if (!customElements.get("enhanced-atc")) {
         this._handleStickyButton();
         this._setObserver();
         this._watchSizeSelection();
-
       }
 
       // overrides the default submit event and calls the correct function based on size selection
@@ -225,29 +222,28 @@ if (!customElements.get("enhanced-atc")) {
 
       // watch the size selection block/s and update the submission function if all blocks/products have a size selected.
       _watchSizeSelection = () => {
-          const selectedSizes = Array.from(this.allGroups).map((group) => {
-            const checked = group.querySelector('input[type="radio"]:checked');
-            return checked ? checked.dataset.size || checked.getAttribute("data-size") || checked.value : null;
-          })
+        const selectedSizes = Array.from(this.allGroups).map((group) => {
+          const checked = group.querySelector('input[type="radio"]:checked');
+          return checked ? checked.dataset.size || checked.getAttribute("data-size") || checked.value : null;
+        });
 
-          const allSelected = selectedSizes.every(Boolean);
-          const selectedSizesStr = selectedSizes.filter(Boolean).join(", ");
+        const allSelected = selectedSizes.every(Boolean);
+        const selectedSizesStr = selectedSizes.filter(Boolean).join(", ");
 
         if (allSelected) {
           const sizeCopy = this.totalRadio > 1 ? `<span>| size: ${selectedSizesStr}</span>` : "";
-            this.atcButton.innerHTML = `<b>Add to Bag</b> ${sizeCopy}`;
-            this._currentSubmitHandler = this._addToCart;
+          this.atcButton.innerHTML = `<b>Add to Bag</b> ${sizeCopy}`;
+          this._currentSubmitHandler = this._addToCart;
+        }
+
+        if (this.allGroups.length == 1) {
+          const availableQty = this.querySelector('input[type="radio"]:checked')?.dataset.availableQty;
+          if (availableQty < 20 && availableQty > 0) {
+            availableQty == 1 ? (this.quantityWarningEl.textContent = `Hurry! this is the last one.`) : (this.quantityWarningEl.textContent = `Popular - only ${availableQty} left!`);
+            this.quantityWarningEl.classList.add("warning-active");
+          } else {
+            this.quantityWarningEl.classList.remove("warning-active");
           }
-
-          if (this.allGroups.length == 1) {
-            const availableQty = this.querySelector('input[type="radio"]:checked')?.dataset.availableQty;
-            if (availableQty < 20 && availableQty > 0) {
-              availableQty == 1 ? (this.quantityWarningEl.textContent = `Hurry! this is the last one.`) : (this.quantityWarningEl.textContent = `Popular - only ${availableQty} left!`);
-              this.quantityWarningEl.classList.add("warning-active");
-            } else {
-              this.quantityWarningEl.classList.remove("warning-active");
-            }
-
         }
       };
 
@@ -350,7 +346,7 @@ if (!customElements.get("dispatch-timer")) {
       constructor() {
         super();
         this.timer = null;
-        this.diffHours = 0;
+        this.hoursDiff = 0;
         this.cutoffHours = 19; // 7 PM
         this.cutoffFriHours = 13; // 1 PM
         this.cutoffMins = 30;
@@ -410,7 +406,9 @@ if (!customElements.get("dispatch-timer")) {
         }
 
         const diff = dispatchTime - now;
+
         this.hoursDiff = Math.floor(diff / (1000 * 60 * 60));
+
         return dispatchTime;
       }
 
@@ -490,7 +488,7 @@ if (!customElements.get("dispatch-timer")) {
       timerInit() {
         const nextDispatch = this.getNextDispatchTime();
 
-        if (this.hoursDiff < 16 && this.hoursDiff > 1) {
+        if (this.hoursDiff < 16 && this.hoursDiff > 0) {
           // Create a separate instance for dispatch timers
           const dispatchTimer = CountdownManager.getInstance("dispatch");
           dispatchTimer.configure(nextDispatch, "within");
