@@ -471,19 +471,21 @@ class CartAPI {
 
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, "text/html");
-      const newDrawer = doc.querySelector("#cartDrawer");
-      const existingDrawer = document.querySelector("#cartDrawer");
+      const newSideCart = doc.querySelector("#side-cart");
+      const existingSideCart = document.querySelector("#side-cart");
 
-      if (newDrawer && existingDrawer) {
-        const firstListItem = newDrawer.querySelector("li");
+      if (newSideCart && existingSideCart) {
+        // Ensure first list item animates in
+        const firstListItem = newSideCart.querySelector("li");
         if (firstListItem) {
           firstListItem.classList.add("fade-in", "no-height");
         }
 
-        const closeBtn = existingDrawer.querySelector(".drawer-close");
-        existingDrawer.innerHTML = newDrawer.innerHTML;
-        if (closeBtn) existingDrawer.appendChild(closeBtn);
-        const emptyContent = existingDrawer.querySelector("div.cart_items-list");
+        // Replace only the side-cart contents
+        existingSideCart.innerHTML = newSideCart.innerHTML;
+
+        // Activate empty state/content if present within side-cart
+        const emptyContent = existingSideCart.querySelector("div.cart_items-list");
         if (emptyContent) {
           emptyContent.classList.add("active");
         }
@@ -737,7 +739,9 @@ if (!customElements.get("line-item")) {
       _bindQuantityControls() {
         let lastQty = 0;
         const selector = this.querySelector(".quantity-selector");
+        if (!selector) return;
         const input = selector.querySelector(".qty-input");
+
         const lineItemKey = this.lineItemKey;
 
         // Handle +/- buttons
@@ -943,3 +947,16 @@ document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
 
 const recentlyViewed = new RecentlyViewed();
 recentlyViewed.checkProductListDates();
+
+// ===================
+// Render the Recently Viewed element and import JS data
+// ===================
+
+if (recentlyViewed.hasRecentlyViewed() && !document.querySelector("recently-viewed")) {
+  document.getElementById("side_menu-recents").style.display = "block";
+  const recentlyViewedEl = document.createElement("recently-viewed");
+  let sideCart = document.getElementById("cartDrawer");
+
+  sideCart.insertBefore(recentlyViewedEl, sideCart.querySelector(".drawer-close"));
+  import("./RecentlyViewedElement.js");
+}

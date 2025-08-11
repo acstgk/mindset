@@ -22,10 +22,7 @@ export default class RecentlyViewed {
 
       for (let i = 0; i < matchingCategory.length; i++) {
         const item = matchingCategory[i];
-        if (
-          item.productId === details.productId ||
-          item.productName.split(/[-–—]/)[0].trim() === baseName
-        ) {
+        if (item.productId === details.productId || item.productName.split(/[-–—]/)[0].trim() === baseName) {
           indexToRemove = i;
           break;
         }
@@ -69,5 +66,10 @@ export default class RecentlyViewed {
 
   getProductList = () => {
     return JSON.parse(localStorage.getItem(this.listKey));
+  };
+
+  hasRecentlyViewed = () => {
+    const list = this.getProductList();
+    return list && Object.values(list).some((arr) => Array.isArray(arr) && arr.length > 0);
   };
 }

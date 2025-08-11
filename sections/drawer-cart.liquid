@@ -1,19 +1,20 @@
 <slide-drawer aria-hidden="true" id="cartDrawer" data-side="right">
   <div class="side_menu-header">
-    <a href="{{ routes.cart_url }}" class="side_menu-header-item active" id='side_menu-cart'>Your Bag</a>
-    <span class="side_menu-header-item" id='side_menu-recents'> Recently Viewed</span>
+    <a href="{{ routes.cart_url }}" class="side_menu-header-item active" id="side_menu-cart">Your Bag</a>
+    <a class="side_menu-header-item" id="side_menu-recents"> Recently Viewed</a>
   </div>
 
-  {% render 'cart-items' %}
-
-  {% if cart.item_count > 0 %}
-    <div class="side_menu-footer cart-footer">
-      {% render 'free-delivery-information' %}
-    <a href="/checkout" class="checkout-button button button-primary"
-      >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
-    </a>
+  <div id="side-cart" class="active">
+    {% render 'cart-items' %}
+    {% if cart.item_count > 0 %}
+      <div class="side_menu-footer cart-footer">
+        {% render 'free-delivery-information' %}
+        <a href="/checkout" class="checkout-button button button-primary"
+          >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
+        </a>
+      </div>
+    {% endif %}
   </div>
-{% endif %}
 </slide-drawer>
 
 {% schema %}
