@@ -1,5 +1,6 @@
 {% assign position_count = 0 %}
-<infinite-scroll class="max-width" data-next-page="{{ nexturl }}">
+<infinite-scroll class="max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}">
+  <div style="display:none" id="page-flag" data-page="{{ paginate.current_page }}"></div>
   {%- for product in product_list -%}
     {% assign lazyload = 'lazy' %}
     {% if forloop.index0 < 5 %}

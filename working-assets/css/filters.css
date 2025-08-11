@@ -12,4 +12,169 @@ filters-menu-bar {
     padding: 0.2em 0.6em;
     border-right: 1px solid var(--c-grey)
   }
+
+  & .max-width {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+  }
+}
+
+.price_range-sliders {
+  position: relative;
+  min-height: 25px;
+  width: 96%;
+  margin: 0 auto;
+}
+
+#toSlider,
+#fromSlider {
+  position: absolute;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 2px;
+  background-color: #C6C6C6;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:focus {
+    outline-color: transparent;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    pointer-events: all;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    rotate: 45deg;
+    box-shadow: 0 0 0 1px #333;
+    cursor: pointer;
+    scale: 1;
+    transform: scale 0.2s var(--overshoot-bezier);
+    z-index: 2;
+  }
+
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    pointer-events: all;
+    width: 12px;
+    height: 12px;
+    background-color: #333;
+    border: none;
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 1px #333;
+    cursor: pointer;
+  }
+
+  &::-webkit-slider-thumb:hover {
+    background: var(--c-off-white);
+  }
+
+  &::-webkit-slider-thumb:active {
+    scale: 0.9
+  }
+}
+
+#fromSlider {
+  height: 0;
+  z-index: 1;
+}
+
+.price-divisions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.price-divisions .price-mid:before {
+  content: "";
+  width: 1px;
+  display: block;
+  height: 10px;
+  position: absolute;
+  background-color: black;
+  top: -15px;
+  left: calc(50%);
+}
+
+
+.price-mid {
+  text-align: center;
+}
+
+.price-high {
+  text-align: right;
+}
+
+.price-selector {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1em;
+
+}
+
+
+/* HIDE AVAILABILITY UNLESS SIZE? */
+/* #filter-form {
+  .filter_item-availability {
+    display: none;
+  }
+
+  & .filter_item:has(.item-size:not([data-active-count="0"])) {
+    color: red;
+
+    & ~ .filter_item-availability {
+      display: block;
+    }
+  }
+} */
+
+
+@media screen and (width > 700px) {
+  #filter-form {
+    display: flex;
+    gap: 1em;
+  }
+
+  .mobile-filter-button {
+    display: none;
+  }
+
+  .filter_item {
+    position: relative;
+
+    & .filter_item-values {
+      position: absolute;
+      top: 100%;
+      right: -2em;
+      padding: 1em;
+      min-width: 200px;
+      background: var(--c-white);
+      display: none;
+      border: 1px solid var(--c-grey);
+
+      & ul {
+        flex-direction: column;
+      }
+
+      & li {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5em;
+      }
+    }
+
+    &:hover {
+      & .filter_item-values {
+        display: block;
+      }
+    }
+  }
 }

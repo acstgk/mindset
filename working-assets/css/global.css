@@ -612,7 +612,6 @@ predictive-search {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
         gap: 0 0.5em;
-        text-align: center;
 
         &>p {
             margin: 2em 0;
@@ -641,13 +640,13 @@ predictive-search {
     }
 }
 
-@media screen and (width >=575px) {
+@media screen and (width >= 575px) {
     .predictive-search--results .predictive_search-products {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 }
 
-@media screen and (width >=800px) {
+@media screen and (width >= 800px) {
     .predictive_search-grid {
         display: flex;
         flex-flow: row-reverse nowrap;
@@ -662,6 +661,7 @@ predictive-search {
 
         & .predictive_search-products {
             flex: 1;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         }
     }
 }

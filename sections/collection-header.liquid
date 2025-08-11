@@ -1,14 +1,16 @@
 <div class="rtf">
   <div class="center">
-    <h1 class="center">{{ collection.title }}</h1>
-    <p> {{ collection.products_count }} products</p>
+    <h1>{{ collection.title }}</h1>
+    <p>
+      <span class="product-count">{{ collection.products_count }}</span> products
+    </p>
   </div>
   {{ collection.description }}
 </div>
 
 {% if collection.all_types.size > 1 %}
   <product-types class="product_type-bar">
-    {%- for filter in collection.filters  -%}
+    {%- for filter in collection.filters -%}
       {% if filter.label == 'Product Type' %}
         {% assign sorted_values = filter.values | sort: 'count' | reverse %}
         {% for option in sorted_values %}
@@ -23,7 +25,8 @@
                 data-param-name="{{ option.param_name }}" data-param-label="{{ option.label }}"
               {% endif %}
             >
-              {{ option.label }}<i>({{ option.count }})</i>
+              {{ option.label -}}
+              <i>({{ option.count }})</i>
             </a>
           {% endif %}
         {% endfor %}

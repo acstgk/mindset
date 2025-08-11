@@ -1,135 +1,163 @@
-  .section--collection-header,
-  .section--search-header {
-    & .rtf {
-      margin-block: 1em;
+.section--collection-header,
+.section--search-header {
+
+  & h1 {
+    margin: 0;
+  }
+
+  & .rtf {
+    margin-block: 1em;
+  }
+}
+
+#search_page-form {
+  width: 70%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0;
+
+  & .search_form-terms-input {
+    margin: 0 auto;
+  }
+}
+
+product-types {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--c-light-grey);
+  padding: 1em 1.5em;
+  height: 3.5em;
+
+  &.splide.no-carousel:not(.is-active) {
+    visibility: visible;
+    display: flex;
+
+    & .splide__list {
+      display: flex;
+      gap: 1em;
     }
+  }
+
+  & .splide__arrow {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    left: -1.5em;
+    display: grid;
+
+    & svg {
+      height: 10px;
+      fill: var(--c-light-grey)
+    }
+  }
+
+  & .splide__arrow--next {
+    left: auto;
+    right: -1.5em;
+  }
+}
+
+infinite-scroll {
+  height: 100%;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0 0.65em;
+  place-content: center;
+}
+
+.grid-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+
+  & a {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+    flex: 0 1 auto;
+  }
+}
+
+#first-page,
+#infinite-trigger {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#back-to-top {
+  display: flex;
+  justify-content: center;
+}
+
+.product-grid-insert {
+  margin-bottom: 20px;
+  aspect-ratio: 1;
+
+  & img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media screen and (width > 420px) {
+  .product-grid-insert {
+    grid-column: span 2;
+    aspect-ratio: unset;
+
+  }
+}
+
+@media screen and (width > 500px) {
+  infinite-scroll {
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   }
 
   #search_page-form {
-    width: 70%;
-    align-items: center;
-  }
-
-  product-types {
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid var(--c-light-grey);
-    padding: 1em 1.5em;
-    height: 3.5em;
-
-    &.splide.no-carousel:not(.is-active) {
-      visibility: visible;
-      display: flex;
-
-      & .splide__list {
-        display: flex;
-        gap: 1em;
-      }
-    }
-
-    & .splide__arrow {
-      position: absolute;
-      top: 50%;
-      translate: 0 -50%;
-      left: -1.5em;
-      display: grid;
-
-      & svg {
-        height: 10px;
-        fill: var(--c-light-grey)
-      }
-    }
-
-    & .splide__arrow--next {
-      left: auto;
-      right: -1.5em;
-    }
-  }
-
-  infinite-scroll {
-    height: 100%;
-    overflow: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0 0.65em;
-  }
-
-  .grid-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0;
-
-    & a {
-      display: flex;
-      align-items: center;
-      gap: 0.5em;
-      width: 100%;
-      flex: 0 1 auto;
-    }
-  }
-
-  #first-page,
-  #infinite-trigger {
-    display: flex;
+    flex-direction: row;
     justify-content: flex-end;
-  }
+    margin-right: 0;
 
-  #back-to-top {
-    display: flex;
-    justify-content: center;
-  }
-
-  .product-grid-insert {
-    margin-bottom: 20px;
-    aspect-ratio: 1;
-
-    & img {
-      height: 100%;
-      object-fit: cover;
+    & p {
+      flex: 0 0 max-content;
     }
   }
+}
 
-  @media screen and (width > 420px) {
-    .product-grid-insert {
-      grid-column: span 2;
-      aspect-ratio: unset;
+@media screen and (width > 700px) {
+  .section--collection-header {
+    padding-top: 0;
 
-    }
-  }
-
-  @media screen and (width > 500px) {
-    infinite-scroll {
-      grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-    }
-
-  }
-
-  @media screen and (width > 700px) {
-    .section--collection-header {
-      padding-top: 0;
-
-      & .rtf {
-        display: flex;
-        align-items: center;
-        gap: 2em;
-
-        & h1 {
-          flex: 1 0 33%
-        }
-      }
-    }
-
-    .section--search-header {
+    & .rtf {
       display: flex;
       align-items: center;
       gap: 2em;
+
+      & h1 {
+        flex: 1 0 33%;
+        text-align: left;
+      }
     }
   }
 
-  @media screen and (width > 1020px) {
-    infinite-scroll {
-      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  .section--search-header {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    padding: 1em 0;
+
+    & h1 {
+      text-align: left;
     }
   }
+}
+
+@media screen and (width > 1020px) {
+  infinite-scroll {
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+  }
+}

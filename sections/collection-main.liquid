@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="{{ 'plp.min.css' | asset_url }}">
 {%- paginate collection.products by 22 -%}
-  {% render 'product-grid-filters' with collection.products as product_list %}
+  {% render 'product-grid-filters' with collection as group %}
 
   {% if paginate.previous %}
-    <div class="previousNav grid-nav max-width accent-bg">
+    <div class="previousNav grid-nav max-width accent-bg" id="pagination-prev">
       <a href="{{ paginate.previous.url }}">{% render 'icon', icon: 'arrow', class: 'rotate180' %} Go to Previous Page</a>
       {% if paginate.current_page > 2 %}
         <a href="{{ paginate.parts[0].url }}" id="first-page">Go to First Page{% render 'icon', icon: 'arrow', class: 'rotate-90' %}</a>
