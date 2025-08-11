@@ -1,5 +1,4 @@
-/* global iWish */
-import { Cart } from "./main.js";
+/* global iWish Cart */
 
 // ===================
 // Product Cards

@@ -1,6 +1,6 @@
-/* global Shopify */
+/* global Shopify Cart */
 import RecentlyViewed from "./RecentlyViewed.js";
-import { Cart } from "./main.js";
+
 
 // ===================
 // Recently Viewed List
