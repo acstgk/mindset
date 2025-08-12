@@ -57,19 +57,23 @@
         {% if block.settings.lockup_img %}
           {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in' }}
         {% endif %}
+
+        {% if block.settings.subtitle != '' and block.settings.subtitle_first  %}
+          <p class="h3 fade-in">
+            {{ block.settings.subtitle }}
+          </p>
+        {% endif %}
+
         {% unless block.settings.title == '' %}
           <h2 class="h1 fade-in">{{ block.settings.title }}</h2>
         {% endunless %}
-        {% unless block.settings.subtitle == '' %}
-          <p
-            class="h3 fade-in"
-            {% if block.settings.subtitle_first %}
-              style="order:-1"
-            {% endif %}
-          >
+
+        {% if block.settings.subtitle != '' and block.settings.subtitle_first == false %}
+          <p class="h3 fade-in">
             {{ block.settings.subtitle }}
           </p>
-        {% endunless %}
+        {% endif %}
+
         {% unless block.settings.cta1 == '' %}
           <div class="hero_slide-ctas fade-in">
             <a href="{{ block.settings.url1 }}" class="button button-inverted">{{ block.settings.cta1 }}</a>
