@@ -154,8 +154,8 @@
           </content-accordian>
         </div>
         {% comment %} Sort By Options {% endcomment %}
-        <div class="sortby-container">
-          <label>Sort by:</label>
+        <div class="sortby-container inline-flex">
+          <label for="sourt_by" style="flex:1 0 auto">Sort by:</label>
           <select name="sort_by" id="SortBy">
             {%- for option in group.sort_options -%}
               <option
