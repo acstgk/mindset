@@ -42,7 +42,14 @@ export default class RecentlyViewedElement extends HTMLElement {
     }
 
     // Sort by timestamp descending (newest first); missing timestamps treated as 0
-    return out.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+    const sorted = out.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+    // If on a product page, remove the first item (likely the current product)
+    if (window.location.pathname.includes("/products/")) {
+      sorted.shift();
+    }
+
+    return sorted;
   }
 
   async _renderProducts() {
