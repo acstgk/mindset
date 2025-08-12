@@ -220,7 +220,6 @@ body.no-scroll page-overlay {
     transition: all 0.4s var(--overshoot-bezier);
     opacity: 1;
     transform: translateY(0);
-    transition-delay: 0.4s;
     height: auto;
     pointer-events: all;
 }
