@@ -41,7 +41,7 @@ input[type="checkbox"] {
 }
 
 select,
-input {
+input:not([type=checkbox]) {
     border-radius: 0;
     padding: 0.5em 0.8em;
     border: 1px solid var(--c-grey);

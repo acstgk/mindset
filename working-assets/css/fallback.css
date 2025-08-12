@@ -37,3 +37,15 @@
     display: block;
     margin: 0 auto;
 }
+
+
+/* login form css fallback for forgotten password */
+:target#recover~#recover-pane {
+    display: block;
+}
+:target#recover~#login-pane {
+    display: none;
+}
+:target#login~#login-pane {
+    display: block;
+}

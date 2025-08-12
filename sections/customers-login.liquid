@@ -1,3 +1,13 @@
+<link rel="stylesheet" href="{{ 'customer.min.css' | asset_url }}">
+
+{%- assign is_recover_active = false -%}
+
+{%- form 'recover_customer_password' -%}
+  {%- if form.errors or form.posted_successfully? -%}
+    {%- assign is_recover_active = true -%}
+  {%- endif -%}
+{%- endform -%}
+
 {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------
   CUSTOMER LOGIN FORM
@@ -7,7 +17,15 @@
 <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Logo-whitebg.png?v=1753428715" alt="" width="80" height="80" class="roundel">
 
 <div class="form-wrapper">
-  {%- form 'customer_login', name: 'login', class: 'login-form fade-in active' -%}
+
+  {% comment %} LOGIN FORM {% endcomment %}
+  {%- if is_recover_active -%}
+    {%- assign classes = 'login-form customer-form fade-in' -%}
+  {%- else -%}
+    {%- assign classes = 'login-form fade-in active customer-form' -%}
+  {%- endif -%}
+
+  {%- form 'customer_login', name: 'login', class: classes -%}
     <h1>{{ 'customer.login.title' | t }}</h1>
 
     {%- if form.errors -%}
@@ -24,7 +42,7 @@
     <div class="Form__Item">
       <input type="password" class="Form__Input" name="customer[password]" required="required" placeholder="{{ 'customer.login.password' | t }}" aria-label="{{ 'customer.login.password' | t }}">
       <label for="customer[password]">{{ 'customer.login.password' | t }}</label>
-      <button type="button" class="a forgot-button" data-action="toggle-recover-form">{{ 'customer.login.forgot' | t }}</button>
+      <a href="#recover" type="button" class="a forgot-button" data-action="toggle-recover-form">{{ 'customer.login.forgot' | t }}</a>
     </div>
 
     <button type="submit" class="button button-primary button-full">{{ 'customer.login.submit' | t }}</button>
@@ -38,13 +56,27 @@
     </p>
   {%- endform -%}
 
-  {%- form 'customer_login', name: 'login', class: 'recover-form fade-in' -%}
+  {% comment %} RECOVERY FORM {% endcomment %}
+
+  {%- if is_recover_active -%}
+    {%- assign classes = 'recover-form customer-form fade-in active' -%}
+  {%- else -%}
+    {%- assign classes = 'recover-form customer-form fade-in' -%}
+  {%- endif -%}
+
+  {%- form 'customer_login', name: 'login', class: classes, id: "recover" -%}
     <h1>{{ 'customer.recover_password.title' | t }}</h1>
 
     {%- if form.errors -%}
       <div class="warning">
         {{- form.errors.messages.form -}}
       </div>
+    {%- endif -%}
+
+    {%- if form.posted_successfully? -%}
+      <p class="Form__Alert Alert Alert--success">
+        {{- 'customer.recover_password.success' | t -}}
+      </p>
     {%- endif -%}
 
     <div class="Form__Item">
@@ -70,7 +102,7 @@
   const loginForm = document.querySelector('.login-form');
   const forgotButton = document.querySelectorAll('.forgot-button');
   forgotButton.forEach((button) => {
-  button.addEventListener('click', switchForms);
+    button.addEventListener('click', switchForms);
   });
 
   function switchForms(event) {
@@ -79,94 +111,6 @@
     loginForm.classList.toggle('active');
   }
 {% endjavascript %}
-
-{% stylesheet %}
-
-  .roundel {
-    width: min(25vw, 80px);
-    display: block;
-  }
-
-  .form-wrapper {
-    display: grid;
-  }
-  .login-form,
-  .recover-form {
-    grid-area: 1 / 1;
-
-    & .warning {
-      width: min(100%, 400px);
-      margin-bottom: 1em;
-      padding: 1em;
-    }
-
-    & p {
-      margin-top: 1em;
-    }
-
-    & a {
-      text-decoration: underline;
-    }
-
-    & input {
-      padding: 1em 2em;
-
-      &::placeholder {
-        color: var(--c-black);
-        letter-spacing: 0.1ch;
-      }
-    }
-
-    & button {
-      margin: 0 auto;
-      display: block;
-    }
-
-    .Form__Item {
-      width: min(100%, 400px);
-      margin: 0 auto 1.5em;
-      position: relative;
-
-      & .Form__Input:not(:placeholder-shown) ~ label {
-        opacity: 1;
-        translate: 0 -50%;
-      }
-
-      & label {
-        position: absolute;
-        top: 0;
-        left: 5%;
-        font-size: 12px;
-        padding: 5px;
-        background-color: var(--c-white);
-        translate: 0 0;
-        transition: all 0.15s var(--overshoot-bezier);
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      & button {
-        position: absolute;
-        right: 5%;
-        top: 50%;
-        translate: 0 -50%;
-      }
-    }
-  }
-
-  @media screen and (min-width: 768px) {
-    .roundel {
-      margin: 12vh auto 0;
-    }
-
-    .login-form,
-    .recover-form {
-      min-height: 15vh;
-      text-align: center;
-      margin-bottom: 15vh;
-    }
-  }
-{% endstylesheet %}
 
 {% schema %}
 {

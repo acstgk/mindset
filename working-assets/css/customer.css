@@ -1,0 +1,83 @@
+.roundel {
+    width: min(25vw, 80px);
+    display: block;
+  }
+
+  .form-wrapper {
+    display: grid;
+  }
+  .customer-form {
+    grid-area: 1 / 1;
+    width: min(100%, 400px);
+    margin: 0 auto;
+
+    & .warning {
+      margin-bottom: 1em;
+      padding: 1em;
+    }
+
+    & p {
+      margin-top: 1em;
+    }
+
+    & a {
+      text-decoration: underline;
+    }
+
+    & input {
+      padding: 1em 2em;
+
+      &::placeholder {
+        color: var(--c-black);
+        letter-spacing: 0.1ch;
+      }
+    }
+
+    & button {
+      margin: 0 auto;
+      display: block;
+    }
+
+    .Form__Item {
+      margin: 0 auto 1.5em;
+      position: relative;
+
+      & .Form__Input:not(:placeholder-shown) ~ label {
+        opacity: 1;
+        translate: 0 -50%;
+      }
+
+      & label {
+        position: absolute;
+        top: 0;
+        left: 5%;
+        font-size: 12px;
+        padding: 5px;
+        background-color: var(--c-white);
+        translate: 0 0;
+        transition: all 0.15s var(--overshoot-bezier);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      & a {
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        translate: 0 -50%;
+        text-decoration: none;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .roundel {
+      margin: 12vh auto 0;
+    }
+
+    .customer-form {
+      min-height: 15vh;
+      text-align: center;
+      margin-bottom: 15vh;
+    }
+  }
