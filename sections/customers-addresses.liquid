@@ -1,9 +1,46 @@
-{% schema %}
-  {
-    "name": "Main Addresses",
-    "class": "section--main-addresses max-width",
-    "settings": [
+<link rel="stylesheet" href="{{ 'customer.min.css' | asset_url }}">
 
-    ]
-  }
+<a href="{{ routes.account_url }}" class="inline-flex">
+  {% render 'icon', icon: 'arrow', class: 'rotate180' %}
+  {{- 'customer.account.back_to_account' | t -}}
+</a>
+
+<h1 class="SectionHeader__Heading Heading u-h1">{{ 'customer.addresses.title' | t }}</h1>
+<button type="button" class="button button-primary" data-action="open-modal" aria-controls="modal-address-new">{{ 'customer.addresses.add_address' | t }}</button>
+
+{% if customer.addresses_count == 0 %}
+  <p>{{ 'customer.addresses.empty' | t }}</p>
+{% else %}
+  {%- paginate customer.addresses by 9 -%}
+    <ul class="address-grid">
+      {% for address in customer.addresses %}
+        {%- assign position = paginate.current_page | times: forloop.index -%}
+        <li>
+          <p>
+            {{ 'customer.addresses.address_label' | t: position: position }}
+            {% if address == customer.default_address -%}
+              &nbsp;<b>({{ 'customer.addresses.default_address_label' | t }})</b>
+            {%- endif %}
+          </p>
+          <hr>
+          <div class="formatted-address">
+            {{ address | format_address }}
+          </div>
+
+          <div class="address_actions">
+            <button class="address_actions-button button button-secondary" data-action="open-modal" aria-controls="modal-{{ address.id }}">{{ 'customer.addresses.edit' | t }}</button>
+            <button class="address_actions-button button button button-inverted" data-action="open-modal" aria-controls="modal-{{ address.id }}">{{ 'customer.addresses.delete' | t }}</button>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endpaginate %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Main Addresses",
+  "class": "section--main-addresses max-width",
+  "settings": []
+}
 {% endschema %}
