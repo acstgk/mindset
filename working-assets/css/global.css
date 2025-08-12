@@ -550,6 +550,7 @@ predictive-search {
 
     & .search_form-terms-input {
         flex: 1 0 auto;
+        width: 20ch;
         max-width: 800px;
         border: none;
         border-bottom: 1px solid var(--c-black);

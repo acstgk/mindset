@@ -1,9 +1,165 @@
-{% schema %}
-  {
-    "name": "Main Account",
-    "class": "section--main-account max-width",
-    "settings": [
+<link rel="stylesheet" href="{{ 'customer.min.css' | asset_url }}">
 
-    ]
+<header>
+  <a href="{{ routes.account_logout_url }}">
+    {{- 'customer.account.logout' | t -}}
+  </a>
+
+  <div>
+    <h1>{{ 'customer.account.title' | t }}</h1>
+    <div class="yotpo-widget-instance" data-yotpo-instance-id="1138809"></div>
+  </div>
+</header>
+
+<ul class="account-links">
+  <li>
+    <a class="button button-secondary" href="/apps/iwish">
+      <span>{% render 'icon', icon: 'heart' %}</span>Your Wishlist
+    </a>
+  </li>
+  <li>
+    <a class="button button-secondary" href="{{ routes.account_addresses_url }}">{% render 'icon', icon: 'pin' %}Your Addresses </a>
+  </li>
+  <li>
+    <a class="button button-secondary" href="">{% render 'icon', icon: 'truck' %}Your Orders</a>
+  </li>
+  <li>
+    <a class="button button-secondary" href="/tools/recurring/login">{% render 'icon', icon: 'giftcard' %}Manage Subscriptions </a>
+  </li>
+  <li>
+    <a class="button button-secondary" href="/pages/rewards">{% render 'icon', icon: 'crown' %}Loyalty Club</a>
+  </li>
+  <li>
+    <a class="button button-secondary" href="https://www.surveymonkey.com/r/8R6N2NP" target="_blank">{% render 'icon', icon: 'feedback' %}Leave Feedback </a>
+  </li>
+</ul>
+
+<div class="account-details">
+  {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    ORDER HISTORY
+    --------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  <div id="order-history">
+    {%- if customer.orders.size == 0 -%}
+      <h2 class="h4 left">{{ 'customer.account.no_orders_title' | t }}</h2>
+      <p>{{ 'customer.account.no_orders_content' | t }}</p>
+    {%- else -%}
+      <h2 class="h4 left">Orders</h2>
+      {%- paginate customer.orders by 25 -%}
+        <div class="TableWrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>{{ 'customer.orders.order_number' | t }}</th>
+                <th>{{ 'customer.orders.date' | t }}</th>
+                <th>{{ 'customer.orders.payment_status' | t }}</th>
+                <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                <th class="Text--alignRight">{{ 'customer.orders.total' | t }}</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {%- for order in customer.orders -%}
+                <tr>
+                  <td>
+                    <a ge-order-list-id href="{{ order.customer_url }}" class="Link Link--underline">
+                      {{- order.name -}}
+                    </a>
+                  </td>
+                  <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                  <td>{{ order.financial_status_label }}</td>
+                  <td>{{ order.fulfillment_status_label }}</td>
+                  <td ge-order-list-total class="Text--alignRight">
+                    {{ order.total_price | money_without_trailing_zeros }}
+                  </td>
+                </tr>
+              {%- endfor -%}
+            </tbody>
+          </table>
+        </div>
+
+        {% if paginate.pages > 1 %}
+          <div class="pagination-nav">
+            {%- if paginate.previous -%}
+              <a class="button button-secondary" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" href="{{ paginate.previous.url | remove: 'view=ajax' }}{{ hash }}">
+                {%- render 'icon', icon: 'arrow', class: 'rotate180' -%}
+                previous
+              </a>
+            {%- endif -%}
+
+            {%- if paginate.next -%}
+              <a class="button button-secondary" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" href="{{ paginate.next.url | remove: 'view=ajax' }}{{ hash }}">
+                next
+                {%- render 'icon', icon: 'arrow' -%}
+              </a>
+            {%- endif -%}
+          </div>
+        {% endif %}
+      {%- endpaginate -%}
+    {%- endif -%}
+  </div>
+
+  {%- comment -%}
+    --------------------------------------------------------------------------------------------------------------------
+    ADDRESS
+    --------------------------------------------------------------------------------------------------------------------
+  {%- endcomment -%}
+
+  <div id="saved Addresses">
+    {%- if customer.addresses_count == 0 -%}
+      <h2 class="Segment__Title Heading u-h7">{{ 'customer.account.no_addresses_title' | t }}</h2>
+
+      <div class="Segment__Content">
+        <p>{{ 'customer.account.no_addresses_content' | t }}</p>
+        <hr>
+        <a href="{{ routes.account_addresses_url }}" class="inline-flex">
+          {{- 'customer.account.manage_addresses' | t -}}
+          {% render 'icon', icon: 'arrow' %}
+        </a>
+      </div>
+    {%- else -%}
+      <h2 class="h4 left">{{ 'customer.account.default_address' | t }}</h2>
+
+      <div class="rtf">
+        {{ customer.default_address | format_address }}
+        <hr>
+        <a href="{{ routes.account_addresses_url }}" class="inline-flex">
+          {{- 'customer.account.edit_addresses' | t -}}
+          {% render 'icon', icon: 'arrow' %}
+        </a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<br>
+<br>
+<hr>
+<div class="yotpo-widget-instance" data-yotpo-instance-id="1153784"></div>
+<a href="/pages/rewards" class="button button-primary" style="margin: 20px auto;margin: 20px auto;display: block;max-width: 500px;width: 90%;"> Find out more about our Loyalty Club </a>
+
+<style>
+  .yotpo-action-buttons-tile * {
+    font-weight: bold !important;
+    letter-spacing: 0.2ch !important;
+    font-size: 12px !important;
   }
+
+  .yotpo-widget-my-rewards-widget .yotpo-logged-in-view {
+    padding: 0 !important;
+  }
+
+  .yotpo-inactive-button {
+    display: none !important;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Main Account",
+  "class": "section--main-account section--account max-width",
+  "settings": []
+}
 {% endschema %}

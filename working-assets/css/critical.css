@@ -120,7 +120,8 @@ p {
 }
 
 
-a, .a {
+a,
+.a {
   color: var(--c-grey);
   filter: brightness(1);
   transition: color .2s ease, filter .2s ease;
@@ -147,6 +148,10 @@ hr {
 .center {
   text-align: center;
   margin: 0 auto;
+}
+
+.left {
+  text-align: left;
 }
 
 .success,

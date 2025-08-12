@@ -1,83 +1,168 @@
 .roundel {
-    width: min(25vw, 80px);
+  width: min(25vw, 80px);
+  display: block;
+}
+
+.form-wrapper {
+  display: grid;
+}
+
+.customer-form {
+  grid-area: 1 / 1;
+  width: min(100%, 400px);
+  margin: 0 auto;
+
+  & .warning {
+    margin-bottom: 1em;
+    padding: 1em;
+  }
+
+  & p {
+    margin-top: 1em;
+  }
+
+  & a {
+    text-decoration: underline;
+  }
+
+  & input {
+    padding: 1em 2em;
+
+    &::placeholder {
+      color: var(--c-black);
+      letter-spacing: 0.1ch;
+    }
+  }
+
+  & button {
+    margin: 0 auto;
     display: block;
   }
 
-  .form-wrapper {
-    display: grid;
-  }
-  .customer-form {
-    grid-area: 1 / 1;
-    width: min(100%, 400px);
-    margin: 0 auto;
+  .Form__Item {
+    margin: 0 auto 1.5em;
+    position: relative;
 
-    & .warning {
-      margin-bottom: 1em;
-      padding: 1em;
+    & .Form__Input:not(:placeholder-shown)~label {
+      opacity: 1;
+      translate: 0 -50%;
     }
 
-    & p {
-      margin-top: 1em;
+    & label {
+      position: absolute;
+      top: 0;
+      left: 5%;
+      font-size: 12px;
+      padding: 5px;
+      background-color: var(--c-white);
+      translate: 0 0;
+      transition: all 0.15s var(--overshoot-bezier);
+      opacity: 0;
+      pointer-events: none;
     }
 
     & a {
-      text-decoration: underline;
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      translate: 0 -50%;
+      text-decoration: none;
     }
+  }
+}
 
-    & input {
-      padding: 1em 2em;
+h2.h4 {
+  color: var(--c-black);
+}
 
-      &::placeholder {
-        color: var(--c-black);
-        letter-spacing: 0.1ch;
-      }
-    }
+ul.account-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 
-    & button {
-      margin: 0 auto;
-      display: block;
-    }
+  & li {
+    border: 1px solid var(--c-grey);
+    text-align: center;
+    cursor: pointer;
 
-    .Form__Item {
-      margin: 0 auto 1.5em;
-      position: relative;
+    & a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5em;
+      padding: 1em;
+      width: 100%;
+      height: 100%;
+      text-transform: none;
+      font-weight: 400;
+      letter-spacing: normal;
 
-      & .Form__Input:not(:placeholder-shown) ~ label {
-        opacity: 1;
-        translate: 0 -50%;
-      }
-
-      & label {
-        position: absolute;
-        top: 0;
-        left: 5%;
-        font-size: 12px;
-        padding: 5px;
-        background-color: var(--c-white);
-        translate: 0 0;
-        transition: all 0.15s var(--overshoot-bezier);
-        opacity: 0;
-        pointer-events: none;
-      }
-
-      & a {
-        position: absolute;
-        right: 5%;
-        top: 50%;
-        translate: 0 -50%;
-        text-decoration: none;
+      & svg {
+        height: 1.5rem;
       }
     }
   }
+}
 
-  @media screen and (min-width: 768px) {
-    .roundel {
-      margin: 12vh auto 0;
-    }
+.account-details {
+  border-top: 1px solid var(--c-light-grey);
+  margin-top: 2em;
+  padding-top: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5em;
+}
 
-    .customer-form {
-      min-height: 15vh;
-      text-align: center;
-      margin-bottom: 15vh;
+#order-history {
+  flex: 1 0 auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--c-grey)
+}
+
+thead {
+  background-color: var(--c-off-white);
+  border-block: 1px solid var(--c-grey);
+
+  & th {
+    border-right: 1px solid var(--c-light-grey);
+    padding: 1em .75em;
+    border-bottom: 1px solid var(--c-grey);
+
+    &:last-child {
+      border-right: none;
     }
   }
+}
+
+tbody {
+  background-color: var(--c-off-white);
+
+  & td {
+    border-right: 1px solid var(--c-light-grey);
+    border-top: 1px solid var(--c-light-grey);
+    padding: 1em 0.5em;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    &:nth-child(odd) {
+      background-color: white;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .roundel {
+    margin: 12vh auto 0;
+  }
+
+  .customer-form {
+    min-height: 15vh;
+    text-align: center;
+    margin-bottom: 15vh;
+  }
+}
