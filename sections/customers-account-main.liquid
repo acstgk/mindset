@@ -83,14 +83,14 @@
         {% if paginate.pages > 1 %}
           <div class="pagination-nav">
             {%- if paginate.previous -%}
-              <a class="button button-secondary" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" href="{{ paginate.previous.url | remove: 'view=ajax' }}{{ hash }}">
+              <a class="button button-secondary" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" href="{{ paginate.previous.url | remove: 'view=ajax' }}">
                 {%- render 'icon', icon: 'arrow', class: 'rotate180' -%}
                 previous
               </a>
             {%- endif -%}
 
             {%- if paginate.next -%}
-              <a class="button button-secondary" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" href="{{ paginate.next.url | remove: 'view=ajax' }}{{ hash }}">
+              <a class="button button-secondary" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" href="{{ paginate.next.url | remove: 'view=ajax' }}">
                 next
                 {%- render 'icon', icon: 'arrow' -%}
               </a>
