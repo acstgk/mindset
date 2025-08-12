@@ -40,9 +40,11 @@ input[type="checkbox"] {
     accent-color: var(--c-black);
 }
 
-select {
+select, input {
     border-radius: 0;
     padding: 0.5em 0.8em;
+    border: 1px solid var(--c-grey);
+    width: min(100%, 400px);
 }
 
 .splide__decal {
@@ -200,8 +202,8 @@ body.no-scroll page-overlay {
 .fade-in {
     opacity: 0;
     position: relative;
-    transform: translateY(100%);
-    transition: opacity 0.4s var(--overshoot-bezier);
+    transform: translateY(100px);
+    pointer-events: none;
 }
 
 .fade-out {
@@ -219,6 +221,7 @@ body.no-scroll page-overlay {
     transform: translateY(0);
     transition-delay: 0.4s;
     height: auto;
+    pointer-events: all;
 }
 
 .no-height {
@@ -313,6 +316,10 @@ button {
     &:active {
         scale: 0.95;
     }
+}
+
+.button-full {
+    width: min(100%, 400px);
 }
 
 .button-primary,
