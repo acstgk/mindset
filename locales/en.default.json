@@ -184,14 +184,14 @@
       "manage_addresses": "Manage addresses"
     },
     "login": {
-      "title": "Login",
+      "title": "Welcome Back",
       "description": "Please enter your e-mail and password:",
       "email": "Email",
       "password": "Password",
-      "forgot": "Forgot password?",
+      "forgot": "Forgot your password?",
       "submit": "Login",
       "register_label": "Don't have an account?",
-      "register_link": "Create one"
+      "register_link": "Sign up today"
     },
     "orders": {
       "order_number": "Order",
@@ -231,7 +231,7 @@
       "title": "Recover password",
       "description": "Please enter your email:",
       "email": "Email",
-      "submit": "Recover",
+      "submit": "Send Recovery",
       "success": "We have sent you an email with instructions to reset your password.",
       "login_label": "Remember your password?",
       "login_link": "Back to login"
