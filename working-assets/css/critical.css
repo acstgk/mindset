@@ -392,7 +392,7 @@ ul.header_desktop-menu {
     position: absolute;
     transform: scaleX(0);
     transform-origin: left center;
-    transition: transform .15s var(--overshoot-bezier);
+    transition: transform .15s var(--bezier);
     width: 100%;
     height: 2px;
   }
@@ -596,7 +596,7 @@ ul.sub_menu-items {
   position: relative;
   color: var(--c-black);
   scale: 1;
-  transition: scale 0.15s var(--overshoot-bezier);
+  transition: scale 0.15s var(--bezier);
   padding: 0;
 
   & .iwish-counter {
@@ -615,7 +615,7 @@ ul.sub_menu-items {
     top: calc(50% - 8px);
     translate: 50% -50%;
     transform: scale(0);
-    transition: transform .2s var(--overshoot-bezier);
+    transition: transform .2s var(--bezier);
     transition-delay: 0.2s;
     width: 8px;
   }
@@ -671,7 +671,7 @@ ul.sub_menu-items {
       width: 100%;
       height: 100%;
       opacity: 0.33;
-      transition: opacity 0.1s var(--overshoot-bezier);
+      transition: opacity 0.1s var(--bezier);
     }
 
     &:hover svg {

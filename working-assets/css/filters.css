@@ -82,7 +82,7 @@ filters-menu-bar {
     box-shadow: 0 0 0 1px #333;
     cursor: pointer;
     scale: 1;
-    transform: scale 0.2s var(--overshoot-bezier);
+    transform: scale 0.2s var(--bezier);
     z-index: 2;
   }
 

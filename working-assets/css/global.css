@@ -92,7 +92,7 @@ productcard-carousel {
 @media screen and (min-width: 800px) {
     productcard-carousel .splide__slide {
         scale: 1;
-        transition: scale 0.3s var(--overshoot-bezier);
+        transition: scale 0.3s var(--bezier);
 
         &:not(.is-active) {
             scale: 0.9;
@@ -212,12 +212,12 @@ body.no-scroll page-overlay {
     transform: translateY(-100%);
     padding: 0;
     margin: 0;
-    transition: all 0.4s var(--overshoot-bezier);
+    transition: all 0.4s var(--bezier);
 }
 
 .splide__slide.is-active .fade-in,
 .fade-in.active {
-    transition: all 0.4s var(--overshoot-bezier);
+    transition: all 0.4s var(--bezier);
     opacity: 1;
     transform: translateY(0);
     height: auto;
@@ -523,7 +523,7 @@ predictive-search {
     opacity: 0;
     background-color: var(--c-white);
     z-index: -1;
-    transition: top .2s var(--overshoot-bezier), opacity .2s ease;
+    transition: top .2s var(--bezier), opacity .2s ease;
 
     &[aria-hidden="false"] {
         opacity: 1;
@@ -717,7 +717,7 @@ content-accordian {
     & svg {
         height: 21px;
         color: var(--c-grey);
-        transition: transform 0.2s var(--overshoot-bezier);
+        transition: transform 0.2s var(--bezier);
     }
 
     &.active {
@@ -740,7 +740,7 @@ content-accordian {
     margin: 0;
     margin-left: 15px;
     padding: 0;
-    transition: height 0.2s var(--overshoot-bezier);
+    transition: height 0.2s var(--bezier);
 
     & a {
         height: 24px;
@@ -1364,7 +1364,7 @@ product-card {
         height: auto;
         height: fit-content;
         overflow-y: hidden;
-        transition: height 0.1s var(--overshoot-bezier);
+        transition: height 0.1s var(--bezier);
     }
 
     & .countdown-wrapper {

@@ -193,7 +193,7 @@ pdp-carousel {
   max-height: none;
   overflow: hidden;
   scroll-margin-top: 50px;
-  transition: max-height 0.5s var(--overshoot-bezier);
+  transition: max-height 0.5s var(--bezier);
 
   &>.pdp_slide:nth-child(n + 2) {
     display: none;
@@ -433,7 +433,7 @@ thumbnail-carousel {
   text-align: center;
   height: 0;
   overflow: hidden;
-  transition: height 0.2s var(--overshoot-bezier), padding 0.2s var(--overshoot-bezier), margin 0.2s var(--overshoot-bezier);
+  transition: height 0.2s var(--bezier), padding 0.2s var(--bezier), margin 0.2s var(--bezier);
   padding-block: 0;
   margin: 0
 }

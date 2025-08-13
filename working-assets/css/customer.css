@@ -24,7 +24,7 @@ address-form {
   &:not(.active) {
     height: 0;
     opacity: 0;
-    transition: height, margin 0.15s var(--overshoot-bezier);
+    transition: height, margin 0.15s var(--bezier);
     visibility: hidden;
   }
 }
@@ -131,7 +131,7 @@ li address-form {
       padding: 5px;
       background-color: var(--c-white);
       translate: 0 0;
-      transition: all 0.15s var(--overshoot-bezier);
+      transition: all 0.15s var(--bezier);
       opacity: 0;
       pointer-events: none;
     }
