@@ -6,7 +6,80 @@
 </a>
 
 <h1 class="SectionHeader__Heading Heading u-h1">{{ 'customer.addresses.title' | t }}</h1>
-<button type="button" class="button button-primary" data-action="open-modal" aria-controls="modal-address-new">{{ 'customer.addresses.add_address' | t }}</button>
+<button type="button" class="button button-primary" data-action="open-modal" id="new-form-button">{{ 'customer.addresses.add_address' | t }}</button>
+
+{% form 'customer_address', customer.new_address, class: 'new-address_form customer-form' %}
+  <address-form data-address="new">
+    {%- if request.locale.iso_code == 'ja' -%}
+      <div class="Form__Item">
+        <input type="text" class="Form__Input" name="address[last_name]" value="{{ form.last_name }}" placeholder="{{ 'customer.addresses.last_name' | t }}" aria-label="{{ 'customer.addresses.last_name' | t }}">
+        <label>{{ 'customer.addresses.last_name' | t }}</label>
+      </div>
+      <div class="Form__Item">
+        <input type="text" class="Form__Input" name="address[first_name]" value="{{ form.first_name }}" placeholder="{{ 'customer.addresses.first_name' | t }}" aria-label="{{ 'customer.addresses.first_name' | t }}" autofocus>
+        <label>{{ 'customer.addresses.first_name' | t }}</label>
+      </div>
+    {%- else -%}
+      <div class="Form__Item">
+        <input type="text" class="Form__Input" name="address[first_name]" value="{{ form.first_name }}" placeholder="{{ 'customer.addresses.first_name' | t }}" aria-label="{{ 'customer.addresses.first_name' | t }}" autofocus>
+        <label>{{ 'customer.addresses.first_name' | t }}</label>
+      </div>
+      <div class="Form__Item">
+        <input type="text" class="Form__Input" name="address[last_name]" value="{{ form.last_name }}" placeholder="{{ 'customer.addresses.last_name' | t }}" aria-label="{{ 'customer.addresses.last_name' | t }}">
+        <label>{{ 'customer.addresses.last_name' | t }}</label>
+      </div>
+    {%- endif -%}
+    <div class="Form__Item">
+      <input type="text" class="Form__Input" name="address[company]" value="{{ form.company }}" placeholder="{{ 'customer.addresses.company' | t }}" aria-label="{{ 'customer.addresses.company' | t }}">
+      <label>{{ 'customer.addresses.company' | t }}</label>
+    </div>
+    <div class="Form__Item ">
+      <input type="text" class="Form__Input" name="address[phone]" value="{{ form.phone }}" placeholder="{{ 'customer.addresses.phone' | t }}" aria-label="{{ 'customer.addresses.phone' | t }}">
+      <label>{{ 'customer.addresses.phone' | t }}</label>
+    </div>
+    <div class="Form__Item span-2">
+      <input type="text" class="Form__Input" name="address[address1]" value="{{ form.address1 }}" placeholder="{{ 'customer.addresses.address1' | t }}" aria-label="{{ 'customer.addresses.address1' | t }}">
+      <label>{{ 'customer.addresses.address1' | t }}</label>
+    </div>
+    <div class="Form__Item">
+      <input type="text" class="Form__Input" name="address[address2]" value="{{ form.address2 }}" placeholder="{{ 'customer.addresses.address2' | t }}" aria-label="{{ 'customer.addresses.address2' | t }}">
+      <label>{{ 'customer.addresses.address2' | t }}</label>
+    </div>
+    <div class="Form__Item">
+      <input type="text" class="Form__Input" name="address[city]" value="{{ form.city }}" placeholder="{{ 'customer.addresses.city' | t }}" aria-label="{{ 'customer.addresses.city' | t }}">
+      <label>{{ 'customer.addresses.city' | t }}</label>
+    </div>
+    <div class="Form__Item">
+      <input type="text" class="Form__Input" name="address[zip]" value="{{ form.zip }}" placeholder="{{ 'customer.addresses.zip' | t }}" aria-label="{{ 'customer.addresses.zip' | t }}">
+      <label>{{ 'customer.addresses.zip' | t }}</label>
+    </div>
+    <div class="Form__Item">
+      <div class="Form__Select Select Select--primary">
+        <select name="address[country]" title="{{ 'customer.addresses.country' | t }}">
+          {{ all_country_option_tags }}
+        </select>
+      </div>
+    </div>
+    <div class="Form__Item Form__Select Select Select--primary" style="display: none">
+      {%- render 'icon' with 'select-arrow' -%}
+      <select name="address[province]" title="{{ 'customer.addresses.province' | t }}"></select>
+    </div>
+    <label class="checkbox-label">
+      <input type="checkbox" name="address[default]" id="address-new[default]" value="0">
+      {{ 'customer.addresses.set_default' | t }}
+    </label>
+    <div class="new-address--buttons">
+      <button class="button button-primary button-full" type="submit">{{ 'customer.addresses.add_address' | t }}</button>
+      <button class="button button-secondary button-full" id="address-form-close" type="button">{% render 'icon', icon: 'plus', class: 'rotate45' %}</button>
+    </div>
+  </address-form>
+{% endform %}
+
+{% comment %}
+  ========================
+  === existing address forms
+  ========================
+{% endcomment %}
 
 {% if customer.addresses_count == 0 %}
   <p>{{ 'customer.addresses.empty' | t }}</p>
@@ -16,6 +89,7 @@
       {% for address in customer.addresses %}
         {%- assign position = paginate.current_page | times: forloop.index -%}
         <li>
+        <hr>
           <p>
             {{ 'customer.addresses.address_label' | t: position: position }}
             {% if address == customer.default_address -%}
@@ -25,17 +99,104 @@
           <hr>
           <div class="formatted-address">
             {{ address | format_address }}
+            <span>{{ address.phone }}</span>
           </div>
 
           <div class="address_actions">
-            <button class="address_actions-button button button-secondary" data-action="open-modal" aria-controls="modal-{{ address.id }}">{{ 'customer.addresses.edit' | t }}</button>
-            <button class="address_actions-button button button button-inverted" data-action="open-modal" aria-controls="modal-{{ address.id }}">{{ 'customer.addresses.delete' | t }}</button>
+            <button class="address_actions-button button button-secondary" data-action="open-modal" aria-controls="modal-{{ address.id }}" id="{{ address.id }}-form-button">{{ 'customer.addresses.edit' | t }}</button>
+            <button class="address_actions-button button button button-inverted" data-action="remove-address" onclick="Shopify.CustomerAddress.destroy({{ address.id }}); return false">{{ 'customer.addresses.delete' | t }}</button>
           </div>
+
+          {% form 'customer_address', address, class: 'address-form customer-form' %}
+            <address-form data-address="{{address.id}}">
+              <h4>{{ 'customer.addresses.address_label' | t: position: position }}</h4>
+              {%- if request.locale.iso_code == 'ja' -%}
+                <div class="Form__Item">
+                  <input type="text" class="Form__Input" name="address[last_name]" value="{{ form.last_name }}" placeholder="{{ 'customer.addresses.last_name' | t }}" aria-label="{{ 'customer.addresses.last_name' | t }}">
+                  <label>{{ 'customer.addresses.last_name' | t }}</label>
+                </div>
+                <div class="Form__Item">
+                  <input
+                    type="text"
+                    class="Form__Input"
+                    name="address[first_name]"
+                    value="{{ form.first_name }}"
+                    placeholder="{{ 'customer.addresses.first_name' | t }}"
+                    aria-label="{{ 'customer.addresses.first_name' | t }}"
+                    autofocus
+                  >
+                  <label>{{ 'customer.addresses.first_name' | t }}</label>
+                </div>
+              {%- else -%}
+                <div class="Form__Item">
+                  <input
+                    type="text"
+                    class="Form__Input"
+                    name="address[first_name]"
+                    value="{{ form.first_name }}"
+                    placeholder="{{ 'customer.addresses.first_name' | t }}"
+                    aria-label="{{ 'customer.addresses.first_name' | t }}"
+                    autofocus
+                  >
+                  <label>{{ 'customer.addresses.first_name' | t }}</label>
+                </div>
+                <div class="Form__Item">
+                  <input type="text" class="Form__Input" name="address[last_name]" value="{{ form.last_name }}" placeholder="{{ 'customer.addresses.last_name' | t }}" aria-label="{{ 'customer.addresses.last_name' | t }}">
+                  <label>{{ 'customer.addresses.last_name' | t }}</label>
+                </div>
+              {%- endif -%}
+              <div class="Form__Item">
+                <input type="text" class="Form__Input" name="address[company]" value="{{ form.company }}" placeholder="{{ 'customer.addresses.company' | t }}" aria-label="{{ 'customer.addresses.company' | t }}">
+                <label>{{ 'customer.addresses.company' | t }}</label>
+              </div>
+              <div class="Form__Item ">
+                <input type="text" class="Form__Input" name="address[phone]" value="{{ form.phone }}" placeholder="{{ 'customer.addresses.phone' | t }}" aria-label="{{ 'customer.addresses.phone' | t }}">
+                <label>{{ 'customer.addresses.phone' | t }}</label>
+              </div>
+              <div class="Form__Item span-2">
+                <input type="text" class="Form__Input" name="address[address1]" value="{{ form.address1 }}" placeholder="{{ 'customer.addresses.address1' | t }}" aria-label="{{ 'customer.addresses.address1' | t }}">
+                <label>{{ 'customer.addresses.address1' | t }}</label>
+              </div>
+              <div class="Form__Item">
+                <input type="text" class="Form__Input" name="address[address2]" value="{{ form.address2 }}" placeholder="{{ 'customer.addresses.address2' | t }}" aria-label="{{ 'customer.addresses.address2' | t }}">
+                <label>{{ 'customer.addresses.address2' | t }}</label>
+              </div>
+              <div class="Form__Item">
+                <input type="text" class="Form__Input" name="address[city]" value="{{ form.city }}" placeholder="{{ 'customer.addresses.city' | t }}" aria-label="{{ 'customer.addresses.city' | t }}">
+                <label>{{ 'customer.addresses.city' | t }}</label>
+              </div>
+              <div class="Form__Item">
+                <input type="text" class="Form__Input" name="address[zip]" value="{{ form.zip }}" placeholder="{{ 'customer.addresses.zip' | t }}" aria-label="{{ 'customer.addresses.zip' | t }}">
+                <label>{{ 'customer.addresses.zip' | t }}</label>
+              </div>
+              <div class="Form__Item">
+                <div class="Form__Select Select Select--primary">
+                  <select name="address[country]" title="{{ 'customer.addresses.country' | t }}">
+                    {{ all_country_option_tags }}
+                  </select>
+                </div>
+              </div>
+              <div class="Form__Item Form__Select Select Select--primary" style="display: none">
+                {%- render 'icon' with 'select-arrow' -%}
+                <select name="address[province]" title="{{ 'customer.addresses.province' | t }}"></select>
+              </div>
+              <label class="checkbox-label">
+                <input type="checkbox" name="address[default]" id="address-new[default]" value="0">
+                {{ 'customer.addresses.set_default' | t }}
+              </label>
+              <div class="new-address--buttons">
+                <button class="button button-primary button-full" type="submit">{{ 'customer.addresses.edit_address' | t }}</button>
+                <button class="button button-secondary button-full" id="address-form-close" type="button">{% render 'icon', icon: 'plus', class: 'rotate45' %}</button>
+              </div>
+            </address-form>
+          {% endform %}
         </li>
       {% endfor %}
     </ul>
   {% endpaginate %}
 {% endif %}
+
+<script type="module" src="{{ 'CustomerAddresses.js' | asset_url }}"></script>
 
 {% schema %}
 {

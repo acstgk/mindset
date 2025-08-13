@@ -7,6 +7,46 @@
   display: grid;
 }
 
+form.new-address_form,
+form.address-form {
+  width: min(100%, 750px);
+  margin: 0;
+  overflow: hidden;
+  min-height: 0;
+  height: auto;
+}
+
+address-form {
+  gap: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  &:not(.active) {
+    height: 0;
+    opacity: 0;
+    transition: height, margin 0.15s var(--overshoot-bezier);
+    visibility: hidden;
+  }
+}
+
+li address-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  translate: -50% -50%;
+  background: white;
+  width: min(400px, 90vw);
+  padding: 2em;
+  border: 1px solid var(--c-light-grey);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.form--active {
+  margin: 20px 0;
+}
+
 .customer-form {
   grid-area: 1 / 1;
   width: min(100%, 400px);
@@ -25,7 +65,9 @@
     text-decoration: underline;
   }
 
-  & input {
+  & input:not([type="checkbox"]),
+  & select {
+    width: 100%;
     padding: 1em 2em;
 
     &::placeholder {
@@ -34,14 +76,47 @@
     }
   }
 
+  & .checkbox-label {
+    margin-bottom: 1em;
+    display: block;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+  }
+
   & button {
     margin: 0 auto;
     display: block;
   }
 
+  .span-2 {
+    grid-column: 1 / -1;
+
+    & input {
+      width: 100%;
+    }
+  }
+
+  .new-address--buttons {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+
+    & .button-secondary {
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      place-content: center;
+      display: grid;
+      align-content: center;
+    }
+  }
+
   .Form__Item {
     margin: 0 auto 1.5em;
     position: relative;
+    width: 100%;
 
     & .Form__Input:not(:placeholder-shown)~label {
       opacity: 1;
@@ -156,23 +231,23 @@ tbody {
 }
 
 ul.address-grid {
-  border-top: 1px solid var(--c-grey);
-  padding-top: 3em;
-  margin-top: 3em;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 3em;
+
   & li {
     height: 100%;
     display: flex;
     flex-direction: column;
   }
 }
+
 .formatted-address {
   margin-bottom: 2em;
 }
+
 .address_actions {
- margin: auto 0 0;
+  margin: auto 0 0;
 }
 
 @media screen and (min-width: 768px) {
