@@ -11,14 +11,12 @@ if (!customElements.get("address-form")) {
       }
 
       _openThis = () => {
-        console.log("open");
         this.classList.toggle("active");
         this.openButton.style.display = "none"
       };
 
       _closeThis = (event) => {
         event.preventDefault();
-        console.log("close");
         this.classList.toggle("active");
         this.openButton.style.display = "inline-block"
       };
