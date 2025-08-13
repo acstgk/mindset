@@ -1,0 +1,198 @@
+{% capture iwish_add_icon %}
+{% if section.settings.icon_style == 'star' %}
+	<svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M480,207H308.6L256,47.9L203.4,207H32l140.2,97.9L117.6,464L256,365.4L394.4,464l-54.7-159.1L480,207z M362.6,421.2  l-106.6-76l-106.6,76L192,298.7L84,224h131l41-123.3L297,224h131l-108,74.6L362.6,421.2z"></path></svg>
+{% elsif section.settings.icon_style == 'heart' %}
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 378.94 378.94"  xml:space="preserve"><g><path d="M348.151,54.514c-19.883-19.884-46.315-30.826-74.435-30.826c-28.124,0-54.559,10.942-74.449,30.826l-9.798,9.8l-9.798-9.8c-19.884-19.884-46.325-30.826-74.443-30.826c-28.117,0-54.56,10.942-74.442,30.826c-41.049,41.053-41.049,107.848,0,148.885l147.09,147.091c2.405,2.414,5.399,3.892,8.527,4.461c1.049,0.207,2.104,0.303,3.161,0.303c4.161,0,8.329-1.587,11.498-4.764l147.09-147.091C389.203,162.362,389.203,95.567,348.151,54.514z M325.155,180.404L189.47,316.091L53.782,180.404c-28.368-28.364-28.368-74.514,0-102.893c13.741-13.739,32.017-21.296,51.446-21.296c19.431,0,37.702,7.557,51.438,21.296l21.305,21.312c6.107,6.098,16.897,6.098,23.003,0l21.297-21.312c13.737-13.739,32.009-21.296,51.446-21.296c19.431,0,37.701,7.557,51.438,21.296C353.526,105.89,353.526,152.039,325.155,180.404z" /></g></svg>
+{% elsif section.settings.icon_style == 'custom' %}
+	{{ section.settings.iwish_add_icon_outline }}
+{% endif %}
+{% endcapture %}
+
+{% capture iwish_added_icon %}
+{% if section.settings.icon_style == 'star' %}
+	<svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M480,207H308.6L256,47.9L203.4,207H32l140.2,97.9L117.6,464L256,365.4L394.4,464l-54.7-159.1L480,207z"></path></svg>
+{% elsif section.settings.icon_style == 'heart' %}
+	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 16"><path d="M11.8 1c-1.682 0-3.129 1.368-3.799 2.797-0.671-1.429-2.118-2.797-3.8-2.797-2.318 0-4.2 1.882-4.2 4.2 0 4.716 4.758 5.953 8 10.616 3.065-4.634 8-6.050 8-10.616 0-2.319-1.882-4.2-4.2-4.2z"></path></svg>
+{% elsif section.settings.icon_style == 'custom' %}
+	{{ section.settings.iwish_added_icon_filled }}
+{% endif %}
+{% endcapture %}
+
+{% liquid
+	assign iwish_add = section.settings.iwish_add_txt | prepend: '<span>' | append: '</span>'
+	assign iwish_added = section.settings.iwish_added_txt | prepend: '<span>' | append: '</span>'
+%}
+
+{% if section.settings.icon_style != 'none' %}
+	{% capture iwish_add_txt %}{{ iwish_add_icon }} {{ iwish_add }}{% endcapture %}
+	{% capture iwish_added_txt %}{{ iwish_added_icon }} {{ iwish_added }}{% endcapture %}
+{% else %}
+	{% assign iwish_add_txt = iwish_add %}
+	{% assign iwish_added_txt = iwish_added %}
+{% endif %}
+<style>
+    .iWishAdd.st-1, .iWishColl {
+		font-size: {{ section.settings.text_font_size }}px;
+		{% if section.settings.text_color != 'rgba(0,0,0,0)' %}color: {{ section.settings.text_color }};{% endif %}
+    }
+	.iWishAdd.st-1 svg path, .iWishColl svg path {
+	    fill: {{ section.settings.text_color }};
+	}
+	.iWishColl {
+        {% if section.settings.icon_position == 'top-left' or section.settings.icon_position == 'top-right' %}
+          position: absolute;
+          z-index: {{ section.settings.z_index }};
+        {% endif %}
+        {% if section.settings.background_color != 'rgba(0,0,0,0)' %}
+            background-color: {{ section.settings.background_color }};
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        {% endif %}
+	}
+</style>
+<script async type="text/javascript">
+	var iWishData = window.iWishData || {};
+	if(typeof window.iWishData.iwish_add_txt === 'undefined') {
+		iWishData.iwish_add_txt = `{{ iwish_add_txt }}`,
+		iWishData.iwish_added_txt = `{{ iwish_added_txt }}`;
+		iWishData.theme_btn_class = `{{ section.settings.theme_btn_class }}`;
+	}
+	iWishData = {...iWishData, iwish_add_txt_col: `{{ iwish_add_icon }}`, iwish_added_txt_col: `{{ iwish_added_icon }}`, qv_wrapper: "{{ section.settings.qv_wrapper }}", qv_button: "{{ section.settings.qv_button }}", qv_close_button: "{{ section.settings.qv_close_button }}" };
+</script>
+
+<div class="section-{{ section.id }}-padding">
+  {{ section.settings.custom_liquid }}
+</div>
+
+{% schema %}
+{
+  "name": "Wishlist App Settings",
+  "tag": "section",
+  "class": "iwish-app-block-settings",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Customization For Product Grid"
+    },
+    {
+      "type": "header",
+      "content": "Text below only works for single language store"
+    },
+    {
+      "type": "text",
+      "id": "iwish_add_txt",
+      "label": "Wishlist Add Button Text"
+    },
+    {
+      "type": "text",
+      "id": "iwish_added_txt",
+      "label": "Wishlist Added Button Text"
+    },
+    {
+      "type": "select",
+      "id": "icon_style",
+      "label": "Wishlist Icon Style",
+      "options": [
+      		{
+            "value": "heart",
+            "label": "Default"
+      		}, {
+            "value": "star",
+            "label": "Star"
+      		}, {
+            "value": "none",
+            "label": "None"
+      		}, {
+            "value": "custom",
+            "label": "Custom"
+      		}
+      ],
+      "default": "heart"
+    },
+    {
+      "type": "html",
+      "id": "iwish_add_icon_outline",
+      "label": "Custom Wishlist Add Icon"
+    },
+    {
+      "type": "html",
+      "id": "iwish_added_icon_filled",
+      "label": "Custom Wishlist Added Icon"
+    },
+    {
+      "type": "text",
+      "id": "theme_btn_class",
+      "label": "Use Theme Button Class - [For Quick View]"
+    },
+    {
+      "type": "select",
+      "id": "icon_position",
+      "label": "Wishlist Icon Position",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "top-right", "label": "Top Right" },
+        { "value": "top-left", "label": "Top Left" }
+      ],
+      "default": "top-right"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Text Font size",
+      "default": 14
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "number",
+      "id": "z_index",
+      "label": "z-index",
+      "default": 2
+    },
+    {
+      "type": "header",
+      "content": "Developer Settings"
+    },
+    {
+      "type": "text",
+      "id": "qv_wrapper",
+      "label": "Quick View Wrapper"
+    },
+    {
+      "type": "text",
+      "id": "qv_button",
+      "label": "Quick View Button"
+    },
+    {
+      "type": "text",
+      "id": "qv_close_button",
+      "label": "Quick View Close Button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Wishlist Product Grid"
+    }
+  ]
+}
+{% endschema %}

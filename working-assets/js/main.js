@@ -909,6 +909,38 @@ if (!customElements.get("free-delivery")) {
 }
 
 // ===================
+// iWish Customisations
+// ===================
+
+class iWishCustom {
+  constructor() {
+    this.counterElement = document.querySelector('.iwish-counter');
+    this.iconElement    = document.querySelector('.iwishPage.header_icon');
+
+    // run once at start
+    this.updateClass();
+
+    // observe future changes
+    if (this.counterElement) {
+      this._counterObserver = new MutationObserver(() => this.updateClass());
+      this._counterObserver.observe(this.counterElement, {
+        childList: true,       // watch for text node changes
+        characterData: true,   // watch character data changes
+        subtree: true,         // include descendants (text nodes)
+      });
+    }
+  }
+
+  updateClass() {
+    if (!this.counterElement || !this.iconElement) return;
+    const count = parseInt((this.counterElement.textContent || '').trim(), 10);
+    this.iconElement.classList.toggle('wishlisted', !isNaN(count) && count > 0);
+  }
+}
+
+new iWishCustom(); // make sure you instantiate with ()
+
+// ===================
 // Global functions and logic
 // ===================
 

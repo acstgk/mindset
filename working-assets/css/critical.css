@@ -620,6 +620,7 @@ ul.sub_menu-items {
     width: 8px;
   }
 
+  &.wishlisted:after,
   &.cart-not-empty:after {
     transform: scale(1);
   }
