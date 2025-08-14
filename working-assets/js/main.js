@@ -559,18 +559,21 @@ if (!customElements.get("predictive-search")) {
           })
           .then((text) => {
             this._resetResults();
-            //ensure the productCard module has been imported
-            //ensure the productCard module has been imported
+            // Ensure the product-card element is defined (guarded)
             if (!customElements.get("product-card")) {
               import("./ProductCard.js").then((module) => {
-                customElements.define("product-card", module.default);
+                if (!customElements.get("product-card")) {
+                  customElements.define("product-card", module.default);
+                }
               });
             }
             const resultsMarkup = new DOMParser().parseFromString(text, "text/html").querySelector("#shopify-section-predictive-search-results").innerHTML;
-            // if there are countdowns in the returned HTML ensure the countdown module/s have been imported
-            if (resultsMarkup.includes("countdown-timer") && !customElements.get("product-card")) {
+            // If countdown timers are present, ensure the custom element is defined (guarded)
+            if (resultsMarkup.includes("countdown-timer") && !customElements.get("countdown-timer")) {
               import("./CountdownTimer.js").then((module) => {
-                customElements.define("countdown-timer", module.default);
+                if (!customElements.get("countdown-timer")) {
+                  customElements.define("countdown-timer", module.default);
+                }
               });
             }
             const resultEL = document.createElement("div");
@@ -706,8 +709,27 @@ class ComponentLoader {
     }
 
     this.importFn().then((module) => {
-      if (!customElements.get(this.selector)) {
-        customElements.define(this.selector, module.default);
+      // If tag was defined during import side-effects, stop here
+      if (customElements.get(this.selector)) return;
+
+      const Ctor = module && module.default ? module.default : null;
+      if (!Ctor) return;
+
+      try {
+        customElements.define(this.selector, Ctor);
+      } catch (err) {
+        // Safari/Chromium will throw NotSupportedError if this constructor
+        // has already been registered under a different tag name.
+        if (err && err.name === "NotSupportedError") {
+          // Define a thin subclass so the constructor is unique.
+          const Wrapper = class extends Ctor {};
+          // Re-check in case another racing define happened while we handled the error
+          if (!customElements.get(this.selector)) {
+            customElements.define(this.selector, Wrapper);
+          }
+        } else {
+          throw err;
+        }
       }
     });
   }
