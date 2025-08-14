@@ -1538,8 +1538,7 @@ product-card,
     max-height: 90vh;
     z-index: 12;
     background: var(--c-white);
-    box-shadow: 0 0 4px color-mix(in lab, var(--c-black), transparent 70%);
-    border-top: 1px solid var(--c-off-white);
+    box-shadow: 0 0 4px color-mix(in lab, var(--c-black), transparent 10%);
 
     & .mqatb-images {
         width: 100vw;
@@ -1557,6 +1556,9 @@ product-card,
             width: 100%;
             object-fit: cover;
             object-position: top center;
+            &:nth-last-child(n+2) {
+                border-right: 1px solid var(--c-off-white);
+            }
         }
     }
 
