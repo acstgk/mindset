@@ -93,21 +93,9 @@
       aria-label="open the mobile quick add modal"
       aria-expanded="false"
       data-target="mqatb-{{product.id}}"
+      data-product='{{ product | json | escape }}'
     >
       {% render 'icon' with 'cart' as icon %}
     </a>
-
-    <div class="fade-in mqatb-modal" id="mqatb-{{ product.id }}" aria-hidden="true">
-      <div class="mqatb-img">
-        {{ product.featured_image | image_url: width: 780 | image_tag: sizes: '100vw', widths: widths, loading: 'lazy' }}
-      </div>
-      <div class="mqatb-info">
-        {% render 'product-title', product: product %}
-        {% render 'product-price', product: product %}
-      </div>
-      select your size:
-      {{ qatb_buttons }}
-      <div class="mqatb-close round-btn">{% render 'icon' with 'plus' as icon, class: 'close-icon' %}</div>
-    </div>
   {% endunless %}
 </product-card>
