@@ -4,6 +4,7 @@
   @param {object} product - Product object
   @param {string} [loading] - Defaults to "lazy" but can be changed to "eager" or "auto"
   @param {string} [class] - add a custom class - ideal for splider
+  @param {boolean} [modal] - force the modal button to always display - ideal for carousels with limited width
 
   @example
   {% render 'example-snippet', product: 'Featured Products', loading: "lazy", class: "custom-class" %}
@@ -45,8 +46,8 @@
 
 <product-card
   data-prod-id="{{ product.id }}"
-  {%- if class -%}
-    class="{{ class }}"
+  {%- if class or modal-%}
+    class="{{ class }} modal-{{- modal -}}"
   {%- endif -%}
 >
   {% comment %} images and interactions {% endcomment %}

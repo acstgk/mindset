@@ -1556,6 +1556,7 @@ product-card,
             width: 100%;
             object-fit: cover;
             object-position: top center;
+
             &:nth-last-child(n+2) {
                 border-right: 1px solid var(--c-off-white);
             }
@@ -1624,7 +1625,7 @@ product-card,
             display: block;
         }
 
-        .mqatb-show {
+        &:not(.modal-true) .mqatb-show {
             display: none;
         }
 
@@ -1637,10 +1638,26 @@ product-card,
                 opacity: 0
             }
 
-            & .datb {
+            &:not(.modal-true) .datb {
                 height: fit-content;
                 opacity: 1;
             }
+        }
+    }
+
+    .mqatb-modal {
+        display: flex;
+        max-width: 750px;
+        max-height: 750px;
+        width: 80vw;
+        height: 80vh;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+
+        & .mqatb-images {
+            width: 100%;
         }
     }
 }

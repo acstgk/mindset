@@ -157,9 +157,11 @@ export default class ProductCard extends HTMLElement {
     buttons.innerHTML = buttonsData;
 
     // add content to the modal
+    const modalContent = document.createElement("div");
     modal.appendChild(images);
-    modal.appendChild(info);
-    modal.appendChild(buttons);
+    modalContent.appendChild(info);
+    modalContent.appendChild(buttons);
+    modal.appendChild(modalContent);
 
     //create the close button and add close functionality
     const close = document.createElement("div");
