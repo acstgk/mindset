@@ -389,9 +389,9 @@ class EnhancedFilters {
 
       currentTotalCount.innerText = newTotalCount;
 
-      const minLength = Math.min(this.filterTitles.length, newFilterTitles.length, this.filterLabels.length, newFilterLabels.length, this.filterCheckboxes.length, newfilterCheckboxes.length);
+      const maxLength = Math.max(this.filterTitles.length, newFilterTitles.length, this.filterLabels.length, newFilterLabels.length, this.filterCheckboxes.length, newfilterCheckboxes.length);
 
-      for (let i = 0; i < minLength; i++) {
+      for (let i = 0; i < maxLength; i++) {
         const newTitle = newFilterTitles[i];
         const newLabel = newFilterLabels[i];
         const newCheckboxWrapper = newfilterCheckboxes[i];
