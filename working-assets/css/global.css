@@ -963,7 +963,15 @@ content-accordian {
 
 recently-viewed {
     overflow-y: auto;
+
+    & .qatb-btns {
+        text-align: center;
+        margin-top: 1em;
+        gap: 1.2em;
+    }
 }
+
+
 
 .rc_button {
     display: flex;
@@ -1483,6 +1491,7 @@ product-card,
     justify-content: center;
     gap: 12px;
     flex-flow: row wrap;
+    grid-column: 1 / -1;
 }
 
 .qatb-btn,

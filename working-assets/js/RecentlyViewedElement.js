@@ -64,13 +64,23 @@ export default class RecentlyViewedElement extends HTMLElement {
 
         // define the data points we will need to create the cards:
         const title = productData.title.replace("Gym King ", "");
+        const splitTitle = title.split(/[-–—]/)[0].trim();
+        const splitColor = title.split(/[-–—]/)[1].trim();
         const price = Cart.formatMoney(productData.price);
         const compareAt = productData.compare_at_price > productData.price ? Cart.formatMoney(productData.compare_at_price) : "";
         const image = productData.images[0];
         const url = productData.url;
+        const variants = productData.variants
 
-        const splitTitle = title.split(/[-–—]/)[0].trim();
-        const splitColor = title.split(/[-–—]/)[1].trim();
+        let qatbBtns = "";
+
+        for (let i = 0; i < variants.length; i++) {
+          const vTitle = variants[i].title;
+          const vId = variants[i].id;
+          const vAvailable = variants[i].available ? "qatb-btn" : "qatb-btn--oos";
+          qatbBtns += `<a href="/cart/add?id=${vId}&quantity=1" id="qatb-btn--${vId}" class="${vAvailable}">${vTitle}</a>`
+        }
+
 
         const li = document.createElement("li");
         li.className = "cart_items-item";
@@ -96,6 +106,7 @@ export default class RecentlyViewedElement extends HTMLElement {
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" />
               </svg></a></div>
+              <div class="qatb-btns">${qatbBtns}</div>
                 </line-item>
               `;
 
