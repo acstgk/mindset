@@ -13,7 +13,8 @@
     visibility: visible;
 }
 
-.grid-loader {
+.grid-loader,
+.mqatb-show {
     display: none;
     height: 0;
     opacity: 0;
@@ -37,6 +38,7 @@
     display: block;
     margin: 0 auto;
 }
+
 
 
 /* login form css fallback for forgotten password */

@@ -10,7 +10,6 @@ export default class ProductCard extends HTMLElement {
 
   connectedCallback() {
     this._init();
-    this._moveMobileQB();
 
     // Listen for countdown ended event
     this._countdownHandler = () => {
@@ -21,38 +20,47 @@ export default class ProductCard extends HTMLElement {
   }
 
   _init() {
-    // add click listeners to all the desktop quick add to basket buttons
-    const qatbButtons = this.querySelectorAll(".qatb-btn:not([data-click-added])") || [];
+    this._bindQATBButtons(this);
 
+    // add click listeners to the open mobile qatb button
+    const openmqatbBtn = this.querySelector(".mqatb-show");
+    if (!openmqatbBtn) return;
+    openmqatbBtn.addEventListener("click", (event) => this._openMobileQB(event));
+
+    // add click listeners to the Iwish buttons
+    const el = this.querySelector(".iWishColl");
+    if (el) {
+      if (typeof iWish !== "undefined" && iWish.iwishAddClick) {
+        iWish.iwishAddClick(el);
+      }
+    }
+
+    // add click listeners to the modal close button
+    const close = this.querySelector(".mqatb-close");
+    if (close) close.addEventListener("click", (event) => this._closeMobileQB(event));
+  }
+
+  _bindQATBButtons(root) {
+    const qatbButtons = root.querySelectorAll(".qatb-btn") || [];
     qatbButtons.forEach((btn) => {
-      btn.setAttribute("data-click-added", "true");
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         const targetButton = e.currentTarget;
         const targetSize = targetButton.innerText;
 
-        // remove any existing cart errors
         const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
-        errors.forEach((error) => {
-          error.remove();
-        });
+        errors.forEach((error) => error.remove());
 
-        targetButton.innerHTML = `<div class="loader"></div>`; // add the loading animation
+        targetButton.innerHTML = `<div class="loader"></div>`;
 
-        //add the product/s
         Cart.addItems(targetButton.dataset.vId)
           .then(() => {
-            //if success
             targetButton.innerHTML = targetSize;
-            //close the modal so cart can open
             const modal = document.getElementById(`mqatb-${this.dataset.prodId}`);
             modal ? modal.classList.remove("active") : "";
           })
           .catch((error) => {
-            // if error
             targetButton.innerHTML = targetSize;
-
-            // display an error message next to the qatb buttons
             const errorBox = document.createElement("div");
             errorBox.className = "cart-error warning";
             errorBox.textContent = error.description || "Sorry, something went wrong.";
@@ -60,31 +68,86 @@ export default class ProductCard extends HTMLElement {
           });
       });
     });
-
-    // add click listeners to the open mobile qatb button
-    const openmqatbBtn = this.querySelector(".mqatb-show:not([data-click-added])");
-    if (!openmqatbBtn) return;
-    openmqatbBtn.setAttribute("data-click-added", "true");
-    openmqatbBtn.addEventListener("click", (event) => this._openMobileQB(event));
-
-    // add click listeners to the Iwish buttons
-    const el = this.querySelector(".iWishColl:not([data-click-added])");
-    el.setAttribute("data-click-added", "true");
-    if (typeof iWish !== "undefined" && iWish.iwishAddClick) {
-      iWish.iwishAddClick(el);
-    }
-
-    // add click listeners to the modal close button
-    const close = this.querySelector(".mqatb-close");
-    close.addEventListener("click", (event) => this._closeMobileQB(event));
   }
 
   _openMobileQB(event) {
-    const modalID = event.target.dataset.target;
-    const modalEl = document.getElementById(modalID);
-    modalEl.classList.add("active");
-    modalEl.setAttribute("aria-hidden", "false");
-    document.querySelector("page-overlay").openThis();
+    const trigger = event.currentTarget || event.target;
+    const modalID = trigger.dataset.target;
+    let modalEl = document.getElementById(modalID);
+
+    if (!modalEl) {
+      modalEl = this._buildMobileQB(trigger);
+      document.body.appendChild(modalEl);
+      this._bindQATBButtons(modalEl);
+    }
+
+    setTimeout(() => {
+      modalEl.classList.add("active");
+      modalEl.setAttribute("aria-hidden", "false");
+      document.querySelector("page-overlay").openThis();
+    }, 200);
+  }
+
+  _buildMobileQB(trigger) {
+    const imgURLs = trigger.dataset.images.split(",");
+    const modalID = trigger.dataset.target;
+    const productTitle = trigger.dataset.productTitle;
+
+    //create the modal
+    const modal = document.createElement("div");
+    modal.className = "fade-in mqatb-modal";
+    modal.id = modalID;
+    modal.setAttribute("aria-hidden", "true");
+
+    // create the image container and render the images
+    const images = document.createElement("div");
+    images.className = "mqatb-images";
+    for (let i = 0, len = imgURLs.length; i < len; i++) {
+      const img = document.createElement("img");
+      img.src = imgURLs[i];
+      img.alt = productTitle;
+      images.appendChild(img);
+    }
+
+    // Copy the product details
+    const productInfo = this.querySelector(".product_card-info").innerHTML;
+    const info = document.createElement("div");
+    info.className = "mqatb-info";
+    info.innerHTML = productInfo;
+
+    // Copy add to bag buttons
+    const buttonsData = this.querySelector(".datb").innerHTML;
+    const buttons = document.createElement("div");
+    buttons.className = "mqatb-btns";
+    buttons.innerHTML = buttonsData;
+
+    // add content to the modal
+    modal.appendChild(images);
+    modal.appendChild(info);
+    modal.appendChild(buttons);
+
+    //create the close button and add close functionality
+    const close = document.createElement("div");
+    close.className = "round-btn mqatb-close";
+    const closeIcon = `
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="rotate45 icon icon-plus"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" />
+    </svg>`;
+    close.innerHTML = closeIcon;
+    modal.appendChild(close);
+    close.addEventListener("click", (event) => this._closeMobileQB(event));
+
+    //return the modal for rendering to dom
+    return modal;
   }
 
   _closeMobileQB(event) {
@@ -92,13 +155,6 @@ export default class ProductCard extends HTMLElement {
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
     document.querySelector("page-overlay").closeThis();
-  }
-
-  _moveMobileQB() {
-    const modal = this.querySelector(".mqatb-modal");
-    if (!modal) return;
-    const body = document.body;
-    body.appendChild(modal);
   }
 
   disconnectedCallback() {

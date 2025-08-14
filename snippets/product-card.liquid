@@ -86,6 +86,16 @@
   {% render 'wishlist-app-links', linkType: 'list-product', product: product %}
 
   {% unless product.requires_selling_plan or product.metafields.custom.product_set or product.available == false %}
+    {% assign image_list = '' %}
+    {% for image in product.images %}
+      {% unless forloop.index == 2 %}
+        {% assign img_url = image | image_url: width: 700 %}
+        {% assign image_list = image_list | append: img_url %}
+        {% unless forloop.last %}
+          {% assign image_list = image_list | append: ',' %}
+        {% endunless %}
+      {% endunless %}
+    {% endfor %}
     <a
       class="mqatb-show round-btn"
       href="javascript:void(0)"
@@ -93,7 +103,8 @@
       aria-label="open the mobile quick add modal"
       aria-expanded="false"
       data-target="mqatb-{{product.id}}"
-      data-product='{{ product | json | escape }}'
+      data-images="{{ image_list | escape }}"
+      data-product-title="{{ product.title }}"
     >
       {% render 'icon' with 'cart' as icon %}
     </a>

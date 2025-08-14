@@ -1407,8 +1407,12 @@ product-card {
         right: 12px;
     }
 
-    .iWishColl span {
-        display: none;
+    .iWishColl {
+        background: color-mix(in lab, var(--c-white), transparent 70%);
+
+        & span {
+            display: none;
+        }
     }
 
     .mqatb-show {
@@ -1513,17 +1517,23 @@ product-card,
     bottom: 0;
     width: 100vw;
     max-height: 90vh;
-    padding: 0 0 20px;
     z-index: 12;
     background: var(--c-white);
     box-shadow: 0 0 4px color-mix(in lab, var(--c-black), transparent 70%);
+    border-top: 1px solid var(--c-off-white);
 
-    & .mqatb-img {
-        max-height: 100vw;
+    & .mqatb-images {
         width: 100vw;
-        overflow: hidden;
+        aspect-ratio: 1;
+        overflow: auto hidden;
+        display: flex;
+        place-items: center;
+        scroll-snap-type: x mandatory;
+        scrollbar-color: var(--c-black) white;
+        white-space: nowrap;
 
         & img {
+            scroll-snap-align: start;
             height: 100%;
             width: 100%;
             object-fit: cover;
@@ -1533,7 +1543,6 @@ product-card,
 
     & .mqatb-info {
         padding: 0 20px 15px;
-        margin-bottom: 10px;
         border-bottom: 1px solid var(--c-light-grey);
         border-top: 1px solid var(--c-light-grey);
         background-color: var(--c-off-white);
@@ -1544,8 +1553,8 @@ product-card,
         }
     }
 
-    & .qatb-btns {
-        padding: 5px 10px 0;
+    & .mqatb-btns {
+        padding: 2vh 10px;
     }
 
     & .mqatb-close {
