@@ -1328,6 +1328,10 @@ product-card {
     padding-bottom: 5px;
     border-bottom: 1px solid var(--c-light-grey);
 
+    &.first-item {
+        order: -1;
+    }
+
 
     & .product_card-media {
         aspect-ratio: 35 / 50;

@@ -1,3 +1,4 @@
+{% comment %} Check whether the cart is mixed of a straight gender {% endcomment %}
 {% assign latest_gender = cart.items[0].vendor | downcase %}
 {% assign mixed_cart = false %}
 {% for item in cart.items offset: 1 %}
@@ -7,6 +8,7 @@
   {% endif %}
 {% endfor %}
 
+{% comment %} which collection do we need to display? {% endcomment %}
 {% if mixed_cart %}
   {% case latest_gender %}
     {% when 'womens', 'mens' %}
@@ -29,13 +31,23 @@
   {% endcase %}
 {% endif %}
 
-{% if latest_gender %}
+{% comment %} check to see if we are close to a free shipping threshold {% endcomment %}
+{% assign total_cart = cart.total_price | times: 1 %}
+{% if total_cart >= 6500 and total_cart <= 7500 or total_cart >= 11500 and total_cart <= 12500 %}
+  {% assign in_range = true %}
+{% endif %}
+
+{% if latest_gender != '' %}
   <div class="cart-upsells">
     <h2 class="h4">Treat Yourself</h2>
 
     <div class="cart-upsells--carousel">
       {% for product in upsell_collection %}
-        {% render 'product-card', product: product, modal: true %}
+        {% if forloop.last and in_range %}
+          {% render 'product-card', product: product, modal: true, class: 'first-item' %}
+        {% else %}
+          {% render 'product-card', product: product, modal: true %}
+        {% endif %}
       {% endfor %}
     </div>
   </div>
@@ -44,7 +56,7 @@
 {% stylesheet %}
   .cart-upsells {
     padding: 10px 20px;
-    border-top: 1px solid var(--c-light-grey);
+    border-block: 1px solid var(--c-light-grey);
     & h2 {
       text-align: left;
     }
@@ -64,12 +76,11 @@
       margin: 0;
 
       & .Title,
-      & .Price--saving  {
+      & .Price--saving {
         opacity: 0;
         height: 0.5em;
         padding: 0;
       }
-
     }
   }
 {% endstylesheet %}
