@@ -14,7 +14,18 @@ export default class PersonalRecommendations extends HTMLElement {
 
   _initCarousel = async () => {
     const recentlyViewed = new RecentlyViewed().getProductList();
-    const product = recentlyViewed ? recentlyViewed[this.gender][0] : "";
+
+    // Guard against missing gender bucket or empty arrays
+    let product = null;
+    if (
+      recentlyViewed &&
+      this.gender &&
+      Object.prototype.hasOwnProperty.call(recentlyViewed, this.gender) &&
+      Array.isArray(recentlyViewed[this.gender]) &&
+      recentlyViewed[this.gender].length > 0
+    ) {
+      product = recentlyViewed[this.gender][0];
+    }
 
     if (product) {
       const productID = product.productId;

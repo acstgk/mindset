@@ -41,7 +41,6 @@
 	.iWishColl {
         {% if section.settings.icon_position == 'top-left' or section.settings.icon_position == 'top-right' %}
           position: absolute;
-          z-index: {{ section.settings.z_index }};
         {% endif %}
         {% if section.settings.background_color != 'rgba(0,0,0,0)' %}
             background-color: {{ section.settings.background_color }};
