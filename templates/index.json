@@ -149,9 +149,10 @@
         "url4w": ""
       }
     },
-    "gender-shop-by-size" : {
+    "gender-shop-by-size": {
       "type": "gender-shop-by-size",
-      "name": "Shop By Size"
+      "name": "Shop By Size",
+      "settings": {}
     },
     "gender_recommendation_carousel_QMFmBV": {
       "type": "gender-recommendation-carousel",

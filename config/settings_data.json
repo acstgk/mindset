@@ -13,7 +13,6 @@
     "countdown-product-check": false,
     "countdown-tag": "365",
     "countdown-decal": "shopify://shop_images/Bank_Hol_24_Hours_Decal_0d57a58e-2176-49d7-ad53-478feccc2696.png",
-    "highlighted-keyword": "Sale",
     "img-mens-content": "shopify://shop_images/In_Cat__Mens.png",
     "urlm-plp-content": "https://thegymking.com/collections/spring-sale/mens",
     "videom-plp-content": "",
@@ -38,6 +37,7 @@
     "urlk-plp-content-2": "shopify://collections/kidswear",
     "img-kids-content-3": "shopify://shop_images/V1.jpg",
     "urlk-plp-content-3": "shopify://collections/kidswear",
+    "highlighted-keyword": "Sale",
     "franchise-img-1": "shopify://shop_images/white-brand-hub.png",
     "franchise-url-1": "shopify://pages/the-brand-hub",
     "franchise-bg-1": "#565656",
@@ -76,7 +76,7 @@
     "social_ig": "https://www.instagram.com/gymking/",
     "social_yt": "https://www.youtube.com/channel/UCMo0t3vIAyl-peoNAcIwi9g/videos",
     "social_tt": "https://www.tiktok.com/@thegymking/",
-    "favicon": "shopify://shop_images/Gym_King_Logo.png",
+    "favicon": "shopify://shop_images/Gym_King_Logo-whitebg.png",
     "nav-mobilemenu-1": "mens-side-menu",
     "nav-mobilemenu-2": "womens-side-menu",
     "sections": {
@@ -100,9 +100,22 @@
               "link1": "shopify://products/gk-gift-card",
               "enable_countdown": false
             }
+          },
+          "announcement_slider_rTa4zL": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "ANNOUCEMENT",
+              "subcontent1": "More Info",
+              "link1": "",
+              "enable_countdown": false
+            }
           }
         },
-        "block_order": ["announcement_slider_ij8XhU", "announcement_slider_Qw6CQD"],
+        "block_order": [
+          "announcement_slider_ij8XhU",
+          "announcement_slider_Qw6CQD",
+          "announcement_slider_rTa4zL"
+        ],
         "settings": {
           "enable_bar": true,
           "home_page_only": false,
@@ -120,7 +133,22 @@
       },
       "wishlist-app-settings": {
         "type": "wishlist-app-settings",
-        "settings": {}
+        "settings": {
+          "iwish_add_txt": "",
+          "iwish_added_txt": "",
+          "icon_style": "heart",
+          "iwish_add_icon_outline": "",
+          "iwish_added_icon_filled": "",
+          "theme_btn_class": "",
+          "icon_position": "top-right",
+          "text_font_size": 14,
+          "text_color": "#000000",
+          "background_color": "#ffffff",
+          "z_index": 2,
+          "qv_wrapper": "",
+          "qv_button": "",
+          "qv_close_button": ""
+        }
       },
       "header-main": {
         "type": "header-main",
