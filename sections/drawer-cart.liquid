@@ -6,6 +6,7 @@
 
   <div id="side-cart" class="active">
     {% render 'cart-items' %}
+    {% render 'cart-upsells' %}
     {% if cart.item_count > 0 %}
       <div class="side_menu-footer cart-footer">
         {% render 'free-delivery-information' %}

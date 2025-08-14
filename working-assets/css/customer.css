@@ -146,10 +146,6 @@ li address-form {
   }
 }
 
-h2.h4 {
-  color: var(--c-black);
-}
-
 ul.account-links {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));

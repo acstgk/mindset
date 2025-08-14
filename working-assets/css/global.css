@@ -949,6 +949,7 @@ content-accordian {
 }
 
 #side-cart {
+    min-height: 0;
     flex: 0 100%;
     display: flex;
     flex-flow: column;
@@ -1638,7 +1639,9 @@ product-card,
                 opacity: 0
             }
 
-            &:not(.modal-true) .datb {
+        }
+        &:not(.modal-true):hover {
+            & .datb {
                 height: fit-content;
                 opacity: 1;
             }

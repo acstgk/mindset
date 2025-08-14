@@ -1,0 +1,75 @@
+{% assign latest_gender = cart.items[0].vendor | downcase %}
+{% assign mixed_cart = false %}
+{% for item in cart.items offset: 1 %}
+  {% if item.vendor != cart.items[0].vendor %}
+    {% assign mixed_cart = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% if mixed_cart %}
+  {% case latest_gender %}
+    {% when 'womens', 'mens' %}
+      {% assign upsell_collection = collections['unisex-basket-collection'].products %}
+    {% else %}
+      {% assign upsell_collection = collections['kids-basket-collection'].products %}
+  {% endcase %}
+{% else %}
+  {% case latest_gender %}
+    {% when 'womens' %}
+      {% assign upsell_collection = collections['womens-basket-collection'].products %}
+    {% when 'mens' %}
+      {% assign upsell_collection = collections['mens-basket-collection'].products %}
+    {% when 'boys' %}
+      {% assign upsell_collection = collections['boys-basket-collection'].products %}
+    {% when 'girls' %}
+      {% assign upsell_collection = collections['girls-basket-collection'].products %}
+    {% else %}
+      {% assign upsell_collection = collections['unisex-basket-collection'].products %}
+  {% endcase %}
+{% endif %}
+
+{% if latest_gender %}
+  <div class="cart-upsells">
+    <h2 class="h4">Treat Yourself</h2>
+
+    <div class="cart-upsells--carousel">
+      {% for product in upsell_collection %}
+        {% render 'product-card', product: product, modal: true %}
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+{% stylesheet %}
+  .cart-upsells {
+    padding: 10px 20px;
+    border-top: 1px solid var(--c-light-grey);
+    & h2 {
+      text-align: left;
+    }
+  }
+
+  .cart-upsells--carousel {
+    display: flex;
+    width: 100%;
+    gap: 0.5em;
+    overflow: auto hidden;
+    scroll-snap-type: x mandatory;
+
+    & product-card {
+      scroll-snap-align: start;
+      width: 40%;
+      flex: 1 0 auto;
+      margin: 0;
+
+      & .Title,
+      & .Price--saving  {
+        opacity: 0;
+        height: 0.5em;
+        padding: 0;
+      }
+
+    }
+  }
+{% endstylesheet %}

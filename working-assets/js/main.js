@@ -559,14 +559,6 @@ if (!customElements.get("predictive-search")) {
           })
           .then((text) => {
             this._resetResults();
-            // Ensure the product-card element is defined (guarded)
-            if (!customElements.get("product-card")) {
-              import("./ProductCard.js").then((module) => {
-                if (!customElements.get("product-card")) {
-                  customElements.define("product-card", module.default);
-                }
-              });
-            }
             const resultsMarkup = new DOMParser().parseFromString(text, "text/html").querySelector("#shopify-section-predictive-search-results").innerHTML;
             // If countdown timers are present, ensure the custom element is defined (guarded)
             if (resultsMarkup.includes("countdown-timer") && !customElements.get("countdown-timer")) {
@@ -738,12 +730,20 @@ class ComponentLoader {
 window.ComponentLoader = ComponentLoader; // Export for global access
 
 new ComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
-new ComponentLoader("product-card", () => import("./ProductCard.js"));
 new ComponentLoader("productcard-carousel", () => import("./ProductCarousel.js"));
 new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
 new ComponentLoader("product-recommendations", () => import("./ProductRecommendations.js"));
 new ComponentLoader("personal-recommendations", () => import("./PersonalisedCarousel.js"));
 new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
+
+// with product cards in the cart drawer, always load the product-card module even without the scroll listener/observer
+ if (!customElements.get("product-card")) {
+   import("./ProductCard.js").then((module) => {
+     if (!customElements.get("product-card")) {
+       customElements.define("product-card", module.default);
+     }
+   });
+ }
 
 // ===================
 // CART LINE ITEMS

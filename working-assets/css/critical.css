@@ -86,7 +86,7 @@ h4,
   font-size: var(--txt-h4);
   font-family: var(--text-font-family);
   text-align: center;
-  color: var(--c-grey);
+  color: var(--c-dark-grey);
 }
 
 h5,
