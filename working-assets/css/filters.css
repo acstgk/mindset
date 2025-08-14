@@ -192,6 +192,29 @@ filters-menu-bar {
   }
 } */
 
+.filter_value-label {
+  display: flex;
+  gap: .5em;
+  align-items: center;
+
+  & .swatch {
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0 0.2em;
+    border: 1px solid var(--c-dark-grey);
+    transition: rotate 0.15s var(--bezier);
+  }
+
+}
+
+.filter_value-checkbox>input:checked+label>.swatch {
+  rotate: 45deg;
+}
+
+.filter_value-checkbox input:has(+label>.swatch) {
+  display: none;
+}
+
 .filter-apply {
   display: none;
 }
@@ -240,6 +263,7 @@ filters-menu-bar {
 
   filters-menu-bar {
     z-index: 1;
+
     & slide-drawer {
       border: none;
       box-shadow: none;
