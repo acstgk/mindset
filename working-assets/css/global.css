@@ -1653,6 +1653,10 @@ product-card,
     z-index: 5 !important;
 }
 
+.yotpo-banner-layout.yotpo-banner-low {
+    border-top: 1px solid var(--c-light-grey);
+}
+
 #fc_frame,
 #fc_frame.fc-widget-normal {
     z-index: 5 !important;

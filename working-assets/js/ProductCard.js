@@ -1,4 +1,4 @@
-/* global iWish Cart */
+/* global iWish Cart navigator */
 
 // ===================
 // Product Cards
@@ -85,6 +85,41 @@ export default class ProductCard extends HTMLElement {
       modalEl.classList.add("active");
       modalEl.setAttribute("aria-hidden", "false");
       document.querySelector("page-overlay").openThis();
+
+      // Touch swipe-to-close support for mobile devices
+      if ('ontouchstart' in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0)) {
+        // Remove any previous listeners if present
+        if (this._touchStartListener) {
+          modalEl.removeEventListener("touchstart", this._touchStartListener);
+          this._touchStartListener = null;
+        }
+        if (this._touchEndListener) {
+          modalEl.removeEventListener("touchend", this._touchEndListener);
+          this._touchEndListener = null;
+        }
+        // Handler for touchstart: record startY
+        this._touchStartListener = (touchEvent) => {
+          if (touchEvent.touches && touchEvent.touches.length > 0) {
+            this._touchStartY = touchEvent.touches[0].clientY;
+          }
+        };
+        // Handler for touchend: check swipe down
+        this._touchEndListener = (touchEvent) => {
+          if (typeof this._touchStartY !== "number") return;
+          if (touchEvent.changedTouches && touchEvent.changedTouches.length > 0) {
+            const endY = touchEvent.changedTouches[0].clientY;
+            const deltaY = endY - this._touchStartY;
+            if (deltaY > 50) {
+              // Swipe down detected; close modal
+              // Synthetic event with target as modalEl
+              this._closeMobileQB({ target: modalEl });
+            }
+          }
+          this._touchStartY = null;
+        };
+        modalEl.addEventListener("touchstart", this._touchStartListener);
+        modalEl.addEventListener("touchend", this._touchEndListener);
+      }
     }, 200);
   }
 
@@ -152,6 +187,15 @@ export default class ProductCard extends HTMLElement {
 
   _closeMobileQB(event) {
     const modal = event.target.closest(".mqatb-modal");
+    // Remove touch listeners if present
+    if (this._touchStartListener) {
+      modal.removeEventListener("touchstart", this._touchStartListener);
+      this._touchStartListener = null;
+    }
+    if (this._touchEndListener) {
+      modal.removeEventListener("touchend", this._touchEndListener);
+      this._touchEndListener = null;
+    }
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
     document.querySelector("page-overlay").closeThis();
