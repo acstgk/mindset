@@ -485,7 +485,6 @@ button {
 
     & img {
         object-position: center;
-        z-index: -1;
         scale: 1;
         transition: scale 10s linear;
         width: 100%;
@@ -493,12 +492,10 @@ button {
 
         &:nth-child(n + 2) {
             position: absolute;
-            z-index: 1;
         }
     }
 
     & a {
-        z-index: 2;
         position: absolute;
         align-content: center;
         text-align: center;
@@ -890,6 +887,7 @@ content-accordian {
         position: sticky;
         top: 0;
         background: var(--c-white);
+        z-index: 1;
 
         &::after {
             content: none;

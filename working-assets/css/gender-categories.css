@@ -43,7 +43,6 @@
 .category-grid img {
   transition: scale 10s ease;
   scale: 1;
-  z-index: -1;
   position: relative;
 }
 
