@@ -48,7 +48,19 @@
 .article-card--image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  min-height: 15rem;
 
+  & .event-meta {
+    position: absolute;
+      top: 5%;
+      right: 0;
+      background: var(--c-white);
+      padding: 0.4em 0.3em 0.3em;
+  }
+
+  & .event-date {
+    top: calc(5% + 2.3em);
+  }
 }
 
 .article-card--content {
@@ -63,5 +75,28 @@
     bottom: 0;
     background: var(--c-off-white);
     padding: 0.5em;
+  }
+}
+
+.article-hero {
+  max-height: 40vh;
+}
+
+.article-wrapper {
+  width: min(90vw, 80ch);
+  margin: -7rem auto 0;
+  background-color: var(--c-white);
+  padding: 2rem;
+  margin-top: -7rem;
+  position: relative;
+  z-index: 1;
+
+  & h1 {
+    margin-top: 0;
+  }
+
+  & p {
+    margin-inline: auto;
+    max-width: none;
   }
 }

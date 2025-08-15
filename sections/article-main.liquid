@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
+
+{{ article.image | image_url: width: 1290 | image_tag: class: 'article-hero' }}
+
+<div class="article-wrapper rtf">
+  <p class="article-meta">
+    {%- if article.metafields.article.event_location.value -%}
+      <b>Event:</b> {{ article.metafields.article.event_location.value }} | {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
+    {% else %}
+      <b>Article:</b> {{ article.published_at | date: '%B %d, %Y' }}
+    {%- endif -%}
+  </p>
+  <h1>{{ article.title }}</h1>
+  {{ article.content }}
+</div>
+
+{% schema %}
+{
+  "name": "Article Main",
+  "class": "section--article-main",
+  "settings": []
+}
+{% endschema %}

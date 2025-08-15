@@ -255,6 +255,10 @@ hr {
   & a {
     text-decoration: underline;
   }
+
+  & img {
+    margin: 1em 0;
+  }
 }
 
 :not(.rtf)>p {
