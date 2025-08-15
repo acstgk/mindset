@@ -280,6 +280,10 @@ ol {
     & li {
       margin: 0.5em 0;
     }
+
+    & p {
+      max-width: 65ch;
+    }
   }
 
   & p:nth-of-type(n+2) {
