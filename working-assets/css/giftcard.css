@@ -1,6 +1,6 @@
 body {
   background: #ffffff;
-  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 1) 30%, rgb(200, 200, 200) 55%);
+  background: radial-gradient(closest-corner at 50% 40%, rgba(255, 255, 255, 1) 40%, rgb(200, 200, 200) 70%);
   background-position: 50% 25%;
   min-height: 100vh;
 }
@@ -44,7 +44,31 @@ body {
   transition: scale 0.15s var(--bezier);
 
   &:hover {
-    scale: 1.2;
+    scale: 1.05;
+
+    &::after {
+      scale: 2;
+      translate: 40% -50%;
+    }
+  }
+
+  &::after {
+    background-image:
+      radial-gradient(10px 10px, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 40%),
+      radial-gradient(20px 20px, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0) 60%),
+      radial-gradient(10vw 10vh, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0) 70%);
+    content: "";
+    display: block;
+    position: absolute;
+    width: 20vw;
+    height: 20vh;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    pointer-events: none;
+    translate: 0 -50%;
+    scale: 0;
+    transition: scale  0.25s var(--bezier), translate 0.15s var(--bezier);
   }
 
   & img {
@@ -135,7 +159,10 @@ body {
 }
 
 @media print {
-  .gift-card--buttons {
+
+  .gift-card--buttons,
+  .gift-card::after {
     display: none;
   }
+
 }
