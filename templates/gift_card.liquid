@@ -1,20 +1,56 @@
+<link rel="stylesheet" href="{{ 'giftcard.min.css' | asset_url }}">
 
-{% layout none %}
+{% assign code_length = gift_card.code.size | divided_by: 4 %}
+{% assign code_length = code_length | minus: 1 %}
+{% assign spaced = '' %}
 
-<!doctype html>
-<html lang="{{ request.locale.iso_code }}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page_title }}</title>
-  {{ content_for_header }}
-  {% comment %} <link rel="stylesheet" href="{{ 'gift_card.css' | asset_url }}">
-  <script src="{{ 'gift_card.js' | asset_url }}" defer></script> {% endcomment %}
-</head>
-<body>
-  <div class="gift-card-container">
-    <h1>{{  gift_card.message}} </h1>
-    <p>{{  gift_card.send_on }}</p>
+{% for i in (0..code_length) %}
+  {% assign start = i | times: 4 %}
+  {% assign cut = gift_card.code | slice: start, 4 %}
+  {% assign spaced = spaced | append: '<span>' | append: cut | append: '</span>' %}
+{% endfor %}
+
+<div class="section--gift-card">
+  <h1 class="center">{{ gift_card.name | default: 'Your' }} Gym King Gift Card</h1>
+  <div class="gift-card">
+    <h2 class="h2">
+      {{ gift_card.initial_value | money_without_trailing_zeros }}
+    </h2>
+
+    {% if gift_card.message %}
+      <div class="gift-card--message center">
+        {{ gift_card.message }}
+      </div>
+    {% endif %}
+
+    <div class="gift-card--code-details">
+      <div class="gift-card--code">{{ spaced }}</div>
+      <span>Use this code at checkout to redeem your gift card</span>
+    </div>
+
+    <img src=" https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Primary_Logo_CMYK_Gold.png?v=1654089878" alt="" width="40" height="40" class="roundel">
+    <span class="h1 slogan">Gift Card</span>
   </div>
-</body>
-</html>
+
+  <div class="gift-card--information center">
+    {% if gift_card.expires_on %}
+      <span>expiry: {{ gift_card.expires_on | date: '%B %d, %Y' }}</span>
+    {% endif %}
+    <span> Balance Remaining: {{ gift_card.balance | money_without_trailing_zeros }}</span>
+  </div>
+  <div class="gift-card--buttons max-width">
+    <button onClick="window.print()" class="button button-secondary">Print</button>
+    <a href="{{ routes.root_url }}" class="button button-primary ">Spend Now {% render 'icon', icon: 'arrow' %}</a>
+  </div>
+  <div id="qr-code"></div>
+  <a href="{{ routes.root_url }}" class="center footer-link">thegymking.com</a>
+</div>
+
+<script>
+  new QRCode(document.getElementById('qr-code'), {
+    text: '{{ shop.url }}',
+    width: 120,
+    height: 120,
+  });
+</script>
+{{ 'vendor/qrcode.js' | shopify_asset_url | script_tag }}

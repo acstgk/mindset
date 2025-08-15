@@ -1,0 +1,141 @@
+body {
+  background: #ffffff;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 1) 30%, rgb(200, 200, 200) 55%);
+  background-position: 50% 25%;
+  min-height: 100vh;
+}
+
+#shopify-section-header-main,
+#shopify-section-header-announcement,
+#shopify-section-footer-main,
+#fc_frame,
+.yotpo-footer-layout,
+.footer-link {
+  display: none;
+}
+
+.section--gift-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.gift-card {
+  aspect-ratio: 1.6;
+  background-color: var(--c-black);
+  background-image:
+    linear-gradient(150deg, transparent 7%, #555 16%, transparent 24%, #555 66%, transparent),
+    linear-gradient(150deg, rgba(31, 31, 31, 1) 0%, rgba(31, 31, 31, 1) 20%, rgba(31, 31, 31, 0.95) 50%, rgba(31, 31, 31, 1) 75%, rgba(31, 31, 31, 1)),
+    url('https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Primary_Logo_CMYK_Gold.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%, 100%, cover;
+  border-radius: 30px;
+  box-shadow: 0 0 20px var(--c-black);
+  margin: 3rem auto 1rem;
+  width: min(90vw, 600px);
+  position: relative;
+  border: 1px solid #C0A479;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--c-off-white);
+  transition: scale 0.15s var(--bezier);
+
+  &:hover {
+    scale: 1.2;
+  }
+
+  & img {
+    width: 50px;
+    margin: auto;
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  & .h1 {
+    font-size: min(5vw, var(--txt-h1));
+  }
+
+  & .slogan.h1 {
+    position: absolute;
+    top: 45px;
+    left: 80px;
+    font-size: var(--txt-h3);
+    translate: 0 -50%;
+  }
+
+  & .h2 {
+    text-align: center;
+    font-size: var(--txt-xl);
+    font-family: var(--emphasis-heading-font-family);
+    display: block;
+    margin: 50px 20px 0 auto;
+    translate: 0 -50%;
+    line-height: 1.2;
+  }
+}
+
+.gift-card--code-details {
+  margin-bottom: 1rem;
+
+  &>span {
+    color: var(--c-white);
+    padding: 0.5em 0;
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+    text-shadow: 0 0 2px var(--c-black);
+  }
+}
+
+.footer-link {
+  display: block;
+  font-size: var(--txt-h4);
+}
+
+.gift-card--message {
+  font-size: var(--txt-h4);
+  text-shadow: 0 0 2px var(--c-black);
+}
+
+.gift-card--information {
+  margin-bottom: 2rem;
+}
+
+.gift-card--code {
+  margin: 0 auto;
+  padding: 0.5em 4ch;
+  background: var(--c-off-white);
+  color: var(--c-black);
+  text-align: center;
+  display: block;
+  width: max-content;
+  border-radius: 0.3em;
+  font-size: var(--txt-h4);
+
+  & span:nth-last-child(n+2):after {
+    content: "  -  ";
+  }
+}
+
+.gift-card--buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+#qr-code {
+  width: 150px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+@media print {
+  .gift-card--buttons {
+    display: none;
+  }
+}
