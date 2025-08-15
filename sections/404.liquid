@@ -1,0 +1,18 @@
+<link rel="stylesheet" href="{{ '404.min.css' | asset_url }}">
+<header>
+    <div class="crack">
+      <h1 data-text="404" class="center"><span>404</span></h1>
+    </div>
+  <p class="center">Sorry! It looks like the page you were looking for skipped leg day and cannot be found.</p>
+</header>
+
+{% render 'dead-end' %}
+<img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Logo-whitebg.png?v=1753428715" alt="" width="40" height="40" class="roundel">
+
+{% schema %}
+{
+  "name": "404 Main",
+  "class": "section--404 max-width",
+  "settings": []
+}
+{% endschema %}

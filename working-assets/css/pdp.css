@@ -289,6 +289,10 @@ pdp-carousel {
   }
 }
 
+.pdp-tabs h4 {
+  text-align: left;
+}
+
 .countdown-wrapper {
   text-align: center;
   margin-top: 0;

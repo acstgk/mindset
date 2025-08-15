@@ -1,0 +1,82 @@
+.section--404 {
+  padding: 6rem 0;
+}
+
+.crack {
+  height: calc(var(--txt-xl) + 1rem);
+  overflow: hidden;
+}
+
+h1 {
+  font-size: var(--txt-xl);
+  position: relative;
+  display: block;
+  height: var(--txt-xl);
+  translate: 0 -750%;
+  animation: drop 1s cubic-bezier(0.45, 0, 0.81, 0.62) forwards;
+
+  & span {
+    font-family: var(--emphasis-heading-font-family);
+    -webkit-clip-path: polygon(10% 0%, 44% 0%, 70% 100%, 55% 100%);
+    clip-path: polygon(10% 0%, 44% 0%, 70% 100%, 55% 100%);
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+    position: absolute;
+    display: block;
+  }
+
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50% 0;
+  }
+
+  &::before {
+    /* animation: crack1 2.5s linear forwards; */
+    -webkit-clip-path: polygon(0% 0%, 10% 0%, 55% 100%, 0% 100%);
+    clip-path: polygon(0% 0%, 10% 0%, 55% 100%, 0% 100%);
+    animation: crackleft 0.3s cubic-bezier(0.45, 0, 0.81, 0.62) forwards;
+    animation-delay: 1s;
+  }
+
+  &::after {
+    /* animation: crack2 2.5s linear forwards; */
+    -webkit-clip-path: polygon(44% 0%, 100% 0%, 100% 100%, 70% 100%);
+    clip-path: polygon(44% 0%, 100% 0%, 100% 100%, 70% 100%);
+    animation: crackright 0.2s cubic-bezier(0.45, 0, 0.81, 0.62) forwards;
+    animation-delay: 1s;
+  }
+}
+
+@keyframes drop {
+  100% {
+    translate: 0 0;
+  }
+}
+
+@keyframes crackleft {
+  100% {
+    rotate: -6deg;
+    translate: -52% 0;
+  }
+}
+
+@keyframes crackright {
+  100% {
+    rotate: 8deg;
+    translate: -47% 0;
+  }
+}
+
+
+
+.roundel {
+  width: min(15vw, 40px);
+  display: block;
+  margin: 1rem auto 0;
+}

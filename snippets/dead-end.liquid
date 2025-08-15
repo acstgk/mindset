@@ -1,0 +1,35 @@
+<div class="dead-end center">
+  {%- unless template == '404' or template == 'cart.drawer' -%}
+    <form style="margin:20px;" id="search_form" name="SearchPage_form" method="get" role="page-search" action="{{ routes.search_url }}">
+      <input type="hidden" name="type" value="product">
+      <input
+        id="searchPage__input"
+        class="search_form-terms-input"
+        type="text"
+        name="q"
+        placeholder="Search Gym King"
+        {% if template == '404' %}
+          autofocus
+        {% endif %}
+        required
+      >
+      <button type="submit" form="SearchPage_form">
+        <span>{%- render 'icon', icon: 'search' -%}</span>
+      </button>
+    </form>
+  {% endunless %}
+
+  <a href="{{routes.collections_url}}/mens" class="button button-primary">Shop Mens</a>
+  <a href="{{routes.collections_url}}/womens" class="button button-primary">Shop Womens</a><br>
+  <a href="{{ routes.root_url }}" class="button button-secondary back-home">{{- '404.general.button' | t -}}</a>
+  {% render 'trust-widget' with 'micro' %}
+</div>
+
+{% stylesheet %}
+  .dead-end {
+    margin: 2rem auto;
+  }
+  .back-home {
+    margin: 0.5rem auto 2rem;
+  }
+{% endstylesheet %}
