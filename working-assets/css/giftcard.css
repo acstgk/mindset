@@ -63,6 +63,12 @@ body {
       scale: 2;
       translate: 35% -50%;
     }
+
+
+    & .gift-card--code {
+      scale: 1.5;
+      translate: 0 -50%;
+    }
   }
 
   &::after {
@@ -153,6 +159,7 @@ body {
   width: max-content;
   border-radius: 0.3em;
   font-size: var(--txt-h4);
+transition: scale, translate 0.15s var(--bezier);
 
   & span:nth-last-child(n+2):after {
     content: "  -  ";
