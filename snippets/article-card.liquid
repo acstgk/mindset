@@ -1,15 +1,17 @@
 <div class="article-card">
   <a href="{{ article.url }}" class="article-card--image">
-    {{ article.image | image_url: width: 400 | image_tag: class: "image-grow" }}
-   {%- if article.metafields.article.event_location.value -%}
-     <div class="event-meta event-location"> {{ article.metafields.article.event_location.value }}</div>
+    {{ article.image | image_url: width: 400 | image_tag: class: 'image-grow' }}
+    {%- if article.metafields.article.event_location.value -%}
+      <div class="event-meta event-location">{{ article.metafields.article.event_location.value }}</div>
     {%- endif -%}
     {%- if article.metafields.article.event_date.value -%}
-    <div class="event-meta event-date"> {{ article.metafields.article.event_date.value  | date: '%B %d, %Y' }}</div>
-   {%- endif -%}
+      <div class="event-meta event-date">{{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}</div>
+    {%- endif -%}
   </a>
   <div class="article-card--content">
-    <a href="{{ article.url }}"><h2 class="no-block-margin left">{{ article.title }}</h2></a>
+    <a href="{{ article.url }}">
+      <h2 class="no-block-margin left">{{ article.title }}</h2>
+    </a>
     <p>{{ article.excerpt_or_content | strip_html | truncate: 150 }}</p>
     <a href="{{ article.url }}" class="inline-flex read-more-link">read more {% render 'icon', icon: 'arrow' %}</a>
   </div>
