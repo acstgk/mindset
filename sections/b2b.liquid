@@ -1,0 +1,82 @@
+<h1>
+  Gym King<br>
+  <span class="subheading">Wholesale</span>
+</h1>
+<a href="https://shopify.com/65677230331/account" class="button button-primary inline-block">Login to B2B</a>
+<a href="mailto:wholesale@gymking.com" class="button button-inverted inline-block">Make Enquiry</a>
+{% style %}
+  .b2b-section {
+      display: flex;
+      flex-flow: column;
+      place-content: center;
+      align-items: center;
+      padding: 20px;
+      gap: 20px;
+      background:  linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url({{ section.settings.bg_img | image_url: width: '3000px' }});
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      min-height: min(600px, 70vh);
+      color: white;
+      text-align: center;
+  }
+
+  @media screen and (width > 500px) {
+  .b2b-section {
+      flex-flow: row wrap;
+      }
+  }
+
+  .b2b-section h1 {
+      display: block;
+      min-width: 100%;
+      flex: 0;
+      font-size: calc(2 * var(--txt-xl));
+      letter-spacing: 0;
+  }
+
+  .b2b-section a {
+      font-size: var(--txt-h4);
+  }
+
+  .subheading {
+    color: white;
+    text-align: center;
+    font-size: var(--txt-h1);
+    margin-top: -0.8em;
+    display: block;
+    letter-spacing: 0.25em;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "B2B Section",
+  "class": "b2b-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "GK Wholesale"
+    },
+    {
+      "type": "text",
+      "id": "login_button_text",
+      "label": "Login Button Text",
+      "default": "Login to B2B"
+    },
+    {
+      "type": "text",
+      "id": "enquiry_button_text",
+      "label": "Enquiry Button Text",
+      "default": "Make Enquiry"
+    }
+  ]
+}
+{% endschema %}
