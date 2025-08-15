@@ -48,7 +48,7 @@ body {
 
     &::after {
       scale: 2;
-      translate: 40% -50%;
+      translate: 35% -50%;
     }
   }
 
@@ -153,9 +153,10 @@ body {
 }
 
 #qr-code {
-  width: 150px;
+  width: 120px;
   aspect-ratio: 1;
-  margin: 0 auto;
+  border: 5px solid var(--c-white);
+  margin: 2rem auto;
 }
 
 @media print {

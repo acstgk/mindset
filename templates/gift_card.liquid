@@ -46,11 +46,12 @@
   <a href="{{ routes.root_url }}" class="center footer-link">thegymking.com</a>
 </div>
 
+{{ 'vendor/qrcode.js' | shopify_asset_url | script_tag }}
+
 <script>
   new QRCode(document.getElementById('qr-code'), {
-    text: '{{ shop.url }}',
+    text: '{{ gift_card.qr_identifier }}',
     width: 120,
     height: 120,
   });
 </script>
-{{ 'vendor/qrcode.js' | shopify_asset_url | script_tag }}
