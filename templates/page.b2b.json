@@ -10,7 +10,7 @@
 {
   "sections": {
     "wholesale": {
-      "type": "page-b2b",
+      "type": "page-b2b-main",
       "settings": {
         "bg_img": "shopify://shop_images/stocked-pallet-in-warehouse.webp",
         "heading": "GK Wholesale",
