@@ -1,0 +1,122 @@
+<h1>{{ page.title }}</h1>
+<div class="contact-wrapper rtf">
+  <div class="column-1">
+    <p>
+      Our customer service team is available Monday to Friday 9am to 5pm (excluding UK national holidays).
+      <br>
+      <i>
+        For international orders, please contact our global sales partner via the
+        <a href="https://service.global-e.com/?id=2863383a-6c07-48d5-9568-66a68ca24eb6" target="_blank" class="inline-flex">Global-e Service Portal {% render 'icon', icon: 'external' %}</a>
+      </i>
+    </p>
+    {%- form 'contact', class: 'customer-form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="Alert Alert--success">{{ 'contact.form.successfully_sent' | t }}</p>
+      {%- endif -%}
+      {%- if form.errors -%}
+        <div class="Form__Alert Alert Alert--error">
+          <ul class="Alert__ErrorList">
+            {%- for field in form.errors -%}
+              {%- if field == 'form' -%}
+                <li class="Alert__ErrorItem">{{ form.errors.messages[field] }}</li>
+              {%- else -%}
+                <li class="Alert__ErrorItem">
+                  <strong>{{ form.errors.translated_fields[field] }}</strong> {{ form.errors.messages[field] }}
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          </ul>
+        </div>
+      {%- endif -%}
+      <div class="Form__Group">
+        <div class="Form__Item">
+          <input
+            type="text"
+            class="Form__Input"
+            name="contact[name]"
+            aria-label="{{ 'contact.form.name' | t }}"
+            placeholder="{{ 'contact.form.name' | t }}*"
+            required
+            {% if customer %}
+              value="{{ customer.name }}"
+            {% endif %}
+          >
+          <label>{{ 'contact.form.name' | t }}</label>
+        </div>
+        <div class="Form__Item">
+          <input
+            type="email"
+            class="Form__Input"
+            name="contact[email]"
+            aria-label="{{ 'contact.form.email' | t }}"
+            placeholder="{{ 'contact.form.email' | t }}*"
+            required
+            {% if customer %}
+              value="{{ customer.email }}"
+            {% endif %}
+          >
+          <label>{{ 'contact.form.email' | t }}</label>
+        </div>
+        <div class="Form__Item">
+          <input
+            type="text"
+            class="Form__Input"
+            name="contact[order]"
+            aria-label="Order Number"
+            placeholder="Order Number(optional)"
+          >
+          <label>Order Number</label>
+        </div>
+      </div>
+      <div class="Form__Item">
+        <textarea name="contact[body]" cols="30" rows="10" class="Form__Textarea" aria-label="{{ 'contact.form.message' | t }}" placeholder="{{ 'contact.form.message' | t }}*" required></textarea>
+        <label>{{ 'contact.form.message' | t }}</label>
+      </div>
+      <button type="submit" class="button button-full button-primary center">{{ 'contact.form.submit' | t }}</button>
+      <p>or email us at <a href="mailto:customerservice@gymking.com">customerservice@gymking.com</a></p>
+    {%- endform -%}
+  </div>
+  <div class="column-2">
+    <p>
+      <b>{% render 'icon', icon: 'pin', style: 'translate:-50% 0' %} Head Office</b><br>
+      The Gym King<br>
+      Unit 6, Temple Point<br>
+      Bullerthorpe Lane<br>
+      Colton, LEEDS<br>
+      SK15 9JL
+    </p>
+    <hr>
+    <p>For fast answers reaad our FAQ's or visit our support centre</p>
+    <div class="buttons-group">
+      <a href="https://thegymking.com/pages/help-centre" class="inline-flex button button-primary">FAQ's</a>
+      <a href="http://support.thegymking.com/support/home" class="inline-flex button button-primary">Support Center {% render 'icon', icon: 'external' %}</a>
+    </div>
+    <p>Looking for information on your latest order?</p>
+    <div class="buttons-group">
+      <a href="https://www.dpd.co.uk/content/how-can-we-help/index.jsp" class="inline-flex button button-secondary">DPD {% render 'icon', icon: 'external' %}</a>
+      <a href="https://track.dhlparcel.co.uk/" class="inline-flex button button-secondary">DHL {% render 'icon', icon: 'external' %}</a>
+      <a href="https://www.royalmail.com/" class="inline-flex button button-secondary">Royal Mail {% render 'icon', icon: 'external' %}</a>
+      <a href="https://service.global-e.com/section/delivery-shipping/where-is-my-order" class="inline-flex button button-secondary">Internation Parcels {% render 'icon', icon: 'external' %}</a>
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+    gap: 0 3rem;
+  }
+  .customer-form {
+    margin: 1rem auto;
+    width: 100%;
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Contact Page Main",
+  "class": "section--page-main max-width",
+  "settings": []
+}
+{% endschema %}

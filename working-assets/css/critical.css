@@ -263,16 +263,16 @@ ol {
 
 .rtf {
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5 {
+  & h2,
+  & h1,
+  & h3,
+  & h4,
+  & h5 {
     text-align: left;
   }
 
-  ul,
-  ol {
+  & ul,
+  & ol {
     list-style: square;
     display: block;
     padding-left: 5em;
@@ -281,13 +281,19 @@ ol {
       margin: 0.5em 0;
     }
 
-    & p {
-      max-width: 65ch;
-    }
+  }
+
+  & a {
+    text-decoration: underline
+  }
+
+  & p {
+    max-width: 65ch;
+    margin: 0 0;
   }
 
   & p:nth-of-type(n+2) {
-    margin: 1em auto;
+    margin: 1em 0;
   }
 
   &>* {

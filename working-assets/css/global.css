@@ -316,8 +316,16 @@ button {
     cursor: pointer;
 }
 
+
+.buttons-group {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
 .button {
     text-transform: uppercase;
+    text-decoration: none !important;
     letter-spacing: var(--letter-spacing);
     padding: 0.75rem 1.5rem 0.55rem;
     display: inline-flex;
@@ -334,7 +342,7 @@ button {
 }
 
 .button-full {
-    width: min(100%, 400px);
+    width: min(100%, 500px);
 }
 
 .button-primary,
@@ -1653,6 +1661,7 @@ product-card,
             }
 
         }
+
         &:not(.modal-true):hover {
             & .datb {
                 height: fit-content;
@@ -1678,6 +1687,109 @@ product-card,
     }
 }
 
+
+/* forms */
+
+*:focus-visible {
+    appearance: none;
+    outline: 1px solid var(--c-black);
+}
+
+.customer-form {
+    grid-area: 1 / 1;
+    width: min(100%, 400px);
+    margin: 0 auto;
+
+    & .warning {
+        margin-bottom: 1em;
+        padding: 1em;
+    }
+
+    & p {
+        margin-top: 1em;
+    }
+
+    & a {
+        text-decoration: underline;
+    }
+
+    & input:not([type="checkbox"]),
+    & select,
+    & textarea {
+        width: 100%;
+        padding: 1em 2em;
+        font-family: var(--text-font-family);
+
+        &::placeholder {
+            color: var(--c-black);
+            letter-spacing: 0.1ch;
+        }
+    }
+
+    & .checkbox-label {
+        margin-bottom: 1em;
+        display: block;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.5em;
+        width: 100%;
+    }
+
+    & button {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .span-2 {
+        grid-column: 1 / -1;
+
+        & input {
+            width: 100%;
+        }
+    }
+
+    .Form__Textarea {
+        margin-bottom: 0;
+    }
+
+    .Form__Item {
+        margin: 0 auto 1.5em;
+        position: relative;
+        width: 100%;
+
+        & .Form__TextArea:focus-visible {
+            color: red;
+        }
+
+        & .Form__Input:not(:placeholder-shown)~label,
+        & .Form__Textarea:not(:placeholder-shown)~label {
+            opacity: 1;
+            translate: 0 -50%;
+        }
+
+        & label {
+            position: absolute;
+            top: 0;
+            left: 5%;
+            font-size: 12px;
+            padding: 5px;
+            background-color: var(--c-white);
+            translate: 0 0;
+            transition: all 0.15s var(--bezier);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        & a {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            translate: 0 -50%;
+            text-decoration: none;
+        }
+    }
+}
 
 
 /* 3rd THIRD PARTY OVERRIDES */
