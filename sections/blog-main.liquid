@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="{{ 'plp.min.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
+
+<header>
+  <h1 class="no-block-margin">{{ blog.title }}</h1>
+  {%- if blog.articles_count >= 1 -%}
+    <p>{{ blog.articles_count }} {{ "" | pluralize: 'post', 'posts' }}</p>
+  {%- endif -%}
+</header>
+
+<div class="blog-main">
+  {%- if blog.articles_count >= 1 -%}
+    {%- paginate blog.articles by 12 -%}
+    {% if paginate.previous %}
+      <div class="previousNav grid-nav accent-bg" id="pagination-prev">
+        <a href="{{ paginate.previous.url }}">{% render 'icon', icon: 'arrow', class: 'rotate180' %} Go to Previous Page</a>
+        {% if paginate.current_page > 2 %}
+          <a href="{{ paginate.parts[0].url }}" id="first-page">Go to First Page{% render 'icon', icon: 'arrow', class: 'rotate-90' %}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+      <div class="article-grid">
+        {% for article in blog.articles %}
+         {% render 'article-card', article: article %}
+        {% endfor %}
+      </div>
+
+      {% if paginate.next.is_link %}
+      <div class="grid-nav accent-bg"  id="pagination-next">
+        <a id="infinite-trigger" href="{{ paginate.next.url }}">Go to Next Page {% render 'icon', icon: 'arrow' %}</a>
+      </div>
+    {% else %}
+      <div class="grid-nav accent-bg max-width" id="pagination-next" id="pagination-next">
+        <a id="back-to-top" href="#">Back to Top{% render 'icon', icon: 'arrow', class: 'rotate-90' %}</a>
+      </div>
+    {% endif %}
+    {%- endpaginate -%}
+  {% else %}
+
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Blog Main",
+  "class": "section--blog-main max-width",
+  "settings": []
+}
+{% endschema %}

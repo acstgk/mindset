@@ -159,6 +159,10 @@ hr {
   text-align: left;
 }
 
+.no-block-margin {
+  margin-block: 0;
+}
+
 .success,
 .warning,
 .info {
@@ -243,8 +247,6 @@ hr {
 
 
 .rtf>* {
-
-  text-align: left !important;
 
   &:first-child {
     margin-top: 0;

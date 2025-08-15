@@ -60,7 +60,8 @@ product-types {
   }
 }
 
-infinite-scroll {
+infinite-scroll,
+.article-grid {
   height: 100%;
   overflow: auto;
   display: grid;
@@ -113,7 +114,8 @@ infinite-scroll {
 }
 
 @media screen and (width > 500px) {
-  infinite-scroll {
+  infinite-scroll,
+  .article-grid {
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   }
 
@@ -157,7 +159,8 @@ infinite-scroll {
 }
 
 @media screen and (width > 1020px) {
-  infinite-scroll {
+  infinite-scroll,
+  .article-grid {
     grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   }
 }
