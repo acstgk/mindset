@@ -1,0 +1,31 @@
+<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/z0eDJqzTNz4n2k1OkF36Rg" async></script>
+<div class="yotpo-widget-instance" data-yotpo-instance-id="1061737"></div>
+
+<script>
+  function checkAndUpdatePoints() {
+    const pointsElement = document.querySelector('.yotpo-description-points-balance .yotpo-inner-text');
+    if (pointsElement) {
+      const wrapperElement = document.querySelector('.yotpo-description-points-balance');
+      const pointsTotal = pointsElement.innerText.split(' ')[0].replace(',', '') * 1;
+      const pointsWorth = (Math.floor(pointsTotal / 100) * 100) / 20 || 0;
+
+      if (pointsWorth > 0) {
+        const contentString = `"£${pointsWorth} ready to redeem"`;
+        wrapperElement.style.setProperty('--after-content', contentString);
+      }
+      return true;
+    }
+    return false;
+  }
+
+  const pointsObserver = new MutationObserver((mutationsList, observer) => {
+    if (checkAndUpdatePoints()) observer.disconnect();
+  });
+
+  pointsObserver.observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+
+  checkAndUpdatePoints();
+</script>
