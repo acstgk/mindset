@@ -245,30 +245,14 @@ hr {
   margin: 0 0 0 auto;
 }
 
-
-.rtf>* {
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  & a {
-    text-decoration: underline;
-  }
-
-  & img {
-    margin: 1em 0;
-  }
-}
-
-:not(.rtf)>p {
+p {
   margin: 0;
   padding: 0;
   max-width: none;
 }
 
-:not(.rtf)>ul,
-:not(.rtf)>ol {
+ul,
+ol {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -277,6 +261,45 @@ hr {
   padding: 0;
 }
 
+.rtf {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    text-align: left;
+  }
+
+  ul,
+  ol {
+    list-style: square;
+    display: block;
+    padding: 0.5em 0 0.5em 5em;
+
+    & li {
+      margin: 0.5em 0;
+    }
+  }
+
+  & p:nth-of-type(n+2) {
+    margin: 1em auto;
+  }
+
+  &>* {
+    &:first-child {
+      margin-top: 0;
+    }
+
+    & a {
+      text-decoration: underline;
+    }
+
+    & img {
+      margin: 1em 0;
+    }
+  }
+}
 
 /* NAV DRAWER */
 
