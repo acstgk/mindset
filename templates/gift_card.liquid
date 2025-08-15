@@ -11,7 +11,7 @@
 {% endfor %}
 
 <div class="section--gift-card">
-  <h1 class="center">{{ gift_card.name | default: 'Your' }} Gym King Gift Card</h1>
+  <h1 class="center gift-card--title">{{ gift_card.name | default: 'Your' }} Gym King Gift Card</h1>
   <div class="gift-card">
     <h2 class="h2">
       {{ gift_card.initial_value | money_without_trailing_zeros }}
@@ -25,7 +25,7 @@
 
     <div class="gift-card--code-details">
       <div class="gift-card--code">{{ spaced }}</div>
-      <span>Use this code at checkout to redeem your gift card</span>
+      <span>Use this code at checkout to redeem.</span>
     </div>
 
     <img src=" https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Primary_Logo_CMYK_Gold.png?v=1654089878" alt="" width="40" height="40" class="roundel">

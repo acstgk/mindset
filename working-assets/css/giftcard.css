@@ -21,6 +21,19 @@ body {
   translate: -50% -50%;
 }
 
+.gift-card--title {
+  color: transparent;
+  background-image:
+    radial-gradient(80% 65% at 50% 80%, color-mix(in lab, var(--c-dark-grey), white 25%) 0%, var(--c-black) 100%);
+  background-clip: text;
+  margin-top: 1.5em;
+
+  &:has(+.gift-card:hover) {
+    background-image:
+      radial-gradient(80% 65% at 35% 80%, color-mix(in lab, var(--c-grey), white 55%) 0%, var(--c-black) 100%);
+  }
+}
+
 .gift-card {
   aspect-ratio: 1.6;
   background-color: var(--c-black);
@@ -68,7 +81,7 @@ body {
     pointer-events: none;
     translate: 0 -50%;
     scale: 0;
-    transition: scale  0.25s var(--bezier), translate 0.15s var(--bezier);
+    transition: scale 0.25s var(--bezier), translate 0.15s var(--bezier);
   }
 
   & img {
@@ -160,10 +173,16 @@ body {
 }
 
 @media print {
+  .section--gift-card {
+    top: 0;
+    translate: -50% 20%;
+  }
 
+  .gift-card--information,
   .gift-card--buttons,
   .gift-card::after {
     display: none;
+    height: 0;
   }
 
 }
