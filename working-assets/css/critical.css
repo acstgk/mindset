@@ -251,8 +251,7 @@ p {
   max-width: none;
 }
 
-ul,
-ol {
+ul {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -262,6 +261,8 @@ ol {
 }
 
 .rtf {
+  max-width: 65ch;
+  margin: 0 auto;
 
   & h2,
   & h1,
@@ -271,9 +272,12 @@ ol {
     text-align: left;
   }
 
+  & ul {
+    list-style: square;
+  }
+
   & ul,
   & ol {
-    list-style: square;
     display: block;
     padding-left: 5em;
 
