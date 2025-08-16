@@ -1,0 +1,80 @@
+<h1>{{ page.title }}</h1>
+
+<div class="contents-grid">
+  {% for block in section.blocks %}
+    <a rel="canonical" href="{{ block.settings.url }}" class="contents-grid--card accent-bg">
+      {{ block.settings.image | image_url: width: '75px' | image_tag }}
+      <h2 class="h4">{{ block.settings.heading }}</h2>
+    </a>
+  {% endfor %}
+</div>
+
+{% style %}
+  .contents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .contents-grid--card {
+  aspect-ratio: 1;
+  display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+  padding; 1.5rem;
+  margin: 0;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: color-mix(in lab, var(--c-off-white), black 10%);
+
+    & img {
+      scale: 1.1;
+    }
+  }
+
+  & h2 {
+    text-transform: none;
+  }
+
+  & img {
+    width: min(35%, 120px);
+    transition: scale  0.2s ease;
+  }
+  }
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Help Centre Contents",
+  "class": "section--help-contents max-width",
+  "settings": [],
+  "max_blocks": 20,
+  "blocks": [
+    {
+      "name": "Contents Card",
+      "type": "card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Title",
+          "label": "Block Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Block Image"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "info": "Link to FAQ Page",
+          "label": "Block URL"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

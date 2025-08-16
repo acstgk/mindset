@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-help-contents",
+      "blocks": {
+        "card_rigDnY": {
+          "type": "card",
+          "settings": {
+            "heading": "General",
+            "image": "shopify://shop_images/help.svg",
+            "url": "shopify://pages/help-centre-general"
+          }
+        },
+        "card_hVyrf9": {
+          "type": "card",
+          "settings": {
+            "heading": "Deliveries & Orders",
+            "image": "shopify://shop_images/truck-delivery.svg",
+            "url": "shopify://pages/help-centre-delivery-and-orders"
+          }
+        },
+        "card_VQjUpD": {
+          "type": "card",
+          "settings": {
+            "heading": "Returns",
+            "image": "shopify://shop_images/arrow-back-up-double.svg",
+            "url": "shopify://pages/help-centre-returns"
+          }
+        },
+        "card_Rb8ECX": {
+          "type": "card",
+          "settings": {
+            "heading": "Discounts & Payments",
+            "image": "shopify://shop_images/tag.svg",
+            "url": "shopify://pages/help-centre-discounts-payments"
+          }
+        },
+        "card_nAXJdR": {
+          "type": "card",
+          "settings": {
+            "heading": "Products",
+            "image": "shopify://shop_images/shirt.svg",
+            "url": "shopify://pages/help-centre-products"
+          }
+        },
+        "card_9knR64": {
+          "type": "card",
+          "settings": {
+            "heading": "Loyalty Club",
+            "image": "shopify://shop_images/crown.svg",
+            "url": "shopify://pages/help-centre-loyalty-club"
+          }
+        }
+      },
+      "block_order": [
+        "card_rigDnY",
+        "card_hVyrf9",
+        "card_VQjUpD",
+        "card_Rb8ECX",
+        "card_nAXJdR",
+        "card_9knR64"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
