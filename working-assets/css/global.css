@@ -331,6 +331,7 @@ button {
     display: inline-flex;
     text-align: center;
     align-content: center;
+    justify-content: center;
     width: max-content;
     scale: 1;
     transition: scale 0.15s ease;
