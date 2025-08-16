@@ -1,0 +1,51 @@
+<h1>{{ page.title }}</h1>
+
+<content-accordian>
+  {% for block in section.blocks %}
+    <div class="accordian-items">
+      <div class="accordian-header accent-bg {% if forloop.first %}active{% endif %}">{{ block.settings.header }}</div>
+      <div class="accordian-content rtf">{{ block.settings.content }}</div>
+    </div>
+  {% endfor %}
+</content-accordian>
+
+{% style %}
+.accordian-header {
+  padding: 0.5rem 1rem;
+  margin-block: 0.25rem;
+}
+
+.accordian-content {
+  & p:first-child {
+    margin-top: 1rem;
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Content Accordian",
+  "class": "section--content-accordian max-width",
+  "settings": [],
+  "max_blocks": 20,
+  "blocks": [
+    {
+      "name": "Accordian Section",
+      "type": "card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "header",
+          "default": "Title",
+          "label": "Section Title"
+        },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Section Content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "content-accordian",
+      "blocks": {
+        "card_W7bD7M": {
+          "type": "card",
+          "settings": {
+            "header": "How Do I Contact You?",
+            "content": "<p>If you're in the UK, please contact us using the form on our <a href=\"/pages/contact-us\" title=\"Contact Us\">contact page</a> or email us at <a href=\"mailto:customerservice@gymking.com\" title=\"email us at customerservice@gymking.com\">customerservice@gymking.com</a>. </p><p>For any international queries, visit our <a href=\"http://support.thegymking.com/support/home\" title=\"http://support.thegymking.com/support/home\">International Support Center</a> which can be used to answer your questions and contact the international team if you can't find the answer.</p><p>Our Customer Service team is available Monday - Friday between 9am - 5pm UK Time.</p>"
+          }
+        },
+        "card_UYPJTV": {
+          "type": "card",
+          "settings": {
+            "header": "Why Don't You Have a Contact Number?",
+            "content": "<p>We're an independent online brand and don't have a call centre. </p><p>However, every email we receive is personally answered by our in-house customer service team. We aim to reply as helpfully and efficiently as possible.</p>"
+          }
+        },
+        "card_X77qzY": {
+          "type": "card",
+          "settings": {
+            "header": "Can I Work for Gym King?",
+            "content": "<p>We’re always searching for driven, passionate, talented individuals who share our brand ethos. </p><p>If you think you've got what it takes, check out our <a href=\"/pages/careers\" title=\"Careers\">Careers Page</a> for our current vacancies, or send your CV to <a href=\"mailto:careers@gymking.com\" title=\"write and email and send your CV to careers@gymking.com\">careers@gymking.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_W7bD7M",
+        "card_UYPJTV",
+        "card_X77qzY"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

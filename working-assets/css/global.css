@@ -743,6 +743,7 @@ content-accordian {
     justify-content: space-between;
     padding: 5px 0;
     font-weight: 700;
+    cursor: pointer;
 
     & svg {
         height: 21px;
