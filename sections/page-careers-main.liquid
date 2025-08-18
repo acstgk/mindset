@@ -6,27 +6,33 @@
     </h1>
     <p>Want to join the team?</p>
   </div>
-  <hr>
-  <div class="rtf">{{ page.content }}</div>
-  <hr>
 
-  {% if section.blocks.size > 0 %}
-    <div id="current-vacancies">
-      <h2 style="margin-bottom: 20px;" data-title>CURRENT VACANCIES</h2>
-      {% for block in section.blocks %}
-        {% if block.settings.linkurl %}
-          <a class="button button-full button-inverted" href="{{ block.settings.linkurl }}" data-role>
-            {{ block.settings.linktext }}
-            {% render 'icon', icon: 'arrow' %}
-          </a>
-        {% else %}
-          <div href="{{ block.settings.linkurl }}" data-role>{{ block.settings.linktext }}</div>
-        {% endif %}
-      {% endfor %}
+  <div class="careers--content">
+    <div class="rtf">
+      <hr>
+      {{ page.content }}
     </div>
-  {% else %}
-    <h2>No Current Vacancies</h2>
-  {% endif %}
+    <div class="careers--list rtf">
+      <hr>
+      {% if section.blocks.size > 0 %}
+        <div id="current-vacancies">
+          <h2 style="margin-bottom: 20px;" data-title>CURRENT VACANCIES</h2>
+          {% for block in section.blocks %}
+            {% if block.settings.linkurl %}
+              <a class="button button-full button-inverted" href="{{ block.settings.linkurl }}" data-role>
+                {{ block.settings.linktext }}
+                {% render 'icon', icon: 'arrow' %}
+              </a>
+            {% else %}
+              <div href="{{ block.settings.linkurl }}" data-role>{{ block.settings.linktext }}</div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% else %}
+        <h2>No Current Vacancies</h2>
+      {% endif %}
+    </div>
+  </div>
   <p class="center">Send your CV or any questions about working for Gym King to: <a href="mailto:careers@gymking.com">careers@gymking.com</a></p>
 </div>
 
@@ -87,6 +93,17 @@
     flex-direction: column;
     gap: 0.65rem;
     align-items: center;
+  }
+
+  .careers--content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100%;
+    gap: 2rem;
+    justify-items: center;
+    & h2 {
+      margin-top: 0;
+    }
   }
 </style>
 

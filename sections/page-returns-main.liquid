@@ -1,0 +1,247 @@
+<h1>
+  {{ page.title }}
+</h1>
+
+<div class="accent-bg rtf returns-info--block">
+  <div class="returns-info">
+    <h2>{{ section.settings.heading1 }}</h2>
+    <p>{{ section.settings.content1 }}</p>
+  </div>
+  <div class="returns-info">
+    <h2>{{ section.settings.heading2 }}</h2>
+    <p>{{ section.settings.content2 }}</p>
+  </div>
+</div>
+
+<div class="accent-bg returns-info--steps">
+  {% for i in (1..4) %}
+    {% assign stepimg = 'step-image' | append: i %}
+    {% assign title = 'step-heading' | append: i %}
+    {% assign copy = 'step-content' | append: i %}
+
+    <div id="step{{ i }}">
+      {%- if section.settings[stepimg] -%}{{ section.settings[stepimg] | image_url: width: 75 | image_tag }}{%- endif -%}
+      <h3>{{ section.settings[title] }}</h3>
+      <p>{{ section.settings[copy] }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="accent-bg returns-info--footer">
+  <div class="returns-info--portals">
+    <div class="portal">
+      <h3 class="h4">Want to Make a UK Return?</h3>
+      <p>Return an item you bought online.</p>
+      <a href="{{ section.settings.ukurl }}" class="button button-primary">Start a UK Return</a>
+    </div>
+    <div class="portal">
+      <h3 class="h4">Want to Make an International Return?</h3>
+      <p>Return an item you bought online.</p>
+      <a href="{{ section.settings.internationalurl }}" class="button button-primary">Start an International Return</a>
+    </div>
+  </div>
+  <div class="returns-info--contact">
+    <div>
+      <h3 class="h4">Need further Assistance?</h3>
+      <p>Our customer service team is here to help.</p>
+      <a href="{{ section.settings.contacturl }}" class="button button-primary">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .returns-info--block,
+  .returns-info--portals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 0 1rem;
+  }
+
+  .returns-info--steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.2rem;
+    padding: 2rem;
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      & > p {
+        margin: auto 0 0 0;
+      }
+    }
+
+    & img {
+      width: 60px;
+      margin: 0 auto;
+    }
+  }
+
+  .returns-info--footer {
+    padding: 2rem 0.5rem & h3 {
+      text-transform: none;
+      margin-bottom: 0;
+    }
+
+    & a {
+      margin-top: 2rem;
+    }
+  }
+  .returns-info--portals,
+  .returns-info--contact {
+    text-align: center;
+  }
+  .portal {
+    border-bottom: 1px solid var(--c-light-grey);
+    padding-bottom: 1rem;
+  }
+
+  .returns-info {
+    padding: 1rem;
+  }
+</style>
+{% schema %}
+{
+  "name": "Careers Main",
+  "class": "section--careers-main max-width",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Block One"
+    },
+    {
+      "type": "text",
+      "id": "heading1",
+      "label": "Heading",
+      "default": "What is the Returns Policy?"
+    },
+    {
+      "type": "richtext",
+      "id": "content1",
+      "label": "Paragraph",
+      "default": "<ul><li>Items should be returned <strong>within 30 days of delivery</strong>, in original saleable condition. It must be unworn, unwashed and in the same condition that you received it with the tags and packaging.</li><li>We do not offer exchanges.</li><li>If you are returning items from multiple orders, please ensure these are returned separately to avoid any complications.&nbsp;</li></ul><p>For our full returns policy please see the&nbsp;<a href=\"https://thegymking.com/pages/help-centre-returns\">help centre</a>.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Block 2"
+    },
+    {
+      "type": "text",
+      "id": "heading2",
+      "label": "Heading",
+      "default": "Received a Faulty Item?"
+    },
+    {
+      "type": "richtext",
+      "id": "content2",
+      "label": "Paragraph",
+      "default": "<p>We are sorry that you received a faulty item.</p><p>Please <a href=\"mailto:customerservice@gymking.com\">contact the customer services team</a> with your order number, the item and size along with some images of the fault we will work quickly to resolve this for you.</p><p>Please DO NOT return any faulty items until you are asked to do so by our team.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Step 1"
+    },
+    {
+      "type": "text",
+      "id": "step-heading1",
+      "label": "Heading",
+      "default": "Step 1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step-content1",
+      "label": "Instructions",
+      "default": "Visit our Online Returns Portal</a>"
+    },
+    {
+      "type": "image_picker",
+      "id": "step-image1",
+      "label": "Icon 1"
+    },
+    {
+      "type": "header",
+      "content": "Step 2"
+    },
+    {
+      "type": "text",
+      "id": "step-heading2",
+      "label": "Heading",
+      "default": "Step 2"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step-content2",
+      "label": "Instructions",
+      "default": "Enter your order number, and select your item(s)"
+    },
+    {
+      "type": "image_picker",
+      "id": "step-image2",
+      "label": "Icon 2"
+    },
+    {
+      "type": "header",
+      "content": "Step 3"
+    },
+    {
+      "type": "text",
+      "id": "step-heading3",
+      "label": "Heading",
+      "default": "Step 3"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step-content3",
+      "label": "Instructions",
+      "default": "Generate your Label / QR Code"
+    },
+    {
+      "type": "image_picker",
+      "id": "step-image3",
+      "label": "Icon 3"
+    },
+    {
+      "type": "header",
+      "content": "Step 4"
+    },
+    {
+      "type": "text",
+      "id": "step-heading4",
+      "label": "Heading",
+      "default": "Step 4"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "step-content4",
+      "label": "Instructions",
+      "default": "Package and send"
+    },
+    {
+      "type": "image_picker",
+      "id": "step-image4",
+      "label": "Icon 4"
+    },
+    {
+      "type": "header",
+      "content": "Links"
+    },
+    {
+      "type": "url",
+      "id": "ukurl",
+      "label": "UK Returns Portal"
+    },
+    {
+      "type": "url",
+      "id": "internationalurl",
+      "label": "International Returns Portal"
+    },
+    {
+      "type": "url",
+      "id": "contacturl",
+      "label": "Contact us link",
+      "info": "use 'mailto:' to link to an email address"
+    }
+  ]
+}
+{% endschema %}

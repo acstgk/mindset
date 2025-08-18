@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-returns-main",
+      "settings": {
+        "heading1": "What is the Returns Policy?",
+        "content1": "<ul><li>Items should be returned <strong>within 30 days of delivery</strong>, in original saleable condition. It must be unworn, unwashed and in the same condition that you received it with the tags and packaging.</li><li>We do not offer exchanges.</li><li>If you are returning items from multiple orders, please ensure these are returned separately to avoid any complications. </li></ul><p>For our full returns policy please see the <a href=\"https://thegymking.com/pages/help-centre-returns\">help centre</a>.</p>",
+        "heading2": "Received a Faulty Item?",
+        "content2": "<p>We are sorry that you received a faulty item.</p><p>Please <a href=\"mailto:customerservice@gymking.com\">contact the customer services team</a> with your order number, the item and size along with some images of the fault we will work quickly to resolve this for you.</p><p>Please DO NOT return any faulty items until you are asked to do so by our team.</p>",
+        "step-heading1": "Step 1",
+        "step-content1": "Visit our Online Returns Portal",
+        "step-image1": "shopify://shop_images/001-browser.png",
+        "step-heading2": "Step 2",
+        "step-content2": "Enter your order number, and select your item(s)",
+        "step-image2": "shopify://shop_images/003-check-list.png",
+        "step-heading3": "Step 3",
+        "step-content3": "Generate your Label / QR Code",
+        "step-image3": "shopify://shop_images/004-qr-code.png",
+        "step-heading4": "Step 4",
+        "step-content4": "Package and send",
+        "step-image4": "shopify://shop_images/002-parcel.png",
+        "ukurl": "https://thegymking.returns.international/",
+        "internationalurl": "https://web.global-e.com/Returns/Portal/myn3L",
+        "contacturl": "shopify://pages/contact-us"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -317,6 +317,11 @@ ul {
       margin: 1em 0;
     }
   }
+
+  & .center {
+    text-align: center;
+    margin-block: 1rem;
+  }
 }
 
 /* NAV DRAWER */
