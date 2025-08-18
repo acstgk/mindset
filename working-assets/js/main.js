@@ -131,8 +131,6 @@ if (!customElements.get("slide-drawer")) {
 //  2.  data-target attribute equal to the drawer ID
 
 document.querySelectorAll(".drawer-button").forEach((btn) => {
-  console.log("fired");
-
   btn.addEventListener("click", (event) => {
     const target = event.target.closest(".drawer-button").getAttribute("data-target");
     const drawer = document.getElementById(target);

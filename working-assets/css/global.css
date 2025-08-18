@@ -254,6 +254,7 @@ body.no-scroll page-overlay {
     position: relative;
     width: 8.33333px;
     z-index: -1;
+    mix-blend-mode: multiply;
 }
 
 .loader,
@@ -283,7 +284,7 @@ body.no-scroll page-overlay {
 
 .grid-loader {
     grid-area: 1 / 1;
-    opacity: 1;
+    opacity: 0.8;
     transition: opacity 0.15s ease;
 }
 
@@ -448,6 +449,7 @@ button {
     border-radius: 15px;
     background: color-mix(in lab, var(--c-white), transparent 70%);
     box-shadow: 0 0 4px color-mix(in lab, var(--c-dark-grey), transparent 70%);
+    cursor: pointer;
 
     & svg {
         /* overwriting 3rd party css */
@@ -1378,6 +1380,10 @@ product-card {
         flex: 0 0 100%;
         align-items: center;
         height: 100%;
+
+        & .background-image {
+            z-index: -1;
+        }
     }
 
     & .product_card-decal {

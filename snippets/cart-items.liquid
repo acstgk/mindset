@@ -4,7 +4,7 @@
   <ul class="cart_items-list">
     {% for item in cart.items %}
       <li class="cart_items-item">
-        <line-item data-key="{{ item.key }}" data-index="{{ forloop.index0 }}">
+        <line-item data-key="{{ item.key }}" data-product-id="{{item.product.id}}" data-index="{{ forloop.index0 }}">
           <div class="cart_item-image">{{ item.product.featured_image | image_url: width: 400 | image_tag }}</div>
           <header class="cart_item-header">
             <div class="cart_item-info">

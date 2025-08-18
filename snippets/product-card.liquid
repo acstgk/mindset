@@ -46,7 +46,7 @@
 
 <product-card
   data-prod-id="{{ product.id }}"
-  {%- if class or modal-%}
+  {%- if class or modal -%}
     class="{{ class }} modal-{{- modal -}}"
   {%- endif -%}
 >
@@ -57,7 +57,7 @@
     {% endif %}
     <a class="product_card-images" href="{{ product.url }}">
       <div class="product_card-first-image">
-        {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager' }}
+        {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager', class: 'background-image' }}
         <div class="loader grid-loader"></div>
         {{ product.featured_image | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading }}
       </div>
