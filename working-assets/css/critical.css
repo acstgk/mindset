@@ -64,6 +64,12 @@ h1,
   font-weight: 400;
 }
 
+@media screen and (min-width: 800px) {
+  .section--page-main h1 {
+    text-align: center;
+  }
+}
+
 h2,
 .h2 {
   font-size: var(--txt-h2);
@@ -120,7 +126,7 @@ span {
 }
 
 p {
-  max-width: 65ch;
+  max-width: 75ch;
   margin-inline: auto;
 }
 
@@ -268,8 +274,11 @@ ul {
   & h1,
   & h3,
   & h4,
-  & h5 {
+  & h5,
+  & p {
     text-align: left;
+    max-width: 75ch;
+    margin-inline: auto;
   }
 
   & ul {
@@ -289,10 +298,6 @@ ul {
 
   & a {
     text-decoration: underline
-  }
-
-  & p {
-    max-width: 65ch;
   }
 
   & p:nth-of-type(n+2) {

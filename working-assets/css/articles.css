@@ -83,7 +83,7 @@
 }
 
 .article-wrapper {
-  width: min(90vw, 75ch);
+  width: min(90vw, 80ch);
   margin: -7rem auto 0;
   background-color: var(--c-white);
   padding: 2rem 5ch;
