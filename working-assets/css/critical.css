@@ -296,7 +296,7 @@ ul {
   }
 
   & p:nth-of-type(n+2) {
-    margin: 1em 0;
+    margin-block: 1em;
   }
 
   &>* {

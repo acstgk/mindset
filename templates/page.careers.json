@@ -1,0 +1,64 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-careers-main",
+      "blocks": {
+        "link_3bhFYG": {
+          "type": "link",
+          "settings": {
+            "linkurl": "shopify://pages/careers-social-media-marketing-manager",
+            "linktext": "Social Media Manager"
+          }
+        },
+        "link_4JUKxb": {
+          "type": "link",
+          "settings": {
+            "linkurl": "shopify://pages/senior-marketplace-international-sales-manager",
+            "linktext": "Senior Marketplace & International Sale Manager"
+          }
+        },
+        "link_eWa3eR": {
+          "type": "link",
+          "settings": {
+            "linkurl": "shopify://pages/careers-communications-manager",
+            "linktext": "Communications Manager"
+          }
+        },
+        "link_q8DzRN": {
+          "type": "link",
+          "settings": {
+            "linkurl": "shopify://pages/careers-digital-content-creator",
+            "linktext": "Digital Content Creator"
+          }
+        },
+        "link_dmG7Ar": {
+          "type": "link",
+          "settings": {
+            "linkurl": "shopify://pages/careers-fit-model",
+            "linktext": "Fit Model"
+          }
+        }
+      },
+      "block_order": [
+        "link_3bhFYG",
+        "link_4JUKxb",
+        "link_eWa3eR",
+        "link_q8DzRN",
+        "link_dmG7Ar"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

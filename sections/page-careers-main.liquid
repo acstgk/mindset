@@ -1,0 +1,118 @@
+<div class="max-width">
+  <div class="careers--header">
+    <h1 class="inline-flex">
+      <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Logo.png?v=1753428715" alt="" width="80" height="80" class="roundel">
+      {{ page.title }}
+    </h1>
+    <p>Want to join the team?</p>
+  </div>
+  <hr>
+  <div class="rtf">{{ page.content }}</div>
+  <hr>
+
+  {% if section.blocks.size > 0 %}
+    <div id="current-vacancies">
+      <h2 style="margin-bottom: 20px;" data-title>CURRENT VACANCIES</h2>
+      {% for block in section.blocks %}
+        {% if block.settings.linkurl %}
+          <a class="button button-full button-inverted" href="{{ block.settings.linkurl }}" data-role>
+            {{ block.settings.linktext }}
+            {% render 'icon', icon: 'arrow' %}
+          </a>
+        {% else %}
+          <div href="{{ block.settings.linkurl }}" data-role>{{ block.settings.linktext }}</div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <h2>No Current Vacancies</h2>
+  {% endif %}
+  <p class="center">Send your CV or any questions about working for Gym King to: <a href="mailto:careers@gymking.com">careers@gymking.com</a></p>
+</div>
+
+<style>
+  #main {
+    background-color: var(--c-black);
+    color: var(--c-off-white);
+    padding-bottom: 5rem;
+  }
+
+  .section--careers-main {
+    & h1 {
+      font-size: var(--txt-xl);
+      margin: 0;
+    }
+    & img {
+      height: var(--txt-xl);
+      aspect-ratio: 1;
+      width: auto;
+      filter: invert(1);
+    }
+  }
+  .careers--header {
+    background: url('https://cdn.shopify.com/s/files/1/1659/8997/files/ml_background_91e7a81b-43a4-4ccb-a54a-be856392a0d2.png?v=1654097106');
+    background-position: 0 26%;
+    padding: 2rem;
+    aspect-ratio: 4;
+    background-size: cover;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0 1.2rem;
+    font-size: var(--txt-xl);
+    margin: 2rem 0;
+    & p {
+      font-size: var(--txt-h3);
+      text-align: center;
+    }
+  }
+
+  .rtf p {
+    margin-inline: auto;
+  }
+
+  .career--job-link {
+    background: var(--c-dark-grey);
+    width: 100%;
+    padding: 1rem;
+    font-size: var(--txt-h4);
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  #current-vacancies {
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    align-items: center;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Careers Main",
+  "class": "section--careers-main",
+  "settings": [],
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Job Role",
+      "settings": [
+        {
+          "id": "linkurl",
+          "type": "url",
+          "label": "Job URL"
+        },
+        {
+          "id": "linktext",
+          "type": "text",
+          "label": "Job Title"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

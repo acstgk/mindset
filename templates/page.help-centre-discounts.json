@@ -41,7 +41,7 @@
           "settings": {
             "header": "Do you offer Student Discount?",
             "htmlContent": "",
-            "content": "<p>Yes we do! </p><h5>UNiDAYS</h5><p>Claim your discount with our <a href=\"/pages/unidays\" title=\"UNiDAYS\">UNiDAYS Portal</a></p><h5>Youth Discount</h5><p>Claim your discount with our <a href=\"/pages/youthdiscount\" title=\"Student, Apprentice & Young Person Discount\">Youth Discount Portal</a></p>"
+            "content": "<p>Yes we do! </p><h5>UNiDAYS</h5><p>Claim your discount with our <a href=\"/pages/unidays\" title=\"UNiDAYS\">UNiDAYS Portal</a></p><h5>Youth Discount</h5><p>Claim your discount with our <a href=\"/pages/youthdiscount\" title=\"Student, Apprentice & Young Person Discount\">Youth Discount Portal</a></p><h5>Student Beans</h5><p>Claim your discount with our <a href=\"/pages/student-beans\" title=\"Student Beans\">Student Beans Portal</a></p>"
           }
         },
         "card_RciHDe": {
