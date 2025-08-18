@@ -40,9 +40,8 @@ export default class ProductCard extends HTMLElement {
     if (close) close.addEventListener("click", (event) => this._closeMobileQB(event));
   }
 
-
-
   _openMobileQB(event) {
+    const isOverlay = document.body.classList.contains("no-scroll");
     const trigger = event.currentTarget || event.target;
     const modalID = trigger.dataset.target;
     let modalEl = document.getElementById(modalID);
@@ -55,11 +54,12 @@ export default class ProductCard extends HTMLElement {
 
     setTimeout(() => {
       modalEl.classList.add("active");
+      isOverlay ? modalEl.classList.add("keep-overlay") : "";
       modalEl.setAttribute("aria-hidden", "false");
       document.querySelector("page-overlay").openThis();
 
       // Touch swipe-to-close support for mobile devices
-      if ('ontouchstart' in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0)) {
+      if ("ontouchstart" in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0)) {
         // Remove any previous listeners if present
         if (this._touchStartListener) {
           modalEl.removeEventListener("touchstart", this._touchStartListener);
@@ -161,6 +161,7 @@ export default class ProductCard extends HTMLElement {
 
   _closeMobileQB(event) {
     const modal = event.target.closest(".mqatb-modal");
+    const keepOverlay = modal.classList.contains("keep-overlay");
     // Remove touch listeners if present
     if (this._touchStartListener) {
       modal.removeEventListener("touchstart", this._touchStartListener);
@@ -172,7 +173,9 @@ export default class ProductCard extends HTMLElement {
     }
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
-    document.querySelector("page-overlay").closeThis();
+
+    !keepOverlay ? document.querySelector("page-overlay").closeThis() : "";
+    modal.classList.remove("keep-overlay");
   }
 
   disconnectedCallback() {
