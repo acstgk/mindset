@@ -825,6 +825,10 @@ content-accordian {
     }
 }
 
+.cart-footer {
+    flex-direction: column;
+}
+
 .side_menu-account-links {
     display: flex;
     gap: 15px;
@@ -839,7 +843,7 @@ content-accordian {
 
     & ul {
         margin: 0;
-        padding: 0 20px;
+        padding: 1em 20px 0;
         flex-flow: column nowrap;
 
         & li a {
