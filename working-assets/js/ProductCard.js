@@ -1,4 +1,4 @@
-/* global iWish Cart navigator */
+/* global iWish navigator */
 
 // ===================
 // Product Cards
@@ -20,7 +20,7 @@ export default class ProductCard extends HTMLElement {
   }
 
   _init() {
-    this._bindQATBButtons(this);
+    window.gkUtils.bindQATBButtons(this);
 
     // add click listeners to the open mobile qatb button
     const openmqatbBtn = this.querySelector(".mqatb-show");
@@ -40,35 +40,7 @@ export default class ProductCard extends HTMLElement {
     if (close) close.addEventListener("click", (event) => this._closeMobileQB(event));
   }
 
-  _bindQATBButtons(root) {
-    const qatbButtons = root.querySelectorAll(".qatb-btn") || [];
-    qatbButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetButton = e.currentTarget;
-        const targetSize = targetButton.innerText;
 
-        const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
-        errors.forEach((error) => error.remove());
-
-        targetButton.innerHTML = `<div class="loader"></div>`;
-
-        Cart.addItems(targetButton.dataset.vId)
-          .then(() => {
-            targetButton.innerHTML = targetSize;
-            const modal = document.getElementById(`mqatb-${this.dataset.prodId}`);
-            modal ? modal.classList.remove("active") : "";
-          })
-          .catch((error) => {
-            targetButton.innerHTML = targetSize;
-            const errorBox = document.createElement("div");
-            errorBox.className = "cart-error warning";
-            errorBox.textContent = error.description || "Sorry, something went wrong.";
-            targetButton.closest(".qatb-btns").before(errorBox);
-          });
-      });
-    });
-  }
 
   _openMobileQB(event) {
     const trigger = event.currentTarget || event.target;
@@ -78,7 +50,7 @@ export default class ProductCard extends HTMLElement {
     if (!modalEl) {
       modalEl = this._buildMobileQB(trigger);
       document.body.appendChild(modalEl);
-      this._bindQATBButtons(modalEl);
+      window.gkUtils.bindQATBButtons(modalEl);
     }
 
     setTimeout(() => {

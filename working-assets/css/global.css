@@ -330,7 +330,7 @@ button {
     padding: 0.75rem 1.5rem 0.55rem;
     display: inline-flex;
     text-align: center;
-    align-items: normal;
+    align-items: center;
     gap: 0.15rem;
     justify-content: center;
     width: max-content;

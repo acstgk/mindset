@@ -1,6 +1,5 @@
-/* global Shopify Cart */
+/* global Shopify Cart iWish */
 import RecentlyViewed from "./RecentlyViewed.js";
-
 
 // ===================
 // Recently Viewed List
@@ -70,19 +69,47 @@ export default class RecentlyViewedElement extends HTMLElement {
         const compareAt = productData.compare_at_price > productData.price ? Cart.formatMoney(productData.compare_at_price) : "";
         const image = productData.images[0];
         const url = productData.url;
-        const variants = productData.variants
+        const variants = productData.variants;
 
         let qatbBtns = "";
 
+        // create the wishlist button
+        const iWishBtn = document.createElement("a");
+        iWishBtn.classList.add("iWishAdd", "iWishcoll", "iwishcheck", "round-btn");
+        iWishBtn.href = "javascript:void(0)";
+        iWishBtn.ariaLabel = "add/remove product from wishlist";
+        iWishBtn.dataset.product = productData.id;
+        iWishBtn.dataset.pTitle = title;
+        iWishBtn.innerHTML = `<svg
+                    version="1.1"
+                    id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    width="21px"
+                    height="21px"
+                    viewBox="0 0 378.94 378.94"
+                    style="enable-background:new 0 0 378.94 378.94;"
+                    xml:space="preserve"
+                  >
+                    <g><path d="M348.151,54.514c-19.883-19.884-46.315-30.826-74.435-30.826c-28.124,0-54.559,10.942-74.449,30.826l-9.798,9.8l-9.798-9.8c-19.884-19.884-46.325-30.826-74.443-30.826c-28.117,0-54.56,10.942-74.442,30.826c-41.049,41.053-41.049,107.848,0,148.885l147.09,147.091c2.405,2.414,5.399,3.892,8.527,4.461c1.049,0.207,2.104,0.303,3.161,0.303c4.161,0,8.329-1.587,11.498-4.764l147.09-147.091C389.203,162.362,389.203,95.567,348.151,54.514z M325.155,180.404L189.47,316.091L53.782,180.404c-28.368-28.364-28.368-74.514,0-102.893c13.741-13.739,32.017-21.296,51.446-21.296c19.431,0,37.702,7.557,51.438,21.296l21.305,21.312c6.107,6.098,16.897,6.098,23.003,0l21.297-21.312c13.737-13.739,32.009-21.296,51.446-21.296c19.431,0,37.701,7.557,51.438,21.296C353.526,105.89,353.526,152.039,325.155,180.404z"/></g>
+                  </svg>`;
+        iWish.iwishAddClick(iWishBtn);
+
+        // generate the quick atb buttons
         for (let i = 0; i < variants.length; i++) {
           const vTitle = variants[i].title;
           const vId = variants[i].id;
           const vAvailable = variants[i].available ? "qatb-btn" : "qatb-btn--oos";
-          qatbBtns += `<a href="/cart/add?id=${vId}&quantity=1" id="qatb-btn--${vId}" class="${vAvailable}">${vTitle}</a>`
+          qatbBtns += `<a href="/cart/add?id=${vId}&quantity=1" id="qatb-btn--${vId}" data-v-id="${vId}" class="${vAvailable}">${vTitle}</a>`;
+          if (i == 0) {
+            iWishBtn.dataset.variant = vId;
+          }
         }
 
-
         const li = document.createElement("li");
+        li.dataset.prodId = productData.id;
         li.className = "cart_items-item";
         li.innerHTML = `
                 <line-item>
@@ -111,12 +138,15 @@ export default class RecentlyViewedElement extends HTMLElement {
               `;
 
         if (compareAt) {
-          const compareAtEl = document.createElement('span');
+          const compareAtEl = document.createElement("span");
           compareAtEl.classList.add("Price", "Price--compareAt");
           compareAtEl.innerText = compareAt;
           li.querySelector(".Price--wrapper").insertBefore(compareAtEl, li.querySelector(".Price"));
         }
-        this.list.appendChild(li);
+
+        window.gkUtils.bindQATBButtons(li); // bind logic to qatb buttons
+        li.appendChild(iWishBtn); // append the wishlist button
+        this.list.appendChild(li); // add the element to the DOM
       } catch (err) {
         console.error(`Failed to fetch product data for ${item.productName}:`, err);
       }

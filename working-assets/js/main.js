@@ -131,6 +131,8 @@ if (!customElements.get("slide-drawer")) {
 //  2.  data-target attribute equal to the drawer ID
 
 document.querySelectorAll(".drawer-button").forEach((btn) => {
+  console.log("fired");
+
   btn.addEventListener("click", (event) => {
     const target = event.target.closest(".drawer-button").getAttribute("data-target");
     const drawer = document.getElementById(target);
@@ -613,6 +615,45 @@ if (!customElements.get("predictive-search")) {
 }
 
 // ===================
+// Global Utilities
+// ===================
+
+class gkUtils {
+  bindQATBButtons(root) {
+    const qatbButtons = root.querySelectorAll(".qatb-btn") || [];
+    qatbButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetButton = e.currentTarget;
+        const targetSize = targetButton.innerText;
+
+        const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
+        errors.forEach((error) => error.remove());
+
+        targetButton.innerHTML = `<div class="loader"></div>`;
+
+        Cart.addItems(targetButton.dataset.vId)
+          .then(() => {
+            targetButton.innerHTML = targetSize;
+            const prodID = root.dataset.prodId;
+            const modal = document.getElementById(`mqatb-${prodID}`);
+            modal ? modal.classList.remove("active") : "";
+          })
+          .catch((error) => {
+            targetButton.innerHTML = targetSize;
+            const errorBox = document.createElement("div");
+            errorBox.className = "cart-error warning";
+            errorBox.textContent = error.description || "Sorry, something went wrong.";
+            targetButton.closest(".qatb-btns").before(errorBox);
+          });
+      });
+    });
+  }
+}
+
+window.gkUtils = new gkUtils();
+
+// ===================
 // DYNAMIC IMPORTS
 // ===================
 
@@ -737,13 +778,13 @@ new ComponentLoader("personal-recommendations", () => import("./PersonalisedCaro
 new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
 
 // with product cards in the cart drawer, always load the product-card module even without the scroll listener/observer
- if (!customElements.get("product-card")) {
-   import("./ProductCard.js").then((module) => {
-     if (!customElements.get("product-card")) {
-       customElements.define("product-card", module.default);
-     }
-   });
- }
+if (!customElements.get("product-card")) {
+  import("./ProductCard.js").then((module) => {
+    if (!customElements.get("product-card")) {
+      customElements.define("product-card", module.default);
+    }
+  });
+}
 
 // ===================
 // CART LINE ITEMS
@@ -936,8 +977,8 @@ if (!customElements.get("free-delivery")) {
 
 class iWishCustom {
   constructor() {
-    this.counterElement = document.querySelector('.iwish-counter');
-    this.iconElement    = document.querySelector('.iwishPage.header_icon');
+    this.counterElement = document.querySelector(".iwish-counter");
+    this.iconElement = document.querySelector(".iwishPage.header_icon");
 
     // run once at start
     this.updateClass();
@@ -946,17 +987,17 @@ class iWishCustom {
     if (this.counterElement) {
       this._counterObserver = new MutationObserver(() => this.updateClass());
       this._counterObserver.observe(this.counterElement, {
-        childList: true,       // watch for text node changes
-        characterData: true,   // watch character data changes
-        subtree: true,         // include descendants (text nodes)
+        childList: true, // watch for text node changes
+        characterData: true, // watch character data changes
+        subtree: true, // include descendants (text nodes)
       });
     }
   }
 
   updateClass() {
     if (!this.counterElement || !this.iconElement) return;
-    const count = parseInt((this.counterElement.textContent || '').trim(), 10);
-    this.iconElement.classList.toggle('wishlisted', !isNaN(count) && count > 0);
+    const count = parseInt((this.counterElement.textContent || "").trim(), 10);
+    this.iconElement.classList.toggle("wishlisted", !isNaN(count) && count > 0);
   }
 }
 
@@ -970,6 +1011,9 @@ function openCartDrawerIfNotOnCartPage() {
   if (theme.pageType != "cart") {
     Cart.getLineItems().then(() => {
       const drawer = document.getElementById("cartDrawer");
+      const cartSection = drawer.querySelector("#side_menu-cart");
+      const isActive = cartSection.classList.contains("active");
+      isActive ? "" : cartSection.click();
       if (drawer) drawer.open();
     });
   }

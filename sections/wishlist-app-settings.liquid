@@ -19,8 +19,8 @@
 {% endcapture %}
 
 {% liquid
-	assign iwish_add = section.settings.iwish_add_txt | prepend: '<span>' | append: '</span>'
-	assign iwish_added = section.settings.iwish_added_txt | prepend: '<span>' | append: '</span>'
+	assign iwish_add = section.settings.iwish_add_txt
+	assign iwish_added = section.settings.iwish_added_txt
 %}
 
 {% if section.settings.icon_style != 'none' %}

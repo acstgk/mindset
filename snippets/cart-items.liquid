@@ -47,7 +47,7 @@
   </ul>
 {% endif %}
 
-{% style%}
+{% style %}
   slide-drawer .cart_items-list {
     display: flex;
     flex-flow: column;
@@ -68,6 +68,13 @@
       border-bottom: 1px solid var(--c-light-grey);
       overflow-y: hidden;
       flex: 0 0 auto;
+      position: relative;
+    }
+
+    & .round-btn {
+      position: absolute;
+      top: 4px;
+      right: 4px;
     }
 
     & line-item {
@@ -263,4 +270,4 @@
       }
     }
   }
-{% endstyle%}
+{% endstyle %}
