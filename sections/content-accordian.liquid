@@ -3,7 +3,7 @@
 <content-accordian>
   {% for block in section.blocks %}
     <div class="accordian-items">
-      <div class="accordian-header accent-bg {% if forloop.first %}active{% endif %}">{{ block.settings.header }}</div>
+      <div class="accordian-header accent-bg {% if forloop.first and section.settings.openFirst %}active{% endif %}">{{ block.settings.header }}</div>
       <div class="accordian-content rtf">
         {{ block.settings.htmlContent }}
         {{ block.settings.content }}
@@ -29,7 +29,12 @@
 {
   "name": "Content Accordian",
   "class": "section--content-accordian max-width",
-  "settings": [],
+  "settings": [ {
+  "type": "checkbox",
+  "id": "openFirst",
+  "label": "Open first item by default?",
+  "default": true
+  }],
   "max_blocks": 20,
   "blocks": [
     {
