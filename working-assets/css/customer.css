@@ -102,45 +102,6 @@ ul.account-links {
   flex: 1 0 auto;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid var(--c-grey)
-}
-
-thead {
-  background-color: var(--c-off-white);
-  border-block: 1px solid var(--c-grey);
-
-  & th {
-    border-right: 1px solid var(--c-light-grey);
-    padding: 1em .75em;
-    border-bottom: 1px solid var(--c-grey);
-
-    &:last-child {
-      border-right: none;
-    }
-  }
-}
-
-tbody {
-  background-color: var(--c-off-white);
-
-  & td {
-    border-right: 1px solid var(--c-light-grey);
-    border-top: 1px solid var(--c-light-grey);
-    padding: 1em 0.5em;
-
-    &:last-child {
-      border-right: none;
-    }
-
-    &:nth-child(odd) {
-      background-color: white;
-    }
-  }
-}
-
 ul.address-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

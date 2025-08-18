@@ -330,7 +330,7 @@ button {
     padding: 0.75rem 1.5rem 0.55rem;
     display: inline-flex;
     text-align: center;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     width: max-content;
     scale: 1;
@@ -767,7 +767,6 @@ content-accordian {
 .accordian-content {
     height: 0;
     overflow: hidden;
-    gap: 5px;
     flex-flow: column;
     margin: 0;
     margin-left: 15px;
@@ -1689,6 +1688,59 @@ product-card,
     }
 }
 
+/* tables */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--c-grey);
+    font-size: var(--txt-p);
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+caption {
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+thead {
+    background-color: var(--c-off-white);
+    border-block: 1px solid var(--c-grey);
+
+}
+
+th {
+    border-right: 1px solid var(--c-light-grey);
+    padding: 1em .75em;
+    border-bottom: 1px solid var(--c-grey);
+
+    &:last-child {
+        border-right: none;
+    }
+}
+
+tr:nth-of-type(even) {
+    background-color: var(--c-off-white);
+}
+
+tbody {
+    background-color: var(--c-white);
+
+    & td {
+        border-right: 1px solid var(--c-light-grey);
+        border-top: 1px solid var(--c-light-grey);
+        padding: 1em 0.5em;
+
+        &:last-child {
+            border-right: none;
+        }
+
+        &:nth-child(odd) {
+            background-color: transparent;
+        }
+    }
+}
 
 /* forms */
 

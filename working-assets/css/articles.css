@@ -83,10 +83,10 @@
 }
 
 .article-wrapper {
-  width: min(90vw, 80ch);
+  width: min(90vw, 75ch);
   margin: -7rem auto 0;
   background-color: var(--c-white);
-  padding: 2rem;
+  padding: 2rem 5ch;
   margin-top: -7rem;
   position: relative;
   z-index: 1;
@@ -97,6 +97,9 @@
 
   & p {
     margin-inline: auto;
-    max-width: none;
   }
+}
+
+p.article-meta {
+  margin-left: 0;
 }

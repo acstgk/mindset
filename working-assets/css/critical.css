@@ -261,7 +261,7 @@ ul {
 }
 
 .rtf {
-  max-width: 65ch;
+  gap: 0.5rem 1rem;
   margin: 0 auto;
 
   & h2,
@@ -293,7 +293,6 @@ ul {
 
   & p {
     max-width: 65ch;
-    margin: 0 0;
   }
 
   & p:nth-of-type(n+2) {
@@ -737,6 +736,16 @@ ul.sub_menu-items {
 
 .splide:not(.is-overflow) .splide__arrows {
   display: none;
+}
+
+.splide__arrows {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.splide__arrow {
+  display: grid;
+  place-items: center;
 }
 
 .announcement_content {

@@ -40,9 +40,14 @@
         "card_X77qzY"
       ],
       "settings": {}
+    },
+    "button-links": {
+      "type": "content-buttons",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "button-links"
   ]
 }

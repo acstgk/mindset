@@ -4,22 +4,25 @@
   {% for block in section.blocks %}
     <div class="accordian-items">
       <div class="accordian-header accent-bg {% if forloop.first %}active{% endif %}">{{ block.settings.header }}</div>
-      <div class="accordian-content rtf">{{ block.settings.content }}</div>
+      <div class="accordian-content rtf">
+        {{ block.settings.htmlContent }}
+        {{ block.settings.content }}
+      </div>
     </div>
   {% endfor %}
 </content-accordian>
 
 {% style %}
-.accordian-header {
-  padding: 0.5rem 1rem;
-  margin-block: 0.25rem;
-}
-
-.accordian-content {
-  & p:first-child {
-    margin-top: 1rem;
+  .accordian-header {
+    padding: 0.5rem 1rem;
+    margin-block: 0.25rem;
   }
-}
+
+  .accordian-content {
+    & p:first-child {
+      margin-top: 1rem;
+    }
+  }
 {% endstyle %}
 
 {% schema %}
@@ -38,6 +41,11 @@
           "id": "header",
           "default": "Title",
           "label": "Section Title"
+        },
+        {
+          "type": "html",
+          "id": "htmlContent",
+          "label": "Custom HTML Cotent"
         },
         {
           "type": "richtext",
