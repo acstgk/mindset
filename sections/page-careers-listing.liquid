@@ -1,0 +1,94 @@
+<div class="Container">
+  <header class="PageHeader">
+    <div class="SectionHeader SectionHeader--center">
+      <h1 class="SectionHeader__Heading Heading u-h1">{{ metaobject.title }}</h1>
+    </div>
+  </header>
+  <div class="PageContent PageContent--narrow Rte">
+    <ul class="main-points">
+      {% if metaobject.role %}
+        <li><b>Role:</b> {{ metaobject.role }}</li>
+      {% endif %}
+      {% if metaobject.function %}
+        <li><b>Function:</b> {{ metaobject.role }}</li>
+      {% endif %}
+      {% if metaobject.responsibility %}
+        <li><b>Responsibility: </b>{{ metaobject.responsibility }}</li>
+      {% endif %}
+      {% if metaobject.reports_to %}
+        <li><b>Reports to:</b> {{ metaobject.reports_to }}</li>
+      {% endif %}
+      {% if metaobject.location %}
+        <li><b>Location:</b> {{ metaobject.location }}</li>
+      {% endif %}
+      {% if metaobject.compensation %}
+        <li><b>Compensation:</b> {{ metaobject.compensation }}</li>
+      {% endif %}
+    </ul>
+
+    <h2 class="h3">Our Background and The Job</h2>
+    <p>
+      Gym King was founded in 2015 and has grown from ‘bedroom brand’ to a leading athleisure and performance wear company with sales of in excess of £20m through an excellent online presence and market leading retail partners. A
+      highly entrepreneurial business driven as a tight fast-moving SME.
+    </p>
+    <p>Gym King believes that we are all fighting for something and that something can be achieved with the right mindset and execution, changing our lives for the better forever.</p>
+    {{ metaobject.intro | metafield_tag }}
+    {% if metaobject.responsibilities %}
+      <h2 class="h3">Responsibilities</h2>
+      {{ metaobject.responsibilities | metafield_tag }}
+    {% endif %}
+    {% if metaobject.about_you %}
+      <h2 class="h3">About You</h2>
+      {{ metaobject.about_you | metafield_tag }}
+    {% endif %}
+    {% if metaobject.gk_values %}
+      <h2 class="h3">Gym King Values</h2>
+      {{ metaobject.gk_values | metafield_tag }}
+    {% endif %}
+    {% if metaobject.benefits %}
+      <h2 class="h3">Benefits</h2>
+      {{ metaobject.benefits | metafield_tag }}
+    {% endif %}
+    {% if metaobject.hours %}
+      <h2 class="h3">Hours</h2>
+      {{ metaobject.hours | metafield_tag }}
+    {% endif %}
+    <div class="buttons">
+      <a href="/pages/careers" style="font-size: 15px;" class="button button-inverted">
+        {% render 'icon', icon: 'arrow', class: 'rotate180' %}
+        <span>Back to Careers Page</span>
+      </a>
+      <a href="mailto:careers@gymking.com" style="font-size: 15px;" class="button button-primary">
+        <span>Apply for this Job </span>
+        {% render 'icon', icon: 'arrow' %}
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .buttons {
+    margin-top: 50px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .buttons a {
+    flex: 1 0 auto;
+    margin-bottom: 15px;
+  }
+
+  ul.main-points {
+    list-style: none;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Job Listing",
+  "class": "section--job-listing max-width rtf",
+  "settings": []
+}
+{% endschema %}

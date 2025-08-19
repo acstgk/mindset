@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-careers-listing",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

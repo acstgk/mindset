@@ -269,6 +269,7 @@ ul {
 .rtf {
   gap: 0.5rem 1rem;
   margin: 0 auto;
+  max-width: 45rem;
 
   & h2,
   & h1,
