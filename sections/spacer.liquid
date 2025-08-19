@@ -1,0 +1,63 @@
+<div class="spacer">
+  <style>
+    #shopify-section-{{ section.id }} {
+        overflow: auto;
+    }
+    #shopify-section-{{ section.id }} .spacer {
+        margin-top: {{ section.settings.desktop }}px !important;
+    }
+    {% if section.settings.desktop < 1 %}
+        #shopify-section-{{ section.id }} {
+            margin-top: {{ section.settings.desktop }}px !important;
+        }
+    {% endif %}
+    @media only screen and (max-width: 769px) {
+        #shopify-section-{{ section.id }} .spacer {
+            margin-bottom: {{ section.settings.mobile }}px !important;
+        }
+        {% if section.settings.desktop < 1 %}
+            #shopify-section-{{ section.id }} {
+                margin-bottom: {{ section.settings.mobile }}px !important;
+            }
+        {% endif %}
+    }
+  </style>
+</div>
+
+{% schema %}
+{
+  "name": "Content Spacer",
+  "class": "section--spacer",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Use this section to add positive or navagtive margin to give more space between sections or bring them closer together,"
+    },
+    {
+      "type": "range",
+      "id": "desktop",
+      "min": -100,
+      "max": 100,
+      "step": 10,
+      "label": "Desktop spacing",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile",
+      "min": -100,
+      "max": 100,
+      "step": 10,
+      "label": "Mobile spacing",
+      "default": 0,
+      "info": "For screens below 700px width."
+    }
+  ],
+  "presets": [
+    {
+      "name": "AOW - Spacer",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

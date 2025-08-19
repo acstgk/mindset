@@ -1,35 +1,6 @@
 <div class="footer-container max-width">
   <div class="footer-socials">
-    <ul class="social-links">
-      {% if settings.social_fb != '' %}
-        <li>
-          <a href="{{ settings.social_fb }}" target="_blank" aria-label="Follow us on Facebook">
-            {% render 'icon' with 'fb' as icon %}
-          </a>
-        </li>
-      {% endif %}
-      {% if settings.social_ig != '' %}
-        <li>
-          <a href="{{ settings.social_ig }}" target="_blank" aria-label="Follow us on Instagram">
-            {% render 'icon' with 'ig' as icon %}
-          </a>
-        </li>
-      {% endif %}
-      {% if settings.social_yt != '' %}
-        <li>
-          <a href="{{ settings.social_yt }}" target="_blank" aria-label="Follow us on Youtube">
-            {% render 'icon' with 'yt' as icon %}
-          </a>
-        </li>
-      {% endif %}
-      {% if settings.social_tt != '' %}
-        <li>
-          <a href="{{ settings.social_tt }}" target="_blank" aria-label="Follow us on TikTok">
-            {% render 'icon' with 'tt' as icon %}
-          </a>
-        </li>
-      {% endif %}
-    </ul>
+{% render 'socials' %}
     <span>@GYMKING</span>
   </div>
 
@@ -38,7 +9,7 @@
       {% assign menu = 'menu-' | append: i %}
       {% assign menu = section.settings[menu] %}
       <div class="accordian-item item-{{ i }}">
-        <div class="accordian-header aria-controls="accordian-content-{{ i }}" role="button" tabindex="0">{{ menu.title }}</div>
+        <div class="accordian-header" aria-controls="accordian-content-{{ i }}" role="button" tabindex="0">{{ menu.title }}</div>
         <ul class="accordian-content " id="accordian-content-{{ i }}">
           {% for link in menu.links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>

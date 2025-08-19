@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="{{ 'static-hero.css' | asset_url }}">
+
+<div class="static-hero {% if section.settings.isFullheight %}hero_slide{% endif %}">
+  {% if section.settings.video != blank %}
+    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'static-hero--image' }}
+  {% elsif section.settings.image != blank %}
+    {{ section.settings.image | image_url: width: 2500 | image_tag: class: 'static-hero--image' }}
+  {% endif %}
+  <div class="static-hero--heading">
+    <span class="h1">Gym King</span>
+    <h1 class="h3">Brand Hub</h1>
+    {% render 'socials' %}
+  </div>
+  <div class="static-hero--content rtf">
+    <p>
+      We believe that if you have something to prove and the mindset to prove it, anything is possible. We hope you enjoy your experience in the brand hub. Find out latest news, events, interviews from our ambassadors and
+      motivational content in our training hub.
+    </p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Static Hero",
+  "class": "section--static-hero",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "isFullheight",
+      "label": "Full height hero?",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "info": "Will autoplay on muted in a loop and therefore intended use is moving image background video, not interviews, talking heads etc."
+    }
+  ],
+  "presets": [
+    {
+      "category": "Hero Elements",
+      "name": "Static Hero",
+      "settings": {},
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

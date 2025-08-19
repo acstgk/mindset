@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "hero": {
+      "type": "static-hero",
+
+    },
+    "spacer": {
+      "type": "spacer",
+      "settings": {}
+    }
+  },
+  "order": ["hero", "spacer"]
+}

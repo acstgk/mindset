@@ -86,7 +86,7 @@
   width: min(90vw, 80ch);
   margin: -7rem auto 0;
   background-color: var(--c-white);
-  padding: 2rem 5ch;
+  padding: 2rem min(5vw, 3rem);
   margin-top: -7rem;
   position: relative;
   z-index: 1;
