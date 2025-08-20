@@ -60,7 +60,7 @@
     .static-hero--heading {
       grid-area: 1 / 1 / 2 / 2;
       text-align: right;
-      padding: 0 5rem;
+      padding: 0px max(calc(calc(100vw - 1260px) / 2), 5rem) 0 0;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -73,10 +73,11 @@
       max-width: 65%;
       color: white;
       margin: 0 0 0 auto;
-      padding: 0 5rem;
+      padding: 0px max(calc(calc(100vw - 1260px) / 2), 5rem) 0 0;
 
       & p {
         text-align: right;
+        max-width: 65ch;
       }
     }
   }
