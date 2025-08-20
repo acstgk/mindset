@@ -9,19 +9,13 @@
       {%- if request.page_type == 'product' -%}
         window.myCurrentProduct = {{ product | json }};
       {%- endif -%}
-      window.dataLayer = window.dataLayer || [];
 
+      {% comment %} Init gtag() {% endcomment %}
+      window.dataLayer = window.dataLayer || [];
       function gtag(){
         window.dataLayer.push(arguments);
       }
-
       gtag('js', new Date());
-
-      // Gtag
-
-      function gtag() {
-        dataLayer.push(arguments);
-      }
       gtag('consent', 'default', {
         ad_storage: 'denied',
         ad_user_data: 'denied',
@@ -35,7 +29,29 @@
       gtag('set', 'ads_data_redaction', true);
       gtag('set', 'url_passthrough', true);
 
-      // global-e tracking
+      {% comment %} GTM Container loader {% endcomment %}
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-PT4PRKB');
+
+      {% comment %} Taggstar {% endcomment %}
+      (function (t, w, d, k, s) {
+        w[t] = w[t] || { lib: {}, tm: { key: k, style: typeof s === "undefined" ? true : s } };
+        var f = d.getElementsByTagName("script")[0],
+          j = d.createElement("script");
+        j.async = true;
+        j.src = "//cdn.taggstar.com/js/2111148/taggstar.min.js";
+        f.parentNode.insertBefore(j, f);
+      })("taggstar", window, document, "gymkingcom");
+
+      {% comment %} global-e  {% endcomment %}
       var glegem =
         window['glegem'] ||
         function () {
@@ -44,6 +60,7 @@
       glegem('OnCheckoutStepLoaded', function (data) {
         window.gleConfData = data;
       });
+
     </script>
 
     <!-- Clarity -->
