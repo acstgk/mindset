@@ -19,7 +19,7 @@
     "spacer": {
       "type": "spacer",
       "settings": {
-        "desktop": 0,
+        "desktop": -70,
         "mobile": 0
       }
     },
@@ -43,11 +43,19 @@
             "cta": "Read more",
             "image": "shopify://shop_images/Ross_Iceland_Day_2-8.jpg"
           }
+        },
+        "article_dgXE3x": {
+          "type": "article",
+          "settings": {
+            "heading_level": "h2",
+            "article": "posts/gkw-x-girlhood-uk-run-club-event"
+          }
         }
       },
       "block_order": [
         "article_VJ87Ym",
-        "custom_pJiF7B"
+        "custom_pJiF7B",
+        "article_dgXE3x"
       ],
       "name": "Featured Articles Carousel",
       "settings": {}

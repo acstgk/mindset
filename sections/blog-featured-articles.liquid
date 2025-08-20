@@ -1,0 +1,188 @@
+<link rel="stylesheet" href="{{ 'featured-articles.min.css' | asset_url }}">
+
+<div class="featured-articles">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'article' %}
+        {% assign article = block.settings.article %}
+        {% assign image = article.image %}
+        {% assign title = article.title %}
+
+        {% comment %} create exerpt {% endcomment %}
+        {% if article.excerpt != blank %}
+          {% assign copy = article.excerpt %}
+        {% else %}
+          {% assign copy = article.content | strip_html | truncate: 150 | split: ' ' %}
+          {% assign words_size = copy | size | minus: 1 %}
+          {% assign copy = copy | slice: 0, words_size | join: ' ' | append: '...' %}
+        {% endif %}
+        {% assign url = article.url %}
+        {% assign url_text = 'read more' %}
+
+        {% comment %} calculate reading time {% endcomment %}
+        {% assign words_per_min = 200.0 %}
+        {% assign content_words = article.content | strip_html | split: ' ' %}
+        {% assign total_words = content_words.size | default: 0 %}
+        {% assign reading_time_minutes = total_words | divided_by: words_per_min | ceil %}
+
+        {% comment %} custom card {% endcomment %}
+      {% when 'custom' %}
+        {% assign image = block.settings.image %}
+        {% assign title = block.settings.title %}
+        {% assign copy = block.settings.copy %}
+        {% assign url = block.settings.url %}
+        {% assign url_text = block.settings.cta %}
+
+      {% when 'custom' %}
+        {% assign image = block.settings.image %}
+        {% assign title = block.settings.title %}
+        {% assign copy = block.settings.copy %}
+        {% assign url = block.settings.url %}
+        {% assign url_text = block.settings.cta %}
+        {% assign reading_time_minutes = 0 %}
+    {% endcase %}
+
+    {% assign heading_level = block.settings.heading_level %}
+
+    {% if url != blank %}
+      {% assign element_type = 'a' %}
+      {% assign has_link = 'href="' | append: url | append: '""' %}
+    {% else %}
+      {% assign element_type = 'div' %}
+    {% endif %}
+
+    <div class="featured-article accent-bg splide__slide">
+      {% comment %} image {% endcomment %}
+      <{{ element_type }} {{ has_link }} class="featured-article--media img-overlay">
+        {% unless image == blank %}
+          {{ image | image_url: width: 800 | image_tag: class: 'featured-article--image' }}
+        {% endunless %}
+      </{{ element_type }}>
+
+      {% comment %} Card text content {% endcomment %}
+      <div class="featured-article--content">
+        <{{ element_type }} {{ has_link }} class="left title">
+          <{{ heading_level }}>{{ title }}</{{ heading_level }}>
+        </{{ element_type }}>
+        <p>
+          {{ copy }}
+          {% if reading_time_minutes > 0 %}
+            <i>
+              ({{ reading_time_minutes }}
+              {{ reading_time_minutes | pluralize: 'min read', 'mins read' }})
+            </i>
+          {% endif %}
+        </p>
+        {% if url != blank %}
+          <a href="{{ url }}" class="button-inverted featured-article--link">
+            {{- url_text | default: 'read more' -}}
+            {%- render 'icon', icon: 'arrow' -%}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<script type="module">
+  import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
+  SplideUtil.splideInit('.featured-articles', {
+    type: 'loop',
+    pagination: true,
+    arrows: false,
+    autoplay: true,
+    interval: 4500,
+    speed: 1000,
+    pauseOnHover: true,
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Featured Articles",
+  "class": "section--blog-featured-articles max-width",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "article",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_level",
+          "label": "Heading level",
+          "options": [
+            { "value": "h1", "label": "Heading level 1" },
+            { "value": "h2", "label": "Heading level 2" },
+            { "value": "h3", "label": "Heading level 3" },
+            { "value": "h4", "label": "Heading level 4" },
+            { "value": "h6", "label": "Heading level 5" }
+          ],
+          "info": "This is purely used for SEO importance as this section has preset styles for titles within the blocks. Please try to avoid having more than one h1 on the page and ideally is a h3 with the section having a h2 (unless is for main page title then go up one level each.",
+          "default": "h2"
+        },
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Article",
+          "info": "Select an article to feature in this block."
+        }
+      ]
+    },
+    {
+      "type": "custom",
+      "name": "Custom Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "heading_level",
+          "label": "Heading level",
+          "options": [
+            { "value": "h1", "label": "Heading level 1" },
+            { "value": "h2", "label": "Heading level 2" },
+            { "value": "h3", "label": "Heading level 3" },
+            { "value": "h4", "label": "Heading level 4" },
+            { "value": "h6", "label": "Heading level 5" }
+          ],
+          "info": "This is purely used for SEO importance as this section has preset styles for titles within the blocks. Please try to avoid having more than one h1 on the page and ideally is a h3 with the section having a h2 (unless is for main page title then go up one level each.",
+          "default": "h2"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Custom Card Title"
+        },
+        {
+          "type": "richtext",
+          "id": "copy",
+          "label": "Card Copy"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Card Link URL"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "CTA Text",
+          "default": "Read more"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image",
+          "info": "use an image at least 800px wide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Articles",
+      "name": "Featured Articles Carousel"
+    }
+  ]
+}
+{% endschema %}
