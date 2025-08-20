@@ -233,6 +233,8 @@ pdp-carousel {
       width: 7px;
       background-color: color-mix(in srgb, var(--c-white), transparent 75%);
       padding: 0;
+      border: none;
+      margin: 0;
 
       &.is-active {
         background-color: var(--c-white);

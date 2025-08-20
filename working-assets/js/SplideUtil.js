@@ -1,8 +1,9 @@
 /* global Node */
-
+import Splide from "./splide.min.js";
 // ===================
 // Splide Utils
 // ===================
+
 export class SplideUtil {
   /**
    * Sets up Splide structure for a target element:
@@ -33,5 +34,23 @@ export class SplideUtil {
     target.appendChild(track);
 
     return list;
+  }
+
+  static splideInit(selector, options = {}) {
+    const target = document.querySelector(selector);
+    if (!target) {
+      console.warn(`SplideUtil: No element found for selector "${selector}"`);
+      return;
+    }
+
+    if (!target.classList.contains("splide")) {
+      this.splideHTML(target)
+    }
+
+    // Initialize Splide
+    const splide = new Splide(target, options);
+    splide.mount();
+
+    return splide;
   }
 }

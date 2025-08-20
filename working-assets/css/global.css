@@ -82,6 +82,25 @@ input[type=range] {
     }
 }
 
+button.splide__pagination__page {
+    height: .75rem;
+    padding: 0;
+    width: 0.75rem;
+    background-color: var(--c-grey);
+    border-radius: 50%;
+    margin: 0.75rem auto;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: var(--c-dark-grey);
+    }
+
+    &[aria-selected] {
+        background-color: var(--c-light-grey);
+
+    }
+}
+
 productcard-carousel {
     margin: 0 auto;
     display: none;
@@ -1147,6 +1166,10 @@ video {
         height: 24px;
         text-shadow: 0 0 5px var(--c-grey);
         cursor: pointer;
+
+        &:hover{
+            box-shadow: none;
+        }
 
         &.is-active {
             color: var(--c-white);
