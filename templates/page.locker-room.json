@@ -1,13 +1,61 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "static-hero",
-
+      "settings": {
+        "isFullheight": false,
+        "image": "shopify://shop_images/SCULPT_LS_TEE_SHORT_-_STONE_BLUE_WLT-A2DAD_WSR-A2DAM_50_d91d9ed9-051d-4a58-ba05-900b636939a1.jpg"
+      }
     },
     "spacer": {
       "type": "spacer",
+      "settings": {
+        "desktop": 0,
+        "mobile": 0
+      }
+    },
+    "blog_featured_articles_YgN7Qn": {
+      "type": "blog-featured-articles",
+      "blocks": {
+        "article_VJ87Ym": {
+          "type": "article",
+          "settings": {
+            "heading_level": "h2",
+            "article": "posts/maisie-x-limitless"
+          }
+        },
+        "custom_pJiF7B": {
+          "type": "custom",
+          "settings": {
+            "heading_level": "h2",
+            "title": "Custom Card Title",
+            "copy": "<p>Reprehenderit labore labore ea reprehenderit aute irure aliquip. Tempor aute exercitation fugiat excepteur eu duis ea eu amet culpa voluptate aliquip.</p><p>Consequat sunt esse dolore ut exercitation. Tempor reprehenderit irure esse anim aute laborum incididunt. Quis Lorem non sunt magna labore enim id dolore...</p>",
+            "url": "shopify://pages/ross-edgley-icelandic-swim-tracker",
+            "cta": "Read more",
+            "image": "shopify://shop_images/Ross_Iceland_Day_2-8.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "article_VJ87Ym",
+        "custom_pJiF7B"
+      ],
+      "name": "Featured Articles Carousel",
       "settings": {}
     }
   },
-  "order": ["hero", "spacer"]
+  "order": [
+    "hero",
+    "spacer",
+    "blog_featured_articles_YgN7Qn"
+  ]
 }
