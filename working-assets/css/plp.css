@@ -31,16 +31,6 @@ product-types {
   padding: 1em 1.5em;
   height: 3.5em;
 
-  &.splide.no-carousel:not(.is-active) {
-    visibility: visible;
-    display: flex;
-
-    & .splide__list {
-      display: flex;
-      gap: 1em;
-    }
-  }
-
   & .splide__arrow {
     position: absolute;
     top: 50%;
@@ -114,6 +104,7 @@ infinite-scroll,
 }
 
 @media screen and (width > 500px) {
+
   infinite-scroll,
   .article-grid {
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
@@ -159,6 +150,7 @@ infinite-scroll,
 }
 
 @media screen and (width > 1020px) {
+
   infinite-scroll,
   .article-grid {
     grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));

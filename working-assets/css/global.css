@@ -80,6 +80,22 @@ input[type=range] {
     &.is-initialized .splide__decal {
         display: block;
     }
+
+    &.no-carousel {
+        visibility: visible;
+        display: flex;
+
+        & .splide__slide--clone {
+            display: none;
+        }
+
+        & .splide__list {
+            display: flex !important;
+            transform: translateX(0) !important;
+            justify-content: center;
+            gap: 1em;
+        }
+    }
 }
 
 button.splide__pagination__page {
@@ -106,6 +122,7 @@ productcard-carousel {
     display: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(175px, 350px));
+    min-width: 90vw;
 
     &.no-carousel {
         & .splide__list {
@@ -115,10 +132,6 @@ productcard-carousel {
 
         & .splide__slide:not(.is-active) {
             scale: 1;
-        }
-
-        & .splide__slide--clone {
-            display: none;
         }
     }
 }
@@ -1167,7 +1180,7 @@ video {
         text-shadow: 0 0 5px var(--c-grey);
         cursor: pointer;
 
-        &:hover{
+        &:hover {
             box-shadow: none;
         }
 

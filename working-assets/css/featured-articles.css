@@ -5,17 +5,23 @@
 .featured-article {
   margin: 1.5rem 0;
   padding: 0;
-  position: relative;
   display: grid;
   grid-template-rows: 3fr 1fr;
   border: 1px solid var(--c-off-white);
+  max-height: 50vh;
+
+  & .featured-article--content {
+    position: relative;
+
+  }
 
   & .title {
     position: absolute;
-    top: 66%;
+    top: 0;
     left: 50%;
     width: max-content;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -125%);
+    width: 100%;
 
     &>* {
       color: var(--c-white);
@@ -89,7 +95,6 @@ a.featured-article--link {
   }
 
   a.featured-article--link {
-    width: 50%;
     padding: 0.5rem 1rem;
   }
 }
