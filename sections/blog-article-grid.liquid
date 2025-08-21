@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'article-grid.min.css' | asset_url }}">
+
+{% assign heading_level = 'h' | append: section.settings.heading_level %}
+{% assign subheading_level = section.settings.heading_level | times: 1 | minus: 1 %}
+{% assign subheading_level = 'h' | append: subheading_level %}
+
+<div class="article-grid--header">
+  <{{ heading_level }} class="h1">{{ section.settings.title }}</{{ heading_level }}>
+  <a href="{{ section.settings.blog.url }}" class="button button-primary">View All</a>
+</div>
+
+<div class="article-grid">
+  {% for article in section.settings.blog.articles limit: section.settings.limit %}
+    {% render 'article-card', article: article %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Featured Articles",
+  "class": "section--blog-articles-grid max-width",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Latest Content"
+    },
+    {
+      "type": "select",
+      "id": "heading_level",
+      "label": "Heading level",
+      "options": [
+        { "value": "1", "label": "Heading level 1" },
+        { "value": "2", "label": "Heading level 2" },
+        { "value": "3", "label": "Heading level 3" },
+        { "value": "4", "label": "Heading level 4" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Posts to show",
+      "min": 3,
+      "max": 9,
+      "step": 1,
+      "default": 6
+    }
+  ],
+  "presets": [
+    {
+      "category": "Articles",
+      "name": "Article Grid"
+    }
+  ]
+}
+{% endschema %}

@@ -4,7 +4,7 @@
 {% assign subheading_level = section.settings.heading_level | times: 1 | minus: 1 %}
 {% assign subheading_level = 'h' | append: subheading_level %}
 
-<{{ heading_level }}>{{ section.settings.title }}</{{ heading_level }}>
+<{{ heading_level }} class="h1">{{ section.settings.title }}</{{ heading_level }}>
 <div class="icons-grid">
   {% for block in section.blocks %}
     {% assign url = block.settings.link_url %}

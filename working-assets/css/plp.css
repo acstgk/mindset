@@ -105,8 +105,7 @@ infinite-scroll,
 
 @media screen and (width > 500px) {
 
-  infinite-scroll,
-  .article-grid {
+  infinite-scroll {
     grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
   }
 
@@ -151,8 +150,7 @@ infinite-scroll,
 
 @media screen and (width > 1020px) {
 
-  infinite-scroll,
-  .article-grid {
+  infinite-scroll   {
     grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   }
 }

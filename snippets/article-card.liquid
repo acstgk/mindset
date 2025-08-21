@@ -1,4 +1,4 @@
-<div class="article-card">
+<article class="article-card">
   <a href="{{ article.url }}" class="article-card--image">
     {{ article.image | image_url: width: 400 | image_tag: class: 'image-grow' }}
     {%- if article.metafields.article.event_location.value -%}
@@ -10,9 +10,9 @@
   </a>
   <div class="article-card--content">
     <a href="{{ article.url }}">
-      <h2 class="no-block-margin left">{{ article.title }}</h2>
+      <h3 class="h2 no-block-margin left">{{ article.title }}</h3>
     </a>
     <p>{{ article.excerpt_or_content | strip_html | truncate: 150 }}</p>
     <a href="{{ article.url }}" class="inline-flex read-more-link">read more {% render 'icon', icon: 'arrow' %}</a>
   </div>
-</div>
+</article>
