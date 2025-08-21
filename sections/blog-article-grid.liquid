@@ -1,5 +1,4 @@
 <link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
-<link rel="stylesheet" href="{{ 'article-grid.min.css' | asset_url }}">
 
 {% assign heading_level = 'h' | append: section.settings.heading_level %}
 {% assign subheading_level = section.settings.heading_level | times: 1 | minus: 1 %}
@@ -18,7 +17,7 @@
 
 {% schema %}
 {
-  "name": "Featured Articles",
+  "name": "Article Grid",
   "class": "section--blog-articles-grid max-width",
   "settings": [
     {

@@ -1,0 +1,87 @@
+<link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
+
+{% assign heading_level = 'h' | append: section.settings.heading_level %}
+{% assign subheading_level = section.settings.heading_level | times: 1 | minus: 1 %}
+{% assign subheading_level = 'h' | append: subheading_level %}
+
+<div class="article-grid--header">
+  <{{ heading_level }} class="h1">{{ section.settings.title }}</{{ heading_level }}>
+  <a href="{{ section.settings.blog.url }}/tagged/events" class="button button-primary">View All</a>
+</div>
+
+<div class="article-grid">
+  {% assign events_found = 0 %}
+  {% for article in section.settings.blog.articles %}
+    {% if events_found >= section.settings.limit %}
+      {% break %}
+    {% endif %}
+
+    {% if article.tags contains 'Events' and events_found < section.settings.limit %}
+      <article class="article-card event-card">
+        <a href="{{ article.url }}" class="article-card--image">
+          {{ article.image | image_url: width: 400 | image_tag: class: 'image-grow' }}
+        </a>
+        <div class="article-card--content">
+          <a href="{{ article.url }}">
+            <h3 class="h2 no-block-margin left">{{ article.title }}</h3>
+          </a>
+          {%- if article.metafields.article.event_location.value -%}
+            <div class="event-meta event-location">{{ article.metafields.article.event_location.value }}</div>
+          {%- endif -%}
+          {%- if article.metafields.article.event_date.value -%}
+            <div class="event-meta event-date">{{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}</div>
+          {%- endif -%}
+          <a href="{{ article.url }}" class="inline-flex read-more-link">more info {% render 'icon', icon: 'arrow' %}</a>
+        </div>
+      </article>
+      {% assign events_found = events_found | times: 1 | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Events Grid",
+  "class": "section--blog-events-grid max-width",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Recent Events"
+    },
+    {
+      "type": "select",
+      "id": "heading_level",
+      "label": "Heading level",
+      "options": [
+        { "value": "1", "label": "Heading level 1" },
+        { "value": "2", "label": "Heading level 2" },
+        { "value": "3", "label": "Heading level 3" },
+        { "value": "4", "label": "Heading level 4" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "blog",
+      "id": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Posts to show",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    }
+  ],
+  "presets": [
+    {
+      "category": "Articles",
+      "name": "Events Grid"
+    }
+  ]
+}
+{% endschema %}

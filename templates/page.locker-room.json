@@ -37,11 +37,22 @@
           "type": "custom",
           "settings": {
             "heading_level": "h2",
-            "title": "Custom Card Title",
-            "copy": "<p>Reprehenderit labore labore ea reprehenderit aute irure aliquip. Tempor aute exercitation fugiat excepteur eu duis ea eu amet culpa voluptate aliquip.</p><p>Consequat sunt esse dolore ut exercitation. Tempor reprehenderit irure esse anim aute laborum incididunt. Quis Lorem non sunt magna labore enim id dolore...</p>",
+            "title": "Ross Edgley is taking on his toughest test yet—swimming over 1,000 miles around Iceland’s brutal coastline.",
+            "copy": "<p>Facing 130-ft waves, freezing waters, and 260 km/h winds, Ross will swim over 30 km a day almost equivalent to swimming the English Channel every day, in near-ice conditions.</p>",
             "url": "shopify://pages/ross-edgley-icelandic-swim-tracker",
             "cta": "Read more",
             "image": "shopify://shop_images/Ross_Iceland_Day_2-8.jpg"
+          }
+        },
+        "custom_beeCQN": {
+          "type": "custom",
+          "settings": {
+            "heading_level": "h2",
+            "title": "Simpson's War at Oakwell: Zucco Stopped, European Gold Secured",
+            "copy": "<p>Barnsley's own Callum Simpson delivered a night for the ages at a roaring Oakwell Football Ground, stopping the previously unbeaten Ivan Zucco in the 10th round to claim the European Super Middleweight title. This was more than a fight; it was a testament to Simpson's unwavering heart and skill...</p>",
+            "url": "shopify://blogs/posts/simpsons-war-at-oakwell-zucco-stopped-european-gold-secured",
+            "cta": "Read more",
+            "image": "shopify://shop_images/0aeb2f90-43f1-11f0-b3c0-334b50e52e04.jpg"
           }
         },
         "article_dgXE3x": {
@@ -55,6 +66,7 @@
       "block_order": [
         "article_VJ87Ym",
         "custom_pJiF7B",
+        "custom_beeCQN",
         "article_dgXE3x"
       ],
       "name": "Featured Articles Carousel",
@@ -123,12 +135,34 @@
         "init_splide": true,
         "icon_size": "100%"
       }
+    },
+    "blog_article_grid_KhXhCC": {
+      "type": "blog-article-grid",
+      "name": "Article Grid",
+      "settings": {
+        "title": "Latest Content",
+        "heading_level": "2",
+        "blog": "posts",
+        "limit": 6
+      }
+    },
+    "blog_event_grid_gGXdPj": {
+      "type": "blog-event-grid",
+      "name": "Events Grid",
+      "settings": {
+        "title": "Recent Events",
+        "heading_level": "2",
+        "blog": "posts",
+        "limit": 3
+      }
     }
   },
   "order": [
     "hero",
     "spacer",
     "blog_featured_articles_YgN7Qn",
-    "content_icon_grid_d47Q33"
+    "content_icon_grid_d47Q33",
+    "blog_article_grid_KhXhCC",
+    "blog_event_grid_gGXdPj"
   ]
 }
