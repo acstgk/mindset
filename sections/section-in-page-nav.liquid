@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="{{ 'in-page-nav.min.css' | asset_url }}">
+<content-accordian>
+  <div class="accordian-items {% if section.settings.hasAccent %}accent-bg{% endif %}">
+    <div class="accordian-header inpage-nav--mobile-button">{{ section.settings.mobile_button }}</div>
+    <nav class="accordian-content inpage-nav--content">
+      <ul class="inpage-nav--list">
+        {% if section.blocks.size == 0 %}
+          <li class="no-links">No links added</li>
+        {% endif %}
+        {% assign sorted_blocks = section.blocks | sort: 'settings.text' %}
+        {% for block in sorted_blocks %}
+          <li>
+            <a href="{{ block.settings.url }}" class="h4 uppercase">{{ block.settings.text }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</content-accordian>
+
+
+{% schema %}
+{
+  "name": "In PAge Navigation",
+  "class": "section-in-page-nav max-width",
+  "settings": [
+    {
+      "type": "text",
+      "id": "mobile_button",
+      "label": "Mobile toggle button text",
+      "default": "Explore Gym King",
+      "info": "The text that shows in the button that toggles the list open on mobile."
+    },
+    {
+      "type": "checkbox",
+      "id": "hasAccent",
+      "label": "Accent Background?",
+      "default": true,
+      "info": "Adds a grey tint as the background."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "In-Page Navigation",
+      "category": "Navigation"
+    }
+  ]
+}
+{% endschema %}
