@@ -1,0 +1,25 @@
+  .icons-grid:not(.splide),
+  .icons-grid.no-carousel {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .icons-grid--card {
+    flex: 0 0 auto;
+    width: 175px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    & .h4 {
+      margin-bottom: 0;
+    }
+  }
+
+  img.icons-grid--image {
+    aspect-ratio: 1;
+    margin: 0 auto;
+  }

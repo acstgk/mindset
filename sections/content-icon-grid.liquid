@@ -1,0 +1,132 @@
+<link rel="stylesheet" href="{{ 'content-icon-grid.min.css' | asset_url }}">
+
+{% assign heading_level = 'h' | append: section.settings.heading_level %}
+{% assign subheading_level = section.settings.heading_level | times: 1 | minus: 1 %}
+{% assign subheading_level = 'h' | append: subheading_level %}
+
+<{{ heading_level }}>{{ section.settings.title }}</{{ heading_level }}>
+<div class="icons-grid">
+  {% for block in section.blocks %}
+    {% assign url = block.settings.link_url %}
+    {% if url != blank %}
+      {% assign element_type = 'a' %}
+      {% assign has_link = 'href="' | append: url | append: '"' %}
+    {% else %}
+      {% assign element_type = 'div' %}
+    {% endif %}
+
+    <div class="icons-grid--card splide__slide">
+      {% comment %} image {% endcomment %}
+      <{{ element_type }} {{ has_link }} class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+        {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1 -}}
+      </{{ element_type }}>
+      <{{ subheading_level }} class="h4">{{ block.settings.title }}</{{ subheading_level }}>
+      {% if block.settings.link_url %}
+        <{{ element_type }} {{ has_link }} class="inline-flex">
+          {{- block.settings.cta }}
+          {% render 'icon', icon: 'arrow' -%}
+        </{{ element_type }}>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+
+<script type="module">
+  import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
+  SplideUtil.splideInit('#shopify-section-{{ section.id }} .icons-grid', {
+    type: 'loop',
+    pagination: true,
+    arrows: false,
+    fixedWidth: "200px",
+    autoplay: true,
+    interval: 4500,
+    speed: 1000,
+    pauseOnHover: true,
+    gap: '1rem',
+    focus: 'center',
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Icon Grid",
+  "class": "section--content-icon-grid max-width",
+  "settings": [
+    {
+      "type": "select",
+      "id": "heading_level",
+      "label": "Heading level",
+      "options": [
+        { "value": "1", "label": "Heading level 1" },
+        { "value": "2", "label": "Heading level 2" },
+        { "value": "3", "label": "Heading level 3" },
+        { "value": "4", "label": "Heading level 4" }
+      ],
+      "info": "This is purely used for SEO importance as this section has preset styles for titles within the blocks. Please try to avoid having more than one h1 on the page and ideally is a h3 with the section having a h2 (unless is for main page title then go up one level each.",
+      "default": "2"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Section Title"
+    },
+    {
+      "type": "checkbox",
+      "id": "init_splide",
+      "label": "Carousel",
+      "info": "Enable this to allow a carousel when too many elements for one row",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "icon_size",
+      "label": "Icon Size",
+      "options": [
+        { "value": "50%", "label": "Small" },
+        { "value": "65%", "label": "Medium" },
+        { "value": "100%", "label": "Large" }
+      ],
+      "default": "65%"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Icon Title"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "CTA",
+          "default": "read more"
+        },
+
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon Grid",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
