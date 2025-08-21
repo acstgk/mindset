@@ -180,6 +180,7 @@
     {% render 'css-variables' %}
 
     <link rel="stylesheet" href="{{ 'critical.min.css' | asset_url }}">
+    <link rel="preload" href="{{ 'splide-core.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="{{ 'global.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ 'global.min.css' | asset_url }}"></noscript>
 
@@ -404,7 +405,6 @@
       </style>
     {% endunless %}
 
-    <link rel="stylesheet" href="{{ 'splide-core.min.css' | asset_url }}">
     {% render 'globale-js' %}
     {%- render 'country-switcher-global' -%}
   </body>

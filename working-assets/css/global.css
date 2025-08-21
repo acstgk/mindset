@@ -98,6 +98,10 @@ input[type=range] {
     }
 }
 
+.splide__pagination {
+    margin: 1rem 0;
+}
+
 button.splide__pagination__page {
     height: .75rem;
     padding: 0;
@@ -1162,13 +1166,14 @@ video {
 
 .shopify-section--hero-carousel .splide__pagination {
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
     left: 0;
     display: flex;
     justify-content: center;
     width: 100vw;
     gap: 5px;
-    padding: 0 25px;
+    padding: 0 2em;
+    margin-bottom: 0;
 
     & li button {
         background: transparent;
