@@ -38,17 +38,33 @@ export class SplideUtil {
 
   static splideInit(selector, options = {}) {
     const target = document.querySelector(selector);
+    const isAutoplay = options.autoplay !== undefined ? options.autoplay : false;
+
     if (!target) {
       console.warn(`SplideUtil: No element found for selector "${selector}"`);
       return;
     }
 
     if (!target.classList.contains("splide")) {
-      this.splideHTML(target)
+      this.splideHTML(target);
     }
 
     // Initialize Splide
     const splide = new Splide(target, options);
+
+    splide.on("overflow", (isOverflow) => {
+      splide.options = {
+        ...splide.options,
+        drag: isOverflow,
+      };
+
+      if (isAutoplay) {
+        isOverflow ? splide.Components.Autoplay.play() : splide.Components.Autoplay.pause();
+      }
+
+      target.classList.toggle("no-carousel", !isOverflow);
+    });
+
     splide.mount();
 
     return splide;
