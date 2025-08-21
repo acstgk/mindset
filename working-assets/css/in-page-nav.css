@@ -1,3 +1,12 @@
+  .inpage-nav:not(.accent-bg) {
+background-color: var(--c-off-white);
+    padding: 1rem 0;
+    position: relative;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    padding: 1em;
+  }
+
   .inpage-nav--list {
     flex-flow: column;
     justify-content: center;
@@ -31,6 +40,10 @@
   }
 
   @media screen and (width > 768px) {
+    .inpage-nav:not(.accent-bg) {
+      background-color: var(--c-white);
+    }
+
     .inpage-nav--mobile-button {
       display: none;
     }

@@ -23,6 +23,85 @@
         "mobile": 50
       }
     },
+    "section_in_page_nav_6bRQnP": {
+      "type": "section-in-page-nav",
+      "blocks": {
+        "link_EKpNmj": {
+          "type": "link",
+          "settings": {
+            "text": "News",
+            "url": "shopify://blogs/posts"
+          }
+        },
+        "link_MGV7RC": {
+          "type": "link",
+          "settings": {
+            "text": "Events",
+            "url": ""
+          }
+        },
+        "link_6ikELB": {
+          "type": "link",
+          "settings": {
+            "text": "Interviews",
+            "url": ""
+          }
+        },
+        "link_9bJ4Pw": {
+          "type": "link",
+          "settings": {
+            "text": "Training Hub",
+            "url": "/blogs/posts/tagged/training-hub"
+          }
+        }
+      },
+      "block_order": ["link_EKpNmj", "link_MGV7RC", "link_6ikELB", "link_9bJ4Pw"],
+      "name": "In-Page Navigation",
+      "settings": {
+        "mobile_button": "Explore Gym King",
+        "hasAccent": true
+      }
+    },
+
+    "section_in_page_nav": {
+      "type": "section-in-page-nav",
+      "blocks": {
+        "link_EKpNmj": {
+          "type": "link",
+          "settings": {
+            "text": "News",
+            "url": "shopify://blogs/posts"
+          }
+        },
+        "link_MGV7RC": {
+          "type": "link",
+          "settings": {
+            "text": "Events",
+            "url": ""
+          }
+        },
+        "link_6ikELB": {
+          "type": "link",
+          "settings": {
+            "text": "Interviews",
+            "url": ""
+          }
+        },
+        "link_9bJ4Pw": {
+          "type": "link",
+          "settings": {
+            "text": "Training Hub",
+            "url": "/blogs/posts/tagged/training-hub"
+          }
+        }
+      },
+      "block_order": ["link_EKpNmj", "link_MGV7RC", "link_6ikELB", "link_9bJ4Pw"],
+      "name": "In-Page Navigation",
+      "settings": {
+        "mobile_button": "Explore Gym King",
+        "hasAccent": false
+      }
+    },
     "blog_featured_articles_YgN7Qn": {
       "type": "blog-featured-articles",
       "blocks": {
@@ -63,12 +142,7 @@
           }
         }
       },
-      "block_order": [
-        "article_VJ87Ym",
-        "custom_pJiF7B",
-        "custom_beeCQN",
-        "article_dgXE3x"
-      ],
+      "block_order": ["article_VJ87Ym", "custom_pJiF7B", "custom_beeCQN", "article_dgXE3x"],
       "name": "Featured Articles Carousel",
       "settings": {}
     },
@@ -121,13 +195,7 @@
           }
         }
       },
-      "block_order": [
-        "icon_rjgktU",
-        "icon_Bd489C",
-        "icon_hT63FG",
-        "icon_7htDbM",
-        "icon_tEMKpV"
-      ],
+      "block_order": ["icon_rjgktU", "icon_Bd489C", "icon_hT63FG", "icon_7htDbM", "icon_tEMKpV"],
       "name": "Icon Grid",
       "settings": {
         "heading_level": "2",
@@ -160,9 +228,11 @@
   "order": [
     "hero",
     "spacer",
+    "section_in_page_nav",
     "blog_featured_articles_YgN7Qn",
     "content_icon_grid_d47Q33",
     "blog_article_grid_KhXhCC",
-    "blog_event_grid_gGXdPj"
+    "blog_event_grid_gGXdPj",
+    "section_in_page_nav_6bRQnP"
   ]
 }
