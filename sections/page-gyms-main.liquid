@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
+
+<div class="gyms-hero">
+  {{ metaobject.header_image | image_url: width: 1290 | image_tag: class: 'gyms-hero--image' }}
+  <div class="title max-width rtf">
+    {{ metaobject.gym_logo | image_url: width: 200 | image_tag: class: 'gym-logo' }}
+    <h1>{{ metaobject.gym_name }}</h1>
+  </div>
+</div>
+
+<div class="article-wrapper rtf">
+  {{ metaobject.overview | metafield_tag }}
+  <p class="article-meta">
+    {% if metaobject.addresses %}
+      <br>
+      <b>{{ metaobject.addresses.value.size | pluralize: 'Address', 'Addresses' }}:</b>
+      {% for address in metaobject.addresses.value %}
+        {% unless forloop.index0 == 0 and forloop.last %}<br>{% endunless %}
+        {{ address }}
+      {% endfor %}
+    {% endif %}
+    {% if metaobject.url %}
+      <br>
+      <b>Website:</b> <a href="{{ metaobject.url }}">{{ metaobject.url | split: '://' | last }}</a>
+    {% endif %}
+    {% if metaobject.instagram %}
+      <br>
+      <b>Instagram:</b> <a href="http://www.instragam.com/{{ metaobject.instagram }}" target="_blank">@{{ metaobject.instagram }}</a>
+    {% endif %}
+  </p>
+  {% if metaobject.footer_image %}
+    {% assign footer_file = metaobject.footer_image | metafield_text %}
+    {% if footer_file contains '.mp4' or footer_file contains '.webm' %}
+      <video class="gyms-footer--video" controls>
+        <source src="{{ footer_file }}" type="video/mp4">
+      </video>
+    {% else %}
+      <img src="{{ footer_file }}" alt="Footer image" class="gyms-footer--image" width="1920" height="1080">
+    {% endif %}
+  {% endif %}
+</div>
+
+<style>
+  .gyms-hero {
+    height: 25rem;
+    overflow: hidden;
+    padding-bottom: 4rem;
+    position: relative;
+
+    & > * {
+      position: absolute;
+      inset: 0;
+    }
+
+    & .title {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      justify-content: center;
+      padding: 0 0 4rem 0;
+    }
+
+    & h1 {
+      color: white;
+      position: relative;
+      font-size: var(--txt-xxl);
+      margin: 0;
+      text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  .gyms-hero--image {
+    filter: brightness(0.75);
+    height: 100%;
+  }
+
+  .gym-logo {
+    max-width: min(100px, 20vw);
+    max-height: min(70px, 15vw);
+    filter: contrast(0) brightness(5) saturate(0);
+  }
+
+  .gyms-footer--image,
+  .gyms-footer--video {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    margin-top: 4rem;
+  }
+
+  .article-wrapper {
+    margin-top: -4rem;
+  }
+</style>
+{% schema %}
+{
+  "name": "Gyms Page Main",
+  "class": "section--gyms-main",
+  "settings": []
+}
+{% endschema %}

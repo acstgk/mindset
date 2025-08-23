@@ -1,0 +1,89 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "core": {
+      "type": "page-gyms-main"
+    },
+    "content_icon_grid": {
+      "type": "content-icon-grid",
+      "blocks": {
+        "icon_dyQYyW": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/BAD_COMPANY_512dd943-4515-4d38-b4ff-a025fbe31e1b.png",
+            "title": "Leeds",
+            "cta": "Bad Company",
+            "link_url": "shopify://metaobjects/gyms/bad-company-gym"
+          }
+        },
+        "icon_NcMEbg": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/Dickys_1b213653-3f0f-4423-8eed-3bd1af6cf367.png",
+            "title": "Batley",
+            "cta": "Dicky's Gym",
+            "link_url": "shopify://metaobjects/gyms/dickys-gym"
+          }
+        },
+        "icon_ffaiAA": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/SBG_LOGO_6714adb0-6f9f-43ce-8d85-a3857c226a25.png",
+            "title": "Dublin",
+            "cta": "SBG Ireland",
+            "link_url": "shopify://metaobjects/gyms/sbg-ireland"
+          }
+        },
+        "icon_bapWrw": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/COACH_Black.png",
+            "title": "Leeds, Harrogate & London",
+            "cta": "Coach",
+            "link_url": "shopify://metaobjects/gyms/coach"
+          }
+        },
+        "icon_iPMkjc": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/EVOLUTION_FITNESS_XL_88f4858a-db3f-4995-a312-4256bda719c2.png",
+            "title": "St Helens",
+            "cta": "Evolution XL",
+            "link_url": "shopify://metaobjects/gyms/evolution-xl"
+          }
+        },
+        "icon_4BDGAz": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/ff.png",
+            "title": "Manchester",
+            "cta": "Fighting Fit",
+            "link_url": "https://fightingfitmanchester.com"
+          }
+        }
+      },
+      "block_order": ["icon_dyQYyW", "icon_NcMEbg", "icon_ffaiAA", "icon_bapWrw", "icon_iPMkjc", "icon_4BDGAz"],
+      "name": "Icon Grid",
+      "settings": {
+        "heading_level": "2",
+        "title": "All Our Partner Training Facilities",
+        "init_splide": true,
+        "icon_size": "65%",
+        "image_fit": "contain",
+        "aspect_ratio": 2.4
+      }
+    }
+  },
+  "order": [
+    "core",
+    "content_icon_grid"
+  ]
+}
