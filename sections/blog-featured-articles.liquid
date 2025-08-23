@@ -86,15 +86,18 @@
 
 <script type="module">
   import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
-  SplideUtil.splideInit('.featured-articles', {
-    type: 'loop',
-    pagination: true,
-    arrows: false,
-    autoplay: true,
-    interval: 4500,
-    speed: 1000,
-    pauseOnHover: true,
-  });
+  const slideCount = document.querySelector('#shopify-section-{{ section.id }} .featured-articles').querySelectorAll('.splide__slide').length;
+  if (slideCount > 1) {
+    SplideUtil.splideInit('.featured-articles', {
+      type: 'loop',
+      pagination: true,
+      arrows: false,
+      autoplay: true,
+      interval: 4500,
+      speed: 1000,
+      pauseOnHover: true,
+    });
+  }
 </script>
 
 {% schema %}

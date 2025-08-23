@@ -98,6 +98,13 @@ input[type=range] {
     }
 }
 
+.splide__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
 .splide__pagination {
     margin: 1rem 0;
 }

@@ -1,0 +1,174 @@
+<link rel="stylesheet" href="{{ 'hotspot-carousel.min.css' | asset_url }}">
+
+<div class="hotspot-carousel">
+  {% for block in section.blocks %}
+    <div class="hotspot-card splide__slide">
+      <div class="hotpsot-card--image">
+        {{ block.settings.image | image_url: width: 800 | image_tag }}
+
+        {% for i in (1..2) %}
+          {% assign product_id = 'product' | append: i %}
+          {% assign product = block.settings[product_id] %}
+          {% assign product_x = product_id | append: '_x' %}
+          {% assign product_y = product_id | append: '_y' %}
+          {% assign x_position = block.settings[product_x] %}
+          {% assign y_position = block.settings[product_y] %}
+
+          {% comment %} Set position of tooltip {% endcomment %}
+          {% if y_position > 50 %}
+            {% assign vert_class = 'above' %}
+          {% else %}
+            {% assign vert_class = 'below' %}
+          {% endif %}
+          {% if x_position < 35 %}
+            {% assign horiz_class = 'right' %}
+          {% elsif x_position > 65 %}
+            {% assign horiz_class = 'left' %}
+          {% endif %}
+
+          {% if product != blank %}
+            <div class="hotspot" style="left: {{ x_position }}%; top: {{ y_position }}%;">
+              <div class="hotspot--link link-{{ vert_class }} link-{{ horiz_class }}">
+                {% render 'product-title', product: product %}
+                {% render 'product-price', product: product %}
+                <a href="{{ product.url }}" class="inline-flex"> Shop now {% render 'icon', icon: 'arrow' %} </a>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="hotspot-card--content rtf">
+        <h3 class="h1 left">{{ block.settings.title }}</h3>
+        <p>{{ block.settings.description }}</p>
+        {% if block.settings.link_url %}
+          <a href="{{ block.settings.link_url }}" class="btn btn-primary inline-flex">Learn More {% render 'icon', icon: 'arrow' %}</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+<script type="module">
+  import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
+  let slideCount = document.querySelector('#shopify-section-{{ section.id }} .hotspot-carousel').querySelectorAll('.splide__slide').length;
+  if (slideCount > 1) {
+    SplideUtil.splideInit('.hotspot-carousel', {
+      type: 'loop',
+      pagination: true,
+      arrows: false,
+      autoplay: true,
+      interval: 4500,
+      speed: 1000,
+      pauseOnHover: true,
+    });
+  }
+
+  document.querySelectorAll('#shopify-section-{{ section.id }} .hotspot').forEach((hotspot) => {
+    hotspot.addEventListener('click', function (event) {
+      this.querySelector('.hotspot--link').classList.toggle('hover-active');
+      this.style.zIndex = this.querySelector('.hotspot--link').classList.contains('hover-active') ? '1' : 'auto';
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Content Hotspot Carousel",
+  "class": "section--content-hotspot-carousel max-width",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Hotspot Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Hotspots Card Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "This is a description paragraph for the hotspot card."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        { "type": "header", "content": "Hotspot Settings" },
+        {
+          "type": "product",
+          "id": "product1",
+          "label": "Product 1",
+          "info": "Select a product to link to"
+        },
+        {
+          "type": "range",
+          "id": "product1_x",
+          "label": "Product 1 X axis position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50,
+          "info": "Moves the hotspot along the horizontal axis.",
+          "visible_if": "{{  block.settings.product1 != blank }}"
+        },
+        {
+          "type": "range",
+          "id": "product1_y",
+          "label": "Product 1 Y axis position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50,
+          "info": "Moves the hotspot along the vertical axis.",
+          "visible_if": "{{  block.settings.product1 != blank }}"
+        },
+        {
+          "type": "product",
+          "id": "product2",
+          "label": "Product 2",
+          "info": "Select a product to link to"
+        },
+        {
+          "type": "range",
+          "id": "product2_x",
+          "label": "Product 2 X axis position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50,
+          "info": "Moves the hotspot along the horizontal axis.",
+          "visible_if": "{{  block.settings.product2 != blank }}"
+        },
+        {
+          "type": "range",
+          "id": "product2_y",
+          "label": "Product 2 Y axis position",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 50,
+          "info": "Moves the hotspot along the vertical axis.",
+          "visible_if": "{{  block.settings.product2 != blank }}"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hotspot Carousel",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

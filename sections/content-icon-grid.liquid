@@ -18,7 +18,15 @@
     <div class="icons-grid--card splide__slide">
       {% comment %} image {% endcomment %}
       <{{ element_type }} {{ has_link }} class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
-        {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1 -}}
+        {% if block.settings.icon_image != blank %}
+          {% if section.settings.image_fit == 'cover' %}
+            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1 -}}
+          {% else %}
+            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1, style: 'object-fit:contain;aspect-ratio: 2' -}}
+          {% endif %}
+        {% else %}
+
+        {% endif %}
       </{{ element_type }}>
       <{{ subheading_level }} class="h4">{{ block.settings.title }}</{{ subheading_level }}>
       {% if block.settings.link_url %}
@@ -88,6 +96,25 @@
         { "value": "100%", "label": "Large" }
       ],
       "default": "65%"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image Fit",
+      "options": [
+        { "value": "contain", "label": "Show entire image" },
+        { "value": "cover", "label": "Zoom to fill" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "range",
+      "id": "aspect_ratio",
+      "label": "Image Aspect Ratio",
+      "max": 4,
+      "min": 0,
+      "step": 0.1,
+      "default": 1
     }
   ],
   "blocks": [

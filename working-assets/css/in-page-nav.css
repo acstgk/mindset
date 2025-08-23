@@ -1,10 +1,15 @@
   .inpage-nav:not(.accent-bg) {
-background-color: var(--c-off-white);
+    background-color: var(--c-off-white);
     padding: 1rem 0;
     position: relative;
     margin-bottom: 1em;
     margin-top: 1em;
     padding: 1em;
+  }
+
+  .inpage-nav--mobile-button {
+    justify-content: center;
+    gap: 2rem;
   }
 
   .inpage-nav--list {

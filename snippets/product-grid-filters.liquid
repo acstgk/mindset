@@ -158,6 +158,7 @@
           <label for="sourt_by" style="flex:1 0 auto">Sort by:</label>
           <select name="sort_by" id="SortBy">
             {%- for option in group.sort_options -%}
+               {% unless option.name contains "Date" %}
               <option
                 value="{{ option.value | escape }}"
                 {% if option.value == group.sort_by %}
@@ -166,6 +167,7 @@
               >
                 {{ option.name | escape }}
               </option>
+              {% endunless %}
             {%- endfor -%}
           </select>
         </div>

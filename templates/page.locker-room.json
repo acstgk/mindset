@@ -23,46 +23,6 @@
         "mobile": 50
       }
     },
-    "section_in_page_nav_6bRQnP": {
-      "type": "section-in-page-nav",
-      "blocks": {
-        "link_EKpNmj": {
-          "type": "link",
-          "settings": {
-            "text": "News",
-            "url": "shopify://blogs/posts"
-          }
-        },
-        "link_MGV7RC": {
-          "type": "link",
-          "settings": {
-            "text": "Events",
-            "url": ""
-          }
-        },
-        "link_6ikELB": {
-          "type": "link",
-          "settings": {
-            "text": "Interviews",
-            "url": ""
-          }
-        },
-        "link_9bJ4Pw": {
-          "type": "link",
-          "settings": {
-            "text": "Training Hub",
-            "url": "/blogs/posts/tagged/training-hub"
-          }
-        }
-      },
-      "block_order": ["link_EKpNmj", "link_MGV7RC", "link_6ikELB", "link_9bJ4Pw"],
-      "name": "In-Page Navigation",
-      "settings": {
-        "mobile_button": "Explore Gym King",
-        "hasAccent": true
-      }
-    },
-
     "section_in_page_nav": {
       "type": "section-in-page-nav",
       "blocks": {
@@ -95,7 +55,12 @@
           }
         }
       },
-      "block_order": ["link_EKpNmj", "link_MGV7RC", "link_6ikELB", "link_9bJ4Pw"],
+      "block_order": [
+        "link_EKpNmj",
+        "link_MGV7RC",
+        "link_6ikELB",
+        "link_9bJ4Pw"
+      ],
       "name": "In-Page Navigation",
       "settings": {
         "mobile_button": "Explore Gym King",
@@ -142,7 +107,12 @@
           }
         }
       },
-      "block_order": ["article_VJ87Ym", "custom_pJiF7B", "custom_beeCQN", "article_dgXE3x"],
+      "block_order": [
+        "article_VJ87Ym",
+        "custom_pJiF7B",
+        "custom_beeCQN",
+        "article_dgXE3x"
+      ],
       "name": "Featured Articles Carousel",
       "settings": {}
     },
@@ -195,13 +165,21 @@
           }
         }
       },
-      "block_order": ["icon_rjgktU", "icon_Bd489C", "icon_hT63FG", "icon_7htDbM", "icon_tEMKpV"],
+      "block_order": [
+        "icon_rjgktU",
+        "icon_Bd489C",
+        "icon_hT63FG",
+        "icon_7htDbM",
+        "icon_tEMKpV"
+      ],
       "name": "Icon Grid",
       "settings": {
         "heading_level": "2",
         "title": "Our Ambassadors",
         "init_splide": true,
-        "icon_size": "100%"
+        "icon_size": "100%",
+        "image_fit": "cover",
+        "aspect_ratio": 1
       }
     },
     "blog_article_grid_KhXhCC": {
@@ -223,6 +201,167 @@
         "blog": "posts",
         "limit": 3
       }
+    },
+    "section_in_page_nav_6bRQnP": {
+      "type": "section-in-page-nav",
+      "blocks": {
+        "link_EKpNmj": {
+          "type": "link",
+          "settings": {
+            "text": "News",
+            "url": "shopify://blogs/posts"
+          }
+        },
+        "link_MGV7RC": {
+          "type": "link",
+          "settings": {
+            "text": "Events",
+            "url": ""
+          }
+        },
+        "link_6ikELB": {
+          "type": "link",
+          "settings": {
+            "text": "Interviews",
+            "url": ""
+          }
+        },
+        "link_9bJ4Pw": {
+          "type": "link",
+          "settings": {
+            "text": "Training Hub",
+            "url": "/blogs/posts/tagged/training-hub"
+          }
+        }
+      },
+      "block_order": [
+        "link_EKpNmj",
+        "link_MGV7RC",
+        "link_6ikELB",
+        "link_9bJ4Pw"
+      ],
+      "name": "In-Page Navigation",
+      "settings": {
+        "mobile_button": "Explore Gym King",
+        "hasAccent": true
+      }
+    },
+    "content_hotspot_carousel_rktLCX": {
+      "type": "content-hotspot-carousel",
+      "blocks": {
+        "card_mRrDVx": {
+          "type": "card",
+          "settings": {
+            "title": "Hotspots Card Title",
+            "description": "This is a description paragraph for the hotspot card.",
+            "image": "shopify://shop_images/LIMITLESSMESHBOYFRIENDTEE_LIMITLESSSEAMLESSSCULPTLEGGING_LIMITLESSWAFFLESCRUNCHIE-WHITEBLUEBOLDBLUEANIMALPRINTCREAMWST-BOETUWLG-BOETNACC-BOEU5_131_84d8d0fc-22bb-4925-81bd-31b841a977f8.jpg",
+            "link_url": "shopify://metaobjects/ambassadors/maisie-smith",
+            "product1": "gym-king-limitless-seamless-sculpt-legging-bold-blue-animal-print",
+            "product1_x": 60,
+            "product1_y": 30,
+            "product2": "gym-king-limitless-crop-mesh-tee-white-blue",
+            "product2_x": 40,
+            "product2_y": 60
+          }
+        },
+        "card_pKJgqQ": {
+          "type": "card",
+          "settings": {
+            "title": "Liam McAleese Top Picks",
+            "description": "This is a description paragraph for the hotspot card.",
+            "image": "shopify://shop_images/Liam_McAleese_64b3a5ad-6523-496e-b90f-f0b88fe27062.webp",
+            "link_url": "shopify://blogs/posts/magic-8-workout-tips-with-liam-mcaleese",
+            "product1": "gym-king-fundamental-tee-soft-khaki",
+            "product1_x": 35,
+            "product1_y": 41,
+            "product2": "",
+            "product2_x": 50,
+            "product2_y": 50
+          }
+        }
+      },
+      "block_order": [
+        "card_mRrDVx",
+        "card_pKJgqQ"
+      ],
+      "name": "Hotspot Carousel",
+      "settings": {}
+    },
+    "content_icon_grid_gqk3x3": {
+      "type": "content-icon-grid",
+      "blocks": {
+        "icon_dyQYyW": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/BAD_COMPANY_512dd943-4515-4d38-b4ff-a025fbe31e1b.png",
+            "title": "Leeds",
+            "cta": "Bad Company",
+            "link_url": "shopify://metaobjects/gyms/bad-company-gym"
+          }
+        },
+        "icon_NcMEbg": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/Dickys_1b213653-3f0f-4423-8eed-3bd1af6cf367.png",
+            "title": "Batley",
+            "cta": "Dicky's Gym",
+            "link_url": "shopify://metaobjects/gyms/dickys-gym"
+          }
+        },
+        "icon_ffaiAA": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/SBG_LOGO_6714adb0-6f9f-43ce-8d85-a3857c226a25.png",
+            "title": "Dublin",
+            "cta": "SBG Ireland",
+            "link_url": "shopify://metaobjects/gyms/sbg-ireland"
+          }
+        },
+        "icon_bapWrw": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/COACH_Black.png",
+            "title": "Leeds, Harrogate & London",
+            "cta": "Coach",
+            "link_url": "shopify://metaobjects/gyms/coach"
+          }
+        },
+        "icon_iPMkjc": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/EVOLUTION_FITNESS_XL_88f4858a-db3f-4995-a312-4256bda719c2.png",
+            "title": "St Helens",
+            "cta": "Evolution XL",
+            "link_url": "shopify://metaobjects/gyms/evolution-xl"
+          }
+        },
+        "icon_4BDGAz": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/ff.png",
+            "title": "Manchester",
+            "cta": "Fighting Fit",
+            "link_url": "https://fightingfitmanchester.com"
+          }
+        }
+      },
+      "block_order": [
+        "icon_dyQYyW",
+        "icon_NcMEbg",
+        "icon_ffaiAA",
+        "icon_bapWrw",
+        "icon_iPMkjc",
+        "icon_4BDGAz"
+      ],
+      "name": "Icon Grid",
+      "settings": {
+        "heading_level": "2",
+        "title": "Our Partner Training Facilities",
+        "init_splide": true,
+        "icon_size": "65%",
+        "image_fit": "contain",
+        "aspect_ratio": 2.4
+      }
     }
   },
   "order": [
@@ -233,6 +372,8 @@
     "content_icon_grid_d47Q33",
     "blog_article_grid_KhXhCC",
     "blog_event_grid_gGXdPj",
-    "section_in_page_nav_6bRQnP"
+    "section_in_page_nav_6bRQnP",
+    "content_hotspot_carousel_rktLCX",
+    "content_icon_grid_gqk3x3"
   ]
 }

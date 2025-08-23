@@ -1,0 +1,146 @@
+  .hotpsot-card--image {
+    aspect-ratio: 1;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .hotspot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      background-color: var(--c-black);
+      scale: 1;
+      box-shadow: 0 0 6px 2px var(--c-grey);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      border: 2px solid var(--c-black);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      animation: pulse-fade 2s infinite;
+      scale: 1;
+    }
+
+    & .hover-active.hotspot--link {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  @keyframes pulse {
+
+    0%,
+    100% {
+      scale: 1;
+    }
+
+    30% {
+      scale: 1.25;
+    }
+  }
+
+  @keyframes pulse-fade {
+    0% {
+      scale: 1;
+      opacity: 1;
+    }
+
+    100% {
+      scale: 2.5;
+      opacity: 0;
+    }
+  }
+
+  .hotspot--link {
+    position: absolute;
+    top: 50%;
+    top: calc(50% + 5px);
+    width: 10rem;
+    background-color: rgba(21, 21, 21, 0.8);
+    padding: 0.5rem;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.1s ease;
+
+    & .title {
+      color: white;
+    }
+
+    & .Price--saving,
+    & .colour {
+      display: none;
+    }
+
+    & a:hover {
+      color: var(--c-off-white);
+    }
+  }
+
+  .link-below {
+    top: 100%;
+    top: calc(100% + 5px);
+  }
+
+  .link-above {
+    bottom: 100%;
+    bottom: calc(100% + 5px);
+    top: auto;
+  }
+
+  .link-right {
+    left: 100%;
+    left: calc(100% + 5px);
+  }
+
+  .link-left {
+    right: 100%;
+    right: calc(100% + 5px);
+    left: auto;
+  }
+
+  .hotspot-card {
+    background-color: var(--c-off-white);
+  }
+
+  .hotspot-card--content {
+    padding: 1rem;
+
+    & h3 {
+      margin: 0;
+    }
+  }
+
+  @media screen and (width > 768px) {
+    .hotspot-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .hotspot-card--content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
