@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
+
+<div class="gyms-hero">
+  {{ metaobject.cover_image | image_url: width: 1290 | image_tag: class: 'gyms-hero--image' }}
+  <div class="title max-width rtf">
+    <h1>{{ metaobject.ambassador_name }}</h1>
+    <p>
+    {% for title in metaobject.ambassador_titles.value %}
+      {% unless forloop.first %} | {% endunless %}
+      {{ title }}
+    {% endfor %}
+  </p>
+  </div>
+</div>
+
+
+
+{% schema %}
+{
+  "name": "Gyms Page Main",
+  "class": "section--gyms-main",
+  "settings": []
+}
+{% endschema %}

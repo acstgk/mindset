@@ -149,6 +149,7 @@ p.article-meta {
 
 .gyms-hero {
   height: 25rem;
+  min-height: 60vh;
   overflow: hidden;
   padding-bottom: 5rem;
   position: relative;
@@ -164,6 +165,14 @@ p.article-meta {
     gap: 0;
     justify-content: center;
     padding: 0 0 5rem 0;
+
+    & p {
+      color: white;
+      font-size: var(--txt-h4);
+      text-align: left;
+      margin: 0;
+      text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    }
   }
 
   & h1 {
@@ -184,6 +193,7 @@ p.article-meta {
   max-width: min(100px, 20vw);
   max-height: min(70px, 15vw);
   filter: contrast(0) brightness(5) saturate(0);
+  object-fit: contain
 }
 
 .gyms-footer--image,

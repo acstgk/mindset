@@ -10,7 +10,8 @@
 {
   "sections": {
     "core": {
-      "type": "page-gyms-main"
+      "type": "page-gyms-main",
+      "settings": {}
     },
     "content_icon_grid": {
       "type": "content-icon-grid",
@@ -70,7 +71,14 @@
           }
         }
       },
-      "block_order": ["icon_dyQYyW", "icon_NcMEbg", "icon_ffaiAA", "icon_bapWrw", "icon_iPMkjc", "icon_4BDGAz"],
+      "block_order": [
+        "icon_dyQYyW",
+        "icon_NcMEbg",
+        "icon_ffaiAA",
+        "icon_bapWrw",
+        "icon_iPMkjc",
+        "icon_4BDGAz"
+      ],
       "name": "Icon Grid",
       "settings": {
         "heading_level": "2",
