@@ -2,7 +2,8 @@
 
 <header>
   <a href="{{ routes.account_logout_url }}" class="inline-flex">
-    {% render 'icon', icon: 'plus', class: 'rotate45' %} {{- 'customer.account.logout' | t -}}
+    {% render 'icon', icon: 'plus', class: 'rotate45' %}
+    {{- 'customer.account.logout' | t -}}
   </a>
 
   <div>
@@ -24,7 +25,7 @@
     <a class="button button-secondary" href="{{ routes.account_addresses_url }}">{% render 'icon', icon: 'pin' %}Your Addresses </a>
   </li>
   <li>
-    <a class="button button-secondary" href="">{% render 'icon', icon: 'truck' %}Your Orders</a>
+    <a class="button button-secondary" href="#order-history">{% render 'icon', icon: 'truck' %}Your Orders</a>
   </li>
   <li>
     <a class="button button-secondary" href="/tools/recurring/login">{% render 'icon', icon: 'giftcard' %}Manage Subscriptions </a>
@@ -32,7 +33,7 @@
   <li>
     <a class="button button-secondary" href="/pages/rewards">{% render 'icon', icon: 'crown' %}Loyalty Club</a>
   </li>
-    <li>
+  <li>
     <a class="button button-secondary" href="/pages/refer-a-friend">{% render 'icon', icon: 'handshake' %}Refer a Friend</a>
   </li>
   <li>
@@ -48,43 +49,125 @@
   {%- endcomment -%}
 
   <div id="order-history">
-    {%- if customer.orders.size == 0 -%}
+    {%- if customer.orders_count == 0 -%}
       <h2 class="h4 left">{{ 'customer.account.no_orders_title' | t }}</h2>
       <p>{{ 'customer.account.no_orders_content' | t }}</p>
     {%- else -%}
-      <h2 class="h4 left">Orders</h2>
-      {%- paginate customer.orders by 25 -%}
-        <div class="TableWrapper">
-          <table>
-            <thead>
-              <tr>
-                <th>{{ 'customer.orders.order_number' | t }}</th>
-                <th>{{ 'customer.orders.date' | t }}</th>
-                <th>{{ 'customer.orders.payment_status' | t }}</th>
-                <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
-                <th class="Text--alignRight">{{ 'customer.orders.total' | t }}</th>
-              </tr>
-            </thead>
+      <h2 class="h4 left">Your Orders</h2>
 
-            <tbody>
-              {%- for order in customer.orders -%}
+      {% comment %}
+        {%- paginate customer.orders by 25 -%}
+          <div class="TableWrapper">
+            <table>
+              <thead>
                 <tr>
-                  <td>
-                    <a ge-order-list-id href="{{ order.customer_url }}" class="Link Link--underline">
-                      {{- order.name -}}
-                    </a>
-                  </td>
-                  <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
-                  <td>{{ order.financial_status_label }}</td>
-                  <td>{{ order.fulfillment_status_label }}</td>
-                  <td ge-order-list-total class="Text--alignRight">
-                    {{ order.total_price | money_without_trailing_zeros }}
-                  </td>
+                  <th>{{ 'customer.orders.order_number' | t }}</th>
+                  <th>{{ 'customer.orders.date' | t }}</th>
+                  <th>{{ 'customer.orders.payment_status' | t }}</th>
+                  <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                  <th class="Text--alignRight">{{ 'customer.orders.total' | t }}</th>
                 </tr>
-              {%- endfor -%}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+
+              <tbody>
+                {%- for order in customer.orders -%}
+                  <tr>
+                    <td>
+                      <a ge-order-list-id href="{{ order.customer_url }}" class="Link Link--underline">
+                        {{- order.name -}}
+                      </a>
+                    </td>
+                    <td>{{ order.created_at | date: format: 'month_day_year' }}</td>
+                    <td>{{ order.financial_status_label }}</td>
+                    <td>{{ order.fulfillment_status_label }}</td>
+                    <td ge-order-list-total class="Text--alignRight">
+                      {{ order.total_price | money_without_trailing_zeros }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      {%  for item in order.line_items limit: 6 %}
+                        {{ item.product.title }}
+                      {% endfor %}
+                    </td>
+                  </tr>
+                {%- endfor -%}
+              </tbody>
+            </table>
+          </div>
+
+          {% if paginate.pages > 1 %}
+            <div class="pagination-nav">
+              {%- if paginate.previous -%}
+                <a class="button button-secondary" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" href="{{ paginate.previous.url | remove: 'view=ajax' }}">
+                  {%- render 'icon', icon: 'arrow', class: 'rotate180' -%}
+                  previous
+                </a>
+              {%- endif -%}
+
+              {%- if paginate.next -%}
+                <a class="button button-secondary" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" href="{{ paginate.next.url | remove: 'view=ajax' }}">
+                  next
+                  {%- render 'icon', icon: 'arrow' -%}
+                </a>
+              {%- endif -%}
+            </div>
+          {% endif %}
+        {%- endpaginate -%}
+      {% endcomment %}
+      {%- paginate customer.orders by 5 -%}
+        {% for order in customer.orders limit: 5 %}
+          {% case order.fulfillment_status %}
+            {% when 'unfulfilled' %}
+              {% assign fulfilment_status = 'warning' %}
+            {% when 'partial' %}
+              {% assign fulfilment_status = 'warning' %}
+            {% when 'fulfilled' %}
+              {% assign fulfilment_status = 'success' %}
+          {% endcase %}
+
+          {% case order.financial_status %}
+            {% when 'expired', 'unpaid ' %}
+              {% assign paid_status = 'warning' %}
+            {% when 'partially_paid', 'pending' %}
+              {% assign paid_status = 'info' %}
+            {% when 'paid', 'authorized' %}
+              {% assign paid_status = 'success' %}
+          {% endcase %}
+
+          <div class="customer-order">
+            <div class="customer-order--header">
+              <div class="customer-order--name">
+                <a ge-order-list-id href="{{ order.customer_url }}">
+                  {{- order.name -}}
+                </a>
+                |
+                <span ge-order-list-total>
+                  <b>
+                    {%- if order.total_price == 0 %}FREE{% else %}{{ order.total_price | money_without_trailing_zeros }}{% endif -%}
+                  </b>
+                </span>
+                | {{ order.created_at | date: format: 'month_day_year' -}}
+              </div>
+              <div class="customer-order--meta">
+                <span class="{{ paid_status }}">{{ order.financial_status_label }}</span> <span class="{{ fulfilment_status }}">{{ order.fulfillment_status_label }}</span>
+                <a ge-order-list-id href="{{ order.customer_url }}" class="inline-flex details-link"> full details {% render 'icon', icon: 'arrow' %} </a>
+              </div>
+            </div>
+            <div class="customer-order--products">
+              {% for item in order.line_items %}
+                <div class="customer-order--product">
+                  {% render 'product-title', product: item.product %}
+                  {{ item.product.featured_image | image_url: width: 500 | image_tag }}
+                  <div class="customer-order--product-buttons">
+                    <a href="{{ item.product.url }}#yotpo-app" class="button button-inverted button-full">{% render 'icon', icon: 'star' %} leave review</a>
+                    <a href="{{ item.product.url }}" class="button button-secondary button-full"> buy again {% render 'icon', icon: 'arrow' %} </a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endfor %}
 
         {% if paginate.pages > 1 %}
           <div class="pagination-nav">
@@ -96,14 +179,14 @@
             {%- endif -%}
 
             {%- if paginate.next -%}
-              <a class="button button-secondary" rel="prev" title="{{ 'general.pagination.previous_page' | t }}" href="{{ paginate.next.url | remove: 'view=ajax' }}">
+              <a class="button button-secondary" rel="next" title="{{ 'general.pagination.next_page' | t }}" href="{{ paginate.next.url | remove: 'view=ajax' }}">
                 next
                 {%- render 'icon', icon: 'arrow' -%}
               </a>
             {%- endif -%}
           </div>
         {% endif %}
-      {%- endpaginate -%}
+      {% endpaginate %}
     {%- endif -%}
   </div>
 
@@ -113,31 +196,33 @@
     --------------------------------------------------------------------------------------------------------------------
   {%- endcomment -%}
 
-  <div id="saved Addresses">
-    {%- if customer.addresses_count == 0 -%}
-      <h2 class="Segment__Title Heading u-h7">{{ 'customer.account.no_addresses_title' | t }}</h2>
+  {% comment %}
+    <div id="saved Addresses">
+      {%- if customer.addresses_count == 0 -%}
+        <h2 class="Segment__Title Heading u-h7">{{ 'customer.account.no_addresses_title' | t }}</h2>
 
-      <div class="Segment__Content">
-        <p>{{ 'customer.account.no_addresses_content' | t }}</p>
-        <hr>
-        <a href="{{ routes.account_addresses_url }}" class="inline-flex">
-          {{- 'customer.account.manage_addresses' | t -}}
-          {% render 'icon', icon: 'arrow' %}
-        </a>
-      </div>
-    {%- else -%}
-      <h2 class="h4 left">{{ 'customer.account.default_address' | t }}</h2>
+        <div class="Segment__Content">
+          <p>{{ 'customer.account.no_addresses_content' | t }}</p>
+          <hr>
+          <a href="{{ routes.account_addresses_url }}" class="inline-flex">
+            {{- 'customer.account.manage_addresses' | t -}}
+            {% render 'icon', icon: 'arrow' %}
+          </a>
+        </div>
+      {%- else -%}
+        <h2 class="h4 left">{{ 'customer.account.default_address' | t }}</h2>
 
-      <div class="rtf">
-        {{ customer.default_address | format_address }}
-        <hr>
-        <a href="{{ routes.account_addresses_url }}" class="inline-flex">
-          {{- 'customer.account.edit_addresses' | t -}}
-          {% render 'icon', icon: 'arrow' %}
-        </a>
-      </div>
-    {%- endif -%}
-  </div>
+        <div class="rtf">
+          {{ customer.default_address | format_address }}
+          <hr>
+          <a href="{{ routes.account_addresses_url }}" class="inline-flex">
+            {{- 'customer.account.edit_addresses' | t -}}
+            {% render 'icon', icon: 'arrow' %}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+  {% endcomment %}
 </div>
 
 <br>
@@ -147,6 +232,61 @@
 <a href="/pages/rewards" class="button button-primary" style="margin: 20px auto;margin: 20px auto;display: block;max-width: 500px;width: 90%;"> Find out more about our Loyalty Club </a>
 
 <style>
+  #order-history {
+    width: 100%;
+  }
+  .customer-order {
+    margin: 1rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--c-light-grey);
+  }
+
+  .customer-order--header {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .customer-order--name,
+  .customer-order--meta {
+    flex-shrink: 0;
+  }
+
+  .customer-order--products {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    gap: 0.5rem;
+    padding-bottom: 1.2rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .customer-order--product {
+    flex: 1 0 335px;
+    max-width: 400px;
+    scroll-snap-align: start;
+    padding: 5px;
+  }
+
+  .customer-order--product-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(1fr 200px));
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .details-link {
+    padding: 0.2rem 1rem;
+    background-color: var(--c-off-white);
+    color: var(--c-grey);
+  }
+
+  .customer-order--product .Title {
+    justify-content: space-between;
+  }
+
   .yotpo-action-buttons-tile * {
     font-weight: bold !important;
     letter-spacing: 0.2ch !important;

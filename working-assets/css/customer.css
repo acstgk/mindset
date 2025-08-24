@@ -98,10 +98,6 @@ ul.account-links {
   gap: 1.5em;
 }
 
-#order-history {
-  flex: 1 0 auto;
-}
-
 ul.address-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

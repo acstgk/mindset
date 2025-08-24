@@ -120,6 +120,7 @@ span {
 
   & .Icon {
     height: 1.1rem;
+    margin-top: -0.2rem;
   }
 }
 

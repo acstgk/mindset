@@ -151,7 +151,7 @@ form#atc_form {
   }
 }
 
-.pdp-zoom-range {
+input.pdp-zoom-range {
   top: calc(2em + 40px);
   writing-mode: bt-lr;
   -webkit-appearance: slider-vertical;
