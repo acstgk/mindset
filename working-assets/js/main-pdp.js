@@ -1,4 +1,4 @@
-/* global IntersectionObserver Cart*/
+/* global IntersectionObserver Cart MutationObserver */
 
 import Splide from "./splide.min.js";
 import { SplideUtil } from "./SplideUtil.js";
@@ -506,7 +506,6 @@ if (!customElements.get("dispatch-timer")) {
   );
 }
 
-// ===================
 // PDP thumbs Carousel
 // ===================
 if (!customElements.get("thumbnail-carousel")) {
@@ -601,3 +600,53 @@ if (!customElements.get("thumbnail-carousel")) {
     },
   );
 }
+
+// ===================
+// Scroll to reviews on click
+// ===================
+class ReviewsScroller {
+  static descClicked = false;
+
+  static init() {
+    const observer = new MutationObserver((mutations, obs) => {
+      const reviewLink = document.querySelector(".yotpo-sr-bottom-line-right-panel");
+      const productDesc = document.querySelector(".button_productdetails");
+
+      if (reviewLink) {
+        ReviewsScroller.addReviewScrollListener();
+      }
+
+      if (productDesc && !ReviewsScroller.descClicked) {
+        ReviewsScroller.descClicked = true;
+        productDesc.click();
+      }
+
+      if (productDesc && reviewLink) {
+        obs.disconnect();
+      }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  static addReviewScrollListener() {
+    const reviewLink = document.querySelector(".yotpo-sr-bottom-line-right-panel");
+
+    // Guard against binding multiple times if the observer fires often
+    if (reviewLink && !reviewLink.dataset.rsBound) {
+      reviewLink.addEventListener(
+        "click",
+        function () {
+          const reviewsSection = document.querySelector(".yotpo-reviews-main-widget");
+          if (reviewsSection) {
+            reviewsSection.style.scrollMarginTop = "30px";
+            reviewsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        },
+        { passive: true }
+      );
+      reviewLink.dataset.rsBound = "true";
+    }
+  }
+}
+ReviewsScroller.init();
