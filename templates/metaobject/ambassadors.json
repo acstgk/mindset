@@ -10,8 +10,11 @@
 {
   "sections": {
     "main": {
-      "type": "page-ambassador-header"
+      "type": "page-ambassador-header",
+      "settings": {}
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

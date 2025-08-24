@@ -1,0 +1,130 @@
+<div class="rtf max-width">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'rtf' %}
+        {{ block.settings.richtext_content }}
+      {% when 'quote' %}
+        <blockquote
+          {% unless block.settings.quote_author == blank %}
+            data-quote-attribution="- {{  block.settings.quote_author }}"
+          {% endunless %}
+        >
+          {{ block.settings.quote_text }}
+        </blockquote>
+      {% when 'images' %}
+
+      {% when 'video' %}
+        {% if block.settings.hosted_video %}
+          {{ block.settings.hosted_video | video_tag }}
+        {% else %}
+          <div class="video-container">
+            <iframe
+              src="https://www.youtube.com/embed/{{ block.settings.linked_video | split: "=" | last }}"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+        {% endif %}
+      {% else %}
+
+    {% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Editorial Content Block",
+  "class": "section--rich-text",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "rtf",
+      "name": "Rich Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "richtext_content",
+          "label": "Rich Text",
+          "default": "<p>Add rich text content here.</p>"
+        }
+      ]
+    },
+    {
+      "type": "quote",
+      "name": "Quote",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quote_text",
+          "label": "Quote Text",
+          "default": "This is a sample quote."
+        },
+        {
+          "type": "text",
+          "id": "quote_author",
+          "label": "Author",
+          "default": "Author Name"
+        }
+      ]
+    },
+    {
+      "type": "images",
+      "name": "Images",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_1",
+          "label": "Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Image 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_3",
+          "label": "Image 3"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "hosted_video",
+          "label": "Hosted Video"
+        },
+        {
+          "type": "video_url",
+          "id": "linked_video",
+          "label": "Linked Youtube Video",
+          "accept": ["youtube"]
+        }
+      ]
+    },
+    {
+      "type": "html",
+      "name": "Custom HTML",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "custom_html",
+          "label": "HTML Code",
+          "default": "<div>Your custom HTML here</div>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Editorial Content Blocks",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

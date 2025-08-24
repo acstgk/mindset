@@ -17,7 +17,7 @@
           "settings": {
             "mobile_video": "shopify://files/videos/Energy Flex Mobile Banner.mp4",
             "mobile_poster": "shopify://shop_images/arm-back-muscles.jpg",
-            "desktop_video": "shopify://files/videos/Energy Flex Desktop Banner.mp4",
+            "desktop_video": "shopify://files/videos/7187517-hd_1920_1080_24fps.mp4",
             "desktop_poster": "shopify://shop_images/gym21.jpg",
             "overlay_url": "",
             "title": "Work hard. look fresh.",
@@ -34,7 +34,7 @@
           "settings": {
             "mobile_video": "shopify://files/videos/Limitless x Maisie Mobile Banner.mp4",
             "mobile_poster": "shopify://shop_images/maisie10.jpg",
-            "desktop_video": "shopify://files/videos/Limitless x Maisie Desktop Banner.mp4",
+            "desktop_video": "shopify://files/videos/5751977-uhd_3840_2160_25fps.mp4",
             "desktop_poster": "shopify://shop_images/image2.jpg",
             "overlay_url": "",
             "lockup_img": "shopify://shop_images/Limitless-X-Maisie-1.png",
@@ -152,7 +152,9 @@
     "gender-shop-by-size": {
       "type": "gender-shop-by-size",
       "name": "Shop By Size",
-      "settings": {}
+      "settings": {
+        "title": ""
+      }
     },
     "gender_recommendation_carousel_QMFmBV": {
       "type": "gender-recommendation-carousel",
