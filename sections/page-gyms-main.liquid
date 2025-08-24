@@ -40,58 +40,6 @@
   {% endif %}
 </div>
 
-<style>
-  .gyms-hero {
-    height: 25rem;
-    overflow: hidden;
-    padding-bottom: 4rem;
-    position: relative;
-
-    & > * {
-      position: absolute;
-      inset: 0;
-    }
-
-    & .title {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      justify-content: center;
-      padding: 0 0 4rem 0;
-    }
-
-    & h1 {
-      color: white;
-      position: relative;
-      font-size: var(--txt-xxl);
-      margin: 0;
-      text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
-    }
-  }
-
-  .gyms-hero--image {
-    filter: brightness(0.75);
-    height: 100%;
-  }
-
-  .gym-logo {
-    max-width: min(100px, 20vw);
-    max-height: min(70px, 15vw);
-    filter: contrast(0) brightness(5) saturate(0);
-  }
-
-  .gyms-footer--image,
-  .gyms-footer--video {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    margin-top: 4rem;
-  }
-
-  .article-wrapper {
-    margin-top: -4rem;
-  }
-</style>
 {% schema %}
 {
   "name": "Gyms Page Main",

@@ -114,10 +114,9 @@
 
 .article-wrapper {
   width: min(90vw, 80ch);
-  margin: -7rem auto 0;
+  margin: -5rem auto 0;
   background-color: var(--c-white);
   padding: 2rem min(5vw, 3rem);
-  margin-top: -7rem;
   position: relative;
   z-index: 1;
 
@@ -144,4 +143,53 @@ p.article-meta {
   .article-grid {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
+}
+
+/* GYMS ARTICLE PAGES */
+
+.gyms-hero {
+  height: 25rem;
+  overflow: hidden;
+  padding-bottom: 5rem;
+  position: relative;
+
+  &>* {
+    position: absolute;
+    inset: 0;
+  }
+
+  & .title {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    justify-content: center;
+    padding: 0 0 5rem 0;
+  }
+
+  & h1 {
+    color: white;
+    position: relative;
+    font-size: var(--txt-xxl);
+    margin: 0;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.gyms-hero--image {
+  filter: brightness(0.75);
+  height: 100%;
+}
+
+.gym-logo {
+  max-width: min(100px, 20vw);
+  max-height: min(70px, 15vw);
+  filter: contrast(0) brightness(5) saturate(0);
+}
+
+.gyms-footer--image,
+.gyms-footer--video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  margin-top: 4rem;
 }
