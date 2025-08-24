@@ -8,6 +8,10 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "main": {
+      "type": "page-ambassador-header"
+    }
+  },
+  "order": ["main"]
 }
