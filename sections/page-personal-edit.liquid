@@ -1,0 +1,22 @@
+{% if customer %}
+  {% assign all_items = '' %}
+  {% for order in customer.orders %}
+    {% for item in order.line_items %}
+      {% unless all_items contains item.product.id %}
+        {% assign all_items = all_items | append: "," | append: item.product.id %}
+        {% render 'product-card', product: item.product %}
+      {% endunless %}
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  <h1>please sign in to see your personal recomendations</h1>
+  {% render 'dead-end' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Personal Edit",
+  "class": "section--personal-edit",
+  "settings": []
+}
+{% endschema %}
