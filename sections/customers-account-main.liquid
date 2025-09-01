@@ -14,7 +14,10 @@
 
 <ul class="account-links">
   <li>
-    <a class="button button-primary" href="{{  collections['all'].url }}">Go Shopping {% render 'icon', icon: 'arrow' %}</a>
+    <a class="button button-primary" href="{{  collections['all'].url }}">{% render 'icon', icon: 'edit' %} Your Edit</a>
+  </li>
+  <li>
+    <a class="button button-secondary" href="/pages/your-edit">Go Shopping {% render 'icon', icon: 'arrow' %}</a>
   </li>
   <li>
     <a class="button button-secondary" href="/apps/iwish">
