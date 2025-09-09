@@ -131,7 +131,7 @@ productcard-carousel {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(175px, 350px));
     width: 90vw;
-    max-width: min(90vw, 1270px);
+    max-width: var(--max-width);
 
     &.no-carousel {
         & .splide__list {

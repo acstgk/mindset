@@ -274,7 +274,7 @@ if (!customElements.get("page-overlay")) {
         // close any open drawers
         this._closeLoop("slide-drawer");
         // close any mobile qatb modals
-        this._closeLoop(".mqatb-modal");
+        this._closeLoop(".modal");
         //close the searchbar
         document.querySelector("predictive-search").close();
       }
@@ -774,6 +774,7 @@ new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
 new ComponentLoader("product-recommendations", () => import("./ProductRecommendations.js"));
 new ComponentLoader("personal-recommendations", () => import("./PersonalisedCarousel.js"));
 new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
+new ComponentLoader("bnpl-options", () => import("./BnplOptions.js"));
 
 // with product cards in the cart drawer, always load the product-card module even without the scroll listener/observer
 if (!customElements.get("product-card")) {

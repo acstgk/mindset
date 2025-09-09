@@ -474,7 +474,7 @@ thumbnail-carousel {
     grid-template-rows: max-content 1fr;
     gap: 1em;
 
-    & .payment--options {
+    & bnpl-options {
       margin-block: 0.5em;
     }
 

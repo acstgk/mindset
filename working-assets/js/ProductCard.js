@@ -102,7 +102,7 @@ export default class ProductCard extends HTMLElement {
 
     //create the modal
     const modal = document.createElement("div");
-    modal.className = "fade-in mqatb-modal";
+    modal.className = "fade-in mqatb-modal modal";
     modal.id = modalID;
     modal.setAttribute("aria-hidden", "true");
 

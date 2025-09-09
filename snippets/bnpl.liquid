@@ -1,4 +1,4 @@
-<div class="payment--options ge-hide-display-none ge-hide">
+<bnpl-options class=" ge-hide-display-none ge-hide">
   <div class="bnpl-placement">
     {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color' }}
     <span>
@@ -8,7 +8,7 @@
       {% else %}
         pay in 30 days with Klarna. <br>
       {% endif %}
-      <a href="/pages/klarna-terms-conditions">Learn More {% render 'icon' with 'external' as icon %}</a>
+      <a href="/pages/klarna-terms-conditions" class="klarna-link">Learn More</a>
     </span>
   </div>
   <div class="bnpl-placement">
@@ -16,21 +16,20 @@
     <span>
       or make 4 interest-free payments of <strong>{{ price | divided_by: 4 | money_without_trailing_zeros }}</strong> with ClearPay.
       <br>
-      <a href="/pages/clearpay-terms-conditions">Learn More {% render 'icon' with 'external' as icon %}</a>
+      <a href="/pages/clearpay-terms-conditions" class="clearpay-link">Learn More</a>
     </span>
   </div>
-</div>
+</bnpl-options>
 
-{% style%}
-
-.payment--options {
-  display: flex;
-  flex-flow: column;
-  gap: 0.5em;
-  margin-block: 1em;
-  border-top: 1px solid var(--c-grey);
-  padding-top: 1em;
-}
+{% style %}
+  bnpl-options {
+    display: flex;
+    flex-flow: column;
+    gap: 0.5em;
+    margin-block: 1em;
+    border-top: 1px solid var(--c-grey);
+    padding-top: 1em;
+  }
   .bnpl-placement,
   .bnpl-placement a {
     font-size: var(--txt-sm) !important;
@@ -40,6 +39,26 @@
   }
 
   .bnpl-placement a {
-    gap: 0.2em
+    gap: 0.2em;
   }
-{% endstyle%}
+
+  .bnpl-modal {
+    position: absolute;
+    background-color: var(--c-white);
+    inset: 0;
+    margin: auto;
+    width: min(100vw, 1270px);
+    max-height: min(100vh, 950px);
+    z-index: 11;
+    overflow-y: auto;
+    padding: 3rem;
+    &.fade-in.active {
+      height: fit-content;
+    }
+  }
+
+  button.modal-close {
+    position: absolute;
+    inset: 3rem 3rem auto auto;
+  }
+{% endstyle %}
