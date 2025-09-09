@@ -1,6 +1,6 @@
 <div class="footer-container max-width">
   <div class="footer-socials">
-{% render 'socials' %}
+    {% render 'socials' %}
     <span>@GYMKING</span>
   </div>
 
@@ -12,7 +12,9 @@
         <div class="accordian-header" aria-controls="accordian-content-{{ i }}" role="button" tabindex="0">{{ menu.title }}</div>
         <ul class="accordian-content " id="accordian-content-{{ i }}">
           {% for link in menu.links %}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            <li>
+              <a href="{{ link.url }}">{{ link.title }}</a>
+            </li>
           {% endfor %}
         </ul>
       </div>
@@ -20,14 +22,14 @@
   </content-accordian>
 </div>
 
+{% if section.settings.seo_copy and template == 'index' %}
+  <div class="meta-description Rte max-width">{{ section.settings.seo_copy }}</div>
+{% endif %}
 {% render 'trust-widget' with 'carousel' %}
 {% render 'payment-icons' %}
 
 <div class="footer-copyright">
-  <p class="footer-author">
-    © {{ 'now' | date: '%Y' }} GYM KING LIMITED IS A LIMITED COMPANY REGISTERED IN ENGLAND WITH REGISTERED NUMBER
-    09476649. VAT REGISTRATION: GB211871333
-  </p>
+  <p class="footer-author">© {{ 'now' | date: '%Y' }} GYM KING LIMITED IS A LIMITED COMPANY REGISTERED IN ENGLAND WITH REGISTERED NUMBER 09476649. VAT REGISTRATION: GB211871333</p>
 </div>
 {% schema %}
 {
@@ -56,6 +58,11 @@
       "type": "link_list",
       "id": "menu-4",
       "label": "Menu 4"
+    },
+    {
+      "type": "richtext",
+      "id": "seo_copy",
+      "label": "Site Meta Description"
     }
   ]
 }

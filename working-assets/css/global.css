@@ -1302,6 +1302,10 @@ ul.social-links {
     color: var(--c-grey);
 }
 
+.meta-description {
+    margin: -60px auto 60px;
+}
+
 .payment-icons {
     margin: 40px 0 0;
 }
