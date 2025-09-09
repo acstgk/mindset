@@ -171,7 +171,21 @@
       <meta name="robots" content="noindex">
     {% endif %}
 
-    <link rel="canonical" href="{{ canonical_url }}">
+    {% assign updated_url = canonical_url %}
+
+    {% if canonical_url contains 'sale' and canonical_url contains 'collections' %}
+    {% else %}
+      {% assign ending = canonical_url | slice: -5, 5 %}
+      {% if ending == '/mens' %}
+        {% assign updated_url = canonical_url | remove: '/mens' %}
+      {% endif %}
+      {% assign ending = canonical_url | slice: -7, 7 %}
+      {% if ending == '/womens' %}
+        {% assign updated_url = canonical_url | remove: '/mens' %}
+      {% endif %}
+    {% endif %}
+
+    <link rel="canonical" href="{{ updated_url }}">
 
     {%- if settings.favicon -%}
       <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: '96px' }}" type="image/png">
