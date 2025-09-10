@@ -151,6 +151,14 @@ form#atc_form {
   }
 }
 
+.pdp-zoom-close-btn.round-btn {
+  right: 50%;
+  bottom: 3rem;
+  translate: -50% 0;
+  height: 40px;
+  width: 40px;
+}
+
 input.pdp-zoom-range {
   top: calc(2em + 40px);
   writing-mode: bt-lr;
@@ -387,7 +395,7 @@ pdp-carousel {
   border: 1px solid white;
   position: relative;
 
-  & > img {
+  &>img {
     margin-bottom: -0.5em;
     height: 100%;
   }

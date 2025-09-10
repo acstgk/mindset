@@ -508,13 +508,13 @@ button {
 }
 
 .round-btn {
+    border-radius: 15px;
     border-radius: 50%;
     width: 30px;
     height: 30px;
     display: grid;
     place-items: center;
     backdrop-filter: blur(3px);
-    border-radius: 15px;
     background: color-mix(in lab, var(--c-white), transparent 70%);
     box-shadow: 0 0 4px color-mix(in lab, var(--c-dark-grey), transparent 70%);
     cursor: pointer;
@@ -523,6 +523,7 @@ button {
         /* overwriting 3rd party css */
         width: 15px;
         height: 15px;
+        margin-top: 0;
     }
 }
 

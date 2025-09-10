@@ -50,6 +50,7 @@ main {
 img {
   width: 100%;
   height: auto;
+  min-height: 100%;
   object-fit: cover;
 }
 
@@ -308,6 +309,10 @@ ul {
   margin: 0 auto;
   max-width: 45rem;
 
+  &.full-width {
+    max-width: none;
+  }
+
   & h2,
   & h1,
   & h3,
@@ -420,7 +425,7 @@ slide-drawer {
   background-color: var(--c-white);
   color: var(--c-black);
 
-  & .max-width {
+  & > .max-width {
     display: grid;
     grid-template-columns: auto 2fr 1fr;
     gap: 15px;
@@ -435,7 +440,7 @@ slide-drawer {
 }
 
 @media screen and (min-width: 768px) {
-  #shopify-section-header-main .max-width {
+  #shopify-section-header-main > .max-width {
     justify-content: center;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
