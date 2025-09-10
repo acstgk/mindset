@@ -633,8 +633,8 @@ class gkUtils {
         Cart.addItems(targetButton.dataset.vId)
           .then(() => {
             targetButton.innerHTML = targetSize;
-            const prodID = root.dataset.prodId;
-            const modal = document.getElementById(`mqatb-${prodID}`);
+            const prodID = root.id;
+            const modal = document.getElementById(prodID);
             modal ? modal.classList.remove("active") : "";
           })
           .catch((error) => {
