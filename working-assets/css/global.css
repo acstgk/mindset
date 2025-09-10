@@ -1,8 +1,9 @@
 /* GLOBAL  */
 
-hmtl > body.no-scroll {
+hmtl>body.no-scroll {
     overflow: hidden;
 }
+
 @view-transition {
     navigation: auto;
 }
@@ -145,6 +146,27 @@ productcard-carousel {
         & .splide__slide:not(.is-active) {
             scale: 1;
         }
+    }
+}
+
+productcard-carousel .splide__arrows {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 6px;
+}
+
+productcard-carousel .splide__arrow {
+    display: grid;
+    fill: var(--c-grey);
+    transition: fill 0.2s ease;
+
+    &:hover {
+        fill: var(--c-dark-grey);
+    }
+
+    & svg {
+        width: 24px;
+        height: 24px;
     }
 }
 
@@ -601,6 +623,7 @@ predictive-search {
     overflow: hidden;
     top: -1px;
     opacity: 0;
+    visibility: hidden;
     background-color: var(--c-white);
     z-index: -1;
     transition: top .2s var(--bezier), opacity .2s ease;
@@ -1310,6 +1333,10 @@ ul.social-links {
 
 .meta-description {
     margin: -60px auto 60px;
+    max-width: none;
+    & p {
+        max-width: none;
+    }
 }
 
 .payment-icons {
@@ -1567,6 +1594,7 @@ product-card,
     gap: 12px;
     flex-flow: row wrap;
     grid-column: 1 / -1;
+    margin-top: 0.55em;
 }
 
 .qatb-btn,

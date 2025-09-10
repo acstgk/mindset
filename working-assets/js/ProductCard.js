@@ -126,7 +126,8 @@ export default class ProductCard extends HTMLElement {
     const buttonsData = this.querySelector(".datb").innerHTML;
     const buttons = document.createElement("div");
     buttons.className = "mqatb-btns";
-    buttons.innerHTML = buttonsData;
+    buttons.innerHTML = `Quick Add: ${buttonsData}`
+
 
     // add content to the modal
     const modalContent = document.createElement("div");
