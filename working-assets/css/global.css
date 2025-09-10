@@ -1,5 +1,8 @@
 /* GLOBAL  */
 
+hmtl > body.no-scroll {
+    overflow: hidden;
+}
 @view-transition {
     navigation: auto;
 }
@@ -261,6 +264,7 @@ body.no-scroll page-overlay {
     position: relative;
     transform: translateY(100px);
     pointer-events: none;
+    visibility: hidden;
 }
 
 .fade-out {
@@ -278,6 +282,7 @@ body.no-scroll page-overlay {
     transform: translateY(0);
     height: auto;
     pointer-events: all;
+    visibility: visible;
 }
 
 .no-height {

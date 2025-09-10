@@ -49,25 +49,31 @@ export default class BnplOptions extends HTMLElement {
     closeBtn.classList.add("modal-close");
     closeBtn.setAttribute("aria-label", "Close modal");
     closeBtn.innerHTML =
-    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='Icon'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M18 6l-12 12' /><path d='M6 6l12 12' /></svg>";
+      "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='Icon'><path stroke='none' d='M0 0h24v24H0z' fill='none'/><path d='M18 6l-12 12' /><path d='M6 6l12 12' /></svg>";
     closeBtn.addEventListener("click", () => document.querySelector("page-overlay").closeAllOverlays());
 
-    //get the modal content from the T&C's page
-    const targetUrl = option === "klarna" ? this.klarnaURL : this.clearpayURL;
-    const content = await this._getContent(targetUrl);
-    modal.classList.add("active");
-    modal.innerHTML = content.innerHTML;
+    // add the content div and loader
+    const contentEl = document.createElement("div");
+    contentEl.className = "bnpl-modal--content";
+    contentEl.innerHTML = `<div class="loader"></div>`;
+    modal.append(contentEl);
     modal.appendChild(closeBtn);
 
     //add the modal to the DOM
     document.querySelector("page-overlay").openThis();
     document.body.appendChild(modal);
+    modal.classList.add("active");
+
+    // finally fetch the data
+    const targetUrl = option === "klarna" ? this.klarnaURL : this.clearpayURL;
+    const content = await this._getContent(targetUrl);
+    contentEl.innerHTML = content.innerHTML;
   }
 
   _showModal(targetModal) {
     document.querySelector("page-overlay").openThis();
     const el = document.querySelector(targetModal);
-    el.classList.add('active');
+    el.classList.add("active");
     el.setAttribute("aria-hidden", "false");
   }
 }
