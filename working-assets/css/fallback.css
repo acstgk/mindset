@@ -39,15 +39,24 @@
     margin: 0 auto;
 }
 
+.collection-blurb {
+    height: auto !important;
+
+    &::after {
+        display: none !important;
+    }
+}
 
 
 /* login form css fallback for forgotten password */
 :target#recover~#recover-pane {
     display: block;
 }
+
 :target#recover~#login-pane {
     display: none;
 }
+
 :target#login~#login-pane {
     display: block;
 }

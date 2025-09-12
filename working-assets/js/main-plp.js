@@ -428,3 +428,34 @@ class EnhancedFilters {
 
 const form = document.getElementById("filter-form");
 if (form) new EnhancedFilters(form);
+
+
+// ===================
+// Blurb Collapse for mobile
+// ===================
+
+class BlurbControls {
+  constructor(selector) {
+    this.element = document.querySelector(selector);
+    if (this.element) {
+      this.isOverflow = this.element.clientHeight < this.element.scrollHeight;
+    }
+    if (this.isOverflow) this._addbutton();
+  }
+
+  _addbutton() {
+    const controlBtn = document.createElement('a');
+    controlBtn.className = "expand-blurb";
+    controlBtn.innerText = "Read more"
+    controlBtn.addEventListener("click", this._toggleView);
+    this.element.appendChild(controlBtn)
+  }
+
+  _toggleView = () => {
+    console.log(this.element);
+
+    this.element.classList.toggle("active");
+  }
+}
+
+new BlurbControls('.collection-blurb')

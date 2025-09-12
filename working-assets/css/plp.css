@@ -10,6 +10,39 @@
   }
 }
 
+.collection-heading {
+  position: relative;
+}
+
+.collection-blurb {
+  height: 3.6em;
+  line-height: 1.2;
+  overflow: hidden;
+  transition: height 0.2s var(--bezier);
+
+  &.active {
+    height: auto;
+
+    & .expand-blurb {
+      display: none;
+    }
+  }
+
+  & .expand-blurb {
+    content: "Read more >";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--c-white);
+    width: min(50%, 60ch);
+    background: linear-gradient(150deg, transparent 10%, var(--c-white) 40%);
+    text-align: right;
+    color: var(--c-grey);
+    pointer-events: all;
+  }
+}
+
 #search_page-form {
   width: 70%;
   align-items: center;
@@ -124,15 +157,24 @@ infinite-scroll,
   .section--collection-header {
     padding-top: 0;
 
-    & .rtf {
+    &>div {
       display: flex;
       align-items: center;
       gap: 2em;
+      margin-block: 2rem;
 
-      & h1 {
+      & .no-block-margin {
         flex: 1 0 33%;
         text-align: left;
       }
+    }
+  }
+
+  .collection-blurb {
+    height: auto;
+
+    & .expand-blurb {
+      display: none;
     }
   }
 
@@ -150,7 +192,7 @@ infinite-scroll,
 
 @media screen and (width > 1020px) {
 
-  infinite-scroll   {
+  infinite-scroll {
     grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   }
 }
