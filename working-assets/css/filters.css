@@ -6,7 +6,7 @@ filters-menu-bar {
   width: 100%;
   margin: 0 !important;
   border-block: 1px solid var(--c-light-grey);
-  z-index: 11;
+  z-index: 5;
   color: var(--c-grey);
 
   & slide-drawer {
