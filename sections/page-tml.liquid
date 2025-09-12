@@ -1,0 +1,133 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
+
+{% if section.settings.logo %}
+  <a class="hero-logo" href="{{ section.settings.logolink }}">
+    {{ section.settings.logo | image_url: width: '200px' | image_tag: width: '200px', class: 'logo' }}
+  </a>
+{% endif %}
+
+{% if section.settings.video %}
+  <div class="hero-video">
+    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+    <a href="{{ section.settings.link }}" class="shopnow">Shop Now</a>
+  </div>
+{% endif %}
+
+<style>
+  .yotpo-widget-loyalty-floater-widget.yotpo-widget-override-css {
+    display: none !important;
+  }
+
+  .TML-page,
+  body {
+    font-family: 'Roboto Condensed', sans-serif !important;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+
+  #shopify-section-header-main,
+  #shopify-section-header-announcement,
+  #shopify-section-footer-main {
+    display: none;
+    visibility: hidden;
+  }
+  .hero-logo {
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  video {
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-video {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 550px;
+  }
+
+  .shopnow {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    translate: -50% 0;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 16px;
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 50px;
+  }
+
+  .collection-highlights {
+    margin-top: 0px !important;
+  }
+
+  .product_title_stripped,
+  .ProductItem__PriceList {
+    font-size: var(--txt--1);
+  }
+
+  .shop-by-category-section {
+    padding: 40px 0;
+    background-color: #000;
+    color: #f6f6f6;
+  }
+
+  .shop-by-category {
+    position: relative;
+    z-index: 1;
+  }
+
+  .gksubtitle,
+  .categorytitle {
+    font-weight: 700;
+    font-size: var(--txt-3);
+    font-style: italic;
+    letter-spacing: normal;
+  }
+  .categorytitle {
+    text-shadow: 0 0 30px rgba(27, 27, 27, 0.7), 0 0 2px rgb(0 0 0 / 0.1);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "TML Landing Page",
+  "class": "TML-page",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    {
+      "type": "url",
+      "id": "logolink",
+      "label": "Logo Link"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Hero Video"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Shop Now Link",
+      "default": "/collections/all"
+    }
+  ]
+}
+{% endschema %}
