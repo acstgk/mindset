@@ -102,7 +102,6 @@ input[type=range] {
 }
 
 .splide__slide img {
-    object-fit: cover;
     object-position: top;
 }
 
@@ -819,6 +818,11 @@ content-accordian {
     font-weight: 700;
     cursor: pointer;
 
+    & span {
+        display: grid;
+        place-content: centre;
+    }
+
     & svg {
         height: 21px;
         color: var(--c-grey);
@@ -828,7 +832,7 @@ content-accordian {
     &.active {
         &+.accordian-content {
             height: fit-content;
-            padding-bottom: 15px;
+            padding-block: 15px;
         }
 
         & svg {

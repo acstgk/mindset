@@ -1,0 +1,118 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-ambassador-header",
+      "settings": {}
+    },
+    "content_rich_text_LczdjE": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_CaFkMj": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>You might know Maisie from her childhood acting days, but she’s recently taken the world by storm as the youngest female winner of SAS: Who Dares Wins. Maisie's passions are all about fitness and living an active lifestyle, which makes her the perfect match for us here at Gym King.</p><p>As a Gym King ambassador, Maisie promotes a balanced and active lifestyle while staying true to her unique authentic and down to earth personality.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_CaFkMj"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    },
+    "content_hotspot_carousel_wFUKNP": {
+      "type": "content-hotspot-carousel",
+      "blocks": {
+        "card_ay9h7L": {
+          "type": "card",
+          "settings": {
+            "title": "Shop Maisies Limitless Collection",
+            "description": "Maisie’s fitness journey started as a way to build confidence and boost mental well-being. Today, she shares her experiences to motivate others, proving that fitness is for everyone, no matter where they’re starting from.",
+            "image": "shopify://shop_images/LIMITLESSMESHBOYFRIENDTEE_LIMITLESSSEAMLESSSCULPTLEGGING_LIMITLESSWAFFLESCRUNCHIE-WHITEBLUEBOLDBLUEANIMALPRINTCREAMWST-BOETUWLG-BOETNACC-BOEU5_133.png",
+            "cta_text": "Shop Now",
+            "link_url": "shopify://collections/limitless-collection-maisie",
+            "product1": "gym-king-limitless-crop-mesh-tee-white-blue",
+            "product1_x": 62,
+            "product1_y": 43,
+            "product2": "gym-king-limitless-seamless-sculpt-legging-bold-blue-animal-print",
+            "product2_x": 50,
+            "product2_y": 87
+          }
+        }
+      },
+      "block_order": [
+        "card_ay9h7L"
+      ],
+      "name": "Hotspot Carousel",
+      "settings": {}
+    },
+    "content_rich_text_LyMw3q": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_g6Rmtf": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>Career Highlights</h3><p><strong>Youngest and smallest Female to win SAS who dares wins</strong>: strong comes in all shapes and sizes, and Maisie proved her own over the 7 weeks intense selection process coming up against olympians to pass.</p><p><strong>Fitness Enthusiast</strong>: a keen deadlifter, tennis player and not shy to any new sports, Maisie worksout daily, key to her confidence and mindset.</p><p><strong>Strictly come dancing finalist:</strong> Maisie wowed viewers with her impressive dancing skills and athleticism coming second in her season</p><p><strong>Advocate for Body Positivity</strong>: Uses her platform to promote confidence, self-love, and a healthy approach to fitness and well-being, a very important part of the Gym King Women community.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_g6Rmtf"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "center"
+      }
+    },
+    "content_rich_text_nq3k3n": {
+      "type": "content-rich-text",
+      "blocks": {
+        "quote_6GWaNi": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "Fitness has become a huge part of my life—it’s not just about staying in shape, but about feeling good from the inside out. I’ve had my own ups and downs with body confidence, and I want to show others that it’s okay to embrace the journey. Partnering with Gym King is a dream come true because they represent strength, confidence, and individuality—things I’m all about.",
+            "quote_author": "Maisie Smith, Gym King Ambassador"
+          }
+        }
+      },
+      "block_order": [
+        "quote_6GWaNi"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": true,
+        "bg_color": "",
+        "background-image": "shopify://shop_images/IMG_8424_VSCO.jpg",
+        "full_width": true,
+        "alignment": "right"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "content_rich_text_LczdjE",
+    "content_hotspot_carousel_wFUKNP",
+    "content_rich_text_LyMw3q",
+    "content_rich_text_nq3k3n"
+  ]
+}

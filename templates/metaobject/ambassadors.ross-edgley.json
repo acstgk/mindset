@@ -1,0 +1,105 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-ambassador-header",
+      "settings": {}
+    },
+    "content_rich_text_7dCRtj": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_UTiq3g": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Ross Edgley is a world-renowned endurance athlete, author, and adventurer known for pushing the boundaries of human performance. With numerous world records under his belt, including being the first person to swim around Great Britain, Ross embodies the Gym King ethos of resilience, dedication, and breaking limits. As a proud Gym King ambassador, Ross inspires others to embrace challenges and pursue greatness in every aspect of life.</p>"
+          }
+        },
+        "video_dx9fM3": {
+          "type": "video",
+          "settings": {
+            "linked_video": "https://www.youtube.com/watch?v=ETDJ44zMGeQ"
+          }
+        },
+        "rtf_7bBxeU": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>Career Highlights</h3><p><strong>2015: Strongman Swimming<br/></strong>Completed a 100-kilometer swim while towing a 100-pound tree, blending strength and endurance in an unprecedented feat of physical and mental toughness.<strong><br/><br/>2016: Guinness World Record for Rope Climbing<br/></strong>Climbed the height of Mount Everest (8,848m) on a rope in just 19 hours, setting a Guinness World Record for rope climbing endurance.<br/><br/><strong>2016: Marathon While Pulling a Car</strong><br/>Ran a full 26.2-mile marathon while pulling a 1.4-ton car, proving his concept of “functional fitness” and redefining the boundaries of strength training.</p><p><strong>2018: First human to swim around the entire coastline of Great Britain</strong><br/>Ross Edgley made history by becoming the first person to swim around the entire coastline of Great Britain, an immense feat of endurance and determination. Over the course of 157 days, Ross swam 1,780 miles, battling unpredictable weather, strong currents, and physical exhaustion. He completed the swim without setting foot on land, a continuous six hours of swimming followed by six hours of rest aboard a support boat. An incredible feat of physical resilience which cemented his status as one of the world’s most remarkable endurance athletes.</p><p><strong>2024: World record holder of the longest non-stop river swim<br/></strong>Another history making record, Ross took on the longest non-stop river swim which took place on the Yukon river in Canada lasting a mammoth 54 hours and 45 minutes, Ross was not allowed to touch land or any boat to complete over 510KM of continuous swimming.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_UTiq3g",
+        "video_dx9fM3",
+        "rtf_7bBxeU"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    },
+    "content_rich_text_HJ9Lha": {
+      "type": "content-rich-text",
+      "blocks": {
+        "quote_yRzTYp": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "I’ve always believed that the human body is more powerful than we think—it’s the mind that has to catch up. My journey has been about exploring that connection of mind over matter. whether it’s swimming around Britain or running a marathon with a tree on my back. The partnership with Gym King is a natural fit. They represent resilience, strength and Mindset—three things I live by.",
+            "quote_author": "Ross Edgley, Gym King Ambassador"
+          }
+        }
+      },
+      "block_order": [
+        "quote_yRzTYp"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": true,
+        "bg_color": "",
+        "background-image": "shopify://shop_images/Compass_Tank_-_Black_1_15e7ccab-009d-41bd-b4c3-44976dc4cb94_copy.jpg",
+        "full_width": true,
+        "alignment": "left"
+      }
+    },
+    "content_rich_text_3b9FCk": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_WrRaA9": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Ross’s journey is a testament to what happens when you combine extreme physical endurance with mental resilience. From setting records to inspiring millions, he continues to break down barriers and inspire people to redefine what they think is possible.</p><p>Founded on mindset, discipline, resilience and gratitude, the Stoic Collection celebrates the stoic mindset shared by Gym King and Ross Edgley.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_WrRaA9"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "content_rich_text_7dCRtj",
+    "content_rich_text_HJ9Lha",
+    "content_rich_text_3b9FCk"
+  ]
+}

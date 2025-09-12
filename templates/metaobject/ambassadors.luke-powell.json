@@ -1,0 +1,99 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-ambassador-header",
+      "settings": {}
+    },
+    "content_rich_text_gJJaTH": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_XMCkYi": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Luke Powell is the visionary founder of Shred Fast, a revolutionary fitness program focused on transforming both the body and mind. With over 15 years of dedicated experience in the health and fitness industry, his mission is clear: to inspire, motivate, and empower individuals on their wellness journey. Now, as a Gym King ambassador, Luke continues to inspire others to push their limits.</p><h3>Career Highlights</h3><p><strong>Founder of Shred Fast</strong>: Creator of the Shred Fast program, known for its high-intensity, results-driven approach to fitness and fat loss.</p><p><strong>Professional Athlete: </strong>Professional football, MMA cage, boxing and national-level athletics.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_XMCkYi"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    },
+    "content_rich_text_qe38QE": {
+      "type": "content-rich-text",
+      "blocks": {
+        "quote_tfyHRt": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "In my early twenties, I faced mental health challenges and battled depression. Instead of succumbing, I delved into mental health awareness, spirituality, cognitive performance, and physical fitness. My quest took me around the world, from rigorous four-week fight camps in Thailand to braving the frosty peaks of Poland with the legendary Wim Hof.",
+            "quote_author": "Luke Powell, Gym King Ambassador"
+          }
+        }
+      },
+      "block_order": [
+        "quote_tfyHRt"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": true,
+        "bg_color": "",
+        "background-image": "shopify://shop_images/IMG_7684_92e2c3e7-e595-4593-bc18-87d339e5deeb.jpg",
+        "full_width": true,
+        "alignment": "left"
+      }
+    },
+    "content_rich_text_GChbfX": {
+      "type": "content-rich-text",
+      "blocks": {
+        "quote_tEnDNg": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "I’ve walked diverse paths – from professional football to the MMA cage, boxing ring, and national-level athletics. Countless workshops and personal trials have equipped me with the tools for a resilient body and mind, all masterfully integrated into the ShredFast program. Since then ShredFast has grown exponentially. From just myself and website developer, to now a team of 15. The unique thing is, each member of the team has used the programme to better their lives before joining the team. <br><br> When lockdowns disrupted our lives, I seized the opportunity to launch our website and introduce a subscription-based program. Since then, ShredFast’s remarkable growth is evident, evolving from a humble duo consisting of myself and a web designer to a robust team of 15 dedicated individuals.",
+            "quote_author": ""
+          }
+        },
+        "rtf_UyxD3X": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>ShredFast has become a game-changer for countless individuals looking to level up their fitness. Watch Luke and his team take you through some of the signature moves you’ll see throughout the program.</p><h3>Why is ShredFast different?</h3><p>“What sets ShredFast apart is the extraordinary fact that every team member has personally experienced the transformative power of the ShredFast program before becoming an integral part of our team. This unique approach not only fosters a deep understanding of our mission but also showcases the program’s efficacy in elevating individuals, making our team a true testament to the program’s success”.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "quote_tEnDNg",
+        "rtf_UyxD3X"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "content_rich_text_gJJaTH",
+    "content_rich_text_qe38QE",
+    "content_rich_text_GChbfX"
+  ]
+}

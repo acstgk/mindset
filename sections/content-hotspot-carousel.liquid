@@ -4,7 +4,7 @@
   {% for block in section.blocks %}
     <div class="hotspot-card splide__slide">
       <div class="hotpsot-card--image">
-        {{ block.settings.image | image_url: width: 800 | image_tag }}
+        {{ block.settings.image | image_url: width: 800 | image_tag: class: "cover" }}
 
         {% for i in (1..2) %}
           {% assign product_id = 'product' | append: i %}
@@ -41,7 +41,7 @@
         <h3 class="h1 left">{{ block.settings.title }}</h3>
         <p>{{ block.settings.description }}</p>
         {% if block.settings.link_url %}
-          <a href="{{ block.settings.link_url }}" class="btn btn-primary inline-flex">Learn More {% render 'icon', icon: 'arrow' %}</a>
+          <a href="{{ block.settings.link_url }}" class="btn btn-primary inline-flex">{{  block.settings.cta_text | default: "Learn more" }} {% render 'icon', icon: 'arrow' %}</a>
         {% endif %}
       </div>
     </div>
@@ -99,10 +99,16 @@
           "id": "image",
           "label": "Image"
         },
+                {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Learn more"
+        },
         {
           "type": "url",
           "id": "link_url",
-          "label": "Link URL"
+          "label": "CTA Link URL"
         },
         { "type": "header", "content": "Hotspot Settings" },
         {

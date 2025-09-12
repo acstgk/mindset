@@ -104,11 +104,6 @@ a.featured-article--link {
     }
   }
 
-  img.featured-article--image {
-    min-width: 100%;
-    min-height: 100%;
-  }
-
   a.featured-article--link {
     padding: 0.5rem 1rem;
   }

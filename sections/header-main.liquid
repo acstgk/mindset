@@ -1,7 +1,6 @@
 {% assign keywordvar = settings['highlighted-keyword'] | downcase %}
 {% assign keywordvaralt = settings['highlighted-keyword-alt'] | downcase %}
 
-<div class="max-width">
   <button class="drawer-button header_icon mob-only" data-target="navDrawer" aria-label="Open navigation menu">
     {%- render 'icon' with 'nav' as icon -%}
   </button>
@@ -74,7 +73,7 @@
       {%- render 'icon' with 'cart' as icon -%}
     </a>
   </div>
-</div>
+
 
 {% render 'predictive-search' %}
 

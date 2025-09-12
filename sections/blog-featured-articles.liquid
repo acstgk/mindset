@@ -55,7 +55,7 @@
       {% comment %} image {% endcomment %}
       <{{ element_type }} {{ has_link }} class="featured-article--media img-overlay">
         {% unless image == blank %}
-          {{ image | image_url: width: 800 | image_tag: class: 'featured-article--image' }}
+          {{ image | image_url: width: 800 | image_tag: class: 'featured-article--image cover' }}
         {% endunless %}
       </{{ element_type }}>
 

@@ -1,4 +1,11 @@
-<div class="rtf max-width">
+{% if section.settings.is_accent %}
+  <div class="rich-content--wrapper" style="background-color:{{ section.settings.bg_color | default: '#f6f6f6' }}">
+    {% if section.settings['background-image'] %}
+      {{ section.settings['background-image'] | image_url: width: 2000 | image_tag: class: 'contrast-bg' }}
+    {% endif %}
+{% endif %}
+
+<div class="rtf max-width {% if section.settings.full_width %} align-{{ section.settings.alignment }}{% endif %}">
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'rtf' %}
@@ -8,6 +15,9 @@
           {% unless block.settings.quote_author == blank %}
             data-quote-attribution="- {{  block.settings.quote_author }}"
           {% endunless %}
+          {% if section.settings['background-image'] %}
+            class="contrast"
+          {% endif %}
         >
           {{ block.settings.quote_text }}
         </blockquote>
@@ -33,11 +43,121 @@
   {% endfor %}
 </div>
 
+{% if section.settings.is_accent %}
+  </div>
+{% endif %}
+
+<style>
+  #shopify-section-{{section.id}} {
+    margin-block: {{ section.settings.v_padding }}px
+  }
+  .rich-content--wrapper {
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 0;
+
+    & .rtf>:first-child {
+    margin-top: 2.4rem;
+    }
+    & .rtf>:last-child {
+    margin-bottom: 2.4rem;
+    }
+
+    & > * {
+      grid-area: 1 / 1;
+      padding: 0;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & blockquote.contrast {
+      color: white;
+      {% comment %} text-shadow: 0 0 20px var(--c-dark-grey); {% endcomment %}
+      background: rgb(25 25 25 / 0.1);
+      backdrop-filter: blur(4px) brightness(0.8);
+      margin-block: 4rem !important;
+    }
+  }
+
+  .contrast-bg {
+    position: absolute;
+    inset: 0;
+  }
+
+  @media screen and (width > 768px) {
+    .align-right {
+      padding-left: 35%;
+      max-width: none;
+    }
+
+    .align-left {
+      padding-right: 35%;
+      max-width: none;
+    }
+  }
+</style>
 {% schema %}
 {
   "name": "Editorial Content Block",
   "class": "section--rich-text",
-  "settings": [],
+  "settings": [
+    {
+      "type": "range",
+      "id": "v_padding",
+      "label": "Padding",
+      "min": -100,
+      "max": 100,
+      "step": 5,
+      "default": 50,
+      "info": "adds or removes space between this block and it's neighbouring blocks"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_accent",
+      "label": "Accent Background?",
+      "info": "Use an accent background colour or image for this block",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "visible_if": "{{ section.settings.is_accent == true }}"
+    },
+    {
+      "type": "image_picker",
+      "id": "background-image",
+      "label": "Background Image",
+      "visible_if": "{{ section.settings.is_accent == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Use Full Width?",
+      "info": "Choose whether to constain content to the narrow rich text width or use all available screen width",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Text Position",
+      "options": [
+        { "value": "left", "label": "Left Half" },
+        { "value": "center", "label": "Full Width" },
+        { "value": "right", "label": "Right Half" }
+      ],
+      "default": "right",
+      "visible_if": "{{ section.settings.full_width == true }}"
+    }
+  ],
   "blocks": [
     {
       "type": "rtf",

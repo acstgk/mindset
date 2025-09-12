@@ -1,11 +1,11 @@
-<div class="rtf">
+<div class="rtf full-width">
   <div class="no-block-margin">
     <h1>{{ collection.title }}</h1>
     <p>
       <span class="product-count">{{ collection.products_count }}</span> products
     </p>
   </div>
-  {{ collection.description }}
+  <div>{{ collection.description }}</div>
 </div>
 
 {% if collection.all_types.size > 1 %}

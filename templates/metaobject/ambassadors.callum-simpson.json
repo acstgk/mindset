@@ -1,0 +1,129 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-ambassador-header",
+      "settings": {}
+    },
+    "content_rich_text_B9dMLX": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_kPGQwx": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Callum Simpson is a dynamic professional boxer making waves in the British boxing scene. Known for his speed, power, and unrelenting work ethic, Callum has quickly established himself as one of the most promising talents in the ring. As a Gym King ambassador, Callum brings the same determination to his training and personal style, embodying the brand’s values of grit, resilience, and ambition.</p>"
+          }
+        },
+        "quote_jDTDLW": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "With explosive power and unshakable focus, Callum Simpson dominates in the ring. Watch as he shares a glimpse of his training and journey to becoming one of the top contenders in British boxing.",
+            "quote_author": ""
+          }
+        },
+        "video_yGwKYV": {
+          "type": "video",
+          "settings": {
+            "linked_video": "https://www.youtube.com/watch?v=8fazZB7hnj0"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_kPGQwx",
+        "quote_jDTDLW",
+        "video_yGwKYV"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    },
+    "content_rich_text_B6by7X": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_4wHnU8": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>Career Highlights</h3><p><strong>Fight Record<br/></strong>15 fights - 15 wins - 10 KOs.</p><p><strong>2019 <br/></strong>Callum made his professional boxing debut against Elvis Dube winning a points decision. </p><p><strong>2022<br/></strong>Callum had four fights. Winning all by TKO against Michal Gazdik, Michal Loniewski, Farouk Daku, and won his first title by defeating Ben Ridings to win the Central Area super middleweight title.</p><p><strong>2023<br/></strong>Making his Boxxer debut in March 2023 against Celso Neves,winning via TKO. In July, Simpson beat Boris Crighton via unanimous decision. The third fight of the year came against Jose de Jesus Macias, with Simpson winning via unanimous decision after scoring a knockdown in the eighth round.</p><p><strong>2024<br/></strong>3rd August 2024, in his hometown of Barnsley at the Oakwell Football Ground, Callum fought Zak Chelli and won to become the British and Commonwealth super middleweight champion.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_4wHnU8"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    },
+    "content_rich_text_ff36Nc": {
+      "type": "content-rich-text",
+      "blocks": {
+        "quote_AdYT48": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "Boxing has always been my passion. From the first time I stepped into the ring, I knew this was my calling. The discipline, the hard work—it’s all part of the process. Being a Gym King ambassador is a huge honor because the brand represents everything I believe in: resilience, hard work, and never giving up.",
+            "quote_author": "Callum Simpson, Gym King Ambassador"
+          }
+        }
+      },
+      "block_order": [
+        "quote_AdYT48"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": true,
+        "bg_color": "",
+        "background-image": "shopify://shop_images/Capture_48_2de5bf9b-af71-4573-877a-00cb7f2ced97.jpg",
+        "full_width": true,
+        "alignment": "left"
+      }
+    },
+    "content_rich_text_AkP8W8": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_dMkYVt": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Callum’s journey to becoming a top contender in the boxing world hasn’t been easy, but his dedication and focus have pushed him through every challenge. He’s committed to inspiring others, showing that with the right mindset, anything is possible.</p><p>Before pursuing a career in boxing, Callum was a keen footballer, playing for Sheffield & Hallamshire County Senior League Premier Division side, Dodworth Miner's Welfare F.C. where his Dad was manager.</p><p>He left at the age of eight before taking up boxing in Bolton upon Dearne, Barnsley, later moving to train at Barnsley Star Boxing Club under Trevor Schofield.</p><p>He had 53 amateur fights, winning 38 before turning professional in 2019.</p><p>Discover Gym King Fight Division, Callums go-to that keeps him at the top of his game, from grueling training sessions to downtime.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_dMkYVt"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "content_rich_text_B9dMLX",
+    "content_rich_text_B6by7X",
+    "content_rich_text_ff36Nc",
+    "content_rich_text_AkP8W8"
+  ]
+}

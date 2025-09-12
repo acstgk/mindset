@@ -50,8 +50,11 @@ main {
 img {
   width: 100%;
   height: auto;
-  min-height: 100%;
   object-fit: cover;
+
+  &.cover {
+    min-height: 100%;
+  }
 }
 
 /* TEXT */
@@ -156,13 +159,13 @@ hr {
 }
 
 blockquote {
-    font-size: var(--txt-h2);
-    position: relative;
-    border-block: 1px solid var(--c-light-grey);
-    display: block;
-    margin: .6em 0 .6em;
-    padding: 1.2rem 0 2.4rem 1.8rem;
-
+  font-size: var(--txt-h2);
+  position: relative;
+  border-block: 1px solid var(--c-light-grey);
+  display: block;
+  margin: .6em 0 .6em;
+  padding: 1.2rem 0 2.4rem 1.8rem;
+  letter-spacing: 0.1ch;
 
   &::before {
     position: absolute;
@@ -424,14 +427,11 @@ slide-drawer {
   z-index: 5;
   background-color: var(--c-white);
   color: var(--c-black);
+  display: grid;
+  grid-template-columns: auto 2fr 1fr;
+  gap: 15px;
+  padding-inline: min(25px, 3vw);
 
-  & > .max-width {
-    display: grid;
-    grid-template-columns: auto 2fr 1fr;
-    gap: 15px;
-    padding-inline: min(25px, 3vw);
-    width: min(100%, 1270px);
-  }
 
   & .Icon {
     height: 24px;
@@ -440,7 +440,7 @@ slide-drawer {
 }
 
 @media screen and (min-width: 768px) {
-  #shopify-section-header-main > .max-width {
+  #shopify-section-header-main {
     justify-content: center;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;

@@ -1,0 +1,113 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-ambassador-header",
+      "settings": {}
+    },
+    "content_rich_text_bgefP6": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_cWhNbh": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Liam Harrison is a world-renowned Muay Thai champion and kickboxing icon, known for his powerful left hook and devastating low kick. With a career spanning decades and numerous world titles to his name, Liam has been number 1 in the UK rankings since the age of 17 and widely regarded as the best Muay Thai fighter to ever come out of the UK. As a Gym King ambassador, Liam brings the same grit, discipline, and relentless spirit that have made him a legend in the ring.</p>"
+          }
+        },
+        "quote_DBX4Ty": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "Liam Harrison’s fights are a masterclass in aggression, technique, and heart. Watch him break down his approach to Muay Thai, offering a glimpse into what makes him one of the most feared fighters in the sport.",
+            "quote_author": ""
+          }
+        },
+        "video_NcEbDi": {
+          "type": "video",
+          "settings": {
+            "linked_video": "https://www.youtube.com/watch?v=IkGDvAiv_rs"
+          }
+        },
+        "rtf_JQ8k8H": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>Career Highlights</h3><p><strong>8x World Titles</strong>: A decorated athlete with multiple world titles, recognized globally for his striking skills and resilience.</p><p><strong>Over 100 Professional Fights</strong>: A true veteran of the sport, competing against the best in Muay Thai and kickboxing for more than 20 years, with 118 fights, 91 wins, 51 KO.</p><p><strong>Co-founder Hitman Fight League: </strong>Hitman Fight League is the new Premier Muay Thai Promotion, Focussing on bringing top tier Muay Thai to the UK.</p><p><strong>Trainer and Mentor</strong>: Not only a fantastic fighter, Liam is proving to be an excellent coach, able to clearly communicate and translate his experiences in the ring to beginners and fighters of all levels. With over 12 years coaching experience, Liam now has one of the most in demand seminars world wide, having travelled all over Europe and the US. Not all fighters make good coaches however, this is something that Liam excels at.</p><h3>Titles and accomplishments</h3><ul><li>Yokkao World 65 kg Title (1 Def)</li></ul><p><strong>Kombat League</strong></p><ul><li>2016 Kombat League World Champion</li></ul><p><strong>WBC Muaythai</strong></p><ul><li>2014 WBC Muaythai (147 lbs) World Champion</li><li>2011 WBC Muaythai (147 lbs) International Champion</li></ul><p><strong>World Muaythai Council</strong></p><ul><li>2007–09 W.M.C. Muaythai Lightweight World Champion −61.5 kg (1 title defence)</li></ul><p><strong>World Professional Muaythai Federation</strong></p><ul><li>2006–07 W.P.M.F. Muaythai World Champion −63.5 kg (2 title defences – vacated)</li></ul><p><strong>Patong Stadium</strong></p><ul><li>2006 Patong Stadium Muaythai Super Welterweight Champion −68 kg (1 title defence)</li></ul><p><strong>Sitnarong International Muaythai Association</strong></p><ul><li>2005 S.I.M.T.A. Muaythai Lightweight European Champion −61.5 kg</li><li>2001 S.I.M.T.A. Muaythai Super Featherweight Northern Area Champion −52 kg</li></ul><p><strong>World Association of Kickboxing Organizations</strong></p><ul><li>2004 W.A.K.O. Pro Low-kick Kickboxing World Champion −62 kg</li></ul><p><strong>Awards</strong></p><ul><li>2007/08 Leeds Sports Federation Sportsman of the Year winner</li><li>2007 Muay Siam Magazine Foreign Fighter of the Year winner</li><li>2006/07 Leeds Sports Federation Sportsman of the Year winner</li><li>2004/05 Leeds Sports Federation Sportsman of the Year runner up</li></ul>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_cWhNbh",
+        "quote_DBX4Ty",
+        "video_NcEbDi",
+        "rtf_JQ8k8H"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    },
+    "content_rich_text_W869rE": {
+      "type": "content-rich-text",
+      "blocks": {
+        "quote_NdQVaq": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "Muay Thai has been my life since I was a kid. I’ve fought all over the world and faced the toughest opponents. The journey has taught me more than just how to fight—it’s taught me about discipline, hard work, and mental strength. Gym King shares those values, and I’m proud to represent a brand that supports athletes who give it their all.",
+            "quote_author": "Liam Harrison, Gym King Ambassador"
+          }
+        }
+      },
+      "block_order": [
+        "quote_NdQVaq"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": true,
+        "bg_color": "",
+        "background-image": "shopify://shop_images/page-header-3_jpg.webp",
+        "full_width": false,
+        "alignment": "right"
+      }
+    },
+    "content_rich_text_bdVe9d": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_Pmmwjm": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Liam started Muay Thai at the age of 13 at the world famous Bad Company Gym, trained by the illustrious Richard Smith, where his natural ability soon became apparent. Winning his first fight by KO and undefeated in his first 29 fights, he earned himself the nickname Liam ‘The Hitman’ Harrison. Quickly climbing up the rankings, Liam became UK number 1 at the age of 17 and has remained there ever since. At the age of 19, he won his first World Title.</p><p>He has fought all over the world – Japan x5, America, Jamaica, Italy, Cambodia, France and notably Thailand, where he lived for 2 years, fighting there around 30 times and in both of the major stadiums. Liam has fought all of the top Thai and European fighters, including 3 close, hard fights with Saenchai.</p><p>Explore Liam’s top Gym King selections below, designed to keep up with the rigorous demands of combat training while maintaining style off the mat.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_Pmmwjm"
+      ],
+      "name": "Editorial Content Blocks",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "content_rich_text_bgefP6",
+    "content_rich_text_W869rE",
+    "content_rich_text_bdVe9d"
+  ]
+}
