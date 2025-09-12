@@ -109,7 +109,8 @@ export default class ProductCard extends HTMLElement {
     // create the image container and render the images
     const images = document.createElement("div");
     images.className = "mqatb-images";
-    for (let i = 0, len = imgURLs.length; i < len; i++) {
+    const loopEnd = imgURLs.length < 8 ? imgURLs.length : 8;
+    for (let i = 0, len = loopEnd; i < len; i++) {
       const img = document.createElement("img");
       img.src = imgURLs[i];
       img.alt = productTitle;
