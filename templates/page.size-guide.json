@@ -1,0 +1,15 @@
+{
+  "sections": {
+    "selector": {
+      "type": "gender-selector",
+      "settings": {
+        "showKids": true
+      }
+    },
+    "main": {
+      "type": "page-size-guide-main",
+      "settings": {}
+    }
+  },
+  "order": ["selector", "main"]
+}

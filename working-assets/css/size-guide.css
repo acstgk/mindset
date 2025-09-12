@@ -6,13 +6,26 @@
   transition: width 0.2s var(--bezier);
   overflow-y: auto;
 
-  .toggle-buttons {
-    display: flex;
-    justify-content: flex-end;
-    gap: 0.5rem;
-    position: sticky;
-    left: 0;
-  }
+}
+
+.womens-gender-filter,
+.mens-gender-filter,
+.kids-gender-filter {
+  grid-area: 1 / 1;
+}
+
+div:has(>.womens-gender-filter),
+div:has(>.mens-gender-filter),
+div:has(>.kids-gender-filter) {
+  display: grid;
+}
+
+.toggle-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  position: sticky;
+  left: 0;
 }
 
 .measurements-guide {
