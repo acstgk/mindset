@@ -2,38 +2,79 @@
 
 {% assign product_type = product.type | downcase %}
 
+{% comment %} SET SIZING STYLE FOR TML PRODUCT {% endcomment %}
+{% assign lower_title = product.title | downcase %}
+{% assign size_style = '' %}
+{% if lower_title contains 'tml' %}
+  {% assign features = product.metafields.product.features.value | reverse | reverse %}
+  {% for feature in features %}
+    {% case feature %}
+      {% when 'Relaxed Fit' %}
+        {% assign size_style = '(Oversized Fit)' %}
+        {% break %}
+      {% when 'Muscle Fit' %}
+        {% assign size_style = '(Muscle Fit)' %}
+        {% break %}
+      {% when 'Regular Fit' %}
+        {% assign size_style = '(Regular Fit)' %}
+        {% break %}
+    {% endcase %}
+  {% endfor %}
+{% endif %}
+
 <slide-drawer aria-hidden="true" id="sizeDrawer" data-side="right">
-  <h3>{{ product.type }}</h3>
+  <h3>
+    {{ product.type }}
+    {{ size_style }}
+  </h3>
 
   {% if product.vendor == 'Mens' %}
-    {% case productType %}
-      {% when 'jacket',
-        'gilet',
-        'coat',
-        'hoodie',
-        'tracksuit set',
-        'tracksuit top',
-        'sweatshirt',
-        'knitwear',
-        'tshirt',
-        't-shirt',
-        'vest',
-        'short sleeve tee',
-        'long sleeve tee',
-        'polo (short sleeve)',
-        'shirt',
-        'short sleeve shirt',
-        'long sleeve shirt',
-        'performance tee',
-        'performance top',
-        'performance vest'
-      %}
-        {% render 'size-guide-m-cwh' %}
-      {% when 'performance shorts', 'shorts', 'swimwear' %}
-        {% render 'size-guide-m-wh' %}
-      {% when 'tracksuit bottoms', 'tracksuit set' %}
-        {% render 'size-guide-m-whl' %}
-    {% endcase %}
+    {% if lower_title contains 'tml' %}
+      {% case product_type %}
+        {% when 'short sleeve tee' %}
+          {% if size_style == '(Muscle Fit)' %}
+            {% render 'size-guide-tml-muscle' %}
+          {% else %}
+            {% render 'size-guide-tml-reg' %}
+          {% endif %}
+        {% when 'performance tee', 'performance vest' %}
+          {% render 'size-guide-tml-performance' %}
+        {% when 'hoodie' %}
+          {% render 'size-guide-tml-over' %}
+        {% when 'tracksuit bottoms' %}
+          {% render 'size-guide-tml-jogger' %}
+      {% endcase %}
+    {% else %}
+      {% case product_type %}
+        {% when 'jacket',
+          'gilet',
+          'coat',
+          'hoodie',
+          'tracksuit set',
+          'tracksuit top',
+          'sweatshirt',
+          'knitwear',
+          'tshirt',
+          't-shirt',
+          'vest',
+          'short sleeve tee',
+          'long sleeve tee',
+          'polo (short sleeve)',
+          'shirt',
+          'short sleeve shirt',
+          'long sleeve shirt',
+          'performance tee',
+          'performance top',
+          'performance vest'
+        %}
+          {% render 'size-guide-m-cwh' %}
+        {% when 'performance shorts', 'shorts', 'swimwear' %}
+          {% render 'size-guide-m-wh' %}
+        {% when 'tracksuit bottoms', 'tracksuit set' %}
+          {% render 'size-guide-m-whl' %}
+      {% endcase %}
+    {% endif %}
+    {% render 'size-guide-m-measurements' %}
   {% elsif product.vendor == 'Womens' %}
     {% case product_type %}
         <!-- tops -->
@@ -81,7 +122,29 @@
       {% when 'swimsuit', 'swimwear' %}
         {% render 'size-guide-w-bwh' %}
     {% endcase %}
-  {% render 'size-guide-w-measurements' %}
+    {% render 'size-guide-w-measurements' %}
+  {% elsif product.vendor == 'Boys' or product.vendor == 'Girls' %}
+    {% case product_type %}
+      {% when 'fitness top', 'hoodie', 'performance tee', 'short sleeve tee', 'sweatshirt', 'tracksuit top' %}
+        {% if product.vendor == 'Boys' %}
+          {% render 'size-guide-b-tops' %}
+        {% else %}
+          {% render 'size-guide-g-tops' %}
+        {% endif %}
+      {% else %}
+        {% if product.vendor == 'Boys' %}
+          {% render 'size-guide-b-pants' %}
+        {% else %}
+          {% case product_type %}
+            {% when 'tracksuit bottoms' %}
+              {% render 'size-guide-g-pants' %}
+            {% when 'shorts', 'fitness shorts' %}
+              {% render 'size-guide-g-shorts' %}
+            {% when 'leggings', 'fitness leggings' %}
+              {% render 'size-guide-g-leggings' %}
+          {% endcase %}
+        {% endif %}
+    {% endcase %}
   {% elsif product_type == 'socks' %}
     {% render 'size-guide-socks' %}
   {% endif %}
@@ -94,5 +157,5 @@
 {% endcomment %}
 
 <script>
-  window.product.productType = '{{ product_type }}';
+  window.product.product_type = '{{ product_type }}';
 </script>

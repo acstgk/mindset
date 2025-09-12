@@ -9,8 +9,11 @@ form#atc_form {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.5em), 70px));
     gap: 0.5em;
-    margin-bottom: 0;
     justify-content: start;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 
   & input[type='radio'] {

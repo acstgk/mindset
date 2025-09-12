@@ -40,11 +40,13 @@ if (!customElements.get("size-table")) {
         const newDiv = document.createElement("div");
         newDiv.classList.add("toggle-buttons");
 
-        const button1 = this.createButton("cm", "button-primary", this.toggleView);
-        const button2 = this.createButton("inches", "button-secondary", this.toggleView);
+        const cmBtn = this.createButton("cm", "button-primary", this.toggleView);
+        newDiv.appendChild(cmBtn);
 
-        newDiv.appendChild(button1);
-        newDiv.appendChild(button2);
+        if (this.ins.length > 0) {
+          const inchBtn = this.createButton("inches", "button-secondary", this.toggleView);
+          newDiv.appendChild(inchBtn);
+        }
 
         this.table.parentNode.insertBefore(newDiv, this.table);
       }
