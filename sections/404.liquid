@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="{{ '404.min.css' | asset_url }}">
 <header>
-    <div class="crack">
-      <h1 data-text="404" class="center"><span>404</span></h1>
-    </div>
-  <p class="center">Sorry! It looks like the page you were looking for skipped leg day and cannot be found.</p>
+  <div class="crack">
+    <h1 data-text="404" class="center"><span>404</span></h1>
+  </div>
+  <p class="center">{{ section.settings.copy }}</p>
 </header>
 
 {% render 'dead-end' %}
@@ -13,6 +13,13 @@
 {
   "name": "404 Main",
   "class": "section--404 max-width",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "copy",
+      "label": "Page Copy",
+      "default": "Sorry! It looks like the page you were looking for is trying to skip leg day and cannot be found."
+    }
+  ]
 }
 {% endschema %}
