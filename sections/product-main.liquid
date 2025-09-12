@@ -122,21 +122,22 @@
 
   <form id="atc_form" method="post" action="{{ routes.cart_add_url }}">
     <enhanced-atc>
-      <div class="atc_form-header">
-        {% unless product.variants_count == 1 %}
+      {% unless product.variants_count == 1 %}
+        <div class="atc_form-header">
           <p>select your size:</p>
-        {% endunless %}
-        <a
-          href="/pages/size-guide"
-          target="_blank"
-          class="drawer-button"
-          data-target="sizeDrawer"
-          aria-label="Open size guide"
-        >
-          <span>size guide</span>
-          {% render 'icon' with 'ruler' as icon %}
-        </a>
-      </div>
+
+          <a
+            href="/pages/size-guide"
+            target="_blank"
+            class="drawer-button"
+            data-target="sizeDrawer"
+            aria-label="Open size guide"
+          >
+            <span>size guide</span>
+            {% render 'icon' with 'ruler' as icon %}
+          </a>
+        </div>
+      {% endunless %}
 
       {% if is_set %}
         {% for part in is_set.value %}
@@ -212,18 +213,21 @@
     </div>
   {% endif %}
 
-  <div class="product_details-sizing accent-bg">
-    {% assign description = product.description %}
-    {% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
-    {% assign description_elements = description | split: '||' %}
-    <div>
-      {{ description_elements | where: 'Model' }}
-    </div>
+  {% assign description = product.description %}
+  {% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
+  {% assign description_elements = description | split: '||' %}
+  {% assign sizing_info = description_elements | where: 'Model' %}
+  {% if sizing_info.first.size > 5 or oos == true %}
+    <div class="product_details-sizing accent-bg">
+      <div>
+        {{ description_elements | where: 'Model' }}
+      </div>
 
-    {% if oos %}
-      <div href="#" class="BIS_trigger button button-secondary" data-product-data="{{  product | json | escape }}">Size out of stock?</div>
-    {% endif %}
-  </div>
+      {% if oos %}
+        <div href="#" class="BIS_trigger button button-secondary" data-product-data="{{  product | json | escape }}">Size out of stock?</div>
+      {% endif %}
+    </div>
+  {% endif %}
 
   <div class="product_details-confidence-blocks">
     <div class="confidence_blocks-block accent-bg">

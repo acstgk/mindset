@@ -1,0 +1,74 @@
+#sizeDrawer {
+  padding: 1rem;
+  min-width: 300px;
+  width: fit-content;
+  max-width: 100dvw;
+  transition: width 0.2s var(--bezier);
+  overflow-y: auto;
+
+  .toggle-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    position: sticky;
+    left: 0;
+  }
+}
+
+.measurements-guide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.measurements-guide--info {
+  flex-direction: column;
+  margin: 0 1rem;
+}
+
+size-table {
+  display: block;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+
+  & table {
+    white-space: nowrap;
+    text-align: center;
+    border: none;
+
+    & td,
+    & th {
+      border: none;
+      padding: 1rem 2rem;
+    }
+
+    & thead {
+      border-block-color: var(--c-light-grey);
+    }
+
+    & thead .cm,
+    & thead .in,
+    & thead .white {
+      background-color: var(--c-white);
+    }
+
+    & tbody tr td:nth-child(3),
+    & tr:first-child th:nth-child(3) {
+      border-right: 1px solid var(--c-light-grey);
+    }
+
+    &.single {
+
+      & tbody tr td:nth-child(1),
+      & tr:first-child th:nth-child(1) {
+        border-right: 1px solid var(--c-light-grey);
+      }
+
+      & tbody tr td:nth-child(3),
+      & tr:first-child th:nth-child(3) {
+        border-right: none;
+      }
+    }
+  }
+}

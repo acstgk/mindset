@@ -1,4 +1,5 @@
 form#atc_form {
+  margin-bottom: 0.75rem;
 
   & .yotpo-reviews-star-ratings-widget {
     margin: 0 0 -10px 0 !important;
@@ -9,6 +10,7 @@ form#atc_form {
     grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.5em), 70px));
     gap: 0.5em;
     margin-bottom: 0;
+    justify-content: start;
   }
 
   & input[type='radio'] {
@@ -314,6 +316,7 @@ pdp-carousel {
   justify-content: space-between;
   flex-flow: row nowrap;
   gap: .5em;
+  margin: 0;
 
   .BIS_trigger {
     margin: 0;
@@ -321,6 +324,8 @@ pdp-carousel {
 }
 
 .product_details-confidence-blocks {
+  margin-top: 0.75rem;
+
   & .confidence_blocks-block {
     margin: 0;
     display: flex;

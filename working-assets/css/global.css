@@ -1339,6 +1339,7 @@ ul.social-links {
 .meta-description {
     margin: -60px auto 60px;
     max-width: none;
+
     & p {
         max-width: none;
     }
@@ -1819,12 +1820,12 @@ th {
     }
 }
 
-tr:nth-of-type(even) {
-    background-color: var(--c-off-white);
-}
-
 tbody {
     background-color: var(--c-white);
+
+    & tr:nth-of-type(even) {
+        background-color: var(--c-off-white);
+    }
 
     & td {
         border-right: 1px solid var(--c-light-grey);

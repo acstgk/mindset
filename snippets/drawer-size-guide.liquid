@@ -1,3 +1,98 @@
+<link rel="stylesheet" href="{{ 'size-guide.min.css' | asset_url }}">
+
+{% assign product_type = product.type | downcase %}
+
 <slide-drawer aria-hidden="true" id="sizeDrawer" data-side="right">
   <h3>{{ product.type }}</h3>
-  </slide-drawer>
+
+  {% if product.vendor == 'Mens' %}
+    {% case productType %}
+      {% when 'jacket',
+        'gilet',
+        'coat',
+        'hoodie',
+        'tracksuit set',
+        'tracksuit top',
+        'sweatshirt',
+        'knitwear',
+        'tshirt',
+        't-shirt',
+        'vest',
+        'short sleeve tee',
+        'long sleeve tee',
+        'polo (short sleeve)',
+        'shirt',
+        'short sleeve shirt',
+        'long sleeve shirt',
+        'performance tee',
+        'performance top',
+        'performance vest'
+      %}
+        {% render 'size-guide-m-cwh' %}
+      {% when 'performance shorts', 'shorts', 'swimwear' %}
+        {% render 'size-guide-m-wh' %}
+      {% when 'tracksuit bottoms', 'tracksuit set' %}
+        {% render 'size-guide-m-whl' %}
+    {% endcase %}
+  {% elsif product.vendor == 'Womens' %}
+    {% case product_type %}
+        <!-- tops -->
+      {%
+        when 'hoodie',
+        'tracksuit set',
+        'tracksuit top',
+        'sweatshirt',
+        'vest',
+        'long sleeve tee',
+        'short sleeve tee',
+        'coat',
+        'jacket',
+        'gilet',
+        'fitness top',
+        'fitness bra',
+        'sports bra',
+        'bikini top',
+      %}
+        {% if product.variants[0].title contains '-' %}
+          {% render 'size-guide-w-bw-dual' %}
+        {% else %}
+          {% render 'size-guide-w-bw' %}
+        {% endif %}
+
+        <!-- pants -->
+      {% when 'tracksuit set', 'tracksuit bottoms', %}
+        {% render 'size-guide-w-wh' %}
+        {% render 'size-guide-w-l' %}
+
+        <!-- leggings -->
+      {% when 'fitness leggings', 'leggings' %}
+        {% if product.variants[0].title contains '-' %}
+          {% render 'size-guide-w-wh-dual' %}
+        {% else %}
+          {% render 'size-guide-w-wh' %}
+        {% endif %}
+        {% render 'size-guide-w-l' %}
+
+        <!-- Shorts -->
+      {% when 'shorts', 'fitness shorts', 'bikini bottoms' %}
+        {% render 'size-guide-w-wh' %}
+
+        <!-- Swimwear -->
+      {% when 'swimsuit', 'swimwear' %}
+        {% render 'size-guide-w-bwh' %}
+    {% endcase %}
+  {% render 'size-guide-w-measurements' %}
+  {% elsif product_type == 'socks' %}
+    {% render 'size-guide-socks' %}
+  {% endif %}
+</slide-drawer>
+
+{% comment %}
+  ----------------------
+  assign the product group for remembering size selection
+  ----------------------
+{% endcomment %}
+
+<script>
+  window.product.productType = '{{ product_type }}';
+</script>
