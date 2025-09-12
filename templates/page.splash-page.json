@@ -1,0 +1,33 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "splash-page",
+      "settings": {
+        "lightMode": false,
+        "pageTitle": "Coming Soon",
+        "showTitle": false,
+        "eventLogo": "shopify://shop_images/FIRST_EVER_KIDS_SHOOT_25-0_5_535b69d5-4683-4b2a-9078-07decb8ae89e.jpg",
+        "pageSubtitle": "Sign up now for Early Access",
+        "CTAtxt": "this is some copy about the launch.",
+        "successHeading": "Success! Thank you for signing up.",
+        "successCopy": "<p>You are now on the list to receive exclusive early access.</p>",
+        "linkCollectionCTA": "Shop Sale Now",
+        "linkCollection": "",
+        "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
+        "signupSource": "Splash Page"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

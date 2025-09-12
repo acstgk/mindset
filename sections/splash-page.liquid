@@ -1,0 +1,283 @@
+{% if section.settings.eventVideo %}
+  {{ section.settings.eventVideo | video_tag: image_size: '1100x', preload: true, playsinline: true, autoplay: true, mute: true, loop: true, class: 'launchvideo' }}
+{% elsif section.settings.eventLogo %}
+  {{ section.settings.eventLogo | image_url: width: 1024 | image_tag: class: 'launchimg' }}
+{% endif %}
+
+<div class="column2">
+  <div class="rtf">
+    <h1>{{ section.settings.pageTitle }}</h1>
+    <h2 class="h4">{{ section.settings.pageSubtitle }}</h2>
+    {% if section.settings.CTAtxt %}
+      <p class="ctatxt">{{ section.settings.CTAtxt }}</p>
+    {% endif %}
+  </div>
+
+  <form
+    id="ometria-sign-up-form"
+    action="https://api.ometria.com/forms/signup"
+    method="post"
+  >
+    <input type="hidden" name="__form_id" value="{{ section.settings.formId }}">
+    <input type="hidden" name="email" value="" autocomplete="off">
+    <div style="display:none !important">
+      <input name="__email" type="email" value="" autocomplete="off">
+    </div>
+    <input name="@account" type="hidden" value="f647cb688e2297ba">
+    <input name="@return_url" type="hidden" value="">
+    <input name="@subscription_status" type="hidden" value="SUBSCRIBED">
+    <input name="properties.sign_up_source" type="hidden" value="{{ section.settings.signupSource}}">
+    <input type="hidden" name="gender" value="" id="NewsletterGender">
+
+    <div class="Form__Item">
+      <input
+        name="ue"
+        id="newsletter[email]"
+        type="email"
+        class="Form__Input"
+        name="customer[email]"
+        required="required"
+        placeholder="Email"
+        aria-label="{{ 'customer.login.email' | t }}"
+        autocorrect="off"
+        autocapitalize="off"
+        autofocus
+      >
+      <label for="newsletter[email]">Email</label>
+    </div>
+
+    <div id="extra-fields">
+      <div class="Form__Item">
+        <input
+          id="newsletter[firstname]"
+          class="Form__Input"
+          value="{% if customer %}{{ customer.first_name }}{% endif %}"
+          placeholder="First Name"
+          name="firstname"
+          type="text"
+          autofocus
+        >
+        <label for="newsletter[firstname]">First Name</label>
+      </div>
+
+      <div class="Form__Item telcode ge-hide-display-none ge-hide">
+        <input
+          class="Form__Input"
+          placeholder="Phone Number"
+          name="phone_number"
+          id="newsletter[phone]"
+          type="tel"
+          value=""
+          minlength="10"
+          maxlength="11"
+        >
+        <label for="newsletter[phone]">Phone Number</label>
+      </div>
+      <div class="sms-optin  ge-hide-display-none ge-hide">
+        <input name="@sms_optin_checkbox" type="hidden" value="true">
+        <input id="newsletter[sms]" name="sms_optin" type="checkbox" value="true">
+        <label for="newsletter[sms]">Sign up to SMS to be the first to hear about new launches and exclusive discounts</label>
+      </div>
+      <p class="warning visually-hidden">Error: Please check your details</p>
+      <div class="input-group-btn">
+        <button type="submit" class="button button-primary" name="commit" id="NewsletterMaleBtn" value="Male">Male</button>
+        <button type="submit" class="button button-primary" name="commit" id="NewsletterFemaleBtn" value="Female">Female</button>
+        <button type="submit" class="button button-primary" name="commit" id="NewsletterOtherBtn" value="Other">Prefer not to answer</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="continueShopping visually-hidden">
+    {% if section.settings.linkCollection != '' %}
+      <a href="{{ section.settings.linkCollection.url }}" class="button button-primary">
+        {{ section.settings.linkCollectionCTA }}
+      </a>
+      <br>
+    {% endif %}
+    <a href="/collections/mens" class="button button-secondary">Shop Mens</a>
+    <a href="/collections/womens" class="button button-secondary">Shop Womens</a>
+  </div>
+</div>
+
+<script>
+  const headingText = '{{ section.settings.successHeading }}';
+  const copyText = '{{ section.settings.successCopy }}';
+</script>
+
+<style>
+  .section--splash-page {
+    display: grid;
+    max-width: 1270px;
+    margin: 0 auto;
+
+    & .launchimg {
+      grid-area: 1 / 1;
+      height: 100%;
+    }
+    & .column2 {
+      grid-area: 1 / 1;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      margin-bottom: 5rem;
+      & .rtf {
+        padding: 1rem;
+      }
+      & h1,
+      & h2 {
+        margin: 0;
+      }
+      & > * {
+        background: rgb(255 255 255 / 0.8);
+        backdrop-filter: blur(3px) brightness(1.3);
+        width: 100%;
+      }
+    }
+
+    & form {
+      width: auto;
+      padding: 1rem;
+      background: red;
+      backdrop-filter: blur(3px) brightness(1.3);
+    }
+  }
+
+  form .telcode {
+    display: flex;
+    margin-bottom: 0.5rem;
+
+    &::before {
+      display: block;
+      content: '+44';
+      background: var(--c-off-white);
+      display: grid;
+      place-content: center;
+      border: 1px solid var(--c-grey);
+      border-right: 0;
+      width: 8ch;
+    }
+    & label {
+      left: 10ch;
+    }
+  }
+  .input-group-btn {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: stretch;
+
+    & > button {
+      flex: 1 1 auto;
+    }
+  }
+
+  @media screen and (width > 700px) {
+    .section--splash-page {
+      grid-template-columns: 1fr 1fr;
+      & .launchimg {
+        max-height: 100vh;
+        max-height: calc(100vh - 100px);
+      }
+      & .column2 {
+        grid-area: 1 / 2 / 2 / 3;
+        justify-content: center;
+        margin-bottom: 0;
+      }
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Splash Page",
+  "tag": "section",
+  "class": "section--splash-page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "lightMode",
+      "label": "Light Mode"
+    },
+    {
+      "type": "text",
+      "id": "pageTitle",
+      "label": "Page Title",
+      "default": "Coming Soon"
+    },
+    {
+      "type": "checkbox",
+      "id": "showTitle",
+      "label": "Show title on mobile"
+    },
+    {
+      "type": "video",
+      "id": "eventVideo",
+      "label": "Video for the Event"
+    },
+    {
+      "type": "image_picker",
+      "id": "eventLogo",
+      "label": "Logo or image for the Event",
+      "info": "Optional used when a video isn't supplied"
+    },
+    {
+      "type": "text",
+      "id": "pageSubtitle",
+      "label": "Page subtitle",
+      "default": "Sign up now for Early Access"
+    },
+    {
+      "type": "text",
+      "id": "CTAtxt",
+      "label": "CTA"
+    },
+    {
+      "type": "header",
+      "content": "Success Messages",
+      "info": "These are the words that will be printed on a successful form completion."
+    },
+    {
+      "type": "text",
+      "id": "successHeading",
+      "label": "Success Heading",
+      "default": "Success! Thank you for signing up."
+    },
+    {
+      "type": "richtext",
+      "id": "successCopy",
+      "label": "Success Text",
+      "default": "<p>You are now on the list to receive exclusive early access.</p>"
+    },
+    {
+      "type": "text",
+      "id": "linkCollectionCTA",
+      "label": "Button Collection Button Text",
+      "default": "Shop Sale Now"
+    },
+    {
+      "type": "collection",
+      "id": "linkCollection",
+      "label": "Sale Button Collection"
+    },
+    {
+      "type": "header",
+      "content": "Form Settings",
+      "info": "These two settings must be completed as they will affect the data passed to ometria"
+    },
+    {
+      "type": "text",
+      "id": "formId",
+      "label": "Ometria Form ID",
+      "default": "ad1254b0165617d1cf8a0d4e4dcfc2e6"
+    },
+    {
+      "type": "text",
+      "id": "signupSource",
+      "label": "Ometria Sign Up Source Value",
+      "default": "Splash Page"
+    }
+  ]
+}
+{% endschema %}
