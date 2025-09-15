@@ -161,6 +161,7 @@
                   id="variant-{{ variant.id }}"
                   data-available-qty="{{ variant.inventory_quantity }}"
                   data-size="{{ variant.title }}"
+                  data-id="{{- part.type | handleize -}}{{- variant.title -}}"
                   {% unless variant.available %}
                     disabled
                   {% endunless %}
@@ -185,6 +186,7 @@
                 id="variant-{{ variant.id }}"
                 data-available-qty="{{ variant.inventory_quantity }}"
                 data-size="{{ variant.title }}"
+                data-id="{{- product.type | handleize -}}-{{- variant.title -}}"
                 {% unless variant.available %}
                   {%- assign oos = true -%}
                   disabled

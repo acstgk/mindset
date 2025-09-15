@@ -203,10 +203,39 @@ if (!customElements.get("enhanced-atc")) {
         this._currentSubmitHandler = this._scrollToSizes;
         this.actualForm.addEventListener("submit", this._submitDispatcher);
         this.actualForm.addEventListener("change", this._watchSizeSelection);
+        this.storedSizesItem = "GK::sizes";
+        this._getStorage();
         this._handleStickyButton();
         this._setObserver();
         this._watchSizeSelection();
       }
+
+      // save any selected size to this product type for auto selection going forwards.
+      _setStorage = (gender, key, value) => {
+        let storedSizes = JSON.parse(localStorage.getItem(this.storedSizesItem)) || {
+          Mens: {},
+          Womens: {},
+          Boys: {},
+          Girls: {},
+        };
+        key = key.replace(/\s+/g, "-");
+        storedSizes[gender][key] = value;
+        localStorage.setItem(this.storedSizesItem, JSON.stringify(storedSizes));
+      };
+
+      _getStorage = () => {
+        const gender = window.myCurrentProduct.vendor;
+        let type = window.myCurrentProduct.type.replace(/\s+/g, "-");
+
+        const storedSizes = JSON.parse(localStorage.getItem(this.storedSizesItem));
+        const size = storedSizes[gender][type];
+        type = type.toLowerCase();
+
+        if (size) {
+          const target = document.querySelector(`[data-id="${type}-${size}"]`);
+          target.checked = true;
+        }
+      };
 
       // overrides the default submit event and calls the correct function based on size selection
       _submitDispatcher = (event) => {
@@ -220,10 +249,14 @@ if (!customElements.get("enhanced-atc")) {
         document.getElementById("product-details").scrollIntoView({ behavior: "smooth", block: "start" });
       };
 
-      // watch the size selection block/s and update the submission function if all blocks/products have a size selected.
+      // watch the size selection block/s call to update the local storage and update the submission function if all blocks/products have a size selected.
       _watchSizeSelection = () => {
         const selectedSizes = Array.from(this.allGroups).map((group) => {
           const checked = group.querySelector('input[type="radio"]:checked');
+          const size = checked?.dataset?.size;
+          if (size) {
+            this._setStorage(window.myCurrentProduct.vendor, window.myCurrentProduct.type, size);
+          }
           return checked ? checked.dataset.size || checked.getAttribute("data-size") || checked.value : null;
         });
 
@@ -643,7 +676,7 @@ class ReviewsScroller {
             reviewsSection.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         },
-        { passive: true }
+        { passive: true },
       );
       reviewLink.dataset.rsBound = "true";
     }
