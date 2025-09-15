@@ -88,15 +88,16 @@
     </form>
   </ometria-form>
 
-  <div class="continueShopping visually-hidden">
+  <div class="continueShopping fade-in input-group-btn">
     {% if section.settings.linkCollection != '' %}
       <a href="{{ section.settings.linkCollection.url }}" class="button button-primary">
         {{ section.settings.linkCollectionCTA }}
       </a>
       <br>
     {% endif %}
-    <a href="/collections/mens" class="button button-secondary">Shop Mens</a>
-    <a href="/collections/womens" class="button button-secondary">Shop Womens</a>
+    <a href="{{ routes.collections_url }}/mens" class="button button-primary">Shop All Mens</a>
+    <a href="{{ routes.collections_url }}/womens" class="button button-primary">Shop All Womens</a>
+    <a href="{{ routes.root_url }}" class="button button-secondary">Homepage</a>
   </div>
 </div>
 
@@ -168,7 +169,8 @@
     flex-wrap: wrap;
     justify-content: stretch;
 
-    & > button {
+    & > button,
+    & > a {
       flex: 1 1 auto;
     }
   }

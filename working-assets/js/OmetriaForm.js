@@ -10,6 +10,7 @@ if (!customElements.get("ometria-form")) {
         this.formTitle = this.querySelector("h1");
         this.formSubtitle = this.querySelector("h2");
         this.formCopy = this.querySelector(".ctatxt");
+        this.onwardLinks = document.querySelector(".continueShopping");
 
         this.submitButtons = this.querySelectorAll(".gender-submit-button");
         this.submitButtons.forEach((button) => {
@@ -50,6 +51,7 @@ if (!customElements.get("ometria-form")) {
               this.form.remove();
               this.formTitle.innerHTML = window.successTitle;
               this.formCopy.innerHTML = window.successText;
+              this.onwardLinks.classList.add("active");
               console.log("The form has been submitted", resp);
             }
           } catch (error) {
