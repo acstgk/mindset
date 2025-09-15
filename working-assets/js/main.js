@@ -766,8 +766,9 @@ class ComponentLoader {
   }
 }
 
-window.ComponentLoader = ComponentLoader; // Export for global access
 
+// dynamically import modules required by the page
+window.ComponentLoader = ComponentLoader; // Export for global access
 new ComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
 new ComponentLoader("productcard-carousel", () => import("./ProductCarousel.js"));
 new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
@@ -776,6 +777,7 @@ new ComponentLoader("personal-recommendations", () => import("./PersonalisedCaro
 new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
 new ComponentLoader("bnpl-options", () => import("./BnplOptions.js"));
 new ComponentLoader("size-table", () => import("./SizeTable.js"));
+new ComponentLoader("ometria-form", () => import("./OmetriaForm.js"));
 
 // with product cards in the cart drawer, always load the product-card module even without the scroll listener/observer
 if (!customElements.get("product-card")) {
