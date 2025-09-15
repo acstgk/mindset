@@ -72,14 +72,9 @@
       "settings": {
         "openFirst": false
       }
-    },
-    "button-links": {
-      "type": "content-buttons",
-      "settings": {}
     }
   },
   "order": [
-    "main",
-    "button-links"
+    "main"
   ]
 }

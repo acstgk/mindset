@@ -106,14 +106,9 @@
         "card_6ed6Ak"
       ],
       "settings": {}
-    },
-    "button-links": {
-      "type": "content-buttons",
-      "settings": {}
     }
   },
   "order": [
-    "main",
-    "button-links"
+    "main"
   ]
 }
