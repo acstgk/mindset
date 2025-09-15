@@ -1,0 +1,182 @@
+<div
+  class="content-grid  {% unless section.settings.full_width %}max-width{% endunless %}"
+  {% if section.settings.is_accent %}
+    style="background-color:{{ section.settings.bg_color | default: '#f6f6f6' }}"
+  {% endif %}
+>
+  {% for block in section.blocks %}
+    <div class="content-grid--item-1">
+      {% if block.settings.img %}
+        {{ block.settings.img | image_url: width: block.settings.img.width, height: block.settings.img.height | image_tag }}
+      {% endif %}
+      {% if block.settings.hosted_video %}
+        {{ block.settings.hosted_video | video_tag }}
+      {% elsif block.settings.linked_video %}
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/{{ block.settings.linked_video | split: "=" | last }}"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="content-grid--item-2" style="grid-column:{{ block.settings.order }};text-align:{{ block.settings.text_align }}">
+      {{ block.settings.richtext_content }}
+
+      {% if block.settings.show_quote %}
+        <blockquote
+          {% unless block.settings.quote_author == blank %}
+            data-quote-attribution="- {{  block.settings.quote_author }}"
+          {% endunless %}
+          {% if section.settings['background-image'] %}
+            class="contrast"
+          {% endif %}
+        >
+          {{ block.settings.quote_text }}
+        </blockquote>
+      {% endif %}
+
+      {% if block.settings.show_button %}
+        <a href="{{ block.settings.cta_url }}" class="button button-primary">{{ block.settings.cta_text }}</a>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .content-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    display: grid;
+
+    & img {
+      min-height: 100%;
+    }
+
+    & .content-grid--item-2 {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Content Grid",
+  "class": "section--content-grid",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "is_accent",
+      "label": "Accent Background?",
+      "info": "Use an accent background colour or image for this block",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "visible_if": "{{ section.settings.is_accent == true }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Use Full Width?",
+      "info": "Choose whether to constain content to the narrow rich text width or use all available screen width",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "grid-item",
+      "name": "Grid Row",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Grid Item Settings"
+        },
+        {
+          "type": "select",
+          "id": "order",
+          "label": "Media Side",
+          "info": "Which side to display the media cell on desktop",
+          "options": [
+            { "label": "Left", "value": "1" },
+            { "label": "Right", "value": "2" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Media Grid Item"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "video",
+          "id": "hosted_video",
+          "label": "Hosted Video"
+        },
+        {
+          "type": "video_url",
+          "id": "linked_video",
+          "label": "Linked Youtube Video",
+          "accept": ["youtube"]
+        },
+        {
+          "type": "header",
+          "content": "Text Grid Item"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext_content",
+          "label": "Paragraph Text",
+          "default": "<p>Add rich text content here.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "text-align",
+          "info": "Which side to display the media cell on desktop",
+          "options": [
+            { "label": "Left", "value": "left" },
+            { "label": "Center", "value": "center" },
+            { "label": "Right", "value": "right" }
+          ],
+          "default": "left"
+        },
+        { "type": "checkbox", "id": "show_quote", "label": "Show a quote?", "default": false },
+        {
+          "type": "text",
+          "id": "quote_text",
+          "label": "Quote Text",
+          "default": "This is a sample quote.",
+          "visible_if": "{{ block.settings.show_quote == true }}"
+        },
+        {
+          "type": "text",
+          "id": "quote_author",
+          "label": "Author",
+          "default": "Author Name",
+          "visible_if": "{{ block.settings.show_quote == true }}"
+        },
+        { "type": "checkbox", "id": "show_button", "label": "Show a button?", "default": false },
+        { "type": "text", "id": "cta_text", "label": "Button Text", "visible_if": "{{ block.settings.show_button == true }}" },
+        { "type": "url", "id": "cta_url", "label": "Button Link", "visible_if": "{{ block.settings.show_button == true }}" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Content Grid",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

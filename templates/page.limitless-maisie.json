@@ -1,12 +1,256 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "carousel-hero",
+      "blocks": {
+        "image_zr4rUB": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Limitless x Maisie Mobile Banner.mp4",
+            "desktop_video": "shopify://files/videos/Limitless x Maisie Desktop Banner.mp4",
+            "overlay_url": "",
+            "title": "",
+            "subtitle": "",
+            "subtitle_first": false,
+            "cta1": "",
+            "url1": "",
+            "cta2": "",
+            "url2": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_zr4rUB"
+      ],
+      "settings": {}
+    },
+    "content_rich_text_CH3TDW": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_Jgx7jt": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Introducing</p><h2>Limitless X Maisie</h2><p>Inspired by Maisie’s resilient mindset, this collection features the infinity symbol, a reminder to push beyond limits with endless aspiration & no boundaries.</p><p>Combining both athleisure and performance fabrics that flow with your body, this collection keeps you limitless in motion and mindset.</p><p>Handpicked by Maisie herself, this collection features bold colours you can mix & match for the morning commute, a workout, or straight onto the dance floor.</p><p>Number 8 is an important number to Maisie. It means endless possibilities and 8 represents the infinity.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_Jgx7jt"
+      ],
+      "custom_css": [
+        "h2 {padding-left: 1.65rem; margin-top: 0;}"
+      ],
+      "name": "Editorial Content Block",
       "settings": {
-
+        "v_padding": 25,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
       }
     },
-
+    "custom_ctas_HKQEEb": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_Wdyxyp": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Collection",
+            "button_link": "shopify://collections/limitless-collection-maisie",
+            "btn_color": false
+          }
+        },
+        "button_EBFzFR": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop all Womens",
+            "button_link": "shopify://collections/womens",
+            "btn_color": true
+          }
+        }
+      },
+      "block_order": [
+        "button_Wdyxyp",
+        "button_EBFzFR"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
+    },
+    "section_split_banner_KcBpW3": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/maisie1.jpg",
+        "title_mens": "",
+        "url1": "",
+        "img2": "shopify://shop_images/maisie2_3d925418-86e8-41f5-8442-da7c87ea048f.jpg",
+        "title_womens": "",
+        "url2": "",
+        "full_height": true,
+        "gap": 10,
+        "hide_second": false,
+        "full_width": false,
+        "flex-wrap": false
+      }
+    },
+    "section_split_banner_JzELmk": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/maisie3.jpg",
+        "title_mens": "Mens",
+        "url1": "",
+        "title_womens": "Womens",
+        "url2": "",
+        "full_height": true,
+        "gap": 10,
+        "hide_second": true,
+        "full_width": false,
+        "flex-wrap": false
+      }
+    },
+    "section_split_banner_iCLzWi": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/maisie4.jpg",
+        "title_mens": "",
+        "url1": "",
+        "img2": "shopify://shop_images/maisie5.jpg",
+        "title_womens": "",
+        "url2": "",
+        "full_height": true,
+        "gap": 10,
+        "hide_second": false,
+        "full_width": false,
+        "flex-wrap": false
+      }
+    },
+    "section_split_banner_Rjj36e": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/maisie6.jpg",
+        "title_mens": "Mens",
+        "url1": "",
+        "img2": "shopify://shop_images/maisie2_3d925418-86e8-41f5-8442-da7c87ea048f.jpg",
+        "title_womens": "Womens",
+        "url2": "",
+        "full_height": true,
+        "gap": 10,
+        "hide_second": true,
+        "full_width": false,
+        "flex-wrap": false
+      }
+    },
+    "section_split_banner_c3t9kL": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/maisie7.jpg",
+        "title_mens": "Mens",
+        "url1": "",
+        "img2": "shopify://shop_images/maisie8.jpg",
+        "title_womens": "Womens",
+        "url2": "",
+        "full_height": true,
+        "gap": 10,
+        "hide_second": false,
+        "full_width": false,
+        "flex-wrap": false
+      }
+    },
+    "section_split_banner_HGRKqg": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/maisie9.jpg",
+        "title_mens": "Mens",
+        "url1": "",
+        "title_womens": "Womens",
+        "url2": "",
+        "full_height": true,
+        "gap": 10,
+        "hide_second": true,
+        "full_width": false,
+        "flex-wrap": false
+      }
+    },
+    "section_split_banner_ziC3Ab": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/maisie10.jpg",
+        "title_mens": "Mens",
+        "url1": "",
+        "img2": "shopify://shop_images/maisie11.jpg",
+        "title_womens": "Womens",
+        "url2": "",
+        "full_height": true,
+        "gap": 10,
+        "hide_second": false,
+        "full_width": false,
+        "flex-wrap": false
+      }
+    },
+    "section_split_banner_RgaH9Q": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/maisie12.jpg",
+        "title_mens": "Mens",
+        "url1": "",
+        "img2": "shopify://shop_images/maisie2_3d925418-86e8-41f5-8442-da7c87ea048f.jpg",
+        "title_womens": "Womens",
+        "url2": "",
+        "full_height": true,
+        "gap": 10,
+        "hide_second": true,
+        "full_width": false,
+        "flex-wrap": false
+      }
+    },
+    "section_split_banner_cNFCJW": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/maisie13.jpg",
+        "title_mens": "Mens",
+        "url1": "",
+        "img2": "shopify://shop_images/maisie14.jpg",
+        "title_womens": "Womens",
+        "url2": "",
+        "full_height": true,
+        "gap": 10,
+        "hide_second": false,
+        "full_width": false,
+        "flex-wrap": false
+      }
+    }
   },
-  "order": [ "main"]
+  "order": [
+    "main",
+    "content_rich_text_CH3TDW",
+    "custom_ctas_HKQEEb",
+    "section_split_banner_KcBpW3",
+    "section_split_banner_JzELmk",
+    "section_split_banner_iCLzWi",
+    "section_split_banner_Rjj36e",
+    "section_split_banner_c3t9kL",
+    "section_split_banner_HGRKqg",
+    "section_split_banner_ziC3Ab",
+    "section_split_banner_RgaH9Q",
+    "section_split_banner_cNFCJW"
+  ]
 }

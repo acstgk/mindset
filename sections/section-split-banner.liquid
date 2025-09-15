@@ -1,8 +1,8 @@
 <div
   class="
-  {%- unless section.settings.full_width -%}max-width{% endunless %}
-   {% if section.settings.full_height %}full-height{%- endif -%}
-   {% if section.settings.flex-wrap %}flex-wrap{%- endif -%}"
+  {%- unless section.settings.full_width -%} max-width {% endunless %}
+   {% if section.settings.full_height %} full-height {%- endif -%}
+   {% if section.settings.flex-wrap %} flex-wrap {% endif %}"
   {% if section.settings.hide_second %}
     style="grid-template-columns: 1fr; grid-template-rows: 1fr;" !important;
   {% else %}
@@ -40,6 +40,7 @@
 
     & .img-overlay {
       max-height: 45vh;
+      min-width: 400px;
     }
 
     &.full-height .img-overlay {
@@ -155,10 +156,11 @@
         "img2": "shopify://shop_images/maisie2_3d925418-86e8-41f5-8442-da7c87ea048f.jpg",
         "title_womens": "",
         "url2": "",
-        "full_height": false,
+        "full_height": true,
         "gap": 10,
         "hide_second": false,
-        "full_width": false
+        "full_width": false,
+        "flex-wrap": false,
       }
     }
   ]
