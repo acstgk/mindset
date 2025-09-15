@@ -17,9 +17,135 @@
         "video": "shopify://files/videos/Desktop - 1459x720px-4.mp4",
         "link": "shopify://collections/the-mac-life-collection"
       }
+    },
+    "spacer_P6V8Pn": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 50,
+        "mobile": 20
+      }
+    },
+    "product_collection_carousel_nAQMLR": {
+      "type": "product-collection-carousel",
+      "name": "Product Carousel (by Collection)",
+      "settings": {
+        "carousel_title": "Best Sellers",
+        "product_list": [],
+        "collection": "the-mac-life-collection",
+        "product_count": 6
+      }
+    },
+    "spacer_hHEJhW": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 50,
+        "mobile": 20
+      }
+    },
+    "gender_categories_4RPE7H": {
+      "type": "gender-categories",
+      "custom_css": [
+        ".loader.grid-loader.gender-loader {display: none;}",
+        "#mens-categories {transition: all 0.4s var(--bezier); opacity: 1; transform: translateY(0); height: auto; pointer-events: all;}",
+        ".section-gender-categories {width: 100vw !important; background: #1b1b1b; color: white;}",
+        ".category-grid a {font-size: 30px;}"
+      ],
+      "name": "Shop by Category",
+      "settings": {
+        "gendered": false,
+        "title": "",
+        "img1m": "shopify://shop_images/Q424MACLIFE5728.jpg",
+        "bold1m": "Tee's & Vests",
+        "url1m": "",
+        "img2m": "shopify://shop_images/Q424MACLIFE5981.jpg",
+        "bold2m": "Hoodies",
+        "url2m": "",
+        "img3m": "shopify://shop_images/Q424MACLIFE6043_1deb3857-1fee-460a-afcd-af49f6db3158.jpg",
+        "bold3m": "Bottoms",
+        "url3m": "",
+        "img4m": "shopify://shop_images/bottle.jpg",
+        "bold4m": "Accessories",
+        "url4m": "",
+        "bold1w": "",
+        "url1w": "",
+        "bold2w": "",
+        "url2w": "",
+        "bold3w": "",
+        "url3w": "",
+        "bold4w": "",
+        "url4w": ""
+      }
+    },
+    "product_collection_carousel_Qw4zBB": {
+      "type": "product-collection-carousel",
+      "custom_css": [
+        "{background: #eee; padding-top: 2rem; padding-bottom: 4rem;}"
+      ],
+      "name": "Product Card Carousel",
+      "settings": {
+        "carousel_title": "Tees",
+        "product_list": [
+          "gym-king-the-mac-life-pro-tee-black",
+          "gym-king-the-mac-tee-green",
+          "gym-king-the-mac-life-pro-tee-white",
+          "gym-king-the-mac-tee-black-gold"
+        ],
+        "collection": "",
+        "product_count": 6
+      }
+    },
+    "product_collection_carousel_iUC6FQ": {
+      "type": "product-collection-carousel",
+      "custom_css": [],
+      "name": "Product Card Carousel",
+      "settings": {
+        "carousel_title": "Hoodies",
+        "product_list": [
+          "gym-king-the-mac-life-pro-hoodie-black",
+          "gym-king-the-mac-hoodie-black-gold",
+          "gym-king-the-mac-hoodie-green",
+          "gym-king-the-mac-life-pro-hoodie-snow-marl"
+        ],
+        "collection": "",
+        "product_count": 6
+      }
+    },
+    "content_rich_text_XmnnkU": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_T7xyan": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>© The Mac Life // The Gym King 2025</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_T7xyan"
+      ],
+      "custom_css": [
+        "p {text-align: center;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
     }
   },
   "order": [
     "main",
+    "spacer_P6V8Pn",
+    "product_collection_carousel_nAQMLR",
+    "spacer_hHEJhW",
+    "gender_categories_4RPE7H",
+    "product_collection_carousel_Qw4zBB",
+    "product_collection_carousel_iUC6FQ",
+    "content_rich_text_XmnnkU"
   ]
 }

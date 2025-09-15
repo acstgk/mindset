@@ -21,10 +21,18 @@
   }
 
   .TML-page,
-  body {
+  body * {
     font-family: 'Roboto Condensed', sans-serif !important;
     font-optical-sizing: auto;
     font-style: normal;
+  }
+
+  #mens-categories {
+    visibility: visible;
+  }
+
+  .section-gender-categories {
+  padding-bottom: 4rem;
   }
 
   #shopify-section-header-main,
@@ -36,12 +44,14 @@
   .hero-logo {
     margin: 0 auto;
     max-width: 100%;
-    padding: 20px;
+    padding: 30px 20px;
     width: 100%;
     text-align: center;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
+    translate: -50% 0;
+    max-width: 200px;
     z-index: 2;
   }
 
