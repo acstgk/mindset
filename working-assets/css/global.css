@@ -39,6 +39,10 @@ hmtl>body.no-scroll {
     gap: 0.5em;
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
 input[type="checkbox"] {
     accent-color: var(--c-black);
 }

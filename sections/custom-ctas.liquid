@@ -1,0 +1,79 @@
+<div
+  class="cta-wrapper"
+  style="text-align: center; padding: 30px 20px;display: flex;gap: 10px;justify-content: center;"
+>
+  {% for block in section.blocks %}
+    <a href="{{ block.settings.button_link }}" class="{{ section.settings.size }} button {%if block.settings.btn_color == true %}button-secondary{% else %}button-primary{% endif %}">
+      {{ block.settings.btn_text }}
+    </a>
+  {% endfor %}
+</div>
+
+{% if section.settings.btn_color %}
+  <style>
+    .Button-container {
+      background: #1b1b1b;
+
+      & > .Button--white {
+        color: #1b1b1b !important;
+
+        &::before {
+          background-color: white !important ;
+        }
+      }
+    }
+  </style>
+{% endif %}
+
+{% schema %}
+{
+  "name": "CTA Button",
+  "settings": [
+    {
+      "type": "select",
+      "id": "size",
+      "label": "Font Size",
+      "options": [
+        { "label": "Standard", "value": "" },
+        { "label": "Large", "value": "h4" },
+        { "label": "Extra Large", "value": "h3" }
+      ],
+      "default": ""
+    }
+  ],
+  "blocks": [
+    {
+      "name": "button",
+      "type": "button",
+      "settings": [
+        {
+          "type": "header",
+          "content": "CTA Button"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "btn_color",
+          "label": "White button?",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom CTA Buttons",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}
