@@ -9,7 +9,8 @@
 
     <noscript>
       <productcard-carousel class="gender-recommendations-carousel product-grid">
-        {% for product in section.settings['fallback-1'].products limit: 4 %}
+        {% assign fallback_1_products = section.settings['fallback-1'].products | slice: 0, 4 %}
+        {% for product in fallback_1_products %}
           {% render 'product-card', product: product, class: 'splide__slide' %}
         {% endfor %}
       </productcard-carousel>
@@ -23,7 +24,8 @@
 
     <noscript>
       <productcard-carousel class="gender-recommendations-carousel product-grid">
-        {% for product in section.settings['fallback-2'].products limit: 4 %}
+        {% assign fallback_2_products = section.settings['fallback-2'].products | slice: 0, 4 %}
+        {% for product in fallback_2_products %}
           {% render 'product-card', product: product, class: 'splide__slide' %}
         {% endfor %}
       </productcard-carousel>
