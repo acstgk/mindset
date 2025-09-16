@@ -1,8 +1,8 @@
 <div
   class="
-  {%- unless section.settings.full_width -%} max-width {% endunless %}
-   {% if section.settings.full_height %} full-height {%- endif -%}
-   {% if section.settings.flex-wrap %} flex-wrap {% endif %}"
+      {%- unless section.settings.full_width -%} max-width {% endunless %}
+    {% if section.settings.full_height %} full-height {%- endif -%}
+  "
   {% if section.settings.hide_second %}
     style="grid-template-columns: 1fr; grid-template-rows: 1fr;" !important;
   {% else %}
@@ -10,24 +10,30 @@
   {% endif %}
   id="split-banner"
 >
-
-  {% assign aspect_ratio = "aspect-ratio:1" %}
-  {% if section.settings.full_height %}
-    {% assign aspect_ratio = "aspect-ratio:" | append: section.settings.img1.aspect_ratio %}
+  {% assign aspect_ratio = '1' %}
+  {% if section.settings.image_style != 'square' %}
+    {% assign aspect_ratio = section.settings.img1.aspect_ratio %}
   {% endif %}
 
+  {% if section.settings.flex_wrap %}
+    {% assign wrap = 'wrap' %}
+  {% endif %}
 
-  <div class="img-overlay">
-    {{ section.settings.img1 | image_url: width: 1, height: 1 | image_tag: width: 1, alt: 'background color', style: aspect_ratio }}
+  <div class="img-overlay {{ wrap }}" style="aspect-ratio:{{ aspect_ratio }}">
+    {{ section.settings.img1 | image_url: width: 1, height: 1 | image_tag: width: 1, alt: 'background color' }}
     {{ section.settings.img1 | image_url: width: '1240px' | image_tag: loading: 'lazy', sizes: '50vw', widths: '190, 390, 540, 780, 960, 1280, 1920' }}
-    {% if section.settings.url1 %}<a href="{{ section.settings.url1 }}">{{ section.settings.title_mens }}</a>{% endif %}
+    {% if section.settings.url1 -%}
+      <a href="{{ section.settings.url1 }}">{{ section.settings.title_mens }}</a>
+    {%- endif %}
   </div>
 
   {% unless section.settings.hide_second %}
-    <div class="img-overlay">
-      {{ section.settings.img2 | image_url: width: 1, height: 1 | image_tag: width: 1, alt: 'background color', style: aspect_ratio }}
+    <div class="img-overlay {{ wrap }}" style="aspect-ratio:{{ aspect_ratio }}">
+      {{ section.settings.img2 | image_url: width: 1, height: 1 | image_tag: width: 1, alt: 'background color' }}
       {{ section.settings.img2 | image_url: width: '1240px' | image_tag: loading: 'lazy', sizes: '50vw', widths: '190, 390, 540, 780, 960, 1280, 1920' }}
-      {% if section.settings.url2 %}<a href="{{ section.settings.url2 }}">{{ section.settings.title_womens }}</a>{% endif %}
+      {% if section.settings.url2 -%}
+        <a href="{{ section.settings.url2 }}">{{ section.settings.title_womens }}</a>
+      {%- endif %}
     </div>
   {% endunless %}
 </div>
@@ -36,16 +42,21 @@
   #split-banner {
     text-shadow: 0 0 20px rgba(27, 27, 27, 0.2);
     display: flex;
-    overflow: hidden;
+    flex-wrap: wrap;
 
     & .img-overlay {
-      max-height: 45vh;
-      min-width: 400px;
+      flex: 1;
     }
 
     &.full-height .img-overlay {
       height: auto;
       max-height: none;
+    }
+  }
+
+  @media screen and (width < 600px) {
+    #split-banner .img-overlay.wrap {
+      flex: 1 1 100%;
     }
   }
 {% endstyle %}
@@ -100,14 +111,16 @@
     },
     {
       "type": "header",
-      "content": "Block Settings"
+      "content": "Global Block Settings"
     },
     {
-      "type": "checkbox",
-      "id": "full_height",
-      "label": "Natural Height Images",
-      "info": "Use the natural aspet ratio of the 1st image or constrain to squares?",
-      "default": true,
+      "type": "select",
+      "id": "image_style",
+      "label": "Image Style",
+      "options": [
+        { "label": "Natural", "value": "" },
+        { "label": "Square", "value": "square" }
+      ]
     },
     {
       "type": "range",
@@ -132,14 +145,13 @@
       "info": "use the full screen width or limit to 1270px wide",
       "default": true
     },
-     {
+    {
       "type": "checkbox",
-      "id": "flex-wrap",
+      "id": "flex_wrap",
       "label": "Wrap Images?",
       "info": "Allow images to wrap to new row if screen to narrow",
-      "default": true
-    },
-
+      "default": false
+    }
   ],
   "presets": [
     {
@@ -156,11 +168,9 @@
         "img2": "shopify://shop_images/maisie2_3d925418-86e8-41f5-8442-da7c87ea048f.jpg",
         "title_womens": "",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": false,
-        "full_width": false,
-        "flex-wrap": false,
+        "full_width": false
       }
     }
   ]

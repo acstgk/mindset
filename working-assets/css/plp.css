@@ -120,7 +120,7 @@ infinite-scroll,
 
 .product-grid-insert {
   margin-bottom: 20px;
-  aspect-ratio: 1;
+
 
   & img {
     height: 100%;
@@ -130,9 +130,8 @@ infinite-scroll,
 
 @media screen and (width > 420px) {
   .product-grid-insert {
-    grid-column: span 2;
     aspect-ratio: unset;
-
+    grid-column: span 2;
   }
 }
 

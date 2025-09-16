@@ -46,6 +46,7 @@ main {
     right: 5px !important;
   }
 }
+/* IMAGE */
 
 img {
   width: 100%;
@@ -148,8 +149,6 @@ a,
     color: var(--c-dark-grey)
   }
 }
-
-/* TEXT */
 
 hr {
   background-color: var(--c-light-grey);

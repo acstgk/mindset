@@ -37,10 +37,16 @@ hmtl>body.no-scroll {
 .inline-flex {
     display: inline-flex;
     gap: 0.5em;
+    align-items: baseline;
 }
 
-.flex-wrap {
-    flex-wrap: wrap;
+.round,
+.square {
+    aspect-ratio: 1 / 1;
+}
+
+.round {
+    border-radius: 50%;
 }
 
 input[type="checkbox"] {

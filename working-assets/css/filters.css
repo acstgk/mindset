@@ -6,7 +6,7 @@ filters-menu-bar {
   width: 100%;
   margin: 0 !important;
   border-block: 1px solid var(--c-light-grey);
-  z-index: 5;
+  z-index: 15;
   color: var(--c-grey);
 
   & slide-drawer {
@@ -160,7 +160,8 @@ filters-menu-bar {
 }
 
 #filter-form {
-  color: var(--c-dark-grey)
+  color: var(--c-dark-grey);
+  width: auto;
 }
 
 .filter_item-values {
