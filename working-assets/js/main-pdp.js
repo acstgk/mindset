@@ -218,18 +218,17 @@ if (!customElements.get("enhanced-atc")) {
           Boys: {},
           Girls: {},
         };
-        key = key.replace(/\s+/g, "-");
+        key = key.replace(/\s+/g, "-").toLowerCase();
         storedSizes[gender][key] = value;
         localStorage.setItem(this.storedSizesItem, JSON.stringify(storedSizes));
       };
 
       _getStorage = () => {
         const gender = window.myCurrentProduct.vendor;
-        let type = window.myCurrentProduct.type.replace(/\s+/g, "-");
+        let type = window.myCurrentProduct.type.replace(/\s+/g, "-").toLowerCase();
 
         const storedSizes = JSON.parse(localStorage.getItem(this.storedSizesItem));
         const size = storedSizes[gender][type];
-        type = type.toLowerCase();
 
         if (size) {
           const target = document.querySelector(`[data-id="${type}-${size}"]`);
