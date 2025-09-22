@@ -326,6 +326,22 @@ pdp-carousel {
   }
 }
 
+.BIS_trigger.BIS_overlay {
+  position: absolute;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+
+  & svg {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    opacity: 0.5;
+  }
+}
+
 .product_details-confidence-blocks {
   margin-top: 0.75rem;
 

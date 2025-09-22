@@ -169,7 +169,12 @@
                     checked
                   {% endif %}
                 >
-                <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
+                <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
+                  {{ variant.title }}
+                  {% unless variant.available %}
+                    <div href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  part | json | escape }}">{% render 'icon', icon: 'mail' %}</div>
+                  {% endunless %}
+                </label>
               </li>
             {% endfor %}
           </ul>
@@ -195,7 +200,12 @@
                   checked
                 {% endif %}
               >
-              <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">{{ variant.title }}</label>
+              <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
+                {{ variant.title }}
+                {% unless variant.available %}
+                  <div href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  product | json | escape }}">{% render 'icon', icon: 'mail' %}</div>
+                {% endunless %}
+              </label>
             </li>
           {% endfor %}
         </ul>
@@ -219,15 +229,11 @@
   {% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
   {% assign description_elements = description | split: '||' %}
   {% assign sizing_info = description_elements | where: 'Model' %}
-  {% if sizing_info.first.size > 5 or oos == true %}
+  {% if sizing_info.first.size > 5 %}
     <div class="product_details-sizing accent-bg">
       <div>
         {{ description_elements | where: 'Model' }}
       </div>
-
-      {% if oos %}
-        <div href="#" class="BIS_trigger button button-secondary" data-product-data="{{  product | json | escape }}">Size out of stock?</div>
-      {% endif %}
     </div>
   {% endif %}
 
