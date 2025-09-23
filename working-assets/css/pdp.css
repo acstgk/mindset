@@ -34,6 +34,19 @@ form#atc_form {
     }
   }
 
+
+  .part-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    & > a {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+  }
+
   .part_title {
     color: var(--c-dark-grey);
     text-align: left;

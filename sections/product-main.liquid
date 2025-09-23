@@ -130,7 +130,7 @@
             href="/pages/size-guide"
             target="_blank"
             class="drawer-button"
-            data-target="sizeDrawer"
+            data-target="sizeDrawer-{{ product.id }}"
             aria-label="Open size guide"
           >
             <span>size guide</span>
@@ -142,9 +142,21 @@
       {% if is_set %}
         {% for part in is_set.value %}
           {% assign product_number = forloop.index %}
-          <a href="{{ part.url }}">
-            <h4 class="h5 part_title">{{ part.title | remove: 'Gym King' }}</h4>
-          </a>
+          <div class="part-title">
+            <a href="{{ part.url }}">
+              <h4 class="h5 part_title">{{ part.title | remove: 'Gym King' }}</h4>
+            </a>
+            <a
+              href="/pages/size-guide"
+              target="_blank"
+              class="drawer-button"
+              data-target="sizeDrawer-{{ part.id }}"
+              aria-label="Open size guide"
+            >
+              <span>size guide</span>
+              {% render 'icon' with 'ruler' as icon %}
+            </a>
+          </div>
           <div
             class="yotpo-widget-instance"
             data-yotpo-instance-id="1008278"
@@ -225,18 +237,6 @@
     </div>
   {% endif %}
 
-  {% assign description = product.description %}
-  {% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
-  {% assign description_elements = description | split: '||' %}
-  {% assign sizing_info = description_elements | where: 'Model' %}
-  {% if sizing_info.first.size > 5 %}
-    <div class="product_details-sizing accent-bg">
-      <div>
-        {{ description_elements | where: 'Model' }}
-      </div>
-    </div>
-  {% endif %}
-
   <div class="product_details-confidence-blocks">
     <div class="confidence_blocks-block accent-bg">
       <div class="window">{% render 'icon', icon: 'truck', class: 'ani-drive' %}</div>
@@ -281,7 +281,13 @@
 {% comment %} END:: Product Details {% endcomment %}
 {% render 'pdp_description-tabs' %}
 
-{% render 'drawer-size-guide' with product as product %}
+{% if is_set %}
+  {% for part in is_set.value %}
+    {% render 'drawer-size-guide' with part as product %}
+  {% endfor %}
+{% else %}
+  {% render 'drawer-size-guide' with product as product %}
+{% endif %}
 
 <script type="module" src="{{ 'main-pdp.js' | asset_url }}"></script>
 
