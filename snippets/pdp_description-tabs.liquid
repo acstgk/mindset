@@ -8,7 +8,8 @@
   <div class="accordian-item item-1">
     <div class="accordian-header active" aria-controls="accordian-content-1" role="button" tabindex="0">Product Details</div>
     <div class="rtf accordian-content active" id="accordian-content-1">
-      {% for element in description_elements %}
+     {{ product.description }}
+      {% comment %} {% for element in description_elements %}
         {% if forloop.last %}
           <hr>
         {% endif %}
@@ -16,7 +17,7 @@
         {% unless standardised contains 'model' or standardised contains "product details" or standardised contains "size & fit" or standardised contains 'size and fit' %}
         {{ element }}
         {% endunless %}
-      {% endfor %}
+      {% endfor %} {% endcomment %}
     </div>
   </div>
   {% comment %} Shipping Information {% endcomment %}

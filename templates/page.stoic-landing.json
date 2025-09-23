@@ -1,0 +1,221 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content_rich_text_CH3TDW": {
+      "type": "content-rich-text",
+      "blocks": {
+        "images_pcDVfh": {
+          "type": "images",
+          "settings": {
+            "image_1": "shopify://shop_images/Stoic-Mindset_grande_149cedfe-afb7-4270-b55c-d0b82b9d97e3.webp"
+          }
+        },
+        "rtf_Jgx7jt": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h1>The Stoic Collection</h1>"
+          }
+        }
+      },
+      "block_order": [
+        "images_pcDVfh",
+        "rtf_Jgx7jt"
+      ],
+      "custom_css": [
+        ".image-grid__item {width: 150px; margin: 0 auto; display: block;}",
+        "h1 {text-align: center;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 25,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right"
+      }
+    },
+    "content_video_cwnKp6": {
+      "type": "content-video",
+      "custom_css": [
+        "{margin-bottom: -5px;}"
+      ],
+      "name": "Video Banner",
+      "settings": {
+        "video_file": "shopify://files/videos/stoic collection.MP4",
+        "autoplay": false,
+        "max_width": true
+      }
+    },
+    "content_grid_Pk4HQN": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_Xe9faw": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "0",
+            "image": "shopify://shop_images/Stoic_Map_1_e5206eb6-6179-4b73-babf-a03ce394a9a2.png",
+            "img_style": "natural",
+            "image_style": "contain",
+            "rtf": "<p>Founded on mindset, discipline, resilience and gratitude, the Stoic Collection celebrates the stoic mindset shared by Gym King and Ross Edgley.</p>",
+            "txt_color": "#ffffff",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": false,
+            "cta_text": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_Xe9faw"
+      ],
+      "custom_css": [
+        ".grid-row {padding-bottom: 30px; margin-top: -6px;}"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": true,
+        "bg_color": "#4d4d4d",
+        "full_width": true
+      }
+    },
+    "custom_ctas_HKQEEb": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_EBFzFR": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop the collection",
+            "button_link": "shopify://collections/stoic",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_EBFzFR"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
+    },
+    "section_split_banner_cNFCJW": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/stoic-properties.jpg",
+        "title_mens": "Mens",
+        "url1": "",
+        "img2": "shopify://shop_images/Stoic-Duo-light.jpg",
+        "title_womens": "Womens",
+        "url2": "",
+        "image_style": "",
+        "gap": 20,
+        "hide_second": false,
+        "full_width": false,
+        "flex_wrap": true
+      }
+    },
+    "spacer_T7x9Gi": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 50,
+        "mobile": 30
+      }
+    },
+    "content_grid_g7fpcU": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_bY6xkG": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "-1",
+            "image": "shopify://shop_images/Gymking_-_Stoic-128.jpg",
+            "img_style": "natural",
+            "image_style": "cover",
+            "rtf": "",
+            "txt_color": "#ffffff",
+            "text_align": "center",
+            "use_html": true,
+            "html": "<div class=\"map-sub\">\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-head_large.png?v=2601156260054181480\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Mindset</h2>\n    <p>An attitude that drives belief and motivation </p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-spine_large.png?v=1163061127389537127\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Discipline</h2>\n    <p>Commitment to hit targets by consistently showing up</p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-spine_large.png?v=1163061127389537127\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Resilience</h2>\n    <p>Pushing through adversity to achieve goals</p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-spine_large.png?v=1163061127389537127\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Gratitude</h2>\n    <p>The ability to stop, recognise and appreciate the world around you</p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-tail_large.png?v=12016448362568737019\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <p>-</p>\n    <p><i>\"Hard work is so often the answer, the question is so often irrelevant.\"</i><br>Ross Edgley</p>\n  </div>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": false,
+            "cta_text": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_bY6xkG"
+      ],
+      "custom_css": [
+        "h2 {font-family: \"Octin\", var(--emphasis-heading-font-family);}"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": true,
+        "bg_color": "#4d4d4d",
+        "full_width": false
+      }
+    },
+    "content_grid_mgXRCt": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_GVkNnJ": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "0",
+            "image": "shopify://shop_images/Gymking_-_Stoic-112.jpg",
+            "img_style": "square",
+            "image_style": "cover",
+            "rtf": "<h2>Join The Stoic Tribe</h2>",
+            "txt_color": "",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": true,
+            "cta_text": "Shop the Collection",
+            "cta_url": "shopify://collections/stoic"
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_GVkNnJ"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "content_rich_text_CH3TDW",
+    "content_video_cwnKp6",
+    "content_grid_Pk4HQN",
+    "custom_ctas_HKQEEb",
+    "section_split_banner_cNFCJW",
+    "spacer_T7x9Gi",
+    "content_grid_g7fpcU",
+    "content_grid_mgXRCt"
+  ]
+}

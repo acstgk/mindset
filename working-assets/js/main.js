@@ -778,6 +778,7 @@ new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
 new ComponentLoader("bnpl-options", () => import("./BnplOptions.js"));
 new ComponentLoader("size-table", () => import("./SizeTable.js"));
 new ComponentLoader("ometria-form", () => import("./OmetriaForm.js"));
+new ComponentLoader("custom-video-controls", () => import("./CustomVideo.js"));
 
 // with product cards in the cart drawer, always load the product-card module even without the scroll listener/observer
 if (!customElements.get("product-card")) {

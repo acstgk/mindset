@@ -22,7 +22,17 @@
           {{ block.settings.quote_text }}
         </blockquote>
       {% when 'images' %}
-
+        <div class="image-grid">
+          {% if block.settings.image_1 %}
+              {{ block.settings.image_1 | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'image-grid__item' }}
+          {% endif %}
+          {% if block.settings.image_2 %}
+           {{ block.settings.image_2 | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'image-grid__item'  }}
+          {% endif %}
+          {% if block.settings.image_3 %}
+            {{ block.settings.image_3 | image_url: width: 1000 | image_tag: loading: 'lazy' , class: 'image-grid__item' }}
+          {% endif %}
+        </div>
       {% when 'video' %}
         {% if block.settings.hosted_video %}
           {{ block.settings.hosted_video | video_tag }}

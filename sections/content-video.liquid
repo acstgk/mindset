@@ -1,0 +1,114 @@
+<div class="video-wrapper{% unless section.settings.max_width %} max-width{% endunless %}">
+  <custom-video-controls>
+    <video
+      {% if section.settings.poster_image != blank %}
+        poster="{{ section.settings.poster_image | image_url: width: 1920 }}"
+      {% else %}
+        poster="{{ section.settings.video_file.preview_image | image_url: width: 1920 }}"
+      {% endif %}
+      {% if section.settings.autoplay %}
+        muted autoplay
+      {% else %}
+        controls
+      {% endif %}
+      class="video-element"
+    >
+      <source src="{{ section.settings.video_file.sources[1].url  }}" type="video/mp4">
+    </video>
+  </custom-video-controls>
+</div>
+<style>
+  custom-video-controls {
+    position: relative;
+    height: auto;
+    width: 100%;
+    display: block;
+
+    & video {
+      width: 100%;
+    }
+
+    & button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      background: rgb(255 255 255);
+      max-width: 20vw;
+      opacity: 0.5;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      width: 100px;
+      scale: 1;
+      box-shadow: 0 0 10px rgb(0 0 0 / 0.2);
+      transition: scale 0.2s var(--bezier), opacity 0.2s var(--bezier);
+
+      & svg {
+        position: relative;
+        left: 7%;
+        top: 2%;
+        opacity: 0.7;
+      }
+
+      &:hover {
+        scale: 1.1;
+        opacity: 1;
+      }
+
+      &:active {
+        scale: 0.95;
+        opacity: 0.2;
+      }
+    }
+  }
+</style>
+{% schema %}
+{
+  "name": "Video",
+  "class": "section-video",
+  "settings": [
+    {"type": "header", "content": "Desktop Video Settings"},
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Video File"
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_image",
+      "label": "Poster Image"
+    },
+    {"type": "header", "content": "Mobile Video Settings"},
+    {
+      "type": "video",
+      "id": "mobile_video",
+      "label": "Video File"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_poster",
+      "label": "Poster Image"
+    },
+    {"type": "header", "content": "Global Section Settings"},
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto Play?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "max_width",
+      "label": "Full Width?",
+      "info": "use the full screen width or limit to 1270px wide",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video Banner",
+      "category": "Hero Elements",
+    }
+  ]
+}
+{% endschema %}

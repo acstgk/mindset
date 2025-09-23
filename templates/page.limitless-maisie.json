@@ -97,11 +97,9 @@
         "img2": "shopify://shop_images/maisie2_3d925418-86e8-41f5-8442-da7c87ea048f.jpg",
         "title_womens": "",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": false,
-        "full_width": false,
-        "flex-wrap": false
+        "full_width": false
       }
     },
     "section_split_banner_JzELmk": {
@@ -113,11 +111,9 @@
         "url1": "",
         "title_womens": "Womens",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": true,
-        "full_width": false,
-        "flex-wrap": false
+        "full_width": false
       }
     },
     "section_split_banner_iCLzWi": {
@@ -130,11 +126,9 @@
         "img2": "shopify://shop_images/maisie5.jpg",
         "title_womens": "",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": false,
-        "full_width": false,
-        "flex-wrap": false
+        "full_width": false
       }
     },
     "section_split_banner_Rjj36e": {
@@ -147,11 +141,9 @@
         "img2": "shopify://shop_images/maisie2_3d925418-86e8-41f5-8442-da7c87ea048f.jpg",
         "title_womens": "Womens",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": true,
-        "full_width": false,
-        "flex-wrap": false
+        "full_width": false
       }
     },
     "section_split_banner_c3t9kL": {
@@ -164,11 +156,9 @@
         "img2": "shopify://shop_images/maisie8.jpg",
         "title_womens": "Womens",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": false,
-        "full_width": false,
-        "flex-wrap": false
+        "full_width": false
       }
     },
     "section_split_banner_HGRKqg": {
@@ -180,11 +170,9 @@
         "url1": "",
         "title_womens": "Womens",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": true,
-        "full_width": false,
-        "flex-wrap": false
+        "full_width": false
       }
     },
     "section_split_banner_ziC3Ab": {
@@ -197,11 +185,9 @@
         "img2": "shopify://shop_images/maisie11.jpg",
         "title_womens": "Womens",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": false,
-        "full_width": false,
-        "flex-wrap": false
+        "full_width": false
       }
     },
     "section_split_banner_RgaH9Q": {
@@ -214,11 +200,9 @@
         "img2": "shopify://shop_images/maisie2_3d925418-86e8-41f5-8442-da7c87ea048f.jpg",
         "title_womens": "Womens",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": true,
-        "full_width": false,
-        "flex-wrap": false
+        "full_width": false
       }
     },
     "section_split_banner_cNFCJW": {
@@ -231,11 +215,9 @@
         "img2": "shopify://shop_images/maisie14.jpg",
         "title_womens": "Womens",
         "url2": "",
-        "full_height": true,
         "gap": 10,
         "hide_second": false,
-        "full_width": false,
-        "flex-wrap": false
+        "full_width": false
       }
     }
   },

@@ -1,3 +1,51 @@
+{{ 'content-grid.min.css' | asset_url | stylesheet_tag }}
+<div class="PageContent content-grid--wrapper{% unless section.settings.full_width %} max-width{% endunless %}">
+  {% for block in section.blocks %}
+    <div class="grid-row">
+      {% if block.settings.image %}
+        <div class="content-grid--media-cell" style="{%- if block.settings.rtf == "" and block.settings.use_html == false -%}grid-column: span 2;{%- endif -%}">
+          {% if block.settings.img_style == 'square' %}
+            {% assign aspect_ratio = '1 / 1' %}
+          {% else %}
+            {% assign aspect_ratio = block.settings.image.aspect_ratio %}
+          {% endif %}
+          {% assign fit_type = 'object-fit:' | append: block.settings.image_style | append: ';aspect-ratio:' | append: aspect_ratio | append: ';overflow:hidden;' %}
+          <div style="padding:{{ block.settings.image_padding }}rem;width:100%;height:100%;">
+            {{ block.settings.image | image_url: width: 600 | image_tag: style: fit_type }}
+          </div>
+        </div>
+      {% endif %}
+      {% if block.settings.rtf != '' or block.settings.use_html %}
+        <div class="content-grid--content-cell Rte text-align--{{ block.settings.text_align }}" style="order:{{ block.settings.grid_order }};color: {{ block.settings.txt_color }};padding:{{ block.settings.text_padding | default: "4" }}rem;">
+          {% if block.settings.show_quote %}
+            <blockquote
+              {% unless block.settings.quote_author == blank %}
+                data-quote-attribution="- {{  block.settings.quote_author }}"
+              {% endunless %}
+              {% if section.settings['background-image'] %}
+                class="contrast"
+              {% endif %}
+            >
+              {{ block.settings.quote_text }}
+            </blockquote>
+          {% endif %}
+          {{ block.settings.rtf }}
+          {% if block.settings.use_html %}
+            {{ block.settings.html }}
+          {% endif %}
+          {% if block.settings.show_button %}
+            <a href="{{ block.settings.cta_url }}" class="button button-primary">{{ block.settings.cta_text }}</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+<style>
+  #shopify-section-{{ section.id }} .content-grid--wrapper {
+    background-color:{{ section.settings.bg_color }};
+  }
+</style>
 {% schema %}
 {
   "name": "Content Grid",
@@ -8,7 +56,7 @@
       "id": "is_accent",
       "label": "Accent Background?",
       "info": "Use an accent background colour or image for this block",
-      "default": true
+      "default": false
     },
     {
       "type": "color",
@@ -21,7 +69,7 @@
       "id": "full_width",
       "label": "Use Full Width?",
       "info": "Choose whether to constain content to the narrow rich text width or use all available screen width",
-      "default": true
+      "default": false
     }
   ],
   "blocks": [
@@ -35,12 +83,11 @@
         },
         {
           "type": "select",
-          "id": "order",
-          "label": "Media Side",
-          "info": "Which side to display the media cell on desktop",
+          "id": "grid_order",
+          "label": "Row Order",
           "options": [
-            { "label": "Left", "value": "1" },
-            { "label": "Right", "value": "2" }
+            { "label": "Media Left", "value": "0" },
+            { "label": "Media Right", "value": "-1" }
           ]
         },
         {
@@ -49,7 +96,7 @@
         },
         {
           "type": "image_picker",
-          "id": "img",
+          "id": "image",
           "label": "Image"
         },
         {
@@ -57,22 +104,21 @@
           "id": "img_style",
           "label": "Image Style",
           "options": [
-            { "label": "Natural", "value": "" },
-            { "label": "Square", "value": "square" },
-            { "label": "Round", "value": "round" }
+            { "label": "Natural", "value": "natural" },
+            { "label": "Square", "value": "square" }
           ],
-          "default": ""
+          "default": "natural"
         },
         {
-          "type": "video",
-          "id": "hosted_video",
-          "label": "Hosted Video"
-        },
-        {
-          "type": "video_url",
-          "id": "linked_video",
-          "label": "Linked Youtube Video",
-          "accept": ["youtube"]
+          "type": "select",
+          "id": "image_style",
+          "label": "Image Fit",
+          "options": [
+            { "label": "Fill", "value": "cover" },
+            { "label": "Fit", "value": "contain" }
+          ],
+          "default": "cover",
+          "visible_if": "{{ block.settings.img_style == 'square' }}"
         },
         {
           "type": "header",
@@ -80,14 +126,19 @@
         },
         {
           "type": "richtext",
-          "id": "richtext_content",
+          "id": "rtf",
           "label": "Paragraph Text",
           "default": "<p>Add rich text content here.</p>"
         },
         {
+          "type": "color",
+          "id": "txt_color",
+          "label": "Text Color"
+        },
+        {
           "type": "select",
           "id": "text_align",
-          "label": "text-align",
+          "label": "Text Align",
           "info": "Which side to display the media cell on desktop",
           "options": [
             { "label": "Left", "value": "left" },
@@ -95,6 +146,14 @@
             { "label": "Right", "value": "right" }
           ],
           "default": "left"
+        },
+        { "type": "checkbox", "id": "use_html", "label": "Add Custom HTML?", "default": false },
+        {
+          "type": "html",
+          "id": "html",
+          "label": "Custom HTML",
+          "default": "<p>Add custom HTML content here.</p>",
+          "visible_if": "{{ block.settings.use_html == true }}"
         },
         { "type": "checkbox", "id": "show_quote", "label": "Show a quote?", "default": false },
         {
