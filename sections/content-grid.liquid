@@ -1,7 +1,7 @@
 {{ 'content-grid.min.css' | asset_url | stylesheet_tag }}
-<div class="PageContent content-grid--wrapper{% unless section.settings.full_width %} max-width{% endunless %}">
+<div class="PageContent content-grid--wrapper{% unless section.settings.full_width %} max-width{% endunless %}  {% if section.settings.grid_style == 'carousel' %}carousel{% endif %}">
   {% for block in section.blocks %}
-    <div class="grid-row">
+    <div class="grid-row splide__slide">
       {% if block.settings.image %}
         <div class="content-grid--media-cell" style="{%- if block.settings.rtf == "" and block.settings.use_html == false -%}grid-column: span 2;{%- endif -%}">
           {% if block.settings.img_style == 'square' %}
@@ -16,7 +16,10 @@
         </div>
       {% endif %}
       {% if block.settings.rtf != '' or block.settings.use_html %}
-        <div class="content-grid--content-cell Rte text-align--{{ block.settings.text_align }}" style="order:{{ block.settings.grid_order }};color: {{ block.settings.txt_color }};padding:{{ block.settings.text_padding | default: "4" }}rem;">
+        <div
+          class="content-grid--content-cell rtf text-align--{{ block.settings.text_align }}"
+          style="order:{{ block.settings.grid_order }};color: {{ block.settings.txt_color }};padding:{{ block.settings.text_padding | default: "4" }}rem;"
+        >
           {% if block.settings.show_quote %}
             <blockquote
               {% unless block.settings.quote_author == blank %}
@@ -41,11 +44,31 @@
     </div>
   {% endfor %}
 </div>
+
+{% if section.settings.grid_style == 'carousel' %}
+  <script type="module">
+    import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
+    let slideCount = document.querySelector('#shopify-section-{{ section.id }} .carousel').querySelectorAll('.splide__slide').length;
+    if (slideCount > 1) {
+      SplideUtil.splideInit('#shopify-section-{{ section.id }} .carousel', {
+        type: 'loop',
+        pagination: true,
+        arrows: false,
+        autoplay: true,
+        interval: 4500,
+        speed: 1000,
+        pauseOnHover: true,
+      });
+    }
+  </script>
+{% endif %}
+
 <style>
-  #shopify-section-{{ section.id }} .content-grid--wrapper {
+  #shopify-section-{{ section.id }} .grid-row {
     background-color:{{ section.settings.bg_color }};
   }
 </style>
+
 {% schema %}
 {
   "name": "Content Grid",
@@ -70,6 +93,16 @@
       "label": "Use Full Width?",
       "info": "Choose whether to constain content to the narrow rich text width or use all available screen width",
       "default": false
+    },
+    {
+      "type": "select",
+      "id": "grid_style",
+      "label": "Grid Style",
+      "options": [
+        { "label": "Stacked", "value": "standard" },
+        { "label": "Carousel", "value": "carousel" }
+      ],
+      "default": "standard"
     }
   ],
   "blocks": [

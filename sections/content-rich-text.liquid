@@ -5,39 +5,42 @@
     {% endif %}
 {% endif %}
 
-<div class="rtf max-width {% if section.settings.full_width %} align-{{ section.settings.alignment }}{% endif %}">
+<div class="max-width{% if section.settings.full_width %} align-{{ section.settings.alignment }}{% endif %}">
+  {% if section.settings.grid_style == 'carousel' %}<div class="carousel">{% endif %}
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'rtf' %}
-        {{ block.settings.richtext_content }}
+        <div class="rtf splide__slide">{{ block.settings.richtext_content }}</div>
       {% when 'quote' %}
         <blockquote
           {% unless block.settings.quote_author == blank %}
             data-quote-attribution="- {{  block.settings.quote_author }}"
           {% endunless %}
-          {% if section.settings['background-image'] %}
-            class="contrast"
-          {% endif %}
+          class="
+            splide__slide {% if section.settings['background-image'] %}
+              contrast
+            {% endif %}
+          "
         >
           {{ block.settings.quote_text }}
         </blockquote>
       {% when 'images' %}
-        <div class="image-grid">
+        <div class="image-grid splide__slide">
           {% if block.settings.image_1 %}
-              {{ block.settings.image_1 | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'image-grid__item' }}
+            {{ block.settings.image_1 | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'image-grid__item' }}
           {% endif %}
           {% if block.settings.image_2 %}
-           {{ block.settings.image_2 | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'image-grid__item'  }}
+            {{ block.settings.image_2 | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'image-grid__item' }}
           {% endif %}
           {% if block.settings.image_3 %}
-            {{ block.settings.image_3 | image_url: width: 1000 | image_tag: loading: 'lazy' , class: 'image-grid__item' }}
+            {{ block.settings.image_3 | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'image-grid__item' }}
           {% endif %}
         </div>
       {% when 'video' %}
         {% if block.settings.hosted_video %}
-          {{ block.settings.hosted_video | video_tag }}
+          <custom-video-controls class="splide__slide">{{ block.settings.hosted_video | video_tag: image_size: '1270x' }}</custom-video-controls>
         {% else %}
-          <div class="video-container">
+          <div class="video-container splide__slide">
             <iframe
               src="https://www.youtube.com/embed/{{ block.settings.linked_video | split: "=" | last }}"
               frameborder="0"
@@ -48,13 +51,32 @@
           </div>
         {% endif %}
       {% else %}
-
+        {{ block.settings.custom_html }}
     {% endcase %}
   {% endfor %}
+  {% if section.settings.grid_style == 'carousel' %}</div>{% endif %}
 </div>
 
 {% if section.settings.is_accent %}
   </div>
+{% endif %}
+
+{% if section.settings.grid_style == 'carousel' %}
+  <script type="module">
+    import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
+    let thisslideCount = document.querySelector('#shopify-section-{{ section.id }} .carousel').querySelectorAll('.splide__slide').length;
+    console.log("test :: ",  document.querySelector('#shopify-section-{{ section.id }} .carousel'));
+    console.log("test :: ", thisslideCount);
+    if (thisslideCount > 1) {
+      console.log("greater than one? :: ", thisslideCount);
+      SplideUtil.splideInit('#shopify-section-{{ section.id }} .carousel', {
+        type: 'loop',
+        pagination: true,
+        arrows: false,
+        speed: 1000,
+      });
+    }
+  </script>
 {% endif %}
 
 <style>
@@ -166,6 +188,16 @@
       ],
       "default": "right",
       "visible_if": "{{ section.settings.full_width == true }}"
+    },
+    {
+      "type": "select",
+      "id": "grid_style",
+      "label": "Grid Style",
+      "options": [
+        { "label": "Stacked", "value": "standard" },
+        { "label": "Carousel", "value": "carousel" }
+      ],
+      "default": "standard"
     }
   ],
   "blocks": [

@@ -1,5 +1,5 @@
 <div class="video-wrapper{% unless section.settings.max_width %} max-width{% endunless %}">
-  <custom-video-controls>
+  <custom-video-controls  {% if section.settings.mobile_video %} class="mob-hide"{% endif %}>
     <video
       {% if section.settings.poster_image != blank %}
         poster="{{ section.settings.poster_image | image_url: width: 1920 }}"
@@ -7,7 +7,7 @@
         poster="{{ section.settings.video_file.preview_image | image_url: width: 1920 }}"
       {% endif %}
       {% if section.settings.autoplay %}
-        muted autoplay
+        muted autoplay loop
       {% else %}
         controls
       {% endif %}
@@ -16,6 +16,25 @@
       <source src="{{ section.settings.video_file.sources[1].url  }}" type="video/mp4">
     </video>
   </custom-video-controls>
+  {% if section.settings.mobile_video %}
+     <custom-video-controls class="mob-only">
+    <video
+      {% if section.settings.poster_image != blank %}
+        poster="{{ section.settings.mobile_poster | image_url: width: 1920 }}"
+      {% else %}
+        poster="{{ section.settings.mobile_video.preview_image | image_url: width: 1920 }}"
+      {% endif %}
+      {% if section.settings.autoplay %}
+        muted autoplay loop
+      {% else %}
+        controls
+      {% endif %}
+      class="video-element"
+    >
+      <source src="{{ section.settings.mobile_video.sources[1].url  }}" type="video/mp4">
+    </video>
+  </custom-video-controls>
+  {% endif %}
 </div>
 <style>
   custom-video-controls {
