@@ -1,0 +1,120 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "spacer_bctMKk": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 60,
+        "mobile": 60
+      }
+    },
+    "content_rich_text_CH3TDW": {
+      "type": "content-rich-text",
+      "blocks": {
+        "images_Tr9XzW": {
+          "type": "images",
+          "settings": {
+            "image_1": "shopify://shop_images/GK_Logos_Linear_-_Black.png"
+          }
+        },
+        "rtf_Jgx7jt": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h1>Success!</h1><h2>Early access granted.</h2><p>We'll be in touch as soon as we launch.<br/><br/>In the meantime, explore our latest collections.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "images_Tr9XzW",
+        "rtf_Jgx7jt"
+      ],
+      "custom_css": [
+        ".rtf {margin: 2rem auto;}",
+        ".rtf * {text-align: center !important;}",
+        "img {width: 270px; display: block; margin: 0 auto;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 0,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": true,
+        "alignment": "center",
+        "grid_style": "standard"
+      }
+    },
+    "custom_ctas_bHRY4E": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_gw8bLP": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Mens",
+            "button_link": "shopify://collections/mens",
+            "btn_color": false
+          }
+        },
+        "button_8r8UhP": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Womens",
+            "button_link": "shopify://collections/womens",
+            "btn_color": false
+          }
+        },
+        "button_d3TFne": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Kids",
+            "button_link": "shopify://collections/kidswear",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_gw8bLP",
+        "button_8r8UhP",
+        "button_d3TFne"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
+    },
+    "custom_ctas_rgQ8TL": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_cr4aiX": {
+          "type": "button",
+          "settings": {
+            "btn_text": "back to homepage",
+            "button_link": "/",
+            "btn_color": true
+          }
+        }
+      },
+      "block_order": [
+        "button_cr4aiX"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
+    }
+  },
+  "order": [
+    "spacer_bctMKk",
+    "content_rich_text_CH3TDW",
+    "custom_ctas_bHRY4E",
+    "custom_ctas_rgQ8TL"
+  ]
+}
