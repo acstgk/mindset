@@ -137,28 +137,22 @@
     {% render 'size-guide-w-measurements' %}
   {% elsif product.vendor == 'Boys' or product.vendor == 'Girls' %}
     {% case product_type %}
-      {% when 'fitness top', 'hoodie', 'performance tee', 'short sleeve tee', 'sweatshirt', 'tracksuit top' %}
-        {% if product.vendor == 'Boys' %}
-          {% render 'size-guide-b-tops' %}
-        {% else %}
-          {% render 'size-guide-g-tops' %}
-        {% endif %}
-
+    {% when 'fitness top', 'hoodie', 'performance tee', 'short sleeve tee', 'sweatshirt', 'tracksuit top' %}
+      {% if product.vendor == 'Boys' %}
+        {% render 'size-guide-b-cwh' %}
       {% else %}
-        {% if product.vendor == 'Boys' %}
-          {% render 'size-guide-b-pants' %}
-        {% else %}
-          {% case product_type %}
-            {% when 'tracksuit bottoms' %}
-              {% render 'size-guide-g-pants' %}
-            {% when 'shorts', 'fitness shorts' %}
-              {% render 'size-guide-g-shorts' %}
-            {% when 'leggings', 'fitness leggings' %}
-              {% render 'size-guide-g-leggings' %}
-          {% endcase %}
-        {% endif %}
+        {% render 'size-guide-g-cwh' %}
+      {% endif %}
+
+    {% else %}
+      {% if product.vendor == 'Boys' %}
+        {% render 'size-guide-b-wlh' %}
+      {% else %}
+        {% render 'size-guide-g-wlh' %}
+      {% endif %}
     {% endcase %}
     {{ model_info }}
+    {% render 'size-guide-k-measurements' %}
   {% elsif product_type == 'socks' %}
     {% render 'size-guide-socks' %}
   {% endif %}
