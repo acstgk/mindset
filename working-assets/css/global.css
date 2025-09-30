@@ -674,6 +674,7 @@ predictive-search {
     & button {
         display: grid;
         place-content: center;
+        margin: 0;
 
         & svg {
             max-height: 20px;
