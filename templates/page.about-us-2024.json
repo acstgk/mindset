@@ -11,10 +11,10 @@
   "sections": {
     "main": {
       "type": "content-rich-text",
+      "settings": {}
     }
   },
   "order": [
     "main"
   ]
 }
-

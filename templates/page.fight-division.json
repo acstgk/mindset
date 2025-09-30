@@ -1,0 +1,128 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "content-rich-text",
+      "blocks": {
+        "images_iT7nmN": {
+          "type": "images",
+          "settings": {
+            "image_1": "shopify://shop_images/1._FD_Logo_Header.png"
+          }
+        }
+      },
+      "block_order": [
+        "images_iT7nmN"
+      ],
+      "custom_css": [
+        "img {width: 200px; display: block; margin: 20px auto;}"
+      ],
+      "settings": {
+        "v_padding": 0,
+        "is_accent": true,
+        "bg_color": "#000000",
+        "full_width": true,
+        "alignment": "center",
+        "grid_style": "standard"
+      }
+    },
+    "content_video_ycUyCt": {
+      "type": "content-video",
+      "name": "Video Banner",
+      "settings": {
+        "video_file": "shopify://files/videos/2. FD Launch FINAL Version 1.mp4",
+        "poster_image": "shopify://shop_images/2._FD_Desktop_Cover.png",
+        "mobile_video": "shopify://files/videos/2. FD Launch FINAL Version 1 9x16.mp4",
+        "mobile_poster": "shopify://shop_images/2._FD_Mobile_Cover.png",
+        "autoplay": true,
+        "max_width": true
+      }
+    },
+    "content_grid_jd6Xwh": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_67fygd": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "0",
+            "image": "shopify://shop_images/3._FD_Benefits.png",
+            "img_style": "natural",
+            "image_style": "cover",
+            "rtf": "<p>Built with the ultimate high-performance fabric for combat sports, Fight Division has been developed in partnership with the best athletes in the world.</p><p>Designed using fast drying <strong>Impact Pro™ </strong>fabric, for unbeatable durability, flexibility and breathability.</p>",
+            "txt_color": "#ffffff",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": true,
+            "quote_text": "The Best in the game",
+            "quote_author": "Tom Aspinall, UFC Heavyweight Champion",
+            "show_button": true,
+            "cta_text": "Shop The Collection",
+            "cta_url": "shopify://collections/fight-division-collection"
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_67fygd"
+      ],
+      "custom_css": [
+        "{margin-top: -5px;}"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": true,
+        "bg_color": "#000000",
+        "full_width": true,
+        "grid_style": "standard"
+      }
+    },
+    "content_grid_aRkFff": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_NePVD6": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "-1",
+            "img_style": "natural",
+            "image_style": "cover",
+            "rtf": "<p> </p>",
+            "txt_color": "#ffffff",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": true,
+            "quote_text": "The key thing is that it doesn’t rip and doesn’t hold too much sweat.",
+            "quote_author": "Tom Aspinall",
+            "show_button": false,
+            "cta_text": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_NePVD6"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": true,
+        "bg_color": "#000000",
+        "full_width": true,
+        "grid_style": "standard"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "content_video_ycUyCt",
+    "content_grid_jd6Xwh",
+    "content_grid_aRkFff"
+  ]
+}
