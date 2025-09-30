@@ -1,0 +1,34 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "splash-page",
+      "settings": {
+        "lightMode": false,
+        "pageTitle": "Welcome to Gym King",
+        "showTitle": false,
+        "eventVideo": "shopify://files/videos/coach-gym-slideshow.mp4",
+        "eventLogo": "shopify://shop_images/FIRST_EVER_KIDS_SHOOT_25-0_5_535b69d5-4683-4b2a-9078-07decb8ae89e.jpg",
+        "pageSubtitle": "",
+        "CTAtxt": "We’ve teamed up with Coach Gyms to offer you an exclusive <b>20% off</b> full price product.<br><br>Sign up to redeem your exclusive code.",
+        "successHeading": "Success! Thank you for signing up.",
+        "successCopy": "<p>Enjoy your exclusive 20% off with code <strong>COACH20</strong>.</p><p>Shop now</p>",
+        "linkCollectionCTA": "",
+        "linkCollection": "",
+        "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
+        "signupSource": "coach gyms sign up"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
