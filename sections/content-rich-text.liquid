@@ -10,7 +10,7 @@
   {% for block in section.blocks %}
     {% case block.type %}
       {% when 'rtf' %}
-        <div class="rtf splide__slide">{{ block.settings.richtext_content }}</div>
+        <div class="rtf  {% if section.settings.grid_style == 'carousel' %}splide__slide{% endif %}">{{ block.settings.richtext_content }}</div>
       {% when 'quote' %}
         <blockquote
           {% unless block.settings.quote_author == blank %}
@@ -65,10 +65,10 @@
   <script type="module">
     import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
     let thisslideCount = document.querySelector('#shopify-section-{{ section.id }} .carousel').querySelectorAll('.splide__slide').length;
-    console.log("test :: ",  document.querySelector('#shopify-section-{{ section.id }} .carousel'));
-    console.log("test :: ", thisslideCount);
+    console.log('test :: ', document.querySelector('#shopify-section-{{ section.id }} .carousel'));
+    console.log('test :: ', thisslideCount);
     if (thisslideCount > 1) {
-      console.log("greater than one? :: ", thisslideCount);
+      console.log('greater than one? :: ', thisslideCount);
       SplideUtil.splideInit('#shopify-section-{{ section.id }} .carousel', {
         type: 'loop',
         pagination: true,
@@ -123,6 +123,12 @@
     position: absolute;
     inset: 0;
   }
+
+    .rtf::before,
+  .rtf::after,
+  .rtf h3::before,
+  .rtf h3::after {
+  content: "";}
 
   @media screen and (width > 768px) {
     .align-right {

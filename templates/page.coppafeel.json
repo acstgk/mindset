@@ -1,0 +1,310 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "carousel_hero_KEqX8T": {
+      "type": "carousel-hero",
+      "blocks": {
+        "image_yzGEVe": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Coppafeel Landing Page Header.mp4",
+            "mobile_poster": "shopify://shop_images/CoppafeelLandingPageHeader-ezgif.com-video-to-gif-converter.gif",
+            "desktop_video": "shopify://files/videos/Coppafeel Landing Page Header Desktop.mp4",
+            "desktop_poster": "shopify://shop_images/CoppafeelLandingPageHeaderDesktop-ezgif.com-video-to-gif-converter.gif",
+            "overlay_url": "",
+            "title": "",
+            "subtitle": "",
+            "subtitle_first": false,
+            "cta1": "Shop collection",
+            "url1": "shopify://collections/peach-luxe-move-your-way",
+            "cta2": "",
+            "url2": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_yzGEVe"
+      ],
+      "custom_css": [
+        ".button.button-inverted::before {background-color: #ff0069;}",
+        ".button.button-inverted {color: #fff6f0;}",
+        ".button.button-inverted:hover {color: white;}",
+        ".button.button-inverted::after {opacity: 0.35;}"
+      ],
+      "name": "Hero Slideshow",
+      "settings": {}
+    },
+    "content_rich_text_x8RpJ4": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_df4UCR": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Gym King are proud supporters of CoppaFeel!, supporting their mission to raise awareness and get every 18-24 year old checking their chest.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_df4UCR"
+      ],
+      "custom_css": [
+        "{color: #fff6f0;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 0,
+        "is_accent": true,
+        "bg_color": "#1b1b1b",
+        "full_width": false,
+        "alignment": "center",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_rAFiNd": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_CiYVfj": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h2>How are we supporting?</h2><p>At Gym King, we believe change happens when we come together. That’s why we’re proud to be raising funds in a number of ways to support CoppaFeel! and their life-saving mission.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_CiYVfj"
+      ],
+      "custom_css": [
+        "h2 {color: #ff0069;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_QYgyew": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_whace4": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>Pop-Up Shop – 11th October</h3><p>Join us at our special pop-up event, where every purchase will help fund CoppaFeel!’s work in raising awareness and encouraging early detection.</p>"
+          }
+        },
+        "rtf_4aWYz7": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>Team Fundraising</h3><p>Our Gym King family are also getting involved, taking on fundraising activities to show our support and do our bit to raise as much as we can.</p>"
+          }
+        },
+        "rtf_JaWjrX": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>Sample Sales</h3><p>Proceeds from our sample sales will be donated directly to CoppaFeel!, giving our community the chance to shop while supporting an amazing cause.</p>"
+          }
+        },
+        "rtf_VCHBU4": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>Peach Luxe Collection</h3><p>With every piece from our Peach Luxe collection, a portion of the proceeds will go to CoppaFeel!, meaning your purchase helps spread awareness and fund vital education.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_whace4",
+        "rtf_4aWYz7",
+        "rtf_JaWjrX",
+        "rtf_VCHBU4"
+      ],
+      "custom_css": [
+        ".max-width {display: grid; grid-template-columns: repeat(auto-fit, minmax(415px, 1fr)); gap: 1rem; margin-bottom: 1rem;}",
+        ".rtf {background: #ff0069; color: #fff6f0; padding: 2rem;}",
+        ".rtf:nth-child(even) {color: #ff0069; background: #fff6f0;}",
+        "@media (min-width: 952px) {.rtf:last-child {grid-area: 2 / 1; }}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_kDt8xk": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_qRCH3J": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>By raising funds and awareness, we’re helping CoppaFeel! continue their mission to get every young person checking their chest and catching breast cancer early.</p><p></p><h2>Did You Know?</h2>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_qRCH3J"
+      ],
+      "custom_css": [
+        "h2 {color: #ff0069;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 0,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_nnDP8W": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_CckEF9": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>1 in 7</h3><p>women will be diagnosed with breast cancer in their lifetime.</p>"
+          }
+        },
+        "rtf_gebR7P": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Around</p><h3>2500</h3><p>women under the age of 40 are diagnosed with breast cancer every year.</p>"
+          }
+        },
+        "rtf_iw6TFm": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>98%</h3><p>Breast cancer is treatable and survivable when found early. When diagnosed at its earliest stage, 98% of people with breast cancer will survive their disease for five years or more.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_CckEF9",
+        "rtf_gebR7P",
+        "rtf_iw6TFm"
+      ],
+      "custom_css": [
+        ".rtf h3 {color: #fff6f0; text-align: center; font-size: var(--txt-xl); margin: 0;}",
+        ".rtf {background: #ff0069; padding: 1rem 2rem; color: #fff6f0; width: min(90vw, 1240px); margin: 1rem auto;}",
+        ".rtf * {text-align: center; margin: 0;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 40,
+        "is_accent": true,
+        "bg_color": "#ffffff",
+        "full_width": false,
+        "alignment": "center",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_UzNX8F": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_6wByhR": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h2>COPPAFEEL!’S CHECKING GUIDANCE</h2><p>Whilst there is no strict method to checking your chest - we do offer some key guidance around things to be aware of when checking your boobs, pecs or chest.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_6wByhR"
+      ],
+      "custom_css": [
+        "{background-color: #eeff41; padding: 2rem 0 3rem;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 0,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_crB7nd": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_dnAiVh": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h3>Check Monthly</h3><p>This will help you get to know what’s normal for you. You can use any methodyou’re comfortable with, such as lying down in bed, standing in front of amirror or when you’re showering. We recommend checking once a month.</p><h3>LOOK & FEEL</h3><p>Remember to check all parts of your chest, including your armpits, up to your collarbones and your nipples.</p><h3>IF IN DOUBT, GET IT CHECKED OUT</h3><p>Early detection is the best form of defence, so if you notice anything unusual for you, get it checked out by your GP.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_dnAiVh"
+      ],
+      "custom_css": [
+        ".rtf {border-left: 2px solid #ff0069; margin: 40px auto; padding: 40px 0 40px 20px; position: relative;}",
+        ".rtf:before,.rtf:after,.rtf h3:before {color: transparent; display: block; background: #ff0069; width: 12px; height: 12px; border-radius: 50%; position: absolute; left: -7px; top: -7px;}",
+        ".rtf:after {bottom: -6px; top: auto;}",
+        ".rtf p {margin-bottom: 2rem;}",
+        ".rtf h3 {position: relative;}",
+        ".rtf h3:before {width: 8px; height: 8px; left: -25px; top: 50%; transform: translateY(-50%);}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 0,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "custom_ctas_dXK8F9": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_XgUJAE": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop the Collection",
+            "button_link": "shopify://collections/peach-luxe-move-your-way",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_XgUJAE"
+      ],
+      "custom_css": [
+        ".button::before {background-color: #ff0069;}",
+        ".button {color: #fff6f0; border: none;}",
+        ".button:hover {color: white;}",
+        ".button::after {opacity: 0.35;}"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": "h4"
+      }
+    }
+  },
+  "order": [
+    "carousel_hero_KEqX8T",
+    "content_rich_text_x8RpJ4",
+    "content_rich_text_rAFiNd",
+    "content_rich_text_QYgyew",
+    "content_rich_text_kDt8xk",
+    "content_rich_text_nnDP8W",
+    "content_rich_text_UzNX8F",
+    "content_rich_text_crB7nd",
+    "custom_ctas_dXK8F9"
+  ]
+}
