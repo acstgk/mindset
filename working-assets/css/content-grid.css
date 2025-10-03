@@ -1,20 +1,23 @@
 .grid-row {
   width: 100%;
 }
+
 .content-grid--wrapper {
   position: relative;
   padding-top: 0;
 }
 
- .text-align--left {
+.text-align--left {
   text-align: left;
- }
- .text-align--center {
+}
+
+.text-align--center {
   text-align: center;
- }
- .text-align--right {
+}
+
+.text-align--right {
   text-align: right;
- }
+}
 
 .content-grid--media-cell {
   display: flex;
@@ -31,6 +34,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.media-wrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+
+  &>* {
+    grid-area: 1 / -1;
+  }
 }
 
 @media screen and (width > 600px) {

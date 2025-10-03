@@ -2,7 +2,7 @@
 <div class="PageContent content-grid--wrapper{% unless section.settings.full_width %} max-width{% endunless %}  {% if section.settings.grid_style == 'carousel' %}carousel{% endif %}">
   {% for block in section.blocks %}
     <div class="grid-row splide__slide">
-      {% if block.settings.image %}
+      {% if block.settings.image or block.settings.video %}
         <div class="content-grid--media-cell" style="{%- if block.settings.rtf == "" and block.settings.use_html == false -%}grid-column: span 2;{%- endif -%}">
           {% if block.settings.img_style == 'square' %}
             {% assign aspect_ratio = '1 / 1' %}
@@ -10,11 +10,21 @@
             {% assign aspect_ratio = block.settings.image.aspect_ratio %}
           {% endif %}
           {% assign fit_type = 'object-fit:' | append: block.settings.image_style | append: ';aspect-ratio:' | append: aspect_ratio | append: ';overflow:hidden;' %}
-          <div style="padding:{{ block.settings.image_padding }}rem;width:100%;height:100%;">
+          <div class="media-wrapper" style="padding:{{ block.settings.image_padding }}rem;">
             {{ block.settings.image | image_url: width: 600 | image_tag: style: fit_type }}
+            {% if block.settings.video %}
+              <custom-video-controls>
+                {% if block.settings.image %}
+                  {{ block.settings.video | video_tag: style: fit_type, poster: block.settings.image, controls: true }}
+                {% else %}
+                  {{ block.settings.video | video_tag: style: fit_type, controls: true }}
+                {% endif %}
+              </custom-video-controls>
+            {% endif %}
           </div>
         </div>
       {% endif %}
+
       {% if block.settings.rtf != '' or block.settings.use_html %}
         <div
           class="content-grid--content-cell rtf text-align--{{ block.settings.text_align }}"
@@ -126,6 +136,12 @@
         {
           "type": "header",
           "content": "Media Grid Item"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "*Optional"
         },
         {
           "type": "image_picker",
