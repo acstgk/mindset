@@ -233,6 +233,12 @@ blockquote {
 
 }
 
+.emphasis {
+  font-family: var(--emphasis-heading-font-family) !important;
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing);
+}
+
 .Title {
   display: flex;
   align-items: center;
@@ -252,7 +258,6 @@ blockquote {
 }
 
 .Price {
-
   display: inline-block;
 }
 
