@@ -1,6 +1,6 @@
 <div
   class="cta-wrapper"
-  style="text-align: center; padding: 30px 20px;display: flex;gap: 10px;justify-content: center;"
+  style="text-align: center; padding: 30px 20px;display: flex;gap: 10px;justify-content: center;flex-flow:wrap;"
 >
   {% for block in section.blocks %}
     <a href="{{ block.settings.button_link }}" class="{{ section.settings.size }} button {%if block.settings.btn_color == true %}button-secondary{% else %}button-primary{% endif %}">

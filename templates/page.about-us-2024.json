@@ -17,7 +17,8 @@
       "name": "Static Hero",
       "settings": {
         "isFullheight": false,
-        "image": "shopify://shop_images/Ross_Iceland_Day_2-8.jpg",
+        "image": "shopify://shop_images/Members_Lounge_Concept_Refresh_-_Still_1.png",
+        "video": "shopify://files/videos/Members Lounge Web Banner 1500px_1.mp4",
         "heading": "About Us",
         "text": "<p>At Gym King our foundation is built on continuous development and a resilient mindset, inspiring individuals to believe in themselves both inside and outside of the gym. </p>"
       }
@@ -162,6 +163,28 @@
         "heading_style": "emphasis"
       }
     },
+    "content_rich_text_nae8CL": {
+      "type": "content-rich-text",
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "Building Foundations",
+        "heading_style": "emphasis",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "spacer_KhCGMn": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": -70,
+        "mobile": -10
+      }
+    },
     "blog_featured_articles_LaKtRe": {
       "type": "blog-featured-articles",
       "blocks": {
@@ -169,11 +192,11 @@
           "type": "custom",
           "settings": {
             "heading_level": "h2",
-            "title": "Building Foundations",
+            "title": "",
             "copy": "<p>At Gym King, we believe that fitness and well-being are the foundations of personal growth. That’s why we’ve launched our official gym partnership initiative dedicated to supporting gyms and fitness communities worldwide. </p><p>This growth comes through hard work, discipline, and unwavering self-belief. </p>",
             "url": "shopify://pages/building-foundations",
             "cta": "Read more",
-            "image": "shopify://shop_images/building-foundations--1-hero-image.gif"
+            "image": "shopify://shop_images/building-foundations--1-hero-desktop.gif"
           }
         }
       },
@@ -249,9 +272,12 @@
         "icon_WH4Gxc",
         "icon_WrjRD4"
       ],
+      "custom_css": [
+        "h3 {font-size: var(--txt-h2);}"
+      ],
       "name": "Icon Grid",
       "settings": {
-        "heading_level": "2",
+        "heading_level": "3",
         "title": "Visit a Foundations Gym",
         "init_splide": true,
         "icon_size": "50%",
@@ -349,6 +375,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
@@ -382,6 +410,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
@@ -389,12 +419,52 @@
         "alignment": "right",
         "grid_style": "standard"
       }
+    },
+    "custom_ctas_YrzL6n": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_y4Rwqt": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Mens",
+            "button_link": "shopify://collections/mens",
+            "btn_color": false
+          }
+        },
+        "button_9ehUPE": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Womens",
+            "button_link": "shopify://collections/womens",
+            "btn_color": false
+          }
+        },
+        "button_AY8gAP": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Contact Us",
+            "button_link": "shopify://pages/contact-us",
+            "btn_color": true
+          }
+        }
+      },
+      "block_order": [
+        "button_y4Rwqt",
+        "button_9ehUPE",
+        "button_AY8gAP"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
     }
   },
   "order": [
     "static_hero_w87fiy",
     "content_grid_3374bz",
     "advent_grid_dAxH8F",
+    "content_rich_text_nae8CL",
+    "spacer_KhCGMn",
     "blog_featured_articles_LaKtRe",
     "content_icon_grid_dbrp7y",
     "custom_ctas_qWQika",
@@ -402,6 +472,7 @@
     "blog_article_grid_EjHjFz",
     "custom_ctas_XD8DGy",
     "content_rich_text_4xmbgK",
-    "content_rich_text_GAWgYX"
+    "content_rich_text_GAWgYX",
+    "custom_ctas_YrzL6n"
   ]
 }

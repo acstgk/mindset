@@ -5,6 +5,10 @@
     {% endif %}
 {% endif %}
 
+{% if section.settings.title %}
+  <h2 class="{{ section.settings.heading_style }}">{{ section.settings.title }}</h2>
+{% endif %}
+
 <div class="max-width{% if section.settings.full_width %} align-{{ section.settings.alignment }}{% endif %}">
   {% if section.settings.grid_style == 'carousel' %}<div class="carousel">{% endif %}
   {% for block in section.blocks %}
@@ -148,6 +152,28 @@
   "class": "section--rich-text",
   "settings": [
     {
+      "type": "header",
+      "content": "Section Title"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Font Style",
+      "options": [
+        { "value": "", "label": "Normal" },
+        { "value": "emphasis", "label": "Condensed Font" }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Section Styling"
+    },
+    {
       "type": "range",
       "id": "v_padding",
       "label": "Padding",
@@ -157,6 +183,7 @@
       "default": 50,
       "info": "adds or removes space between this block and it's neighbouring blocks"
     },
+
     {
       "type": "checkbox",
       "id": "is_accent",
