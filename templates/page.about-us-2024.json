@@ -9,12 +9,207 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "content-rich-text",
+    "static_hero_w87fiy": {
+      "type": "static-hero",
+      "custom_css": [
+        ".static-hero--heading ul.social-links svg {color: white; fill: white;}"
+      ],
+      "name": "Static Hero",
+      "settings": {
+        "isFullheight": false,
+        "image": "shopify://shop_images/Ross_Iceland_Day_2-8.jpg",
+        "heading": "About Us",
+        "text": "<p>At Gym King our foundation is built on continuous development and a resilient mindset, inspiring individuals to believe in themselves both inside and outside of the gym. </p>"
+      }
+    },
+    "content_grid_3374bz": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_xyNfR7": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "-1",
+            "image": "shopify://shop_images/Jay-Parker-Founder-CEO-Gym-King_1920_2.png",
+            "img_style": "natural",
+            "image_style": "cover",
+            "rtf": "<p> </p>",
+            "txt_color": "#1b1b1b",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": true,
+            "quote_text": "At Gym King we are a community of like minded individuals. Striving for excellence, we push boundaries and support each other to succeed. We are resilient in our pursuit and keep moving forward, celebrating the wins along the way.",
+            "quote_author": "Jay Parker, Founder",
+            "show_button": false,
+            "cta_text": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_xyNfR7"
+      ],
+      "custom_css": [
+        "{margin: 2rem 0;}"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": true,
+        "bg_color": "#f6f6f6",
+        "full_width": false,
+        "grid_style": "standard"
+      }
+    },
+    "blog_featured_articles_LaKtRe": {
+      "type": "blog-featured-articles",
+      "blocks": {
+        "custom_PLPaiP": {
+          "type": "custom",
+          "settings": {
+            "heading_level": "h2",
+            "title": "Building Foundations",
+            "copy": "<p>At Gym King, we believe that fitness and well-being are the foundations of personal growth. That’s why we’ve launched our official gym partnership initiative dedicated to supporting gyms and fitness communities worldwide. </p><p>This growth comes through hard work, discipline, and unwavering self-belief. </p>",
+            "url": "shopify://pages/building-foundations",
+            "cta": "Read more",
+            "image": "shopify://shop_images/building-foundations--1-hero-image.gif"
+          }
+        }
+      },
+      "block_order": [
+        "custom_PLPaiP"
+      ],
+      "name": "Featured Articles Carousel",
       "settings": {}
+    },
+    "content_icon_grid_dbrp7y": {
+      "type": "content-icon-grid",
+      "blocks": {
+        "icon_eKGMy9": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/BAD_COMPANY_512dd943-4515-4d38-b4ff-a025fbe31e1b.png",
+            "title": "Leeds",
+            "cta": "Bad Company Gym",
+            "link_url": "shopify://metaobjects/gyms/bad-company-gym"
+          }
+        },
+        "icon_9k9c8C": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/COACH_Black.png",
+            "title": "Harrogate",
+            "cta": "Coach Gyms",
+            "link_url": "shopify://metaobjects/gyms/coach"
+          }
+        },
+        "icon_aL4m7i": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/Dickys.png",
+            "title": "Batley",
+            "cta": "Dicky's Gym",
+            "link_url": "shopify://metaobjects/gyms/dickys-gym"
+          }
+        },
+        "icon_q3VVdB": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/SBG_LOGO.png",
+            "title": "Dublin",
+            "cta": "SBG Ireland",
+            "link_url": "shopify://metaobjects/gyms/sbg-ireland"
+          }
+        },
+        "icon_WH4Gxc": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/EVOLUTION_FITNESS_XL_88f4858a-db3f-4995-a312-4256bda719c2.png",
+            "title": "St Helens",
+            "cta": "Evolution Fitness XL",
+            "link_url": "shopify://metaobjects/gyms/evolution-xl"
+          }
+        },
+        "icon_WrjRD4": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/ff.png",
+            "title": "Manchester",
+            "cta": "Fighting Fit",
+            "link_url": "shopify://metaobjects/gyms/fighting-fit-manchester"
+          }
+        }
+      },
+      "block_order": [
+        "icon_eKGMy9",
+        "icon_9k9c8C",
+        "icon_aL4m7i",
+        "icon_q3VVdB",
+        "icon_WH4Gxc",
+        "icon_WrjRD4"
+      ],
+      "name": "Icon Grid",
+      "settings": {
+        "heading_level": "2",
+        "title": "Visit a Foundations Gym",
+        "init_splide": true,
+        "icon_size": "50%",
+        "image_fit": "contain",
+        "aspect_ratio": 1
+      }
+    },
+    "spacer_bappzV": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 50,
+        "mobile": 30
+      }
+    },
+    "blog_article_grid_EjHjFz": {
+      "type": "blog-article-grid",
+      "custom_css": [
+        "{max-width: none; width: 100%; background: #f6f6f6;}",
+        ".article-grid--header,.article-grid {max-width: min(90vw, 1270px); margin: 0 auto;}"
+      ],
+      "name": "Article Grid",
+      "settings": {
+        "title": "Latest from the Brand hub",
+        "heading_level": "2",
+        "blog": "posts",
+        "limit": 6
+      }
+    },
+    "custom_ctas_XD8DGy": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_XreqLG": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Visit the Brand Hub",
+            "button_link": "shopify://pages/the-brand-hub",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_XreqLG"
+      ],
+      "custom_css": [
+        "{max-width: none; width: 100%; background: #f6f6f6;}"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": "h4"
+      }
     }
   },
   "order": [
-    "main"
+    "static_hero_w87fiy",
+    "content_grid_3374bz",
+    "blog_featured_articles_LaKtRe",
+    "content_icon_grid_dbrp7y",
+    "spacer_bappzV",
+    "blog_article_grid_EjHjFz",
+    "custom_ctas_XD8DGy"
   ]
 }
