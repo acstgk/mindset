@@ -1,0 +1,89 @@
+{{ 'advent-grid.min.css' | asset_url | stylesheet_tag }}
+{% if section.settings.heading %}
+  <h2 class="{{- section.settings.heading_style -}}">{{ section.settings.heading }}</h2>
+{% endif %}
+
+<div class="advent-grid">
+  {% for block in section.blocks %}
+    <div class="advent-grid--item" cover="{{forloop.index}}. {{ block.settings.cover_text }}">
+      <p>{{ block.settings.inner_text }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+<script>
+  const doors = document.querySelectorAll('.advent-grid--item');
+  doors.forEach((door) => {
+    // Toggle on click
+    door.addEventListener('click', function () {
+      door.classList.toggle('active');
+    });
+
+    // Swipe detection
+    let startX = 0;
+    let endX = 0;
+
+    door.addEventListener('touchstart', function (e) {
+      startX = e.changedTouches[0].screenX;
+    });
+
+    door.addEventListener('touchend', function (e) {
+      endX = e.changedTouches[0].screenX;
+      // Only consider horizontal swipes greater than 30px
+      if (endX < startX - 30) {
+        // Swiped left: add "active"
+        door.classList.add('active');
+      } else if (endX > startX + 30) {
+        // Swiped right: remove "active"
+        door.classList.remove('active');
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Advent Grid",
+  "class": "section--advent-grid max-width",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Title"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Font Style",
+      "options": [
+        { "value": "", "label": "Normal" },
+        { "value": "emphasis", "label": "Condensed Font" }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "door",
+      "name": "Door",
+      "settings": [
+        {
+          "type": "text",
+          "id": "cover_text",
+          "label": "Cover Title"
+        },
+        {
+          "type": "text",
+          "id": "inner_text",
+          "label": "Inner Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advent Grid",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

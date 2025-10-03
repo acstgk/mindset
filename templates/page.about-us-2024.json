@@ -60,6 +60,108 @@
         "grid_style": "standard"
       }
     },
+    "advent_grid_dAxH8F": {
+      "type": "advent-grid",
+      "blocks": {
+        "door_aXB3jJ": {
+          "type": "door",
+          "name": "Own your Shit",
+          "settings": {
+            "cover_text": "Own your Sh*t",
+            "inner_text": "Take 100% responsibility of your life."
+          }
+        },
+        "door_jX8KhB": {
+          "type": "door",
+          "name": "Learn",
+          "settings": {
+            "cover_text": "Keep Learning",
+            "inner_text": "Always be the student. Learn, grow, improve."
+          }
+        },
+        "door_RaxykN": {
+          "type": "door",
+          "name": "Discipline",
+          "settings": {
+            "cover_text": "Be Disciplined",
+            "inner_text": "Discipline over motivation. Always."
+          }
+        },
+        "door_3MTMCD": {
+          "type": "door",
+          "name": "Outwork Everyone",
+          "settings": {
+            "cover_text": "Outwork Everyone",
+            "inner_text": "Talent is nothing without work ethic."
+          }
+        },
+        "door_hzhBmr": {
+          "type": "door",
+          "name": "Resilience",
+          "settings": {
+            "cover_text": "Be Resilient",
+            "inner_text": "Be resilient in your pursuit. Never quit."
+          }
+        },
+        "door_Phw89G": {
+          "type": "door",
+          "name": "Earn It",
+          "settings": {
+            "cover_text": "Earn It",
+            "inner_text": "You're not entitled to anything without earning it."
+          }
+        },
+        "door_ykMa4R": {
+          "type": "door",
+          "name": "Development",
+          "settings": {
+            "cover_text": "Develop Yourself",
+            "inner_text": "Personal development is a journey that never runs out of road."
+          }
+        },
+        "door_cPijWK": {
+          "type": "door",
+          "name": "Do it",
+          "settings": {
+            "cover_text": "Follow Through",
+            "inner_text": "Do what you say you are going to do."
+          }
+        },
+        "door_EfiYED": {
+          "type": "door",
+          "name": "Gratitude",
+          "settings": {
+            "cover_text": "Be Grateful",
+            "inner_text": "Practice gratitude daily. Change the way you look at things, and the things you look at change."
+          }
+        },
+        "door_QCitkN": {
+          "type": "door",
+          "name": "Celebrate",
+          "settings": {
+            "cover_text": "Enjoy it.",
+            "inner_text": "Celebrate all your wins and enjoy the ride."
+          }
+        }
+      },
+      "block_order": [
+        "door_aXB3jJ",
+        "door_jX8KhB",
+        "door_RaxykN",
+        "door_3MTMCD",
+        "door_hzhBmr",
+        "door_Phw89G",
+        "door_ykMa4R",
+        "door_cPijWK",
+        "door_EfiYED",
+        "door_QCitkN"
+      ],
+      "name": "Advent Grid",
+      "settings": {
+        "heading": "The Gym King Mindset",
+        "heading_style": "emphasis"
+      }
+    },
     "blog_featured_articles_LaKtRe": {
       "type": "blog-featured-articles",
       "blocks": {
@@ -157,6 +259,26 @@
         "aspect_ratio": 1
       }
     },
+    "custom_ctas_qWQika": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_fkYhpt": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Become a Partner with Building foundations",
+            "button_link": "shopify://pages/building-foundations",
+            "btn_color": true
+          }
+        }
+      },
+      "block_order": [
+        "button_fkYhpt"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
+    },
     "spacer_bappzV": {
       "type": "spacer",
       "name": "Content Spacer",
@@ -176,7 +298,7 @@
         "title": "Latest from the Brand hub",
         "heading_level": "2",
         "blog": "posts",
-        "limit": 6
+        "limit": 3
       }
     },
     "custom_ctas_XD8DGy": {
@@ -201,15 +323,85 @@
       "settings": {
         "size": "h4"
       }
+    },
+    "content_rich_text_4xmbgK": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_x9mWYx": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h2>What Our Customers Think</h2>"
+          }
+        },
+        "html_k6TC3U": {
+          "type": "html",
+          "settings": {
+            "custom_html": "<!-- TrustBox widget - Grid -->\n<div class=\"trustpilot-widget\" data-locale=\"en-GB\" data-template-id=\"539adbd6dec7e10e686debee\" data-businessunit-id=\"59b1e0eb0000ff0005aaa970\" data-style-height=\"500px\" data-style-width=\"100%\" data-token=\"10268091-d633-45d6-a888-3ae2952c9f24\" data-stars=\"4,5\">\n  <a href=\"https://uk.trustpilot.com/review/thegymking.com\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_x9mWYx",
+        "html_k6TC3U"
+      ],
+      "custom_css": [
+        "h2 {font-family: var(--emphasis-heading-font-family); text-align: center;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_GAWgYX": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_B3Qyta": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h2>How You Wear it</h2>"
+          }
+        },
+        "html_Td3Xkc": {
+          "type": "html",
+          "settings": {
+            "custom_html": "<div class=\"yotpo yotpo-pictures-widget\" data-gallery-id=\"68dfcf724ebd9195ec0b4455\">\n</div>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_B3Qyta",
+        "html_Td3Xkc"
+      ],
+      "custom_css": [
+        "h2 {font-family: var(--emphasis-heading-font-family); text-align: center;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
     }
   },
   "order": [
     "static_hero_w87fiy",
     "content_grid_3374bz",
+    "advent_grid_dAxH8F",
     "blog_featured_articles_LaKtRe",
     "content_icon_grid_dbrp7y",
+    "custom_ctas_qWQika",
     "spacer_bappzV",
     "blog_article_grid_EjHjFz",
-    "custom_ctas_XD8DGy"
+    "custom_ctas_XD8DGy",
+    "content_rich_text_4xmbgK",
+    "content_rich_text_GAWgYX"
   ]
 }
