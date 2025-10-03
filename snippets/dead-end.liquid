@@ -1,13 +1,13 @@
 <div class="dead-end center">
   {%- unless template == '404' or template == 'cart.drawer' -%}
-    <form style="margin:20px;" id="search_form" name="SearchPage_form" method="get" role="page-search" action="{{ routes.search_url }}">
+    <form style="margin:40px auto;" id="search_form" name="SearchPage_form" method="get" role="page-search" action="{{ routes.search_url }}">
       <input type="hidden" name="type" value="product">
       <input
         id="searchPage__input"
         class="search_form-terms-input"
         type="text"
         name="q"
-        placeholder="Search Gym King"
+        placeholder="{%- if request.page_type != 'search' -%}Search Gym King{% else %}Zero results found, try search again{% endif %}"
         {% if template == '404' %}
           autofocus
         {% endif %}
@@ -18,7 +18,7 @@
       </button>
     </form>
   {% endunless %}
-
+{%- if request.page_type == 'search' -%}<p style="margin:-1rem auto 1rem;"><b>OR</b></p> {% endif %}
   <a href="{{routes.collections_url}}/mens" class="button button-primary">Shop Mens</a>
   <a href="{{routes.collections_url}}/womens" class="button button-primary">Shop Womens</a><br>
   <a href="{{ routes.root_url }}" class="button button-secondary back-home">{{- '404.general.button' | t -}}</a>
@@ -27,7 +27,7 @@
 
 {% style%}
   .dead-end {
-    margin: 2rem auto;
+    margin: 6rem auto;
   }
   .back-home {
     margin: 0.5rem auto 2rem;

@@ -26,7 +26,7 @@
     {% endif %}
   {%- endpaginate -%}
 {% else %}
-
+{% render 'dead-end' %}
 {% endif %}
 <script type="module" src="{{ 'main-plp.js' | asset_url }}"></script>
 
