@@ -1,7 +1,7 @@
-<h2>{{ section.settings.carousel_title }}</h2>
+<h2 class="{{ section.settings.heading_style }}">{{ section.settings.carousel_title }}</h2>
 
 <productcard-carousel>
-  {% for product in section.settings.product_list  %}
+  {% for product in section.settings.product_list %}
     <div class="splide__slide">{% render 'product-card', product: product %}</div>
   {% endfor %}
   {% for product in section.settings.collection.products limit: section.settings.product_count %}
@@ -19,6 +19,15 @@
       "id": "carousel_title",
       "label": "Title",
       "default": "Collection Highlights"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Font Style",
+      "options": [
+        { "value": "", "label": "Normal" },
+        { "value": "emphasis", "label": "Condensed Font" }
+      ]
     },
     {
       "type": "product_list",

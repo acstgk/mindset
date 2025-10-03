@@ -84,6 +84,46 @@
         "grid_style": "standard"
       }
     },
+    "product_collection_carousel_3yJht3": {
+      "type": "product-collection-carousel",
+      "name": "Product Card Carousel",
+      "settings": {
+        "carousel_title": "The Training Collection",
+        "heading_style": "emphasis",
+        "product_list": [
+          "gym-king-combat-compression-legging-black",
+          "gym-king-combat-compression-legging-graphite",
+          "gym-king-combat-compression-short-black",
+          "gym-king-combat-long-sleeve-rash-guard-black",
+          "gym-king-combat-long-sleeve-rash-guard-deep-olive",
+          "gym-king-debossed-training-tee-black-gold",
+          "gym-king-training-tee-black-gold"
+        ],
+        "collection": "",
+        "product_count": 6
+      }
+    },
+    "product_collection_carousel_7JEqgE": {
+      "type": "product-collection-carousel",
+      "name": "Product Card Carousel",
+      "settings": {
+        "carousel_title": "The Lifestyle Collection",
+        "heading_style": "emphasis",
+        "product_list": [
+          "gym-king-fight-division-hood-black",
+          "gym-king-fight-division-hood-black-black",
+          "gym-king-fight-division-hood-graphite",
+          "gym-king-fight-division-jogger-black",
+          "gym-king-fight-division-jogger-graphite",
+          "gym-king-fight-division-tee-black",
+          "gym-king-fight-division-tee-deep-olive",
+          "gym-king-fight-division-tee-white",
+          "gym-king-fight-division-tee-black-black-1"
+        ],
+        "collection": "",
+        "product_count": 6
+      }
+    },
     "content_grid_aRkFff": {
       "type": "content-grid",
       "blocks": {
@@ -91,8 +131,10 @@
           "type": "grid-item",
           "settings": {
             "grid_order": "-1",
-            "img_style": "natural",
-            "image_style": "cover",
+            "video": "shopify://files/videos/5- FD Desktop Q&A Tom Aspinall.mp4",
+            "image": "shopify://shop_images/FD_Interview_Cover.png",
+            "img_style": "square",
+            "image_style": "contain",
             "rtf": "<p> </p>",
             "txt_color": "#ffffff",
             "text_align": "left",
@@ -117,12 +159,44 @@
         "full_width": true,
         "grid_style": "standard"
       }
+    },
+    "custom_ctas_aa744W": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_cQRx8W": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Adults",
+            "button_link": "shopify://collections/fight-division-collection",
+            "btn_color": false
+          }
+        },
+        "button_zPhAn7": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Kids",
+            "button_link": "shopify://collections/kids-fight-division",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_cQRx8W",
+        "button_zPhAn7"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": "h4"
+      }
     }
   },
   "order": [
     "main",
     "content_video_ycUyCt",
     "content_grid_jd6Xwh",
-    "content_grid_aRkFff"
+    "product_collection_carousel_3yJht3",
+    "product_collection_carousel_7JEqgE",
+    "content_grid_aRkFff",
+    "custom_ctas_aa744W"
   ]
 }
