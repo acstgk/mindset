@@ -15,14 +15,16 @@
         "rtf_4DTKk4": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<p>Our Christmas delivery details will be published here each autumn.</p><p>If you’re planning ahead, last year our cut-off for standard shipping was <em>Thursday 19th December 2024</em>.</p><p>For current information, please see our <a href=\"#\">standard delivery FAQs</a>.<br/><br/></p><p></p>"
+            "richtext_content": "<p>Our Christmas Gift Guide returns in autumn, but in the meantime, here are some of our favourite picks for birthdays and special occasions.</p><p></p>"
           }
         }
       },
-      "block_order": ["rtf_4DTKk4"],
+      "block_order": [
+        "rtf_4DTKk4"
+      ],
       "name": "Editorial Content Block",
       "settings": {
-        "title": "Christmas Delivery Information",
+        "title": "Christmas Gift Guide",
         "heading_style": "emphasis",
         "v_padding": 50,
         "is_accent": false,
@@ -32,23 +34,74 @@
         "grid_style": "standard"
       }
     },
-    "spacer_caiEy7": {
-      "type": "spacer",
-      "name": "Content Spacer",
+    "product_collection_carousel_TqtdDf": {
+      "type": "product-collection-carousel",
+      "custom_css": [
+        "h2 {text-align: left; width: min(90vw, 1240px); display: block; margin: 0 auto;}"
+      ],
+      "name": "Top Picks",
       "settings": {
-        "desktop": -50,
-        "mobile": -20
+        "carousel_title": "Top Picks",
+        "heading_style": "emphasis",
+        "product_list": [
+          "gym-king-linear-fundamental-hood-black",
+          "gkw-tipping-crew-sock-white-matcha-green-pink-blush-light-stone",
+          "gk-gift-card",
+          "gym-king-lounge-trunks-3pk-black",
+          "gym-king-sport-core-3-6-5-legging-black",
+          "gym-king-faux-leather-waller-black",
+          "gym-king-reset-tote-bag-natural",
+          "gym-king-linear-pitcher-cap-vanilla-cream",
+          "gym-king-script-rib-knit-beanie-fig"
+        ],
+        "collection": "",
+        "product_count": 3
+      }
+    },
+    "custom_ctas_bzMyEP": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_7UeQ6F": {
+          "type": "button",
+          "name": "Mens",
+          "settings": {
+            "btn_text": "Shop Mens",
+            "button_link": "shopify://collections/mens",
+            "btn_color": false
+          }
+        },
+        "button_ccHHR4": {
+          "type": "button",
+          "name": "Womens",
+          "settings": {
+            "btn_text": "Shop womens",
+            "button_link": "shopify://collections/womens",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_7UeQ6F",
+        "button_ccHHR4"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
       }
     },
     "ometria_form_eecPeR": {
       "type": "ometria-form",
-      "custom_css": ["{background: var(--c-off-white); padding: 2rem 0;}"],
+      "custom_css": [
+        "{background: var(--c-off-white); padding: 2rem 0;}",
+        "h2 {margin-bottom: 1em;}",
+        "p {margin-left: 0;}"
+      ],
       "name": "Ometria Form",
       "settings": {
-        "pageSubtitle": "",
-        "CTAtxt": "Want to be the first to know when Christmas delivery dates go live? Subscribe here.",
+        "pageSubtitle": "Get the Gift Guide",
+        "CTAtxt": "Sign up to be the first to see our Christmas 2025 Gift Guide when it launches this autumn.",
         "successHeading": "Success! Thank you for signing up.",
-        "successCopy": "",
+        "successCopy": "<p>You'll be the first to know when our gift guide is available.</p>",
         "linkCollectionCTA": "",
         "linkCollection": "",
         "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
@@ -56,5 +109,10 @@
       }
     }
   },
-  "order": ["content_rich_text_nbUhbt", "spacer_caiEy7", "ometria_form_eecPeR"]
+  "order": [
+    "content_rich_text_nbUhbt",
+    "product_collection_carousel_TqtdDf",
+    "custom_ctas_bzMyEP",
+    "ometria_form_eecPeR"
+  ]
 }
