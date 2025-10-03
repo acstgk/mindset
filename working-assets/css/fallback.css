@@ -47,6 +47,11 @@
     }
 }
 
+.accordian-content {
+    height: fit-content;
+    padding-block: 15px;
+}
+
 
 /* login form css fallback for forgotten password */
 :target#recover~#recover-pane {

@@ -1,4 +1,4 @@
-/* global setInterval, clearInterval*/
+/* global setInterval, clearInterval */
 class CountdownManager {
   static instances = new Map();
 

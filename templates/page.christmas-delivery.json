@@ -1,0 +1,110 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "content-accordian",
+      "blocks": {
+        "card_UwkmXg": {
+          "type": "card",
+          "name": "UK Delivery",
+          "settings": {
+            "header": "UK Delivery",
+            "htmlContent": "<p>Delivery in time for Christmas:</p><table class=\"tg\">\n  <thead>\n    <tr>\n      <th class=\"tg-0pky\"><span style=\"white-space: nowrap\">Delivery</span></th>\n      <th class=\"tg-0lax\"><span style=\"white-space: nowrap\">Last Order Date</span></th>\n      <th class=\"tg-0pky\"><span style=\"white-space: nowrap\">Price</span></th>\n      <th class=\"tg-0lax\"><span style=\"white-space: nowrap\">Carrier</span></th>\n      <th class=\"tg-0lax\"><span style=\"white-space: nowrap\">Notes</span></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td class=\"tg-0lax\">Standard UK Delivery</td>\n      <td class=\"tg-0lax\">Thursday 19th December 1pm</td>\n      <td class=\"tg-0lax\">£3.99</td>\n      <td class=\"tg-0lax\">Royal Mail</td>\n      <td class=\"tg-0lax\">Free on orders over £75</td>\n    </tr>\n    <tr>\n      <td class=\"tg-0lax\">Premium UK Delivery</td>\n      <td class=\"tg-0lax\">Thursday 19th December 1pm</td>\n      <td class=\"tg-0lax\">FREE</td>\n      <td class=\"tg-0lax\">DPD</td>\n      <td class=\"tg-0lax\" style=\"text-wrap:balance\">Free on orders over £150<br>PIN number, SECURE DELIVERY METHOD.</td>\n    </tr>\n\n    <tr>\n      <td class=\"tg-0lax\">Express UK Delivery</td>\n      <td class=\"tg-0lax\">Friday 20th December 2pm</td>\n      <td class=\"tg-0lax\">£5.99</td>\n      <td class=\"tg-0lax\">DPD</td>\n      <td class=\"tg-0lax\" style=\"text-wrap:balance\">PIN number, SECURE DELIVERY METHOD.</td>\n    </tr>\n\n    <tr>\n      <td class=\"tg-0lax\">Saturday UK Delivery</td>\n      <td class=\"tg-0lax\">Friday 20th December 2pm</td>\n      <td class=\"tg-0lax\">£8.99</td>\n      <td class=\"tg-0lax\">DPD</td>\n      <td class=\"tg-0lax\" style=\"text-wrap:balance\">Orders after 2pm will be delivered on the 28th December at the earliest</td>\n    </tr>\n   \n  </tbody>\n</table>",
+            "content": "<p><br/>Our DPD deliveries are on a secure PIN delivery service.</p><p>When the driver comes to deliver your order you will be asked for a PIN number.  This number is unique to each individual order, and is only sent to the person that placed the order. Your PIN number will be sent to you via email and text message by DPD when your order is marked as out for delivery.</p><p>If you do not have your PIN number when the driver arrives, they are able to send you a SMS with your PIN number whilst at your door.</p>"
+          }
+        },
+        "card_gFzKP3": {
+          "type": "card",
+          "name": "International Delivery",
+          "settings": {
+            "header": "International Delivery",
+            "htmlContent": "",
+            "content": "<p>International delivery times vary per country and we cannot guarantee Christmas delivery. Estimated delivery times will be stated during the checkout process.</p><p>If you have an enquiry regarding international deliveries please <a href=\"https://service.global-e.com/?id=2863383a-6c07-48d5-9568-66a68ca24eb6\">contact us</a>.</p>"
+          }
+        },
+        "card_GDPqft": {
+          "type": "card",
+          "name": "Returns",
+          "settings": {
+            "header": "Returns",
+            "htmlContent": "",
+            "content": "<p>We have also extended our returns policy for Christmas. Returns for any purchases made before the 24th December 2024 will be accepted until 31st January 2025.</p><p>Please see our <a href=\"https://thegymking.com/pages/help-centre-returns\">returns page</a> for more information.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_UwkmXg",
+        "card_gFzKP3",
+        "card_GDPqft"
+      ],
+      "disabled": true,
+      "settings": {
+        "openFirst": true
+      }
+    },
+    "content_rich_text_nbUhbt": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_4DTKk4": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Our Christmas delivery details will be published here each autumn.</p><p>If you’re planning ahead, last year our cut-off for standard shipping was <em>Thursday 19th December 2024</em>.</p><p>For current information, please see our <a href=\"#\">standard delivery FAQs</a>.<br/><br/></p><p></p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_4DTKk4"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "Christmas Delivery Information",
+        "heading_style": "emphasis",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "spacer_caiEy7": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": -50,
+        "mobile": -20
+      }
+    },
+    "ometria_form_eecPeR": {
+      "type": "ometria-form",
+      "custom_css": [
+        "{background: var(--c-off-white); padding: 2rem 0;}"
+      ],
+      "name": "Ometria Form",
+      "settings": {
+        "pageSubtitle": "",
+        "CTAtxt": "Want to be the first to know when Christmas delivery dates go live? Subscribe here.",
+        "successHeading": "Success! Thank you for signing up.",
+        "successCopy": "",
+        "linkCollectionCTA": "",
+        "linkCollection": "",
+        "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
+        "signupSource": "Site Form"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "content_rich_text_nbUhbt",
+    "spacer_caiEy7",
+    "ometria_form_eecPeR"
+  ]
+}

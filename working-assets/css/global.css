@@ -828,6 +828,7 @@ content-accordian {
     padding: 5px 0;
     font-weight: 700;
     cursor: pointer;
+    scroll-margin-top: 100px;
 
     & span {
         display: grid;
@@ -853,8 +854,8 @@ content-accordian {
 }
 
 .accordian-content {
+    overflow: auto hidden;
     height: 0;
-    overflow: hidden;
     flex-flow: column;
     margin: 0;
     margin-left: 15px;

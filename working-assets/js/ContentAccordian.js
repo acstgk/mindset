@@ -61,8 +61,14 @@ export default class ContentAccordian extends HTMLElement {
 
     if (!isOpen) {
       header.classList.add("active");
+
       header.setAttribute("aria-expanded", "true");
       content.setAttribute("aria-hidden", "false");
+      setTimeout(() => {
+        header.scrollIntoView({
+          behavior: "smooth",
+        })
+      },200)
     }
   }
 }

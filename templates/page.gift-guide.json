@@ -1,0 +1,60 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content_rich_text_nbUhbt": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_4DTKk4": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Our Christmas delivery details will be published here each autumn.</p><p>If you’re planning ahead, last year our cut-off for standard shipping was <em>Thursday 19th December 2024</em>.</p><p>For current information, please see our <a href=\"#\">standard delivery FAQs</a>.<br/><br/></p><p></p>"
+          }
+        }
+      },
+      "block_order": ["rtf_4DTKk4"],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "Christmas Delivery Information",
+        "heading_style": "emphasis",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "spacer_caiEy7": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": -50,
+        "mobile": -20
+      }
+    },
+    "ometria_form_eecPeR": {
+      "type": "ometria-form",
+      "custom_css": ["{background: var(--c-off-white); padding: 2rem 0;}"],
+      "name": "Ometria Form",
+      "settings": {
+        "pageSubtitle": "",
+        "CTAtxt": "Want to be the first to know when Christmas delivery dates go live? Subscribe here.",
+        "successHeading": "Success! Thank you for signing up.",
+        "successCopy": "",
+        "linkCollectionCTA": "",
+        "linkCollection": "",
+        "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
+        "signupSource": "Site Form"
+      }
+    }
+  },
+  "order": ["content_rich_text_nbUhbt", "spacer_caiEy7", "ometria_form_eecPeR"]
+}
