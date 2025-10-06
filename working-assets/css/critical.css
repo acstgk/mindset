@@ -24,10 +24,14 @@ body {
   height: 100%;
   font-size: var(--txt-p);
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
   display: block;
+  flex-grow: 1;
 }
 
 #fc_frame {
