@@ -58,9 +58,9 @@
           {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in' }}
         {% endif %}
 
-        {% if block.settings.subtitle != '' and block.settings.subtitle_first  %}
-          <p class="h3 fade-in">
-            {{ block.settings.subtitle }}
+        {% if block.settings.subtitle != '' and block.settings.subtitle_first %}
+          <p class="h3 fade-in {{ block.settings.subtitle_font }}">
+            {{- block.settings.subtitle -}}
           </p>
         {% endif %}
 
@@ -69,8 +69,8 @@
         {% endunless %}
 
         {% if block.settings.subtitle != '' and block.settings.subtitle_first == false %}
-          <p class="h3 fade-in">
-            {{ block.settings.subtitle }}
+          <p class="h3 fade-in  {{ block.settings.subtitle_font }}">
+            {{- block.settings.subtitle -}}
           </p>
         {% endif %}
 
@@ -150,6 +150,21 @@
           "type": "text",
           "id": "subtitle",
           "label": "Slide Subtitle"
+        },
+        {
+          "type": "select",
+          "id": "subtitle_font",
+          "label": "Subtitle Font",
+          "options": [
+            {
+              "label": "Normal",
+              "value": ""
+            },
+            {
+              "label": "Signature",
+              "value": "signature"
+            }
+          ]
         },
         {
           "type": "checkbox",

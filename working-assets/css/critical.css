@@ -239,6 +239,14 @@ blockquote {
   letter-spacing: var(--letter-spacing);
 }
 
+.signature {
+  font-family: var(--signature-text-font-family);
+  text-transform: none;
+  letter-spacing: 0ch !important;
+  font-weight: 400;
+  scale: 5;
+}
+
 .Title {
   display: flex;
   align-items: center;
