@@ -13,7 +13,9 @@
       "type": "static-hero",
       "settings": {
         "isFullheight": false,
-        "image": "shopify://shop_images/SCULPT_LS_TEE_SHORT_-_STONE_BLUE_WLT-A2DAD_WSR-A2DAM_50_d91d9ed9-051d-4a58-ba05-900b636939a1.jpg"
+        "image": "shopify://shop_images/SCULPT_LS_TEE_SHORT_-_STONE_BLUE_WLT-A2DAD_WSR-A2DAM_50_d91d9ed9-051d-4a58-ba05-900b636939a1.jpg",
+        "heading": "Brand Hub",
+        "text": "<p>We believe that if you have something to prove and the mindset to prove it, anything is possible. We hope you enjoy your experience in the brand hub. Find out latest news, events, interviews from our ambassadors and motivational content in our training hub.</p>"
       }
     },
     "spacer": {
@@ -70,11 +72,26 @@
     "blog_featured_articles_YgN7Qn": {
       "type": "blog-featured-articles",
       "blocks": {
-        "article_VJ87Ym": {
-          "type": "article",
+        "custom_BbJahq": {
+          "type": "custom",
           "settings": {
             "heading_level": "h2",
-            "article": "posts/maisie-x-limitless"
+            "title": "Building Foundations",
+            "copy": "<p>At Gym King, we believe that fitness and well-being are the foundations of personal growth. That’s why we’ve launched our official gym partnership initiative dedicated to supporting gyms and fitness communities worldwide.</p>",
+            "url": "shopify://pages/building-foundations",
+            "cta": "Learn more",
+            "image": "shopify://shop_images/building-foundations--1-hero-desktop.gif"
+          }
+        },
+        "custom_JQwxcf": {
+          "type": "custom",
+          "settings": {
+            "heading_level": "h2",
+            "title": "GKW X CoppaFeel!",
+            "copy": "<p>Gym King are proud supporters of CoppaFeel!, supporting their mission to raise breast cancer awareness and get every 18-24 year old checking their chest.</p>",
+            "url": "shopify://pages/coppafeel",
+            "cta": "Learn More",
+            "image": "shopify://shop_images/CoppafeelLandingPageHeaderDesktop-ezgif.com-video-to-gif-converter.gif"
           }
         },
         "custom_pJiF7B": {
@@ -108,7 +125,8 @@
         }
       },
       "block_order": [
-        "article_VJ87Ym",
+        "custom_BbJahq",
+        "custom_JQwxcf",
         "custom_pJiF7B",
         "custom_beeCQN",
         "article_dgXE3x"
@@ -255,6 +273,7 @@
             "title": "Hotspots Card Title",
             "description": "This is a description paragraph for the hotspot card.",
             "image": "shopify://shop_images/LIMITLESSMESHBOYFRIENDTEE_LIMITLESSSEAMLESSSCULPTLEGGING_LIMITLESSWAFFLESCRUNCHIE-WHITEBLUEBOLDBLUEANIMALPRINTCREAMWST-BOETUWLG-BOETNACC-BOEU5_131_84d8d0fc-22bb-4925-81bd-31b841a977f8.jpg",
+            "cta_text": "Learn more",
             "link_url": "shopify://metaobjects/ambassadors/maisie-smith",
             "product1": "gym-king-limitless-seamless-sculpt-legging-bold-blue-animal-print",
             "product1_x": 60,
@@ -270,6 +289,7 @@
             "title": "Liam McAleese Top Picks",
             "description": "This is a description paragraph for the hotspot card.",
             "image": "shopify://shop_images/Liam_McAleese_64b3a5ad-6523-496e-b90f-f0b88fe27062.webp",
+            "cta_text": "Learn more",
             "link_url": "shopify://blogs/posts/magic-8-workout-tips-with-liam-mcaleese",
             "product1": "gym-king-fundamental-tee-soft-khaki",
             "product1_x": 35,
