@@ -875,6 +875,7 @@ content-accordian {
     display: flex;
     flex-flow: column nowrap;
     padding-bottom: 0;
+    z-index: 16
 }
 
 .side_menu-header {
@@ -1973,6 +1974,10 @@ form {
 #fc_frame,
 #fc_frame.fc-widget-normal {
     z-index: 5 !important;
+}
+
+.disclosure {
+    padding-top: 0.6rem;
 }
 
 .disclosure__button {
