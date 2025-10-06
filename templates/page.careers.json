@@ -19,13 +19,6 @@
             "linktext": "Fit Model"
           }
         },
-        "link_NB6HVR": {
-          "type": "link",
-          "settings": {
-            "linkurl": "",
-            "linktext": ""
-          }
-        },
         "link_M3zBtd": {
           "type": "link",
           "settings": {
@@ -36,7 +29,6 @@
       },
       "block_order": [
         "link_dmG7Ar",
-        "link_NB6HVR",
         "link_M3zBtd"
       ],
       "settings": {}

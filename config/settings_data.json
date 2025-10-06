@@ -91,7 +91,7 @@
               "title": "FREE UK Standard Delivery",
               "subcontent1": "On Orders over £75",
               "link1": "shopify://pages/help-centre-delivery-and-orders",
-              "enable_countdown": true
+              "enable_countdown": false
             }
           },
           "announcement_slider_Qw6CQD": {
