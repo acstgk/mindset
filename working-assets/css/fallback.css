@@ -65,3 +65,17 @@
 :target#login~#login-pane {
     display: block;
 }
+
+/* gender selector fallback */
+
+.gender-wrapper {
+    &>div,
+    &>personal-recommendations,
+    &>productcard-carousel {
+        grid-area: auto !important;
+    }
+}
+
+.fade-in {
+    transform: translateY(0) !important;
+}
