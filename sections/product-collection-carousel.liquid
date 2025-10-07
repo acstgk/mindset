@@ -1,19 +1,46 @@
 <h2 class="{{ section.settings.heading_style }}">{{ section.settings.carousel_title }}</h2>
+<div class="gender-wrapper">
+  <productcard-carousel class="mens-gender-filter fade-in">
+    {% for product in section.settings.product_list %}
+      <div class="splide__slide">{% render 'product-card', product: product %}</div>
+    {% endfor %}
+    {% for product in section.settings.collection.products limit: section.settings.product_count %}
+      <div class="splide__slide">{% render 'product-card', product: product %}</div>
+    {% endfor %}
+  </productcard-carousel>
 
-<productcard-carousel>
-  {% for product in section.settings.product_list %}
-    <div class="splide__slide">{% render 'product-card', product: product %}</div>
-  {% endfor %}
-  {% for product in section.settings.collection.products limit: section.settings.product_count %}
-    <div class="splide__slide">{% render 'product-card', product: product %}</div>
-  {% endfor %}
-</productcard-carousel>
+  {% if section.settings.show_womens %}
+    <productcard-carousel class="womens-gender-filter fade-in">
+      {% for product in section.settings.product_list_2 %}
+        <div class="splide__slide">{% render 'product-card', product: product %}</div>
+      {% endfor %}
+      {% for product in section.settings.collection_2.products limit: section.settings.product_count_2 %}
+        <div class="splide__slide">{% render 'product-card', product: product %}</div>
+      {% endfor %}
+    </productcard-carousel>
+  {% endif %}
+
+  {% if section.settings.show_kids %}
+    <productcard-carousel class="kids-gender-filter fade-in">
+      {% for product in section.settings.product_list_3 %}
+        <div class="splide__slide">{% render 'product-card', product: product %}</div>
+      {% endfor %}
+      {% for product in section.settings.collection.products_3 limit: section.settings.product_count_3 %}
+        <div class="splide__slide">{% render 'product-card', product: product %}</div>
+      {% endfor %}
+    </productcard-carousel>
+  {% endif %}
+</div>
 
 {% schema %}
 {
   "name": "Product Carousel",
   "class": "section--product-carousel",
   "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
     {
       "type": "text",
       "id": "carousel_title",
@@ -28,6 +55,10 @@
         { "value": "", "label": "Normal" },
         { "value": "emphasis", "label": "Condensed Font" }
       ]
+    },
+    {
+      "type": "header",
+      "content": "Carousel 1 / MENS "
     },
     {
       "type": "product_list",
@@ -47,7 +78,70 @@
       "min": 3,
       "max": 12,
       "step": 1,
-      "default": 6
+      "default": 6,
+      "visible_if": "{{ section.settings.collection }}"
+    },
+    {
+      "type": "header",
+      "content": "Carousel 2 / Womens"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_womens",
+      "label": "Show Women's Carousel?",
+      "default": false
+    },
+    {
+      "type": "product_list",
+      "id": "product_list_2",
+      "label": "Specific Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection_2",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_count_2",
+      "label": "Number of Collection Products",
+      "info": "number of products to show from a selected collection (between 3 and 12)",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "visible_if": "{{ section.settings.collection_2 }}"
+    },
+    {
+      "type": "header",
+      "content": "Carousel 3 / Kids"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_kids",
+      "label": "Show Women's Carousel?",
+      "default": false
+    },
+    {
+      "type": "product_list",
+      "id": "product_list_3",
+      "label": "Specific Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection_3",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "product_count_3",
+      "label": "Number of Collection Products",
+      "info": "number of products to show from a selected collection (between 3 and 12)",
+      "min": 3,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "visible_if": "{{ section.settings.collection_3 }}"
     }
   ],
   "presets": [
