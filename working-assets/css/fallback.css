@@ -11,6 +11,7 @@
 .fade-in {
     opacity: 1;
     visibility: visible;
+    transform: translateY(0) !important;
 }
 
 .grid-loader,
@@ -74,8 +75,4 @@
     &>productcard-carousel {
         grid-area: auto !important;
     }
-}
-
-.fade-in {
-    transform: translateY(0) !important;
 }
