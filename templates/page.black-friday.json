@@ -1,0 +1,183 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "carousel-hero",
+      "blocks": {
+        "image_i7tBKt": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/New Season - Mobile Banner Mens V1_021d8f8a-3277-4e83-b7c0-d7f7043a446c.mp4",
+            "mobile_poster": "shopify://shop_images/New-Season---Mobile-Banner-Womens-V1.jpg",
+            "desktop_video": "shopify://files/videos/New Season - Desktop Banner Womens V1.mp4",
+            "desktop_poster": "shopify://shop_images/New-Season---Desktop-Banner-Womens-V1.jpg",
+            "overlay_url": "shopify://collections/womens-new",
+            "title": "",
+            "subtitle": "",
+            "subtitle_first": false,
+            "cta1": "Shop New",
+            "url1": "shopify://collections/womens-new",
+            "cta2": "Shop Energy",
+            "url2": ""
+          }
+        },
+        "image_McwRfJ": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Fundamental - Mobile Banner-2.mp4",
+            "mobile_poster": "shopify://shop_images/Fundamental---Mobile-Banner-2.jpg",
+            "desktop_video": "shopify://files/videos/Fundamental - Desktop Banner-2.mp4",
+            "desktop_poster": "shopify://shop_images/Fundamental---Desktop-Banner-2.jpg",
+            "overlay_url": "shopify://collections/mens-new",
+            "title": "",
+            "subtitle": "",
+            "subtitle_first": true,
+            "cta1": "Shop New",
+            "url1": "shopify://collections/mens-new",
+            "cta2": "",
+            "url2": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_i7tBKt",
+        "image_McwRfJ"
+      ],
+      "settings": {}
+    },
+    "section_value_props_FBFJKV": {
+      "type": "section-value-props",
+      "blocks": {
+        "subtle_text_block_fbX7Vw": {
+          "type": "subtle-text-block",
+          "settings": {
+            "title": "FREE Standard UK Delivery over £75",
+            "block_link": "shopify://pages/help-centre-delivery-and-orders",
+            "bg_colour": "#f8f8f8",
+            "txt_colour": "#1b1b1b",
+            "icon": "truck"
+          }
+        },
+        "subtle_text_block_7LKcb6": {
+          "type": "subtle-text-block",
+          "settings": {
+            "title": "SALE | up to 70% OFF",
+            "block_link": "shopify://collections/spring-sale",
+            "bg_colour": "#f8f8f8",
+            "txt_colour": "#1b1b1b",
+            "icon": "tag"
+          }
+        },
+        "subtle_text_block_f3eyqD": {
+          "type": "subtle-text-block",
+          "settings": {
+            "title": "Easy 30 day returns",
+            "block_link": "shopify://pages/help-centre-returns",
+            "bg_colour": "#f8f8f8",
+            "txt_colour": "#1b1b1b",
+            "icon": "return"
+          }
+        }
+      },
+      "block_order": [
+        "subtle_text_block_fbX7Vw",
+        "subtle_text_block_7LKcb6",
+        "subtle_text_block_f3eyqD"
+      ],
+      "name": "Value Proposition Bar",
+      "settings": {}
+    },
+    "section_split_banner_CHJbCm": {
+      "type": "section-split-banner",
+      "name": "Split Banner",
+      "settings": {
+        "img1": "shopify://shop_images/genderpod-debossed-highres.jpg",
+        "title_mens": "Mens",
+        "url1": "shopify://collections/mens",
+        "img2": "shopify://shop_images/gender-pod-highresv2.jpg",
+        "title_womens": "Womens",
+        "url2": "shopify://collections/womens",
+        "image_style": "",
+        "gap": 0,
+        "hide_second": false,
+        "full_width": false,
+        "flex_wrap": false
+      }
+    },
+    "gender_selector_iPE3Hb": {
+      "type": "gender-selector",
+      "name": "Gender Selector",
+      "settings": {
+        "showKids": false
+      }
+    },
+    "gender_categories_9Tkx7m": {
+      "type": "gender-categories",
+      "name": "Shop by Category",
+      "settings": {
+        "gendered": true,
+        "title": "",
+        "img1m": "shopify://shop_images/twinset2-pod.jpg",
+        "bold1m": "Twin Sets",
+        "url1m": "shopify://collections/twin-sets",
+        "img2m": "shopify://shop_images/gympod22.jpg",
+        "bold2m": "Gymwear",
+        "url2m": "shopify://collections/mens-gym-clothes",
+        "img3m": "shopify://shop_images/tracksuit-cat34.jpg",
+        "bold3m": "Tracksuits",
+        "url3m": "shopify://collections/mens-tracksuits",
+        "img4m": "shopify://shop_images/menspodtees.jpg",
+        "bold4m": "Tees",
+        "url4m": "shopify://collections/all-mens-t-shirts",
+        "img1w": "shopify://shop_images/knit-cat.jpg",
+        "bold1w": "Co-Ords",
+        "url1w": "shopify://collections/co-ords-sets",
+        "img2w": "shopify://shop_images/legging-pod44.jpg",
+        "bold2w": "Leggings",
+        "url2w": "shopify://collections/all-womens-leggings",
+        "img3w": "shopify://shop_images/borg-cat.jpg",
+        "bold3w": "Jackets",
+        "url3w": "shopify://collections/womens-coats-jackets",
+        "img4w": "shopify://shop_images/leggings-pod10.jpg",
+        "bold4w": "Gymwear",
+        "url4w": "shopify://collections/womens-gym-clothes"
+      }
+    },
+    "gender-shop-by-size": {
+      "type": "gender-shop-by-size",
+      "name": "Shop By Size",
+      "settings": {
+        "title": ""
+      }
+    },
+    "gender_recommendation_carousel_QMFmBV": {
+      "type": "gender-recommendation-carousel",
+      "name": "Product Recommendation Carousel",
+      "settings": {
+        "fallback-1": "bestsellers-womens",
+        "best_sellers-1": "womens-bestsellers",
+        "new-1": "womens-new",
+        "fallback-2": "mens-bestsellers-2",
+        "best_sellers-2": "mens-bestsellers-2",
+        "new-2": "mens-new"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "section_value_props_FBFJKV",
+    "section_split_banner_CHJbCm",
+    "gender_selector_iPE3Hb",
+    "gender_categories_9Tkx7m",
+    "gender-shop-by-size",
+    "gender_recommendation_carousel_QMFmBV"
+  ]
+}
