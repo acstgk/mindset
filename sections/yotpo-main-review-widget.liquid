@@ -1,24 +1,38 @@
-<div class="yotpo-widget-instance" data-yotpo-instance-id="1008284" data-yotpo-product-id="{{product.id}}" data-yotpo-name="{{ product.title | escape }}" data-yotpo-url="{{ shop.url }}{{ product.url }}" data-yotpo-image-url="{{ product.featured_image | product_img_url: "large" | prepend: "https:" | replace: '?', '%3F' | replace: '&','%26'}}" data-yotpo-price="{{ product.price | divided_by: 100.00 }}" data-yotpo-currency="{{ shop.currency }}" data-yotpo-description="{{ product.description | escape }}"></div>
+
 <div
-	class="yotpo yotpo-pictures-widget"
-	data-gallery-id="67d2dbac2be328b4378bf4af"
-	data-product-id="{{ product.id }}">
-</div>
+  class="yotpo-widget-instance"
+  data-yotpo-instance-id="1008284"
+  data-yotpo-product-id="{{product.id}}"
+  data-yotpo-name="{{ product.title | escape }}"
+  data-yotpo-url="{{ shop.url }}{{ product.url }}"
+  data-yotpo-image-url="{{ product.featured_image | product_img_url: "large" | prepend: "https:" | replace: '?', '%3F' | replace: '&','%26'}}"
+  data-yotpo-price="{{ product.price | divided_by: 100.00 }}"
+  data-yotpo-currency="{{ shop.currency }}"
+  data-yotpo-description="{{ product.description | escape }}"
+></div>
+<div
+  class="yotpo yotpo-pictures-widget"
+  data-gallery-id="67d2dbac2be328b4378bf4af"
+  data-product-id="{{ product.id }}"
+></div>
 
 {% style %}
-#yotpo-app {
-  scroll-margin-top: 60px;
-}
-.yotpo-display-m .yotpo-main-layout .yotpo-head .yotpo-headline,
-.yotpo-pictures-widget .yotpo-slider-title-wrapper .yotpo-slider-title {
+  #yotpo-app {
+    scroll-margin-top: 60px;
+  }
+  .yotpo-display-m .yotpo-main-layout .yotpo-head .yotpo-headline,
+  .yotpo-pictures-widget .yotpo-slider-title-wrapper .yotpo-slider-title {
     font-size: var(--txt-h1) !important;
     font-family: var(--emphasis-heading-font-family) !important;
     letter-spacing: 0.5ch !important;
     font-weight: 400 !important;
   }
 
-.yotpo-single-image-container .yotpo-video {
-  background-repeat: no-repeat !important;
+  .yotpo-single-image-container .yotpo-video {
+    background-repeat: no-repeat !important;
   }
 
-{% endstyle%}
+  .yotpo-pictures-widget {
+    padding-bottom: 0 !important;
+  }
+{% endstyle %}
