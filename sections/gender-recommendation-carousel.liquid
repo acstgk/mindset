@@ -7,31 +7,29 @@
 
     {% comment %} use JS to render the productcard-carousel here {% endcomment %}
 
-    <noscript>
-      <productcard-carousel class="gender-recommendations-carousel product-grid">
-        {% assign fallback_1_products = section.settings['fallback-1'].products | slice: 0, 4 %}
-        {% for product in fallback_1_products %}
-          {% render 'product-card', product: product, class: 'splide__slide' %}
-        {% endfor %}
-      </productcard-carousel>
-    </noscript>
+    <productcard-carousel class="gender-recommendations-carousel product-grid">
+      {% for product in section.settings['fallback-1'].products limit: 6 %}
+        {% render 'product-card', product: product, class: 'splide__slide' %}
+      {% endfor %}
+    </productcard-carousel>
   </personal-recommendations>
 
   <personal-recommendations id="mens-recommendations" class="mens-gender-filter fade-in" data-gender="mens">
     <h4 class="no-gender-filter">MENS</h4>
 
     {% comment %} use JS to render the productcard-carousel here {% endcomment %}
-
     <noscript>
       <productcard-carousel class="gender-recommendations-carousel product-grid">
-        {% assign fallback_2_products = section.settings['fallback-2'].products | slice: 0, 4 %}
-        {% for product in fallback_2_products %}
+        {% for product in section.settings['fallback-2'].products limit: 6 %}
           {% render 'product-card', product: product, class: 'splide__slide' %}
         {% endfor %}
       </productcard-carousel>
     </noscript>
   </personal-recommendations>
 </div>
+
+{% comment %} continue shopping buttons {% endcomment %}
+
 <div class="gender-wrapper">
   <div class="recommendation-ctas womens-gender-filter fade-in max-width">
     {% if section.settings['best_sellers-1'] -%}
@@ -41,6 +39,7 @@
       <a href="{{ section.settings.new-1.url }}" class="button button-primary">{{ section.settings['new-1'].title }}</a>
     {%- endif %}
   </div>
+
   <div class="recommendation-ctas mens-gender-filter fade-in max-width">
     {% if section.settings['best_sellers-2'] -%}
       <a href="{{ section.settings.best_sellers-2.url }}" class="button button-primary">
@@ -52,7 +51,8 @@
     {%- endif %}
   </div>
 </div>
-{% style%}
+
+{% style %}
   .section-gender-recommendation-carousel h3 {
     margin: 3em 0 0.5em;
   }
@@ -68,7 +68,7 @@
       flex: 1 1 max-content;
     }
   }
-{% endstyle%}
+{% endstyle %}
 {% schema %}
 {
   "name": "Recommendation Carousel",
