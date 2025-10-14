@@ -1674,7 +1674,7 @@ product-card,
     bottom: 0;
     width: 100vw;
     max-height: 90vh;
-    z-index: 12;
+    z-index: 16;
     background: var(--c-white);
     box-shadow: 0 0 4px color-mix(in lab, var(--c-black), transparent 10%);
 
