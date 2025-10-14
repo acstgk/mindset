@@ -11,7 +11,7 @@
             <div class="cart_item-info">
               <h3>{% render 'product-title' with item.product as product %}</h3>
               <span class="cart_item-size">{{ item.variant.title }}</span>
-              {% render 'product-price' with item as product %}
+              {% render 'product-price' with item.variant as product %}
             </div>
           </header>
           <div class="cart_item-quantity">
