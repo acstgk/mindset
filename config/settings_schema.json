@@ -773,9 +773,15 @@
       {
         "type": "image_picker",
         "id": "favicon",
-        "label": "Image",
-        "info": "96 x 96px .png recommended"
-      }
+        "label": "Main/Light Theme Icon",
+        "info": "required* - 96 x 96px .png recommended"
+      },
+      {
+        "type": "image_picker",
+        "id": "alt_favicon",
+        "label": "Alternate/Dark Theme Icon",
+        "info": "optional* - 96 x 96px .png recommended"
+      },
     ]
   },
   {

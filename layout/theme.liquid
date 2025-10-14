@@ -60,7 +60,6 @@
       glegem('OnCheckoutStepLoaded', function (data) {
         window.gleConfData = data;
       });
-
     </script>
 
     <!-- Clarity -->
@@ -188,7 +187,10 @@
     <link rel="canonical" href="{{ updated_url }}">
 
     {%- if settings.favicon -%}
-      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: '96px' }}" type="image/png">
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: '96px' }}" media="(prefers-color-scheme: light)" type="image/png">
+    {%- endif -%}
+    {%- if settings.alt_favicon -%}
+      <link rel="shortcut icon" href="{{ settings.alt_favicon | image_url: width: '96px' }}" media="(prefers-color-scheme: dark)" type="image/png">
     {%- endif -%}
 
     {% render 'css-variables' %}
