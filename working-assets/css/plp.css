@@ -43,6 +43,10 @@
   }
 }
 
+.product_type-bar {
+  overflow: hidden;
+}
+
 #search_page-form {
   width: 70%;
   align-items: center;
