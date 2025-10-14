@@ -1,13 +1,15 @@
 <link rel="stylesheet" href="{{ 'filters.min.css' | asset_url }}">
 
 <filters-menu-bar class="accent-bg">
+  {% comment %} Mobile Filters Button {% endcomment %}
   {% comment %} Wrapper {% endcomment %}
   <div class="max-width inline-flex">
-    {% comment %} Mobile Filters Button {% endcomment %}
-    <a class=" mobile-filter-button" aria-label="change grid size">
-      {% render 'icon', icon: 'smaller' %}
-      {% render 'icon', icon: 'bigger', class: 'rotate180' %} Column Size
-    </a>
+    <div class="column-controls">
+      <button class="grid-control--down" aria-label="change grid size">{% render 'icon', icon: 'smaller' %}</button>
+      <button class="grid-control--up" aria-label="change grid size">{% render 'icon', icon: 'bigger', class: 'rotate180' %}</button>
+      <span>Column Size</span>
+    </div>
+
     <a class="mobile-filter-button drawer-button" data-target="productFilters" aria-label="Open mobile filters">{% render 'icon', icon: 'filters' %} Filters</a>
 
     <slide-drawer aria-hidden="true" id="productFilters" data-side="right">
@@ -19,7 +21,7 @@
 
           <content-accordian>
             {%- for filter in group.filters -%}
-              {% if filter.values.size > 1 %}
+              {% if filter.values.size > 1 or filter.type == 'price_range' %}
                 {% unless request.path contains '/mens' and filter.label == 'Gender' or request.path contains '/womens' and filter.label == 'Gender' %}
                   <div class="accordian-items filter_item filter_item-{{- filter.label | handleize -}} ">
                     <div class="accordian-header filter_item-name item-{{- filter.label | handleize -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
@@ -166,7 +168,7 @@
         </div>
         {% comment %} Sort By Options {% endcomment %}
         <div class="sortby-container inline-flex">
-          <label for="sourt_by" style="flex:1 0 auto">Sort by:</label>
+          <label for="sort_by" style="color:var(--c-grey);flex:1 0 auto">Sort by:</label>
           <select name="sort_by" id="SortBy">
             {%- for option in group.sort_options -%}
               {% unless option.name contains 'Date' %}

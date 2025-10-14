@@ -17,6 +17,7 @@ filters-menu-bar {
     padding: 1rem 0;
     margin: 0 auto;
     color: var(--c-grey);
+    gap: 1rem;
   }
 
   & slide-drawer {
@@ -59,12 +60,57 @@ filters-menu-bar {
 
 }
 
+.column-controls {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+
+  & svg {
+    stroke: var(--c-grey);
+    transition: stroke var(--bezier) 0.1s;
+  }
+
+  & button {
+    place-items: center;
+    display: grid;
+    aspect-ratio: 1;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  & button:hover svg {
+    stroke: var(--c-dark-grey);
+  }
+
+  &[data-grid="large-grid"] .grid-control--up {
+    cursor: default;
+
+    & svg {
+      stroke: var(--c-light-grey);
+    }
+  }
+
+  &[data-grid="small-grid"] .grid-control--down {
+    cursor: default;
+
+    & svg {
+      stroke: var(--c-light-grey);
+    }
+  }
+
+  & span {
+    flex: 1 0 100%;
+    display: block;
+  }
+}
+
 .price_range-sliders {
   position: relative;
   min-height: 25px;
   width: 96%;
   margin: 0 auto;
 }
+
 
 #toSlider,
 #fromSlider {
@@ -79,6 +125,7 @@ filters-menu-bar {
   pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
+  padding: 0 !important;
 
   &:focus {
     outline-color: transparent;
@@ -168,11 +215,19 @@ filters-menu-bar {
   display: flex;
   align-items: center;
   margin: 0 0.3em;
+
+  & input {
+    padding: 0.7rem 0.5rem 0.5rem !important;
+    margin-left: 0.5ch;
+  }
 }
 
 #filter-form {
   color: var(--c-dark-grey);
   width: auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .filter_item-values {
@@ -231,6 +286,18 @@ filters-menu-bar {
   display: none;
 }
 
+.sortby-container {
+  margin: auto 0 0;
+  padding: 0 1rem;
+}
+
+@media screen and (width < 950px) {
+.sortby-container label,
+.column-controls span {
+  display: none;
+}
+}
+
 @media screen and (width > 768px) {
   .filterby-container {
     display: flex;
@@ -238,9 +305,15 @@ filters-menu-bar {
     gap: 1em;
   }
 
+  .sortby-container {
+    border-left: 1px solid var(--c-light-grey);
+    margin-left: 1rem;
+  }
+
   form#filter-form {
     flex-direction: row-reverse;
     justify-content: space-between;
+    min-height: 0;
   }
 
   content-accordian {
@@ -274,7 +347,7 @@ filters-menu-bar {
   }
 
   filters-menu-bar {
-    z-index: 1;
+    z-index: 3;
 
     & slide-drawer {
       border: none;

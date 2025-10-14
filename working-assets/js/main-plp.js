@@ -4,10 +4,23 @@ import Splide from "./splide.min.js";
 import { SplideUtil } from "./SplideUtil.js";
 
 // ===================
-// Auto Scroll to last viewed product
+// Loading Initial Setting
 // ===================
 
-document.addEventListener("DOMContentLoaded", () => {
+// Remember and reset grid size
+function gridSize() {
+  const gridSize = localStorage.getItem("GK::grid-size");
+  if (!gridSize) return;
+
+  const grid = document.querySelector("infinite-scroll");
+
+  grid.classList = "max-width";
+  grid.classList.add(gridSize);
+  document.querySelector(".column-controls").dataset.grid = gridSize;
+}
+
+// Auto Scroll to last viewed product
+function autoScroll() {
   const rawData = sessionStorage.getItem("GK::clickedProductId");
   if (!rawData) return;
 
@@ -17,6 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
     targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
   }
   sessionStorage.removeItem("GK::clickedProductId");
+}
+
+//  run on document load to ensure all dom elements available
+document.addEventListener("DOMContentLoaded", () => {
+  gridSize();
+  autoScroll();
 });
 
 // ===================
@@ -51,6 +70,7 @@ if (!customElements.get("product-types")) {
 // ===================
 // Infinite Scroll
 // ===================
+
 if (!customElements.get("infinite-scroll")) {
   customElements.define(
     "infinite-scroll",
@@ -424,6 +444,42 @@ class EnhancedFilters {
 
 const form = document.getElementById("filter-form");
 if (form) new EnhancedFilters(form);
+
+// ===================
+// Product Grid column Sizing
+// ===================
+
+class ColumnControls {
+  constructor(element) {
+    this.buttons = element.querySelectorAll("button");
+    this.buttonUp = element.querySelector(".grid-control--up");
+    this.buttonDown = element.querySelector(".grid-control--down");
+    this.currentSize = localStorage.getItem("GK::grid-size") || "grid";
+    console.log(this.currentSize)
+    this.sizes = ["small-grid", "grid", "large-grid"];
+    this._addEventListeners();
+  }
+
+  _addEventListeners() {
+    this.buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        this._handleClicks(button);
+      });
+    });
+  }
+
+  _handleClicks(button) {
+    const currentIndex = this.sizes.indexOf(this.currentSize);
+    const newIndex = button === this.buttonDown ? Math.max(0, currentIndex - 1) : Math.min(2, currentIndex + 1);
+    this.currentSize = this.sizes[newIndex];
+    localStorage.setItem("GK::grid-size", this.currentSize);
+    gridSize();
+
+  }
+}
+
+const colControls = document.querySelector(".column-controls");
+if (colControls) new ColumnControls(colControls);
 
 // ===================
 // Blurb Collapse for mobile
