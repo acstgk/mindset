@@ -68,9 +68,7 @@ if (!customElements.get("infinite-scroll")) {
         if (!this.loadTrigger || !this.loadTriggerActive) return;
 
         // Ensure nextPageUrl reflects the latest pagination (including new filter params)
-        const refreshedNext = this.loadTriggerActive?.dataset?.nextPage
-          || this.loadTrigger?.dataset?.nextPage
-          || this.loadTriggerActive?.getAttribute?.('href');
+        const refreshedNext = this.loadTriggerActive?.dataset?.nextPage || this.loadTrigger?.dataset?.nextPage || this.loadTriggerActive?.getAttribute?.("href");
         if (refreshedNext) {
           this.nextPageUrl = refreshedNext;
         }
@@ -173,10 +171,12 @@ class PriceRangeControl {
     this.fromInput = document.querySelector(fromInputSelector);
     this.toInput = document.querySelector(toInputSelector);
 
-    this.#fillSlider(this.fromSlider, this.toSlider, "#C6C6C6", "#111", this.toSlider);
-    this.#setToggleAccessible(this.toSlider);
+    if (this.fromInput && this.fromSlider && this.toInput && this.toSlider) {
+      this.#fillSlider(this.fromSlider, this.toSlider, "#C6C6C6", "#111", this.toSlider);
+      this.#setToggleAccessible(this.toSlider);
 
-    this.init();
+      this.init();
+    }
   }
 
   init() {
@@ -355,9 +355,7 @@ class EnhancedFilters {
       }
 
       // Update InfiniteScroll's nextPageUrl to match new filters
-      const derivedNextFromDoc = newGrid?.dataset?.nextPage
-        || newPaginationNext?.dataset?.nextPage
-        || newPaginationNext?.querySelector?.('#infinite-trigger')?.getAttribute?.('href');
+      const derivedNextFromDoc = newGrid?.dataset?.nextPage || newPaginationNext?.dataset?.nextPage || newPaginationNext?.querySelector?.("#infinite-trigger")?.getAttribute?.("href");
 
       // After replacing #pagination-next, re-observe it in InfiniteScroll
       const infiniteScroll = document.querySelector("infinite-scroll");
@@ -373,9 +371,7 @@ class EnhancedFilters {
           infiniteScroll.nextPageUrl = derivedNextFromDoc;
         } else if (infiniteScroll.loadTriggerActive) {
           // Fallback to reading from the current DOM
-          const fallbackNext = infiniteScroll.loadTriggerActive.dataset?.nextPage
-            || infiniteScroll.loadTrigger?.dataset?.nextPage
-            || infiniteScroll.loadTriggerActive.getAttribute('href');
+          const fallbackNext = infiniteScroll.loadTriggerActive.dataset?.nextPage || infiniteScroll.loadTrigger?.dataset?.nextPage || infiniteScroll.loadTriggerActive.getAttribute("href");
           if (fallbackNext) infiniteScroll.nextPageUrl = fallbackNext;
         }
         infiniteScroll._observeLoadTrigger();
@@ -429,7 +425,6 @@ class EnhancedFilters {
 const form = document.getElementById("filter-form");
 if (form) new EnhancedFilters(form);
 
-
 // ===================
 // Blurb Collapse for mobile
 // ===================
@@ -444,18 +439,18 @@ class BlurbControls {
   }
 
   _addbutton() {
-    const controlBtn = document.createElement('a');
+    const controlBtn = document.createElement("a");
     controlBtn.className = "expand-blurb";
-    controlBtn.innerText = "Read more"
+    controlBtn.innerText = "Read more";
     controlBtn.addEventListener("click", this._toggleView);
-    this.element.appendChild(controlBtn)
+    this.element.appendChild(controlBtn);
   }
 
   _toggleView = () => {
     console.log(this.element);
 
     this.element.classList.toggle("active");
-  }
+  };
 }
 
-new BlurbControls('.collection-blurb')
+new BlurbControls(".collection-blurb");
