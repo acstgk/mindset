@@ -1,9 +1,12 @@
 {% assign payments = "klarna,afterpay,american_express,apple_pay,google_pay,maestro,master,visa,paypal" | split: "," %}
 
 <ul class="payment-icons">
-  {% for type in payments %}
-    <li class="payment-icon">
-      {{ type | payment_type_svg_tag }}
-    </li>
-  {% endfor %}
+    <li class="payment-icon">{{ 'klarna' | payment_type_svg_tag }}</li>
+    <li class="payment-icon">{{ 'clearpay' | payment_type_svg_tag }}</li>
+    <li class="payment-icon">{{ 'apple_pay' | payment_type_svg_tag }}</li>
+    <li class="payment-icon">{{ 'paypal' | payment_type_svg_tag }}</li>
+    <li class="payment-icon">{{ 'google_pay' | payment_type_svg_tag }}</li>
+    <li class="payment-icon">{{ 'visa' | payment_type_svg_tag }}</li>
+    <li class="payment-icon">{{ 'master' | payment_type_svg_tag }}</li>
+    <li class="payment-icon">{{ 'american_express' | payment_type_svg_tag }}</li>
 </ul>
