@@ -45,8 +45,8 @@
     "franchise-url-2": "shopify://pages/rewards",
     "franchise-bg-2": "#565656",
     "franchise-img-3": "shopify://shop_images/fight-division-white.png",
-    "franchise-url-3": "shopify://pages/fight-division",
-    "franchise-gender-3": "mens",
+    "franchise-url-3": "",
+    "franchise-gender-3": "0",
     "nav-submenu-1-mens": "mens-shop-by-category-content-new",
     "nav-submenu-2-mens": "mens-shop-by-collection-content-new",
     "nav-mobilemenu-mens": "mens-side-menu",
@@ -79,6 +79,7 @@
     "social_yt": "https://www.youtube.com/channel/UCMo0t3vIAyl-peoNAcIwi9g/videos",
     "social_tt": "https://www.tiktok.com/@thegymking/",
     "favicon": "shopify://shop_images/Gym_King_Logo-whitebg.png",
+    "alt_favicon": "shopify://shop_images/Gym_King_Logo-blackbg.png",
     "nav-mobilemenu-1": "mens-side-menu",
     "nav-mobilemenu-2": "womens-side-menu",
     "sections": {
