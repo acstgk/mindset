@@ -274,6 +274,8 @@ pdp-carousel {
 
 #product-details {
   scroll-margin-top: 50px;
+  max-width: 90vw;
+  margin: 1rem  auto;
 
   & #product-summary {
     display: grid;
@@ -545,6 +547,7 @@ form .quantity-warning {
       top: calc(50px + 1em + 2vh);
       height: min-content;
       padding-top: 0;
+      margin-top: 0;
     }
 
     & content-accordian {

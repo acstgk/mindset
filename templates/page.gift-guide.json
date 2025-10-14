@@ -37,7 +37,7 @@
     "product_collection_carousel_TqtdDf": {
       "type": "product-collection-carousel",
       "custom_css": [
-        "h2 {text-align: left; width: min(90vw, 1240px); display: block; margin: 0 auto;}"
+        "h2 {text-align: left; width: min(90vw, 1270px); display: block; margin: 0 auto;}"
       ],
       "name": "Top Picks",
       "settings": {

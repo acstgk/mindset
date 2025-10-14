@@ -103,7 +103,7 @@
 {% comment %} END:: Carousels {% endcomment %}
 
 {% comment %} START:: Product Details {% endcomment %}
-<aside id="product-details" class="max-width" data-details="{{ product_details | escape }}">
+<aside id="product-details"  data-details="{{ product_details | escape }}">
   <div id="product-summary">
     {% render 'product-title' with product as 'product', heading: 'true' %}
     {% render 'product-price' with product as 'product' %}

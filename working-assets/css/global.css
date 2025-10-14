@@ -29,7 +29,7 @@ hmtl>body.no-scroll {
 }
 
 .max-width {
-    width: min(90%, 1270px);
+    width: min(90vw, 1270px);
     padding: 1em 0 0;
     margin: 0 auto;
 }
@@ -37,7 +37,7 @@ hmtl>body.no-scroll {
 .inline-flex {
     display: inline-flex;
     gap: 0.5em;
-    align-items: baseline;
+    align-items: center;
 }
 
 .round,

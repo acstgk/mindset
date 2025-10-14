@@ -58,9 +58,6 @@
       max-height: calc(100vh - 6rem);
       padding: 0.5rem;
     }
-    &.fade-in.active {
-      height: min-content;
-    }
   }
 
   button.modal-close {
@@ -77,11 +74,12 @@
 
   @media screen and (width > 768px) {
     .bnpl-modal {
-      width: min(90vw, 1270px);
+      width: var(--max-width);
       max-height: min(90vh, 950px);
       padding: 4rem 3rem 3rem;
       & .bnpl-modal--content {
         max-height: calc(90vh - 7rem);
+        height: 100%;
       }
     }
   }

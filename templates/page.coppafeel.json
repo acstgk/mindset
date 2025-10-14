@@ -199,7 +199,7 @@
       ],
       "custom_css": [
         ".rtf h3 {color: #fff6f0; text-align: center; font-size: var(--txt-xl); margin: 0;}",
-        ".rtf {background: #ff0069; padding: 1rem 2rem; color: #fff6f0; width: min(90vw, 1240px); margin: 1rem auto;}",
+        ".rtf {background: #ff0069; padding: 1rem 2rem; color: #fff6f0; width: min(90vw, 1270px); margin: 1rem auto;}",
         ".rtf * {text-align: center; margin: 0;}"
       ],
       "name": "Editorial Content Block",
