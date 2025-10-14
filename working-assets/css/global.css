@@ -1585,7 +1585,7 @@ product-card {
     & .Price--saving {
         position: absolute;
         top: 15px;
-        background-color: #7c1313;
+        background-color: #811922;
         color: white;
         font-weight: 700;
         font-size: var(--txt-p);
