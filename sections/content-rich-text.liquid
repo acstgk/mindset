@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ 'rich-text.min.css' | asset_url }}">
+
 {% if section.settings.is_accent %}
   <div class="rich-content--wrapper" style="background-color:{{ section.settings.bg_color | default: '#f6f6f6' }}">
     {% if section.settings['background-image'] %}
@@ -86,64 +88,6 @@
 <style>
   #shopify-section-{{section.id}} {
     margin-block: {{ section.settings.v_padding }}px
-  }
-  .rich-content--wrapper {
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    padding: 0;
-
-    & .rtf>:first-child {
-    margin-top: 2.4rem;
-    }
-    & .rtf>:last-child {
-    margin-bottom: 2.4rem;
-    }
-
-    & > * {
-      grid-area: 1 / 1;
-      padding: 0;
-    }
-
-    & img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    & blockquote.contrast {
-      color: white;
-      {% comment %} text-shadow: 0 0 20px var(--c-dark-grey); {% endcomment %}
-      background: rgb(25 25 25 / 0.1);
-      backdrop-filter: blur(4px) brightness(0.8);
-      margin-block: 4rem !important;
-    }
-  }
-
-  .contrast-bg {
-    position: absolute;
-    inset: 0;
-  }
-
-    .rtf::before,
-  .rtf::after,
-  .rtf h3::before,
-  .rtf h3::after {
-  content: "";}
-
-  @media screen and (width > 768px) {
-    .align-right {
-      padding-left: 35%;
-      max-width: none;
-    }
-
-    .align-left {
-      padding-right: 35%;
-      max-width: none;
-    }
   }
 </style>
 {% schema %}

@@ -28,7 +28,7 @@
   </div>
 </div>
 
-{% style%}
+{% style %}
   #womens-sbs,
   #mens-sbs {
     padding-top: 0;
@@ -37,12 +37,12 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5em;
+  }
 
-    & a {
-      display: block;
-      width: 100%;
-      font-size: var(--txt-h3);
-    }
+  ul.sizes a.button {
+    width: 100%;
+    display: block;
+    font-size: var(--txt-h3);
   }
 
   #mens-sbs ul.sizes li:last-child {
@@ -56,13 +56,9 @@
     ul.sizes {
       display: flex;
       gap: 0.5em;
-
-      & a {
-        width: auto;
-      }
     }
   }
-{% endstyle%}
+{% endstyle %}
 
 {% schema %}
 {

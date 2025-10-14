@@ -38,6 +38,7 @@
 
 .category-grid a {
   overflow: hidden;
+  display: grid;
 }
 
 .category-grid img {

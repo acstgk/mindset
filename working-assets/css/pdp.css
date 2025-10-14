@@ -166,6 +166,7 @@ form#atc_form {
     width: 15px;
     height: 15px;
     stroke: var(--c-dark-grey);
+    position: absolute;
   }
 }
 
@@ -247,6 +248,7 @@ pdp-carousel {
     border-radius: 14px;
     gap: 7px;
     place-content: center;
+    border: 1px solid color-mix(in srgb, var(--c-black), transparent 90%);
 
     & li {
       display: grid;
@@ -257,13 +259,14 @@ pdp-carousel {
       border-radius: 50%;
       height: 7px;
       width: 7px;
-      background-color: color-mix(in srgb, var(--c-white), transparent 75%);
+      opacity: 0.75;
       padding: 0;
       border: none;
       margin: 0;
 
       &.is-active {
         background-color: var(--c-white);
+        opacity: 1;
       }
     }
   }

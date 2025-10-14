@@ -4,50 +4,7 @@
   <button id="kids_gender-switch" data-gender="kids" class="gender-btn" aria-expanded="false">KIDS</button>
 {% endif %}
 
-{% style%}
-  .section-gender-switch {
-    margin: 15px auto;
-    width: 100%;
-    padding: 15px 5vw;
-    display: flex;
-    gap: 15px;
-    background: var(--c-white);
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 50px;
-    z-index: 2;
-    border-bottom: 1px solid var(--c-light-grey);
-
-    & .gender-btn {
-      font-size: var(--txt-h1);
-      font-family: var(--emphasis-heading-font-family);
-      color: var(--c-grey);
-      transition: color 0.2s ease;
-
-      &:hover {
-        color: var(--c-dark-grey);
-      }
-
-      &.active {
-        color: var(--c-black);
-      }
-    }
-  }
-
-  .gender-wrapper {
-    display: grid;
-    overflow-y: hidden;
-    place-items: center;
-
-    & > div,
-    & > personal-recommendations,
-    & > productcard-carousel {
-      grid-area: 1 / 1;
-    }
-  }
-{% endstyle%}
-
+<link rel="stylesheet" href="{{ 'gender-selector.min.css' | asset_url }}">
 <script type="text/javascript" src="{{ 'gender-selector.js' | asset_url }}" defer></script>
 
 {% schema %}

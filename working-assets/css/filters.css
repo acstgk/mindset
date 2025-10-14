@@ -1,13 +1,23 @@
 filters-menu-bar {
-  display: block;
-  position: sticky;
-  top: 49px;
-  min-height: 40px;
   width: 100%;
-  margin: 0 !important;
+  position: sticky;
+  display: block;
+  top: 49px;
+  height: 100%;
   border-block: 1px solid var(--c-light-grey);
   z-index: 15;
-  color: var(--c-grey);
+
+  &.accent-bg {
+    padding: 0;
+  }
+
+  & .max-width {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    margin: 0 auto;
+    color: var(--c-grey);
+  }
 
   & slide-drawer {
     padding: 15px;
@@ -36,16 +46,17 @@ filters-menu-bar {
     }
   }
 
-  & a:first-child {
-    padding: 0.2em 0.6em;
-    margin: 0 0 0 auto;
+  & a {
+    align-items: center;
+    display: inline-flex;
+    gap: 0.5rem;
   }
 
-  & .max-width {
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
+  & a:first-child {
+    padding: 0.2em 0.6em;
+    margin: 0 auto 0 0;
   }
+
 }
 
 .price_range-sliders {
@@ -300,6 +311,9 @@ filters-menu-bar {
     }
   }
 
+  #productFilters[aria-hidden="false"]~.mobile-filter-button {
+    filter: blur(2px);
+  }
 
   .mobile-filter-button {
     display: none;

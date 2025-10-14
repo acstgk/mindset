@@ -1352,7 +1352,7 @@ ul.social-links {
 }
 
 .meta-description {
-    margin: -60px auto 60px;
+    margin: 0px auto 60px;
     max-width: none;
 
     & p {

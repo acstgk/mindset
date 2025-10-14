@@ -43,15 +43,18 @@
     text-shadow: 0 0 20px rgba(27, 27, 27, 0.2);
     display: flex;
     flex-wrap: wrap;
+  }
+  #split-banner .img-overlay {
+    flex: 1;
+  }
 
-    & .img-overlay {
-      flex: 1;
-    }
+  #split-banner a {
+    display: grid;
+  }
 
-    &.full-height .img-overlay {
-      height: auto;
-      max-height: none;
-    }
+  #split-banner.full-height .img-overlay {
+    height: auto;
+    max-height: none;
   }
 
   @media screen and (width < 600px) {
