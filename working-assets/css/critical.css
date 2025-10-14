@@ -481,6 +481,7 @@ slide-drawer {
 
   & img {
     width: min(40vw, 200px);
+    object-fit: contain;
   }
 }
 
@@ -559,6 +560,7 @@ ul.header_desktop-menu {
   max-height: calc(100vh - 50px);
   z-index: -1;
   padding-top: 20px;
+  border-bottom: 1px solid var(--c-light-grey)
 }
 
 .header_menu-item>a:hover+.header_menu-dropdown,
