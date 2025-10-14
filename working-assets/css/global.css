@@ -58,6 +58,7 @@ select {
     -moz-appearance: none;
     appearance: none;
     padding-right: .5em;
+    -webkit-text-fill-color: var(--c-black);
     background-repeat: no-repeat;
     background-position: right 0.65rem center;
     background-size: 1.1em auto;
