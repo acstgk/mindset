@@ -1518,6 +1518,18 @@ product-card {
         aspect-ratio: 35 / 50;
         position: relative;
         overflow-y: hidden;
+
+        &.oos-overlay::after {
+            backdrop-filter: blur(-1px);
+            background: linear-gradient(0deg, #1e1e1e, #1e1e1e80 40%, #fff0 66%);
+            content: "";
+            display: block;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            transition: top .2s ease;
+            width: 100%;
+        }
     }
 
     & .product_card-images {
@@ -1530,6 +1542,17 @@ product-card {
         place-items: center;
         width: 100%;
         height: 100%;
+        position: relative;
+    }
+
+    & .outofstockcontainer {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        z-index: 1;
+        transform: translateX(-50%);
+        padding: .65rem 1rem;
+        min-width: 50%;
     }
 
     & .product_card-first-image {
@@ -1642,6 +1665,10 @@ product-card {
         color: white;
         font-weight: 700;
         font-size: var(--txt-sm);
+    }
+
+    & span.Price--saving.error {
+        background-color: var(--c-black);
     }
 }
 

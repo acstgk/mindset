@@ -51,7 +51,7 @@
   {%- endif -%}
 >
   {% comment %} images and interactions {% endcomment %}
-  <div class="product_card-media">
+  <div class="product_card-media {% if product.available == false %}oos-overlay{% endif %}">
     {% if show_timer or settings['decal-check'] %}
       {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: sizes: sizes, widths: widths, loading: 'lazy', class: 'product_card-decal' }}
     {% endif %}
@@ -59,7 +59,7 @@
       <div class="product_card-first-image">
         {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager', class: 'background-image' }}
         <div class="loader grid-loader"></div>
-        {{ product.featured_image| image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading }}
+        {{ product.featured_image | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading }}
       </div>
 
       {% if product.images[2] %}
@@ -71,6 +71,8 @@
       <div class="datb">
         {{ qatb_buttons }}
       </div>
+    {% else %}
+      <button href="#" class="button button-inverted BIS_trigger outofstockcontainer" data-product-data="{{product | json | escape}}">Notify me</button>
     {% endunless %}
   </div>
 
