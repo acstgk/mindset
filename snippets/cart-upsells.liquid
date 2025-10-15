@@ -11,7 +11,7 @@
 {% comment %} which collection do we need to display? {% endcomment %}
 {% if mixed_cart %}
   {% case latest_gender %}
-    {% when 'womens', 'mens' %}
+    {% when 'womens', 'mens', 'accessories' %}
       {% assign upsell_collection = collections['unisex-basket-collection'].products %}
     {% else %}
       {% assign upsell_collection = collections['kids-basket-collection'].products %}
