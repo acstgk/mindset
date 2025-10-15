@@ -876,7 +876,11 @@ content-accordian {
     display: flex;
     flex-flow: column nowrap;
     padding-bottom: 0;
-    z-index: 16
+    z-index: 16;
+
+    & .bundle-items {
+        order: -1;
+    }
 }
 
 .side_menu-header {
@@ -1426,6 +1430,7 @@ ul.social-links {
     min-width: 24px;
     place-content: center;
 }
+
 @media screen and (width > 768px) {
     .footer-container {
         display: flex;

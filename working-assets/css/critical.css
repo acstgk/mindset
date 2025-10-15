@@ -276,6 +276,14 @@ blockquote {
   }
 }
 
+.bundle-items {
+  color: var(--c-grey);
+  font-size: var(--txt-sm);
+  flex: 0 1 auto;
+  text-wrap: pretty;
+  text-wrap: balanced;
+}
+
 .Price {
   display: inline-block;
 }

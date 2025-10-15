@@ -140,6 +140,15 @@
    }
  }
 
+ .cart_item--discount {
+   color: var(--c-error);
+   font-size: var(--txt-sm);
+   line-height: 1;
+   display: flex;
+   gap: 0.5ch;
+   align-items: center;
+ }
+
  @media screen and (width > 500px) {
    .section--cart_content {
      & .cart_items-list {
