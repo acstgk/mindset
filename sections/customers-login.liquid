@@ -29,7 +29,7 @@
     <h1>{{ 'customer.login.title' | t }}</h1>
 
     {%- if form.errors -%}
-      <div class="warning">
+      <div class="error">
         {{- form.errors.messages.form -}}
       </div>
     {%- endif -%}
@@ -68,7 +68,7 @@
     <h1>{{ 'customer.recover_password.title' | t }}</h1>
 
     {%- if form.errors -%}
-      <div class="warning">
+      <div class="error">
         {{- form.errors.messages.form -}}
       </div>
     {%- endif -%}

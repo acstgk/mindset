@@ -244,7 +244,7 @@ svg {
 }
 
 *:hover>svg.Icon--trash {
-    color: var(--c-warning);
+    color: var(--c-error);
 }
 
 page-overlay {
@@ -1875,6 +1875,7 @@ form {
     width: min(100%, 400px);
     margin: 0 auto;
 
+    & .error,
     & .warning {
         margin-bottom: 1em;
         padding: 1em;

@@ -226,13 +226,13 @@
       {% comment %}  Quantity Selector  {% endcomment %}
       <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
       {% comment %} Add to Cart button  {% endcomment %}
-      <span class="quantity-warning warning uppercase"></span>
+      <span class="quantity-warning uppercase"></span>
       <div class="atc_form-button-spacer"><button type="submit" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button></div>
     </enhanced-atc>
   </form>
 
   {% if show_timer %}
-    <div class="warning countdown-wrapper accent-bg">
+    <div class="error countdown-wrapper accent-bg">
       <countdown-timer data-countdown="{{ countdown_settings | strip_newlines | escape }}"></countdown-timer>
     </div>
   {% endif %}

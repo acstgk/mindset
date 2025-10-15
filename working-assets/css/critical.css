@@ -50,6 +50,7 @@ main {
     right: 5px !important;
   }
 }
+
 /* IMAGE */
 
 img {
@@ -215,6 +216,7 @@ blockquote {
 
 .success,
 .warning,
+.error,
 .info {
   padding: 0.2rem 1rem;
   display: inline-block;
@@ -224,6 +226,11 @@ blockquote {
 .success {
   color: var(--c-success);
   background-color: color-mix(in lab, var(--c-success), transparent 90%);
+}
+
+.error {
+  color: var(--c-error);
+  background-color: color-mix(in lab, var(--c-error), transparent 90%);
 }
 
 .warning {
@@ -283,7 +290,7 @@ blockquote {
   position: relative;
   margin-left: 5px;
   margin: 0 5px 0 0;
-  color: #811922;
+  color: var(--c-grey);
   width: fit-content;
 }
 
@@ -306,6 +313,10 @@ blockquote {
   padding: 0.4em 1em 0.2em;
   font-size: 11px;
   margin: 0 0 0 auto;
+}
+
+.Price--markdown {
+  color: var(--c-error);
 }
 
 p {

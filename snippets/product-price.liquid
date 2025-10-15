@@ -56,7 +56,7 @@
     {%- endif -%}
   </span>
   {% if template.name contains 'cart' and inventory < 6 and inventory > 0 and product.requires_selling_plan == false %}
-    <div class="Price--saving warning">
+    <div class="Price--saving error">
       {% if inventory == 1 %}
         Last One
       {% else %}
@@ -64,9 +64,9 @@
       {% endif %}
     </div>
   {% else %}
-    {% if product.inventory_quantity == 1 %}
-      <span class="Price--saving warning">Last {{ product.inventory_quantity }}!</span>
-    {% elsif product.inventory_quantity < 15 %}
+    {% if product.inventory_quantity == 1 and product.inventory_management %}
+      <span class="Price--saving error">Last {{ product.inventory_quantity }}!</span>
+    {% elsif product.inventory_quantity < 15 and product.inventory_management %}
       <span class="Price--saving warning">Only {{ product.inventory_quantity }} left</span>
     {% elsif compare_at_price > price and product.available %}
       {% assign saving = compare_at_price | minus: price %}
