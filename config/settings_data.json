@@ -217,6 +217,11 @@
           "inject_modules_loader": true,
           "inject_sdk_loader": false
         }
+      },
+      "11348531219507317188": {
+        "type": "shopify://apps/eb-easy-bundle-builder/blocks/app-embed/05b1325c-6303-4da5-8e2f-b13ab2a50e1a",
+        "disabled": false,
+        "settings": {}
       }
     }
   }
