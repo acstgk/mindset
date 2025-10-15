@@ -1641,7 +1641,7 @@ product-card {
         background-color: #811922;
         color: white;
         font-weight: 700;
-        font-size: var(--txt-p);
+        font-size: var(--txt-sm);
     }
 }
 

@@ -72,7 +72,7 @@
       {% assign saving = compare_at_price | minus: price %}
       {% assign compare_pc = compare_at_price | divided_by: 100 %}
       {% assign saving_pc = saving | divided_by: compare_pc %}
-      <span class="Price--saving success">{{ saving_pc | floor }}% OFF</span>
+      <span class="Price--saving success">-{{ saving_pc | floor }}%</span>
     {% endif %}
   {% endif %}
 </div>
