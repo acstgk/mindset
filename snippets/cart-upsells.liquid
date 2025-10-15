@@ -52,35 +52,3 @@
     </div>
   </div>
 {% endif %}
-
-{% style%}
-  .cart-upsells {
-    padding: 10px 20px;
-    border-top: 1px solid var(--c-light-grey);
-    & h2 {
-      text-align: left;
-    }
-  }
-
-  .cart-upsells--carousel {
-    display: flex;
-    width: 100%;
-    gap: 0.5em;
-    overflow: auto hidden;
-    scroll-snap-type: x mandatory;
-
-    & product-card {
-      scroll-snap-align: start;
-      width: 40%;
-      flex: 1 0 auto;
-      margin: 0;
-
-      & .Title,
-      & .Price--saving {
-        opacity: 0;
-        height: 0.5em;
-        padding: 0;
-      }
-    }
-  }
-{% endstyle%}
