@@ -263,7 +263,7 @@ if (!customElements.get("enhanced-atc")) {
         const selectedSizesStr = selectedSizes.filter(Boolean).join(", ");
 
         if (allSelected) {
-          const sizeCopy = this.totalRadio > 1 ? `<span>| size: ${selectedSizesStr}</span>` : "";
+          const sizeCopy = this.totalRadio > 1 ? `<span>${selectedSizesStr}</span>` : "";
           this.atcButton.innerHTML = `<b>Add to Bag</b> ${sizeCopy}`;
           this._currentSubmitHandler = this._addToCart;
         }

@@ -112,15 +112,25 @@ form#atc_form {
     left: 0;
     z-index: 4;
     height: 55px;
+    display: flex;
+    flex-direction: row;
+    place-content: center;
 
     & span {
       font-weight: 400;
       display: none;
+      margin-top: -.1rem;
+
+      &::before {
+        content: "| size: ";
+        display: inline;
+      }
     }
 
     &.is_sticky span {
-      display: inline;
+      display: block;
     }
+
   }
 
   .is_sticky {
@@ -173,14 +183,15 @@ form#atc_form {
 .pdp-zoom-close-btn.round-btn {
   right: 50%;
   bottom: 3rem;
-  translate: -50% 0;
+  top: auto;
+  translate: 50% 0;
   height: 40px;
   width: 40px;
 }
 
 input.pdp-zoom-range {
-  top: calc(2em + 40px);
-  writing-mode: bt-lr;
+  bottom: 3rem;
+  top: auto;
   -webkit-appearance: slider-vertical;
   appearance: slider-vertical;
   width: 25px;
@@ -189,10 +200,6 @@ input.pdp-zoom-range {
   right: 2em;
   transition: all 0.1s;
   background-color: white;
-}
-
-.pdp-zoom-close-btn.round-btn {
-  top: 2em;
 }
 
 .pdp-carousel-wrapper {
