@@ -155,7 +155,7 @@ infinite-scroll,
   }
 
   .small-grid {
-    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 
   .large-grid {
@@ -212,14 +212,14 @@ infinite-scroll,
 
 @media screen and (width > 1020px) {
   infinite-scroll {
-    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 
   .small-grid {
-    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   }
 
   .large-grid {
-    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
   }
 }
