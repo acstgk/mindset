@@ -22,11 +22,13 @@
             "overlay_url": "shopify://collections/womens-new",
             "title": "",
             "subtitle": "",
+            "subtitle_font": "",
             "subtitle_first": false,
             "cta1": "Shop New",
             "url1": "shopify://collections/womens-new",
             "cta2": "Shop Energy",
-            "url2": ""
+            "url2": "",
+            "target_gender": "womens"
           }
         },
         "image_McwRfJ": {
@@ -39,11 +41,13 @@
             "overlay_url": "shopify://collections/mens-new",
             "title": "",
             "subtitle": "",
+            "subtitle_font": "",
             "subtitle_first": true,
             "cta1": "Shop New",
             "url1": "shopify://collections/mens-new",
             "cta2": "",
-            "url2": ""
+            "url2": "",
+            "target_gender": "mens"
           }
         }
       },

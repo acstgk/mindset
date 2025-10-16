@@ -5,85 +5,88 @@ import { SplideUtil } from "./SplideUtil.js";
 // Hero Carousel
 // ===================
 export default class HeroCarousel extends HTMLElement {
-      constructor() {
-        super();
-        this.splide = null;
+  constructor() {
+    super();
+    this.splide = null;
+  }
+
+  connectedCallback() {
+    SplideUtil.splideHTML(this);
+    this.storedGender = localStorage.getItem("GK::gender--content") | "";
+    this.slideNo = this.querySelector(".hero_slide[data-gender=mens]")?.dataset.index || 0;
+    this.splide = new Splide(this, {
+      type: "fade",
+      autoplay: true,
+      interval: 5000,
+      arrows: false,
+      rewind: true,
+      lazyLoad: "nearby",
+      start: this.slideNo,
+      preloadPages: 1,
+      pauseOnHover: true,
+    });
+
+    this.splide.on("overflow", (isOverflow) => {
+      this.splide.options = {
+        ...this.splide.options,
+        pagination: isOverflow,
+        drag: isOverflow,
+      };
+    });
+
+    this.splide.on("pagination:mounted", (data) => {
+      if (data.items.length > 1) {
+        data.items.forEach((item) => {
+          item.button.textContent = "0" + String(item.page + 1);
+        });
       }
+    });
 
-      connectedCallback() {
-        SplideUtil.splideHTML(this);
-        this.splide = new Splide(this, {
-          type: "fade",
-          autoplay: true,
-          interval: 5000,
-          arrows: false,
-          rewind: true,
-          lazyLoad: "nearby",
-          preloadPages: 1,
-          pauseOnHover: true,
-        });
+    this.splide.on("ready", () => {
+      const firstSlide = this.splide.root.querySelector("#splide01-slide01");
+      this.loadAndPlayVideo(firstSlide);
+    });
 
-        this.splide.on("overflow", (isOverflow) => {
-          this.splide.options = {
-            ...this.splide.options,
-            pagination: isOverflow,
-            drag: isOverflow,
-          };
-        });
+    this.splide.on("active", (slide) => {
+      this.loadAndPlayVideo(slide.slide);
+    });
 
-        this.splide.on("pagination:mounted", (data) => {
-          if (data.items.length > 1) {
-            data.items.forEach((item) => {
-              item.button.textContent = "0" + String(item.page + 1);
-            });
-          }
-        });
+    this.splide.on("resized", () => {
+      const slideIndex = this.splide.index;
+      const slideEl = this.splide.Components.Slides.get(slideIndex)[slideIndex].slide;
 
-        this.splide.on("ready", () => {
-          const firstSlide = this.splide.root.querySelector("#splide01-slide01");
-          this.loadAndPlayVideo(firstSlide);
-        });
+      this.loadAndPlayVideo(slideEl);
+    });
 
-        this.splide.on("active", (slide) => {
-          this.loadAndPlayVideo(slide.slide);
-        });
+    this.splide.on("inactive", (slide) => {
+      const mobVid = slide.slide.querySelector(".mob-only");
+      const deskVid = slide.slide.querySelector(".mob-hide");
+      const width = window.innerWidth;
 
-        this.splide.on("resized", () => {
-          const slideIndex = this.splide.index;
-          const slideEl = this.splide.Components.Slides.get(slideIndex)[slideIndex].slide;
-
-          this.loadAndPlayVideo(slideEl);
-        });
-
-        this.splide.on("inactive", (slide) => {
-          const mobVid = slide.slide.querySelector(".mob-only");
-          const deskVid = slide.slide.querySelector(".mob-hide");
-          const width = window.innerWidth;
-
-          if (width < 768) {
-            mobVid.pause();
-          } else {
-            deskVid.pause();
-          }
-        });
-
-        this.splide.mount();
+      if (width < 768) {
+        mobVid.pause();
+      } else {
+        deskVid.pause();
       }
+    });
 
-      loadAndPlayVideo(slide) {
-        if (!slide) return;
+    this.splide.mount();
+  }
 
-        const width = window.innerWidth;
-        let video = width < 768 ? slide.querySelector(".mob-only") : slide.querySelector(".mob-hide");
+  loadAndPlayVideo(slide) {
+    if (!slide) return;
 
-        if (!video) return;
+    const width = window.innerWidth;
+    let video = width < 768 ? slide.querySelector(".mob-only") : slide.querySelector(".mob-hide");
 
-        const source = video.querySelector("source[data-src-lazy]");
-        if (source && !source.src) {
-          source.src = source.getAttribute("data-src-lazy");
-          video.load();
-        }
+    if (!video) return;
 
-        video.play();
-      }
+    const source = video.querySelector("source[data-src-lazy]");
+    if (source && !source.src) {
+      source.src = source.getAttribute("data-src-lazy");
+      video.load();
     }
+
+    video.play();
+  }
+}
