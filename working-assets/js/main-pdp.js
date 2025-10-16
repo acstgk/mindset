@@ -204,14 +204,25 @@ if (!customElements.get("enhanced-atc")) {
         this.actualForm.addEventListener("submit", this._submitDispatcher);
         this.actualForm.addEventListener("change", this._watchSizeSelection);
         this.storedSizesItem = "GK::sizes";
-        this._getStorage();
+        this._autoSelectOption();
         this._handleStickyButton();
         this._setObserver();
         this._watchSizeSelection();
       }
 
+      _autoSelectOption = () => {
+        this.allGroups.forEach(optionGroup => {
+          if (optionGroup.childElementCount > 1) {
+            this._getStorage();
+          } else {
+            optionGroup.children[0].querySelector('input').checked = true;
+          }
+        })
+      }
+
       // save any selected size to this product type for auto selection going forwards.
       _setStorage = (gender, key, value) => {
+        if (gender == "Accessories") return;
         let storedSizes = JSON.parse(localStorage.getItem(this.storedSizesItem)) || {
           Mens: {},
           Womens: {},
@@ -225,6 +236,7 @@ if (!customElements.get("enhanced-atc")) {
 
       _getStorage = () => {
         const gender = window.myCurrentProduct.vendor;
+        if (gender == "Accessories") return;
         let type = window.myCurrentProduct.type.replace(/\s+/g, "-").toLowerCase();
 
         const storedSizes = JSON.parse(localStorage.getItem(this.storedSizesItem));
@@ -289,6 +301,7 @@ if (!customElements.get("enhanced-atc")) {
         const items = Array.from(selectedRadios).map((radio) => ({
           id: radio.value,
           quantity: 1,
+          selling_plan: radio.dataset.subscriptionId || ""
         }));
         if (items.length > 0) {
           Cart.addItems(items);
