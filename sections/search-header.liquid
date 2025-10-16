@@ -1,32 +1,29 @@
 {% assign copy = '<span class="product-count">' | append: search.results_count | append: '</span> products matching:' %}
-{% if search.results_count == 0 and search.performed %}
-  {% assign copy = 'Sorry, zero products found for:' %}
-{% elsif search.performed == false %}
-  {% assign copy = '' %}
-{%- endif %}
 
 <h1 class="center">search</h1>
 
-<form id="search_page-form" class="max-width" action="{{ routes.search_url }}">
-  <p>{{ copy }}</p>
-  <input type="hidden" name="type" value="product">
-  <div class="inline-flex">
-    <input
-      id="Search"
-      class="search_form-terms-input"
-      type="search"
-      name="q"
-      value=""
-      placeholder="{{ search.terms | default: "Type to search.." }}"
-      role="combobox"
-      aria-expanded="false"
-      aria-owns="predictive-search-results"
-      aria-controls="predictive-search-results"
-      required
-    >
-    <button type="submit" value="Search" aria-label="submit search term">{% render 'icon', icon: 'search' %}</button>
-  </div>
-</form>
+{% unless search.results_count == 0 and search.performed %}
+  <form id="search_page-form" class="max-width" action="{{ routes.search_url }}">
+    <p>{{ copy }}</p>
+    <input type="hidden" name="type" value="product">
+    <div class="inline-flex">
+      <input
+        id="Search"
+        class="search_form-terms-input"
+        type="search"
+        name="q"
+        value=""
+        placeholder="{{ search.terms | default: "Type to search.." }}"
+        role="combobox"
+        aria-expanded="false"
+        aria-owns="predictive-search-results"
+        aria-controls="predictive-search-results"
+        required
+      >
+      <button type="submit" value="Search" aria-label="submit search term">{% render 'icon', icon: 'search' %}</button>
+    </div>
+  </form>
+{% endunless %}
 {% schema %}
 {
   "name": "Search Header",
