@@ -66,7 +66,7 @@
     </div>
   {% else %}
     {% if product.inventory_quantity == 1 and product.inventory_management %}
-      <span class="Price--saving error">Last {{ product.inventory_quantity }}!</span>
+      <span class="Price--saving error">Last One!</span>
     {% elsif product.inventory_quantity < 15 and product.inventory_management %}
       <span class="Price--saving warning">Only {{ product.inventory_quantity }} left</span>
     {% elsif compare_at_price > price and product.available %}

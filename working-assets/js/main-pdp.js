@@ -286,9 +286,10 @@ if (!customElements.get("enhanced-atc")) {
             let warningLevel;
             availableQty == 1 ? (this.quantityWarningEl.textContent = `Hurry! this is the last one.`) : (this.quantityWarningEl.textContent = `Popular - only ${availableQty} left!`);
             availableQty == 1 ? (warningLevel = "error") : (warningLevel = "warning");
+            this.quantityWarningEl.classList.remove("warning", "error");
             this.quantityWarningEl.classList.add("warning-active", warningLevel);
           } else {
-            this.quantityWarningEl.classList.remove("warning-active", "warning");
+            this.quantityWarningEl.classList.remove("warning-active", "warning", "error");
           }
         }
       };
