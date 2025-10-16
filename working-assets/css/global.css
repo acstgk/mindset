@@ -1506,7 +1506,6 @@ product-card {
     max-width: 400px;
     margin: 0 auto;
     position: relative;
-    padding-bottom: 5px;
 
     &.first-item {
         order: -1;
