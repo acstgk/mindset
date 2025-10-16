@@ -103,7 +103,7 @@
 {% comment %} END:: Carousels {% endcomment %}
 
 {% comment %} START:: Product Details {% endcomment %}
-<aside id="product-details"  data-details="{{ product_details | escape }}">
+<aside id="product-details" data-details="{{ product_details | escape }}">
   <div id="product-summary">
     {% render 'product-title' with product as 'product', heading: 'true' %}
     {% render 'product-price' with product as 'product' %}
@@ -182,7 +182,7 @@
                   {% endif %}
                 >
                 <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
-                  {{ variant.title }}
+                  {{ variant.title | replace: '.00', '' }}
                   {% unless variant.available %}
                     <div href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  part | json | escape }}">{% render 'icon', icon: 'mail' %}</div>
                   {% endunless %}
@@ -213,7 +213,7 @@
                 {% endif %}
               >
               <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
-                {{ variant.title }}
+                {{ variant.title | replace: '.00', '' }}
                 {% unless variant.available %}
                   <div href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  product | json | escape }}">{% render 'icon', icon: 'mail' %}</div>
                 {% endunless %}

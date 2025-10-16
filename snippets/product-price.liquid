@@ -49,6 +49,7 @@
       data-product-meta="{{product.metafields.GlobalE.product_meta | json | escape}}"
     {% endif %}
   >
+    {% if product.price_varies %}from{% endif %}
     {%- if product.available or compare_at_price == 0 or compare_at_price == null -%}
       {{- price | money_without_trailing_zeros -}}
     {% else %}

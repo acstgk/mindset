@@ -33,7 +33,7 @@
         class="{%if variant.inventory_quantity != 0 and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% assign oos = true %}{% endif %}"
         data-v-id="{{ variant.id }}"
       >
-        {{ variant.title | replace: 'One Size', 'Add to Bag' }}
+        {{ variant.title | replace: 'One Size', 'Add to Bag' | replace: ".00", "" }}
       </a>
     {% endfor %}
   </div>
@@ -72,7 +72,9 @@
         {{ qatb_buttons }}
       </div>
     {% else %}
-      <button href="#" class="button button-inverted BIS_trigger outofstockcontainer" data-product-data="{{product | json | escape}}">Notify me</button>
+      {% unless product.requires_selling_plan %}
+        <button href="#" class="button button-inverted BIS_trigger outofstockcontainer" data-product-data="{{product | json | escape}}">Notify me</button>
+      {% endunless %}
     {% endunless %}
   </div>
 
