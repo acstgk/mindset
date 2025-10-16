@@ -63,7 +63,7 @@
       </div>
 
       {% if product.images[2] %}
-        {{ product.images[2] | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading }}
+        {{ product.images[2] | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: 'lazy' }}
       {% endif %}
     </a>
 
