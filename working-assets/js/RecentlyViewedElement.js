@@ -111,7 +111,7 @@ export default class RecentlyViewedElement extends HTMLElement {
 
           // generate the quick atb buttons
           for (let i = 0; i < variants.length; i++) {
-            const vTitle = variants[i].title;
+            const vTitle = variants[i].title.replace('One Size', 'Add to Bag');
             const vId = variants[i].id;
             const vAvailable = variants[i].available ? "qatb-btn" : "qatb-btn--oos";
             qatbBtns += `<a href="/cart/add?id=${vId}&quantity=1" id="qatb-btn--${vId}" data-v-id="${vId}" class="${vAvailable}">${vTitle}</a>`;
