@@ -65,6 +65,10 @@ export class SplideUtil {
       target.classList.toggle("no-carousel", !isOverflow);
     });
 
+    splide.on("mounted", () => {
+      splide.querySelectorAll(".splide__spinner").forEach((spinner) => spinner.remove());
+    });
+
     splide.mount();
 
     return splide;

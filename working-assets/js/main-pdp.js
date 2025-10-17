@@ -68,6 +68,11 @@ if (!customElements.get("pdp-carousel")) {
           { once: true },
         );
 
+        this.splide.on("mounted", () => {
+          // Remove all spinners after Splide creates them
+          this.querySelectorAll(".splide__spinner").forEach((spinner) => spinner.remove());
+        });
+
         this.splide.mount();
       };
 
@@ -567,6 +572,7 @@ if (!customElements.get("dispatch-timer")) {
   );
 }
 
+// ===================
 // PDP thumbs Carousel
 // ===================
 if (!customElements.get("thumbnail-carousel")) {
