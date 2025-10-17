@@ -487,6 +487,7 @@ pdp-carousel {
 
   &:hover {
     z-index: 1;
+    filter:brightness(1.15);
 
     & .tooltip {
       display: block;
