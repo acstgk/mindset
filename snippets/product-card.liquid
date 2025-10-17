@@ -67,14 +67,12 @@
       {% endif %}
     </a>
 
-    {% unless product.requires_selling_plan or product.metafields.custom.product_set or product.available == false %}
-      <div class="datb">
-        {{ qatb_buttons }}
-      </div>
-    {% else %}
-      {% unless product.requires_selling_plan or product.metafields.custom.product_set %}
+    {% unless product.requires_selling_plan or product.metafields.custom.product_set %}
+      {% if product.available %}
+        <div class="datb">{{ qatb_buttons }}</div>
+      {% else %}
         <button href="#" class="button button-inverted BIS_trigger outofstockcontainer" data-product-data="{{product | json | escape}}">Notify me</button>
-      {% endunless %}
+      {% endif %}
     {% endunless %}
   </div>
 
