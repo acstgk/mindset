@@ -104,10 +104,10 @@
       "name": "Split Banner",
       "settings": {
         "img1": "shopify://shop_images/genderpod-debossed-highres.jpg",
-        "title_mens": "Mens",
+        "title_mens": "Shop Mens",
         "url1": "shopify://collections/mens",
         "img2": "shopify://shop_images/gender-pod-highresv2.jpg",
-        "title_womens": "Womens",
+        "title_womens": "Shop Womens",
         "url2": "shopify://collections/womens",
         "image_style": "",
         "gap": 0,
