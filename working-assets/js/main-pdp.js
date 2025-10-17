@@ -24,18 +24,7 @@ if (!customElements.get("pdp-carousel")) {
         this.splide = null;
         this.zoomBtn = document.createElement("button");
         this.zoomBtn.className = "pdp-zoom-btn round-btn";
-        this.zoomBtn.innerHTML = `  <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      stroke-width="2"
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      class="Icon Icon--plus"
-                                    >
-                                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" />
-                                    </svg>`;
+        this.zoomBtn.innerHTML = `  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M7 10l6 0" /><path d="M10 7l0 6" /><path d="M21 21l-6 -6" /></svg>`;
         this.zoomBtn.addEventListener("click", () => this._zoom());
 
         window.innerWidth < 768 ? (this.style.maxHeight = `${this.availableHeight}px`) : "";
@@ -117,6 +106,23 @@ if (!customElements.get("pdp-carousel")) {
           </svg>`;
         zoomClose.addEventListener("click", this._unzoom);
 
+        const zoomReset = document.createElement("button");
+        zoomReset.className = "pdp-zoom-reset-btn round-btn";
+        zoomReset.innerHTML = `
+           <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="{{ icon_class }}"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 14l-4 -4l4 -4" /><path d="M5 10h11a4 4 0 1 1 0 8h-1" />
+            </svg>
+            `;
+
         const zoomRange = document.createElement("input");
         zoomRange.type = "range";
         zoomRange.min = "0.5";
@@ -129,6 +135,7 @@ if (!customElements.get("pdp-carousel")) {
         // Append elements
         zoomEl.appendChild(zoomImg);
         zoomEl.appendChild(zoomClose);
+        zoomEl.appendChild(zoomReset);
         zoomEl.appendChild(zoomRange);
         document.body.appendChild(zoomEl);
 
@@ -137,10 +144,16 @@ if (!customElements.get("pdp-carousel")) {
         // Initialize Panzoom
         setTimeout(() => {
           const panzoom = Panzoom(zoomImg, {
-            // canvas: true,
+            canvas: true,
+            excludeClass: "pdp-zoom-range",
             maxScale: 2,
             minScale: 0.5,
-            startScale: 0.5,
+            startScale: 0.7,
+          });
+
+          zoomReset.addEventListener("click", () => {
+            panzoom.reset({ startScale: 0.7 });
+            zoomRange.value = 0.7;
           });
 
           zoomEl.addEventListener("wheel", panzoom.zoomWithWheel);
@@ -211,14 +224,14 @@ if (!customElements.get("enhanced-atc")) {
       }
 
       _autoSelectOption = () => {
-        this.allGroups.forEach(optionGroup => {
+        this.allGroups.forEach((optionGroup) => {
           if (optionGroup.childElementCount > 1) {
             this._getStorage();
           } else {
-            optionGroup.children[0].querySelector('input').checked = true;
+            optionGroup.children[0].querySelector("input").checked = true;
           }
-        })
-      }
+        });
+      };
 
       // save any selected size to this product type for auto selection going forwards.
       _setStorage = (gender, key, value) => {
@@ -302,7 +315,7 @@ if (!customElements.get("enhanced-atc")) {
         const items = Array.from(selectedRadios).map((radio) => ({
           id: radio.value,
           quantity: 1,
-          selling_plan: radio.dataset.subscriptionId || ""
+          selling_plan: radio.dataset.subscriptionId || "",
         }));
         if (items.length > 0) {
           Cart.addItems(items);
