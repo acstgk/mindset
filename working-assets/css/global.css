@@ -9,7 +9,7 @@ hmtl>body.no-scroll {
 }
 
 
-::view-transition-group(root) {
+/* ::view-transition-group(root) {
     animation-duration: 5s;
 }
 
@@ -40,6 +40,7 @@ hmtl>body.no-scroll {
         transform: translateY(0%);
     }
 }
+*/
 
 *::-webkit-scrollbar-track,
 *::-webkit-scrollbar-thumb,
