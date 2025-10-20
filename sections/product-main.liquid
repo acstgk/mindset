@@ -79,12 +79,15 @@
               width="{{ image.width }}"
               height="{{ image.height }}"
               alt="{{ image.alt }}"
+              data-count="{{ product.images.size | minus: 1 }}"
               {% if forloop.first %}
+                data-image-index="1"
                 fetchpriority="high"
                 loading="eager"
                 src="{{ base_url }}3000"
                 srcset="{{ img_widths }}"
               {% else %}
+                data-image-index="{{ forloop.index0 }}"
                 data-splide-lazy-srcset="{{ img_widths }}"
                 data-splide-lazy="{{ base_url }}3000"
               {% endif %}
@@ -101,6 +104,20 @@
   {% comment %} END:: main carousel {% endcomment %}
 </div>
 {% comment %} END:: Carousels {% endcomment %}
+
+{% comment %} START:: zoom {% endcomment %}
+<div class="pdp-zoom-wrapper">
+  <button class="pdp-zoom-prev-btn round-btn">
+    {% render 'icon', icon: 'arrow', class: 'rotate180' %}
+  </button>
+  <button class="pdp-zoom-close-btn round-btn">
+    {% render 'icon', icon: 'plus', class: 'rotate45' %}
+  </button>
+  <button class="pdp-zoom-next-btn round-btn">
+    {% render 'icon', icon: 'arrow' %}
+  </button>
+</div>
+{% comment %} END:: zoom {% endcomment %}
 
 {% comment %} START:: Product Details {% endcomment %}
 <aside id="product-details" data-details="{{ product_details | escape }}">

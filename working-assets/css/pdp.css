@@ -40,7 +40,8 @@ form#atc_form {
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    & > a {
+
+    &>a {
       display: flex;
       align-items: center;
       gap: 0.25rem;
@@ -162,16 +163,66 @@ form#atc_form {
   background-color: var(--c-off-white);
   display: grid;
   place-content: center;
+  pointer-events: none;
+
+  &.visible {
+    pointer-events: all;
+  }
+}
+
+.pdp-zoom-panzoom {
+  place-content: center;
+  display: grid;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  translate: 0 0;
+  transition: translate 0.1s ease-out;
+  grid-area: 1 / 1;
+}
+
+.pdp-zoom-prev-btn.round-btn,
+.pdp-zoom-next-btn.round-btn {
+  display: none;
+}
+
+.pdp-zoom-panzoom.prev {
+  translate: -100% 0;
+}
+
+.pdp-zoom-panzoom.prev:has(img)~.pdp-zoom-prev-btn.round-btn {
+  display: grid;
+}
+
+.pdp-zoom-panzoom.next {
+  translate: 100% 0;
+}
+
+.pdp-zoom-panzoom.next:has(img)~.pdp-zoom-next-btn.round-btn {
+  display: grid;
+
+}
+
+.pdp-zoom-img {
+  width: auto;
 }
 
 .pdp-zoom-btn.round-btn,
 .pdp-zoom-close-btn.round-btn,
+.pdp-zoom-prev-btn.round-btn,
+.pdp-zoom-next-btn.round-btn,
 .pdp-zoom-reset-btn.round-btn,
 .pdp-zoom-range {
   position: absolute;
+  background-color: white;
   right: 2em;
   top: calc(1.5em + 40px);
-  background-color: white;
+  scale: 1;
+  transition: scale 0.2s ease;
+
+  &:hover {
+    scale: 1.1
+  }
 
   & svg {
     width: 15px;
@@ -181,6 +232,8 @@ form#atc_form {
   }
 }
 
+.pdp-zoom-prev-btn.round-btn,
+.pdp-zoom-next-btn.round-btn,
 .pdp-zoom-close-btn.round-btn {
   right: 50%;
   bottom: 3rem;
@@ -188,6 +241,14 @@ form#atc_form {
   translate: 50% 0;
   height: 40px;
   width: 40px;
+}
+
+.pdp-zoom-prev-btn.round-btn {
+  translate: calc(50% - 50px) 0;
+}
+
+.pdp-zoom-next-btn.round-btn {
+  translate: calc(50% + 50px) 0;
 }
 
 .pdp-zoom-reset-btn.round-btn {
@@ -293,7 +354,7 @@ pdp-carousel {
 #product-details {
   scroll-margin-top: 50px;
   max-width: 90vw;
-  margin: 1rem  auto;
+  margin: 1rem auto;
 
   & #product-summary {
     display: grid;
@@ -487,7 +548,7 @@ pdp-carousel {
 
   &:hover {
     z-index: 1;
-    filter:brightness(1.15);
+    filter: brightness(1.15);
 
     & .tooltip {
       display: block;
