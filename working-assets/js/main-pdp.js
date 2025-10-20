@@ -151,9 +151,7 @@ if (!customElements.get("pdp-carousel")) {
           zoomImg.addEventListener("load", () => {
             const imageHeight = zoomImg.naturalHeight;
             const containerHeight = panzoomEl.clientHeight;
-            console.log(imageHeight, containerHeight);
             const scale = containerHeight / imageHeight;
-            console.log(scale);
             zoomImg.dataset.scale = scale;
 
             const panzoom = Panzoom(zoomImg, {
