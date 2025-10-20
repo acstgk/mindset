@@ -26,12 +26,13 @@ if (!customElements.get("pdp-carousel")) {
         this.zoomBtn.className = "pdp-zoom-btn round-btn";
         this.zoomBtn.innerHTML = `  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M7 10l6 0" /><path d="M10 7l0 6" /><path d="M21 21l-6 -6" /></svg>`;
         this.zoomBtn.addEventListener("click", () => this._zoom());
-
-        window.innerWidth < 768 ? (this.style.maxHeight = `${this.availableHeight}px`) : "";
+        this.zoomEl = document.querySelector(".pdp-zoom-wrapper");
+        window.innerWidth < 769 ? (this.style.maxHeight = `${this.availableHeight}px`) : "";
       }
 
       connectedCallback() {
         this._splideMainInit();
+        this._addEventListeners();
         this.appendChild(this.zoomBtn);
       }
 
@@ -76,118 +77,254 @@ if (!customElements.get("pdp-carousel")) {
         this.splide.mount();
       };
 
+      _addEventListeners = () => {
+        const zoomClose = document.querySelector(".pdp-zoom-close-btn");
+        const zoomNext = document.querySelector(".pdp-zoom-next-btn");
+        const zoomPrev = document.querySelector(".pdp-zoom-prev-btn");
+        zoomClose.addEventListener("click", this._unzoom);
+        zoomNext.addEventListener("click", () => this._next("next"));
+        zoomPrev.addEventListener("click", () => this._next("prev"));
+      };
+
+      // ====================================
+      // writing the code that controls the transition between images in zoom carousel.- need to remember that pdp carousel needs to change too!
+      // ====================================
+      _next = (direction) => {
+        // declare the image containers
+        const outgoingImage = this.zoomEl.querySelector(`.${direction === "next" ? "prev" : "next"}`);
+        const currentImage = this.zoomEl.querySelector(".active");
+        const incomingImage = this.zoomEl.querySelector(`.${direction}`);
+        if (!incomingImage) return; // if no next image exists, do nothing.
+
+        // rearrange the image positions
+        outgoingImage.classList = "pdp-zoom-panzoom " + (direction === "next" ? "next" : "prev");
+        currentImage.classList = "pdp-zoom-panzoom " + (direction === "next" ? "prev" : "next");
+        incomingImage.classList = "pdp-zoom-panzoom active";
+
+        // update the index number on the previous image container to allow it to become the next image in series
+        const newIndex = parseInt(incomingImage.dataset.index) + (direction === "next" ? 1 : -1);
+        outgoingImage.dataset.index = newIndex;
+        // remove the old image reeady for the new one to be added
+        const oldImg = outgoingImage.querySelector("img");
+        if (oldImg) outgoingImage.removeChild(oldImg);
+
+        // find the incoming image url
+        const newImg = this.querySelector(`[data-image-index="${newIndex}"]`);
+
+        if (newImg) {
+          const imgSrc = newImg.src || newImg.dataset.splideLazy;
+          const zoomImg = document.createElement("img");
+          zoomImg.className = "pdp-zoom-img";
+          zoomImg.src = imgSrc;
+          outgoingImage.prepend(zoomImg);
+
+          zoomImg.addEventListener("load", () => {
+            const imageHeight = zoomImg.naturalHeight;
+            const containerHeight = outgoingImage.clientHeight;
+            const scale = containerHeight / imageHeight;
+            zoomImg.dataset.scale = scale;
+
+            const panzoom = Panzoom(zoomImg, {
+              canvas: true,
+              maxScale: 2,
+              minScale: 0.25,
+              startScale: scale,
+            });
+            outgoingImage.addEventListener("wheel", panzoom.zoomWithWheel);
+          });
+        }
+      };
+
+      // add the product images to the three zoom containers
+      _addScrollImages = (img, direction, index) => {
+        const panzoomEl = document.createElement("div");
+        panzoomEl.classList.add("pdp-zoom-panzoom", direction);
+        panzoomEl.dataset.index = index ? index : 0;
+
+        if (img) {
+          const imgSrc = img.src;
+          const zoomImg = document.createElement("img");
+          zoomImg.className = "pdp-zoom-img";
+          zoomImg.src = imgSrc;
+          panzoomEl.prepend(zoomImg);
+
+          zoomImg.addEventListener("load", () => {
+            const imageHeight = zoomImg.naturalHeight;
+            const containerHeight = panzoomEl.clientHeight;
+            console.log(imageHeight, containerHeight);
+            const scale = containerHeight / imageHeight;
+            console.log(scale);
+            zoomImg.dataset.scale = scale;
+
+            const panzoom = Panzoom(zoomImg, {
+              canvas: true,
+              maxScale: 2,
+              minScale: 0.25,
+              startScale: scale,
+              focal: {x: 50, y: 50},
+            });
+            panzoomEl.addEventListener("wheel", panzoom.zoomWithWheel);
+          });
+        }
+        this.zoomEl.prepend(panzoomEl);
+      };
+
       // create and display the panzoom zoom overlay element
       _zoom = () => {
+        // prevent scrolling
         document.body.style.overflowY = "hidden";
 
+        // find the target image element
         const targetImg = this.querySelector(".is-active > img");
         if (!targetImg) return;
 
-        const imgUrl = targetImg.src;
+        // if there is a target image element then grab the image url and current index
+        const index = parseInt(targetImg.dataset.imageIndex);
 
-        const zoomEl = document.createElement("div");
-        zoomEl.className = "pdp-zoom-wrapper";
+        // use the index to grab the images before and after
+        let prevImage = this.querySelector(`[data-image-index="${index - 1}"]`);
+        let nextImage = this.querySelector(`[data-image-index="${index + 1}"]`);
 
-        const zoomImg = document.createElement("img");
-        zoomImg.className = "pdp-zoom-img";
-        zoomImg.src = imgUrl;
+        // create and add the images to dom
+        this._addScrollImages(targetImg, "active", index);
+        this._addScrollImages(nextImage, "next", index + 1);
+        this._addScrollImages(prevImage, "prev", index - 1);
 
-        const zoomClose = document.createElement("button");
-        zoomClose.className = "pdp-zoom-close-btn round-btn";
-        zoomClose.innerHTML = `
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="Icon Icon--plus rotate45"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M12 5l0 14" />
-            <path d="M5 12l14 0" />
-          </svg>`;
+        // add event listeners to controls:
+        const zoomClose = document.querySelector(".pdp-zoom-close-btn");
         zoomClose.addEventListener("click", this._unzoom);
-
-        const zoomReset = document.createElement("button");
-        zoomReset.className = "pdp-zoom-reset-btn round-btn";
-        zoomReset.innerHTML = `
-           <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="{{ icon_class }}"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 14l-4 -4l4 -4" /><path d="M5 10h11a4 4 0 1 1 0 8h-1" />
-            </svg>
-            `;
-
-        const zoomRange = document.createElement("input");
-        zoomRange.type = "range";
-        zoomRange.min = "0.5";
-        zoomRange.max = "2";
-        zoomRange.step = "0.1";
-        zoomRange.value = "1"; // default zoom level
-        zoomRange.setAttribute("orient", "vertical");
-        zoomRange.className = "pdp-zoom-range";
-
-        // Append elements
-        zoomEl.appendChild(zoomImg);
-        zoomEl.appendChild(zoomClose);
-        zoomEl.appendChild(zoomReset);
-        zoomEl.appendChild(zoomRange);
-        document.body.appendChild(zoomEl);
-
-        //calculate the initial pan position
-
-        // Initialize Panzoom
-        setTimeout(() => {
-          const panzoom = Panzoom(zoomImg, {
-            canvas: true,
-            excludeClass: "pdp-zoom-range",
-            maxScale: 2,
-            minScale: 0.5,
-            startScale: 0.7,
-          });
-
-          zoomReset.addEventListener("click", () => {
-            panzoom.reset({ startScale: 0.7 });
-            zoomRange.value = 0.7;
-          });
-
-          zoomEl.addEventListener("wheel", panzoom.zoomWithWheel);
-          zoomRange.addEventListener("input", (event) => {
-            panzoom.zoom(event.target.valueAsNumber);
-          });
-          zoomImg.addEventListener("panzoomzoom", (e) => {
-            zoomRange.value = e.detail.scale.toFixed(1);
-          });
-        }, 300);
 
         // Animate into view
         requestAnimationFrame(() => {
-          zoomEl.classList.add("visible");
+          this.zoomEl.classList.add("visible");
         });
       };
 
       // destroy the panzoom element when close button is clicked
       _unzoom = () => {
-        const zoomEl = document.querySelector(".pdp-zoom-wrapper");
-        if (!zoomEl) return;
         document.body.style.overflowY = "auto";
-        zoomEl.classList.remove("visible");
+        this.zoomEl.classList.remove("visible");
 
-        setTimeout(() => {
-          zoomEl.remove();
-        }, 500);
+        this.zoomEl.querySelectorAll(".pdp-zoom-panzoom").forEach((img) => {
+          img.remove();
+        });
       };
     },
+
+    //   // create and display the panzoom zoom overlay element
+    //   _zoom = () => {
+    //     document.body.style.overflowY = "hidden";
+
+    //     const targetImg = this.querySelector(".is-active > img");
+    //     if (!targetImg) return;
+
+    //     const imgUrl = targetImg.src;
+    //     const index = targetImg.dataset.index;
+    //     index;
+
+    //     const zoomEl = document.createElement("div");
+    //     zoomEl.className = "pdp-zoom-wrapper";
+
+    //     const zoomImg = document.createElement("img");
+    //     zoomImg.className = "pdp-zoom-img";
+    //     zoomImg.src = imgUrl;
+
+    //     const zoomClose = document.createElement("button");
+    //     zoomClose.className = "pdp-zoom-close-btn round-btn";
+    //     zoomClose.innerHTML = `
+    //       <svg
+    //         xmlns="http://www.w3.org/2000/svg"
+    //         viewBox="0 0 24 24"
+    //         fill="none"
+    //         stroke="currentColor"
+    //         stroke-width="2"
+    //         stroke-linecap="round"
+    //         stroke-linejoin="round"
+    //         class="Icon Icon--plus rotate45"
+    //       >
+    //         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    //         <path d="M12 5l0 14" />
+    //         <path d="M5 12l14 0" />
+    //       </svg>`;
+    //     zoomClose.addEventListener("click", this._unzoom);
+
+    //     const zoomReset = document.createElement("button");
+    //     zoomReset.className = "pdp-zoom-reset-btn round-btn";
+    //     zoomReset.innerHTML = `
+    //        <svg
+    //           xmlns="http://www.w3.org/2000/svg"
+    //           viewBox="0 0 24 24"
+    //           fill="none"
+    //           stroke="currentColor"
+    //           stroke-width="2"
+    //           stroke-linecap="round"
+    //           stroke-linejoin="round"
+    //           class="{{ icon_class }}"
+    //         >
+    //           <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 14l-4 -4l4 -4" /><path d="M5 10h11a4 4 0 1 1 0 8h-1" />
+    //         </svg>
+    //         `;
+
+    //     const zoomRange = document.createElement("input");
+    //     zoomRange.type = "range";
+    //     zoomRange.min = "0.5";
+    //     zoomRange.max = "2";
+    //     zoomRange.step = "0.1";
+    //     zoomRange.value = "1"; // default zoom level
+    //     zoomRange.setAttribute("orient", "vertical");
+    //     zoomRange.className = "pdp-zoom-range";
+
+    //     // Append elements
+    //     zoomEl.appendChild(zoomImg);
+    //     zoomEl.appendChild(zoomClose);
+    //     zoomEl.appendChild(zoomReset);
+    //     zoomEl.appendChild(zoomRange);
+    //     document.body.appendChild(zoomEl);
+
+    //     //calculate the initial pan position
+
+    //     // Initialize Panzoom
+    //     setTimeout(() => {
+    //       const panzoom = Panzoom(zoomImg, {
+    //         canvas: true,
+    //         excludeClass: "pdp-zoom-range",
+    //         maxScale: 2,
+    //         minScale: 0.5,
+    //         startScale: 0.7,
+    //       });
+
+    //       zoomReset.addEventListener("click", () => {
+    //         panzoom.reset({ startScale: 0.7 });
+    //         zoomRange.value = 0.7;
+    //       });
+
+    //       zoomEl.addEventListener("wheel", panzoom.zoomWithWheel);
+    //       zoomRange.addEventListener("input", (event) => {
+    //         panzoom.zoom(event.target.valueAsNumber);
+    //       });
+    //       zoomImg.addEventListener("panzoomzoom", (e) => {
+    //         zoomRange.value = e.detail.scale.toFixed(1);
+    //       });
+    //     }, 300);
+
+    //     // Animate into view
+    //     requestAnimationFrame(() => {
+    //       zoomEl.classList.add("visible");
+    //     });
+    //   };
+
+    //   // destroy the panzoom element when close button is clicked
+    //   _unzoom = () => {
+    //     const zoomEl = document.querySelector(".pdp-zoom-wrapper");
+    //     if (!zoomEl) return;
+    //     document.body.style.overflowY = "auto";
+    //     zoomEl.classList.remove("visible");
+
+    //     setTimeout(() => {
+    //       zoomEl.remove();
+    //     }, 500);
+    //   };
+    // },
   );
 }
 

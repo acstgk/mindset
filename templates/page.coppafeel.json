@@ -22,11 +22,13 @@
             "overlay_url": "",
             "title": "",
             "subtitle": "",
+            "subtitle_font": "",
             "subtitle_first": false,
             "cta1": "Shop collection",
             "url1": "shopify://collections/peach-luxe-move-your-way",
             "cta2": "",
-            "url2": ""
+            "url2": "",
+            "target_gender": ""
           }
         }
       },
@@ -60,6 +62,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 0,
         "is_accent": true,
         "bg_color": "#1b1b1b",
@@ -86,6 +90,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
@@ -99,26 +105,30 @@
       "blocks": {
         "rtf_whace4": {
           "type": "rtf",
+          "name": "Pop-up",
           "settings": {
             "richtext_content": "<h3>Pop-Up Shop – 11th October</h3><p>Join us at our special pop-up event, where every purchase will help fund CoppaFeel!’s work in raising awareness and encouraging early detection.</p>"
           }
         },
         "rtf_4aWYz7": {
           "type": "rtf",
+          "name": "Fundraising",
           "settings": {
             "richtext_content": "<h3>Team Fundraising</h3><p>Our Gym King family are also getting involved, taking on fundraising activities to show our support and do our bit to raise as much as we can.</p>"
           }
         },
         "rtf_JaWjrX": {
           "type": "rtf",
+          "name": "Samples ",
           "settings": {
             "richtext_content": "<h3>Sample Sales</h3><p>Proceeds from our sample sales will be donated directly to CoppaFeel!, giving our community the chance to shop while supporting an amazing cause.</p>"
           }
         },
         "rtf_VCHBU4": {
           "type": "rtf",
+          "name": "Peach Luxe",
           "settings": {
-            "richtext_content": "<h3>Peach Luxe Collection</h3><p>With every piece from our Peach Luxe collection, a portion of the proceeds will go to CoppaFeel!, meaning your purchase helps spread awareness and fund vital education.</p>"
+            "richtext_content": "<h3>Peach Luxe Collection</h3><p>With every piece from our Peach Luxe collection, a portion of the proceeds* will go to CoppaFeel!, meaning your purchase helps spread awareness and fund vital education.</p>"
           }
         }
       },
@@ -136,6 +146,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
@@ -162,6 +174,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 0,
         "is_accent": false,
         "bg_color": "",
@@ -204,6 +218,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 40,
         "is_accent": true,
         "bg_color": "#ffffff",
@@ -230,6 +246,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 0,
         "is_accent": false,
         "bg_color": "",
@@ -261,6 +279,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 0,
         "is_accent": false,
         "bg_color": "",
@@ -294,6 +314,34 @@
       "settings": {
         "size": "h4"
       }
+    },
+    "content_rich_text_QMbG34": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_M73e9k": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>*The Gym King will donate 3% of the sale price of each Luxe Range item to CoppaFeel!, a registered charity (number 1132366). This is expected to be at least £5,000.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_M73e9k"
+      ],
+      "custom_css": [
+        "p {text-align: center; font-size: var(--txt-sm);}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "",
+        "heading_style": "",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
     }
   },
   "order": [
@@ -305,6 +353,7 @@
     "content_rich_text_nnDP8W",
     "content_rich_text_UzNX8F",
     "content_rich_text_crB7nd",
-    "custom_ctas_dXK8F9"
+    "custom_ctas_dXK8F9",
+    "content_rich_text_QMbG34"
   ]
 }
