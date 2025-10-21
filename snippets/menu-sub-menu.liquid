@@ -10,7 +10,7 @@
 
   <ul class="sub_menu-items">
     {% for link in menu.links %}
-      <li class="sub_menu-item" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-{{link.title}}">
+      <li class="sub_menu-item dropdown-{{link.title | handleize}}">
         <a href="{{ link.url }}">{{ link.title }}</a>
       </li>
     {% endfor %}

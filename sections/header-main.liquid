@@ -9,7 +9,7 @@
     <ul class="header_desktop-menu ">
       {% for link in section.settings.main_menu.links %}
         {% assign gender = link.title | downcase %}
-        <li class="header_menu-item" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-{{link.title}}">
+        <li class="header_menu-item" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-{{link.title | handleize }}">
           <a href="{{ link.url }}">{{ link.title }}</a>
           {% if link.links != blank %}
             <div id="dropdown-{{link.title}}" class="header_menu-dropdown" aria-hidden="true">
