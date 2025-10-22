@@ -14,7 +14,7 @@
 
 <ul class="account-links">
   <li>
-    <a class="button button-primary" href="{{  collections['all'].url }}">{% render 'icon', icon: 'edit' %} Your Edit</a>
+    <a class="button button-primary" href="{{  collections['all'].url }}">{% render 'icon', icon: 'edit' %} Built for You</a>
   </li>
   <li>
     <a class="button button-secondary" href="/pages/your-edit">Go Shopping {% render 'icon', icon: 'arrow' %}</a>
@@ -164,7 +164,9 @@
                   {{ item.product.featured_image | image_url: width: 500 | image_tag }}
                   <div class="customer-order--product-buttons">
                     <a href="{{ item.product.url }}#yotpo-app" class="button button-inverted button-full">{% render 'icon', icon: 'star' %} leave review</a>
-                    <a href="{{ item.product.url }}" class="button button-secondary button-full"> buy again {% render 'icon', icon: 'arrow' %} </a>
+                    {% if item.product.available %}
+                      <a href="{{ item.product.url }}" class="button button-secondary button-full"> buy again {% render 'icon', icon: 'arrow' %} </a>
+                    {% endif %}
                   </div>
                 </div>
               {% endfor %}
