@@ -1,0 +1,198 @@
+<div class="accent-bg" style="margin-top: 0; padding-bottom: 3rem;">
+  <div class="max-width">
+    <h1>
+      Built for You
+      {%- if customer -%}, {{ customer.first_name -}}{%- endif -%}
+    </h1>
+    {% unless customer %}
+      <p><a href="{{ routes.account_login_url }}">Sign in</a> or <a href="{{ routes.account_register_url }}">create an account</a> for better recommendations.</p>
+    {% endunless %}
+  </div>
+</div>
+
+{% if customer %}
+  {% if customer.orders_count > 0 %}
+    <div class="max-width">
+      <h2 class="emphasis left">Based on your last order:</h2>
+      <div class="carousel" data-last-item="{{ customer.orders[0].line_items[0].product.id }}"></div>
+      {% render 'product-card', product: customer.orders[0].line_items[0].product %}
+    </div>
+  {% endif %}
+{% else %}
+  <div class="section-gender-switch">
+    <button id="mens_gender-switch" data-gender="mens" class="gender-btn" aria-expanded="false">MENS</button>
+    <button id="womens_gender-switch" data-gender="womens" class="gender-btn" aria-expanded="false">WOMENS</button>
+    <link rel="stylesheet" href="{{ 'gender-selector.min.css' | asset_url }}">
+    <script type="text/javascript" src="{{ 'gender-selector.js' | asset_url }}" defer></script>
+  </div>
+
+  <div class="edit-bestsellers max-width">
+    <h3>Hot right now</h3>
+    <div class="gender-wrapper">
+      <div class="loader grid-loader gender-loader"></div>
+      <div id="womens-recommendations" class="womens-gender-filter fade-in" data-gender="womens">
+        <h4 class="no-gender-filter">WOMENS</h4>
+        {% comment %} use JS to render the productcard-carousel here {% endcomment %}
+        <productcard-carousel class="gender-recommendations-carousel product-grid">
+          {% for product in section.settings['womens-bestsellers'].products limit: 6 %}
+            {% render 'product-card', product: product, class: 'splide__slide' %}
+          {% endfor %}
+        </productcard-carousel>
+      </div>
+      <div id="mens-recommendations" class="mens-gender-filter fade-in" data-gender="mens">
+        <h4 class="no-gender-filter">MENS</h4>
+        {% comment %} use JS to render the productcard-carousel here {% endcomment %}
+        <productcard-carousel class="gender-recommendations-carousel product-grid">
+          {% for product in section.settings['mens-bestsellers'].products limit: 6 %}
+            {% render 'product-card', product: product, class: 'splide__slide' %}
+          {% endfor %}
+        </productcard-carousel>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if section.blocks.size > 0 %}
+  {{ 'card-grid.min.css' | asset_url | stylesheet_tag }}
+
+  <div class="edit-trending-colors max-width">
+    <h3>Trending Colours</h3>
+    <div class="trending-color-grid">
+      {% for block in section.blocks %}
+        <div class="trending-color-card {{ block.settings.gender -}}-gender-filter fade-in">
+          {% if block.settings.image %}
+            {{ block.settings.image | image_url: width: 1270 | image_tag }}
+          {% endif %}
+          <div class="trending-color-card--content">
+            <h4 class="h3 emphasis left" style="margin: 0">{{ block.settings.title }}</h4>
+            {% if block.settings.text %}
+              <p>{{ block.settings.text }}</p>
+            {% endif %}
+            <a href="{{ block.settings.url }}" class="button button-primary">{{ block.settings.button_text | default: 'read more' }}</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+<div class="accent-bg">
+  <div class="max-width">
+    <h2 class="emphasis" style="margin-bottom:0">Looking for something else?</h2>
+    <p class="center">Spend some more time browsing Gym King for more tailored recommendations.</p>
+  </div>
+  {% render 'dead-end' %}
+</div>
+
+<script>
+  async function getLastOrderRecs() {
+    const productID = document.querySelector('.carousel').dataset.lastItem;
+    try {
+      const response = await fetch(`${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${productID}&limit=12&intent=related`);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const carousel = document.createElement('productcard-carousel');
+      carousel.classList.add('gender-recommendations-carousel', 'product-grid');
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = data['product-dynamic-cards'];
+      const section = wrapper.querySelector('#shopify-section-product-dynamic-cards');
+      if (section) {
+        while (section.firstChild) {
+          carousel.appendChild(section.firstChild);
+        }
+      }
+      document.querySelector('.carousel').appendChild(carousel);
+    } catch (error) {
+      console.error('last order recs :: failed:', error);
+    }
+  }
+
+  getLastOrderRecs();
+</script>
+
+<style>
+  .dead-end {
+    margin-top: 0;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Personal Edit",
+  "class": "section--personal-edit",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Fallback Settings"
+    },
+    {
+      "type": "collection",
+      "id": "mens-bestsellers",
+      "label": "Men's Best Sellers Collection"
+    },
+    {
+      "type": "collection",
+      "id": "womens-bestsellers",
+      "label": "Women's Best Sellers Collection"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Trending Color Card",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Card Text",
+          "info": "Ideal for a brief description."
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "gender",
+          "label": "Gender",
+          "options": [
+            {
+              "label": "Neutral",
+              "value": ""
+            },
+            {
+              "label": "Mens",
+              "value": "mens"
+            },
+            {
+              "label": "Womens",
+              "value": "womens"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
