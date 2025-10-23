@@ -98,6 +98,11 @@ infinite-scroll,
   place-content: center;
 }
 
+infinite-scroll {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
 .small-grid {
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }

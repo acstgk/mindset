@@ -13,9 +13,9 @@ function gridSize() {
   if (!gridSize) return;
 
   const grid = document.querySelector("infinite-scroll");
-
   grid.classList = "max-width";
   grid.classList.add(gridSize);
+  grid.style.opacity = 1;
   document.querySelector(".column-controls").dataset.grid = gridSize;
 }
 
@@ -455,7 +455,6 @@ class ColumnControls {
     this.buttonUp = element.querySelector(".grid-control--up");
     this.buttonDown = element.querySelector(".grid-control--down");
     this.currentSize = localStorage.getItem("GK::grid-size") || "grid";
-    console.log(this.currentSize)
     this.sizes = ["small-grid", "grid", "large-grid"];
     this._addEventListeners();
   }
@@ -474,7 +473,6 @@ class ColumnControls {
     this.currentSize = this.sizes[newIndex];
     localStorage.setItem("GK::grid-size", this.currentSize);
     gridSize();
-
   }
 }
 
