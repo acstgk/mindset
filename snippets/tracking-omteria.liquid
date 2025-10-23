@@ -1,0 +1,30 @@
+<script>
+      if (typeof ometria == 'undefined') window.ometria = {};
+        ometria.raw_data={
+        template: {{template|json}},
+        cart_total:{{cart.total_price|json}},
+        cart_count:{{cart.item_count|json}},
+        cart:[],
+        product_id:{{product.id|json}},
+        search_count:{{search.results_count|json}},
+        search_terms:{{search.terms|json}},
+        collection_id:{{collection.id|json}},
+        collection_handle:{{collection.handle|json}},
+        page_handle:{{page.handle|json}},
+        collection_count:{{collection.products_count|json}},
+        current_page:{{current_page|json}},
+        shop_currency:{{shop.currency|json}},
+        customer_email:{{customer.email|json}}
+      };
+
+  {% for item in cart.items %}
+  ometria.raw_data.cart.push([{{ item.product.id|json}},{{item.variant.id|json}},
+  {{item.quantity|json}},{{item.line_price|json}}]);
+  {% endfor %}
+
+  (function(){
+  var url="https://cdn.ometria.com/tags/f647cb688e2297ba.js?v=2021092210dsfds";
+  setTimeout(function(){var sc=document.createElement('script');sc.src=url;sc.setAttribute('async','false');
+  document.getElementsByTagName("head")[0].appendChild(sc);},15);
+  })();
+</script>

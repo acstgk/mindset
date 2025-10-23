@@ -1,0 +1,65 @@
+<script>
+  var glegem =
+    window['glegem'] ||
+    function () {
+      (window['glegem'].q = window['glegem'].q || []).push(arguments);
+    };
+
+  glegem('OnCheckoutStepLoaded', function (data) {
+    window.gleConfData = data;
+  });
+
+  glegem('OnCheckoutStepLoaded', function (data) {
+    switch (data.StepId) {
+      case data.Steps.LOADED:
+        break;
+      case data.Steps.CONFIRMATION:
+        if (data.IsSuccess) {
+          (function (window) {
+            try {
+              var productsArray = [];
+              for (let temp = 0; temp < data.details.products.length; temp++) {
+                let tempProducts = {};
+                tempProducts.sku = data.details.products[temp].sku;
+                tempProducts.title = data.details.products[temp].name;
+                tempProducts.price = data.details.products[temp].customerPriceInMerchantCurrency;
+                tempProducts.quantity = data.details.products[temp].quantity;
+                tempProducts.variantid = data.details.products[temp].productGroupCode;
+                productsArray.push(tempProducts);
+              }
+              var discountAmount = 0;
+              for (let temp = 0; temp < data.details.discounts.length; temp++) {
+                if (data.details.discounts[temp].couponCode != '' && data.details.discounts[temp].discountTypeId == 1) {
+                  discountAmount = data.details.discounts[temp].customerPriceInMerchantCurrency;
+                }
+              }
+              var saleGoalObject = {
+                transactionId: data.OrderId ?? '',
+                revenue: data.details.totalProductsPrice ?? '',
+                subtotal: data.details.totalProductsPrice ?? '',
+                discount: discountAmount ?? '',
+                products: productsArray ?? '',
+                currency: data.details.currency ?? '',
+              };
+
+              var saleGoalString = JSON.stringify(saleGoalObject);
+              window.fospha = window.fospha || [];
+              fospha('send', 'event', {
+                eventCategory: 'goal',
+                eventCatLabel: 'goal',
+                eventAction: 'achieved',
+                eventItemId: 'sale',
+                eventLabel: 'sale',
+                eventText: saleGoalString,
+              });
+            } catch (e) {
+              console.log(e);
+            }
+          })(window);
+        }
+        break;
+    }
+  });
+
+  var variantStock = {};
+</script>

@@ -15,6 +15,8 @@
       function gtag(){
         window.dataLayer.push(arguments);
       }
+
+
       gtag('js', new Date());
       gtag('consent', 'default', {
         ad_storage: 'denied',
@@ -40,26 +42,6 @@
         j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
         f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-PT4PRKB');
-
-      {% comment %} Taggstar {% endcomment %}
-      (function (t, w, d, k, s) {
-        w[t] = w[t] || { lib: {}, tm: { key: k, style: typeof s === "undefined" ? true : s } };
-        var f = d.getElementsByTagName("script")[0],
-          j = d.createElement("script");
-        j.async = true;
-        j.src = "//cdn.taggstar.com/js/2111148/taggstar.min.js";
-        f.parentNode.insertBefore(j, f);
-      })("taggstar", window, document, "gymkingcom");
-
-      {% comment %} global-e  {% endcomment %}
-      var glegem =
-        window['glegem'] ||
-        function () {
-          (window['glegem'].q = window['glegem'].q || []).push(arguments);
-        };
-      glegem('OnCheckoutStepLoaded', function (data) {
-        window.gleConfData = data;
-      });
     </script>
 
     <!-- Clarity -->
@@ -78,78 +60,10 @@
       })(window, document, 'clarity', 'script', 'rkf3ohdmni');
     </script>
 
-    <!-- AdScale Global E Listener START -->
-    <script>
-      window.adscale_init = window.adscale_init || false;
-      function registerGlobalEConversion() {
-        var glegem =
-          window['glegem'] ||
-          function () {
-            (window['glegem'].q = window['glegem'].q || []).push(arguments);
-          };
-        glegem('OnCheckoutStepLoaded', function (data) {
-          switch (data.StepId) {
-            case data.Steps.LOADED:
-              //fire checkout loaded event
-              break;
-            case data.Steps.CONFIRMATION:
-              if (data.IsSuccess) {
-                if (data.IsSuccess) {
-                  //fire checkout completed event
-                  var orderDetails = data.details;
-                  writePurchaseConversion(orderDetails);
-                  try {
-                    var ge_o_name = globale_adscale_order['OrderReference'];
-                    var ge_o_val = globale_adscale_order['totalProductsPrice'];
-                    document.cookie = 'adscale_ge_order_' + ge_o_name + '=' + ge_o_val + ';';
-                  } catch (e) {}
-                }
-              }
-              break;
-          }
-        });
-      }
-
-      function docReady(fn) {
-        // see if DOM is already available
-        if (document.readyState === 'complete') {
-          if (typeof window['glegem'] === 'undefined') {
-            setTimeout(docReady(fn), 2000);
-          } else {
-            // call on next available tick
-            setTimeout(fn, 100);
-          }
-        } else {
-          document.addEventListener('readystatechange', function () {
-            if (document.readyState === 'complete') {
-              if (typeof window['glegem'] === 'undefined') {
-                setTimeout(docReady(fn), 2000);
-              } else {
-                // call on next available tick
-                setTimeout(fn, 100);
-              }
-            }
-          });
-        }
-      }
-
-      docReady(function () {
-        try {
-          registerGlobalEConversion();
-        } catch (e) {
-          console.log(e);
-        }
-      });
-    </script>
-    <!-- AdScale Global E Listener END -->
-
     <meta name="facebook-domain-verification" content="n2q1ogzkqnirqe5g5ut48t1wjvzjlr">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
     <!-- Google Verification Tag - Start -->
     <meta name="google-site-verification" content="7WhvGvj8cWTMWhfYz12DWklBNm4s3l-nBAgQNWRi18g">
 
@@ -194,15 +108,11 @@
     {%- endif -%}
 
     {% render 'css-variables' %}
-
     <link rel="stylesheet" href="{{ 'critical.min.css' | asset_url }}">
     <link rel="preload" href="{{ 'splide-core.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="{{ 'global.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="{{ 'global.min.css' | asset_url }}"></noscript>
-
-    <noscript>
-      <link rel="stylesheet" href="{{ 'fallback.min.css' | asset_url }}">
-    </noscript>
+    <noscript><link rel="stylesheet" href="{{ 'fallback.min.css' | asset_url }}"></noscript>
 
     {{ content_for_header }}
   </head>
@@ -226,155 +136,31 @@
     {% endunless %}
 
     {% render 'js-variables' %}
-    <script type="module" src="{{ 'main.js' | asset_url }}"></script>
 
-    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" defer></script>
+    <!-- Start cookieyes banner -->
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/common/shopify.js" async></script>
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/4de0c88d0702179aeeec9765/script.js" async></script>
+    <!-- End cookieyes banner -->
+
+    <script type="module" src="{{ 'main.js' | asset_url }}"></script>
 
     {%- if template == 'customers/addresses' -%}
       <script type="text/javascript" src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
       <script type="text/javascript" src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
-    <!-- Start cookieyes banner -->
-    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/common/shopify.js" defer></script>
-    <script
-      id="cookieyes"
-      type="text/javascript"
-      src="https://cdn-cookieyes.com/client_data/4de0c88d0702179aeeec9765/script.js"
-      defer
-    ></script>
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" defer></script>
 
-    <script>
-      var glegem =
-        window['glegem'] ||
-        function () {
-          (window['glegem'].q = window['glegem'].q || []).push(arguments);
-        };
-
-      glegem('OnCheckoutStepLoaded', function (data) {
-        switch (data.StepId) {
-          case data.Steps.LOADED:
-            break;
-          case data.Steps.CONFIRMATION:
-            if (data.IsSuccess) {
-              (function (window) {
-                try {
-                  var productsArray = [];
-                  for (let temp = 0; temp < data.details.products.length; temp++) {
-                    let tempProducts = {};
-                    tempProducts.sku = data.details.products[temp].sku;
-                    tempProducts.title = data.details.products[temp].name;
-                    tempProducts.price = data.details.products[temp].customerPriceInMerchantCurrency;
-                    tempProducts.quantity = data.details.products[temp].quantity;
-                    tempProducts.variantid = data.details.products[temp].productGroupCode;
-                    productsArray.push(tempProducts);
-                  }
-                  var discountAmount = 0;
-                  for (let temp = 0; temp < data.details.discounts.length; temp++) {
-                    if (data.details.discounts[temp].couponCode != '' && data.details.discounts[temp].discountTypeId == 1) {
-                      discountAmount = data.details.discounts[temp].customerPriceInMerchantCurrency;
-                    }
-                  }
-                  var saleGoalObject = {
-                    transactionId: data.OrderId ?? '',
-                    revenue: data.details.totalProductsPrice ?? '',
-                    subtotal: data.details.totalProductsPrice ?? '',
-                    discount: discountAmount ?? '',
-                    products: productsArray ?? '',
-                    currency: data.details.currency ?? '',
-                  };
-
-                  var saleGoalString = JSON.stringify(saleGoalObject);
-                  window.fospha = window.fospha || [];
-                  fospha('send', 'event', {
-                    eventCategory: 'goal',
-                    eventCatLabel: 'goal',
-                    eventAction: 'achieved',
-                    eventItemId: 'sale',
-                    eventLabel: 'sale',
-                    eventText: saleGoalString,
-                  });
-                } catch (e) {
-                  console.log(e);
-                }
-              })(window);
-            }
-            break;
-        }
-      });
-
-      var variantStock = {};
-    </script>
-
-    {% if request.design_mode %}
-      <script src="{{ 'designmode.js' | asset_url }}" defer></script>
-    {% endif %}
 
     <!-- included iwish_v2 with footer my added---------- -->
+    {% render 'tracking-criteo' %}
+    {% render 'tracking-adroll' customer: customer %}
+    {% render 'tracking-omteria' %}
+    {% render 'tracking-adscale' %}
+    {% render 'tracking-ometria' cart: cart %}
+
     {% section 'wishlist-app-settings' %}
     {% render 'wishlist-app-links', linkType: 'footer-script' %}
-
-    <!-- CRITEO START -->
-    {% render 'criteo-tracking' %}
-    <!-- CRITEO END -->
-    {% render 'adroll' %}
-    <script>
-      function iwishATB(button) {
-        var Title = button.closest('.iwishItem').getAttribute('data-title');
-        var Price = button.closest('.iwishItem').getAttribute('data-price') / 100;
-        var Gender = button.closest('.iwishItem').getAttribute('data-gender');
-        var selectedVariant = button.previousElementSibling.firstElementChild.value;
-
-        document.getElementById('close-cart-drawer').click(),
-          CartJS.addItem(selectedVariant),
-          setTimeout(function () {
-            document.documentElement.dispatchEvent(
-              new CustomEvent('cart:refresh', {
-                bubbles: true,
-              })
-            );
-            refreshcart();
-            document.getElementById('drawerbtn').click();
-          }, 1e3);
-
-        gtag('event', 'atc_wishlist', {
-          title: Title,
-          value: Price,
-          gender: Gender,
-        });
-      }
-    </script>
-
-    <script>
-          if (typeof ometria == 'undefined') window.ometria = {};
-            ometria.raw_data={
-            template: {{template|json}},
-            cart_total:{{cart.total_price|json}},
-            cart_count:{{cart.item_count|json}},
-            cart:[],
-            product_id:{{product.id|json}},
-            search_count:{{search.results_count|json}},
-            search_terms:{{search.terms|json}},
-            collection_id:{{collection.id|json}},
-            collection_handle:{{collection.handle|json}},
-            page_handle:{{page.handle|json}},
-            collection_count:{{collection.products_count|json}},
-            current_page:{{current_page|json}},
-            shop_currency:{{shop.currency|json}},
-            customer_email:{{customer.email|json}}
-          };
-
-      {% for item in cart.items %}
-      ometria.raw_data.cart.push([{{ item.product.id|json}},{{item.variant.id|json}},
-      {{item.quantity|json}},{{item.line_price|json}}]);
-      {% endfor %}
-
-      (function(){
-      var url="https://cdn.ometria.com/tags/f647cb688e2297ba.js?v=2021092210dsfds";
-      setTimeout(function(){var sc=document.createElement('script');sc.src=url;sc.setAttribute('async','false');
-      document.getElementsByTagName("head")[0].appendChild(sc);},15);
-      })();
-    </script>
 
     <!-- Begin Shopify-Clearpay / klarna JavaScript Snippet (v1.0.9) -->
     {% if template.name == 'product' or template.name == 'cart' %}
@@ -402,6 +188,7 @@
       style="display:none;visibility:hidden"
     ></iframe>
     <!-- End Google Tag Manager (noscript) -->
+
     {% unless template == 'product' %}
       <script src="//eu.fw-cdn.com/12832973/808139.js" chat="true" defer></script>
     {% else %}
@@ -423,5 +210,9 @@
 
     {% render 'globale-js' %}
     {%- render 'country-switcher-global' -%}
+
+    {% if request.design_mode %}
+      <script src="{{ 'designmode.js' | asset_url }}" defer></script>
+    {% endif %}
   </body>
 </html>

@@ -1,0 +1,62 @@
+<script>
+  window.adscale_init = window.adscale_init || false;
+  function registerGlobalEConversion() {
+    var glegem =
+      window['glegem'] ||
+      function () {
+        (window['glegem'].q = window['glegem'].q || []).push(arguments);
+      };
+    glegem('OnCheckoutStepLoaded', function (data) {
+      switch (data.StepId) {
+        case data.Steps.LOADED:
+          //fire checkout loaded event
+          break;
+        case data.Steps.CONFIRMATION:
+          if (data.IsSuccess) {
+            if (data.IsSuccess) {
+              //fire checkout completed event
+              var orderDetails = data.details;
+              writePurchaseConversion(orderDetails);
+              try {
+                var ge_o_name = globale_adscale_order['OrderReference'];
+                var ge_o_val = globale_adscale_order['totalProductsPrice'];
+                document.cookie = 'adscale_ge_order_' + ge_o_name + '=' + ge_o_val + ';';
+              } catch (e) {}
+            }
+          }
+          break;
+      }
+    });
+  }
+
+  function docReady(fn) {
+    // see if DOM is already available
+    if (document.readyState === 'complete') {
+      if (typeof window['glegem'] === 'undefined') {
+        setTimeout(docReady(fn), 2000);
+      } else {
+        // call on next available tick
+        setTimeout(fn, 100);
+      }
+    } else {
+      document.addEventListener('readystatechange', function () {
+        if (document.readyState === 'complete') {
+          if (typeof window['glegem'] === 'undefined') {
+            setTimeout(docReady(fn), 2000);
+          } else {
+            // call on next available tick
+            setTimeout(fn, 100);
+          }
+        }
+      });
+    }
+  }
+
+  docReady(function () {
+    try {
+      registerGlobalEConversion();
+    } catch (e) {
+      console.log(e);
+    }
+  });
+</script>
