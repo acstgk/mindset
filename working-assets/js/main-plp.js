@@ -13,7 +13,7 @@ function gridSize() {
   if (!gridSize) return;
 
   const grid = document.querySelector("infinite-scroll");
-  grid.classList = "max-width";
+  grid.classList = "max-width ProductListWrapper";
   grid.classList.add(gridSize);
   grid.style.opacity = 1;
   document.querySelector(".column-controls").dataset.grid = gridSize;

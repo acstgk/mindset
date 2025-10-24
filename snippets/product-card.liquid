@@ -45,17 +45,17 @@
 {% endcapture %}
 
 <product-card
-  data-prod-id="{{ product.id }}"
-  {%- if class or modal -%}
-    class="{{ class }} modal-{{- modal -}}"
-  {%- endif -%}
+  data-id="{{ product.id }}"
+  data-instock="{{product.available}}"
+  id="{{ product.id }}"
+  class="ProductItem {{ class }} modal-{{- modal-}} "
 >
   {% comment %} images and interactions {% endcomment %}
   <div class="product_card-media {% if product.available == false %}oos-overlay{% endif %}">
     {% if show_timer or settings['decal-check'] %}
       {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: sizes: sizes, widths: widths, loading: 'lazy', class: 'product_card-decal' }}
     {% endif %}
-    <a class="product_card-images" href="{{ product.url }}">
+    <a class="product_card-images product-container--{{ product.id }}" href="{{ product.url }}">
       <div class="product_card-first-image">
         {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager', class: 'background-image' }}
         <div class="loader grid-loader"></div>
