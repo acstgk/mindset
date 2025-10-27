@@ -61,9 +61,10 @@ li address-form {
   }
 }
 
-ul.account-links {
+ul.account-links{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  justify-content: start;
 
   & li {
     border: 1px solid var(--c-grey);
