@@ -44,16 +44,6 @@
   {% endif %}
 {% endcapture %}
 
-{% capture evergreen_decal %}
-  {% if product.tags contains 'impactpro' %}
-      <img class="product_card-decal" src="https://cdn.shopify.com/s/files/1/1659/8997/files/Impact_Pro.png?v=1742477681" width="960" height="835"  alt="ImpactPRO Combat Fabric">
-  {% elsif product.tags contains 'bundle' %}
-      <img  class="product_card-decal" src="https://cdn.shopify.com/s/files/1/1659/8997/files/Decal_Decal_-_Save_with_Bundle.png?v=1761311619" width="960" height="835" alt="Bundle this product and save">
-  {% elsif product.tags contains 'mini' %}
-      <img class="product_card-decal"  src="https://cdn.shopify.com/s/files/1/1659/8997/files/Decal_Decal_-_Mini_Me_Available.png?v=1761311619" width="960" height="835"  alt="Also available in kid's sizing for mini me styling">
-  {% endif %}
-{% endcapture %}
-
 <product-card
   data-id="{{ product.id }}"
   data-instock="{{product.available}}"
@@ -65,7 +55,7 @@
     {% if show_timer or settings['decal-check'] %}
       {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: sizes: sizes, widths: widths, loading: 'lazy', class: 'product_card-decal' }}
     {% else %}
-      {{ evergreen_decal }}
+       {% render 'evergreen-decal', product: product, class: 'product_card-decal' %}
     {% endif %}
     <a class="product_card-images product-container--{{ product.id }}" href="{{ product.url }}">
       <div class="product_card-first-image">

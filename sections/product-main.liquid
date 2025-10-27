@@ -75,7 +75,7 @@
       {% if show_timer or settings['decal-check'] %}
         {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: loading: 'lazy', class: 'splide__decal' }}
       {% else %}
-        {{ evergreen_decal }}
+       {% render 'evergreen-decal', product: product, class: 'splide__decal' %}
       {% endif %}
 
       {% for image in product.images %}
