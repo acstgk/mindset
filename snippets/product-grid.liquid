@@ -1,5 +1,5 @@
 {% assign position_count = 0 %}
-<infinite-scroll class="ProductListWrapper max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}">
+<infinite-scroll class="max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}">
   {%- for product in product_list -%}
     {% assign lazyload = 'lazy' %}
     {% if forloop.index0 < 5 %}
@@ -43,7 +43,7 @@
         {% endif %}
 
         {% if settings[img_key] %}
-          <article class="product-grid-insert Grid__Cell">
+          <article class="product-grid-insert">
             <a data-gender="{{ collection.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}">
               {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1220px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazy' }}
             </a>
@@ -53,6 +53,6 @@
     {% endif %}
 
     {% comment %} ---- Product Cards ---- {% endcomment %}
-    <article class="Grid__Cell" data-page="{{ page }}" id="product-id-{{- product.id -}}">{%- render 'product-card', product: product, loading: lazyload -%}</article>
+    <article data-page="{{ page }}" id="product-id-{{- product.id -}}">{%- render 'product-card', product: product, loading: lazyload -%}</article>
   {%- endfor -%}
 </infinite-scroll>
