@@ -10,9 +10,12 @@ import { SplideUtil } from "./SplideUtil.js";
 // Remember and reset grid size
 function gridSize() {
   const gridSize = localStorage.getItem("GK::grid-size");
-  if (!gridSize) return;
-
   const grid = document.querySelector("infinite-scroll");
+  if (!gridSize) {
+    grid.style.opacity = 1;
+    return;
+  }
+
   grid.classList = "max-width ProductListWrapper";
   grid.classList.add(gridSize);
   grid.style.opacity = 1;

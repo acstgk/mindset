@@ -502,7 +502,7 @@ slide-drawer {
   width: min-content;
 
   & img {
-    width: min(40vw, 200px);
+    width: min(40vw, 225px);
     object-fit: contain;
   }
 }
