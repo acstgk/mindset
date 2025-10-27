@@ -37,6 +37,7 @@
 {% comment %} ==============================  {% endcomment %}
 {% comment %} RECENTLY VIEWED                 {% endcomment %}
 {% comment %} ==============================  {% endcomment %}
+
 <div class="max-width" id="recently-viewed-section">
   <h3 class="emphasis left">Need another look?</h3>
   <recently-viewed class="active"> </recently-viewed>
@@ -128,7 +129,7 @@
       try {
         const response = await fetch(`${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${id}&limit=4&intent=related`);
         if (!response.ok) {
-          console.warn(`Skipping ID ${id}: HTTP ${response.status}`);
+          console.warn(`Skipping purchased product ${id}: HTTP ${response.status}`);
           continue;
         }
 
