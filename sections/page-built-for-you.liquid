@@ -2,7 +2,9 @@
   <div class="max-width">
     <h1>
       Built for You
-      {%- if customer -%}, <span class="signature">{{ customer.first_name -}}</span>{%- endif -%}
+      {%- if customer -%}
+        , <span class="signature">{{ customer.first_name -}}</span>
+      {%- endif -%}
     </h1>
     {% unless customer %}
       <p><a href="{{ routes.account_login_url }}">Sign in</a> or <a href="{{ routes.account_register_url }}">create an account</a> for better recommendations.</p>
@@ -16,10 +18,18 @@
 
 {% if customer %}
   {% if customer.orders_count > 0 %}
+    {% comment %} get last 6 ordered items {% endcomment %}
+    {% assign product_ids = '' %}
+
+    {% for order in customer.orders %}
+      {% for line_item in order.line_items %}
+        {% assign product_ids = product_ids | append: ',' | append: line_item.product.id %}
+      {% endfor %}
+    {% endfor %}
+
     <div class="max-width">
       <h3 class="emphasis left">Perfect additions to your previous order...</h3>
-      <div class="carousel" data-last-item="{{ customer.orders[0].line_items[0].product.id }}"></div>
-      {% render 'product-card', product: customer.orders[0].line_items[0].product %}
+      <div class="carousel" data-last-item="[{{ product_ids | remove_first: ","}}]"></div>
     </div>
   {% endif %}
 {% endif %}
@@ -48,7 +58,7 @@
 {% comment %} ==============================  {% endcomment %}
 
 <div class="edit-bestsellers max-width">
-  <h3 class="emphasis left">Certified Favourites</h3>
+  <h3 class="emphasis left">Certified Customer Favourites</h3>
   <div class="gender-wrapper">
     <div class="loader grid-loader gender-loader"></div>
     <div id="womens-recommendations" class="womens-gender-filter fade-in" data-gender="womens">
@@ -111,29 +121,34 @@
 <script>
   /* global Shopify  */
   async function getLastOrderRecs() {
-    const productID = document.querySelector('.carousel').dataset.lastItem;
-    try {
-      const response = await fetch(`${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${productID}&limit=12&intent=related`);
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      const carousel = document.createElement('productcard-carousel');
-      carousel.classList.add('gender-recommendations-carousel', 'product-grid');
-      const wrapper = document.createElement('div');
-      wrapper.innerHTML = data['product-dynamic-cards'];
-      const section = wrapper.querySelector('#shopify-section-product-dynamic-cards');
-      if (section) {
-        while (section.firstChild) {
-          carousel.appendChild(section.firstChild);
+    const productIDs = JSON.parse(document.querySelector('.carousel').dataset.lastItem);
+    const carousel = document.createElement('productcard-carousel');
+    carousel.classList.add('gender-recommendations-carousel', 'product-grid');
+    for (const id of productIDs) {
+      try {
+        const response = await fetch(`${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${id}&limit=4&intent=related`);
+        if (!response.ok) {
+          console.warn(`Skipping ID ${id}: HTTP ${response.status}`);
+          continue;
         }
+
+        const data = await response.json();
+
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = data['product-dynamic-cards'];
+        const section = wrapper.querySelector('#shopify-section-product-dynamic-cards');
+
+        if (section) {
+          while (section.firstChild) {
+            carousel.appendChild(section.firstChild);
+          }
+        }
+      } catch (error) {
+        console.error(`last order recs :: failed for ${id}:`, error);
+        continue;
       }
-      document.querySelector('.carousel').appendChild(carousel);
-    } catch (error) {
-      console.error('last order recs :: failed:', error);
     }
+    document.querySelector('.carousel').appendChild(carousel);
   }
 
 
