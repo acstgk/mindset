@@ -12,7 +12,8 @@
     "static_hero_w87fiy": {
       "type": "static-hero",
       "custom_css": [
-        ".static-hero--heading ul.social-links svg {color: white; fill: white;}"
+        ".static-hero--heading ul.social-links svg {color: white; fill: white;}",
+        ".static-hero video {object-position: 50% 15%;}"
       ],
       "name": "Static Hero",
       "settings": {
