@@ -1434,11 +1434,11 @@ slide-drawer .quick_links-link {
 
 /* FOOTER */
 footer.section--footer {
-    max-width: var(--max-width);
     padding-top: 60px;
     margin: 60px 20px 0;
     border-top: 1px solid var(--c-light-grey);
     color: var(--c-grey);
+    width: 100%;
 }
 
 ul.social-links {
@@ -1524,7 +1524,6 @@ ul.social-links {
     }
 
     footer.section--footer {
-        width: var(--max-width);
         margin: 60px auto 0;
 
         & .footer-socials {

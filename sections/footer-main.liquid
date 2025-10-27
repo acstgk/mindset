@@ -25,8 +25,10 @@
 {% if section.settings.seo_copy and template == 'index' %}
   <div class="meta-description rtf max-width">{{ section.settings.seo_copy }}</div>
 {% endif %}
-{% render 'trust-widget' with 'carousel' %}
-{% render 'payment-icons' %}
+<div class="max-width">
+  {% render 'trust-widget' with 'carousel' %}
+  {% render 'payment-icons' %}
+</div>
 
 <div class="footer-copyright">
   <p class="footer-author">© {{ 'now' | date: '%Y' }} GYM KING LIMITED IS A LIMITED COMPANY REGISTERED IN ENGLAND WITH REGISTERED NUMBER 09476649. VAT REGISTRATION: GB211871333</p>
