@@ -2,7 +2,7 @@
   <div class="max-width">
     <h1>
       Built for You
-      {%- if customer -%}, {{ customer.first_name -}}{%- endif -%}
+      {%- if customer -%}, <span class="signature">{{ customer.first_name -}}</span>{%- endif -%}
     </h1>
     {% unless customer %}
       <p><a href="{{ routes.account_login_url }}">Sign in</a> or <a href="{{ routes.account_register_url }}">create an account</a> for better recommendations.</p>
@@ -10,53 +10,77 @@
   </div>
 </div>
 
+{% comment %} ==============================  {% endcomment %}
+{% comment %} Previous Order carousel         {% endcomment %}
+{% comment %} ==============================  {% endcomment %}
+
 {% if customer %}
   {% if customer.orders_count > 0 %}
     <div class="max-width">
-      <h2 class="emphasis left">Based on your last order:</h2>
+      <h3 class="emphasis left">Perfect additions to your previous order...</h3>
       <div class="carousel" data-last-item="{{ customer.orders[0].line_items[0].product.id }}"></div>
       {% render 'product-card', product: customer.orders[0].line_items[0].product %}
     </div>
   {% endif %}
-{% else %}
-  <div class="section-gender-switch">
-    <button id="mens_gender-switch" data-gender="mens" class="gender-btn" aria-expanded="false">MENS</button>
-    <button id="womens_gender-switch" data-gender="womens" class="gender-btn" aria-expanded="false">WOMENS</button>
-    <link rel="stylesheet" href="{{ 'gender-selector.min.css' | asset_url }}">
-    <script type="text/javascript" src="{{ 'gender-selector.js' | asset_url }}" defer></script>
-  </div>
+{% endif %}
 
-  <div class="edit-bestsellers max-width">
-    <h3>Hot right now</h3>
-    <div class="gender-wrapper">
-      <div class="loader grid-loader gender-loader"></div>
-      <div id="womens-recommendations" class="womens-gender-filter fade-in" data-gender="womens">
-        <h4 class="no-gender-filter">WOMENS</h4>
-        {% comment %} use JS to render the productcard-carousel here {% endcomment %}
-        <productcard-carousel class="gender-recommendations-carousel product-grid">
-          {% for product in section.settings['womens-bestsellers'].products limit: 6 %}
-            {% render 'product-card', product: product, class: 'splide__slide' %}
-          {% endfor %}
-        </productcard-carousel>
-      </div>
-      <div id="mens-recommendations" class="mens-gender-filter fade-in" data-gender="mens">
-        <h4 class="no-gender-filter">MENS</h4>
-        {% comment %} use JS to render the productcard-carousel here {% endcomment %}
-        <productcard-carousel class="gender-recommendations-carousel product-grid">
-          {% for product in section.settings['mens-bestsellers'].products limit: 6 %}
-            {% render 'product-card', product: product, class: 'splide__slide' %}
-          {% endfor %}
-        </productcard-carousel>
-      </div>
+{% comment %} ==============================  {% endcomment %}
+{% comment %} RECENTLY VIEWED                 {% endcomment %}
+{% comment %} ==============================  {% endcomment %}
+<div class="max-width" id="recently-viewed-section">
+  <h3 class="emphasis left">Need another look?</h3>
+  <recently-viewed class="active"> </recently-viewed>
+</div>
+
+{% comment %} ==============================  {% endcomment %}
+{% comment %} GENDER SELECTOR BAR             {% endcomment %}
+{% comment %} ==============================  {% endcomment %}
+
+<div class="section-gender-switch">
+  <button id="mens_gender-switch" data-gender="mens" class="gender-btn" aria-expanded="false">MENS</button>
+  <button id="womens_gender-switch" data-gender="womens" class="gender-btn" aria-expanded="false">WOMENS</button>
+  <link rel="stylesheet" href="{{ 'gender-selector.min.css' | asset_url }}">
+  <script type="text/javascript" src="{{ 'gender-selector.js' | asset_url }}" defer></script>
+</div>
+
+{% comment %} ==============================  {% endcomment %}
+{% comment %} BEST SELLERS CAROUSEL           {% endcomment %}
+{% comment %} ==============================  {% endcomment %}
+
+<div class="edit-bestsellers max-width">
+  <h3 class="emphasis left">Certified Favourites</h3>
+  <div class="gender-wrapper">
+    <div class="loader grid-loader gender-loader"></div>
+    <div id="womens-recommendations" class="womens-gender-filter fade-in" data-gender="womens">
+      <h4 class="no-gender-filter">WOMENS</h4>
+      {% comment %} use JS to render the productcard-carousel here {% endcomment %}
+      <productcard-carousel class="gender-recommendations-carousel product-grid">
+        {% for product in section.settings['womens-bestsellers'].products limit: 6 %}
+          {% render 'product-card', product: product, class: 'splide__slide' %}
+        {% endfor %}
+      </productcard-carousel>
+    </div>
+    <div id="mens-recommendations" class="mens-gender-filter fade-in" data-gender="mens">
+      <h4 class="no-gender-filter">MENS</h4>
+      {% comment %} use JS to render the productcard-carousel here {% endcomment %}
+      <productcard-carousel class="gender-recommendations-carousel product-grid">
+        {% for product in section.settings['mens-bestsellers'].products limit: 6 %}
+          {% render 'product-card', product: product, class: 'splide__slide' %}
+        {% endfor %}
+      </productcard-carousel>
     </div>
   </div>
-{% endif %}
+</div>
+
+{% comment %} ==============================  {% endcomment %}
+{% comment %} TRENDING COLOURS                {% endcomment %}
+{% comment %} ==============================  {% endcomment %}
 
 {% if section.blocks.size > 0 %}
   {{ 'card-grid.min.css' | asset_url | stylesheet_tag }}
 
   <div class="edit-trending-colors max-width">
-    <h3>Trending Colours</h3>
+    <h3 class="emphasis left">The Current Palette</h3>
     <div class="trending-color-grid">
       {% for block in section.blocks %}
         <div class="trending-color-card {{ block.settings.gender -}}-gender-filter fade-in">
@@ -85,6 +109,7 @@
 </div>
 
 <script>
+  /* global Shopify  */
   async function getLastOrderRecs() {
     const productID = document.querySelector('.carousel').dataset.lastItem;
     try {
@@ -111,12 +136,39 @@
     }
   }
 
+
+{% if customer %}
   getLastOrderRecs();
+{% endif %}
 </script>
 
 <style>
   .dead-end {
     margin-top: 0;
+  }
+
+  .section-gender-switch {
+    background: var(--c-off-white);
+  }
+
+  #recently-viewed-section {
+    display: none;
+    & ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      margin: 0 auto;
+      column-gap: 1rem;
+      width: 100%;
+      grid-area: 2 / 1 / 2 / 1;
+
+      & li.cart_items-item:nth-child(n + 5) {
+        display: none;
+      }
+    }
+
+    & .loader {
+      display: none;
+    }
   }
 </style>
 

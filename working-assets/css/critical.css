@@ -255,7 +255,9 @@ blockquote {
   text-transform: none;
   letter-spacing: 0ch !important;
   font-weight: 400;
-  scale: 5;
+  display: inline-block;
+  scale: 1.6;
+  margin-inline: 2.5ch !important;
 }
 
 .Title {

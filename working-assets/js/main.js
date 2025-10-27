@@ -766,7 +766,6 @@ class ComponentLoader {
   }
 }
 
-
 // dynamically import modules required by the page
 window.ComponentLoader = ComponentLoader; // Export for global access
 new ComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
@@ -1060,4 +1059,14 @@ if (recentlyViewed.hasRecentlyViewed() && !document.querySelector("recently-view
 
   sideCart.insertBefore(recentlyViewedEl, sideCart.querySelector(".drawer-close"));
   import("./RecentlyViewedElement.js");
+} else if (document.querySelector("recently-viewed")) {
+ import("./RecentlyViewedElement.js").then(() => {
+   customElements.whenDefined("recently-viewed").then(() => {
+     const el = document.querySelector("recently-viewed");
+     if (el && typeof el._renderProducts === "function") {
+       el._renderProducts();
+       document.querySelector("#recently-viewed-section").style.display = "grid";
+     }
+   });
+ });
 }

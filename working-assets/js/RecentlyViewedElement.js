@@ -53,7 +53,7 @@ export default class RecentlyViewedElement extends HTMLElement {
   }
 
   async _renderProducts() {
-    this.list.innerHTML = ""
+    this.list.innerHTML = "";
 
     let renderedItems = 0;
     for (let i = 0; i < this.flattenedData.length; i++) {
@@ -70,7 +70,14 @@ export default class RecentlyViewedElement extends HTMLElement {
       if (!cartitems.includes(String(item.productId))) {
         try {
           const response = await fetch(productDataUrl);
-          if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+          if (response.status === 404) {
+            continue;
+          }
+
+          if (!response.ok) {
+            console.warn(`Failed to fetch ${item.productName}: ${response.status}`);
+            continue;
+          }
           const productData = await response.json();
 
           // define the data points we will need to create the cards:
@@ -111,7 +118,7 @@ export default class RecentlyViewedElement extends HTMLElement {
 
           // generate the quick atb buttons
           for (let i = 0; i < variants.length; i++) {
-            const vTitle = variants[i].title.replace('One Size', 'Add to Bag');
+            const vTitle = variants[i].title.replace("One Size", "Add to Bag");
             const vId = variants[i].id;
             const vAvailable = variants[i].available ? "qatb-btn" : "qatb-btn--oos";
             qatbBtns += `<a href="/cart/add?id=${vId}&quantity=1" id="qatb-btn--${vId}" data-v-id="${vId}" class="${vAvailable}">${vTitle}</a>`;
