@@ -26,8 +26,8 @@
         {% assign product_ids = product_ids | append: ',' | append: line_item.product.id %}
       {% endfor %}
     {% endfor %}
-
-    <div class="max-width">
+    <div class="loader previous-order-loader"></div>
+    <div class="max-width previous-order-recommendations">
       <h3 class="emphasis left">Perfect additions to your previous order...</h3>
       <div class="carousel" data-last-item="[{{ product_ids | remove_first: ","}}]"></div>
     </div>
@@ -150,6 +150,9 @@
       }
     }
     document.querySelector('.carousel').appendChild(carousel);
+
+    document.querySelector('.previous-order-loader').remove();
+    document.querySelector('.previous-order-recommendations').style.opacity = 1;
   }
 
 
@@ -159,6 +162,11 @@
 </script>
 
 <style>
+  .previous-order-recommendations {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
   .dead-end {
     margin-top: 0;
   }
