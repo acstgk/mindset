@@ -21,6 +21,11 @@
     opacity: 0;
 }
 
+.iwishPage,
+.iWishAdd {
+    display: none !important;
+}
+
 .pdp-carousels-wrapper {
     & .iWish-btn {
         display: none;
@@ -70,6 +75,7 @@
 /* gender selector fallback */
 
 .gender-wrapper {
+
     &>div,
     &>personal-recommendations,
     &>productcard-carousel {
