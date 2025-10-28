@@ -7,7 +7,9 @@
   </a>
 
   <div>
-    <h1><span class="signature">{{ customer.first_name }}'s</span> Account</h1>
+    <h1>
+      <span class="signature">{{ customer.first_name }}'s</span> Account
+    </h1>
     <div class="yotpo-widget-instance" data-yotpo-instance-id="1138809"></div>
   </div>
 </header>
@@ -162,12 +164,12 @@
                 <div class="customer-order--product">
                   {% render 'product-title', product: item.product %}
                   {{ item.product.featured_image | image_url: width: 500 | image_tag }}
-                  <div class="customer-order--product-buttons">
-                    <a href="{{ item.product.url }}#yotpo-app" class="button button-inverted button-full">{% render 'icon', icon: 'star' %} leave review</a>
-                    {% if item.product.available %}
+                  {% if item.product.available %}
+                    <div class="customer-order--product-buttons">
+                      <a href="{{ item.product.url }}#yotpo-main-widget" class="button button-inverted button-full">{% render 'icon', icon: 'star' %} leave review</a>
                       <a href="{{ item.product.url }}" class="button button-secondary button-full"> buy again {% render 'icon', icon: 'arrow' %} </a>
-                    {% endif %}
-                  </div>
+                    </div>
+                  {% endif %}
                 </div>
               {% endfor %}
             </div>

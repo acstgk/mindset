@@ -120,40 +120,49 @@
 </div>
 
 <script>
-  /* global Shopify  */
-  async function getLastOrderRecs() {
-    const productIDs = JSON.parse(document.querySelector('.carousel').dataset.lastItem);
-    const carousel = document.createElement('productcard-carousel');
-    carousel.classList.add('gender-recommendations-carousel', 'product-grid');
-    for (const id of productIDs) {
-      try {
-        const response = await fetch(`${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${id}&limit=4&intent=related`);
-        if (!response.ok) {
-          console.warn(`Skipping purchased product ${id}: HTTP ${response.status}`);
-          continue;
-        }
+  /* global Shopify */
+async function getLastOrderRecs() {
+  const carouselEl = document.querySelector('.carousel');
+  const productIDs = JSON.parse(carouselEl.dataset.lastItem);
 
-        const data = await response.json();
+  // Create a fragment to hold all the content in memory
+  const fragment = document.createDocumentFragment();
 
-        const wrapper = document.createElement('div');
-        wrapper.innerHTML = data['product-dynamic-cards'];
-        const section = wrapper.querySelector('#shopify-section-product-dynamic-cards');
+  const carousel = document.createElement('productcard-carousel');
+  carousel.classList.add('gender-recommendations-carousel', 'product-grid');
 
-        if (section) {
-          while (section.firstChild) {
-            carousel.appendChild(section.firstChild);
-          }
-        }
-      } catch (error) {
-        console.error(`last order recs :: failed for ${id}:`, error);
+  for (const id of productIDs) {
+    try {
+      const response = await fetch(`${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${id}&limit=4&intent=related`);
+      if (!response.ok) {
+        console.warn(`Skipping purchased product ${id}: HTTP ${response.status}`);
         continue;
       }
-    }
-    document.querySelector('.carousel').appendChild(carousel);
 
-    document.querySelector('.previous-order-loader').remove();
-    document.querySelector('.previous-order-recommendations').style.opacity = 1;
+      const data = await response.json();
+      const wrapper = document.createElement('div');
+      wrapper.innerHTML = data['product-dynamic-cards'];
+      const section = wrapper.querySelector('#shopify-section-product-dynamic-cards');
+
+      if (section) {
+        while (section.firstChild) {
+          carousel.appendChild(section.firstChild);
+        }
+      }
+    } catch (error) {
+      console.error(`last order recs :: failed for ${id}:`, error);
+      continue;
+    }
   }
+
+  // Append the complete carousel to the fragment
+  fragment.appendChild(carousel);
+  // Then inject the fragment into the DOM in a single operation
+  carouselEl.appendChild(fragment);
+
+  document.querySelector('.previous-order-loader').remove();
+  document.querySelector('.previous-order-recommendations').style.opacity = 1;
+}
 
 
 {% if customer %}

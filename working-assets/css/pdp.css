@@ -366,6 +366,7 @@ pdp-carousel {
       display: block;
       display: flex;
       justify-content: flex-end;
+      scroll-margin-top: 100px;
     }
   }
 
@@ -373,6 +374,7 @@ pdp-carousel {
     grid-area: 1 / 1 / 2 / 3;
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
   }
 
   & .Price--wrapper {

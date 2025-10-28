@@ -17,7 +17,6 @@
 <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Logo-whitebg.png?v=1753428715" alt="" width="80" height="80" class="roundel">
 
 <div class="form-wrapper">
-
   {% comment %} LOGIN FORM {% endcomment %}
   {%- if is_recover_active -%}
     {%- assign classes = 'login-form customer-form fade-in' -%}
@@ -46,6 +45,7 @@
     </div>
 
     <button type="submit" class="button button-primary button-full">{{ 'customer.login.submit' | t }}</button>
+
     <p>
       {{ 'customer.login.register_label' | t -}}
       <br>
@@ -64,7 +64,7 @@
     {%- assign classes = 'recover-form customer-form fade-in' -%}
   {%- endif -%}
 
-  {%- form 'customer_login', name: 'login', class: classes, id: "recover" -%}
+  {%- form 'customer_login', name: 'login', class: classes, id: 'recover' -%}
     <h1>{{ 'customer.recover_password.title' | t }}</h1>
 
     {%- if form.errors -%}
@@ -110,6 +110,14 @@
     recoverForm.classList.toggle('active');
     loginForm.classList.toggle('active');
   }
+
+  const buttons = document.querySelectorAll('button[type="submit"]');
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      button.style.background = 'var(--clr-grey)';
+      button.innerHTML = '<div class="loader" style="--height:1em;z-index:1;backdrop-filter: invert(1)"></div>';
+    });
+  });
 {% endjavascript %}
 
 {% schema %}

@@ -65,7 +65,7 @@
       {% if show_timer or settings['decal-check'] %}
         {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: loading: 'lazy', class: 'splide__decal' }}
       {% else %}
-       {% render 'evergreen-decal', product: product, class: 'splide__decal' %}
+        {% render 'evergreen-decal', product: product, class: 'splide__decal' %}
       {% endif %}
 
       {% for image in product.images %}
@@ -261,7 +261,9 @@
       <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
       {% comment %} Add to Cart button  {% endcomment %}
       <span class="quantity-warning uppercase"></span>
-      <div class="atc_form-button-spacer" id="atc--container"><button type="submit" id="atc--btn" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button></div>
+      <div class="atc_form-button-spacer" id="atc--container">
+        <button type="submit" id="atc--btn" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button>
+      </div>
     </enhanced-atc>
   </form>
 

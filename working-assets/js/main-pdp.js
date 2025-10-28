@@ -450,7 +450,7 @@ if (!customElements.get("enhanced-atc")) {
       // the add to cart submission method for when all products have selected sizes
       _addToCart = () => {
         const atcButtonContent = this.atcButton.innerHTML;
-        this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;"></div>`;
+        this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;backdrop-filter: invert(1)"></div>`;
         const selectedRadios = this.querySelectorAll('.atc_form-sizes input[type="radio"]:checked');
         const items = Array.from(selectedRadios).map((radio) => ({
           id: radio.value,
