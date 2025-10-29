@@ -16,17 +16,24 @@
               {%- for property in item.properties -%}
                 {% if property.first == 'Items' %}
                   <span class="cart_item--property bundle-items">
-                  {{ property.last | replace: ', ', '<br>' | replace: 'Gym King', '' -}}
+                    {{ property.last | replace: ', ', '<br>' | replace: 'Gym King', '' -}}
                   </span>
                   {% break %}
                 {% endif %}
               {%- endfor -%}
               {%- if item.line_level_discount_allocations != blank -%}
-                  {%- for discount_allocation in item.line_level_discount_allocations -%}
-                      <span class="cart_item--discount">{% render 'icon', icon: 'tag' %} {{ discount_allocation.discount_application.title }}: -{{ discount_allocation.amount | money }}</span>
-                  {%- endfor -%}
+                {%- for discount_allocation in item.line_level_discount_allocations -%}
+                  <span class="cart_item--discount">
+                    {%- render 'icon', icon: 'tag' %}
+                    {{ discount_allocation.discount_application.title }}: -{{ discount_allocation.amount | money -}}
+                  </span>
+                {%- endfor -%}
               {%- endif -%}
-              {% render 'product-price' with item.variant as product %}
+              {% if item.product.tags contains 'easy-bundle' %}
+                <div class="Price--wrapper">{{ item.final_price | money_without_trailing_zeros }}</div>
+              {% else %}
+                {% render 'product-price' with item.variant as product %}
+              {% endif %}
             </div>
           </header>
           <div class="cart_item-quantity">
