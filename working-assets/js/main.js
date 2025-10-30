@@ -415,11 +415,13 @@ class CartAPI {
         body: JSON.stringify({ id: lineItemKey, quantity: quantity }),
       });
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      console.log("success :: lineItemKey:", lineItemKey, "quantity:", quantity);
       const data = await res.json();
       await this.loadCart(); // Reload cart data and dispatch update
       this.dispatchCartUpdate("cart:lineItemUpdated");
       return data;
     } catch (error) {
+      console.log("failed :: lineItemKey:", lineItemKey, "quantity:", quantity);
       console.error("Error updating item:", error);
       return Promise.reject(error);
     }
@@ -807,17 +809,16 @@ if (!customElements.get("line-item")) {
         if (!selector) return;
         const input = selector.querySelector(".qty-input");
 
-        const lineItemKey = this.lineItemKey;
-
         // Handle +/- buttons
         selector.querySelectorAll("[data-new-qty]").forEach((btn) => {
           btn.addEventListener("click", () => {
             const newQty = parseInt(btn.dataset.newQty, 10);
             if (!isNaN(newQty)) {
-              Cart.updateLineItem(lineItemKey, newQty).then(() => {
+              Cart.updateLineItem(this.lineItemKey, newQty).then(() => {
                 // remove the element from the DOM if newQty is zero
                 if (newQty === 0) this.removeItemEl();
-
+                console.log(Cart.cart.items[this.dataset.index]?.key);
+                this.lineItemKey = Cart.cart.items[this.dataset.index]?.key || this.lineItemKey;
                 // update the quantity selector values
                 input.value = newQty;
                 selector.querySelector(".quantity-minus").dataset.newQty = newQty - 1;
@@ -838,7 +839,7 @@ if (!customElements.get("line-item")) {
           const newQty = parseInt(input.value, 10);
           if (!isNaN(newQty) && newQty !== lastQty) {
             lastQty = newQty;
-            Cart.updateLineItem(lineItemKey, newQty);
+            Cart.updateLineItem(this.lineItemKey, newQty);
             // update the cart total
             selector.querySelector(".quantity-minus").dataset.newQty = newQty - 1;
             selector.querySelector(".quantity-plus").dataset.newQty = newQty + 1;
@@ -858,7 +859,7 @@ if (!customElements.get("line-item")) {
         const removeBtn = selector.querySelector(".quantity-zero");
         if (removeBtn) {
           removeBtn.addEventListener("click", () => {
-            Cart.removeItem(lineItemKey).then(() => {
+            Cart.removeItem(this.lineItemKey).then(() => {
               this.removeItemEl();
             });
           });
