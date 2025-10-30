@@ -415,13 +415,11 @@ class CartAPI {
         body: JSON.stringify({ id: lineItemKey, quantity: quantity }),
       });
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-      console.log("success :: lineItemKey:", lineItemKey, "quantity:", quantity);
       const data = await res.json();
       await this.loadCart(); // Reload cart data and dispatch update
       this.dispatchCartUpdate("cart:lineItemUpdated");
       return data;
     } catch (error) {
-      console.log("failed :: lineItemKey:", lineItemKey, "quantity:", quantity);
       console.error("Error updating item:", error);
       return Promise.reject(error);
     }
