@@ -1,36 +1,49 @@
-<link rel="stylesheet" href="{{ 'cart.min.css' | asset_url }}">
+<div class="max-width">
+  <div class="cart">
+    <div class="cart-title">
+      <h1>Your Bag</h1>
+      {% if cart.item_count > 0 %}
+        <a href="/checkout" class="checkout-button button button-primary"
+          >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
+        </a>
+      {% endif %}
+    </div>
 
-<div class="cart-title">
-  <h1>Your Bag</h1>
-  {% if cart.item_count > 0 %}
-    <a href="/checkout" class="checkout-button button button-primary"
-      >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
-    </a>
-  {% endif %}
+    {% if cart.item_count == 0 %}
+      <p class="center">Your Shopping Bag is empty.</p>
+    {% else %}
+      <div class="cart-header">
+        <div>Product</div>
+        <div>Quantity</div>
+        <div>Total</div>
+      </div>
+      {% render 'cart-items' %}
+      <div class="cart-footer">
+        {% render 'free-delivery-information' %}
+        <a href="/checkout" class="checkout-button button button-primary"
+          >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
+        </a>
+        {% render 'payment-icons' %}
+      </div>
+    {% endif %}
+  </div>
+
+  {% render 'cart-upsells' %}
+  {% comment %} {% render 'trust-widget' with 'micro' %} {% endcomment %}
 </div>
 
-{% if cart.item_count == 0 %}
-  <p class="center">Your Shopping Bag is empty.</p>
-{% else %}
-  <div class="cart-header">
-    <div>Product</div>
-    <div>Quantity</div>
-    <div>Total</div>
+<div class="accent-bg">
+  <div class="max-width">
+    <h3 class="h4 no-block-margin" style="margin-top: 4rem">Forgotten something?</h3>
+    {% render 'dead-end' %}
   </div>
-  {% render 'cart-items' %}
-  <div class="cart-footer">
-    <a href="/checkout" class="checkout-button button button-primary"
-      >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
-    </a>
-  </div>
-{% endif %}
-{% render 'payment-icons' %}
-{% render 'trust-widget' with 'micro' %}
+</div>
 
+<link rel="stylesheet" href="{{ 'cart.min.css' | asset_url }}">
 {% schema %}
 {
   "name": "Main Cart",
-  "class": "max-width section--cart_content",
+  "class": "section--cart_content",
   "limit": 1,
   "settings": []
 }

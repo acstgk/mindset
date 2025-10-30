@@ -113,7 +113,8 @@ export default class ProductCard extends HTMLElement {
     for (let i = 0, len = loopEnd; i < len; i++) {
       const img = document.createElement("img");
       img.src = imgURLs[i];
-      img.alt = productTitle;
+      img.draggable = false;
+      img.alt = `${productTitle} - image ${i + 1}`;
       images.appendChild(img);
     }
 
