@@ -1,3 +1,8 @@
+{% assign locale_uk = false %}
+{% if request.locale.iso_code == 'en' %}
+  {% assign locale_uk = true %}
+{% endif %}
+
 <div class="max-width">
   <div class="cart">
     <div class="cart-title">
@@ -19,7 +24,9 @@
       </div>
       {% render 'cart-items' %}
       <div class="cart-footer">
-        {% render 'free-delivery-information' %}
+        {% if locale_uk == false %}
+          {% render 'free-delivery-information' %}
+        {% endif %}
         <a href="/checkout" class="checkout-button button button-primary"
           >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
         </a>
@@ -27,6 +34,10 @@
       </div>
     {% endif %}
   </div>
+
+  {% unless locale_uk == false %}
+    {% render 'delivery-estimator' %}
+  {% endunless %}
 
   {% render 'cart-upsells' %}
   {% comment %} {% render 'trust-widget' with 'micro' %} {% endcomment %}

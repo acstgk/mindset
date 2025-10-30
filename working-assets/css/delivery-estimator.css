@@ -1,0 +1,42 @@
+ delivery-estimate {
+   display: block;
+
+   &.accent-bg {
+     padding-inline: min(5vw, 4rem);
+   }
+
+   & form {
+     width: 100%;
+   }
+
+   & .button {
+     margin: 1rem 0 1rem auto;
+     display: block;
+   }
+
+   & ul {
+     justify-content: left;
+   }
+
+   & li {
+     background: var(--c-white);
+     padding: 2rem;
+   }
+ }
+
+ .field {
+   flex: 1 1 auto;
+
+   &:last-child {
+     flex: 1 0 20ch;
+   }
+ }
+
+ .estimator-inputs {
+   display: flex;
+   gap: 1rem;
+   width: 100%;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+ }

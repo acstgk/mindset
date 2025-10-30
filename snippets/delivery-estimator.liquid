@@ -1,0 +1,74 @@
+<delivery-estimate class="accent-bg">
+  <h4>Get a Shipping Estimate</h4>
+
+  <form id="shipping-estimator-form">
+    <div class="estimator-inputs">
+      <div class="field" id="address_country_container">
+        <label for="address_country">Country</label>
+        <select id="address_country" name="country" data-default="{{ shop.address.country }}">
+          {{ all_country_option_tags }}
+        </select>
+      </div>
+      <div class="field" id="address_province_container">
+        <label for="address_province">Province/State</label>
+        <select id="address_province" name="province" data-default="{{ shop.address.province }}"></select>
+      </div>
+      <div class="field">
+        <label for="address_zip">Postal/ZIP Code</label>
+        <input type="text" id="address_zip" name="zip">
+      </div>
+    </div>
+
+    <button type="submit" class="button button-primary">Calculate Shipping</button>
+  </form>
+  <div id="shipping-estimator-results" class="shipping-estimator-results"></div>
+</delivery-estimate>
+
+<link rel="stylesheet" href="{{ 'delivery-estimator.min.css' | asset_url }}">
+{{ 'shopify_common.js' | shopify_asset_url | script_tag }}
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    Shopify.CountryProvinceSelector = new Shopify.CountryProvinceSelector('address_country', 'address_province', {
+      hideElement: 'address_province_container',
+    });
+
+    const form = document.getElementById('shipping-estimator-form');
+    const resultsDiv = document.getElementById('shipping-estimator-results');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      resultsDiv.innerHTML = 'Fetching rates...';
+
+      const country = document.getElementById('address_country').value;
+      const province = document.getElementById('address_province').value;
+      const zip = document.getElementById('address_zip').value;
+
+      const query = new URLSearchParams({
+        'shipping_address[country]': country,
+        'shipping_address[province]': province,
+        'shipping_address[zip]': zip,
+      }).toString();
+
+      fetch(`/cart/shipping_rates.json?${query}`)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.shipping_rates && data.shipping_rates.length > 0) {
+            console.log('Shipping rates found :: ', data.shipping_rates);
+            const ratesHtml = data.shipping_rates
+              .map((rate) => `<li><b>${rate.name}</b><br>&nbsp;&nbsp;&nbsp;&nbsp;Price: ${rate.price == '0.00' ? 'FREE' : rate.price + ' ' + rate.currency}${rate.delivery_days[1] ? '<br>&nbsp;&nbsp;&nbsp;&nbsp;Delivery within: ' + rate.delivery_days[1] + " days" : ''}</li>`)
+              .join('');
+            resultsDiv.innerHTML = `<p>${data.shipping_rates.length} delivery options found for you:</p><ul>${ratesHtml}</ul>`;
+          } else {
+            resultsDiv.innerHTML = '<p>No rates available for this location.</p>';
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          resultsDiv.innerHTML = '<p>Error fetching rates. Please try again.</p>';
+        });
+    });
+  });
+</script>
