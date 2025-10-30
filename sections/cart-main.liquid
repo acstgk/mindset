@@ -1,4 +1,13 @@
-<h1>Your Bag</h1>
+<link rel="stylesheet" href="{{ 'cart.min.css' | asset_url }}">
+
+<div class="cart-title">
+  <h1>Your Bag</h1>
+  {% if cart.item_count > 0 %}
+    <a href="/checkout" class="checkout-button button button-primary"
+      >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
+    </a>
+  {% endif %}
+</div>
 
 {% if cart.item_count == 0 %}
   <p class="center">Your Shopping Bag is empty.</p>
@@ -15,64 +24,8 @@
     </a>
   </div>
 {% endif %}
-
-{% style%}
-  .section--cart_content {
-    max-width: 800px;
-  }
-
-  .cart-header,
-  .cart-footer {
-    display: grid;
-    grid-template-columns: 200px 3fr 2fr 1fr;
-    gap: 10px;
-    border-bottom: 1px solid var(--c-grey);
-    padding-bottom: 10px;
-
-    & > div:first-child {
-      grid-area: 1 / 1 / 2 / 3;
-    }
-
-    & > div:last-child {
-      text-align: right;
-      display: none;
-    }
-
-    & > div:nth-child(2) {
-      text-align: center;
-      display: none;
-    }
-  }
-
-  .cart-footer {
-    border: 0;
-    padding-top: 10px;
-    gap: 0;
-    grid-template-columns: 1fr;
-    display: flex;
-    justify-content: flex-end;
-    flex-flow: column nowrap;
-
-    & .checkout-button {
-      font-size: var(--txt-h4);
-      font-weight: 700;
-      width: 100%;
-    }
-  }
-
-  @media screen and (width > 500px) {
-    .cart-header > div:last-child {
-      display: block;
-      grid-area: 1 / 4 / 2 / 5;
-    }
-  }
-
-  @media screen and (width > 768px) {
-    .cart-header > div:nth-child(2) {
-      display: block;
-    }
-  }
-{% endstyle%}
+{% render 'payment-icons' %}
+{% render 'trust-widget' with 'micro' %}
 
 {% schema %}
 {
