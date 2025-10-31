@@ -13,6 +13,30 @@
    margin-top: 0;
  }
 
+ .usp {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+   border: 1px solid var(--c-light-grey);
+   padding: 3rem;
+   align-items: center;
+
+   &>* {
+     flex: 0 1 100%
+   }
+
+   & .rtf {
+     padding: 2rem;
+   }
+
+ }
+
+ @media (min-width: 600px) {
+   .usp>* {
+     flex: 0 1 45%;
+   }
+ }
+
  .cart-header,
  .cart-footer {
    display: grid;
