@@ -137,12 +137,12 @@ countdown-timer {
     &:after {
       left: 1px;
       text-shadow: -2px 0 #d04d6aff;
-      animation: glitch-before 2.5s linear 0s infinite alternate;
+      animation: glitch-before 6s linear  infinite alternate;
     }
 
     &:before {
       text-shadow: -2px 0 #38bda7ff;
-      animation: glitch-after 2.5s linear 0s infinite alternate;
+      animation: glitch-after 6s linear  infinite alternate;
     }
   }
 }
@@ -150,54 +150,54 @@ countdown-timer {
 @keyframes glitch-before {
 
   0%,
-  5%,
-  95%,
+  20%,
+  80%,
   100% {
     clip: rect(0px, 600px, 0px, 0px);
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  10% {
+  25% {
     clip: rect(7px, 600px, 27px, 0px);
     color: white;
     text-shadow: -4px 0 #d04d6aff;
   }
 
-  15% {
+  30% {
     clip: rect(24px, 600px, 38px, 0px);
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  20% {
+  35% {
     clip: rect(13px, 600px, 19px, 0px);
     text-shadow: 6px 0 #d04d6aff;
   }
 
-  25% {
+  40% {
     clip: rect(30px, 600px, 32px, 0px);
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  30% {
-    clip: rect(73px, 600px, 79px, 0px);
+  42% {
+  clip: rect(73px, 600px, 79px, 0px);
   }
 
-  35% {
+  45% {
     clip: rect(15px, 600px, 27px, 0px);
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  40% {
+  47% {
     clip: rect(41px, 600px, 55px, 0px);
     text-shadow: -4px 0 #d04d6aff;
   }
 
-  45% {
+  50% {
     clip: rect(29px, 600px, 45px, 0px);
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  50% {
+  52% {
     clip: rect(3px, 600px, 14px, 0px);
   }
 
@@ -206,36 +206,36 @@ countdown-timer {
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  60% {
+  58% {
     clip: rect(11px, 600px, 25px, 0px);
     text-shadow: -6px 0 #d04d6aff;
   }
 
-  65% {
+  60% {
     clip: rect(34px, 600px, 50px, 0px);
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  70% {
+  65% {
     clip: rect(2px, 600px, 18px, 0px);
   }
 
-  75% {
+  70% {
     clip: rect(46px, 600px, 62px, 0px);
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  80% {
+  72% {
     clip: rect(8px, 600px, 21px, 0px);
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  85% {
+  75% {
     clip: rect(20px, 600px, 37px, 0px);
     text-shadow: -2px 0 #d04d6aff;
   }
 
-  90% {
+  78% {
     clip: rect(57px, 600px, 72px, 0px);
   }
 }
@@ -243,51 +243,51 @@ countdown-timer {
 @keyframes glitch-after {
 
   0%,
-  5%,
-  95%,
-  100% {
+    20%,
+    80%,
+    100% {
     clip: rect(0px, 600px, 0px, 0px);
   }
 
-  10% {
+  25% {
     clip: rect(87px, 600px, 88px, 0px);
     color: #d3d3d3;
     text-shadow: -6px 0 #38bda7ff;
   }
 
-  15% {
+  30% {
     clip: rect(0px, 600px, 20px, 0px);
     text-shadow: -2px 0 #38bda7ff;
   }
 
-  20% {
+  35% {
     clip: rect(70px, 600px, 72px, 0px);
   }
 
-  25% {
+  40% {
     clip: rect(36px, 600px, 51px, 0px);
   }
 
-  30% {
+  42% {
     clip: rect(40px, 600px, 54px, 0px);
     text-shadow: -2px 0 #38bda7ff;
   }
 
-  35% {
+  45% {
     clip: rect(12px, 600px, 24px, 0px);
     text-shadow: -4px 0 #38bda7ff;
   }
 
-  40% {
+  48% {
     clip: rect(59px, 600px, 75px, 0px);
     text-shadow: -2px 0 #38bda7ff;
   }
 
-  45% {
+  50% {
     clip: rect(26px, 600px, 45px, 0px);
   }
 
-  50% {
+  52% {
     clip: rect(5px, 600px, 21px, 0px);
   }
 
@@ -295,37 +295,37 @@ countdown-timer {
     clip: rect(18px, 600px, 35px, 0px);
   }
 
-  60% {
+  58% {
     clip: rect(62px, 600px, 78px, 0px);
     text-shadow: -2px 0 #38bda7ff;
   }
 
-  65% {
+  60% {
     clip: rect(8px, 600px, 28px, 0px);
     text-shadow: -8px 0 #38bda7ff;
   }
 
-  70% {
+  65% {
     clip: rect(44px, 600px, 61px, 0px);
     text-shadow: -2px 0 #38bda7ff;
   }
 
-  75% {
+  70% {
     clip: rect(1px, 600px, 20px, 0px);
     text-shadow: -2px 0 #38bda7ff;
   }
 
-  80% {
+  72% {
     clip: rect(23px, 600px, 38px, 0px);
     text-shadow: 6px 0 #38bda7ff;
   }
 
-  85% {
+  75% {
     clip: rect(16px, 600px, 35px, 0px);
     text-shadow: -2px 0 #38bda7ff;
   }
 
-  90% {
+  78% {
     clip: rect(29px, 600px, 45px, 0px);
   }
 }
