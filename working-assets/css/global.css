@@ -585,7 +585,7 @@ button {
 @media screen and (width > 768px) {
     .mob-only {
         display: none !important;
-        visibility: none !important;
+        visibility: hidden !important;
     }
 
     .mob-hide {
