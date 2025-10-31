@@ -1,3 +1,5 @@
+{{ 'splash-page.min.css' | asset_url | stylesheet_tag }}
+
 {% if section.settings.eventVideo %}
   {{ section.settings.eventVideo | video_tag: image_size: '1100x', preload: true, playsinline: true, autoplay: true, mute: true, loop: true, class: 'launchvideo' }}
 {% elsif section.settings.eventLogo %}
@@ -106,90 +108,6 @@
   </script>
 </div>
 
-<style>
-  .section--splash-page {
-    display: grid;
-    max-width: 1270px;
-    margin: 0 auto;
-
-    & .launchimg {
-      grid-area: 1 / 1;
-      height: 100%;
-    }
-    & .column2 {
-      grid-area: 1 / 1;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      margin-bottom: 5rem;
-      & .rtf {
-        padding: 1rem;
-      }
-      & h1,
-      & h2 {
-        margin: 0;
-      }
-      & > * {
-        background: rgb(255 255 255 / 0.8);
-        backdrop-filter: blur(3px) brightness(1.3);
-        width: 100%;
-      }
-    }
-
-    & form {
-      width: auto;
-      padding: 1rem;
-      backdrop-filter: blur(3px) brightness(1.3);
-    }
-  }
-
-  form .telcode {
-    display: flex;
-    margin-bottom: 0.5rem;
-
-    &::before {
-      display: block;
-      content: '+44';
-      background: var(--c-off-white);
-      display: grid;
-      place-content: center;
-      border: 1px solid var(--c-grey);
-      border-right: 0;
-      width: 8ch;
-    }
-    & label {
-      left: 10ch;
-    }
-  }
-  .input-group-btn {
-    margin-top: 1rem;
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: stretch;
-
-    & > button,
-    & > a {
-      flex: 1 1 auto;
-    }
-  }
-
-  @media screen and (width > 700px) {
-    .section--splash-page {
-      grid-template-columns: 1fr 1fr;
-      & .launchimg {
-        max-height: 100vh;
-        max-height: calc(100vh - 100px);
-      }
-      & .column2 {
-        grid-area: 1 / 2 / 2 / 3;
-        justify-content: center;
-        margin-bottom: 0;
-      }
-    }
-  }
-</style>
 
 {% schema %}
 {

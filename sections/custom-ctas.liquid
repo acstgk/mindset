@@ -13,14 +13,12 @@
   <style>
     .Button-container {
       background: #1b1b1b;
-
-      & > .Button--white {
-        color: #1b1b1b !important;
-
-        &::before {
-          background-color: white !important ;
-        }
-      }
+    }
+    .Button-container > .Button--white {
+      color: #1b1b1b !important;
+    }
+    .Button-container::before {
+      background-color: white !important ;
     }
   </style>
 {% endif %}

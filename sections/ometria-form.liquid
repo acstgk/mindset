@@ -103,55 +103,54 @@
     display: block;
   }
   .rtf {
-        padding: 1rem;
-      }
-      & h1,
-      & h2 {
-        margin: 0;
-      }
-      & > * {
-        background: rgb(255 255 255 / 0.8);
-        backdrop-filter: blur(3px) brightness(1.3);
-        width: 100%;
-      }
-    }
+    padding: 1rem;
+  }
+  .rtf h1,
+  .rtf h2 {
+    margin: 0;
+  }
+  .rtf > * {
+    background: rgb(255 255 255 / 0.8);
+    backdrop-filter: blur(3px) brightness(1.3);
+    width: 100%;
+  }
 
-    & form {
-      width: auto;
-      padding: 1rem;
-      backdrop-filter: blur(3px) brightness(1.3);
-    }
+  ometria-form form {
+    width: auto;
+    padding: 1rem;
+    backdrop-filter: blur(3px) brightness(1.3);
   }
 
   form .telcode {
     display: flex;
     margin-bottom: 0.5rem;
-
-    &::before {
-      display: block;
-      content: '+44';
-      background: var(--c-off-white);
-      display: grid;
-      place-content: center;
-      border: 1px solid var(--c-grey);
-      border-right: 0;
-      width: 8ch;
-    }
-    & label {
-      left: 10ch;
-    }
   }
+
+  form .telcode::before {
+    display: block;
+    content: '+44';
+    background: var(--c-off-white);
+    display: grid;
+    place-content: center;
+    border: 1px solid var(--c-grey);
+    border-right: 0;
+    width: 8ch;
+  }
+
+  form .telcode label {
+    left: 10ch;
+  }
+
   .input-group-btn {
     margin-top: 1rem;
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
     justify-content: stretch;
-
-    & > button,
-    & > a {
-      flex: 1 1 auto;
-    }
+  }
+  .input-group-btn > button,
+  .input-group-btn > a {
+    flex: 1 1 auto;
   }
 </style>
 

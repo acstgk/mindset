@@ -12,29 +12,29 @@
   {% endfor %}
 </content-accordian>
 
-{% style %}
+<style>
   .accordian-header {
     padding: 0.5rem 1rem;
     margin-block: 0.25rem;
   }
 
-  .accordian-content {
-    & p:first-child {
-      margin-top: 1rem;
-    }
+  .accordian-content p:first-child {
+    margin-top: 1rem;
   }
-{% endstyle %}
+</style>
 
 {% schema %}
 {
   "name": "Content Accordian",
   "class": "section--content-accordian max-width",
-  "settings": [ {
-  "type": "checkbox",
-  "id": "openFirst",
-  "label": "Open first item by default?",
-  "default": true
-  }],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "openFirst",
+      "label": "Open first item by default?",
+      "default": true
+    }
+  ],
   "max_blocks": 20,
   "blocks": [
     {

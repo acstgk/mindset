@@ -43,18 +43,17 @@
     padding-bottom: 5rem;
   }
 
-  .section--careers-main {
-    & h1 {
-      font-size: var(--txt-xl);
-      margin: 0;
-    }
-    & img {
-      height: var(--txt-xl);
-      aspect-ratio: 1;
-      width: auto;
-      filter: invert(1);
-    }
+  .section--careers-main h1 {
+    font-size: var(--txt-xl);
+    margin: 0;
   }
+  .section--careers-main img {
+    height: var(--txt-xl);
+    aspect-ratio: 1;
+    width: auto;
+    filter: invert(1);
+  }
+
   .careers--header {
     background: url('https://cdn.shopify.com/s/files/1/1659/8997/files/ml_background_91e7a81b-43a4-4ccb-a54a-be856392a0d2.png?v=1654097106');
     background-position: 0 26%;
@@ -68,10 +67,11 @@
     gap: 0 1.2rem;
     font-size: var(--txt-xl);
     margin: 2rem 0;
-    & p {
-      font-size: var(--txt-h3);
-      text-align: center;
-    }
+  }
+
+  .careers--header p {
+    font-size: var(--txt-h3);
+    text-align: center;
   }
 
   .rtf p {
@@ -101,9 +101,9 @@
     width: 100%;
     gap: 2rem;
     justify-items: center;
-    & h2 {
-      margin-top: 0;
-    }
+  }
+  .careers--content h2 {
+    margin-top: 0;
   }
 </style>
 

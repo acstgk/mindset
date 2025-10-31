@@ -1,0 +1,60 @@
+.returns-info--block,
+.returns-info--portals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 0 1rem;
+}
+
+.returns-info--steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1.2rem;
+  padding: 2rem;
+
+  &>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    &>p {
+      margin: auto 0 0 0;
+    }
+  }
+
+  & img {
+    width: 60px;
+    margin: 0 auto;
+  }
+}
+
+.returns-info--footer {
+  padding: 2rem 0.5rem;
+
+  & h3 {
+    text-transform: none;
+    margin-bottom: 0;
+  }
+
+  & a {
+    margin: 1rem 0 1.5rem;
+  }
+}
+
+.returns-info--portals,
+.returns-info--contact {
+  text-align: center;
+
+  & h3 {
+    margin-bottom: 0;
+  }
+}
+
+.portal {
+  border-bottom: 1px solid var(--c-light-grey);
+  padding-bottom: 1rem;
+}
+
+.returns-info {
+  padding: 1rem;
+}

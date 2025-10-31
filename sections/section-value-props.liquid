@@ -13,7 +13,7 @@
   {% endif %}
 {% endfor %}
 
-{% style%}
+{% style %}
   .info-strip {
     margin-block: 15px;
     display: flex;
@@ -24,17 +24,18 @@
     font-size: var(--txt--2);
     text-wrap: pretty;
     text-align: center;
-
-    & .countdown-decal {
-      display: inline-block;
-    }
-
-    & svg {
-      min-width: 20px;
-      height: 20px;
-      margin-right: 5px;
-    }
   }
+
+  .info-strip .countdown-decal {
+    display: inline-block;
+  }
+
+  .info-strip svg {
+    min-width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+
   .info-strip__block {
     display: flex;
     justify-content: center;
@@ -46,28 +47,28 @@
     position: relative;
     align-content: center;
     transition: filter 0.2s ease;
+  }
 
-    & > p,
-    & > a {
-      flex-grow: 1;
-    }
+  .info-strip__block > p,
+  .info-strip__block > a {
+    flex-grow: 1;
   }
 
   @media screen and (width > 641px) {
     .info-strip {
       flex-direction: row;
       gap: 15px;
+    }
 
-      & a:hover {
-        filter: brightness(0.96);
-      }
+    .info-strip a:hover {
+      filter: brightness(0.96);
     }
 
     .info-strip__block {
       padding: 15px 20px;
     }
   }
-{% endstyle%}
+{% endstyle %}
 
 {% schema %}
 {

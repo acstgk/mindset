@@ -52,24 +52,27 @@
     z-index: 11;
     padding: 4rem 1rem 2rem;
     overflow: hidden;
-    & .bnpl-modal--content {
-      overflow-y: auto;
-      position: static;
-      max-height: calc(100vh - 6rem);
-      padding: 0.5rem;
-    }
+  }
+
+  .bnpl-modal .bnpl-modal--content {
+    overflow-y: auto;
+    position: static;
+    max-height: calc(100vh - 6rem);
+    padding: 0.5rem;
   }
 
   button.modal-close {
     position: absolute;
     inset: 1.5rem 1rem auto auto;
-    & svg {
-      transform: rotate(0deg);
-      transition: transform 0.4s var(--bezier);
-    }
-    &:hover svg {
-      transform: rotate(360deg);
-    }
+  }
+
+  button.modal-close svg {
+    transform: rotate(0deg);
+    transition: transform 0.4s var(--bezier);
+  }
+
+  button.modal-close :hover svg {
+    transform: rotate(360deg);
   }
 
   @media screen and (width > 768px) {
@@ -77,10 +80,11 @@
       width: var(--max-width);
       max-height: min(90vh, 950px);
       padding: 4rem 3rem 3rem;
-      & .bnpl-modal--content {
-        max-height: calc(90vh - 7rem);
-        height: 100%;
-      }
+    }
+
+    .bnpl-modal .bnpl-modal--content {
+      max-height: calc(90vh - 7rem);
+      height: 100%;
     }
   }
 {% endstyle %}
