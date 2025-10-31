@@ -44,11 +44,13 @@
   {% endif %}
 {% endcapture %}
 
+
+
 <product-card
   data-id="{{ product.id }}"
   data-instock="{{product.available}}"
   id="{{ product.id }}"
-  class="ProductItem {{ class }} modal-{{- modal-}} "
+  class="{{ class }} modal-{{- modal-}} "
 >
   {% comment %} images and interactions {% endcomment %}
   <div class="product_card-media {% if product.available == false %}oos-overlay{% endif %}">

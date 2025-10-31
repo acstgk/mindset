@@ -1,58 +1,59 @@
 {% assign position_count = 0 %}
-<infinite-scroll class="max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}">
-  {%- for product in product_list -%}
-    {% assign lazyload = 'lazy' %}
-    {% if forloop.index0 < 5 %}
-      {% assign lazyload = 'eager' %}
-    {% endif %}
+  <infinite-scroll class="max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}">
+    {%- for product in product_list -%}
+      {% assign lazyload = 'lazy' %}
+      {% if forloop.index0 < 5 %}
+        {% assign lazyload = 'eager' %}
+      {% endif %}
 
-    {% if template.name == 'collection' %}
-      {% assign position_count = position_count | plus: 1 %}
-      {% assign current_page = paginate.current_page | modulo: 3 %}
-      {% case current_page %}
-        {% when 0 -%}
-          {%- assign banner_location = 7 %}
-        {% when 2 -%}
-          {%- assign banner_location = 11 %}
-        {% when 1 -%}
-          {%- assign banner_location = 13 %}
-      {% endcase %}
+      {% if template.name == 'collection' %}
+        {% assign position_count = position_count | plus: 1 %}
+        {% assign current_page = paginate.current_page | modulo: 3 %}
+        {% case current_page %}
+          {% when 0 -%}
+            {%- assign banner_location = 7 %}
+          {% when 2 -%}
+            {%- assign banner_location = 11 %}
+          {% when 1 -%}
+            {%- assign banner_location = 13 %}
+        {% endcase %}
 
-      {% if position_count == banner_location %}
-        {% assign gender = product.vendor | downcase %}
-        {% assign gender_key = gender %}
-        {% if gender == 'boys' or gender == 'girls' %}
-          {% assign gender_key = 'kids' %}
-        {% endif %}
-        {% assign gender_letter = gender_key | slice: 0, 1 %}
+        {% if position_count == banner_location %}
+          {% assign gender = product.vendor | downcase %}
+          {% assign gender_key = gender %}
+          {% if gender == 'boys' or gender == 'girls' %}
+            {% assign gender_key = 'kids' %}
+          {% endif %}
+          {% assign gender_letter = gender_key | slice: 0, 1 %}
 
-        {% assign tier = '3' %}
-        {% if paginate.current_page >= 3 and current_page == 0 and forloop.last == false %}
           {% assign tier = '3' %}
-        {% elsif paginate.current_page >= 2 and current_page == 2 and forloop.last == false %}
-          {% assign tier = '2' %}
-        {% elsif forloop.last == false %}
-          {% assign tier = '' %}
-        {% endif %}
+          {% if paginate.current_page >= 3 and current_page == 0 and forloop.last == false %}
+            {% assign tier = '3' %}
+          {% elsif paginate.current_page >= 2 and current_page == 2 and forloop.last == false %}
+            {% assign tier = '2' %}
+          {% elsif forloop.last == false %}
+            {% assign tier = '' %}
+          {% endif %}
 
-        {% assign img_key = 'img-' | append: gender_key | append: '-content' %}
-        {% assign url_key = 'url' | append: gender_letter | append: '-plp-content' %}
-        {% if tier != '' %}
-          {% assign img_key = img_key | append: '-' | append: tier %}
-          {% assign url_key = url_key | append: '-' | append: tier %}
-        {% endif %}
+          {% assign img_key = 'img-' | append: gender_key | append: '-content' %}
+          {% assign url_key = 'url' | append: gender_letter | append: '-plp-content' %}
+          {% if tier != '' %}
+            {% assign img_key = img_key | append: '-' | append: tier %}
+            {% assign url_key = url_key | append: '-' | append: tier %}
+          {% endif %}
 
-        {% if settings[img_key] %}
-          <article class="product-grid-insert">
-            <a data-gender="{{ collection.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}">
-              {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1220px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazy' }}
-            </a>
-          </article>
+          {% if settings[img_key] %}
+            <article class="product-grid-insert">
+              <a data-gender="{{ collection.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}">
+                {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1220px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazy' }}
+              </a>
+            </article>
+          {% endif %}
         {% endif %}
       {% endif %}
-    {% endif %}
 
-    {% comment %} ---- Product Cards ---- {% endcomment %}
-    <article data-page="{{ page }}" id="product-id-{{- product.id -}}">{%- render 'product-card', product: product, loading: lazyload -%}</article>
-  {%- endfor -%}
-</infinite-scroll>
+      {% comment %} ---- Product Cards ---- {% endcomment %}
+      <article data-page="{{ page }}" id="item-{{- product.id -}}" class="Grid__Item">{%- render 'product-card', product: product, loading: lazyload -%}</article>
+    {%- endfor -%}
+  </infinite-scroll>
+

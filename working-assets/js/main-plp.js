@@ -16,7 +16,7 @@ function gridSize() {
     return;
   }
 
-  grid.classList = "max-width ProductListWrapper";
+  grid.classList = "max-width";
   grid.classList.add(gridSize);
   grid.style.opacity = 1;
   document.querySelector(".column-controls").dataset.grid = gridSize;
