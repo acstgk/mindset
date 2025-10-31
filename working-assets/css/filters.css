@@ -364,7 +364,7 @@ filters-menu-bar {
       box-shadow: none;
       height: auto;
       max-width: none;
-      overflow: visible;
+      visibility: visible;
       overflow: initial;
       opacity: 1;
       padding: 0;
