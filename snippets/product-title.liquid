@@ -15,7 +15,7 @@
 
 {%- if product.title contains '-' or product.title contains '–' %}
   {%- assign product_title = product.title | replace: '–', '-' | split: '-' -%}
-  <a class="Title" href="{{ product.url }}">
+  <a class="Title" href="{%if product.available %}{{ product.url }}{% else %}#{% endif %}">
     <{{ element_type }} class="{%- if heading -%}h4{% endif %} title">
       {{- product.title | remove: 'Gym King ' | remove: product_title.last | remove_last: '-' | strip -}}
     </{{ element_type }}>
