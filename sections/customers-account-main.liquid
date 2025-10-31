@@ -8,7 +8,7 @@
 
   <div>
     <h1>
-      <span class="signature">{{ customer.first_name }}'s</span> Account
+     {%if customer.first_name %} <span class="signature">{{ customer.first_name }}'s</span>{% else %}Your{% endif %} Account
     </h1>
     <div class="yotpo-widget-instance" data-yotpo-instance-id="1138809"></div>
   </div>
