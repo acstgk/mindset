@@ -5,7 +5,7 @@
       href="{{ block.settings.block_link.url }}"
       style="background:{{ block.settings.bg_colour }};color:{{block.settings.txt_colour}}"
     >
-      {% unless block.settings.icon == 'noicon' %}{% render 'icon' with block.settings.icon %}{% endunless %}
+      {% unless block.settings.icon == 'noicon' %}{% render 'icon', icon: block.settings.icon %}{% endunless %}
       <p>
         {{- block.settings.title }}
       </p>
