@@ -1,0 +1,70 @@
+<h3 class="h4">As Seen in</h3>
+
+<div class="icons-grid">
+  <div class="icons-grid--card splide__slide">
+    <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+      <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/JD_Sports_logo.svg?v=1734105071" alt="JD Sport" width="50" height="50">
+    </div>
+    <p class="h5">JD Sport</p>
+  </div>
+
+  <div class="icons-grid--card splide__slide">
+    <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+      <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Very-Logo.svg?v=1734340268" alt="very.co.uk" width="50" height="50">
+    </div>
+    <p class="h5">Very</p>
+  </div>
+
+  <div class="icons-grid--card splide__slide">
+    <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+      <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/h-and-m_Logo.png?v=1761908050" alt="uk" width="50" height="50">
+    </div>
+    <p class="h5">H&M</p>
+  </div>
+
+  <div class="icons-grid--card splide__slide">
+    <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+      <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Sports_Direct_logo.svg?v=1734340254" alt="Sports Direct" width="50" height="50">
+    </div>
+    <p class="h5">Sports Direct</p>
+  </div>
+  <div class="icons-grid--card splide__slide">
+    <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+      <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Asos-Logo.svg?v=1734340288" alt="Sports Direct" width="50" height="50">
+    </div>
+    <p class="h5">ASOS</p>
+  </div>
+  <div class="icons-grid--card splide__slide">
+    <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+      <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/New-Look-Logo.svg?v=1734340299" alt="Sports Direct" width="50" height="50">
+    </div>
+    <p class="h5">New Look</p>
+  </div>
+</div>
+
+<style>
+  .icons-grid {
+  justify-content: center
+}
+
+  .icons-grid--card img {
+   object-fit: contain;
+   filter: grayscale(1);
+  }
+</style>
+
+<script type="module">
+  import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
+  SplideUtil.splideInit('.icons-grid', {
+    type: 'loop',
+    pagination: true,
+    arrows: false,
+    fixedWidth: '100px',
+    autoplay: true,
+    interval: 4500,
+    speed: 1000,
+    pauseOnHover: true,
+    gap: '2rem',
+    focus: 'center',
+  });
+</script>
