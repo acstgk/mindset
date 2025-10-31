@@ -44,17 +44,11 @@
 
   <div class="usp">
     <div class="img">
-      <img src="https://thegymking.com/cdn/shop/files/hisandhers.jpg?v=1761296439" alt="">
+      {{ section.settings.about_img| image_url: width: '700' | image_tag }}
     </div>
     <div class="rtf">
       <h3 class="h4">Why Gym King?</h3>
-
-      <p>With over 35,000 5* reviews on Trustpilot, there’s a reason our bestsellers are in demand.&nbsp;</p>
-      <p>At Gym King, we focus on premium quality and great fitting designs with affordable prices. We want you to look and feel your best all day long.&nbsp;</p>
-      <p><strong>Discover what our customers are saying about us:</strong></p>
-      <p><em>“I absolutely love Gym King. Their products are outstanding quality.”</em></p>
-      <p><em>“10/10. Great fit. Fast delivery. Amazing value. Can’t ask for more than that.”</em></p>
-      <p><em>“Love everything about Gym King. The material, the fit, fast delivery, easy returns.”&nbsp;</em></p>
+      {{ section.settings.about_text }}
       <a href="/pages/about-us" class="button button-primary">More about us</a>
     </div>
   </div>
@@ -73,6 +67,17 @@
   "name": "Main Cart",
   "class": "section--cart_content",
   "limit": 1,
-  "settings": []
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "about_img",
+      "label": "About Us Image"
+    },
+    {
+      "type": "richtext",
+      "id": "about_text",
+      "label": "About Us Text"
+    }
+  ]
 }
 {% endschema %}

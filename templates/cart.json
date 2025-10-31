@@ -11,7 +11,10 @@
   "sections": {
     "cart-items": {
       "type": "cart-main",
-      "settings": {}
+      "settings": {
+        "about_img": "shopify://shop_images/hisandhers.jpg",
+        "about_text": "<p>With over 35,000 5* reviews on Trustpilot, there’s a reason our bestsellers are in demand. </p><p>At Gym King, we focus on premium quality and great fitting designs with affordable prices. We want you to look and feel your best all day long. </p><p><strong>Discover what our customers are saying about us:</strong></p><p><em>“I absolutely love Gym King. Their products are outstanding quality.”</em></p><p><em>“10/10. Great fit. Fast delivery. Amazing value. Can’t ask for more than that.”</em></p><p><em>“Love everything about Gym King. The material, the fit, fast delivery, easy returns.” </em></p>"
+      }
     }
   },
   "order": [
