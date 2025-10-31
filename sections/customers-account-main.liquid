@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ 'customer.min.css' | asset_url }}">
 
 <header>
-  <a href="{{ routes.account_logout_url }}" class="inline-flex">
+  <a href="{{ routes.account_logout_url }}" class="inline-flex" style="width:100%;justify-content:flex-end">
     {% render 'icon', icon: 'plus', class: 'rotate45' %}
     {{- 'customer.account.logout' | t -}}
   </a>
