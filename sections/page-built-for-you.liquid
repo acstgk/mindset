@@ -2,7 +2,7 @@
   <div class="max-width">
     <h1>
       Built for You
-      {%- if customer -%}
+      {%- if customer and customer.first_name -%}
         , <span class="signature">{{ customer.first_name -}}</span>
       {%- endif -%}
     </h1>
