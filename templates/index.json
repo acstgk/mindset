@@ -169,8 +169,8 @@
         "fallback-1": "bestsellers-womens",
         "best_sellers-1": "womens-bestsellers",
         "new-1": "womens-new",
-        "fallback-2": "mens-bestsellers-2",
-        "best_sellers-2": "mens-bestsellers-2",
+        "fallback-2": "mens-bestsellers",
+        "best_sellers-2": "mens-bestsellers",
         "new-2": "mens-new"
       }
     }
