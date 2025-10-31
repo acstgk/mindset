@@ -21,11 +21,11 @@
     {% comment %} get last 6 ordered items {% endcomment %}
     {% assign product_ids = '' %}
 
-    {% for order in customer.orders %}
-      {% for line_item in order.line_items %}
+
+      {% for line_item in customer.last_order.line_items %}
         {% assign product_ids = product_ids | append: ',' | append: line_item.product.id %}
       {% endfor %}
-    {% endfor %}
+
     <div class="loader previous-order-loader"></div>
     <div class="max-width previous-order-recommendations">
       <h3 class="emphasis left">Perfect additions to your previous order...</h3>
