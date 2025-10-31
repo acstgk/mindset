@@ -26,10 +26,6 @@
      flex: 0 1 100%
    }
 
-   & .rtf {
-     padding: 2rem;
-   }
-
  }
 
  @media (min-width: 600px) {
