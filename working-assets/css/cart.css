@@ -20,6 +20,7 @@
    border: 1px solid var(--c-light-grey);
    padding: 3rem;
    align-items: center;
+   margin-block: 4rem;
 
    &>* {
      flex: 0 1 100%
