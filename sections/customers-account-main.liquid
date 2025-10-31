@@ -8,7 +8,12 @@
 
   <div>
     <h1>
-     {%if customer.first_name %} <span class="signature">{{ customer.first_name }}'s</span>{% else %}Your{% endif %} Account
+      {% if customer.first_name %}
+        <span class="signature">{{ customer.first_name }}'s</span>
+      {%- else -%}
+        Your
+      {%- endif %}
+      Account
     </h1>
     <div class="yotpo-widget-instance" data-yotpo-instance-id="1138809"></div>
   </div>
@@ -33,8 +38,12 @@
     <a class="button button-secondary" href="#order-history">{% render 'icon', icon: 'truck' %}Your Orders</a>
   </li>
   <li>
-    <a class="button button-secondary" href="/tools/recurring/login">{% render 'icon', icon: 'giftcard' %}Manage Subscriptions </a>
-  </li>
+      {% if customer.tags contains 'Active Subscriber' %}
+      <a class="button button-secondary" href="/tools/recurring/login">{% render 'icon', icon: 'giftcard' %}Your Unlimited Shipping Subscription</a>
+      {% else %}
+      <a class="button button-secondary" href="/products/unlimited-uk-delivery">{% render 'icon', icon: 'giftcard' %}Get Unlimited UK Shipping </a>
+    {% endif %}
+    </li>
   <li>
     <a class="button button-secondary" href="/pages/rewards">{% render 'icon', icon: 'crown' %}Loyalty Club</a>
   </li>
