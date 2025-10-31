@@ -24,7 +24,7 @@
       </div>
       {% render 'cart-items' %}
       <div class="cart-footer">
-        {% if locale_uk == false %}
+        {% if locale_uk %}
           {% render 'free-delivery-information' %}
         {% endif %}
         <a href="/checkout" class="checkout-button button button-primary"
@@ -35,7 +35,7 @@
     {% endif %}
   </div>
 
-  {% unless locale_uk == false %}
+  {% unless locale_uk %}
     {% render 'delivery-estimator' %}
   {% endunless %}
 
