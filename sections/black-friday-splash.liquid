@@ -1,0 +1,122 @@
+{{ 'black-friday-splash.min.css' | asset_url | stylesheet_tag }}
+
+<a href="{{ routes.root_url }}">{{ section.settings.logo | image_url: width: 150 | image_tag: class: 'splash-logo' }}</a>
+<div class="splash-heading">
+  <p class="u-h4">Our Biggest</p>
+  <div class="box">
+    <h1 class="glitch u-h1">Black Friday</h1>
+  </div>
+</div>
+
+<h2 class="u-h2">Coming Soon</h2>
+<div class="countdown-container">
+  <countdown-timer data-countdown='{"end": {{ section.settings.countdown-date | json  }}, "copy": ""}'> </countdown-timer>
+</div>
+
+<button class="button button-inverted button-full" id="open_form">Get Notified</button>
+
+<form class="splash-form" id="ometria-newsletter-footer-form" action="https://api.ometria.com/forms/signup" method="post">
+  {% comment %} OMETRIA FIELDS {% endcomment %}
+  <input class="ometria-push" type="hidden" name="__form_id" value="{{ section.settings.formId }}">
+  <input class="ometria-push" type="hidden" name="email" value="" autocomplete="off">
+  <div style="display:none !important">
+    <input class="ometria-push" name="__email" type="email" value="" autocomplete="off">
+  </div>
+  <input class="ometria-push" name="@account" type="hidden" value="f647cb688e2297ba">
+  <input class="ometria-push" name="@return_url" type="hidden" value="">
+  <input class="ometria-push" name="@subscription_status" type="hidden" value="SUBSCRIBED">
+  <input class="ometria-push" name="properties.sign_up_source" type="hidden" value="{{ section.settings.signupSource}}">
+  {% comment %} END OMETRIA FIELDS {% endcomment %}
+
+  <input
+    value="{% if customer %}{{ customer.email }}{% endif %}"
+    placeholder="Enter Your Email"
+    name="ue"
+    id="Email"
+    class="ometria-push form-control"
+    type="email"
+    autocorrect="off"
+    autocapitalize="off"
+    required
+  >
+  <input
+    value="{% if customer %}{{ customer.first_name }}{% endif %}"
+    placeholder="First Name"
+    name="firstname"
+    type="text"
+    class="ometria-push form-control"
+  >
+
+  <div class="gender-options">
+    <label> <input class="ometria-push" type="radio" name="gender" value="Male"> Male </label>
+    <label> <input class="ometria-push" type="radio" name="gender" value="Female"> Female </label>
+    <label> <input class="ometria-push" type="radio" name="gender" value="Other" selected="true"> Prefer not to answer </label>
+  </div>
+
+  <p class="newsletter-error hidden">Error</p>
+
+  <button
+    type="submit"
+    class="button button-inverted Button--full"
+    name="commit"
+  >
+    Get Notified
+  </button>
+</form>
+
+<div class="Button-container">
+  <p>Can't Wait?</p>
+  <a href="{{ section.settings.collectionURL }}" class="button button-inverted"> Shop {{ section.settings.collectionName }} </a>
+  <a href="{{ routes.root_url }}" class="secondary-link"> Back to thegymking.com </a>
+</div>
+
+{% schema %}
+{
+  "name": "Black Friday Splash",
+  "class": "section--black-friday-splash",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo Image" },
+    {
+      "type": "header",
+      "content": "Countdown Timer",
+      "info": "Set the date and time for the countdown timer to end"
+    },
+    {
+      "type": "text",
+      "id": "countdown-date",
+      "info": "MM/DD/YY 11:11 AM",
+      "label": "Launch Date",
+      "default": "11/01/26 00:01 AM"
+    },
+    { "type": "header", "content": "Shop Button" },
+    {
+      "type": "text",
+      "id": "collectionName",
+      "label": "Collection Name",
+      "default": "Sale"
+    },
+    {
+      "type": "url",
+      "id": "collectionURL",
+      "label": "Collection URL"
+    },
+    {
+      "type": "header",
+      "content": "Form Settings",
+      "info": "These two settings must be completed as they will affect the data passed to ometria"
+    },
+    {
+      "type": "text",
+      "id": "formId",
+      "label": "Ometria Form ID",
+      "default": "ad1254b0165617d1cf8a0d4e4dcfc2e6"
+    },
+    {
+      "type": "text",
+      "id": "signupSource",
+      "label": "Ometria Sign Up Source Value",
+      "default": "Black Friday 2025"
+    }
+  ]
+}
+{% endschema %}

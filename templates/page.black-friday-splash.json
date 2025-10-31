@@ -1,0 +1,19 @@
+
+{
+  "sections": {
+    "main": {
+      "type": "black-friday-splash",
+      "settings": {
+        "logo": "shopify://shop_images/gymking-logo-white.png",
+        "countdown-date": "11/01/26 00:01 AM",
+        "collectionName": "Sale",
+        "collectionURL": "",
+        "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
+        "signupSource": "Black Friday 2025"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

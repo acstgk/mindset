@@ -1,0 +1,345 @@
+.splash-logo {
+  width: min(90vw, 200px);
+}
+
+.splash-logo,
+.splash-heading {
+  display: block;
+  margin: 50px auto;
+}
+
+.splash-heading {
+  height: 100%;
+}
+
+#shopify-section-header-main,
+#shopify-section-footer-main,
+#shopify-section-header-announcement,
+#fc_frame {
+  display: none;
+}
+
+.Button::before {
+  transition: opacity 0.2s ease;
+  opacity: 1;
+}
+
+.Button:hover::before {
+  opacity: 0.75;
+}
+
+.section--black-friday-splash {
+  text-align: center;
+  padding: 2vh 2vw;
+  min-height: 100vh;
+  background: #1b1b1b;
+  background: radial-gradient(circle at 50% 35%, rgb(39, 39, 39) 0%, rgba(26, 26, 26, 1) 64%);
+  color: #f6f6f6;
+  display: grid;
+  place-content: center;
+}
+
+.gender-options {
+  display: flex;
+  padding: 15px 5px;
+  gap: 20px;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+}
+
+.u-h4,
+.u-h2,
+.u-h1,
+countdown-timer {
+  font-family: var(--emphasis-heading-font-family);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  padding-left: 0.25em;
+}
+
+
+#ometria-newsletter-footer-form {
+  margin: 0 0 50px 0;
+}
+
+.section--black-friday-splash h1.u-h1 {
+  font-size: var(--txt-xl, 80px);
+  line-height: 1.1;
+}
+
+.section--black-friday-splash p.u-h4,
+.section--black-friday-splash h2.u-h2 {
+  font-size: var(--txt-2, 30px);
+  margin: 0
+}
+
+countdown-timer {
+  background-color: #131313;
+  color: #eee;
+  font-size: var(--txt-3, 40px);
+  display: block;
+  margin: 20px 0 0;
+  padding: 10px 0;
+}
+
+.Button-container {
+  text-align: center;
+  padding: 30px 20px;
+  width: min(400px, 90vw);
+  margin: 50px auto;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+.secondary-link {
+  margin: 1rem 0;
+  text-decoration: underline;
+}
+.Button-container .Button.Button--inverted {
+  color: #aaa;
+  border: none;
+
+  &::before {
+    background: #333;
+    border: none;
+  }
+}
+
+/* glitch effect */
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .glitch {
+    color: #fff;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: 'Black Friday';
+      color: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      width: 100%;
+      padding-left: 0.25em;
+    }
+
+    &:after {
+      left: 1px;
+      text-shadow: -2px 0 #d04d6aff;
+      animation: glitch-before 2.5s linear 0s infinite alternate;
+    }
+
+    &:before {
+      text-shadow: -2px 0 #38bda7ff;
+      animation: glitch-after 2.5s linear 0s infinite alternate;
+    }
+  }
+}
+
+@keyframes glitch-before {
+
+  0%,
+  5%,
+  95%,
+  100% {
+    clip: rect(0px, 600px, 0px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  10% {
+    clip: rect(7px, 600px, 27px, 0px);
+    color: white;
+    text-shadow: -4px 0 #d04d6aff;
+  }
+
+  15% {
+    clip: rect(24px, 600px, 38px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  20% {
+    clip: rect(13px, 600px, 19px, 0px);
+    text-shadow: 6px 0 #d04d6aff;
+  }
+
+  25% {
+    clip: rect(30px, 600px, 32px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  30% {
+    clip: rect(73px, 600px, 79px, 0px);
+  }
+
+  35% {
+    clip: rect(15px, 600px, 27px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  40% {
+    clip: rect(41px, 600px, 55px, 0px);
+    text-shadow: -4px 0 #d04d6aff;
+  }
+
+  45% {
+    clip: rect(29px, 600px, 45px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  50% {
+    clip: rect(3px, 600px, 14px, 0px);
+  }
+
+  55% {
+    clip: rect(61px, 600px, 75px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  60% {
+    clip: rect(11px, 600px, 25px, 0px);
+    text-shadow: -6px 0 #d04d6aff;
+  }
+
+  65% {
+    clip: rect(34px, 600px, 50px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  70% {
+    clip: rect(2px, 600px, 18px, 0px);
+  }
+
+  75% {
+    clip: rect(46px, 600px, 62px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  80% {
+    clip: rect(8px, 600px, 21px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  85% {
+    clip: rect(20px, 600px, 37px, 0px);
+    text-shadow: -2px 0 #d04d6aff;
+  }
+
+  90% {
+    clip: rect(57px, 600px, 72px, 0px);
+  }
+}
+
+@keyframes glitch-after {
+
+  0%,
+  5%,
+  95%,
+  100% {
+    clip: rect(0px, 600px, 0px, 0px);
+  }
+
+  10% {
+    clip: rect(87px, 600px, 88px, 0px);
+    color: #d3d3d3;
+    text-shadow: -6px 0 #38bda7ff;
+  }
+
+  15% {
+    clip: rect(0px, 600px, 20px, 0px);
+    text-shadow: -2px 0 #38bda7ff;
+  }
+
+  20% {
+    clip: rect(70px, 600px, 72px, 0px);
+  }
+
+  25% {
+    clip: rect(36px, 600px, 51px, 0px);
+  }
+
+  30% {
+    clip: rect(40px, 600px, 54px, 0px);
+    text-shadow: -2px 0 #38bda7ff;
+  }
+
+  35% {
+    clip: rect(12px, 600px, 24px, 0px);
+    text-shadow: -4px 0 #38bda7ff;
+  }
+
+  40% {
+    clip: rect(59px, 600px, 75px, 0px);
+    text-shadow: -2px 0 #38bda7ff;
+  }
+
+  45% {
+    clip: rect(26px, 600px, 45px, 0px);
+  }
+
+  50% {
+    clip: rect(5px, 600px, 21px, 0px);
+  }
+
+  55% {
+    clip: rect(18px, 600px, 35px, 0px);
+  }
+
+  60% {
+    clip: rect(62px, 600px, 78px, 0px);
+    text-shadow: -2px 0 #38bda7ff;
+  }
+
+  65% {
+    clip: rect(8px, 600px, 28px, 0px);
+    text-shadow: -8px 0 #38bda7ff;
+  }
+
+  70% {
+    clip: rect(44px, 600px, 61px, 0px);
+    text-shadow: -2px 0 #38bda7ff;
+  }
+
+  75% {
+    clip: rect(1px, 600px, 20px, 0px);
+    text-shadow: -2px 0 #38bda7ff;
+  }
+
+  80% {
+    clip: rect(23px, 600px, 38px, 0px);
+    text-shadow: 6px 0 #38bda7ff;
+  }
+
+  85% {
+    clip: rect(16px, 600px, 35px, 0px);
+    text-shadow: -2px 0 #38bda7ff;
+  }
+
+  90% {
+    clip: rect(29px, 600px, 45px, 0px);
+  }
+}
+
+.splash-form {
+  background: rgb(0 0 0 / 0.3);
+  padding: 20px;
+  opacity: 0;
+  height: 0;
+  transition: height 0.2s ease;
+
+  input.form-control {
+    color: white;
+    background: #1b1b1b;
+    border-color: rgb(0 0 0 / 0.7);
+  }
+}
