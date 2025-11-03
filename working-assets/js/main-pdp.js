@@ -388,16 +388,20 @@ if (!customElements.get("enhanced-atc")) {
       };
 
       _getStorage = () => {
-        const gender = window.myCurrentProduct.vendor;
-        if (gender == "Accessories") return;
-        let type = window.myCurrentProduct.type.replace(/\s+/g, "-").toLowerCase();
+        if (localStorage.getItem(this.storedSizesItem)) {
+          const gender = window.myCurrentProduct.vendor;
+          if (gender == "Accessories") return;
+          let type = window.myCurrentProduct.type.replace(/\s+/g, "-").toLowerCase();
 
-        const storedSizes = JSON.parse(localStorage.getItem(this.storedSizesItem));
-        const size = storedSizes[gender][type];
+          const storedSizes = JSON.parse(localStorage.getItem(this.storedSizesItem));
+          const size = storedSizes[gender][type];
 
-        if (size) {
-          const target = document.querySelector(`[data-id="${type}-${size}"]`);
-          target.checked = true;
+          if (size) {
+            const target = document.querySelector(`[data-id="${type}-${size}"]`);
+            target.checked = true;
+          }
+        } else {
+          return;
         }
       };
 
