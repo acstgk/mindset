@@ -33,7 +33,7 @@
     <div class="portal">
       <h3 class="h4">{{ section.settings.title1 }}</h3>
       <p>{{ section.settings.text1 }}</p>
-      <a href="{{ section.settings.url1 }}" class="button button-primary">Start a UK Return</a>
+      <a href="{{ section.settings.url1 }}" class="button button-primary">{{ section.settings.button_text1 }}</a>
     </div>
     {% if section.settings.url2 %}
       <div class="portal">
@@ -45,13 +45,13 @@
   </div>
   <div class="returns-info--contact">
     <div>
-      <h3 class="h4">{{ section.settings.title3}}</h3>
-      <p>{{section.settings.text3}}</p>
+      <h3 class="h4">{{ section.settings.title3 }}</h3>
+      <p>{{ section.settings.text3 }}</p>
       {% if section.settings.url3 %}
         <a href="{{ section.settings.url3 }}" class="button button-primary">Contact Us</a>
       {% endif %}
-      </div>
     </div>
+  </div>
 </div>
 
 {% schema %}
@@ -198,7 +198,13 @@
     {
       "type": "url",
       "id": "url1",
-      "label": "Link 1 Url",
+      "label": "Link 1 Url"
+    },
+    {
+      "type": "text",
+      "id": "button_text1",
+      "label": "Link 1 button Text",
+      "default": "Start a UK Return"
     },
     {
       "type": "paragraph",
@@ -219,7 +225,7 @@
     {
       "type": "url",
       "id": "url2",
-      "label": "Link 2 Url",
+      "label": "Link 2 Url"
     },
     {
       "type": "paragraph",
@@ -240,7 +246,7 @@
     {
       "type": "url",
       "id": "url3",
-      "label": "Link 3 Url",
+      "label": "Link 3 Url"
     }
   ]
 }
