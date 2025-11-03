@@ -917,9 +917,9 @@ ul.CountryList {
   display: flex;
   flex-flow: column nowrap;
   justify-content: normal;
-  right: 30px;
   width: 270px;
   margin-top: 10px;
+  transform: translateX(-200px);
 }
 
 .CountryList li {
