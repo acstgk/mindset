@@ -1,6 +1,9 @@
 <link rel="stylesheet" href="{{ 'line-items.min.css' | asset_url }}">
 {% if cart.item_count == 0 %}
-  <div class="cart_items-list fade-in">Your Shopping Bag is empty.</div>
+  <div class="cart_items-list fade-in">
+    <p>Your Shopping Bag is empty.</p>
+    {% render 'dead-end' %}
+  </div>
 {% else %}
   <ul class="cart_items-list">
     {% for item in cart.items %}
