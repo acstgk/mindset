@@ -3,19 +3,27 @@
   {% assign locale_uk = true %}
 {% endif %}
 
+{% assign cart_empty = true %}
+{% if cart.item_count > 0 %}
+  {% assign cart_empty = false %}
+{% endif %}
+
 <div class="max-width">
   <div class="cart">
     <div class="cart-title">
       <h1>Your Bag</h1>
-      {% if cart.item_count > 0 %}
+      {% unless cart_empty%}
         <a href="/checkout" class="checkout-button button button-primary"
           >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
         </a>
-      {% endif %}
+      {% endunless %}
     </div>
 
-    {% if cart.item_count == 0 %}
-      <p class="center">Your Shopping Bag is empty.</p>
+    {% if cart_empty%}
+      <div class="cart--empty">
+        <p class="center">Your Shopping Bag is empty.</p>
+        {% render 'dead-end' %}
+      </div>
     {% else %}
       <div class="cart-header">
         <div>Product</div>
@@ -56,13 +64,14 @@
 
 {% render 'as-seen-in' %}
 
+{% unless cart_empty %}
 <div class="accent-bg">
   <div class="max-width">
     <h3 class="h4 no-block-margin" style="margin-top: 4rem">Forgotten something?</h3>
     {% render 'dead-end' %}
   </div>
 </div>
-
+{% endunless %}
 
 <link rel="stylesheet" href="{{ 'cart.min.css' | asset_url }}">
 {% schema %}

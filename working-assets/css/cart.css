@@ -13,6 +13,12 @@
    margin-top: 0;
  }
 
+ .cart--empty {
+   min-height: 45vh;
+   display: grid;
+   place-content: center;
+ }
+
  .usp {
    display: flex;
    flex-wrap: wrap;
