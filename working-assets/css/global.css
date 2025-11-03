@@ -605,10 +605,10 @@ button {
     & img,
     & a {
         inset: 0;
-        display: block;
     }
 
     & img {
+        display: block;
         object-position: center;
         scale: 1;
         transition: scale 10s linear;
@@ -621,6 +621,7 @@ button {
     }
 
     & a {
+        display: grid;
         position: absolute;
         align-content: center;
         text-align: center;
@@ -628,7 +629,7 @@ button {
         font-size: var(--txt-h1);
         text-transform: uppercase;
         color: var(--c-white);
-        text-shadow: 0 0 3px color-mix(in lab, var(--c-dark-grey), transparent 50%);
+        text-shadow: 0 0 3px var(--c-dark-grey);
         transition: font-size 0.2s ease, text-shadow 0.2s ease;
     }
 
@@ -640,7 +641,7 @@ button {
 
         & a {
             font-size: calc(var(--txt-h1) * 1.1);
-            text-shadow: 0 0 5px color-mix(in lab, var(--c-dark-grey), transparent 40%);
+            text-shadow: 0 0 5px var(--c-dark-grey);
 
         }
     }
@@ -664,7 +665,7 @@ predictive-search {
     width: 100%;
     position: absolute;
     min-height: 50px;
-    max-height: calc(95vh - 50px);
+    max-height: calc(95dvh - 50px);
     overflow: hidden;
     top: -1px;
     opacity: 0;
@@ -705,6 +706,7 @@ predictive-search {
         border-bottom: 1px solid var(--c-black);
         font-size: var(--txt-h4);
         padding: 0.5em;
+        background-color: transparent;
 
         &:focus::placeholder {
             opacity: 0.2;
