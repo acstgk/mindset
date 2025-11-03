@@ -141,7 +141,7 @@
  }
 
  .cart_item--discount {
-   color: var(--c-error);
+   color: var(--c-sale);
    font-size: var(--txt-sm);
    line-height: 1;
    display: flex;
