@@ -1,7 +1,30 @@
  .cart-title {
-   display: flex;
-   justify-content: space-between;
+   /* display: flex;
+   justify-content: space-between; */
    align-items: center;
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   margin: 2rem 0 1rem 0;
+   gap: .5rem;
+
+   & a {
+     justify-self: end;
+   }
+
+   & h1 {
+     margin: 0;
+   }
+
+   & .info {
+     grid-column: span 2;
+     justify-self: end;
+
+     & .Icon--info {
+       position: relative;
+       top: 0.25rem;
+       margin-left: -0.5rem;
+     }
+   }
  }
 
  .cart {
