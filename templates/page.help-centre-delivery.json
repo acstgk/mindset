@@ -15,7 +15,7 @@
         "card_W7bD7M": {
           "type": "card",
           "settings": {
-            "header": "What services do you offer?",
+            "title": "What services do you offer?",
             "htmlContent": "<table>\n<caption class=\"h4 left\"> Delivery Information\n  </caption>\n <tbody>\n    <tr>\n      <th>Service</th>\n      <th>Price</th>\n      <th>Transit Time</th>\n      <th>Carrier</th>\n      <th>Notes</th>\n    </tr>\n\n    <!-- unlimited delivery -->\n    <tr>\n      <td data-cell=\"service\">Unlimited UK Delivery</td>\n      <td data-cell=\"price\">£10 per year</td>\n      <td data-cell=\"time\">3-5 days</td>\n      <td data-cell=\"carrier\">Royal Mail</td>\n      <td data-cell=\"notes\">Unlimited Standard UK delivery with no minimum order value for 12 months.</td>\n    </tr>\n\n    <!-- standard UK delivery -->\n    <tr>\n      <td data-cell=\"service\">Standard UK Delivery</td>\n      <td data-cell=\"price\">£3.99</td>\n      <td data-cell=\"time\">3-5 days</td>\n      <td data-cell=\"carrier\">Royal Mail</td>\n      <td data-cell=\"notes\"><b>Free on orders over £75</b></td>\n    </tr>\n\n    <!-- express UK delivery -->\n    <tr>\n      <td data-cell=\"service\">Express UK Delivery</td>\n      <td data-cell=\"price\">£5.99</td>\n      <td data-cell=\"time\">1-2 working days</td>\n      <td data-cell=\"carrier\">DPD</td>\n      <td data-cell=\"notes\">\n        PIN number, SECURE DELIVERY METHOD.<br>\n        <b>Free on orders over £125</b>\n      </td>\n    </tr>\n\n    <!-- saturday UK  delivery -->\n    <tr>\n      <td data-cell=\"service\">Saturday UK Delivery</td>\n      <td data-cell=\"price\">£8.99</td>\n      <td data-cell=\"time\">Saturday Delivery</td>\n      <td data-cell=\"carrier\">DPD</td>\n      <td data-cell=\"notes\">PIN number, SECURE DELIVERY METHOD. <i>Order Monday to Thursday, or before 7pm Friday to receive on the nearest Saturday.</i>\n</td>\n    </tr>\n\n    <!-- International Standard delivery -->\n    <tr>\n      <td data-cell=\"service\">Worldwide Standard Shipping</td>\n      <td data-cell=\"price\">from £5<br>(in local currency)</td>\n      <td data-cell=\"time\">From 5 days+<br>(varies per country)</td>\n      <td data-cell=\"carrier\">Varies per Country</td>\n      <td data-cell=\"notes\"></td>\n    </tr>\n    <!-- International Express delivery -->\n    <tr>\n      <td data-cell=\"service\">Worldwide Express Shipping</td>\n      <td data-cell=\"price\">from £10<br>(in local currency)</td>\n      <td data-cell=\"time\">From 3 days+ <br>(varies per country)</td>\n      <td data-cell=\"carrier\">DHL</td>\n      <td data-cell=\"notes\"></td>\n    </tr>\n  </tbody>\n</table>",
             "content": "<p>Our DPD deliveries are on a secure PIN delivery service:<br/><em>When the driver comes to deliver your order you will be asked for a PIN number. This number is unique to each individual order, and is only sent to the person that placed the order. Your PIN number will be sent to you via email and text message by DPD when your order is marked as out for delivery.</em></p><p><em>If you do not have your PIN number when the driver arrives, they are able to send you a SMS with your PIN number whilst at your door.</em></p>"
           }
@@ -23,7 +23,7 @@
         "card_UYPJTV": {
           "type": "card",
           "settings": {
-            "header": "Do you ship internationally?",
+            "title": "Do you ship internationally?",
             "htmlContent": "",
             "content": "<p>International delivery times vary per country. Delivery times will be stated during the checkout process.</p><p>If you have an enquiry regarding international deliveries please visit our <a href=\"https://service.global-e.com/?id=2863383a-6c07-48d5-9568-66a68ca24eb6\" target=\"_blank\" title=\"https://service.global-e.com/?id=2863383a-6c07-48d5-9568-66a68ca24eb6\">International Service Center</a>.</p>"
           }
@@ -31,7 +31,7 @@
         "card_X77qzY": {
           "type": "card",
           "settings": {
-            "header": "What is my order number?",
+            "title": "What is my order number?",
             "htmlContent": "",
             "content": "<p>Your order number (for example #WEB1231267) can be found on your order confirmation email or on your <a href=\"https://thegymking.com/account\" title=\"https://thegymking.com/account\">Gym King account page</a>.</p>"
           }
@@ -39,7 +39,7 @@
         "card_WnTkdH": {
           "type": "card",
           "settings": {
-            "header": "Can I change or cancel my order?",
+            "title": "Can I change or cancel my order?",
             "htmlContent": "",
             "content": "<p>Unfortunately, we are unable to make any changes to your order once payment has been processed, as your details are immediately sent to our Distribution Centre for fulfilment. This includes the following:</p><ul><li>cancelling delivery</li><li>swapping an item or its size</li><li>any changes to the billing or delivery address/es*</li><li>changing the shipping method</li><li>add additional item/s to your order</li><li>adding a discount code </li></ul><p><br/><em>*If you enter an incorrect address at checkout, we are not liable to refund/ replace the order</em></p>"
           }
@@ -47,7 +47,7 @@
         "card_DDX7kf": {
           "type": "card",
           "settings": {
-            "header": "I forgot to add my discount code",
+            "title": "I forgot to add my discount code",
             "htmlContent": "",
             "content": "<p>Unfortunately, we are unable to apply any codes once your payment has been processed. Try using your discount code on your next order (please check if it has an expiry date).</p>"
           }
@@ -55,7 +55,7 @@
         "card_iqe7WU": {
           "type": "card",
           "settings": {
-            "header": "How do I track my order?",
+            "title": "How do I track my order?",
             "htmlContent": "",
             "content": "<h4>UK Customers</h4><p>When your order is despatched you will receive your tracking information in an email from us entitled “Your parcel from The Gym King is on its way\".</p><h4>International Customers</h4><p>When your order is despatched you will receive your tracking instructions in an email. Alternatively you can track your order via the <a href=\"https://service.global-e.com/?id=2863383a-6c07-48d5-9568-66a68ca24eb6\" target=\"_blank\" title=\"https://service.global-e.com/?id=2863383a-6c07-48d5-9568-66a68ca24eb6\">International Service Center</a></p>"
           }
@@ -63,7 +63,7 @@
         "card_k7PDHU": {
           "type": "card",
           "settings": {
-            "header": "My order is dispatched but I haven't received it?",
+            "title": "My order is dispatched but I haven't received it?",
             "htmlContent": "",
             "content": "<p>Please check your tracking link for updates. In the event of undue delay please email <a href=\"mailto:customerservice@gymking.com\" title=\"send email to: customerservice@gymking.com\">customerservice@gymking.com</a> or contact DPD directly (DPD deliveries).</p>"
           }
@@ -71,7 +71,7 @@
         "card_DXXpzA": {
           "type": "card",
           "settings": {
-            "header": "My order is marked as delivered, but I haven't received it?",
+            "title": "My order is marked as delivered, but I haven't received it?",
             "htmlContent": "",
             "content": "<p>Please email our our customer service team on <a href=\"mailto:customerservice@gymking.com\" title=\"send email to: customerservice@gymking.com\">customerservice@gymking.com</a>, within 48 hours of the delivery date on your tracking. </p><p>We will initiate an investigation with the relevant carrier which can take up to 7 days <em>(please allow a little longer during busier periods)</em>.</p>"
           }
@@ -79,7 +79,7 @@
         "card_L4DqqY": {
           "type": "card",
           "settings": {
-            "header": "My order has arrived incorrect or damaged",
+            "title": "My order has arrived incorrect or damaged",
             "htmlContent": "",
             "content": "<p>In the unusual event that you're order is damaged or incorrect, please email <a href=\"mailto:customerservice@gymking.com\" title=\"send email to: customerservice@gymking.com\">customerservice@gymking.com</a>, with the following information within 3 days of delivery: </p><ul><li>Your order number. </li><li>The name of the missing/damaged item. </li><li>The name of the incorrect item you received (if applicable). </li><li>A clear photograph of the incorrect/damaged item you received and the label on its packaging.  </li></ul><p>Once we've received the above info we will get this sorted for you ASAP!</p><p>If there is an item missing with no incorrect substitute, please check your emails (including spam/junk) to confirm all items were despatched and you haven't already been issued a partial refund (in very rare circumstances an item maybe found to be out of stock or not fit for sale and will be refunded).</p>"
           }
@@ -87,7 +87,7 @@
         "card_6ed6Ak": {
           "type": "card",
           "settings": {
-            "header": "An item I've purchased is faulty",
+            "title": "An item I've purchased is faulty",
             "htmlContent": "",
             "content": "<p>A product is \"faulty\" if there is a material/ manufacturing fault. </p><p>Please note, this <strong>excludes </strong>wear and tear. If you receive an item you believe to be faulty please send the following information to <a href=\"mailto:customerservice@gymking.com\" title=\"send email to: customerservice@gymking.com\">customerservice@gymking.com</a>*. </p><ul><li>Your order number (for example #WEB1234567) </li><li>Item name and size </li><li>Photos that show that clearly show the garment and the fault  </li></ul><p>Please keep your item until we've reviewed the fault, after which, we may ask you to return it.  </p><p><em>*You have up to 90 days to raise a faulty claim.</em></p>"
           }

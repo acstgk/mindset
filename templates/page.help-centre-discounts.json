@@ -15,7 +15,7 @@
         "card_6ed6Ak": {
           "type": "card",
           "settings": {
-            "header": "I think I've been charged twice?",
+            "title": "I think I've been charged twice?",
             "htmlContent": "",
             "content": "<p>On rare occasions it may appear that your payment has been taken twice, this likely be due to a failed payment attempt.</p><p>Please be assured that only one payment will have been taken and the failed payment will disappear from your account transactions over the next 48 hours.</p>"
           }
@@ -23,7 +23,7 @@
         "card_twcAJM": {
           "type": "card",
           "settings": {
-            "header": "What is the Unlimited Free UK Delivery Subscription?",
+            "title": "What is the Unlimited Free UK Delivery Subscription?",
             "htmlContent": "",
             "content": "<p>Sign up today for just £10 and you’ll be able to enjoy unlimited standard UK delivery with no minimum order requirements for an entire 12 months.</p><p>Please note:<em> this is recurring subscription service and will automatically renew every 12 months.</em><br/><br/><a href=\"https://thegymking.com/products/unlimited-uk-delivery\"><strong>CLICK HERE TO SEE FULL DETAILS</strong></a></p>"
           }
@@ -31,7 +31,7 @@
         "card_JnJ7Lb": {
           "type": "card",
           "settings": {
-            "header": "Are there any restrictions on offers?",
+            "title": "Are there any restrictions on offers?",
             "htmlContent": "",
             "content": "<p>Promotional discount codes may have the following conditions, which will be stated within the communication:</p><ul><li>Eligible on full price items only</li><li>May only be used for the specified time period</li><li>May only be used once per customer</li></ul><p><br/><a href=\"/pages/affiliate-landing\" title=\"Affiliate Landing\">View our active offers</a> </p>"
           }
@@ -39,7 +39,7 @@
         "card_wQAFee": {
           "type": "card",
           "settings": {
-            "header": "Do you offer Student Discount?",
+            "title": "Do you offer Student Discount?",
             "htmlContent": "",
             "content": "<p>Yes we do! </p><h5>UNiDAYS</h5><p>Claim your discount with our <a href=\"/pages/unidays\" title=\"UNiDAYS\">UNiDAYS Portal</a></p><h5>Youth Discount</h5><p>Claim your discount with our <a href=\"/pages/youthdiscount\" title=\"Student, Apprentice & Young Person Discount\">Youth Discount Portal</a></p><h5>Student Beans</h5><p>Claim your discount with our <a href=\"/pages/student-beans\" title=\"Student Beans\">Student Beans Portal</a></p>"
           }
@@ -47,7 +47,7 @@
         "card_RciHDe": {
           "type": "card",
           "settings": {
-            "header": "Do you offer discount for public service workers?",
+            "title": "Do you offer discount for public service workers?",
             "htmlContent": "",
             "content": "<p>Yes we do! </p><h5>Blue Light Card</h5><p>Claim your discount on the <a href=\"https://www.bluelightcard.co.uk/login.php?page=offerdetails.php&cid=15112&oid=15175\" target=\"_blank\" title=\"Gym King's Blue Light Card Listings Page\">Blue Light Card Website</a></p><h5>Key Worker Discount</h5><p>Claim your discount with our <a href=\"https://secure.gocertify.me/at/gym-king/key-worker\" target=\"_blank\" title=\"Go Certify Public Service Worker Discount Portal\">goCertify Portal</a></p>"
           }
@@ -55,7 +55,7 @@
         "card_AThrUe": {
           "type": "card",
           "settings": {
-            "header": "Which payment options can I use?",
+            "title": "Which payment options can I use?",
             "htmlContent": "",
             "content": "<p>We accept all major credit cards (Visa/ Master Card/ American Express), debit cards (Visa Debit/ Visa Delta/ Visa Electron/ Maestro) as well as PayPal payments.</p><p>We also offer purchases to be made with <a href=\"https://help.clearpay.co.uk/hc/en-gb/categories/360001635351-I-m-a-Customer\" target=\"_blank\" title=\"Clear Pay UK FAQs\">Clearpay (or Afterpay)</a> and <a href=\"https://www.klarna.com/uk/customer-service/#faq-categories-list\" target=\"_blank\" title=\"Klarna's FAQ's\">Klarna</a>.</p><p>All payments are processed through third party payment gateways using PCI Encryption. We do not store card details nor have access to your full payment details. </p><p>Privacy is important to use and we do not we share customer details with third parties.  We will only retain your details for as long as either you or legislation permits/requires.</p>"
           }

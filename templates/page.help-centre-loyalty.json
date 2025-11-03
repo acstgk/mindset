@@ -15,7 +15,7 @@
         "card_Qd83L4": {
           "type": "card",
           "settings": {
-            "header": "What is the Gym King Loyalty Club?",
+            "title": "What is the Gym King Loyalty Club?",
             "htmlContent": "",
             "content": "<p>Our Loyalty Program rewards you for shopping and engaging with us. You earn points through purchases and other activities, which you can redeem for discounts and exclusive perks.</p>"
           }
@@ -23,7 +23,7 @@
         "card_BMxjbV": {
           "type": "card",
           "settings": {
-            "header": "How do I join the Loyalty Club?",
+            "title": "How do I join the Loyalty Club?",
             "htmlContent": "",
             "content": "<p>Just create a Gym King account and you’ll automatically be enrolled in the loyalty program.</p>"
           }
@@ -31,7 +31,7 @@
         "card_Kn8gbJ": {
           "type": "card",
           "settings": {
-            "header": "What does it cost to join?",
+            "title": "What does it cost to join?",
             "htmlContent": "",
             "content": "<p>Nothing, it’s completely free to join.</p>"
           }
@@ -39,7 +39,7 @@
         "card_eei4Vm": {
           "type": "card",
           "settings": {
-            "header": "What are the different loyalty tiers?",
+            "title": "What are the different loyalty tiers?",
             "htmlContent": "",
             "content": "<p>There are three tiers:</p><ul><li><strong>Black</strong> – No spend requirement</li><li><strong>Gold</strong> – Lifetime spend of £150</li><li><strong>Platinum</strong> – Lifetime spend of £300 or more</li></ul><p>Spend is calculated from the date of enrolment to the loyalty scheme, or the commencement of the loyalty scheme if you are an existing customer.</p>"
           }
@@ -47,7 +47,7 @@
         "card_t8DFdQ": {
           "type": "card",
           "settings": {
-            "header": "How is my loyalty tier determined?",
+            "title": "How is my loyalty tier determined?",
             "htmlContent": "",
             "content": "<p>Your tier is based on your all-time spend since joining the loyalty program, not annual spend.</p>"
           }
@@ -55,7 +55,7 @@
         "card_8tLy8b": {
           "type": "card",
           "settings": {
-            "header": "Do I need to ever re-qualify for my loyalty tier?",
+            "title": "Do I need to ever re-qualify for my loyalty tier?",
             "htmlContent": "",
             "content": "<p>No, once you reach a tier, you keep it.</p><p>Your tier is calculated from your total spend from the date you joined the program.<br/><br/></p>"
           }
@@ -63,7 +63,7 @@
         "card_eNDHPc": {
           "type": "card",
           "settings": {
-            "header": "How many points do I earn per order?",
+            "title": "How many points do I earn per order?",
             "htmlContent": "",
             "content": "<p>You can earn points per order based on your tier status:<br/></p><ul><li><strong>Black & Gold</strong>: 1 point per £1 spent</li><li><strong>Platinum:</strong> 1.25 points per £1 spent</li></ul>"
           }
@@ -71,7 +71,7 @@
         "card_AhBgjC": {
           "type": "card",
           "settings": {
-            "header": "Do points expire?",
+            "title": "Do points expire?",
             "htmlContent": "",
             "content": "<p>Yes, points expire 12 months after they’re earned.</p>"
           }
@@ -79,7 +79,7 @@
         "card_FJKUCF": {
           "type": "card",
           "settings": {
-            "header": "How will I know if my points are due to expire?",
+            "title": "How will I know if my points are due to expire?",
             "htmlContent": "",
             "content": "<p>We will send reminders by email and SMS (if you’ve opted in) when you’re near a reward or when your points are about to expire.</p>"
           }
@@ -87,7 +87,7 @@
         "card_nVihDg": {
           "type": "card",
           "settings": {
-            "header": "How do I redeem my points?",
+            "title": "How do I redeem my points?",
             "htmlContent": "",
             "content": "<p>You can apply your points at checkout:</p><ul><li><strong>100 points </strong>= £5   (no minimum spend)</li><li><strong>200 points </strong>= £10   (minimum spend of £40)</li><li><strong>300 points</strong> = £15   (minimum spend of £60)</li><li><strong>400 points</strong> = £20   (minimum spend of £80)</li></ul>"
           }
@@ -95,7 +95,7 @@
         "card_XWRtMT": {
           "type": "card",
           "settings": {
-            "header": "What's the minimum number of points required to redeem?",
+            "title": "What's the minimum number of points required to redeem?",
             "htmlContent": "",
             "content": "<p>You need at least 100 points (£5 value) to start redeeming.</p>"
           }
@@ -103,7 +103,7 @@
         "card_HWG7hV": {
           "type": "card",
           "settings": {
-            "header": "Can I earn points by referring a friend?",
+            "title": "Can I earn points by referring a friend?",
             "htmlContent": "",
             "content": "<p>Yes, it's simple - Share your unique referral link (found on the <a href=\"https://thegymking.com/pages/rewards\">Rewards Page</a>) with a friend to gift them 100 points, and you’ll earn 100 points when they sign up and complete their first purchase.</p><p>You can refer as many times as you'd like.</p>"
           }
@@ -111,7 +111,7 @@
         "card_tmEBaR": {
           "type": "card",
           "settings": {
-            "header": "I haven't received any points for signing up for email",
+            "title": "I haven't received any points for signing up for email",
             "htmlContent": "",
             "content": "<p>You may have been already subscribed, only new email subscriptions are eligible for a points bonus. </p><p>Please note: <em>it can also take up to 30 minutes to verify your points.</em></p>"
           }
@@ -119,7 +119,7 @@
         "card_EfB3nF": {
           "type": "card",
           "settings": {
-            "header": "I've redeemed some points but can't remember the code",
+            "title": "I've redeemed some points but can't remember the code",
             "htmlContent": "",
             "content": "<p>No problem! Just head to the <a href=\"https://thegymking.com/pages/rewards\">Rewards Page</a> and click on the ‘Rewards History’ button - your redeemed code will be listed there.</p>"
           }
@@ -127,7 +127,7 @@
         "card_DkEe7M": {
           "type": "card",
           "settings": {
-            "header": "What should I do if I think I'm missing points",
+            "title": "What should I do if I think I'm missing points",
             "htmlContent": "",
             "content": "<p>Contact our customer service team with your account details and any relevant order info. We’ll be happy to look into it: <a href=\"mailto:customerservice@gymking.com\">customerservice@gymking.com</a>.</p>"
           }

@@ -15,7 +15,7 @@
         "card_Aiptxz": {
           "type": "card",
           "settings": {
-            "header": "I don't know what size to buy",
+            "title": "I don't know what size to buy",
             "htmlContent": "",
             "content": "<p>Visit our <a href=\"/pages/size-guide\" title=\"Size Guide\">size guide page</a> for a full break down of all our sizing.</p>"
           }
@@ -23,7 +23,7 @@
         "card_mgCwgG": {
           "type": "card",
           "settings": {
-            "header": "When do items come back into stock?",
+            "title": "When do items come back into stock?",
             "htmlContent": "",
             "content": "<p>Stock replenishment varies from produt to product. If you would like to be notified by email if a sold out size is restocked, please click the black \"Size not in Stock?\" button on the relevant product page/s.</p><p>Alternatively, you can follow our <a href=\"https://www.instagram.com/gymking/\" target=\"_blank\" title=\"Follow Gym King on Instagram\">social media</a> or sign up for our <a href=\"/pages/sign-up\" title=\"Sign Up\">email newsletter</a> to discover new styles and be informed of the latest updates here at Gym King.</p>"
           }
@@ -31,7 +31,7 @@
         "card_rwUGFL": {
           "type": "card",
           "settings": {
-            "header": "How do I look after my Gym King Clothing?",
+            "title": "How do I look after my Gym King Clothing?",
             "htmlContent": "",
             "content": "<p><strong>READ THE CARE LABEL</strong><br/>Please follow the care label instructions to avoid using wrong settings for washing, drying and ironing.<br/><br/><strong>WASH AT LOW OR COLD TEMPERATURES</strong><br/>Washing at a low temperature will help to extend the lifespan of your clothes by reducing damage to fibres and avoiding shrinkage.<br/><br/><strong>WASH INSIDE OUT</strong><br/>Washing your clothing inside out will help protect prints or logos.</p>"
           }
