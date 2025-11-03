@@ -1,9 +1,11 @@
-<h1>{{ page.title }}</h1>
+{% if section.settings.openFirst %}
+  <h1>{{ page.title }}</h1>
+{% endif %}
 
 <content-accordian>
   {% for block in section.blocks %}
     <div class="accordian-items">
-      <div class="accordian-header accent-bg {% if forloop.first and section.settings.openFirst %}active{% endif %}">{{ block.settings.header }}</div>
+      <div class="accordian-header accent-bg {% if forloop.first and section.settings.openFirst %}active{% endif %}">{{ block.settings.title }}</div>
       <div class="accordian-content rtf">
         {{ block.settings.htmlContent }}
         {{ block.settings.content }}
@@ -33,6 +35,12 @@
       "id": "openFirst",
       "label": "Open first item by default?",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "showTitle",
+      "label": "Show Title?",
+      "default": true
     }
   ],
   "max_blocks": 20,
@@ -43,14 +51,14 @@
       "settings": [
         {
           "type": "text",
-          "id": "header",
+          "id": "title",
           "default": "Title",
           "label": "Section Title"
         },
         {
           "type": "html",
           "id": "htmlContent",
-          "label": "Custom HTML Cotent"
+          "label": "Custom HTML Content"
         },
         {
           "type": "richtext",
@@ -58,6 +66,31 @@
           "label": "Section Content"
         }
       ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordian",
+      "category": "Content",
+      "blocks": {
+        "card_XmEykt": {
+          "type": "card",
+          "settings": {
+            "title": "Title 1",
+            "htmlContent": "",
+            "content": "<p>Cupidatat minim ipsum sint exercitation ullamco proident amet quis. Dolor aute consequat nostrud esse pariatur quis irure. Amet mollit laborum nulla culpa quis. Ea sunt amet dolor esse cillum aliqua amet adipisicing. Veniam labore laborum aute aute quis qui anim. Consectetur duis culpa cupidatat amet voluptate labore mollit adipisicing qui.</p>"
+          }
+        },
+        "card_gBjepD": {
+          "type": "card",
+          "settings": {
+            "title": "Title 2",
+            "htmlContent": "",
+            "content": "<p>Cupidatat minim ipsum sint exercitation ullamco proident amet quis. Dolor aute consequat nostrud esse pariatur quis irure. Amet mollit laborum nulla culpa quis. Ea sunt amet dolor esse cillum aliqua amet adipisicing. Veniam labore laborum aute aute quis qui anim. Consectetur duis culpa cupidatat amet voluptate labore mollit adipisicing qui.</p>"
+          }
+        }
+      },
+      "block_order": ["card_XmEykt", "card_gBjepD"]
     }
   ]
 }
