@@ -475,7 +475,7 @@ slide-drawer {
   background-color: var(--c-white);
   color: var(--c-black);
 
-  & .max-width {
+  & > .max-width {
     display: grid;
     grid-template-columns: auto 2fr 1fr;
     gap: 15px;
