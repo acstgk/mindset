@@ -381,7 +381,7 @@ ul {
   & ul,
   & ol {
     display: block;
-    padding-left: 5em;
+    padding-left: 2em;
 
     & li {
       margin: 0.5em 0;
