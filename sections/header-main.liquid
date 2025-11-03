@@ -1,79 +1,75 @@
 {% assign keywordvar = settings['highlighted-keyword'] | downcase %}
 {% assign keywordvaralt = settings['highlighted-keyword-alt'] | downcase %}
 
-  <button class="drawer-button header_icon mob-only" data-target="navDrawer" aria-label="Open navigation menu">
-    {%- render 'icon' with 'nav' as icon -%}
-  </button>
-
-  <nav class="header_nav mob-hide">
-    <ul class="header_desktop-menu ">
-      {% for link in section.settings.main_menu.links %}
-        {% assign gender = link.title | downcase %}
-        <li class="header_menu-item" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-{{link.title | handleize }}">
-          <a href="{{ link.url }}">{{ link.title }}</a>
-          {% if link.links != blank %}
-            <div id="dropdown-{{link.title}}" class="header_menu-dropdown" aria-hidden="true">
-              <div class="dropdown_col">
-                <ul class="dropdown_col-links">
-                  {% for child_link in link.links %}
-                    {% assign link_title = child_link.title | downcase %}
-                    {% if child_link.links.size > 0 %}
-                    {% else %}
-                      <li>
-                        <a
-                          href="{{ child_link.url }}"
-                          class="{%- if link_title == keywordvaralt -%}desktop--highlighted--menu-alt{%- endif -%} {%- if link_title == keywordvar -%}desktop--highlighted--menu {%- endif -%}"
-                        >
-                          {{- child_link.title -}}
-                        </a>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-                {% render 'menu-quick-links' with gender as gender %}
-              </div>
-              <div class="dropdown_col">
-                <div class="dropdown_sub-menus">
-                  {% for i in (1..2) %}
-                    {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
-                    {% render 'menu-sub-menu' with settings[sub_menu] as menu %}
-                  {% endfor %}
+  <div class="max-width">
+    <button class="drawer-button header_icon mob-only" data-target="navDrawer" aria-label="Open navigation menu">
+      {%- render 'icon' with 'nav' as icon -%}
+    </button>
+    <nav class="header_nav mob-hide">
+      <ul class="header_desktop-menu ">
+        {% for link in section.settings.main_menu.links %}
+          {% assign gender = link.title | downcase %}
+          <li class="header_menu-item" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-{{link.title | handleize }}">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% if link.links != blank %}
+              <div id="dropdown-{{link.title}}" class="header_menu-dropdown" aria-hidden="true">
+                <div class="dropdown_col">
+                  <ul class="dropdown_col-links">
+                    {% for child_link in link.links %}
+                      {% assign link_title = child_link.title | downcase %}
+                      {% if child_link.links.size > 0 %}
+                      {% else %}
+                        <li>
+                          <a
+                            href="{{ child_link.url }}"
+                            class="{%- if link_title == keywordvaralt -%}desktop--highlighted--menu-alt{%- endif -%} {%- if link_title == keywordvar -%}desktop--highlighted--menu {%- endif -%}"
+                          >
+                            {{- child_link.title -}}
+                          </a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                  {% render 'menu-quick-links' with gender as gender %}
+                </div>
+                <div class="dropdown_col">
+                  <div class="dropdown_sub-menus">
+                    {% for i in (1..2) %}
+                      {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
+                      {% render 'menu-sub-menu' with settings[sub_menu] as menu %}
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="dropdown_col">
+                  {% render 'menu-visual-links' with gender as gender, class: 'menu_visual-links' %}
                 </div>
               </div>
-              <div class="dropdown_col">
-                {% render 'menu-visual-links' with gender as gender, class: 'menu_visual-links' %}
-              </div>
-            </div>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
-
-  {% if section.settings.logo %}
-    <a href="{{ routes.root_url }}" aria-label="Link to Homepage" class="header_logo">
-      {{ section.settings.logo | image_url: width: 540 | image_tag: width: 540, sizes: '200px', widths: '540, 200, 80' }}
-    </a>
-  {% endif %}
-
-  <div class="header_icon-container">
-    <div class="countrydesktop" aria-label="Country selector">{%- render 'country-switcher' -%}</div>
-
-    <a href="{{ routes.account_url }}" class="header_icon icon_account mob-hide">
-      {% if customer %}
-        {%- render 'icon' with 'logged-in' as icon -%}
-      {% else %}
-        {%- render 'icon' with 'logged-out' as icon -%}
-      {% endif %}
-    </a>
-
-    {% render 'wishlist-app-links', linkType: 'wishlist-page-link' %}
-    <a href="{{ routes.search_url }}" class="header_icon" id="header_search-icon" aria-label="open search">{%- render 'icon' with 'search' as icon -%}</a>
-    <a href="{{ routes.cart_url }}" class="drawer-button header_icon" id="header_cart-icon" data-target="cartDrawer" aria-label="Open cart drawer">
-      {%- render 'icon' with 'cart' as icon -%}
-    </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    {% if section.settings.logo %}
+      <a href="{{ routes.root_url }}" aria-label="Link to Homepage" class="header_logo">
+        {{ section.settings.logo | image_url: width: 540 | image_tag: width: 540, sizes: '200px', widths: '540, 200, 80' }}
+      </a>
+    {% endif %}
+    <div class="header_icon-container">
+      <div class="countrydesktop" aria-label="Country selector">{%- render 'country-switcher' -%}</div>
+      <a href="{{ routes.account_url }}" class="header_icon icon_account mob-hide">
+        {% if customer %}
+          {%- render 'icon' with 'logged-in' as icon -%}
+        {% else %}
+          {%- render 'icon' with 'logged-out' as icon -%}
+        {% endif %}
+      </a>
+      {% render 'wishlist-app-links', linkType: 'wishlist-page-link' %}
+      <a href="{{ routes.search_url }}" class="header_icon" id="header_search-icon" aria-label="open search">{%- render 'icon' with 'search' as icon -%}</a>
+      <a href="{{ routes.cart_url }}" class="drawer-button header_icon" id="header_cart-icon" data-target="cartDrawer" aria-label="Open cart drawer">
+        {%- render 'icon' with 'cart' as icon -%}
+      </a>
+    </div>
   </div>
-
 
 {% render 'predictive-search' %}
 
