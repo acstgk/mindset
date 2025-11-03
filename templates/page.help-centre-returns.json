@@ -115,7 +115,8 @@
         "card_UwkmXg"
       ],
       "settings": {
-        "openFirst": false
+        "openFirst": true,
+        "showTitle": true
       }
     }
   },
