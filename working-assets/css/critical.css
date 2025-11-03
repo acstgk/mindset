@@ -327,7 +327,7 @@ blockquote {
 }
 
 .Price--markdown {
-  color: var(--c-error);
+  color: var(--c-sale);
 }
 
 p {

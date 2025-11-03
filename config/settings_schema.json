@@ -797,5 +797,15 @@
         "default": 5
       }
     ]
+  },
+  {
+    "name": "General Settings",
+    "settings": [
+      {
+        "type": "color",
+        "id": "sale_colour",
+        "label": "Sale Colour",
+        "default": "#811922"
+    }]
   }
 ]
