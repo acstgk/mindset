@@ -12,15 +12,18 @@
   <div class="cart">
     <div class="cart-title">
       <h1>Your Bag</h1>
-      {% unless cart_empty%}
+      {% unless cart_empty %}
         <a href="/checkout" class="checkout-button button button-primary"
-        >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
-      </a>
-      <p class="info">{% render 'icon', icon: 'info' %}<b>Your items aren't reserved,</b> checkout to ensure you don't miss out</p>
+          >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
+        </a>
+        <p class="info">
+          {% render 'icon', icon: 'info' -%}
+          <b>Your items aren't reserved,</b> checkout to ensure you don't miss out
+        </p>
       {% endunless %}
     </div>
 
-    {% if cart_empty%}
+    {% if cart_empty %}
       <div class="cart--empty">
         <p class="center">Your Shopping Bag is empty.</p>
         {% render 'dead-end' %}
@@ -53,7 +56,7 @@
 
   <div class="usp">
     <div class="img">
-      {{ section.settings.about_img| image_url: width: '700' | image_tag }}
+      {{ section.settings.about_img | image_url: width: '700' | image_tag }}
     </div>
     <div class="rtf">
       <h3 class="h4">Why Gym King?</h3>
@@ -66,15 +69,51 @@
 {% render 'as-seen-in' %}
 
 {% unless cart_empty %}
-<div class="accent-bg">
-  <div class="max-width">
-    <h3 class="h4 no-block-margin" style="margin-top: 4rem">Forgotten something?</h3>
-    {% render 'dead-end' %}
+  <div class="accent-bg">
+    <div class="max-width">
+      <h3 class="h4 no-block-margin" style="margin-top: 4rem">Forgotten something?</h3>
+      {% render 'dead-end' %}
+    </div>
   </div>
-</div>
 {% endunless %}
 
 <link rel="stylesheet" href="{{ 'cart.min.css' | asset_url }}">
+
+<script>
+  document.addEventListener('cart:itemsAdded', () => {
+    getCart();
+    document.body.classList.remove('no-scroll');
+  });
+  document.addEventListener('cart:loaded', () => {
+    console.log('cart:', Cart.cart.item_count);
+    if (Cart.cart.item_count < 1) {
+      getCart();
+    }
+  });
+
+  function getCart() {
+    fetch('/cart')
+      .then((response) => response.text())
+      .then((html) => {
+        // Parse the fetched HTML into a DOM
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        // Select the new cart element from the fetched page
+        const newCart = doc.querySelector('.cart');
+        const currentCart = document.querySelector('.cart');
+
+        if (newCart && currentCart) {
+          // Replace the existing cart with the new one
+          currentCart.replaceWith(newCart);
+        } else {
+          console.error('Cart element not found in current or fetched document.');
+        }
+      })
+      .catch((err) => console.error('Error fetching /cart:', err));
+  }
+</script>
+
 {% schema %}
 {
   "name": "Main Cart",
