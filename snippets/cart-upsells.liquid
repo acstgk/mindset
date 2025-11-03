@@ -1,5 +1,5 @@
 {% comment %} Check whether the cart is mixed of a straight gender {% endcomment %}
-{% assign latest_gender = cart.items[0].vendor | downcase %}
+{% assign latest_gender = cart.items[0].vendor | downcase | default: '' %}
 {% assign mixed_cart = false %}
 {% for item in cart.items offset: 1 %}
   {% if item.vendor != cart.items[0].vendor %}
@@ -12,22 +12,22 @@
 {% if mixed_cart %}
   {% case latest_gender %}
     {% when 'womens', 'mens', 'accessories' %}
-      {% assign upsell_collection = collections['unisex-basket-collection'].products %}
+      {% assign upsell_collection = collections['unisex-basket-collection'] %}
     {% else %}
-      {% assign upsell_collection = collections['kids-basket-collection'].products %}
+      {% assign upsell_collection = collections['kids-basket-collection'] %}
   {% endcase %}
 {% else %}
   {% case latest_gender %}
     {% when 'womens' %}
-      {% assign upsell_collection = collections['womens-basket-collection'].products %}
+      {% assign upsell_collection = collections['womens-basket-collection'] %}
     {% when 'mens' %}
-      {% assign upsell_collection = collections['mens-basket-collection'].products %}
+      {% assign upsell_collection = collections['mens-basket-collection'] %}
     {% when 'boys' %}
-      {% assign upsell_collection = collections['boys-basket-collection'].products %}
+      {% assign upsell_collection = collections['boys-basket-collection'] %}
     {% when 'girls' %}
-      {% assign upsell_collection = collections['girls-basket-collection'].products %}
+      {% assign upsell_collection = collections['girls-basket-collection'] %}
     {% else %}
-      {% assign upsell_collection = collections['unisex-basket-collection'].products %}
+      {% assign upsell_collection = collections['unisex-basket-collection'] %}
   {% endcase %}
 {% endif %}
 
@@ -37,18 +37,16 @@
   {% assign in_range = true %}
 {% endif %}
 
-{% if latest_gender != '' %}
-  <div class="cart-upsells">
-    <h2 class="h4">You might like</h2>
+<div class="cart-upsells">
+  <h2 class="h4">You might like</h2>
 
-    <div class="cart-upsells--carousel">
-      {% for product in upsell_collection %}
-        {% if forloop.last and in_range %}
-          {% render 'product-card', product: product, modal: true, class: 'first-item' %}
-        {% else %}
-          {% render 'product-card', product: product, modal: true %}
-        {% endif %}
-      {% endfor %}
-    </div>
+  <div class="cart-upsells--carousel" data-collection="{{ upsell_collection.title | handleize }}">
+    {% for product in upsell_collection.products %}
+      {% if forloop.last and in_range %}
+        {% render 'product-card', product: product, modal: true, class: 'first-item' %}
+      {% else %}
+        {% render 'product-card', product: product, modal: true %}
+      {% endif %}
+    {% endfor %}
   </div>
-{% endif %}
+</div>
