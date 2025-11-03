@@ -5,11 +5,11 @@
 
 <div class="accent-bg rtf full-width returns-info--block">
   <div class="returns-info">
-    <h2>{{ section.settings.heading1 }}</h2>
+    <h2 class="emphasis">{{ section.settings.heading1 }}</h2>
     <p>{{ section.settings.content1 }}</p>
   </div>
   <div class="returns-info">
-    <h2>{{ section.settings.heading2 }}</h2>
+    <h2 class="emphasis">{{ section.settings.heading2 }}</h2>
     <p>{{ section.settings.content2 }}</p>
   </div>
 </div>
@@ -31,28 +31,32 @@
 <div class="accent-bg returns-info--footer">
   <div class="returns-info--portals">
     <div class="portal">
-      <h3 class="h4">Want to Make a UK Return?</h3>
-      <p>Return an item you bought online.</p>
-      <a href="{{ section.settings.ukurl }}" class="button button-primary">Start a UK Return</a>
+      <h3 class="h4">{{ section.settings.title1 }}</h3>
+      <p>{{ section.settings.text1 }}</p>
+      <a href="{{ section.settings.url1 }}" class="button button-primary">Start a UK Return</a>
     </div>
-    <div class="portal">
-      <h3 class="h4">Want to Make an International Return?</h3>
-      <p>Return an item you bought online.</p>
-      <a href="{{ section.settings.internationalurl }}" class="button button-primary">Start an International Return</a>
-    </div>
+    {% if section.settings.url2 %}
+      <div class="portal">
+        <h3 class="h4">{{ section.settings.title2 }}</h3>
+        <p>{{ section.settings.text2 }}</p>
+        <a href="{{ section.settings.url2 }}" class="button button-primary">Start an International Return</a>
+      </div>
+    {% endif %}
   </div>
   <div class="returns-info--contact">
     <div>
-      <h3 class="h4">Need further Assistance?</h3>
-      <p>Our customer service team is here to help.</p>
-      <a href="{{ section.settings.contacturl }}" class="button button-primary">Contact Us</a>
+      <h3 class="h4">{{ section.settings.title3}}</h3>
+      <p>{{section.settings.text3}}</p>
+      {% if section.settings.url3 %}
+        <a href="{{ section.settings.url3 }}" class="button button-primary">Contact Us</a>
+      {% endif %}
+      </div>
     </div>
-  </div>
 </div>
 
 {% schema %}
 {
-  "name": "Careers Main",
+  "name": "Returns Main",
   "class": "section--careers-main max-width",
   "settings": [
     {
@@ -176,20 +180,67 @@
       "content": "Links"
     },
     {
-      "type": "url",
-      "id": "ukurl",
-      "label": "UK Returns Portal"
+      "type": "paragraph",
+      "content": "Link 1"
+    },
+    {
+      "type": "text",
+      "id": "title1",
+      "label": "Link 1 title",
+      "default": "Want to Make a UK Return?"
+    },
+    {
+      "type": "text",
+      "id": "text1",
+      "label": "Link 1 Text",
+      "default": "Return an item you bought online."
     },
     {
       "type": "url",
-      "id": "internationalurl",
-      "label": "International Returns Portal"
+      "id": "url1",
+      "label": "Link 1 Url",
+    },
+    {
+      "type": "paragraph",
+      "content": "Link 2"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Link 2 title",
+      "default": "Want to Make an International Return?"
+    },
+    {
+      "type": "text",
+      "id": "text2",
+      "label": "Link 2 Text",
+      "default": "Return an item you bought online"
     },
     {
       "type": "url",
-      "id": "contacturl",
-      "label": "Contact us link",
-      "info": "use 'mailto:' to link to an email address"
+      "id": "url2",
+      "label": "Link 2 Url",
+    },
+    {
+      "type": "paragraph",
+      "content": "Link 3"
+    },
+    {
+      "type": "text",
+      "id": "title3",
+      "label": "Link 3 title",
+      "default": "Need Further Assistance?"
+    },
+    {
+      "type": "text",
+      "id": "text3",
+      "label": "Link 3 Text",
+      "default": "Our customer service team is here to help."
+    },
+    {
+      "type": "url",
+      "id": "url3",
+      "label": "Link 3 Url",
     }
   ]
 }

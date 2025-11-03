@@ -28,9 +28,15 @@
         "step-heading4": "Step 4",
         "step-content4": "Package and send",
         "step-image4": "shopify://shop_images/002-parcel.png",
-        "ukurl": "https://thegymking.returns.international/",
-        "internationalurl": "https://web.global-e.com/Returns/Portal/myn3L",
-        "contacturl": "shopify://pages/contact-us"
+        "title1": "Want to Make a UK Return?",
+        "text1": "Return an item you bought online.",
+        "url1": "https://thegymking.returns.international/",
+        "title2": "Want to Make an International Return?",
+        "text2": "Return an item you bought online",
+        "url2": "https://web.global-e.com/Returns/Portal/myn3L",
+        "title3": "Need Further Assistance?",
+        "text3": "Our customer service team is here to help.",
+        "url3": "mailto:customerservice@gymking.com"
       }
     }
   },

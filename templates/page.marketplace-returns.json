@@ -1,0 +1,113 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-returns-main",
+      "settings": {
+        "heading1": "What is the Returns Policy?",
+        "content1": "<ul><li>Items should be returned <strong>within 30 days of delivery</strong>, in original saleable condition. It must be unworn, unwashed and in the same condition that you received it with the tags and packaging.</li><li>We do not offer exchanges.</li><li>If you are returning items from multiple orders, please ensure these are returned separately to avoid any complications. </li></ul>",
+        "heading2": "Received a Faulty Item?",
+        "content2": "<p>We are sorry that you received a faulty item.</p><p>Please contact your Marketplace customer services with your order number, the item and size along with some images of the fault we will work quickly to resolve this for you.</p><p>Please DO NOT return any faulty items until you are asked to do so by the customer service team.</p>",
+        "step-heading1": "Step 1",
+        "step-content1": "Visit our Online Returns Portal",
+        "step-image1": "shopify://shop_images/001-browser.png",
+        "step-heading2": "Step 2",
+        "step-content2": "Enter your order number, and select your item(s)",
+        "step-image2": "shopify://shop_images/003-check-list.png",
+        "step-heading3": "Step 3",
+        "step-content3": "Generate your Label / QR Code",
+        "step-image3": "shopify://shop_images/004-qr-code.png",
+        "step-heading4": "Step 4",
+        "step-content4": "Package and send",
+        "step-image4": "shopify://shop_images/002-parcel.png",
+        "title1": "Want to Make a Return?",
+        "text1": "Return an item you bought via a marketplace.",
+        "url1": "https://gymkingmarketplace.returns.international/",
+        "title2": "Want to Make an International Return?",
+        "text2": "Return an item you bought online",
+        "url2": "",
+        "title3": "Need Further Assistance?",
+        "text3": "Please get in touch with your Marketplace Customer Services Team.",
+        "url3": ""
+      }
+    },
+    "content_accordian_dkDbLK": {
+      "type": "content-accordian",
+      "blocks": {
+        "card_y3WJD9": {
+          "type": "card",
+          "settings": {
+            "title": "WHAT IS YOUR RETURN POLICY?",
+            "htmlContent": "",
+            "content": "<p> Items should be returned within 30 days of delivery, in original saleable condition, unworn, unwashed, with all tags still attached and in original packaging. All items are inspected on return, returns that are refused will be posted back to you.<br/><br/><strong>Please keep your proof of return to allow you/ us to track your parcel and investigate any returns that go missing, without the tracking we are unable to investigate.</strong><br/><br/>*Abuse of our Returns Policy (including repeated refunds, free wardrobing and chargeback fraud) will NOT be accepted. Gym King reserves the right to make the final decision on returns and refunds and reserve the right to close a customer account if we deem it necessary.</p>"
+          }
+        },
+        "card_N7QwAC": {
+          "type": "card",
+          "settings": {
+            "title": "DO YOU OFFER EXCHANGES?",
+            "htmlContent": "",
+            "content": "<p>Sorry we don't offer exchanges, your returned items will be refunded.</p>"
+          }
+        },
+        "card_xUcYGC": {
+          "type": "card",
+          "settings": {
+            "title": "WHAT ITEMS CANNOT BE RETURNED?",
+            "htmlContent": "",
+            "content": "<p>The following are exceptions to the return policy above :</p><ul><li>If an item is marked as Final Sale, this item is non-returnable.</li><li>Women’s swimwear can only be returned if the hygiene seal is still intact and has not been removed.</li><li>Socks can be returned if they are <strong>sealed</strong> in their original packaging.</li><li>Men’s swimwear, underwear and Women's underwear cannot be returned for hygiene reasons.</li><li>All Bottles are non-returnable due to hygiene reasons.</li></ul>"
+          }
+        },
+        "card_Btgaz4": {
+          "type": "card",
+          "settings": {
+            "title": "HOW DO I RETURN MY ITEMS?",
+            "htmlContent": "",
+            "content": "<ul><li>Access our easy <a href=\"https://gymkingmarketplace.returns.international/\">return portal</a></li><li>You will need your Marketplace order number (which should be on your order confirmation) and postcode/email address which can be found on the paperwork in your parcel.</li><li>Follow the instructions to create your return and generate your return label/ QR code.</li><li>Put your item(s) in your parcel, seal it securely and affix your return label (if you opted to print it).</li><li>Take your parcel to your chosen Evri Parcelshop location</li></ul><p><strong>If your order is past 30 days you will be unable to raise a return on the portal. Please contact your Marketplace customer services with your order number and your reason for return.</strong></p><p><strong>Please keep hold of your receipt/drop off email as it has your tracking information and we would be unable to investigate and issues without it.</strong></p>"
+          }
+        },
+        "card_8GzYLa": {
+          "type": "card",
+          "settings": {
+            "title": "HAVE YOU RECEIVED MY RETURN YET?",
+            "htmlContent": "",
+            "content": "<p>If your tracking reference states delivered to GYM KING we have your parcel. Your returned item(s) will be processed and refunded shortly.</p>"
+          }
+        },
+        "card_WYX9Cx": {
+          "type": "card",
+          "settings": {
+            "title": "WHEN WILL I GET MY REFUND?",
+            "htmlContent": "",
+            "content": "<p>We process your returns as quickly as we can and usually do so within 7 days of receipt. During busy periods this may take up to 14 days. Please also allow up to 5 working days for the refund to appear on your bank statement.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_y3WJD9",
+        "card_N7QwAC",
+        "card_xUcYGC",
+        "card_Btgaz4",
+        "card_8GzYLa",
+        "card_WYX9Cx"
+      ],
+      "name": "Accordian",
+      "settings": {
+        "openFirst": false,
+        "showTitle": false
+      }
+    }
+  },
+  "order": [
+    "main",
+    "content_accordian_dkDbLK"
+  ]
+}
