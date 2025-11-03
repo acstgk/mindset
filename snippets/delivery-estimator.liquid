@@ -54,9 +54,7 @@
       fetch(`/cart/shipping_rates.json?${query}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.shipping_rates && data.shipping_rates.length > 0) {
-            console.log('Shipping rates found :: ', data.shipping_rates);
             const ratesHtml = data.shipping_rates
               .map((rate) => `<li><b>${rate.name}</b><br>&nbsp;&nbsp;&nbsp;&nbsp;Price: ${rate.price == '0.00' ? 'FREE' : rate.price + ' ' + rate.currency}${rate.delivery_days[1] ? '<br>&nbsp;&nbsp;&nbsp;&nbsp;Delivery within: ' + rate.delivery_days[1] + " days" : ''}</li>`)
               .join('');

@@ -815,7 +815,6 @@ if (!customElements.get("line-item")) {
               Cart.updateLineItem(this.lineItemKey, newQty).then(() => {
                 // remove the element from the DOM if newQty is zero
                 if (newQty === 0) this.removeItemEl();
-                console.log(Cart.cart.items[this.dataset.index]?.key);
                 this.lineItemKey = Cart.cart.items[this.dataset.index]?.key || this.lineItemKey;
                 // update the quantity selector values
                 input.value = newQty;

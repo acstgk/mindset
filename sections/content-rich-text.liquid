@@ -71,10 +71,7 @@
   <script type="module">
     import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
     let thisslideCount = document.querySelector('#shopify-section-{{ section.id }} .carousel').querySelectorAll('.splide__slide').length;
-    console.log('test :: ', document.querySelector('#shopify-section-{{ section.id }} .carousel'));
-    console.log('test :: ', thisslideCount);
     if (thisslideCount > 1) {
-      console.log('greater than one? :: ', thisslideCount);
       SplideUtil.splideInit('#shopify-section-{{ section.id }} .carousel', {
         type: 'loop',
         pagination: true,

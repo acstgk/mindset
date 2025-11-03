@@ -17,8 +17,6 @@ export default class BnplOptions extends HTMLElement {
     event.preventDefault();
 
     const targetModal = `.bnpl-modal.${option}`;
-    console.log(targetModal);
-
     document.querySelector(targetModal) ? this._showModal(targetModal) : this._createModal(option);
   }
 

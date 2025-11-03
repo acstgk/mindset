@@ -504,8 +504,6 @@ class BlurbControls {
   }
 
   _toggleView = () => {
-    console.log(this.element);
-
     this.element.classList.toggle("active");
   };
 }

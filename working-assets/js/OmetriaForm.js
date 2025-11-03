@@ -52,7 +52,6 @@ if (!customElements.get("ometria-form")) {
               this.formTitle.innerHTML = window.successTitle;
               this.formCopy.innerHTML = window.successText;
               this.onwardLinks.classList.add("active");
-              console.log("The form has been submitted", resp);
             }
           } catch (error) {
             const errorEl = document.createElement("p");
