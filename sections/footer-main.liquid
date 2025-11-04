@@ -2,6 +2,9 @@
   <div class="footer-socials">
     {% render 'socials' %}
     <span>@GYMKING</span>
+    {% if section.settings.footer-logo %}
+      {{ section.settings.footer-logo | image_url: width: 300 | image_tag: class: 'footer-logo'  }}
+    {% endif %}
   </div>
 
   <content-accordian>
@@ -65,6 +68,11 @@
       "type": "richtext",
       "id": "seo_copy",
       "label": "Site Meta Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "footer-logo",
+      "label": "footer_logo"
     }
   ]
 }

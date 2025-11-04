@@ -1476,6 +1476,13 @@ ul.social-links {
     }
 }
 
+img.footer-logo {
+    opacity: 0.5;
+    max-width: 50px;
+    margin: 1rem auto;
+    display: block;
+}
+
 .footer-socials span {
     text-align: center;
     letter-spacing: calc(var(--letter-spacing) * 2);
