@@ -25,7 +25,10 @@
           {%- render 'product-card' with product as product -%}
         {%- endfor -%}
       {% else %}
-        <p>No Product Suggestions Found</p>
+        <p>
+          <b>No product suggestions found.</b> <br>
+          <small>Hit Enter {% render 'icon', icon: 'return', class: 'return-key' %} to complete a full search.</small>
+        </p>
       {% endif %}
     </div>
     <div class="predictive-search__container">
@@ -98,20 +101,22 @@
           </div>
         {% endif %}
       {% endif %}
-      {% comment %} <div class="predictive_search-section">
-        <h4 class="predictive_search-heading">Useful Links</h4>
-        <ul role="listbox">
-          <li role="option">
-            <a href="/pages/help-centre"> Help Centre </a>
-          </li>
-          <li role="option">
-            <a href="/pages/size-guide"> Size Guide </a>
-          </li>
-          <li role="option">
-            <a href="/pages/about-us"> About Gym King </a>
-          </li>
-        </ul>
-      </div> {% endcomment %}
+      {% comment %}
+        <div class="predictive_search-section">
+          <h4 class="predictive_search-heading">Useful Links</h4>
+          <ul role="listbox">
+            <li role="option">
+              <a href="/pages/help-centre"> Help Centre </a>
+            </li>
+            <li role="option">
+              <a href="/pages/size-guide"> Size Guide </a>
+            </li>
+            <li role="option">
+              <a href="/pages/about-us"> About Gym King </a>
+            </li>
+          </ul>
+        </div>
+      {% endcomment %}
     </div>
   </div>
 

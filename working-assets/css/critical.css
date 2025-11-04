@@ -427,7 +427,7 @@ slide-drawer {
   top: 0;
   z-index: 12;
   width: min(375px, 95%);
-  box-shadow: var(--drop-shadow);
+  box-shadow: 0 0 6px var(--c-shadow);
   translate: -100% 0;
   transition: translate 0.15s ease-out, opacity 0.16s ease-out;
   opacity: 0;
@@ -475,7 +475,7 @@ slide-drawer {
   background-color: var(--c-white);
   color: var(--c-black);
 
-  & > .max-width {
+  &>.max-width {
     display: grid;
     grid-template-columns: auto 2fr 1fr;
     gap: 15px;
@@ -486,6 +486,14 @@ slide-drawer {
   & .Icon {
     height: 24px;
     stroke-width: 1.5;
+  }
+
+  & .return-key {
+    transform: scaleY(-1);
+    height: 1rem;
+    position: relative;
+    top: 0.25rem;
+    left: -0.1rem;
   }
 }
 
@@ -587,7 +595,7 @@ ul.header_desktop-menu {
   max-height: calc(100vh - 50px);
   z-index: -1;
   padding-top: 20px;
-  box-shadow: 0 0.5rem 0.5rem rgba(27, 27, 27, 0.25)
+  box-shadow: 0 0.5rem 0.5rem var(--c-shadow)
 }
 
 .header_menu-item>a:hover+.header_menu-dropdown,

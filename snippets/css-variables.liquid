@@ -103,7 +103,9 @@
     --c-warning: #ef6d02;
     --c-success: #498E2B;
     --c-info: #33658A;
-    --c-sale: {{ settings.sale_colour" }}
+    --c-sale: {{ settings.sale_colour }};
+    --c-shadow: rgb(20 20 20 / 0.2);
+
   }
 
    {% comment %} STRUCTURE {% endcomment %}
@@ -111,7 +113,6 @@
    :root {
     --max-width: min(90vw, 1270px);
     --bezier: cubic-bezier(.17,.67,.22,1.2);
-    --drop-shadow: 0 0 5px var(--c-grey);
    }
 
    ul.dropdown_col-links a.desktop--highlighted--menu-alt,

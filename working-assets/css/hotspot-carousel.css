@@ -27,7 +27,7 @@
       animation: pulse 2s infinite;
       background-color: var(--c-black);
       scale: 1;
-      box-shadow: 0 0 6px 2px var(--c-grey);
+      box-shadow: 0 0 6px 2px var(--c-shadow);
     }
 
     &::after {
