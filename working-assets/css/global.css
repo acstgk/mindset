@@ -1505,6 +1505,15 @@ img.footer-logo {
     margin: 40px 0 0;
 }
 
+.payment-icon {
+    filter: grayscale(0.25);
+    transition: filter .15s var(--bezier);
+
+    &:hover {
+        filter: grayscale(0);
+    }
+}
+
 .footer-copyright {
     background-color: var(--c-off-white);
     margin: 20px 0;
