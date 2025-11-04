@@ -9,6 +9,7 @@ gulp/
 *.local
 *.env.local
 *.env.*.local
+*.zip
 
 .DS_Store
 Thumbs.db
