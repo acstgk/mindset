@@ -1052,7 +1052,7 @@ recentlyViewed.checkProductListDates();
 // Render the Recently Viewed element and import JS data
 // ===================
 
-if (recentlyViewed.hasRecentlyViewed() && !document.querySelector("recently-viewed")) {
+if (recentlyViewed.hasRecentlyViewed() && !document.querySelector("recently-viewed") && document.getElementById("cartDrawer")) {
   document.getElementById("side_menu-recents").style.display = "block";
   const recentlyViewedEl = document.createElement("recently-viewed");
   let sideCart = document.getElementById("cartDrawer");
@@ -1146,9 +1146,11 @@ shortcuts.registerShortcut("enter", () => {
   const cartDrawer = document.getElementById("cartDrawer");
   const cartPageCheckoutBtn = document.getElementById("main-cart--button");
 
-  if (cartPageCheckoutBtn || cartDrawer.getAttribute('aria-hidden') == false) {
+  if (cartPageCheckoutBtn || cartDrawer.getAttribute("aria-hidden") == false) {
     window.location.href = "/checkout";
   }
+});
 
-
+shortcuts.registerShortcut("ctrl+?", () => {
+  //  open shortcuts info modal
 });
