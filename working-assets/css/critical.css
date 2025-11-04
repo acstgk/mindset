@@ -587,7 +587,7 @@ ul.header_desktop-menu {
   max-height: calc(100vh - 50px);
   z-index: -1;
   padding-top: 20px;
-  border-bottom: 1px solid var(--c-light-grey)
+  box-shadow: 0 0.5rem 0.5rem rgba(27, 27, 27, 0.25)
 }
 
 .header_menu-item>a:hover+.header_menu-dropdown,
