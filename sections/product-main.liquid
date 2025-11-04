@@ -61,6 +61,7 @@
 
   {% comment %} START:: main carousel {% endcomment %}
   <div class="pdp-carousel-wrapper">
+    <div class="loader"></div>
     <pdp-carousel>
       {% if show_timer or settings['decal-check'] %}
         {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: loading: 'lazy', class: 'splide__decal' }}
