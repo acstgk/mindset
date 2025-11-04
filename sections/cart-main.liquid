@@ -13,7 +13,7 @@
     <div class="cart-title">
       <h1>Your Bag</h1>
       {% unless cart_empty %}
-        <a href="/checkout" class="checkout-button button button-primary"
+        <a href="/checkout" class="checkout-button button button-primary" id="main-cart--button"
           >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
         </a>
         <p class="info">

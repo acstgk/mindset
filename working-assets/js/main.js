@@ -1004,7 +1004,9 @@ class iWishCustom {
 new iWishCustom(); // make sure you instantiate with ()
 
 // ===================
+// ===================
 // Global functions and logic
+// ===================
 // ===================
 
 function openCartDrawerIfNotOnCartPage() {
@@ -1058,13 +1060,95 @@ if (recentlyViewed.hasRecentlyViewed() && !document.querySelector("recently-view
   sideCart.insertBefore(recentlyViewedEl, sideCart.querySelector(".drawer-close"));
   import("./RecentlyViewedElement.js");
 } else if (document.querySelector("recently-viewed")) {
- import("./RecentlyViewedElement.js").then(() => {
-   customElements.whenDefined("recently-viewed").then(() => {
-     const el = document.querySelector("recently-viewed");
-     if (el && typeof el._renderProducts === "function") {
-       el._renderProducts();
-       document.querySelector("#recently-viewed-section").style.display = "grid";
-     }
-   });
- });
+  import("./RecentlyViewedElement.js").then(() => {
+    customElements.whenDefined("recently-viewed").then(() => {
+      const el = document.querySelector("recently-viewed");
+      if (el && typeof el._renderProducts === "function") {
+        el._renderProducts();
+        document.querySelector("#recently-viewed-section").style.display = "grid";
+      }
+    });
+  });
 }
+
+// ===================
+// keyboard shortcuts
+// ===================
+
+class KeyboardShortcutsManager {
+  constructor() {
+    this.shortcuts = [];
+    this.enabled = true;
+    document.addEventListener("keydown", this.handleKeyDown.bind(this));
+  }
+
+  registerShortcut(keys, callback, options = {}) {
+    this.shortcuts.push({ keys, callback, ...options });
+  }
+
+  handleKeyDown(event) {
+    if (!this.enabled) return;
+
+    // Don't trigger inside form inputs unless explicitly allowed
+    const target = event.target;
+    const isTypingArea = ["INPUT", "TEXTAREA"].includes(target.tagName) || target.isContentEditable;
+    if (isTypingArea && !event.altKey) return;
+
+    const keyCombo = this.normalizeKeyCombo(event);
+    this.shortcuts.forEach((shortcut) => {
+      if (shortcut.keys === keyCombo) {
+        event.preventDefault();
+        shortcut.callback(event);
+      }
+    });
+  }
+
+  normalizeKeyCombo(event) {
+    const parts = [];
+    if (event.ctrlKey) parts.push("ctrl");
+    if (event.altKey) parts.push("alt");
+    if (event.shiftKey) parts.push("shift");
+    parts.push(event.key.toLowerCase());
+    return parts.join("+");
+  }
+
+  enable() {
+    this.enabled = true;
+  }
+  disable() {
+    this.enabled = false;
+  }
+}
+
+const shortcuts = new KeyboardShortcutsManager();
+
+shortcuts.registerShortcut("ctrl+/", () => {
+  document.querySelector("#header_search-icon")?.click();
+});
+
+shortcuts.registerShortcut("ctrl+c", () => {
+  document.querySelector("#header_cart-icon")?.click();
+});
+
+shortcuts.registerShortcut("escape", () => {
+  document.querySelector("page-overlay").closeAllOverlays();
+});
+
+shortcuts.registerShortcut("ctrl+h", () => {
+  window.location.href = "/";
+});
+
+shortcuts.registerShortcut("ctrl+p", () => {
+  window.location.href = "/account";
+});
+
+shortcuts.registerShortcut("enter", () => {
+  const cartDrawer = document.getElementById("cartDrawer");
+  const cartPageCheckoutBtn = document.getElementById("main-cart--button");
+
+  if (cartPageCheckoutBtn || cartDrawer.getAttribute('aria-hidden') == false) {
+    window.location.href = "/checkout";
+  }
+
+
+});
