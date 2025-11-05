@@ -11,21 +11,23 @@
       <div class="announcement_track splide__track">
         <div class="announcement_list splide__list">
           {% for block in section.blocks %}
-            <a
-              href="{{ block.settings.link1 | escape }}"
-              class="announcement_content splide__slide"
-              data-block-id="{{ block.id }}"
-              {{ block.shopify_attributes }}
-            >
-              <b class="announcement_content-title">{{ block.settings.title | escape }} </b>
-              {% if block.settings.enable_countdown %}
-                <countdown-timer class="announcement_content-text" data-countdown='{{ countdown_settings | strip_newlines  }}'></countdown-timer>
-              {% else %}
-                <span class="announcement_content-text">
-                  {{ block.settings.subcontent1 | escape }}
-                </span>
-              {% endif %}
-            </a>
+            <div class="splide__slide">
+              <a
+                href="{{ block.settings.link1 | escape }}"
+                class="announcement_content"
+                data-block-id="{{ block.id }}"
+                {{ block.shopify_attributes }}
+              >
+                <b class="announcement_content-title">{{ block.settings.title | escape }} </b>
+                {% if block.settings.enable_countdown %}
+                  <countdown-timer class="announcement_content-text" data-countdown='{{ countdown_settings | strip_newlines  }}'></countdown-timer>
+                {% else %}
+                  <span class="announcement_content-text">
+                    {{ block.settings.subcontent1 | escape }}
+                  </span>
+                {% endif %}
+              </a>
+            </div>
           {% endfor %}
         </div>
       </div>
