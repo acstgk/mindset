@@ -270,7 +270,7 @@ blockquote {
   }
 
   & .colour {
-    color: var(--c-grey);
+    color: var(--c-dark-grey);
     font-size: var(--txt-sm);
     flex: 0 1 auto;
     text-wrap: pretty;
@@ -279,7 +279,7 @@ blockquote {
 }
 
 .bundle-items {
-  color: var(--c-grey);
+  color: var(--c-dark-grey);
   font-size: var(--txt-sm);
   flex: 0 1 auto;
   text-wrap: pretty;
