@@ -37,7 +37,7 @@
           {% for i in (1..2) %}
             {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
             <li>
-              <a class="side_menu-sub-menu-button" data-sub-menu="{{ settings[sub_menu].handle }}" aria-label="open sub menu">
+              <a class="side_menu-sub-menu-button" data-sub-menu="{{ settings[sub_menu].handle }}" aria-label="open sub menu" role="button" rel="nofollow">
                 <span>{{ settings[sub_menu].title | split: '-' | last }}</span>{% render 'icon' , icon: 'arrow' -%}
               </a>
             </li>
