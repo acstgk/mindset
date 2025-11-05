@@ -305,6 +305,11 @@ body.no-scroll page-overlay {
     color: var(--c-dark-grey);
     padding: 1em;
     margin-block: 1em;
+
+    & a,
+    & .a {
+        color: var(--c-dark-grey);
+    }
 }
 
 .no-scroll {
