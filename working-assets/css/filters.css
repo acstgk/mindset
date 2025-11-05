@@ -16,7 +16,7 @@ filters-menu-bar {
     justify-content: space-between;
     padding: 1rem 0;
     margin: 0 auto;
-    color: var(--c-grey);
+    color: var(--c-dark-grey);
   }
 
   & slide-drawer {
@@ -292,7 +292,7 @@ filters-menu-bar {
 }
 
 .mobile-filter-button {
-  color: var(--c-grey);
+  color: var(--c-dark-grey);
   display: flex;
   gap: 0.25rem;
 }

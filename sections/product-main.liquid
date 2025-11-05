@@ -110,13 +110,13 @@
 
 {% comment %} START:: zoom {% endcomment %}
 <div class="pdp-zoom-wrapper">
-  <button class="pdp-zoom-prev-btn round-btn">
+  <button class="pdp-zoom-prev-btn round-btn" aria-label="show previous image">
     {% render 'icon', icon: 'arrow', class: 'rotate180' %}
   </button>
-  <button class="pdp-zoom-close-btn round-btn">
+  <button class="pdp-zoom-close-btn round-btn" aria-label="Close the zoom modal">
     {% render 'icon', icon: 'plus', class: 'rotate45' %}
   </button>
-  <button class="pdp-zoom-next-btn round-btn">
+  <button class="pdp-zoom-next-btn round-btn" aria-label="show next image">
     {% render 'icon', icon: 'arrow' %}
   </button>
 </div>
