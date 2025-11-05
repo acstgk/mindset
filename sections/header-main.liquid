@@ -56,7 +56,7 @@
     {% endif %}
     <div class="header_icon-container">
       <div class="countrydesktop" aria-label="Country selector">{%- render 'country-switcher' -%}</div>
-      <a href="{{ routes.account_url }}" class="header_icon icon_account mob-hide">
+      <a href="{{ routes.account_url }}" class="header_icon icon_account mob-hide" aria-label="Account Pag">
         {% if customer %}
           {%- render 'icon' with 'logged-in' as icon -%}
         {% else %}
