@@ -1,6 +1,6 @@
 {% if linkType == 'wishlist-page-link' %}
-  <a class="iwishPage header_icon" href="{% unless routes.root_url == '/' %}{{ routes.root_url }}{% endunless %}/apps/iwish"title="Wishlist Page">
-    {% render 'icon' with 'heart' %}
+  <a class="iwishPage header_icon" href="{% unless routes.root_url == '/' %}{{ routes.root_url }}{% endunless %}/apps/iwish" title="Wishlist Page">
+    {% render 'icon', icon: 'heart' %}
     <span class="iwish-counter">0</span>
   </a>
 {% elsif linkType == 'list-product' %}
@@ -11,6 +11,8 @@
     data-product="{{ product.id }}"
     data-pTitle="{{ product.title | escape }}"
     aria-label="add product to wishlist"
+    role="button"
+    rel="nofollow"
   >
     <svg
       version="1.1"
@@ -36,6 +38,8 @@
       data-variant="{{ product.variants.first.id }}"
       data-product="{{ product.id }}"
       data-pTitle="{{ product.title | escape }}"
+      role="button"
+      rel="nofollow"
     >
       <svg
         version="1.1"

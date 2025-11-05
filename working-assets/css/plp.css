@@ -40,6 +40,7 @@
     text-align: right;
     color: var(--c-grey);
     pointer-events: all;
+    cursor: pointer;
   }
 }
 

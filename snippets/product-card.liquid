@@ -61,13 +61,13 @@
     {% endif %}
     <a class="product_card-images product-container--{{ product.id }}" href="{{ product.url }}">
       <div class="product_card-first-image">
-        {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager', class: 'background-image' }}
+        {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager', class: 'background-image', draggable: false }}
         <div class="loader grid-loader"></div>
-        {{ product.featured_image | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading }}
+        {{ product.featured_image | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading, draggable: false }}
       </div>
 
       {% if product.images[2] %}
-        {{ product.images[2] | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: 'lazy' }}
+        {{ product.images[2] | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: 'lazy', draggable: false }}
       {% endif %}
     </a>
 

@@ -496,7 +496,7 @@ class BlurbControls {
   }
 
   _addbutton() {
-    const controlBtn = document.createElement("a");
+    const controlBtn = document.createElement("button");
     controlBtn.className = "expand-blurb";
     controlBtn.innerText = "Read more";
     controlBtn.addEventListener("click", this._toggleView);

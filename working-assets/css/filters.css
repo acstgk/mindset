@@ -291,6 +291,12 @@ filters-menu-bar {
   padding: 0 1rem;
 }
 
+.mobile-filter-button {
+  color: var(--c-grey);
+  display: flex;
+  gap: 0.25rem;
+}
+
 @media screen and (width < 1100px) {
   .sortby-container label {
     display: none;
