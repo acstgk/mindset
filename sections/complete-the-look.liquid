@@ -33,7 +33,7 @@
           {% for handle in product_handles %}
             {% assign handle_product = all_products[handle] %}
             <div data-price="{{ handle_product.price }}" data-title="{{ handle_product.title }}" data-gender="{{ handle_product.gender }}" data-id="{{ handle_product.id }}" class="completethelook--product">
-              <a href="{{ handle_product.url }}" alt="{{ handle_product.title }}">{{ handle_product.featured_image | image_url: width: 3250 | image_tag: class: 'completethelook--product--image' }}</a>
+              <a href="{{ handle_product.url }}" alt="{{ handle_product.title }}">{{ handle_product.featured_image | image_url: width: 3250 | image_tag: class: 'completethelook--product-image', widths: '300, 450, 600, 750, 900, 1200, 1800' }}</a>
               <div class="completethelook--product--content">
                 <div class="recommendations-pricecontainer">
                   {% render 'product-title' with handle_product as product %}
