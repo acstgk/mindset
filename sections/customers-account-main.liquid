@@ -67,7 +67,7 @@
       <h2 class="h4 left">{{ 'customer.account.no_orders_title' | t }}</h2>
       <p>{{ 'customer.account.no_orders_content' | t }}</p>
     {%- else -%}
-      <h2 class="h4 left">Your Orders</h2>
+      <h2 class="h4 left">Your Orders ({{ customer.orders_count }})</h2>
 
       {% comment %}
         {%- paginate customer.orders by 25 -%}
@@ -196,7 +196,7 @@
 
             {%- if paginate.next -%}
               <a class="button button-secondary" rel="next" title="{{ 'general.pagination.next_page' | t }}" href="{{ paginate.next.url | remove: 'view=ajax' }}">
-                next
+                more orders
                 {%- render 'icon', icon: 'arrow' -%}
               </a>
             {%- endif -%}

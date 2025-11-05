@@ -130,3 +130,8 @@ ul.address-grid {
     margin-bottom: 15vh;
   }
 }
+
+.pagination-nav {
+  display: flex;
+  gap: 1rem;
+}
