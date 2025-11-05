@@ -40,6 +40,7 @@
                   {% render 'product-price' with handle_product as product %}
                 </div>
                 <div id="options-{{handle_product.id}}" class="product-options">
+                  <label for="atc{{handle_product.id}}" class="visually-hidden">Select Size</label>
                   <select id="atc{{handle_product.id}}" data-productid="{{handle_product.id}}" class="button product-select" required>
                     {% if handle_product.variants.size == 1 %}
                       One Size
