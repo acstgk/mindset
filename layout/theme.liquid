@@ -62,6 +62,8 @@
 
     {%- if page_description -%}
       <meta name="description" content="{{ page_description | escape }}">
+    {% else %}
+      <meta name="description" content="{{ settings.default-meta-description }}">
     {%- endif -%}
 
     {% if template contains 'search' or handle contains 'basket' %}
