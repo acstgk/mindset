@@ -1,48 +1,204 @@
-/* global MutationObserver IntersectionObserver, Shopify, theme, clearTimeout sessionStorage location URL */
+/* global requestIdleCallback MutationObserver IntersectionObserver, Shopify, theme, clearTimeout sessionStorage location URL */
 import Splide from "./splide.min.js";
 window.Splide = Splide;
-import RecentlyViewed from "./RecentlyViewed.js";
 
 // ===================
-// Annoucement Carousel
+// CART CLASS
 // ===================
-if (!customElements.get("announcement-bar")) {
-  customElements.define(
-    "announcement-bar",
-    class AnnouncementCarousel extends HTMLElement {
-      constructor() {
-        super();
+
+class CartAPI {
+  constructor() {
+    this.cart = {};
+    this.loadCart = this.loadCart.bind(this);
+    this.addItems = this.addItems.bind(this);
+    this.removeItem = this.removeItem.bind(this);
+    this.updateLineItem = this.updateLineItem.bind(this);
+    this.dispatchCartUpdate = this.dispatchCartUpdate.bind(this);
+    this.cartIcon = document.getElementById("header_cart-icon");
+    this.loadCart();
+  }
+
+  // Dispatches a custom event when the cart data changes
+  dispatchCartUpdate(eventName = "cart:updated") {
+    const event = new CustomEvent(eventName, {
+      bubbles: true, // Allow event to bubble up the DOM
+      detail: { cart: this.cart },
+    });
+    document.dispatchEvent(event);
+    console.log(`Custom event '${eventName}' dispatched`);
+  }
+
+  // get the cart data so we can include it with the custom event
+  async loadCart() {
+    try {
+      const res = await fetch("/cart.js");
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      const data = await res.json();
+      console.log("Cart JSON data:", data);
+      this.cart = data;
+      this.cart.item_count > 0 ? this.cartIcon.classList.add("cart-not-empty") : this.cartIcon.classList.remove("cart-not-empty");
+      this.dispatchCartUpdate("cart:loaded"); // Notify UI components
+    } catch (error) {
+      console.error("Error loading cart.js:", error);
+    }
+  }
+
+  // == add one or more items to the cart ==
+  // will accept:
+  // 1: a single variant ID,
+  // 2: an array of product ID's - [1211,2222,333]
+  // 3: an array of cart objects - [{ id: 1211, quantity: 1 },{ id: 2222, quantity: 3 },{ id: 333, quantity: 2 },]
+
+  async addItems(items) {
+    let normalizedItems = [];
+
+    if (Array.isArray(items)) {
+      normalizedItems = items.map((item) => (typeof item === "object" ? item : { id: item, quantity: 1 }));
+    } else if (typeof items === "object") {
+      normalizedItems = [items]; // single object like { id, quantity }
+    } else {
+      normalizedItems = [{ id: items, quantity: 1 }]; // single id
+    }
+
+    try {
+      const res = await fetch("/cart/add.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ items: normalizedItems }),
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        console.error("Shopify Add to Cart Error:", errorData);
+        // could dispatch an error event here
+        return Promise.reject(errorData);
       }
 
-      connectedCallback() {
-        this.classList.add("splide");
-        let transType = "loop";
-        let autoplay = true;
-        if (Shopify.designMode) {
-          autoplay = false;
-          transType = "slide";
+      const data = await res.json();
+      await this.loadCart();
+      this.dispatchCartUpdate("cart:itemsAdded");
+      return data;
+    } catch (error) {
+      console.error("Network or unexpected error during addItems:", error);
+      return Promise.reject(error);
+    }
+  }
+
+  // == remove an item from the cart ==
+  // lineItemKey must be line item key or variant ID ( variant id will automatically remove first instance only)
+  async removeItem(lineItemKey) {
+    try {
+      const res = await fetch("/cart/change.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: lineItemKey, quantity: 0 }),
+      });
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+
+      const data = await res.json();
+      await this.loadCart(); // Reload cart data and dispatch update
+      this.dispatchCartUpdate("cart:itemRemoved");
+      return data;
+    } catch (error) {
+      console.error("Error removing item:", error);
+      return Promise.reject(error);
+    }
+  }
+
+  // == update a line in the cart==
+  async updateLineItem(lineItemKey, quantity) {
+    try {
+      const res = await fetch("/cart/change.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: lineItemKey, quantity: quantity }),
+      });
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      const data = await res.json();
+      await this.loadCart(); // Reload cart data and dispatch update
+      this.dispatchCartUpdate("cart:lineItemUpdated");
+      return data;
+    } catch (error) {
+      console.error("Error updating item:", error);
+      return Promise.reject(error);
+    }
+  }
+
+  // == clear all items out of the cart and send the cart update event ==
+  async clearAll() {
+    try {
+      const res = await fetch("/cart/clear.js", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      const data = await res.json();
+      await this.loadCart(); // Reload cart data and dispatch update
+      this.dispatchCartUpdate("cart:cleared");
+      return data;
+    } catch (error) {
+      console.error("Error clearing cart:", error);
+      return Promise.reject(error);
+    }
+  }
+
+  // == convert the money to the right format ==
+  formatMoney(amount) {
+    const format = window.theme.moneyFormat;
+    const value = amount / 100;
+    const formatted = format.replace("{{amount}}", value.toFixed(2));
+    return formatted.replace(/\.00$/, ""); // only strip ".00", leave ".50" etc.
+  }
+
+  // == update the value in the checkout button ==
+  updateCheckoutTotal(value) {
+    let totalPoint = document.querySelector(".cart-total");
+    if (value === 0) {
+      totalPoint.parentElement.remove();
+      Cart.getLineItems();
+    } else {
+      totalPoint.innerHTML = Cart.formatMoney(value);
+    }
+  }
+
+  async getLineItems() {
+    try {
+      const res = await fetch("/?sections=drawer-cart");
+      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
+      const data = await res.json();
+      const html = data["drawer-cart"];
+
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const newSideCart = doc.querySelector("#side-cart");
+      const existingSideCart = document.querySelector("#side-cart");
+
+      if (newSideCart && existingSideCart) {
+        // Ensure first list item animates in
+        const firstListItem = newSideCart.querySelector("li");
+        if (firstListItem) {
+          firstListItem.classList.add("fade-in", "no-height");
         }
 
-        this.splide = new window.Splide(this, {
-          type: transType,
-          autoplay: autoplay,
-          interval: 5000,
-          pagination: false,
-        });
+        // Replace only the side-cart contents
+        existingSideCart.innerHTML = newSideCart.innerHTML;
 
-        this.splide.on("overflow", (isOverflow) => {
-          this.splide.options = {
-            ...this.splide.options,
-            arrows: isOverflow,
-            drag: isOverflow,
-          };
-        });
-
-        this.splide.mount();
+        // Activate empty state/content if present within side-cart
+        const emptyContent = existingSideCart.querySelector("div.cart_items-list");
+        if (emptyContent) {
+          emptyContent.classList.add("active");
+        }
       }
-    },
-  );
+    } catch (error) {
+      console.error("Failed to fetch drawer-cart section:", error);
+    }
+  }
 }
+
+window.Cart = new CartAPI();
+export const Cart = window.Cart;
 
 // ===================
 // SLIDING DRAWER CLASS
@@ -301,204 +457,6 @@ if (!customElements.get("page-overlay")) {
     },
   );
 }
-
-// ===================
-// CART CLASS
-// ===================
-
-class CartAPI {
-  constructor() {
-    this.cart = {};
-    this.loadCart = this.loadCart.bind(this);
-    this.addItems = this.addItems.bind(this);
-    this.removeItem = this.removeItem.bind(this);
-    this.updateLineItem = this.updateLineItem.bind(this);
-    this.dispatchCartUpdate = this.dispatchCartUpdate.bind(this);
-    this.cartIcon = document.getElementById("header_cart-icon");
-    this.loadCart();
-  }
-
-  // Dispatches a custom event when the cart data changes
-  dispatchCartUpdate(eventName = "cart:updated") {
-    const event = new CustomEvent(eventName, {
-      bubbles: true, // Allow event to bubble up the DOM
-      detail: { cart: this.cart },
-    });
-    document.dispatchEvent(event);
-    console.log(`Custom event '${eventName}' dispatched`);
-  }
-
-  // get the cart data so we can include it with the custom event
-  async loadCart() {
-    try {
-      const res = await fetch("/cart.js");
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
-      }
-      const data = await res.json();
-      console.log("Cart JSON data:", data);
-      this.cart = data;
-      this.cart.item_count > 0 ? this.cartIcon.classList.add("cart-not-empty") : this.cartIcon.classList.remove("cart-not-empty");
-      this.dispatchCartUpdate("cart:loaded"); // Notify UI components
-    } catch (error) {
-      console.error("Error loading cart.js:", error);
-    }
-  }
-
-  // == add one or more items to the cart ==
-  // will accept:
-  // 1: a single variant ID,
-  // 2: an array of product ID's - [1211,2222,333]
-  // 3: an array of cart objects - [{ id: 1211, quantity: 1 },{ id: 2222, quantity: 3 },{ id: 333, quantity: 2 },]
-
-  async addItems(items) {
-    let normalizedItems = [];
-
-    if (Array.isArray(items)) {
-      normalizedItems = items.map((item) => (typeof item === "object" ? item : { id: item, quantity: 1 }));
-    } else if (typeof items === "object") {
-      normalizedItems = [items]; // single object like { id, quantity }
-    } else {
-      normalizedItems = [{ id: items, quantity: 1 }]; // single id
-    }
-
-    try {
-      const res = await fetch("/cart/add.js", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: normalizedItems }),
-      });
-
-      if (!res.ok) {
-        const errorData = await res.json();
-        console.error("Shopify Add to Cart Error:", errorData);
-        // could dispatch an error event here
-        return Promise.reject(errorData);
-      }
-
-      const data = await res.json();
-      await this.loadCart();
-      this.dispatchCartUpdate("cart:itemsAdded");
-      return data;
-    } catch (error) {
-      console.error("Network or unexpected error during addItems:", error);
-      return Promise.reject(error);
-    }
-  }
-
-  // == remove an item from the cart ==
-  // lineItemKey must be line item key or variant ID ( variant id will automatically remove first instance only)
-  async removeItem(lineItemKey) {
-    try {
-      const res = await fetch("/cart/change.js", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: lineItemKey, quantity: 0 }),
-      });
-      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-
-      const data = await res.json();
-      await this.loadCart(); // Reload cart data and dispatch update
-      this.dispatchCartUpdate("cart:itemRemoved");
-      return data;
-    } catch (error) {
-      console.error("Error removing item:", error);
-      return Promise.reject(error);
-    }
-  }
-
-  // == update a line in the cart==
-  async updateLineItem(lineItemKey, quantity) {
-    try {
-      const res = await fetch("/cart/change.js", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: lineItemKey, quantity: quantity }),
-      });
-      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-      const data = await res.json();
-      await this.loadCart(); // Reload cart data and dispatch update
-      this.dispatchCartUpdate("cart:lineItemUpdated");
-      return data;
-    } catch (error) {
-      console.error("Error updating item:", error);
-      return Promise.reject(error);
-    }
-  }
-
-  // == clear all items out of the cart and send the cart update event ==
-  async clearAll() {
-    try {
-      const res = await fetch("/cart/clear.js", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      });
-      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-      const data = await res.json();
-      await this.loadCart(); // Reload cart data and dispatch update
-      this.dispatchCartUpdate("cart:cleared");
-      return data;
-    } catch (error) {
-      console.error("Error clearing cart:", error);
-      return Promise.reject(error);
-    }
-  }
-
-  // == convert the money to the right format ==
-  formatMoney(amount) {
-    const format = window.theme.moneyFormat;
-    const value = amount / 100;
-    const formatted = format.replace("{{amount}}", value.toFixed(2));
-    return formatted.replace(/\.00$/, ""); // only strip ".00", leave ".50" etc.
-  }
-
-  // == update the value in the checkout button ==
-  updateCheckoutTotal(value) {
-    let totalPoint = document.querySelector(".cart-total");
-    if (value === 0) {
-      totalPoint.parentElement.remove();
-      Cart.getLineItems();
-    } else {
-      totalPoint.innerHTML = Cart.formatMoney(value);
-    }
-  }
-
-  async getLineItems() {
-    try {
-      const res = await fetch("/?sections=drawer-cart");
-      if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
-      const data = await res.json();
-      const html = data["drawer-cart"];
-
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, "text/html");
-      const newSideCart = doc.querySelector("#side-cart");
-      const existingSideCart = document.querySelector("#side-cart");
-
-      if (newSideCart && existingSideCart) {
-        // Ensure first list item animates in
-        const firstListItem = newSideCart.querySelector("li");
-        if (firstListItem) {
-          firstListItem.classList.add("fade-in", "no-height");
-        }
-
-        // Replace only the side-cart contents
-        existingSideCart.innerHTML = newSideCart.innerHTML;
-
-        // Activate empty state/content if present within side-cart
-        const emptyContent = existingSideCart.querySelector("div.cart_items-list");
-        if (emptyContent) {
-          emptyContent.classList.add("active");
-        }
-      }
-    } catch (error) {
-      console.error("Failed to fetch drawer-cart section:", error);
-    }
-  }
-}
-
-window.Cart = new CartAPI();
-export const Cart = window.Cart;
 
 // ===================
 // PREDICTIVE SEARCH
@@ -770,15 +728,35 @@ class ComponentLoader {
 // dynamically import modules required by the page
 window.ComponentLoader = ComponentLoader; // Export for global access
 new ComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
-new ComponentLoader("productcard-carousel", () => import("./ProductCarousel.js"));
-new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
-new ComponentLoader("product-recommendations", () => import("./ProductRecommendations.js"));
-new ComponentLoader("personal-recommendations", () => import("./PersonalisedCarousel.js"));
-new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
-new ComponentLoader("bnpl-options", () => import("./BnplOptions.js"));
-new ComponentLoader("size-table", () => import("./SizeTable.js"));
-new ComponentLoader("ometria-form", () => import("./OmetriaForm.js"));
-new ComponentLoader("custom-video-controls", () => import("./CustomVideo.js"));
+
+function initDynamicComponents() {
+  // Lazy-load components when visible
+  new ComponentLoader("productcard-carousel", () => import("./ProductCarousel.js"));
+  new ComponentLoader("countdown-timer", () => import("./CountdownTimer.js"));
+  new ComponentLoader("product-recommendations", () => import("./ProductRecommendations.js"));
+  new ComponentLoader("personal-recommendations", () => import("./PersonalisedCarousel.js"));
+  new ComponentLoader("content-accordian", () => import("./ContentAccordian.js"));
+  new ComponentLoader("bnpl-options", () => import("./BnplOptions.js"));
+  new ComponentLoader("size-table", () => import("./SizeTable.js"));
+  new ComponentLoader("ometria-form", () => import("./OmetriaForm.js"));
+  new ComponentLoader("custom-video-controls", () => import("./CustomVideo.js"));
+
+  // product-card always needed in cart drawer
+  if (!customElements.get("product-card")) {
+    import("./ProductCard.js").then((module) => {
+      if (!customElements.get("product-card")) {
+        customElements.define("product-card", module.default);
+      }
+    });
+  }
+}
+
+// Use requestIdleCallback with a fallback for unsupported browsers
+if ("requestIdleCallback" in window) {
+  requestIdleCallback(initDynamicComponents, { timeout: 2000 });
+} else {
+  setTimeout(initDynamicComponents, 1500);
+}
 
 // with product cards in the cart drawer, always load the product-card module even without the scroll listener/observer
 if (!customElements.get("product-card")) {
@@ -1043,15 +1021,12 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("cart:itemsAdded", openCartDrawerIfNotOnCartPage);
 
 // ===================
-// Update the product localstorage object
+// Recently Viewed
 // ===================
 
+import RecentlyViewed from "./RecentlyViewed.js";
 const recentlyViewed = new RecentlyViewed();
 recentlyViewed.checkProductListDates();
-
-// ===================
-// Render the Recently Viewed element and import JS data
-// ===================
 
 if (recentlyViewed.hasRecentlyViewed() && !document.querySelector("recently-viewed") && document.getElementById("cartDrawer")) {
   document.getElementById("side_menu-recents").style.display = "block";
@@ -1155,3 +1130,44 @@ shortcuts.registerShortcut("enter", () => {
 shortcuts.registerShortcut("ctrl+?", () => {
   //  open shortcuts info modal
 });
+
+// ===================
+// Annoucement Carousel
+// ===================
+if (!customElements.get("announcement-bar")) {
+  customElements.define(
+    "announcement-bar",
+    class AnnouncementCarousel extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.classList.add("splide");
+        let transType = "loop";
+        let autoplay = true;
+        if (Shopify.designMode) {
+          autoplay = false;
+          transType = "slide";
+        }
+
+        this.splide = new window.Splide(this, {
+          type: transType,
+          autoplay: autoplay,
+          interval: 5000,
+          pagination: false,
+        });
+
+        this.splide.on("overflow", (isOverflow) => {
+          this.splide.options = {
+            ...this.splide.options,
+            arrows: isOverflow,
+            drag: isOverflow,
+          };
+        });
+
+        this.splide.mount();
+      }
+    },
+  );
+}
