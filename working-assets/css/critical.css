@@ -824,6 +824,10 @@ ul.sub_menu-items {
   display: flex;
   place-content: center;
 
+  & .splide__slide {
+    width: 100%;
+  }
+
   & .splide__arrow {
     position: absolute;
     top: 50%;
