@@ -1,6 +1,6 @@
 /* global IntersectionObserver Cart MutationObserver */
 
-import Splide from "./splide.min.js";
+;
 import { SplideUtil } from "./SplideUtil.js";
 import { CountdownManager } from "./CountdownManager.js";
 import Panzoom from "./panzoom.js";
@@ -49,7 +49,7 @@ if (!customElements.get("pdp-carousel")) {
         }
 
         SplideUtil.splideHTML(this);
-        this.splide = new Splide(this, {
+        this.splide = new window.Splide(this, {
           type: "loop",
           pagination: true,
           arrows: false,
@@ -771,7 +771,7 @@ if (!customElements.get("thumbnail-carousel")) {
           this.classList.add("splide");
         }
 
-        this.splide = new Splide(this, {
+        this.splide = new window.Splide(this, {
           type: "slide",
           direction: "ttb",
           height: this._calculateHeight(),

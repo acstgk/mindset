@@ -1,5 +1,5 @@
 /* global Node */
-import Splide from "./splide.min.js";
+;
 // ===================
 // Splide Utils
 // ===================
@@ -50,7 +50,7 @@ export class SplideUtil {
     }
 
     // Initialize Splide
-    const splide = new Splide(target, options);
+    const splide = new window.Splide(target, options);
 
     splide.on("overflow", (isOverflow) => {
       splide.options = {

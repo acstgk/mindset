@@ -1,5 +1,6 @@
 /* global MutationObserver IntersectionObserver, Shopify, theme, clearTimeout sessionStorage location URL */
 import Splide from "./splide.min.js";
+window.Splide = Splide;
 import RecentlyViewed from "./RecentlyViewed.js";
 
 // ===================
@@ -22,7 +23,7 @@ if (!customElements.get("announcement-bar")) {
           transType = "slide";
         }
 
-        this.splide = new Splide(this, {
+        this.splide = new window.Splide(this, {
           type: transType,
           autoplay: autoplay,
           interval: 5000,

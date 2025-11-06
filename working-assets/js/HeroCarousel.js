@@ -1,4 +1,4 @@
-import Splide from "./splide.min.js";
+;
 import { SplideUtil } from "./SplideUtil.js";
 
 // ===================
@@ -14,7 +14,7 @@ export default class HeroCarousel extends HTMLElement {
     SplideUtil.splideHTML(this);
     this.storedGender = localStorage.getItem("GK::gender--content") | "";
     this.slideNo = this.querySelector(".hero_slide[data-gender=mens]")?.dataset.index || 0;
-    this.splide = new Splide(this, {
+    this.splide = new window.Splide(this, {
       type: "fade",
       autoplay: true,
       interval: 5000,

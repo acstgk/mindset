@@ -1,6 +1,6 @@
 /* global IntersectionObserver history sessionStorage, URL URLSearchParams FormData */
 
-import Splide from "./splide.min.js";
+;
 import { SplideUtil } from "./SplideUtil.js";
 
 // ===================
@@ -50,7 +50,7 @@ if (!customElements.get("product-types")) {
     class TypesCarousel extends HTMLElement {
       connectedCallback() {
         SplideUtil.splideHTML(this);
-        this.splide = new Splide(this, {
+        this.splide = new window.Splide(this, {
           rewind: true,
           gap: 24,
           start: 1,

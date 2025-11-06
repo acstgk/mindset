@@ -1,4 +1,4 @@
-import Splide from "./splide.min.js";
+;
 import { SplideUtil } from "./SplideUtil.js";
 
 // ===================
@@ -13,7 +13,7 @@ export default class ProductCarousel extends HTMLElement {
 
   connectedCallback() {
     SplideUtil.splideHTML(this);
-    this.splide = new Splide(this, {
+    this.splide = new window.Splide(this, {
       type: "loop",
       start: 2,
       gap: 12,
