@@ -139,14 +139,13 @@
 
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" defer></script>
 
-
     <!-- included iwish_v2 with footer my added---------- -->
     {% render 'tracking-clarity' %}
     {% render 'tracking-criteo' %}
-    {% render 'tracking-adroll' customer: customer %}
+    {% render 'tracking-adroll', customer: customer %}
     {% render 'tracking-omteria' %}
     {% render 'tracking-adscale' %}
-    {% render 'tracking-ometria' cart: cart %}
+    {% render 'tracking-ometria', cart: cart %}
     {% render 'tracking-taggstar' %}
 
     {% section 'wishlist-app-settings' %}
@@ -182,9 +181,7 @@
     {% unless template == 'product' %}
       <script src="//eu.fw-cdn.com/12832973/808139.js" chat="true" defer></script>
     {% else %}
-      <script type="application/ld+json">
-        {{ product | structured_data }}
-      </script>
+      {% render 'rich-structured-data' %}
 
       <style>
         .yotpo-widget-loyalty-floater-widget.yotpo-widget-override-css {
