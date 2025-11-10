@@ -101,6 +101,7 @@
     <noscript><link rel="stylesheet" href="{{ 'fallback.min.css' | asset_url }}"></noscript>
 
     {{ content_for_header }}
+    {% render 'rich-structured-data' %}
   </head>
 
   <body class="{%- if template.directory -%}template-{{ template.directory | handle }}{%- endif -%} template-{{ template.name | handle }}">
@@ -181,8 +182,6 @@
     {% unless template == 'product' %}
       <script src="//eu.fw-cdn.com/12832973/808139.js" chat="true" defer></script>
     {% else %}
-      {% render 'rich-structured-data' %}
-
       <style>
         .yotpo-widget-loyalty-floater-widget.yotpo-widget-override-css {
           display: none !important;
