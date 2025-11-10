@@ -9,11 +9,12 @@
   {% endfor %}
 </div>
 
-{% style %}
+<style>
   .contents-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(135px, 1fr));
     gap: 1.5rem;
+    align-items: stretch;
   }
 
   .contents-grid--card {
@@ -43,7 +44,17 @@
     width: min(35%, 120px);
     transition: scale 0.2s ease;
   }
-{% endstyle %}
+
+  @media screen and (width > 600px) {
+  .contents-grid {
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  }
+  @media screen and (width > 900px) {
+  .contents-grid {
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  }
+}
+</style>
 
 {% schema %}
 {
