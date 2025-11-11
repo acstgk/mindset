@@ -13,7 +13,7 @@
   {% assign active_subscriber = true %}
 {% endif %}
 
-<free-delivery data-settings="{{ delivery_options | strip_newlines | escape }}" data-delivery-status="{{- active_subscriber -}}">
+<free-delivery data-settings="{{ delivery_options | strip_newlines | escape }}" data-delivery-status="{{- active_subscriber -}}" class="ge-hide-display-none ge-hide">
   {%- if active_subscriber -%}
     <p class="free-delivery_text">Your Unlimited FREE Delivery Subscription is: <span class="success">active</span></p>
   {% else %}
