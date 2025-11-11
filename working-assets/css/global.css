@@ -306,8 +306,8 @@ body.no-scroll page-overlay {
     padding: 1em;
     margin-block: 1em;
 
-    & a,
-    & .a {
+    & a:not[class|='button'],
+    & .a:not[class|='button'] {
         color: var(--c-dark-grey);
     }
 }
