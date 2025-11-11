@@ -61,7 +61,7 @@
     </title>
 
     {%- if page_description -%}
-      <meta name="description" content="{{ page_description | escape }}">
+        <meta name="description" content="{{ page_description | escape | replace: "Product Details ", ""  | truncate: 150 }}">
     {% else %}
       <meta name="description" content="{{ settings.default-meta-description }}">
     {%- endif -%}
