@@ -1,6 +1,4 @@
 /* global IntersectionObserver Cart MutationObserver */
-
-;
 import { SplideUtil } from "./SplideUtil.js";
 import { CountdownManager } from "./CountdownManager.js";
 import Panzoom from "./panzoom.js";

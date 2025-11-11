@@ -61,7 +61,7 @@
     </title>
 
     {%- if page_description -%}
-        <meta name="description" content="{{ page_description | escape | replace: "Product Details ", ""  | truncate: 150 }}">
+      <meta name="description" content="{{ page_description | escape | replace: "Product Details ", ""  | truncate: 150 }}">
     {% else %}
       <meta name="description" content="{{ settings.default-meta-description }}">
     {%- endif -%}
@@ -132,7 +132,12 @@
     <link rel="prefetch" href="{{ 'splide.min.js' | asset_url }}" as="script" crossorigin="anonymous">
     <link rel="prefetch" href="{{ 'HeroCarousel.js' | asset_url }}" as="script" crossorigin="anonymous">
     <script type="module" src="{{ 'main.js' | asset_url }}" defer></script>
-
+    {% if template == 'product' %}
+      <script type="module" src="{{ 'main-pdp.js' | asset_url }}" defer></script>
+    {% endif %}
+    {% if template == 'collection' or template == 'search' %}
+      <script type="module" src="{{ 'main-plp.js' | asset_url }}" defer></script>
+    {% endif %}
     {%- if template == 'customers/addresses' -%}
       <script type="text/javascript" src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
       <script type="text/javascript" src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
