@@ -1,23 +1,24 @@
 {% assign description = product.description %}
-{% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: "<h4>", "||<h4>" | replace: "<p>", "||<p>" | replace: "<ul>", "||<ul>" %}
-{% assign description_elements = description | split: "||" %}
-
+{% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' %}
+{% assign description_elements = description | split: '||' %}
 
 <content-accordian class="max-width pdp-tabs">
   {% comment %} description {% endcomment %}
   <div class="accordian-item item-1">
     <div class="accordian-header active" aria-controls="accordian-content-1" role="button" tabindex="0">Product Details</div>
     <div class="rtf accordian-content active" id="accordian-content-1">
-     {{ product.description | replace: "Product Details", "" }}
-      {% comment %} {% for element in description_elements %}
-        {% if forloop.last %}
-          <hr>
-        {% endif %}
-        {% assign standardised = element | downcase %}
-        {% unless standardised contains 'model' or standardised contains "product details" or standardised contains "size & fit" or standardised contains 'size and fit' %}
-        {{ element }}
-        {% endunless %}
-      {% endfor %} {% endcomment %}
+      {{ product.description | replace: 'Product Details', '' }}
+      {% comment %}
+        {% for element in description_elements %}
+          {% if forloop.last %}
+            <hr>
+          {% endif %}
+          {% assign standardised = element | downcase %}
+          {% unless standardised contains 'model' or standardised contains "product details" or standardised contains "size & fit" or standardised contains 'size and fit' %}
+          {{ element }}
+          {% endunless %}
+        {% endfor %}
+      {% endcomment %}
     </div>
   </div>
   {% comment %} Shipping Information {% endcomment %}
@@ -61,9 +62,9 @@
         <strong
           >International Delivery - from £5 in local currency<br>
           5+ working days</strong
-        ><br>
-        Estimated time and price varies by country, for more please see our full delivery information.
+        >
       </p>
+      <p>Estimated time and price varies by country, visit our <a href="/pages/help-centre-delivery-and-orders">Delivery FAQ page</a> for more information.</p>
       <hr>
       {% comment %}
         <p style="padding: 15px 18px;background-color: var(--accent-background);">
@@ -80,6 +81,7 @@
         <strong>Easy 30 Day International Returns - price varies by country</strong><br>
         Easily arrange your paid return postage via our <a href="https://web.global-e.com/Returns/Portal" target="_blank">Intenational returns portal</a>.
       </p>
+      <p>Visit our <a href="/pages/help-centre-returns">Returns FAQ page</a> for more information</p>
     </div>
   </div>
 </content-accordian>
