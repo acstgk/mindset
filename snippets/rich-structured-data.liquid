@@ -116,7 +116,15 @@
       "productId": {{ product.selected_or_first_available_variant.barcode | json }},
     {%- endif %}
     "brand": {
-      "name": "The Gym King"
+      "name": "The Gym King",
+      "logo": "https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_logo_BLACK_LINEAR.png?v=1721730919"
+      "url": "https://thegymking.com"
+      "sameAs":  [
+        "https://www.facebook.com/gymking/",
+        "https://www.instagram.com/gymking/",
+        "https://www.youtube.com/@gymking2015/",
+        "https://www.tiktok.com/@thegymking/"
+      ]
     },
     "name": {{ product.title | json }},
     "description": {{ product.description | strip_html | json }},
@@ -247,6 +255,47 @@
     {%- endif -%}
   ]
 {%- endcapture -%}
+
+
+{% comment %} global structured data {% endcomment %}
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://thegymking.com/#organisation",
+  "name": "The Gym King",
+  "url": "https://thegymking.com/",
+  "logo": "https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_logo_BLACK_LINEAR.png?v=1721730919"
+  "sameAs":  [
+    "https://www.facebook.com/gymking/",
+    "https://www.instagram.com/gymking/",
+    "https://www.youtube.com/@gymking2015/",
+    "https://www.tiktok.com/@thegymking/"
+  ]
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "customerservice@gymking.com"
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://thegymking.com/#organisation",
+  "url": "https://thegymking.com/",
+  "name": "The Gym King",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://thegymking.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
 {% if main_entity_microdata != blank %}
   <script type="application/ld+json">

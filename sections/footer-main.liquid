@@ -26,7 +26,7 @@
 </div>
 
 {% if section.settings.seo_copy and template == 'index' %}
-  <div class="meta-description rtf max-width">{{ section.settings.seo_copy }}</div>
+  <div id="organisation" class="meta-description rtf max-width">{{ section.settings.seo_copy }}</div>
 {% endif %}
 <div class="max-width">
   {% render 'trust-widget' with 'carousel' %}
