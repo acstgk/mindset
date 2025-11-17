@@ -32,10 +32,10 @@
     </a>
   </li>
   <li>
-    <a class="button button-secondary" href="{{ routes.account_addresses_url }}">{% render 'icon', icon: 'pin' %}Your Addresses </a>
+    <a class="button button-secondary" href="#order-history">{% render 'icon', icon: 'truck' %}Your Orders</a>
   </li>
   <li>
-    <a class="button button-secondary" href="#order-history">{% render 'icon', icon: 'truck' %}Your Orders</a>
+    <a class="button button-secondary" href="{{ routes.account_addresses_url }}">{% render 'icon', icon: 'pin' %}Your Addresses </a>
   </li>
   <li>
       {% if customer.tags contains 'Active Subscriber' %}
