@@ -94,7 +94,7 @@
 }
 
 .icelandic-swim p {
-line-height: 1.6;
+  line-height: 1.6;
 }
 
 .icelandic-swim a {
@@ -121,9 +121,20 @@ line-height: 1.6;
 .video-container {
   filter: grayscale(.25);
   margin-bottom: -8px;
-  min-width: 50dvw;
   position: relative;
-  transition: all 1s ease
+  transition: all 1s ease;
+  flex: 1 1 auto;
+}
+
+article {
+  order: 2;
+  flex: 1 1 50%;
+  min-width: 65ch;
+}
+
+blockquote {
+  margin: 0 auto 5rem;
+  width: min(100%, 600px);
 }
 
 iframe {
@@ -208,7 +219,7 @@ div#two-block [data-block] {
   translate: 50%
 }
 
-@media screen and (min-width:768.02px) {
+@media screen and (min-width: 1000px) {
   .icelandic-swim a {
     display: none !important
   }

@@ -1,11 +1,5 @@
 {{ 'section-page-icelandic-swim.min.css' | asset_url | stylesheet_tag }}
-{% assign progress = section.settings.completedDistance
-  | plus: 0.0
-  | divided_by: section.settings.totalDistance
-  | times: 100
-  | round: 0
-%}
-
+{% assign progress = section.settings.completedDistance | plus: 0.0 | divided_by: section.settings.totalDistance | times: 100 | round: 0 %}
 
 <header>
   <h1>{{ section.settings.headerImg | image_url: width: 1400 | image_tag }}</h1>
@@ -13,9 +7,7 @@
 
 <section>
   <div class="max-width flex-content">
-    <div class="video-container">
-      <iframe src="https://yb.tl/rossedgley2025" width="1080" height="768" frameborder="0"></iframe>t
-    </div>
+    <div class="video-container"><iframe src="https://yb.tl/rossedgley2025" width="1080" height="768" frameborder="0"></iframe></div>
     <div class="progress-container">
       <h2 class="progress-txt">updated weekly, last update: {{ section.settings.date }}</h2>
       <div
@@ -27,41 +19,24 @@
       >
         <div class="progress-bar_dot" data-distance="{{- section.settings.completedDistance -}}"></div>
       </div>
+      <blockquote data-quote-attribution="Ross Edgley">Naive enough to start, stubborn enough to finish and bold enough to go even further”</blockquote>
     </div>
     <article class="Rte">
-      <h2 class="h3">
-        Ross Edgley is taking on his toughest test yet—swimming over 1,000 miles around Iceland’s brutal coastline.
-      </h2>
-      <p>
-        Facing 130-ft waves, freezing waters, and 260 km/h winds, Ross will swim over 30 km a days almost equivalent to
-        swimming the English Channel <i>every day</i>, in near-ice conditions.
-      </p>
+      <h2 class="h3">Ross Edgley is taking on his toughest test yet—swimming over 1,000 miles around Iceland’s brutal coastline.</h2>
+      <p>Facing 130-ft waves, freezing waters, and 260 km/h winds, Ross will swim over 30 km a days almost equivalent to swimming the English Channel <i>every day</i>, in near-ice conditions.</p>
       <a href="javascript:void(0);" class="readmore-btn">read more</a>
       <div class="readmore">
-        <p>
-          Already the first person to swim around Great Britain and holder of the world’s longest non-stop river swim,
-          Ross is no stranger to redefining what’s humanly possible. But this challenge? It’s his biggest yet.
-        </p>
-        <p>
-          At Gym King, <b>Nothing Beats Belief</b> isn’t just a mantra — it’s our mindset. It drives resilience, fuels
-          discipline, and powers progress.
-        </p>
+        <p>Already the first person to swim around Great Britain and holder of the world’s longest non-stop river swim, Ross is no stranger to redefining what’s humanly possible. But this challenge? It’s his biggest yet.</p>
+        <p>At Gym King, <b>Nothing Beats Belief</b> isn’t just a mantra — it’s our mindset. It drives resilience, fuels discipline, and powers progress.</p>
         <p>When the pressure’s on, belief is what sets you apart and pushes the limits of what is humanly possible.</p>
         <p>Keep track of Ross’ progress through the Gym King Swim Tracker.</p>
-        <p>
-          <b><i>“Naive enough to start, stubborn enough to finish and bold enough to go even further”</i></b> - Ross
-          Edgley
-        </p>
       </div>
       <a href="javascript:void(0);" class="readless-btn">read less</a>
     </article>
   </div>
 </section>
 
-
-
 <script>
-
   const readmoreButton = document.querySelector('.readmore-btn');
   const readlessButton = document.querySelector('.readless-btn');
   const readmoreContent = document.querySelector('.readmore');
