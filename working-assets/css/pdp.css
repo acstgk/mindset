@@ -540,18 +540,21 @@ pdp-carousel {
     position: absolute;
     background: var(--c-off-white);
     padding: 0.5em;
-    top: calc(100% + 5px);
-    left: 5px;
+    top: calc(100% - 5px);
+    left: 50%;
+    transform: translateX(-25%);
     width: max-content;
+    box-shadow: 0 0 4px -2px var(--c-dark-grey);
 
     &::after {
       content: "";
       display: block;
       position: absolute;
-      top: -10px;
-      border-left: 10px solid transparent;
-      border-right: 10px solid transparent;
-      border-bottom: 10px solid var(--c-off-white);
+      top: -9px;
+      width: 15px;
+      height: 10px;
+      clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+      background-color: var(--c-off-white);
     }
   }
 
