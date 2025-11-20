@@ -27,6 +27,7 @@ body {
     radial-gradient(80% 65% at 50% 80%, color-mix(in lab, var(--c-dark-grey), white 25%) 0%, var(--c-black) 100%);
   background-clip: text;
   margin-top: 1.5em;
+  --webkit-text-stroke: 1px dimgrey;
 
   &:has(+.gift-card:hover) {
     background-image:
@@ -54,10 +55,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
   color: var(--c-off-white);
-  transition: scale 0.15s var(--bezier);
+  transition: scale 0.15s var(--bezier), box-shadow 0.15s var(--bezier), border-width 0.15s var(--bezier);
 
   &:hover {
     scale: 1.05;
+    box-shadow: 0 0 30px var(--c-light-grey);
+    border-width: 2px;
 
     &::after {
       scale: 2;
