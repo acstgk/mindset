@@ -25,7 +25,7 @@
 
     <div class="gift-card--code-details">
       <div class="gift-card--code">{{ spaced }}</div>
-      <span>Use this code at checkout to redeem.</span>
+      <span>Enter this code at checkout to redeem.</span>
     </div>
 
     <img src=" https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Primary_Logo_CMYK_Gold.png?v=1654089878" alt="" width="40" height="40" class="roundel">
@@ -40,7 +40,7 @@
   </div>
   <div class="gift-card--buttons max-width">
     <button onClick="window.print()" class="button button-secondary">Print</button>
-    <a href="{{ routes.root_url }}" class="button button-primary ">Spend Now {% render 'icon', icon: 'arrow' %}</a>
+    <a href="{{ routes.root_url }}/discount/{{ gift_card.code }}" class="button button-primary ">Spend Now {% render 'icon', icon: 'arrow' %}</a>
   </div>
   <div id="qr-code"></div>
   <a href="{{ routes.root_url }}" class="center footer-link">thegymking.com</a>
