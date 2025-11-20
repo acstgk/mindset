@@ -41,17 +41,19 @@
 
 <script type="module">
   import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
-  SplideUtil.splideInit('#shopify-section-{{ section.id }} .icons-grid', {
-    type: 'loop',
-    pagination: true,
-    arrows: false,
-    fixedWidth: '200px',
-    autoplay: true,
-    interval: 4500,
-    speed: 1000,
-    pauseOnHover: true,
-    gap: '1rem',
-    focus: 'center',
+  document.addEventListener('DOMContentLoaded', () => {
+    SplideUtil.splideInit('#shopify-section-{{ section.id }} .icons-grid', {
+      type: 'loop',
+      pagination: true,
+      arrows: false,
+      fixedWidth: '200px',
+      autoplay: true,
+      interval: 4500,
+      speed: 1000,
+      pauseOnHover: true,
+      gap: '1rem',
+      focus: 'center',
+    });
   });
 </script>
 

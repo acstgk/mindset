@@ -4,7 +4,7 @@
   {% for block in section.blocks %}
     <div class="hotspot-card splide__slide">
       <div class="hotpsot-card--image">
-        {{ block.settings.image | image_url: width: 800 | image_tag: class: "cover" }}
+        {{ block.settings.image | image_url: width: 800 | image_tag: class: 'cover' }}
 
         {% for i in (1..2) %}
           {% assign product_id = 'product' | append: i %}
@@ -41,33 +41,37 @@
         <h3 class="h1 left">{{ block.settings.title }}</h3>
         <p>{{ block.settings.description }}</p>
         {% if block.settings.link_url %}
-          <a href="{{ block.settings.link_url }}" class="btn btn-primary inline-flex">{{  block.settings.cta_text | default: "Learn more" }} {% render 'icon', icon: 'arrow' %}</a>
+          <a href="{{ block.settings.link_url }}" class="btn btn-primary inline-flex">
+            {{- block.settings.cta_text | default: 'Learn more' }}
+            {% render 'icon', icon: 'arrow' -%}
+          </a>
         {% endif %}
       </div>
     </div>
   {% endfor %}
 </div>
 
-
 <script type="module">
   import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
-  let slideCount = document.querySelector('#shopify-section-{{ section.id }} .hotspot-carousel').querySelectorAll('.splide__slide').length;
-  if (slideCount > 1) {
-    SplideUtil.splideInit('.hotspot-carousel', {
-      type: 'loop',
-      pagination: true,
-      arrows: false,
-      autoplay: true,
-      interval: 4500,
-      speed: 1000,
-      pauseOnHover: true,
-    });
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    let slideCount = document.querySelector('#shopify-section-{{ section.id }} .hotspot-carousel').querySelectorAll('.splide__slide').length;
+    if (slideCount > 1) {
+      SplideUtil.splideInit('.hotspot-carousel', {
+        type: 'loop',
+        pagination: true,
+        arrows: false,
+        autoplay: true,
+        interval: 4500,
+        speed: 1000,
+        pauseOnHover: true,
+      });
+    }
 
-  document.querySelectorAll('#shopify-section-{{ section.id }} .hotspot').forEach((hotspot) => {
-    hotspot.addEventListener('click', function (event) {
-      this.querySelector('.hotspot--link').classList.toggle('hover-active');
-      this.style.zIndex = this.querySelector('.hotspot--link').classList.contains('hover-active') ? '1' : 'auto';
+    document.querySelectorAll('#shopify-section-{{ section.id }} .hotspot').forEach((hotspot) => {
+      hotspot.addEventListener('click', function (event) {
+        this.querySelector('.hotspot--link').classList.toggle('hover-active');
+        this.style.zIndex = this.querySelector('.hotspot--link').classList.contains('hover-active') ? '1' : 'auto';
+      });
     });
   });
 </script>
@@ -99,7 +103,7 @@
           "id": "image",
           "label": "Image"
         },
-                {
+        {
           "type": "text",
           "id": "cta_text",
           "label": "CTA Text",

@@ -44,28 +44,30 @@
 
 <style>
   .icons-grid {
-  justify-content: center;
-  margin-bottom: 4rem;
-}
+    justify-content: center;
+    margin-bottom: 4rem;
+  }
 
   .icons-grid--card img {
-   object-fit: contain;
-   filter: grayscale(1);
+    object-fit: contain;
+    filter: grayscale(1);
   }
 </style>
 
 <script type="module">
   import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
-  SplideUtil.splideInit('.icons-grid', {
-    type: 'loop',
-    pagination: true,
-    arrows: false,
-    fixedWidth: '100px',
-    autoplay: true,
-    interval: 2000,
-    speed: 1000,
-    pauseOnHover: true,
-    gap: '2rem',
-    focus: 'center',
+  document.addEventListener('DOMContentLoaded', () => {
+    SplideUtil.splideInit('.icons-grid', {
+      type: 'loop',
+      pagination: true,
+      arrows: false,
+      fixedWidth: '100px',
+      autoplay: true,
+      interval: 2000,
+      speed: 1000,
+      pauseOnHover: true,
+      gap: '2rem',
+      focus: 'center',
+    });
   });
 </script>

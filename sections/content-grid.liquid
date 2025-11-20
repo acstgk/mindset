@@ -58,18 +58,20 @@
 {% if section.settings.grid_style == 'carousel' %}
   <script type="module">
     import { SplideUtil } from '{{ "SplideUtil.js" | asset_url }}';
-    let slideCount = document.querySelector('#shopify-section-{{ section.id }} .carousel').querySelectorAll('.splide__slide').length;
-    if (slideCount > 1) {
-      SplideUtil.splideInit('#shopify-section-{{ section.id }} .carousel', {
-        type: 'loop',
-        pagination: true,
-        arrows: false,
-        autoplay: true,
-        interval: 4500,
-        speed: 1000,
-        pauseOnHover: true,
-      });
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      let slideCount = document.querySelector('#shopify-section-{{ section.id }} .carousel').querySelectorAll('.splide__slide').length;
+      if (slideCount > 1) {
+        SplideUtil.splideInit('#shopify-section-{{ section.id }} .carousel', {
+          type: 'loop',
+          pagination: true,
+          arrows: false,
+          autoplay: true,
+          interval: 4500,
+          speed: 1000,
+          pauseOnHover: true,
+        });
+      }
+    });
   </script>
 {% endif %}
 
