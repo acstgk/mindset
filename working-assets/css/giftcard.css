@@ -180,6 +180,8 @@ transition: scale, translate 0.15s var(--bezier);
   aspect-ratio: 1;
   border: 5px solid var(--c-white);
   margin: 2rem auto;
+  opacity: 0;
+  height: 0;
 }
 
 @media print {
@@ -194,5 +196,21 @@ transition: scale, translate 0.15s var(--bezier);
     display: none;
     height: 0;
   }
+
+    .gift-card--code {
+      scale: 1.5;
+      translate: 0 -50%;
+    }
+
+    .gift-card--title {
+      border: none;
+      outline: 0;
+    }
+
+  #qr-code {
+    opacity: 1;
+    height: auto;
+  }
+
 
 }
