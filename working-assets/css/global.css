@@ -636,6 +636,7 @@ button {
         text-transform: uppercase;
         color: var(--c-white);
         text-shadow: 0 0 3px var(--c-dark-grey);
+        --webkit-text-stroke: 1px dimgray;
         transition: font-size 0.2s ease, text-shadow 0.2s ease;
     }
 
