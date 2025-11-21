@@ -60,6 +60,16 @@
   </label>
 
   <button type="submit" class="button button-primary button-full">{{ 'customer.register.submit' | t }}</button>
+
+   <p>
+    Already have an account?
+      <br>
+      <a href="{{ routes.account_login_url }}" class="inline-flex">
+        {{- 'customer.login.submit' | t }}
+        {% render 'icon', icon: 'arrow' -%}
+      </a>
+    </p>
+
 {%- endform -%}
 
 {% schema %}
