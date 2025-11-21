@@ -138,6 +138,7 @@ ul.address-grid {
 
 #order-history {
   width: 100%;
+  scroll-margin-top: 100px
 }
 
 .customer-order {

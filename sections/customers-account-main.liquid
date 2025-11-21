@@ -7,7 +7,7 @@
   </a>
 
   <div>
-    <h1>
+    <h1 style="margin-bottom: 0;">
       {% if customer.first_name %}
         <span class="signature">{{ customer.first_name }}'s</span>
       {%- else -%}
@@ -38,12 +38,12 @@
     <a class="button button-secondary" href="{{ routes.account_addresses_url }}">{% render 'icon', icon: 'pin' %}Your Addresses </a>
   </li>
   <li>
-      {% if customer.tags contains 'Active Subscriber' %}
+    {% if customer.tags contains 'Active Subscriber' %}
       <a class="button button-secondary" href="/tools/recurring/login">{% render 'icon', icon: 'giftcard' %}Your Unlimited Shipping Subscription</a>
-      {% else %}
+    {% else %}
       <a class="button button-secondary" href="/products/unlimited-uk-delivery">{% render 'icon', icon: 'giftcard' %}Get Unlimited UK Shipping </a>
     {% endif %}
-    </li>
+  </li>
   <li>
     <a class="button button-secondary" href="/pages/rewards">{% render 'icon', icon: 'crown' %}Loyalty Club</a>
   </li>
@@ -149,20 +149,21 @@
               {% assign paid_status = 'success' %}
           {% endcase %}
 
-
           <div class="customer-order">
             <div class="customer-order--header">
               <div class="customer-order--name">
                 <a ge-order-list-id href="{{ order.customer_url }}">
                   {{- order.name -}}
                 </a>
+                | {{ order.created_at | date: format: 'month_day_year' -}}
                 |
                 <span ge-order-list-total>
                   <b>
                     {%- if order.total_price == 0 %}FREE{% else %}{{ order.total_price | money_without_trailing_zeros }}{% endif -%}
                   </b>
+                  ({{ order.line_items.size }}
+                  {{ order.line_items.size | pluralize: 'item', 'items' }})
                 </span>
-                | {{ order.created_at | date: format: 'month_day_year' -}}
               </div>
               <div class="customer-order--meta">
                 <span class="{{ paid_status }}">{{ order.financial_status_label }}</span> <span class="{{ fulfilment_status }}">{{ order.fulfillment_status_label }}</span>
@@ -248,6 +249,22 @@
 <div class="yotpo-widget-instance" data-yotpo-instance-id="1153784"></div>
 <a href="/pages/rewards" class="button button-primary" style="margin: 20px auto;margin: 20px auto;display: block;max-width: 500px;width: 90%;"> Find out more about our Loyalty Club </a>
 
+<style>
+  .yotpo-action-buttons-tile,
+  .yotpo-customized-text.yotpo-headline {
+    display: none !important;
+  }
+
+  .yotpo-logged-in-view {
+    margin-left: 0 !important;
+    margin-bottom: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  .yotpo-description.yotpo-description-margin-top {
+    justify-content: flex-start !important;
+}
+</style>
 {% schema %}
 {
   "name": "Main Account",
