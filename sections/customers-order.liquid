@@ -1,9 +1,242 @@
-{% schema %}
-  {
-    "name": "Main Order",
-    "class": "section--main-order max-width",
-    "settings": [
+<link rel="stylesheet" href="{{ 'customer.min.css' | asset_url }}">
+{%- assign tracking_numbers = '' -%}
+{%- assign tracking_urls = '' -%}
+{%- assign tracking_companies = '' -%}
 
-    ]
+<header>
+  <a href="{{ routes.account_url }}" class="inline-flex">
+    {% render 'icon', icon: 'arrow', class: 'rotate180' %}
+    back to your account
+  </a>
+
+  <div>
+    <h1>ORDER: <span class="signature hash">#</span>{{ order.name | replace: '#', '' }}</h1>
+  </div>
+</header>
+
+{% case order.fulfillment_status %}
+  {% when 'unfulfilled' %}
+    {% assign fulfilment_status = 'warning' %}
+  {% when 'partial' %}
+    {% assign fulfilment_status = 'warning' %}
+  {% when 'fulfilled' %}
+    {% assign fulfilment_status = 'success' %}
+    {%- for line_item in order.line_items -%}
+      {%- assign tracking_numbers = tracking_numbers | append: line_item.fulfillment.tracking_number | append: ',' -%}
+      {%- assign tracking_urls = tracking_urls | append: line_item.fulfillment.tracking_url | append: ',' -%}
+      {%- assign tracking_companies = tracking_companies | append: line_item.fulfillment.tracking_company | append: ',' -%}
+    {%- endfor -%}
+    {%- assign tracking_numbers = tracking_numbers | split: ',' | compact | uniq -%}
+    {%- assign tracking_urls = tracking_urls | split: ',' | compact | uniq -%}
+    {%- assign tracking_companies = tracking_companies | split: ',' | compact | uniq -%}
+{% endcase %}
+
+{% case order.financial_status %}
+  {% when 'expired', 'unpaid ' %}
+    {% assign paid_status = 'warning' %}
+  {% when 'partially_paid', 'pending' %}
+    {% assign paid_status = 'info' %}
+  {% when 'paid', 'authorized' %}
+    {% assign paid_status = 'success' %}
+{% endcase %}
+
+<div class="customer-order--header">
+  <div class="customer-order--name">
+    <span ge-order-list-total>
+      <b>
+        {%- if order.total_price == 0 %}FREE{% else %}{{ order.total_price | money_without_trailing_zeros }}{% endif -%}
+      </b>
+    </span>
+    | {{ order.created_at | date: format: 'month_day_year' -}}
+  </div>
+  <div class="customer-order--meta">
+    <span class="{{ paid_status }}">{{ order.financial_status_label }}</span> <span class="{{ fulfilment_status }}">{{ order.fulfillment_status_label }}</span>
+  </div>
+</div>
+
+{% if fulfilment_status != 'unfulfilled' %}
+  <div class="customer-order--tracking">
+    {% if fulfilment_status == 'success' and tracking_numbers.size == 1 %}
+      <p class="rtf info">
+        Order dispatched with <b>{{ tracking_companies.first }} </b>and tracking reference: <a href="{{ tracking_urls.first }}">{{ tracking_numbers.first }}</a>
+      </p>
+    {% elsif tracking_numbers.size > 1 %}
+      {% for tracking in tracking_numbers %}
+        <p class="rtf info">
+          Items dispatched with <b>{{ tracking_companies[forloop.index0] }} </b>and tracking reference: <a href="{{ tracking_companies[forloop.index0]}}">{{ tracking }}</a>
+        </p>
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endif %}
+
+<div class="customer-order--details">
+  <div class="tables">
+    <table class="Table items-table">
+      <thead class="cart-header">
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </thead>
+      {% for item in order.line_items %}
+        <tr class="customer-order--item">
+          <td>
+            <div class="customer-order--info">
+              {{ item.product.featured_image | image_url: width: 300 | image_tag: style: 'width: min(150px, 30%);' }}
+              <div class="customer-order--item-details">
+                <h3>{% render 'product-title', product: item.product %}</h3>
+                {%- unless item.product.has_only_default_variant or all_products[item.product.handle].variants.size == 1 -%}
+                  <p>{{ item.variant.title }}</p>
+                {% endunless %}
+                {%- for property in item.properties -%}
+                  {% if property.first == 'Items' %}
+                    <span class="cart_item--property bundle-items">
+                      {{ property.last | replace: ', ', '<br>' | replace: 'Gym King', '' -}}
+                    </span>
+                    {% break %}
+                  {% endif %}
+                {%- endfor -%}
+                <div class="Price--wrapper">
+                  {%- if item.line_level_discount_allocations != blank -%}
+                    {%- for discount_allocation in item.line_level_discount_allocations -%}
+                      <span class="cart_item--discount">
+                        {%- render 'icon', icon: 'tag' %}
+                        {{ discount_allocation.discount_application.title }}: -{{ discount_allocation.amount | money -}}</span
+                      ><br>
+                    {%- endfor -%}
+                  {%- endif -%}
+                  <span class="Price">{{- item.final_price | money_without_trailing_zeros -}}</span>
+                  {% if item.price > item.final_price %}
+                    <span class="Price Price--compareAt">
+                      {{- item.price | money_without_trailing_zeros -}}</span
+                    ><br>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="data-cell">
+            <div class="customer-order--quantity">{{ item.quantity }}</div>
+          </td>
+          <td class="data-cell">
+            <div class="customer-order--quantity">{{ item.final_line_price | money }}</div>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+    <table class="table-totals">
+      <tr>
+        <td>Subtotal</td>
+        <td>{{ order.total_price | money | default: 'FREE' }}</td>
+      </tr>
+      <tr>
+        <td>
+          Shipping
+          {%- if order.shipping_methods.first.title -%}({{ order.shipping_methods.first.title }}){%- endif -%}
+        </td>
+        <td>{{ order.total_shipping_price | money | default: 'FREE' }}</td>
+      </tr>
+      <tr>
+        <td>
+          Tax
+          {%- if order.tax_lines.first.title -%}({{ order.tax_lines.first.title }}){%- endif -%}
+        </td>
+        <td>{{ order.tax_price | default: '0.00' | money }}</td>
+      </tr>
+      <tr style="text-align:right;">
+        <th>Total</th>
+        <th>{{ order.subtotal_price | money | default: 'FREE' }}</th>
+      </tr>
+    </table>
+  </div>
+
+  <div class="customer-order--addresses">
+    <div class="customer-order--delivery-address">
+      <h3 class="emphasis">Shipping Address</h3>
+      {{ order.shipping_address | format_address }}
+    </div>
+    <div class="customer-order--billing-address">
+      <h3 class="emphasis">Billing Address</h3>
+      {{ order.billing_address | format_address }}
+    </div>
+  </div>
+</div>
+
+{% comment %} ==============================    {% endcomment %}
+{% comment %} Recommendations                   {% endcomment %}
+{% comment %} ==============================    {% endcomment %}
+
+{% assign product_ids = '' %}
+{% assign has_available = false %}
+
+{% for line_item in order.line_items %}
+  {% if line_item.product.available %}
+    {% assign has_available = true %}
+  {% endif %}
+  {% assign product_ids = product_ids | append: ',' | append: line_item.product.id %}
+{% endfor %}
+
+{% if has_available %}
+  <div class="max-width customs-order--recommendations">
+    <h3 class="emphasis left">Your next order?</h3>
+    <div class="carousel" data-last-item="[{{ product_ids | remove_first: ","}}]">
+      <div class="loader previous-order-loader"></div>
+    </div>
+  </div>
+{% endif %}
+
+<script>
+  /* global Shopify */
+  async function getLastOrderRecs() {
+    const carouselEl = document.querySelector('.carousel');
+    const productIDs = JSON.parse(carouselEl.dataset.lastItem);
+
+    // Create a fragment to hold all the content in memory
+    const fragment = document.createDocumentFragment();
+
+    const carousel = document.createElement('productcard-carousel');
+    carousel.classList.add('gender-recommendations-carousel', 'product-grid');
+
+    for (const id of productIDs) {
+      try {
+        const response = await fetch(`${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${id}&limit=4&intent=related`);
+        if (!response.ok) {
+          console.warn(`Skipping purchased product ${id}: HTTP ${response.status}`);
+          continue;
+        }
+
+        const data = await response.json();
+        const wrapper = document.createElement('div');
+        wrapper.innerHTML = data['product-dynamic-cards'];
+        const section = wrapper.querySelector('#shopify-section-product-dynamic-cards');
+
+        if (section) {
+          while (section.firstChild) {
+            carousel.appendChild(section.firstChild);
+          }
+        }
+      } catch (error) {
+        console.error(`last order recs :: failed for ${id}:`, error);
+        continue;
+      }
+    }
+
+    // Append the complete carousel to the fragment
+    fragment.appendChild(carousel);
+    // Then inject the fragment into the DOM in a single operation
+    carouselEl.appendChild(fragment);
+
+    document.querySelector('.previous-order-loader').remove();
+    document.querySelector('.previous-order-recommendations').style.opacity = 1;
   }
+
+  getLastOrderRecs();
+</script>
+
+{% schema %}
+{
+  "name": "Main Order",
+  "class": "section--main-order max-width",
+  "settings": []
+}
 {% endschema %}
