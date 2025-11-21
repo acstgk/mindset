@@ -1,0 +1,125 @@
+<div class="offer-grid">
+  {% for block in section.blocks %}
+    <div class="offer-card">
+      {% if block.settings.image %}
+        {{ block.settings.image | image_url: width: 900 | image_tag: alt: block.settings.title }}
+      {% endif %}
+      <div class="offer-card--info">
+        <h2 class="emphasis">
+          <span class="h1 emphasis">{{ block.settings.discount_percentage }}% OFF</span><br>
+          {{ block.settings.title }}
+        </h2>
+        <p>{{ block.settings.description }}</p>
+        <a href="{{ block.settings.url }}" class="button button-inverted">{{ block.settings.cta }}</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .rtf p {
+    text-align: center;
+  }
+
+  .offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .offer-card {
+    color: var(--c-white);
+    text-shadow: 0 0 10px var(--c-shadow);
+    text-align: center;
+    display: grid;
+    place-items: center;
+    transition: backdrop-filter 0.2s ease;
+
+    &:hover .offer-card--info {
+      backdrop-filter: brightness(1.2);
+    }
+
+    & h2 {
+      margin-bottom: 0;
+    }
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    & .offer-card--info {
+      padding: 1.5rem;
+      backdrop-filter: brightness(0.95);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    & > * {
+      grid-area: 1 / 1;
+    }
+
+    & .button {
+      margin-top: 1rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Affiliate Discounts",
+  "class": "section--affiliate-discounts max-width",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "offer",
+      "name": "Offer",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Exclusive Offer"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "range",
+          "id": "discount_percentage",
+          "label": "Discount Percentage",
+          "default": 10,
+          "min": 5,
+          "max": 100,
+          "step": 5
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Details",
+          "info": "a sentence explaining the offer in more detail",
+          "default": "Get this exclusive discount now!"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Offer URL"
+        },
+        {
+          "type": "text",
+          "id": "cta",
+          "label": "Button CTA",
+          "default": "Claim Offer"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

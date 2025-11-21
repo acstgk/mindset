@@ -141,6 +141,7 @@ span {
 p {
   max-width: 75ch;
   margin-inline: auto;
+  letter-spacing: 0.03em;
 }
 
 

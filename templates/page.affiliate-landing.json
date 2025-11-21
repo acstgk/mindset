@@ -1,0 +1,101 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "page-main",
+      "settings": {}
+    },
+    "affiliate-discounts": {
+      "type": "affiliate-discounts",
+      "blocks": {
+        "block1": {
+          "type": "offer",
+          "settings": {
+            "title": "Your First Order",
+            "image": "shopify://shop_images/FIRST-ORDER-left.jpg",
+            "discount_percentage": 15,
+            "description": "Sign up to our mailing list for your exclusive discount.",
+            "url": "/account/register",
+            "cta": "Sign up Now"
+          }
+        },
+        "offer_wtMQaw": {
+          "type": "offer",
+          "settings": {
+            "title": "Public Service Discount",
+            "image": "shopify://shop_images/GO-CERTIFY-mob.jpg",
+            "discount_percentage": 20,
+            "description": "Verify your status with GoCertify for your discount",
+            "url": "https://secure.gocertify.me/at/gym-king/key-worker",
+            "cta": "Claim Offer"
+          }
+        },
+        "offer_G6FepG": {
+          "type": "offer",
+          "settings": {
+            "title": "with Youth Discount",
+            "image": "shopify://shop_images/YOUTH-DISCOUNT-mob.jpg",
+            "discount_percentage": 10,
+            "description": "Discount for students, 16-26 and apprentices",
+            "url": "shopify://pages/youthdiscount",
+            "cta": "Claim Offer"
+          }
+        },
+        "offer_9JVkj3": {
+          "type": "offer",
+          "settings": {
+            "title": "with Student Beans",
+            "image": "shopify://shop_images/gk-blackfriday-pod3.jpg",
+            "discount_percentage": 10,
+            "description": "Get this exclusive discount now!",
+            "url": "",
+            "cta": "Claim Offer"
+          }
+        },
+        "block2": {
+          "type": "offer",
+          "settings": {
+            "title": "with Blue Light Card",
+            "image": "shopify://shop_images/BLUE-LIGHT-CARD-mob.jpg",
+            "discount_percentage": 20,
+            "description": "20% off for emergency service workers",
+            "url": "https://www.bluelightcard.co.uk/login.php?page=offerdetails.php&cid=15112&oid=15175",
+            "cta": "Claim Offer"
+          }
+        },
+        "offer_P6DtHf": {
+          "type": "offer",
+          "settings": {
+            "title": "with UNiDAYS",
+            "image": "shopify://shop_images/UNIDAYS-mob.jpg",
+            "discount_percentage": 15,
+            "description": "Verify your student status and claim your discount",
+            "url": "shopify://pages/unidays",
+            "cta": "Claim Offer"
+          }
+        }
+      },
+      "block_order": [
+        "block1",
+        "offer_wtMQaw",
+        "offer_G6FepG",
+        "offer_9JVkj3",
+        "block2",
+        "offer_P6DtHf"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "affiliate-discounts"
+  ]
+}
