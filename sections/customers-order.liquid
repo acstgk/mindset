@@ -178,7 +178,8 @@
 
 {% if has_available %}
   <div class="max-width customs-order--recommendations">
-    <h3 class="emphasis left">Your next order?</h3>
+    <hr>
+    <h2 class="emphasis left">Recommendations for this order:</h2>
     <div class="carousel" data-last-item="[{{ product_ids | remove_first: ","}}]">
       <div class="loader previous-order-loader"></div>
     </div>
