@@ -125,6 +125,16 @@
       {% endfor %}
     </table>
     <table class="table-totals">
+      {%- if order.cart_level_discount_applications != blank -%}
+        {%- for discount_allocation in order.cart_level_discount_applications -%}
+          {% if discount_allocation.target_type == 'line_item' %}
+            <tr>
+              <td>Discount ({{ discount_allocation.title }})</td>
+              <td>-{{ discount_allocation.total_allocated_amount | money | default: 'FREE' }}</td>
+            </tr>
+          {% endif %}
+        {%- endfor -%}
+      {%- endif -%}
       <tr>
         <td>Subtotal</td>
         <td>{{ order.total_price | money | default: 'FREE' }}</td>
