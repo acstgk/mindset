@@ -294,7 +294,7 @@ page-overlay {
 body.no-scroll page-overlay {
     opacity: 1;
     visibility: visible;
-    pointer-events: ;
+    pointer-events: all;
 }
 
 .drawer {
