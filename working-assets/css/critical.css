@@ -32,6 +32,7 @@ body {
 main {
   display: block;
   flex-grow: 1;
+  background-color: var(--c-white);
 }
 
 #fc_frame {
