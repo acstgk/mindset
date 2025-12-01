@@ -142,14 +142,14 @@
       <tr>
         <td>
           Shipping
-          {%- if order.shipping_methods.first.title -%}({{ order.shipping_methods.first.title }}){%- endif -%}
+          {% if order.shipping_methods.first.title -%}<small>({{ order.shipping_methods.first.title }})</small>{%- endif -%}
         </td>
         <td>{{ order.total_shipping_price | money | default: 'FREE' }}</td>
       </tr>
       <tr>
         <td>
           Tax
-          {%- if order.tax_lines.first.title -%}({{ order.tax_lines.first.title }}){%- endif -%}
+          {% if order.tax_lines.first.title -%}<small>({{ order.tax_lines.first.title }})</small>{%- endif -%}
         </td>
         <td>{{ order.tax_price | default: '0.00' | money }}</td>
       </tr>
