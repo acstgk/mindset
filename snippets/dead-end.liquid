@@ -20,8 +20,11 @@
   {% endunless %}
 {%- if request.page_type == 'search' -%}<p style="margin:-1rem auto 1rem;"><b>OR</b></p> {% endif %}
   <a href="{{routes.collections_url}}/mens" class="button button-primary">Shop Mens</a>
-  <a href="{{routes.collections_url}}/womens" class="button button-primary">Shop Womens</a><br>
+  <a href="{{routes.collections_url}}/womens" class="button button-primary">Shop Womens</a>
+  <br>
+  {% unless request.page_type == 'index' %}
   <a href="{{ routes.root_url }}" class="button button-secondary back-home">{{- '404.general.button' | t -}}</a>
+  {% endunless %}
   {% render 'trust-widget' with 'micro' %}
 </div>
 
@@ -29,7 +32,11 @@
   .dead-end {
     margin: 6rem auto;
   }
+
+  .dead-end .trustpilot-widget {
+    margin-top: 2rem;
+  }
   .back-home {
-    margin: 0.5rem auto 2rem;
+    margin: 0.5rem auto 0;
   }
 {% endstyle%}
