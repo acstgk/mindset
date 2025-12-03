@@ -758,14 +758,6 @@ if ("requestIdleCallback" in window) {
   setTimeout(initDynamicComponents, 1500);
 }
 
-// with product cards in the cart drawer, always load the product-card module even without the scroll listener/observer
-if (!customElements.get("product-card")) {
-  import("./ProductCard.js").then((module) => {
-    if (!customElements.get("product-card")) {
-      customElements.define("product-card", module.default);
-    }
-  });
-}
 
 // ===================
 // CART LINE ITEMS
