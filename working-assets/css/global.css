@@ -42,6 +42,7 @@ hmtl>body.no-scroll {
 }
 */
 
+
 *::-webkit-scrollbar-track,
 *::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar {
@@ -146,6 +147,10 @@ input[type=range] {
     }
 }
 
+.splide__slide {
+    border-radius: var(--radius);
+    overflow: hidden;
+}
 .splide__slide img {
     object-position: top;
 }
@@ -306,6 +311,7 @@ body.no-scroll page-overlay {
     color: var(--c-dark-grey);
     padding: 1em;
     margin-block: 1em;
+    border-radius: var(--radius);
 
     & a:not[class|='button'],
     & .a:not[class|='button'] {
@@ -456,7 +462,7 @@ button {
     width: max-content;
     scale: 1;
     transition: scale 0.15s ease;
-    border-radius: 0;
+    border-radius: var(--radius);
 
     &:active {
         scale: 0.95;
@@ -608,6 +614,7 @@ button {
     height: 100%;
     display: block;
     overflow: hidden;
+    border-radius: var(--radius);
 
     & img,
     & a {
@@ -1181,7 +1188,7 @@ free-delivery {
 
     & product-card {
         scroll-snap-align: start;
-        width: 40%;
+        width: 30%;
         flex: 1 0 auto;
         margin: 0;
         border: none;

@@ -58,6 +58,7 @@ img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: var(--radius);
 
   &.cover {
     min-height: 100%;
@@ -223,6 +224,7 @@ blockquote {
   padding: 0.2rem 1rem;
   display: inline-block;
   place-content: center;
+  border-radius: var(--radius);
 }
 
 .success {
