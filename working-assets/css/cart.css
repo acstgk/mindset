@@ -135,7 +135,7 @@
    }
 
    .cart-upsells--carousel product-card {
-     width: 30%;
+    width: min(250px, 30%);
    }
 
    .cart-upsells .Price--wrapper {
