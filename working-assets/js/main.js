@@ -1,3 +1,17 @@
+/**
+ * Main JavaScript file for Mindset theme
+ *
+ * This file contains:
+ * - CartAPI: Shopify cart management with custom events
+ * - SlideDrawer: Mobile drawer navigation
+ * - PageOverlay: Overlay management for modals/drawers
+ * - PredictiveSearch: Search functionality
+ * - ProductModalManager: Shared modal logic for products
+ * - ProductCard: Product card custom element
+ * - LineItem: Cart line item custom element
+ * - ComponentLoader: Dynamic component loading system
+ */
+
 /* global requestIdleCallback MutationObserver IntersectionObserver, Shopify, theme, clearTimeout sessionStorage location URL iWish navigator */
 import Splide from "./splide.min.js";
 window.Splide = Splide;
@@ -5,20 +19,29 @@ window.Splide = Splide;
 // ===================
 // CART CLASS
 // ===================
-
+/**
+ * CartAPI - Manages Shopify cart operations and dispatches custom events
+ * @class
+ * @property {Object} cart - Current cart state
+ * @property {HTMLElement} cartIcon - Header cart icon element
+ */
 class CartAPI {
   constructor() {
-    this.cart = {};
+    this.cart = {}; // Stores current cart data from Shopify
+    // Bind methods to maintain context
     this.loadCart = this.loadCart.bind(this);
     this.addItems = this.addItems.bind(this);
     this.removeItem = this.removeItem.bind(this);
     this.updateLineItem = this.updateLineItem.bind(this);
     this.dispatchCartUpdate = this.dispatchCartUpdate.bind(this);
     this.cartIcon = document.getElementById("header_cart-icon");
-    this.loadCart();
+    this.loadCart(); // Load cart data on initialization
   }
 
-  // Dispatches a custom event when the cart data changes
+  /**
+   * Dispatches a custom event when the cart data changes
+   * @param {string} eventName - Event name (cart:updated, cart:loaded, cart:itemsAdded, etc.)
+   */
   dispatchCartUpdate(eventName = "cart:updated") {
     const event = new CustomEvent(eventName, {
       bubbles: true, // Allow event to bubble up the DOM
@@ -28,7 +51,10 @@ class CartAPI {
     console.log(`Custom event '${eventName}' dispatched`);
   }
 
-  // get the cart data so we can include it with the custom event
+  /**
+   * Fetches current cart state from Shopify and updates UI
+   * Updates cart icon badge and dispatches cart:loaded event
+   */
   async loadCart() {
     try {
       const res = await fetch("/cart.js");
@@ -45,12 +71,15 @@ class CartAPI {
     }
   }
 
-  // == add one or more items to the cart ==
-  // will accept:
-  // 1: a single variant ID,
-  // 2: an array of product ID's - [1211,2222,333]
-  // 3: an array of cart objects - [{ id: 1211, quantity: 1 },{ id: 2222, quantity: 3 },{ id: 333, quantity: 2 },]
-
+  /**
+   * Add one or more items to the cart
+   * @param {number|Array|Object} items - Accepts:
+   *   - Single variant ID: 123456
+   *   - Array of IDs: [123, 456, 789]
+   *   - Array of objects: [{id: 123, quantity: 2}, {id: 456, quantity: 1}]
+   *   - Single object: {id: 123, quantity: 2}
+   * @returns {Promise} Shopify cart API response
+   */
   async addItems(items) {
     let normalizedItems = [];
 
@@ -86,8 +115,11 @@ class CartAPI {
     }
   }
 
-  // == remove an item from the cart ==
-  // lineItemKey must be line item key or variant ID ( variant id will automatically remove first instance only)
+  /**
+   * Remove an item from the cart
+   * @param {string|number} lineItemKey - Line item key or variant ID
+   *   Note: If using variant ID, only first instance will be removed
+   */
   async removeItem(lineItemKey) {
     try {
       const res = await fetch("/cart/change.js", {
@@ -107,7 +139,11 @@ class CartAPI {
     }
   }
 
-  // == update a line in the cart==
+  /**
+   * Update quantity of a cart line item
+   * @param {string|number} lineItemKey - Line item key
+   * @param {number} quantity - New quantity (set to 0 to remove)
+   */
   async updateLineItem(lineItemKey, quantity) {
     try {
       const res = await fetch("/cart/change.js", {
@@ -126,7 +162,10 @@ class CartAPI {
     }
   }
 
-  // == clear all items out of the cart and send the cart update event ==
+  /**
+   * Clear all items from the cart
+   * Dispatches cart:cleared event when complete
+   */
   async clearAll() {
     try {
       const res = await fetch("/cart/clear.js", {
@@ -144,7 +183,11 @@ class CartAPI {
     }
   }
 
-  // == convert the money to the right format ==
+  /**
+   * Convert money amount to formatted string using theme settings
+   * @param {number} amount - Amount in cents
+   * @returns {string} Formatted money string (strips .00)
+   */
   formatMoney(amount) {
     const format = window.theme.moneyFormat;
     const value = amount / 100;
@@ -152,7 +195,10 @@ class CartAPI {
     return formatted.replace(/\.00$/, ""); // only strip ".00", leave ".50" etc.
   }
 
-  // == update the value in the checkout button ==
+  /**
+   * Update the checkout total displayed in the cart
+   * @param {number} value - Total cart value in cents
+   */
   updateCheckoutTotal(value) {
     let totalPoint = document.querySelector(".cart-total");
     if (value === 0) {
@@ -163,6 +209,10 @@ class CartAPI {
     }
   }
 
+  /**
+   * Fetches and updates the cart drawer contents
+   * Used to refresh line items after cart changes
+   */
   async getLineItems() {
     try {
       const res = await fetch("/?sections=drawer-cart");
@@ -197,15 +247,18 @@ class CartAPI {
   }
 }
 
+// Initialize CartAPI globally and export for modules
 window.Cart = new CartAPI();
 export const Cart = window.Cart;
 
 // ===================
 // SLIDING DRAWER CLASS
 // ===================
-// requires a 'sliding drawer button'.
-// requires a close
-
+/**
+ * SlideDrawer - Custom element for mobile drawer menus
+ * Handles swipe gestures and open/close functionality
+ * Usage: <slide-drawer data-side="left|right">...</slide-drawer>
+ */
 if (!customElements.get("slide-drawer")) {
   customElements.define(
     "slide-drawer",
@@ -283,10 +336,12 @@ if (!customElements.get("slide-drawer")) {
 // ===================
 // SLIDING DRAWER BUTTONS
 // ===================
-// elements just need the following infomation:
-//  1.  class of .drawer-button
-//  2.  data-target attribute equal to the drawer ID
-
+/**
+ * Initialize all drawer trigger buttons
+ * Elements require:
+ *  - Class: .drawer-button
+ *  - Attribute: data-target="drawer-id"
+ */
 document.querySelectorAll(".drawer-button").forEach((btn) => {
   btn.addEventListener("click", (event) => {
     const target = event.target.closest(".drawer-button").getAttribute("data-target");
@@ -302,7 +357,11 @@ document.querySelectorAll(".drawer-button").forEach((btn) => {
 // ===================
 // DRAWER MENU GENDER SELECTION
 // ===================
-
+/**
+ * SideMenuGenderSelector - Manages gender menu switching in mobile drawer
+ * Stores selection in localStorage and applies offset to menu slider
+ * @class
+ */
 class SideMenuGenderSelector {
   constructor(headerSelector) {
     this.header = document.querySelector(headerSelector);
@@ -341,6 +400,7 @@ class SideMenuGenderSelector {
   }
 }
 
+// Initialize gender selector when DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
   new SideMenuGenderSelector(".side_menu-header");
 });
@@ -348,7 +408,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // ===================
 // DRAWER MENU SUB MENU CONTROLS
 // ===================
-
+/**
+ * SubMenuController - Manages nested sub-menus in the mobile drawer
+ * Tracks open menus and applies slide-in animations
+ * @class
+ */
 class SubMenuController {
   constructor(drawerElement) {
     this.drawer = drawerElement;
@@ -410,13 +474,18 @@ class SubMenuController {
   }
 }
 
+// Initialize the sub-menu controller for the navigation drawer
 const drawer = document.getElementById("navDrawer");
 const menuController = new SubMenuController(drawer);
 
 // ===================
 // PAGE OVERLAY CLASS
 // ===================
-
+/**
+ * PageOverlay - Full-screen overlay for modals and drawers
+ * Handles closing all open overlays when clicked
+ * Usage: <page-overlay></page-overlay>
+ */
 if (!customElements.get("page-overlay")) {
   customElements.define(
     "page-overlay",
@@ -461,7 +530,11 @@ if (!customElements.get("page-overlay")) {
 // ===================
 // PREDICTIVE SEARCH
 // ===================
-
+/**
+ * PredictiveSearch - Live search functionality with debouncing
+ * Fetches and displays search results as user types
+ * Usage: <predictive-search></predictive-search>
+ */
 if (!customElements.get("predictive-search")) {
   customElements.define(
     "predictive-search",
@@ -574,8 +647,16 @@ if (!customElements.get("predictive-search")) {
 // ===================
 // Global Utilities
 // ===================
-
+/**
+ * gkUtils - Global utility functions
+ * Currently handles Quick Add To Bag (QATB) button functionality
+ * @class
+ */
 class gkUtils {
+  /**
+   * Binds Quick Add To Bag buttons within a container
+   * @param {HTMLElement} root - Container element with .qatb-btn buttons
+   */
   bindQATBButtons(root) {
     const qatbButtons = root.querySelectorAll(".qatb-btn") || [];
     qatbButtons.forEach((btn) => {
@@ -608,153 +689,142 @@ class gkUtils {
   }
 }
 
+// Initialize gkUtils globally
 window.gkUtils = new gkUtils();
 
 // ===================
-// Product Cards
+// Product Modal Manager
 // ===================
-if (!customElements.get("product-card")) {
-  customElements.define(
-    "product-card",
-    class ProductCard extends HTMLElement {
-      constructor() {
-        super();
-      }
+/**
+ * ProductModalManager - Manages product quick-add modals
+ * Shared by both ProductCard and LineItem components
+ * Handles modal creation, opening, closing, and touch swipe gestures
+ * @class
+ */
+class ProductModalManager {
+  /**
+   * @param {HTMLElement} sourceElement - The parent element (ProductCard or LineItem)
+   */
+  constructor(sourceElement) {
+    this.sourceElement = sourceElement; // Reference to parent element
+    this._touchStartY = null; // Track touch start position for swipe
+    this._touchStartListener = null; // Touch event listener reference
+    this._touchEndListener = null; // Touch event listener reference
+  }
 
-      connectedCallback() {
-        this._init();
+  /**
+   * Opens or creates a product modal
+   * Adds touch swipe-to-close functionality for mobile
+   * @param {Event} event - Click event from trigger button
+   */
+  openModal(event) {
+    const isOverlay = document.body.classList.contains("no-scroll");
+    const trigger = event.currentTarget || event.target;
+    const modalID = trigger.dataset.target;
+    let modalEl = document.getElementById(modalID);
 
-        // Listen for countdown ended event
-        this._countdownHandler = () => {
-          const decal = this.querySelector(".product_card-decal");
-          if (decal) decal.remove();
+    if (!modalEl) {
+      modalEl = this.buildModal(trigger);
+      document.body.appendChild(modalEl);
+      window.gkUtils.bindQATBButtons(modalEl);
+    }
+
+    setTimeout(() => {
+      modalEl.classList.add("active");
+      isOverlay ? modalEl.classList.add("keep-overlay") : "";
+      modalEl.setAttribute("aria-hidden", "false");
+      document.querySelector("page-overlay").openThis();
+
+      // Touch swipe-to-close support for mobile devices
+      if ("ontouchstart" in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0)) {
+        // Remove any previous listeners if present
+        if (this._touchStartListener) {
+          modalEl.removeEventListener("touchstart", this._touchStartListener);
+          this._touchStartListener = null;
+        }
+        if (this._touchEndListener) {
+          modalEl.removeEventListener("touchend", this._touchEndListener);
+          this._touchEndListener = null;
+        }
+        // Handler for touchstart: record startY
+        this._touchStartListener = (touchEvent) => {
+          if (touchEvent.touches && touchEvent.touches.length > 0) {
+            this._touchStartY = touchEvent.touches[0].clientY;
+          }
         };
-        window.addEventListener("countdown:ended", this._countdownHandler);
-      }
-
-      _init() {
-        window.gkUtils.bindQATBButtons(this);
-
-        // add click listeners to the open mobile qatb button
-        const openmqatbBtn = this.querySelector(".mqatb-show");
-        if (!openmqatbBtn) return;
-        openmqatbBtn.addEventListener("click", (event) => this._openMobileQB(event));
-
-        // add click listeners to the Iwish buttons
-        const el = this.querySelector(".iWishColl");
-        if (el) {
-          if (typeof iWish !== "undefined" && iWish.iwishAddClick) {
-            iWish.iwishAddClick(el);
-          }
-        }
-
-        // add click listeners to the modal close button
-        const close = this.querySelector(".mqatb-close");
-        if (close) close.addEventListener("click", (event) => this._closeMobileQB(event));
-      }
-
-      _openMobileQB(event) {
-        const isOverlay = document.body.classList.contains("no-scroll");
-        const trigger = event.currentTarget || event.target;
-        const modalID = trigger.dataset.target;
-        let modalEl = document.getElementById(modalID);
-
-        if (!modalEl) {
-          modalEl = this._buildMobileQB(trigger);
-          document.body.appendChild(modalEl);
-          window.gkUtils.bindQATBButtons(modalEl);
-        }
-
-        setTimeout(() => {
-          modalEl.classList.add("active");
-          isOverlay ? modalEl.classList.add("keep-overlay") : "";
-          modalEl.setAttribute("aria-hidden", "false");
-          document.querySelector("page-overlay").openThis();
-
-          // Touch swipe-to-close support for mobile devices
-          if ("ontouchstart" in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0)) {
-            // Remove any previous listeners if present
-            if (this._touchStartListener) {
-              modalEl.removeEventListener("touchstart", this._touchStartListener);
-              this._touchStartListener = null;
+        // Handler for touchend: check swipe down
+        this._touchEndListener = (touchEvent) => {
+          if (typeof this._touchStartY !== "number") return;
+          if (touchEvent.changedTouches && touchEvent.changedTouches.length > 0) {
+            const endY = touchEvent.changedTouches[0].clientY;
+            const deltaY = endY - this._touchStartY;
+            if (deltaY > 50) {
+      // Swipe down detected; close modal
+      // Synthetic event with target as modalEl
+              this.closeModal({ target: modalEl });
             }
-            if (this._touchEndListener) {
-              modalEl.removeEventListener("touchend", this._touchEndListener);
-              this._touchEndListener = null;
-            }
-            // Handler for touchstart: record startY
-            this._touchStartListener = (touchEvent) => {
-              if (touchEvent.touches && touchEvent.touches.length > 0) {
-                this._touchStartY = touchEvent.touches[0].clientY;
-              }
-            };
-            // Handler for touchend: check swipe down
-            this._touchEndListener = (touchEvent) => {
-              if (typeof this._touchStartY !== "number") return;
-              if (touchEvent.changedTouches && touchEvent.changedTouches.length > 0) {
-                const endY = touchEvent.changedTouches[0].clientY;
-                const deltaY = endY - this._touchStartY;
-                if (deltaY > 50) {
-                  // Swipe down detected; close modal
-                  // Synthetic event with target as modalEl
-                  this._closeMobileQB({ target: modalEl });
-                }
-              }
-              this._touchStartY = null;
-            };
-            modalEl.addEventListener("touchstart", this._touchStartListener);
-            modalEl.addEventListener("touchend", this._touchEndListener);
           }
-        }, 200);
+          this._touchStartY = null;
+        };
+        modalEl.addEventListener("touchstart", this._touchStartListener);
+        modalEl.addEventListener("touchend", this._touchEndListener);
       }
+    }, 200);
+  }
 
-      _buildMobileQB(trigger) {
-        const imgURLs = trigger.dataset.images.split(",");
-        const modalID = trigger.dataset.target;
-        const productTitle = trigger.dataset.productTitle;
+  /**
+   * Builds the modal DOM structure
+   * Creates image gallery, product info, and add-to-bag buttons
+   * @param {HTMLElement} trigger - Button element that triggered the modal
+   * @returns {HTMLElement} Complete modal element ready to append to DOM
+   */
+  buildModal(trigger) {
+    const imgURLs = trigger.dataset.images.split(",");
+    const modalID = trigger.dataset.target;
+    const productTitle = trigger.dataset.productTitle;
 
-        //create the modal
-        const modal = document.createElement("div");
-        modal.className = "fade-in mqatb-modal modal";
-        modal.id = modalID;
-        modal.setAttribute("aria-hidden", "true");
+    //create the modal
+    const modal = document.createElement("div");
+    modal.className = "fade-in mqatb-modal modal";
+    modal.id = modalID;
+    modal.setAttribute("aria-hidden", "true");
 
-        // create the image container and render the images
-        const images = document.createElement("div");
-        images.className = "mqatb-images";
-        const loopEnd = imgURLs.length < 8 ? imgURLs.length : 8;
-        for (let i = 0, len = loopEnd; i < len; i++) {
-          const img = document.createElement("img");
-          img.src = imgURLs[i];
-          img.draggable = false;
-          img.alt = `${productTitle} - image ${i + 1}`;
-          images.appendChild(img);
-        }
+    // create the image container and render the images
+    const images = document.createElement("div");
+    images.className = "mqatb-images";
+    const loopEnd = imgURLs.length < 8 ? imgURLs.length : 8;
+    for (let i = 0, len = loopEnd; i < len; i++) {
+      const img = document.createElement("img");
+      img.src = imgURLs[i];
+      img.draggable = false;
+      img.alt = `${productTitle} - image ${i + 1}`;
+      images.appendChild(img);
+    }
 
-        // Copy the product details
-        const productInfo = this.querySelector(".product_card-info").innerHTML;
-        const info = document.createElement("div");
-        info.className = "mqatb-info";
-        info.innerHTML = productInfo;
+    // Copy the product details
+    const productInfo = this.sourceElement.querySelector(".product_card-info").innerHTML;
+    const info = document.createElement("div");
+    info.className = "mqatb-info";
+    info.innerHTML = productInfo;
 
-        // Copy add to bag buttons
-        const buttonsData = this.querySelector(".datb").innerHTML;
-        const buttons = document.createElement("div");
-        buttons.className = "mqatb-btns";
-        buttons.innerHTML = `Quick Add: ${buttonsData}`
+    // Copy add to bag buttons
+    const buttonsData = this.sourceElement.querySelector(".datb").innerHTML;
+    const buttons = document.createElement("div");
+    buttons.className = "mqatb-btns";
+    buttons.innerHTML = `Quick Add: ${buttonsData}`
 
 
-        // add content to the modal
-        const modalContent = document.createElement("div");
-        modal.appendChild(images);
-        modalContent.appendChild(info);
-        modalContent.appendChild(buttons);
-        modal.appendChild(modalContent);
+    // add content to the modal
+    const modalContent = document.createElement("div");
+    modal.appendChild(images);
+    modalContent.appendChild(info);
+    modalContent.appendChild(buttons);
+    modal.appendChild(modalContent);
 
-        //create the close button and add close functionality
-        const close = document.createElement("div");
-        close.className = "round-btn mqatb-close";
-        const closeIcon = `
+    //create the close button and add close functionality
+    const close = document.createElement("div");
+    close.className = "round-btn mqatb-close";
+    const closeIcon = `
      <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
@@ -767,31 +837,95 @@ if (!customElements.get("product-card")) {
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" />
     </svg>`;
-        close.innerHTML = closeIcon;
-        modal.appendChild(close);
-        close.addEventListener("click", (event) => this._closeMobileQB(event));
+    close.innerHTML = closeIcon;
+    modal.appendChild(close);
+    close.addEventListener("click", (event) => this.closeModal(event));
 
-        //return the modal for rendering to dom
-        return modal;
+    //return the modal for rendering to dom
+    return modal;
+  }
+
+  /**
+   * Closes the modal and cleans up event listeners
+   * Optionally keeps page overlay open if modal was stacked
+   * @param {Event} event - Click event from close button or swipe
+   */
+  closeModal(event) {
+    const modal = event.target.closest(".mqatb-modal");
+    const keepOverlay = modal.classList.contains("keep-overlay");
+    // Remove touch listeners if present
+    if (this._touchStartListener) {
+      modal.removeEventListener("touchstart", this._touchStartListener);
+      this._touchStartListener = null;
+    }
+    if (this._touchEndListener) {
+      modal.removeEventListener("touchend", this._touchEndListener);
+      this._touchEndListener = null;
+    }
+    modal.classList.remove("active");
+    modal.setAttribute("aria-hidden", "true");
+
+    !keepOverlay ? document.querySelector("page-overlay").closeThis() : "";
+    modal.classList.remove("keep-overlay");
+  }
+}
+
+// Make ProductModalManager globally accessible
+window.ProductModalManager = ProductModalManager;
+
+// ===================
+// Product Cards
+// ===================
+/**
+ * ProductCard - Custom element for product card components
+ * Handles quick-add modals, iWish integration, and countdown timers
+ * Uses ProductModalManager for modal functionality
+ * Usage: <product-card>...</product-card>
+ */
+if (!customElements.get("product-card")) {
+  customElements.define(
+    "product-card",
+    class ProductCard extends HTMLElement {
+      constructor() {
+        super();
       }
 
-      _closeMobileQB(event) {
-        const modal = event.target.closest(".mqatb-modal");
-        const keepOverlay = modal.classList.contains("keep-overlay");
-        // Remove touch listeners if present
-        if (this._touchStartListener) {
-          modal.removeEventListener("touchstart", this._touchStartListener);
-          this._touchStartListener = null;
-        }
-        if (this._touchEndListener) {
-          modal.removeEventListener("touchend", this._touchEndListener);
-          this._touchEndListener = null;
-        }
-        modal.classList.remove("active");
-        modal.setAttribute("aria-hidden", "true");
+      connectedCallback() {
+        // Initialize the modal manager for this product card
+        this.modalManager = new ProductModalManager(this);
+        this._init();
 
-        !keepOverlay ? document.querySelector("page-overlay").closeThis() : "";
-        modal.classList.remove("keep-overlay");
+        // Listen for countdown ended event
+        this._countdownHandler = () => {
+          const decal = this.querySelector(".product_card-decal");
+          if (decal) decal.remove();
+        };
+        window.addEventListener("countdown:ended", this._countdownHandler);
+      }
+
+      /**
+       * Initialize event listeners and modal functionality
+       * Binds QATB buttons, modal triggers, and iWish buttons
+       */
+      _init() {
+        window.gkUtils.bindQATBButtons(this);
+
+        // add click listeners to the open mobile qatb button
+        const openmqatbBtn = this.querySelector(".mqatb-show");
+        if (!openmqatbBtn) return;
+        openmqatbBtn.addEventListener("click", (event) => this.modalManager.openModal(event));
+
+        // add click listeners to the Iwish buttons
+        const el = this.querySelector(".iWishColl");
+        if (el) {
+          if (typeof iWish !== "undefined" && iWish.iwishAddClick) {
+            iWish.iwishAddClick(el);
+          }
+        }
+
+        // add click listeners to the modal close button
+        const close = this.querySelector(".mqatb-close");
+        if (close) close.addEventListener("click", (event) => this.modalManager.closeModal(event));
       }
 
       disconnectedCallback() {
@@ -806,14 +940,24 @@ if (!customElements.get("product-card")) {
 // ===================
 // DYNAMIC IMPORTS
 // ===================
-
+/**
+ * ComponentLoader - Lazy-loads custom element modules
+ * Uses IntersectionObserver for viewport-based loading
+ * Uses MutationObserver for dynamically added elements
+ * Prevents duplicate definitions and optimizes bundle size
+ * @class
+ */
 class ComponentLoader {
-  static uninitializedLoaders = [];
-  static sharedObserver = null;
+  static uninitializedLoaders = []; // Queue of loaders waiting for DOM elements
+  static sharedObserver = null; // Shared MutationObserver for all loaders
 
+  /**
+   * @param {string} selector - Custom element tag name
+   * @param {Function} importFn - Dynamic import function returning module promise
+   */
   constructor(selector, importFn) {
-    this.selector = selector;
-    this.importFn = importFn;
+    this.selector = selector; // Tag name to watch for
+    this.importFn = importFn; // Import function for the module
 
     if (customElements.get(this.selector)) return;
 
@@ -918,10 +1062,14 @@ class ComponentLoader {
   }
 }
 
-// dynamically import modules required by the page
-window.ComponentLoader = ComponentLoader; // Export for global access
+// Export ComponentLoader globally and initialize hero carousel immediately
+window.ComponentLoader = ComponentLoader;
 new ComponentLoader("hero-carousel", () => import("./HeroCarousel.js"));
 
+/**
+ * Initialize dynamic components using requestIdleCallback
+ * Components are lazy-loaded when browser is idle or when they appear in viewport
+ */
 function initDynamicComponents() {
   // Lazy-load components when visible
   new ComponentLoader("productcard-carousel", () => import("./ProductCarousel.js"));
@@ -935,6 +1083,7 @@ function initDynamicComponents() {
   new ComponentLoader("custom-video-controls", () => import("./CustomVideo.js"));
 }
 
+// Initialize components when browser is idle (better performance)
 // Use requestIdleCallback with a fallback for unsupported browsers
 if ("requestIdleCallback" in window) {
   requestIdleCallback(initDynamicComponents, { timeout: 2000 });
@@ -946,16 +1095,46 @@ if ("requestIdleCallback" in window) {
 // ===================
 // CART LINE ITEMS
 // ===================
-
+/**
+ * LineItem - Custom element for cart line items
+ * Handles quantity updates, item removal, and product modals
+ * Uses ProductModalManager for quick-add modal functionality
+ * Usage: <line-item data-key="line-key" data-index="0">...</line-item>
+ */
 if (!customElements.get("line-item")) {
   customElements.define(
     "line-item",
     class LineItem extends HTMLElement {
       connectedCallback() {
+        // Initialize the modal manager for this line item
+        this.modalManager = new ProductModalManager(this);
         this.lineItemKey = this.dataset.key;
         this._bindQuantityControls();
+        this._bindModalTriggers();
       }
 
+      /**
+       * Binds modal trigger buttons for product quick-view
+       * Allows opening product details from cart line items
+       */
+      _bindModalTriggers() {
+        // Bind any modal trigger buttons in the line item
+        const modalTrigger = this.querySelector(".mqatb-show");
+        if (modalTrigger) {
+          modalTrigger.addEventListener("click", (event) => this.modalManager.openModal(event));
+        }
+
+        // Bind close buttons if present in the line item
+        const closeBtn = this.querySelector(".mqatb-close");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", (event) => this.modalManager.closeModal(event));
+        }
+      }
+
+      /**
+       * Binds quantity selector controls (+, -, input field, remove)
+       * Updates cart via CartAPI and refreshes UI
+       */
       _bindQuantityControls() {
         let lastQty = 0;
         const selector = this.querySelector(".quantity-selector");
@@ -1018,6 +1197,10 @@ if (!customElements.get("line-item")) {
         }
       }
 
+      /**
+       * Remove line item from DOM with fade-out animation
+       * Updates indices of remaining items after removal
+       */
       removeItemEl() {
         const el = this;
         requestAnimationFrame(() => {
