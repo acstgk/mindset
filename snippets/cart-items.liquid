@@ -71,23 +71,6 @@
             </div>
           </div>
           <div class="cart_item-total">{{ item.final_line_price | money_without_trailing_zeros }}</div>
-          {% if item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.type and forloop.first %}
-            <div class="cart_items-ctl">
-              {% for product in item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.value limit: 2 %}
-                {% unless cart_items contains product.id %}
-                  <button
-                    class="button button-secondary cart_items-ctl-button"
-                    data-product-id="{{ product.id }}"
-                    data-product-title="{{ product.title }}"
-                    data-images="{% for image in product.images %}{{ image | image_url: width: 700 }}{% unless forloop.last %},{% endunless %}{% endfor %}"
-                  >
-                    {% render 'icon', icon: 'plus' -%}
-                    {{- product.type }}
-                  </button>
-                {% endunless %}
-              {% endfor %}
-            </div>
-          {% endif %}
         </line-item>
       </li>
     {% endfor %}
