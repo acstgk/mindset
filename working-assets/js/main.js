@@ -758,7 +758,6 @@ if ("requestIdleCallback" in window) {
   setTimeout(initDynamicComponents, 1500);
 }
 
-
 // ===================
 // CART LINE ITEMS
 // ===================
@@ -770,6 +769,7 @@ if (!customElements.get("line-item")) {
       connectedCallback() {
         this.lineItemKey = this.dataset.key;
         this._bindQuantityControls();
+        this._bindModelButtons();
       }
 
       _bindQuantityControls() {
@@ -857,6 +857,100 @@ if (!customElements.get("line-item")) {
               once: true,
             },
           );
+        });
+      }
+
+      _closeMobileQB(event) {
+        const modal = event.target.closest(".mqatb-modal");
+        const keepOverlay = modal.classList.contains("keep-overlay");
+        // Remove touch listeners if present
+        if (this._touchStartListener) {
+          modal.removeEventListener("touchstart", this._touchStartListener);
+          this._touchStartListener = null;
+        }
+        if (this._touchEndListener) {
+          modal.removeEventListener("touchend", this._touchEndListener);
+          this._touchEndListener = null;
+        }
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+
+        !keepOverlay ? document.querySelector("page-overlay").closeThis() : "";
+        modal.classList.remove("keep-overlay");
+      }
+
+      _bindModelButtons() {
+        const buttons = this.querySelectorAll(".cart_items-ctl-button");
+        buttons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const imgURLs = button.dataset.images.split(",");
+            const modalID = button.dataset.target;
+            const productTitle = button.dataset.productTitle;
+
+            //create the modal
+            const modal = document.createElement("div");
+            modal.className = "fade-in mqatb-modal modal";
+            modal.id = modalID;
+            modal.setAttribute("aria-hidden", "true");
+
+            // create the image container and render the images
+            const images = document.createElement("div");
+            images.className = "mqatb-images";
+            const loopEnd = imgURLs.length < 8 ? imgURLs.length : 8;
+            for (let i = 0, len = loopEnd; i < len; i++) {
+              const img = document.createElement("img");
+              img.src = imgURLs[i];
+              img.draggable = false;
+              img.alt = `${productTitle} - image ${i + 1}`;
+              images.appendChild(img);
+            }
+
+            // Copy the product details
+            const productInfo = button.querySelector(".product_card-info").innerHTML;
+            const info = document.createElement("div");
+            info.className = "mqatb-info";
+            info.innerHTML = productInfo;
+
+            // Copy add to bag buttons
+            const buttonsData = button.querySelector(".datb").innerHTML;
+            const buttons = document.createElement("div");
+            buttons.className = "mqatb-btns";
+            buttons.innerHTML = `Quick Add: ${buttonsData}`;
+
+            // add content to the modal
+            const modalContent = document.createElement("div");
+            modal.appendChild(images);
+            modalContent.appendChild(info);
+            modalContent.appendChild(buttons);
+            modal.appendChild(modalContent);
+
+            //create the close button and add close functionality
+            const close = document.createElement("div");
+            close.className = "round-btn mqatb-close";
+            const closeIcon = `
+     <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="rotate45 icon icon-plus"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" />
+    </svg>`;
+            close.innerHTML = closeIcon;
+            modal.appendChild(close);
+            close.addEventListener("click", (event) => this._closeMobileQB(event));
+            console.log(modal);
+
+            document.body.appendChild(modal);
+            window.gkUtils.bindQATBButtons(modal);
+            modal.classList.add("active");
+            modal.setAttribute("aria-hidden", "false");
+            document.querySelector("page-overlay").openThis();
+          });
         });
       }
     },

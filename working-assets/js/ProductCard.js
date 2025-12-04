@@ -89,7 +89,7 @@ export default class ProductCard extends HTMLElement {
           }
           this._touchStartY = null;
         };
-        modalEl.addEventListener("touchstart", this._touchStartListener);
+        modalEl.addEventListener("touchstart", this._touchStartListener, { passive: true });
         modalEl.addEventListener("touchend", this._touchEndListener);
       }
     }, 200);
