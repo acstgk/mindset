@@ -465,6 +465,9 @@ button {
     transition: scale 0.15s ease;
     border-radius: var(--radius);
 
+    &:hover {
+            scale: 1.02;
+        }
     &:active {
         scale: 0.95;
     }
