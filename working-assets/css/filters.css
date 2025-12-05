@@ -274,6 +274,9 @@ filters-menu-bar {
 
 }
 
+.filter_value-checkbox>* {
+  cursor: pointer;
+}
 .filter_value-checkbox>input:checked+label>.swatch {
   rotate: 45deg;
 }
