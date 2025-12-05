@@ -28,7 +28,6 @@
         "img2": "shopify://shop_images/be571701-b6c5-471c-bfe6-935c5f931893.jpg",
         "title_womens": "",
         "url2": "",
-        "full_height": true,
         "gap": 0,
         "hide_second": false,
         "full_width": true
@@ -40,20 +39,9 @@
         "hotspot_fakxCL": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Ross_Iceland_Day_2-8.jpg",
-            "product_1": "",
-            "product_1_x": 56,
-            "product_1_y": 27,
-            "product_2": "",
-            "product_2_x": 39,
-            "product_2_y": 65,
-            "inline_image": "shopify://shop_images/Gymking_-_Stoic-112.jpg",
-            "max_width": 140,
-            "image_type": "circle",
-            "pre_title": "Nothing Beats Belief",
             "title": "Shop The Mindset Collection",
-            "heading_level": "h3",
-            "description": "<p><a href=\"https://thegymking.com/search?type=product&q=mindset\" title=\"Mindset Collection\">Shop now</a></p>"
+            "description": "<p><a href=\"https://thegymking.com/search?type=product&q=mindset\" title=\"Mindset Collection\">Shop now</a></p>",
+            "image": "shopify://shop_images/Ross_Iceland_Day_2-8.jpg"
           }
         }
       },
@@ -61,16 +49,12 @@
         "hotspot_fakxCL"
       ],
       "name": "AOW - Hotspots",
-      "settings": {
-        "title": "",
-        "heading_level": "h2",
-        "slider_type": "static"
-      }
+      "settings": {}
     }
   },
   "order": [
     "main",
     "two_block_8WgH4R",
-    "section_hotspots_m6dWzA",
+    "section_hotspots_m6dWzA"
   ]
 }

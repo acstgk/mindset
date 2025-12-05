@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ 'static-hero.min.css' | asset_url }}">
 
-<div class="static-hero {% if section.settings.isFullheight %}hero_slide{% endif %}">
+<div class="static-hero align-{{- section.settings.text_align }}{% if section.settings.isFullheight %}hero_slide{% endif %}">
   {% if section.settings.video != blank %}
     {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'static-hero--image' }}
   {% elsif section.settings.image != blank %}
@@ -8,11 +8,11 @@
   {% endif %}
   <div class="static-hero--heading">
     <span class="h1">Gym King</span>
-    <h1 class="h3">{{section.settings.heading}}</h1>
+    <h1 class="h3">{{ section.settings.heading }}</h1>
     {% render 'socials' %}
   </div>
   <div class="static-hero--content rtf">
-{{ section.settings.text }}
+    {{ section.settings.text }}
   </div>
 </div>
 
@@ -40,7 +40,7 @@
       "info": "Will autoplay on muted in a loop and therefore intended use is moving image background video, not interviews, talking heads etc."
     },
     {
-    "type": "text",
+      "type": "text",
       "id": "heading",
       "label": "Heading",
       "default": "Brand Hub"
@@ -50,6 +50,26 @@
       "id": "text",
       "label": "Text Content",
       "default": "<p>We believe that if you have something to prove and the mindset to prove it, anything is possible. We hope you enjoy your experience in the brand hub. Find out latest news, events, interviews from our ambassadors and motivational content in our training hub.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text Alignment",
+      "default": "end",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
+      ]
     }
   ],
   "presets": [
