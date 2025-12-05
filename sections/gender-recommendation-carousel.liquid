@@ -1,7 +1,7 @@
 <h3>Recommended for You</h3>
 
 <div class="gender-wrapper">
-  <div class="loader grid-loader gender-loader"></div>
+  <div class="loader grid-loader gender-loader" style="z-index:1;"></div>
   <personal-recommendations id="womens-recommendations" class="womens-gender-filter fade-in" data-gender="womens">
     <h4 class="no-gender-filter">WOMENS</h4>
 
@@ -18,13 +18,12 @@
     <h4 class="no-gender-filter">MENS</h4>
 
     {% comment %} use JS to render the productcard-carousel here {% endcomment %}
-    <noscript>
-      <productcard-carousel class="gender-recommendations-carousel product-grid">
-        {% for product in section.settings['fallback-2'].products limit: 6 %}
-          {% render 'product-card', product: product, class: 'splide__slide' %}
-        {% endfor %}
-      </productcard-carousel>
-    </noscript>
+
+    <productcard-carousel class="gender-recommendations-carousel product-grid">
+      {% for product in section.settings['fallback-2'].products limit: 6 %}
+        {% render 'product-card', product: product, class: 'splide__slide' %}
+      {% endfor %}
+    </productcard-carousel>
   </personal-recommendations>
 </div>
 
