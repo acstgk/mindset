@@ -38,7 +38,7 @@
 {% endif %}
 
 <div class="cart-upsells">
-  <h2 class="h4">You might like</h2>
+  <h2 class="h4 emphasis">You might like {% render 'icon', icon: 'plus', class: 'inline-flex' %}</h2>
 
   <div class="cart-upsells--carousel" data-collection="{{ upsell_collection.title | handleize }}">
     {% for product in upsell_collection.products %}
@@ -50,3 +50,14 @@
     {% endfor %}
   </div>
 </div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.cart-upsells h2').addEventListener('click', () => {
+      document.querySelector('.cart-upsells--carousel').classList.toggle('active');
+      document.querySelector('.cart-upsells h2 svg').classList.toggle('active');
+    })
+
+  })
+</script>
