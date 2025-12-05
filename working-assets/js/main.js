@@ -1310,6 +1310,50 @@ if (!customElements.get("free-delivery")) {
 }
 
 // ===================
+// CART UPSELLS
+// ===================
+/**
+ * CartUpsells - Manages cart upsell accordion functionality
+ * Handles toggle behavior and auto-opens on large viewports
+ * Usage: <cart-upsells>...</cart-upsells>
+ */
+if (!customElements.get("cart-upsells")) {
+  customElements.define(
+    "cart-upsells",
+    class CartUpsells extends HTMLElement {
+      connectedCallback() {
+        this.header = this.querySelector('.cart-upsells h2');
+        this.carousel = this.querySelector('.cart-upsells--carousel');
+        this.icon = this.querySelector('.cart-upsells h2 svg');
+        if (this.header && this.carousel && this.icon) {
+          this.header.addEventListener('click', () => this.toggleUpsells());
+          // Wait for cart data to load before checking item count
+          document.addEventListener('cart:loaded', () => this.autoOpenOnLargeScreens(), { once: true });
+        }
+      }
+
+      /**
+       * Toggle the visibility of the upsell carousel
+       */
+      toggleUpsells() {
+        this.carousel.classList.toggle('active');
+        this.icon.classList.toggle('active');
+      }
+
+      /**
+       * Auto-open the upsells accordion on large viewports (>= 1000px height) or low item counts
+       */
+      autoOpenOnLargeScreens() {
+        const viewportHeight = window.innerHeight;
+        if (viewportHeight >= 1000 || Cart.cart.item_count < 2) {
+          this.header.click();
+        }
+      }
+    },
+  );
+}
+
+// ===================
 // iWish Customisations
 // ===================
 

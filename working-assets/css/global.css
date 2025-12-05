@@ -1183,12 +1183,12 @@ free-delivery {
             display: flex;
             justify-content: space-between;
         }
-        
+
         & svg {
             padding-top: .1rem;
             rotate: 0;
             transition: rotate .2s var(--bezier);
-        
+
             &.active {
                 rotate: 45deg;
             }
@@ -1204,7 +1204,7 @@ free-delivery {
     scroll-snap-type: x mandatory;
     height: 0;
         transition: height 0.2s var(--bezier);
-    
+
         &.active {
             height: auto;
         }

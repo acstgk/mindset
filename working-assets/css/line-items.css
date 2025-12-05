@@ -149,6 +149,16 @@
    align-items: center;
  }
 
+ .section--cart_content {
+   & h2 svg.Icon--plus {
+     display: none;
+   }
+
+   & .cart-upsells--carousel {
+     display: flex;
+     height: auto;
+   }
+ }
  @media screen and (width > 500px) {
    .section--cart_content {
      & .cart_items-list {

@@ -37,27 +37,18 @@
   {% assign in_range = true %}
 {% endif %}
 
-<div class="cart-upsells">
-  <h2 class="h4 emphasis">You might like {% render 'icon', icon: 'plus', class: 'inline-flex' %}</h2>
+<cart-upsells>
+  <div class="cart-upsells">
+    <h2 class="h4 emphasis">You might like {% render 'icon', icon: 'plus', class: 'inline-flex' %}</h2>
 
-  <div class="cart-upsells--carousel" data-collection="{{ upsell_collection.title | handleize }}">
-    {% for product in upsell_collection.products %}
-      {% if forloop.last and in_range %}
-        {% render 'product-card', product: product, modal: true, class: 'first-item' %}
-      {% else %}
-        {% render 'product-card', product: product, modal: true %}
-      {% endif %}
-    {% endfor %}
+    <div class="cart-upsells--carousel" data-collection="{{ upsell_collection.title | handleize }}">
+      {% for product in upsell_collection.products %}
+        {% if forloop.last and in_range %}
+          {% render 'product-card', product: product, modal: true, class: 'first-item' %}
+        {% else %}
+          {% render 'product-card', product: product, modal: true %}
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
-</div>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.cart-upsells h2').addEventListener('click', () => {
-      document.querySelector('.cart-upsells--carousel').classList.toggle('active');
-      document.querySelector('.cart-upsells h2 svg').classList.toggle('active');
-    })
-
-  })
-</script>
+</cart-upsells>
