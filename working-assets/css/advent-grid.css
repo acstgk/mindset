@@ -26,19 +26,37 @@
     content: attr(cover);
     display: grid;
     transform-origin: left;
-    transition: all 0.2s var(--bezier);
+    transition: all 0.25s var(--bezier);
     background-color: var(--c-black);
     color: #F6DA9E;
     mask-image: radial-gradient(circle at 100% center, transparent 15px, #1b1b1b 16px);
     font-family: var(--emphasis-heading-font-family);
     text-transform: uppercase;
     letter-spacing: 0.1ch;
-    font-size:1.5rem;
+    font-size: 1.5rem;
     box-shadow: 0 0 5px black;
   }
 
-  &.active::before {
-    /* transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg); */
+&:hover::before {
+  animation: shake 0.3s var(--bezier);
+}
+&.active::before {
     transform: translateX(-90%);
   }
+}
+@keyframes shake {
+
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  25% {
+    translate: -5% 0;
+  }
+
+  75% {
+    translate: 0px -0;
+  }
+
 }
