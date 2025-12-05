@@ -1111,11 +1111,11 @@ content-accordian {
 }
 
 .cart_items-ctl {
-    display: flex;
     flex-wrap: wrap;
     gap: 0 7.5px;
     grid-row: 3 / 4;
     grid-column: 1 / -1;
+    display: none;
 
     & .button {
         flex: 1 1 25%;
@@ -1128,6 +1128,16 @@ content-accordian {
         background-color: var(--c-off-white);
         border-color: transparent;
     }
+}
+.cart_items-item:first-child .cart_items-ctl {
+    display: flex;
+}
+
+
+span.cart_items-ctl-title {
+    flex: 1 0 100%;
+    font-weight: bold;
+    margin: 0.5em 0 -.2em 0.1em;
 }
 #cartDrawer .side_menu-footer>* {
     margin: 5px auto;

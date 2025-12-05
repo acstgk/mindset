@@ -71,8 +71,9 @@
             </div>
           </div>
           <div class="cart_item-total">{{ item.final_line_price | money_without_trailing_zeros }}</div>
-          {% if item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.type and forloop.first %}
+          {% if item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.type %}
             <div class="cart_items-ctl">
+              <span class="cart_items-ctl-title">This pairs great with:</span>
               {% for product in item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.value limit: 2 %}
                 {% unless cart_items contains product.id %}
                   <button
