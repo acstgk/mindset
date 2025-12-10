@@ -37,26 +37,25 @@
     box-shadow: 0 0 5px black;
   }
 
-&:hover::before {
-  animation: shake 0.3s var(--bezier);
+&:not(.active):hover::before {
+  animation: open 0.2s var(--bezier) forwards;
 }
 &.active::before {
     transform: translateX(-90%);
   }
 }
-@keyframes shake {
+@keyframes open {
 
-  0%,
-  100% {
+  0% {
     translate: 0 0;
   }
 
-  25% {
-    translate: -5% 0;
-  }
+60% {
+  translate: -8% 0;
+}
 
-  75% {
-    translate: 0px -0;
-  }
+100% {
+  translate: -5% 0;
+}
 
 }
