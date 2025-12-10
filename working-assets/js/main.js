@@ -801,14 +801,18 @@ class ProductModalManager {
       images.appendChild(img);
     }
 
-    // Copy the product details
-    const productInfo = this.sourceElement.querySelector(".product_card-info").innerHTML;
+    // Copy the product details - check trigger first (for .cart_items-ctl-button), then sourceElement
+    const productInfoSource = trigger.querySelector(".product_card-info") || this.sourceElement.querySelector(".product_card-info");
+    const productInfo = productInfoSource.innerHTML;
     const info = document.createElement("div");
     info.className = "mqatb-info";
     info.innerHTML = productInfo;
+    // Remove any cart control buttons that may have been copied from line items
+    info.querySelectorAll(".cart_items-ctl-button").forEach((el) => el.remove());
 
-    // Copy add to bag buttons
-    const buttonsData = this.sourceElement.querySelector(".datb").innerHTML;
+    // Copy add to bag buttons - check trigger first, then sourceElement
+    const buttonsDataSource = trigger.querySelector(".datb") || this.sourceElement.querySelector(".datb");
+    const buttonsData = buttonsDataSource.innerHTML;
     const buttons = document.createElement("div");
     buttons.className = "mqatb-btns";
     buttons.innerHTML = `Quick Add: ${buttonsData}`
@@ -1129,6 +1133,15 @@ if (!customElements.get("line-item")) {
         if (closeBtn) {
           closeBtn.addEventListener("click", (event) => this.modalManager.closeModal(event));
         }
+
+        // Bind complementary product buttons to open modals instead of redirecting
+        const ctlButtons = this.querySelectorAll(".cart_items-ctl-button");
+        ctlButtons.forEach((btn) => {
+          btn.addEventListener("click", (event) => {
+            event.preventDefault();
+            this.modalManager.openModal(event);
+          });
+        });
       }
 
       /**
