@@ -136,6 +136,7 @@ form#atc_form {
 
   .is_sticky {
     position: fixed;
+    border-radius: var(--radius) var(--radius) 0 0;
   }
 
   .to_sticky {
