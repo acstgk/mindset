@@ -1141,6 +1141,11 @@ span.cart_items-ctl-title {
     flex: 1 0 100%;
     font-weight: bold;
     margin: 0.5em 0 -.2em 0.1em;
+    display: none;
+    
+        &:has(+a) {
+            display: block;
+        }
 }
 #cartDrawer .side_menu-footer>* {
     margin: 5px auto;
