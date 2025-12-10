@@ -1202,14 +1202,15 @@ free-delivery {
     display: flex;
     width: 100%;
     gap: 0.5em;
-    margin-top: 1rem;
+    margin-top: 0;
     overflow: auto hidden;
     scroll-snap-type: x mandatory;
     height: 0;
-        transition: height 0.2s var(--bezier);
+        transition: height 0.2s var(--bezier), margin-top 0.2s var(--bezier);
 
         &.active {
             height: auto;
+            margin-top: 1rem;
         }
 
     & product-card {

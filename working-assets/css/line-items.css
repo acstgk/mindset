@@ -157,6 +157,7 @@
    & .cart-upsells--carousel {
      display: flex;
      height: auto;
+    margin-top: 1rem;
    }
  }
  @media screen and (width > 500px) {
