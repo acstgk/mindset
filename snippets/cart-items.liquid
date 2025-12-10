@@ -70,7 +70,46 @@
               </button>
             </div>
           </div>
+
           <div class="cart_item-total">{{ item.final_line_price | money_without_trailing_zeros }}</div>
+          {% if item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.type %}
+            <div class="cart_items-ctl">
+              <span class="cart_items-ctl-title">This pairs great with:</span>
+              {% for product in item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.value limit: 2 %}
+                {% unless cart_items contains product.id %}
+                  <a
+                    href="{{ product.url }}"
+                    class="button button-secondary cart_items-ctl-button"
+                    data-product-id="{{ product.id }}"
+                    data-target="mqatb-{{product.id}}"
+                    data-product-title="{{ product.title }}"
+                    data-images="{% for image in product.images %}{{ image | image_url: width: 700 }}{% unless forloop.last %},{% endunless %}{% endfor %}"
+                  >
+                    {% render 'icon', icon: 'plus' -%}
+                    {{- product.type }} - {{ product.price | money_without_trailing_zeros -}}
+                    <div class="visually-hidden product_card-info">
+                      {% render 'product-title' with product as product %}
+                      {% render 'product-price' with product as product %}
+                    </div>
+                    <div class="datb visually-hidden">
+                      <div class="qatb-btns">
+                        {% for variant in product.variants %}
+                          <a
+                            href="{{ routes.cart_add_url }}?id={{ variant.id }}&quantity=1"
+                            id="qatb-btn--{{ variant.id }}"
+                            class="{%if variant.inventory_quantity != 0 and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% assign oos = true %}{% endif %}"
+                            data-v-id="{{ variant.id }}"
+                          >
+                            {{ variant.title | replace: 'One Size', 'Add to Bag' | replace: '.00', '' }}
+                          </a>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </a>
+                {% endunless %}
+              {% endfor %}
+            </div>
+          {% endif %}
         </line-item>
       </li>
     {% endfor %}
