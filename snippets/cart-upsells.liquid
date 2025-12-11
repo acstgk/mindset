@@ -43,9 +43,9 @@
 
     <div class="cart-upsells--carousel" data-collection="{{ upsell_collection.title | handleize }}">
       {% for product in upsell_collection.products %}
-        {% if forloop.last and in_range %}
+        {% if forloop.last and in_range and product.available %}
           {% render 'product-card', product: product, modal: true, class: 'first-item' %}
-        {% else %}
+        {% elsif product.available %}
           {% render 'product-card', product: product, modal: true %}
         {% endif %}
       {% endfor %}
