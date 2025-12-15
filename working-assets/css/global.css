@@ -1131,6 +1131,7 @@ content-accordian {
     grid-row: 3 / 4;
     grid-column: 1 / -1;
     display: none;
+    overflow: hidden;
 
     & .button {
         flex: 1 0 300px;
