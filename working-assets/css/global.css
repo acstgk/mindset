@@ -466,8 +466,9 @@ button {
     border-radius: var(--radius);
 
     &:hover {
-            scale: 1.02;
+        scale: 1.02;
         }
+
     &:active {
         scale: 0.95;
     }
@@ -579,6 +580,8 @@ button {
     background: color-mix(in lab, var(--c-white), transparent 70%);
     box-shadow: 0 0 4px var(--c-shadow);
     cursor: pointer;
+    scale: 1;
+        transition: scale 0.15s var(--bezier);
 
     & svg {
         /* overwriting 3rd party css */
@@ -586,6 +589,9 @@ button {
         height: 15px;
         margin-top: 0;
     }
+&:hover {
+    scale: 1.1;
+}
 }
 
 .iWishAdd svg {
@@ -957,15 +963,21 @@ content-accordian {
         font-size: var(--txt-h2);
         color: var(--c-grey);
         opacity: 0.8;
-        transition: color 0.2s var(--bezier), scale 0.2s var(--bezier), opacity 0.2s var(--bezier);
+        transition: color 0.2s var(--bezier), scale 0.2s var(--bezier), opacity 0.2s var(--bezier), scale 0.2s var(--bezier);
         scale: 0.75;
 
     }
 
+        & .side_menu-header-item:hover {
+            scale: .8;
+        }
     & .active {
         color: var(--c-black);
         scale: 1;
         opacity: 1;
+&:hover {
+        scale: 1.05;
+    }
     }
 }
 
@@ -1132,6 +1144,7 @@ content-accordian {
         border-color: transparent;
     }
 }
+
 .cart_items-item:first-child .cart_items-ctl {
     display: flex;
 }
@@ -1142,11 +1155,11 @@ span.cart_items-ctl-title {
     font-weight: bold;
     margin: 0.5em 0 -.2em 0.1em;
     display: none;
-    
-        &:has(+a) {
-            display: block;
-        }
+&:has(+a) {
+        display: block;
+    }
 }
+
 #cartDrawer .side_menu-footer>* {
     margin: 5px auto;
 }
@@ -1215,7 +1228,7 @@ free-delivery {
     & h2 {
         text-align: left;
         margin: 0.3rem 0;
-            height: var(--txt-h4);
+        height: var(--txt-h4);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
@@ -1226,7 +1239,7 @@ free-delivery {
             rotate: 0;
             transition: rotate .2s var(--bezier);
 
-            &.active {
+        &.active {
                 rotate: 45deg;
             }
     }
@@ -1240,9 +1253,9 @@ free-delivery {
     overflow: auto hidden;
     scroll-snap-type: x mandatory;
     height: 0;
-        transition: height 0.2s var(--bezier), margin-top 0.2s var(--bezier);
+    transition: height 0.2s var(--bezier), margin-top 0.2s var(--bezier);
 
-        &.active {
+    &.active {
             height: auto;
             margin-top: 1rem;
         }
@@ -1342,6 +1355,10 @@ hero-carousel {
     place-content: end;
 }
 
+.hero_slide-content {
+    width: min(1600px, 85vw);
+    margin: 0 auto;
+}
 .hero_slide-video {
     pointer-events: none;
     z-index: -3;
@@ -1411,6 +1428,32 @@ video {
     letter-spacing: var(--letter-spacing);
 }
 
+.hero_slide-content--left {
+
+    & h2,
+    & p {
+        text-align: left;
+    }
+
+
+    & .hero_slide-ctas {
+        justify-content: flex-start;
+        width: 100%
+    }
+}
+
+.hero_slide-content--right {
+
+    & h2,
+    & p {
+        text-align: right;
+    }
+
+    & .hero_slide-ctas {
+        justify-content: flex-end;
+        width: 100%;
+    }
+}
 
 .hero_slide-ctas {
     display: flex;

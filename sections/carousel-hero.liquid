@@ -51,7 +51,7 @@
         {{ block.settings.desktop_poster | image_url: width: '1270px' | image_tag: width: 1270, class: 'hero_slide-video mob-hide', loading: preload }}
       {% endif %}
 
-      <div class="hero_slide-content">
+      <div class="hero_slide-content hero_slide-content--{{ block.settings.content_alignment }}">
         {% if block.settings.overlay_url %}
           <a href="{{ block.settings.overlay_url }}" class="hero_slide-overlay"></a>
         {% endif %}
@@ -136,6 +136,17 @@
         {
           "type": "header",
           "content": "Slide Content"
+        },
+        {
+          "type": "select",
+          "id": "content_alignment",
+          "label": "Content Alignment",
+          "options": [
+            { "label": "Left", "value": "left" },
+            { "label": "Center", "value": "center" },
+            { "label": "Right", "value": "right" }
+          ],
+          "default": "center"
         },
         {
           "type": "image_picker",
