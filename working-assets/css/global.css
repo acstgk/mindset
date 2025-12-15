@@ -1423,6 +1423,13 @@ video {
     text-shadow: 0 0 15px color-mix(in lab, var(--c-black), transparent 70%);
 }
 
+.hero_slide-content .signature {
+    font-size: var(--txt-xl);
+    line-height: 0.9;
+    scale: 1;
+    margin: 0 0 -0.2em 0 !important;
+    font-weight: 400;
+}
 .hero_slide-content p {
     font-size: initial;
     letter-spacing: var(--letter-spacing);
