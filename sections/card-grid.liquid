@@ -1,0 +1,99 @@
+{{ 'card-grid.min.css' | asset_url | stylesheet_tag }}
+
+<div class="edit-trending-colors max-width">
+  <h3>{{ section.settings.title }}</h3>
+  <div class="trending-color-grid">
+    {% for block in section.blocks %}
+      <div class="trending-color-card {{ block.settings.gender -}}-gender-filter fade-in">
+        {% if block.settings.image %}
+          {{ block.settings.image | image_url: width: 1270 | image_tag }}
+        {% endif %}
+        <div class="trending-color-card--content">
+          <h4 class="h3 emphasis left" style="margin: 0">{{ block.settings.title }}</h4>
+          {% if block.settings.text %}
+            <p>{{ block.settings.text }}</p>
+          {% endif %}
+          <a href="{{ block.settings.url }}" class="button button-primary">{{ block.settings.button_text | default: 'read more' }}</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Card Grid",
+  "class": "section--card-grid",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Block Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "limit": 12,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Card Text",
+          "info": "Ideal for a brief description."
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Button Link"
+        },
+        {
+          "type": "select",
+          "id": "gender",
+          "label": "Gender",
+          "options": [
+            {
+              "label": "Neutral",
+              "value": ""
+            },
+            {
+              "label": "Mens",
+              "value": "mens"
+            },
+            {
+              "label": "Womens",
+              "value": "womens"
+            },
+            {
+              "label": "Kids",
+              "value": "kids"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Card Grid",
+      "category": "Content"
+    }
+  ]
+}
+{% endschema %}

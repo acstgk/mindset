@@ -20,9 +20,10 @@
             "desktop_video": "shopify://files/videos/New Season - Desktop Banner Womens V1.mp4",
             "desktop_poster": "shopify://shop_images/New-Season---Desktop-Banner-Womens-V1.jpg",
             "overlay_url": "shopify://collections/womens-new",
-            "title": "",
-            "subtitle": "",
-            "subtitle_font": "",
+            "content_alignment": "left",
+            "title": "New Season",
+            "subtitle": "Arrivals",
+            "subtitle_font": "signature",
             "subtitle_first": false,
             "cta1": "Shop New",
             "url1": "shopify://collections/womens-new",
@@ -39,9 +40,10 @@
             "desktop_video": "shopify://files/videos/Fundamental - Desktop Banner-2.mp4",
             "desktop_poster": "shopify://shop_images/Fundamental---Desktop-Banner-2.jpg",
             "overlay_url": "shopify://collections/mens-new",
-            "title": "",
-            "subtitle": "",
-            "subtitle_font": "",
+            "content_alignment": "center",
+            "title": "Test Title",
+            "subtitle": "This is a Call to Action",
+            "subtitle_font": "signature",
             "subtitle_first": true,
             "cta1": "Shop New",
             "url1": "shopify://collections/mens-new",
@@ -110,10 +112,10 @@
         "title_womens": "Shop Womens",
         "url2": "shopify://collections/womens",
         "image_style": "",
-        "gap": 0,
+        "gap": 16,
         "hide_second": false,
         "full_width": false,
-        "flex_wrap": false
+        "flex_wrap": true
       }
     },
     "gender_selector_iPE3Hb": {
@@ -162,6 +164,89 @@
         "title": ""
       }
     },
+    "card_grid_BfCgXU": {
+      "type": "card-grid",
+      "blocks": {
+        "card_KR4jd4": {
+          "type": "card",
+          "settings": {
+            "title": "Sculpt",
+            "image": "shopify://shop_images/Capture.webp",
+            "text": "",
+            "button_text": "Browse",
+            "url": "shopify://collections/sculpt-q1",
+            "gender": "womens"
+          }
+        },
+        "card_JEAxxg": {
+          "type": "card",
+          "settings": {
+            "title": "Pro Logo",
+            "image": "shopify://shop_images/black-friday--pro-logo-flatlay.jpg",
+            "text": "",
+            "button_text": "Browse",
+            "url": "shopify://collections/pro-logo",
+            "gender": "mens"
+          }
+        },
+        "card_mg8qYw": {
+          "type": "card",
+          "settings": {
+            "title": "Borg",
+            "image": "shopify://shop_images/black-friday--borg-flatlay.jpg",
+            "text": "",
+            "button_text": "Browse",
+            "url": "shopify://collections/borg-fleece-collection",
+            "gender": "womens"
+          }
+        },
+        "card_jaEGg6": {
+          "type": "card",
+          "settings": {
+            "title": "Fundamental",
+            "image": "shopify://shop_images/black-friday--fundamental-flatlay.jpg",
+            "text": "",
+            "button_text": "Browse",
+            "url": "shopify://collections/mens-fundamental",
+            "gender": "mens"
+          }
+        },
+        "card_QqTzmg": {
+          "type": "card",
+          "settings": {
+            "title": "Energy",
+            "image": "shopify://shop_images/black-friday--energy-flatlay.jpg",
+            "text": "",
+            "button_text": "Browse",
+            "url": "shopify://collections/mens-energy",
+            "gender": "mens"
+          }
+        },
+        "card_niNhVm": {
+          "type": "card",
+          "settings": {
+            "title": "365",
+            "image": "shopify://shop_images/black-friday--365-flatlay.jpg",
+            "text": "",
+            "button_text": "Browse",
+            "url": "shopify://collections/core-3-6-5",
+            "gender": "womens"
+          }
+        }
+      },
+      "block_order": [
+        "card_KR4jd4",
+        "card_JEAxxg",
+        "card_mg8qYw",
+        "card_jaEGg6",
+        "card_QqTzmg",
+        "card_niNhVm"
+      ],
+      "name": "Card Grid",
+      "settings": {
+        "title": "Trending Collections"
+      }
+    },
     "gender_recommendation_carousel_QMFmBV": {
       "type": "gender-recommendation-carousel",
       "name": "Product Recommendation Carousel",
@@ -182,6 +267,7 @@
     "gender_selector_iPE3Hb",
     "gender_categories_9Tkx7m",
     "gender-shop-by-size",
+    "card_grid_BfCgXU",
     "gender_recommendation_carousel_QMFmBV"
   ]
 }
