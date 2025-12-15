@@ -51,8 +51,10 @@
     {% render 'delivery-estimator' %}
   {% endunless %}
 
+  {% render 'as-seen-in' %}
   {% render 'cart-upsells' %}
-  {% comment %} {% render 'trust-widget' with 'micro' %} {% endcomment %}
+
+  {% render 'trust-widget' with 'micro' %}
 
   <div class="usp">
     <div class="img">
@@ -65,8 +67,6 @@
     </div>
   </div>
 </div>
-
-{% render 'as-seen-in' %}
 
 {% unless cart_empty %}
   <div class="accent-bg">

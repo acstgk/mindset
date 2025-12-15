@@ -1133,7 +1133,7 @@ content-accordian {
     display: none;
 
     & .button {
-        flex: 1 0 100%;
+        flex: 1 0 300px;
         font-size: var(--txt-sm);
         text-transform: none;
         font-weight: 400;
