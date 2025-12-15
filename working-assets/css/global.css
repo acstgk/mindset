@@ -1444,6 +1444,9 @@ video {
         text-align: left;
     }
 
+        & .hero_slide-lockup {
+            margin: 0 auto 0 0
+        }
 
     & .hero_slide-ctas {
         justify-content: flex-start;
@@ -1458,6 +1461,9 @@ video {
         text-align: right;
     }
 
+        & .hero_slide-lockup {
+            margin: 0 0 0 auto
+        }
     & .hero_slide-ctas {
         justify-content: flex-end;
         width: 100%;

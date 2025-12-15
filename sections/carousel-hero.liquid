@@ -57,7 +57,8 @@
         {% endif %}
 
         {% if block.settings.lockup_img %}
-          {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in' }}
+          {% assign lockup_width = "width:min(90vw, " | append: block.settings.lockup_width | append: "px)" %}
+          {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in', style: lockup_width }}
         {% endif %}
 
         {% if block.settings.subtitle != '' and block.settings.subtitle_first %}
@@ -88,6 +89,12 @@
     </div>
   {% endfor %}
 </hero-carousel>
+
+<style>
+  .hero_slide-lockup {
+    width: min(90%, {{ }});
+  }
+</style>
 
 {% schema %}
 {
@@ -153,6 +160,17 @@
           "id": "lockup_img",
           "label": "Lockup Image",
           "info": "Try to use an image with a transparent background"
+        },
+        {
+          "type": "range",
+          "id": "lockup_width",
+          "label": "Lockup Image Width",
+          "min": 50,
+          "max": 200,
+          "step": 5,
+          "default": 200,
+          "info": "Moves the hotspot along the horizontal axis.",
+          "visible_if": "{{  block.settings.lockup_img != blank }}"
         },
         {
           "type": "text",
