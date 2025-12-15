@@ -15,16 +15,16 @@
         "image_i7tBKt": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/New Season - Mobile Banner Mens V1_021d8f8a-3277-4e83-b7c0-d7f7043a446c.mp4",
+            "mobile_video": "shopify://files/videos/Pre Payday Exclusive Brief - Mobile Banner V1_6f8e9318-a3eb-4445-b9e9-c826355f2f3a.mp4",
             "mobile_poster": "shopify://shop_images/New-Season---Mobile-Banner-Womens-V1.jpg",
-            "desktop_video": "shopify://files/videos/New Season - Desktop Banner Womens V1.mp4",
+            "desktop_video": "shopify://files/videos/Pre Payday Exclusive Brief - Desktop Banner V1_9dc32408-5d0a-451a-9baa-c27e0235e01e.mp4",
             "desktop_poster": "shopify://shop_images/New-Season---Desktop-Banner-Womens-V1.jpg",
             "overlay_url": "shopify://collections/womens-new",
             "content_alignment": "left",
-            "title": "New Season",
-            "subtitle": "Arrivals",
+            "title": "New Arrivals",
+            "subtitle": "New Season",
             "subtitle_font": "signature",
-            "subtitle_first": false,
+            "subtitle_first": true,
             "cta1": "Shop New",
             "url1": "shopify://collections/womens-new",
             "cta2": "Shop Energy",
@@ -35,27 +35,48 @@
         "image_McwRfJ": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/Fundamental - Mobile Banner-2.mp4",
+            "mobile_video": "shopify://files/videos/Fundamental - Mobile Banner.mp4",
             "mobile_poster": "shopify://shop_images/Fundamental---Mobile-Banner-2.jpg",
-            "desktop_video": "shopify://files/videos/Fundamental - Desktop Banner-2.mp4",
+            "desktop_video": "shopify://files/videos/Fundamental - Desktop Banner.mp4",
             "desktop_poster": "shopify://shop_images/Fundamental---Desktop-Banner-2.jpg",
             "overlay_url": "shopify://collections/mens-new",
             "content_alignment": "center",
-            "title": "Test Title",
-            "subtitle": "This is a Call to Action",
-            "subtitle_font": "signature",
-            "subtitle_first": true,
+            "title": "New Season",
+            "subtitle": "New Look",
+            "subtitle_font": "",
+            "subtitle_first": false,
             "cta1": "Shop New",
             "url1": "shopify://collections/mens-new",
             "cta2": "",
             "url2": "",
             "target_gender": "mens"
           }
+        },
+        "image_9UDpyK": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/International Leggings Day - Mobile Banner_8748c14b-0063-49c1-a035-0cacd7ceb521.mp4",
+            "mobile_poster": "shopify://shop_images/International-Leggings-Day---Mobile-Banner.jpg",
+            "desktop_video": "shopify://files/videos/International Leggings Day - Desktop Banner_44af19fd-1758-478d-b3d2-70621ae89648.mp4",
+            "desktop_poster": "shopify://shop_images/International-Leggings-Day---Desktop-Banner.jpg",
+            "overlay_url": "",
+            "content_alignment": "right",
+            "title": "Up to 50% OFF",
+            "subtitle": "All Black Leggings and stuff",
+            "subtitle_font": "",
+            "subtitle_first": false,
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/black-leggings",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
+          }
         }
       },
       "block_order": [
         "image_i7tBKt",
-        "image_McwRfJ"
+        "image_McwRfJ",
+        "image_9UDpyK"
       ],
       "settings": {}
     },
