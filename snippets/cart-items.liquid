@@ -86,7 +86,8 @@
                     data-images="{% for image in product.images %}{{ image | image_url: width: 700 }}{% unless forloop.last %},{% endunless %}{% endfor %}"
                   >
                     {% render 'icon', icon: 'plus' -%}
-                    {{- product.type }} - {{ product.price | money_without_trailing_zeros -}}
+                     {%- assign product_title = product.title | replace: '–', '-' -%}
+                    {{- product_title | replace: "Gym King", "" | split: ' - ' | first}} - {{ product.price | money_without_trailing_zeros -}}
                     <div class="visually-hidden product_card-info">
                       {% render 'product-title' with product as product %}
                       {% render 'product-price' with product as product %}
