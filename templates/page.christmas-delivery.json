@@ -47,7 +47,8 @@
       ],
       "disabled": true,
       "settings": {
-        "openFirst": true
+        "openFirst": true,
+        "showTitle": true
       }
     },
     "content_rich_text_nbUhbt": {
@@ -56,7 +57,7 @@
         "rtf_4DTKk4": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<p>Our Christmas delivery details will be published here each autumn.</p><p>If you’re planning ahead, last year our cut-off for standard shipping was <em>Thursday 19th December 2024</em>.</p><p>For current information, please see our <a href=\"#\">standard delivery FAQs</a>.<br/><br/></p><p></p>"
+            "richtext_content": "<p>Our Christmas delivery details will be published here each autumn.</p><p>If you’re planning ahead, last year our cut-off for standard shipping was <em>Thursday 19h December 2025</em>.</p><p>For current information, please see our <a href=\"#\">standard delivery FAQs</a>.<br/><br/></p><p></p>"
           }
         }
       },
@@ -86,7 +87,7 @@
     "ometria_form_eecPeR": {
       "type": "ometria-form",
       "custom_css": [
-        "{background: var(--c-off-white); padding: 2rem 0;}"
+        "{padding: 2rem 0;}"
       ],
       "name": "Ometria Form",
       "settings": {
@@ -99,12 +100,72 @@
         "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
         "signupSource": "Site Form"
       }
+    },
+    "content_rich_text_RpmEwg": {
+      "type": "content-rich-text",
+      "custom_css": [
+        "{background: var(--c-off-white); padding-top: 2rem;margin-bottom: 0}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "Continue Shopping",
+        "heading_style": "emphasis",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "custom_ctas_XHwkBc": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_CMgxNX": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Mens",
+            "button_link": "shopify://collections/mens",
+            "btn_color": false
+          }
+        },
+        "button_AJYtGi": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Womens",
+            "button_link": "shopify://collections/womens",
+            "btn_color": false
+          }
+        },
+        "button_Dm879n": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Visit Homepage",
+            "button_link": "/",
+            "btn_color": true
+          }
+        }
+      },
+      "block_order": [
+        "button_CMgxNX",
+        "button_AJYtGi",
+        "button_Dm879n"
+      ],
+      "custom_css": [
+        "{background: var(--c-off-white);}"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
     }
   },
   "order": [
     "main",
     "content_rich_text_nbUhbt",
     "spacer_caiEy7",
-    "ometria_form_eecPeR"
+    "ometria_form_eecPeR",
+    "content_rich_text_RpmEwg",
+    "custom_ctas_XHwkBc"
   ]
 }
