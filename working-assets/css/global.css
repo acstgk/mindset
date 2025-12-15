@@ -1435,7 +1435,8 @@ video {
     letter-spacing: var(--letter-spacing);
 }
 
-.hero_slide-content--left {
+@media screen and (width > 768px) {
+    .hero_slide-content--left {
 
     & h2,
     & p {
@@ -1460,6 +1461,7 @@ video {
         justify-content: flex-end;
         width: 100%;
     }
+}
 }
 
 .hero_slide-ctas {
