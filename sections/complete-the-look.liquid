@@ -1,5 +1,8 @@
 {% assign complementary_count = product.metafields['shopify--discovery--product_recommendation'].complementary_products.value.size %}
 {% assign all_tags = product.tags | join: ',' %}
+{% if cart.item_count == 0 %}
+{% render "as-seen-in" %}
+{% endif %}
 
 {% if all_tags contains 'productlink:' or complementary_count %}
   <link rel="stylesheet" href="{{ 'complete-the-look.min.css' | asset_url }}">
