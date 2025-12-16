@@ -208,10 +208,11 @@ productcard-carousel .splide__arrows {
 productcard-carousel .splide__arrow {
     display: grid;
     fill: var(--c-grey);
-    transition: fill 0.2s ease;
+    transition: fill 0.2s ease, scale 0.2s ease;
 
     &:hover {
         fill: var(--c-dark-grey);
+        scale: 1.1;
     }
 
     & svg {
