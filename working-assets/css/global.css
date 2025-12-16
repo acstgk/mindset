@@ -668,7 +668,7 @@ button {
 
         & a {
             font-size: calc(var(--txt-h1) * 1.1);
-            text-shadow: 0 0 5px var(--c-dark-grey);
+            text-shadow: 0 0 9px var(--c-dark-grey);
 
         }
     }
