@@ -185,6 +185,9 @@
     },
     "gender-shop-by-size": {
       "type": "gender-shop-by-size",
+      "custom_css": [
+        "{margin-bottom: 2rem;}"
+      ],
       "name": "Shop By Size",
       "settings": {
         "title": ""
@@ -267,6 +270,9 @@
         "card_jaEGg6",
         "card_QqTzmg",
         "card_niNhVm"
+      ],
+      "custom_css": [
+        "{margin-bottom: 0; background: var(--c-off-white); padding-top: 2rem;}"
       ],
       "name": "Card Grid",
       "settings": {
