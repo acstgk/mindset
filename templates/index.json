@@ -144,6 +144,11 @@
         "flex_wrap": true
       }
     },
+    "as_seen_in_Q7HTU7": {
+      "type": "as-seen-in",
+      "name": "As Seen In",
+      "settings": {}
+    },
     "gender_selector_iPE3Hb": {
       "type": "gender-selector",
       "name": "Gender Selector",
@@ -296,6 +301,7 @@
     "hero",
     "section_value_props_FBFJKV",
     "section_split_banner_CHJbCm",
+    "as_seen_in_Q7HTU7",
     "gender_selector_iPE3Hb",
     "gender_categories_9Tkx7m",
     "gender-shop-by-size",
