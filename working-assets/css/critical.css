@@ -896,7 +896,7 @@ ul.sub_menu-items {
 .announcement_content-text {
   color: var(--c-grey);
   letter-spacing: var(--letter-spacing);
-  line-height: 0.75;
+  line-height: 1;
   text-transform: uppercase;
   font-size: 10px;
 }
