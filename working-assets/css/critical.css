@@ -920,6 +920,14 @@ ul.sub_menu-items {
   width: 12px;
 }
 
+li.disclosure__item a {
+  text-decoration: none;
+  transition: scale 0.15s var(--bezier);
+
+  &:hover {
+    scale: 1.1;
+  }
+}
 ul.CountryList {
   position: absolute;
   background-color: white;
@@ -940,7 +948,7 @@ ul.CountryList {
 
 .CountryList li {
   display: block !important;
-  padding-block: 10px;
+  padding-block: 5px;
 }
 
 .countrydesktop {
