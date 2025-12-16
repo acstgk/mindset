@@ -468,7 +468,7 @@ button {
 
     &:hover {
         scale: 1.02;
-        }
+    
 
     &:active {
         scale: 0.95;
@@ -582,7 +582,7 @@ button {
     box-shadow: 0 0 4px var(--c-shadow);
     cursor: pointer;
     scale: 1;
-        transition: scale 0.15s var(--bezier);
+    transition: scale 0.15s var(--bezier);
 
     & svg {
         /* overwriting 3rd party css */
@@ -590,9 +590,10 @@ button {
         height: 15px;
         margin-top: 0;
     }
-&:hover {
-    scale: 1.1;
-}
+
+        &:hover {
+            scale: 1.1;
+        }
 }
 
 .iWishAdd svg {
@@ -972,13 +973,15 @@ content-accordian {
         & .side_menu-header-item:hover {
             scale: .8;
         }
+
     & .active {
         color: var(--c-black);
         scale: 1;
         opacity: 1;
-&:hover {
-        scale: 1.05;
-    }
+
+        &:hover {
+                scale: 1.05;
+            }
     }
 }
 
@@ -1157,7 +1160,8 @@ span.cart_items-ctl-title {
     font-weight: bold;
     margin: 0.5em 0 -.2em 0.1em;
     display: none;
-&:has(+a) {
+
+    &:has(+a) {
         display: block;
     }
 }
@@ -1231,7 +1235,7 @@ free-delivery {
         text-align: left;
         margin: 0.3rem 0;
         height: var(--txt-h4);
-            cursor: pointer;
+        cursor: pointer;
             display: flex;
             justify-content: space-between;
         }
@@ -1242,7 +1246,7 @@ free-delivery {
             transition: rotate .2s var(--bezier);
 
         &.active {
-                rotate: 45deg;
+            rotate: 45deg;
             }
     }
 }
@@ -1258,7 +1262,7 @@ free-delivery {
     transition: height 0.2s var(--bezier), margin-top 0.2s var(--bezier);
 
     &.active {
-            height: auto;
+        height: auto;
             margin-top: 1rem;
         }
 
@@ -1336,6 +1340,7 @@ hero-carousel {
     &:nth-child(n+2) {
         opacity: 0;
     }
+
 }
 
 .hero_slide-color {
@@ -1361,6 +1366,7 @@ hero-carousel {
     width: min(1600px, 85vw);
     margin: 0 auto;
 }
+
 .hero_slide-video {
     pointer-events: none;
     z-index: -3;
@@ -1433,6 +1439,7 @@ video {
     margin: 0 0 -0.2em 0 !important;
     font-weight: 400;
 }
+
 .hero_slide-content p {
     font-size: initial;
     letter-spacing: var(--letter-spacing);
@@ -1441,38 +1448,39 @@ video {
 @media screen and (width > 768px) {
     .hero_slide-content--left {
 
-    & h2,
-    & h1,
-    & p {
-        text-align: left;
-    }
+        & h2,
+            & h1,
+            & p {
+                text-align: left;
+            }
 
         & .hero_slide-lockup {
             margin: 0 auto 0 0
         }
 
-    & .hero_slide-ctas {
-        justify-content: flex-start;
-        width: 100%
-    }
-}
+                & .hero_slide-ctas {
+                    justify-content: flex-start;
+                    width: 100%
+                }
+                }
 
-.hero_slide-content--right {
+        .hero_slide-content--right {
 
-    & h2,
-    & h1,
-    & p {
-        text-align: right;
-    }
+        & h2,
+            & h1,
+            & p {
+                text-align: right;
+            }
 
         & .hero_slide-lockup {
             margin: 0 0 0 auto
         }
-    & .hero_slide-ctas {
-        justify-content: flex-end;
-        width: 100%;
-    }
-}
+
+                & .hero_slide-ctas {
+                    justify-content: flex-end;
+                    width: 100%;
+                }
+                }
 }
 
 .hero_slide-ctas {
@@ -1487,6 +1495,9 @@ video {
         flex: 1 1 max-content;
         font-size: var(--txt-sm);
         max-width: 245px;
+        box-shadow: 0 0 8px 4px var(--c-shadow);
+            gap: 25%;
+            justify-content: flex-end;
     }
 }
 

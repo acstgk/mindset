@@ -79,9 +79,9 @@
 
         {% unless block.settings.cta1 == '' %}
           <div class="hero_slide-ctas fade-in">
-            <a href="{{ block.settings.url1 }}" class="button button-inverted">{{ block.settings.cta1 }}</a>
+            <a href="{{ block.settings.url1 }}" class="button button-inverted"><span>{{ block.settings.cta1 }} </span>{% render 'icon' with 'arrow' %}</a>
             {% unless block.settings.cta2 == '' %}
-              <a href="{{ block.settings.url2 }}" class="button button-inverted">{{ block.settings.cta2 }}</a>
+              <a href="{{ block.settings.url2 }}" class="button button-inverted"><span>{{ block.settings.cta2 }} </span>{% render 'icon' with 'arrow' %}</a>
             {% endunless %}
           </div>
         {% endunless %}
