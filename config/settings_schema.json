@@ -773,11 +773,11 @@
       {
         "type": "range",
         "id": "product_buffer",
-        "min": 1,
-        "max": 25,
+        "min": 0,
+        "max": 20,
         "step": 1,
         "label": "Product Buffer",
-        "default": 5
+        "default": 0
       }
     ]
   },

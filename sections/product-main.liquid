@@ -200,7 +200,7 @@
                   name="id-{{ product_number }}"
                   value="{{ variant.id }}"
                   id="variant-{{ variant.id }}"
-                  data-available-qty="{{ variant.inventory_quantity }}"
+                  data-available-qty="{{ variant.inventory_quantity | minus: settings.product_buffer }}"
                   data-size="{{ variant.title }}"
                   data-id="{{- part.type | handleize -}}{{- variant.title -}}"
                   {% if variant.selling_plan_allocations.size > 0 %}
@@ -233,7 +233,7 @@
                 name="id"
                 value="{{ variant.id }}"
                 id="variant-{{ variant.id }}"
-                data-available-qty="{{ variant.inventory_quantity }}"
+                data-available-qty="{{ variant.inventory_quantity | minus: settings.product_buffer }}"
                 data-size="{{ variant.title }}"
                 data-id="{{- product.type | handleize -}}-{{- variant.title -}}"
                 {% if variant.selling_plan_allocations.size > 0 %}

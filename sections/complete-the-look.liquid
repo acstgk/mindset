@@ -10,7 +10,7 @@
   {% assign product_handles = '' %}
   {% if complementary_count > 0 %}
     {% for product in product.metafields['shopify--discovery--product_recommendation'].complementary_products.value %}
-      {% if product.available %}
+      {% if product.available and product.inventory_quantity > settings.product_buffer %}
         {% assign product_handles = product_handles | append: '+' | append: product.handle %}
         {% assign instockcount = instockcount | plus: 1 %}
       {% endif %}

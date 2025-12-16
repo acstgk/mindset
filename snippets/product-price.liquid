@@ -8,7 +8,7 @@
 {% enddoc %}
 
 {% if product.final_price %}
-  {% assign inventory = product.variant.inventory_quantity %}
+  {% assign inventory = product.variant.inventory_quantity | minus: settings.product_buffer %}
   {% assign price = product.final_price %}
   {% assign compare_at_price = product.product.compare_at_price %}
   {% assign product = product.product %}
@@ -56,6 +56,7 @@
       {{- compare_at_price | money_without_trailing_zeros -}}
     {%- endif -%}
   </span>
+
   {% if template.name contains 'cart' and inventory < 6 and inventory > 0 and product.requires_selling_plan == false %}
     <div class="Price--saving error">
       {% if inventory == 1 %}
@@ -65,13 +66,13 @@
       {% endif %}
     </div>
   {% else %}
-    {% if product.inventory_quantity < 15 and product.inventory_management %}
-      {% if product.inventory_quantity == 1 and product.inventory_management %}
+    {% if inventory < 15 and product.inventory_management %}
+      {% if inventory == 1 and product.inventory_management %}
         <span class="Price--saving error">Last One!</span>
-      {% elsif product.inventory_quantity == 0 and product.inventory_management %}
+      {% elsif inventory == 0 and product.inventory_management %}
         <span class="Price--saving error">Out of Stock</span>
       {% else %}
-      <span class="Price--saving warning">Only {{ product.inventory_quantity }} left</span>
+      <span class="Price--saving warning">Only {{ inventory }} left</span>
       {% endif %}
     {% elsif compare_at_price > price and product.available %}
       {% assign saving = compare_at_price | minus: price %}
