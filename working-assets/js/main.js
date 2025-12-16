@@ -35,6 +35,12 @@ class CartAPI {
     this.updateLineItem = this.updateLineItem.bind(this);
     this.dispatchCartUpdate = this.dispatchCartUpdate.bind(this);
     this.cartIcon = document.getElementById("header_cart-icon");
+
+    // Rate limiting protection
+    this._lastRequestTime = 0;
+    this._minRequestInterval = 300; // Minimum 300ms between requests
+    this._pendingRequests = new Map();
+
     this.loadCart(); // Load cart data on initialization
   }
 
@@ -212,8 +218,43 @@ class CartAPI {
   /**
    * Fetches and updates the cart drawer contents
    * Used to refresh line items after cart changes
+   * Includes debouncing to prevent rate limiting (429 errors)
    */
   async getLineItems() {
+    const requestKey = 'getLineItems';
+
+    // Cancel any pending request
+    if (this._pendingRequests.has(requestKey)) {
+      clearTimeout(this._pendingRequests.get(requestKey));
+    }
+
+    // Calculate time since last request
+    const now = Date.now();
+    const timeSinceLastRequest = now - this._lastRequestTime;
+
+    // If enough time has passed, execute immediately
+    if (timeSinceLastRequest >= this._minRequestInterval) {
+      return this._executeGetLineItems();
+    }
+
+    // Otherwise, debounce the request
+    return new Promise((resolve, reject) => {
+      const timeoutId = setTimeout(() => {
+        this._pendingRequests.delete(requestKey);
+        this._executeGetLineItems().then(resolve).catch(reject);
+      }, this._minRequestInterval - timeSinceLastRequest);
+
+      this._pendingRequests.set(requestKey, timeoutId);
+    });
+  }
+
+  /**
+   * Internal method that actually executes the fetch request
+   * Separated for cleaner debouncing logic
+   */
+  async _executeGetLineItems() {
+    this._lastRequestTime = Date.now();
+
     try {
       const res = await fetch("/?sections=drawer-cart");
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
@@ -243,6 +284,7 @@ class CartAPI {
       }
     } catch (error) {
       console.error("Failed to fetch drawer-cart section:", error);
+      throw error; // Re-throw to allow caller to handle
     }
   }
 }
@@ -759,8 +801,8 @@ class ProductModalManager {
             const endY = touchEvent.changedTouches[0].clientY;
             const deltaY = endY - this._touchStartY;
             if (deltaY > 50) {
-      // Swipe down detected; close modal
-      // Synthetic event with target as modalEl
+              // Swipe down detected; close modal
+              // Synthetic event with target as modalEl
               this.closeModal({ target: modalEl });
             }
           }
@@ -1053,7 +1095,7 @@ class ComponentLoader {
         // has already been registered under a different tag name.
         if (err && err.name === "NotSupportedError") {
           // Define a thin subclass so the constructor is unique.
-          const Wrapper = class extends Ctor {};
+          const Wrapper = class extends Ctor { };
           // Re-check in case another racing define happened while we handled the error
           if (!customElements.get(this.selector)) {
             customElements.define(this.selector, Wrapper);
@@ -1338,10 +1380,10 @@ if (!customElements.get("cart-upsells")) {
         this.header = this.querySelector('.cart-upsells h2');
         this.carousel = this.querySelector('.cart-upsells--carousel');
         this.icon = this.querySelector('.cart-upsells h2 svg');
+
         if (this.header && this.carousel && this.icon) {
+          this.autoOpenOnLargeScreens()
           this.header.addEventListener('click', () => this.toggleUpsells());
-          // Wait for cart data to load before checking item count
-          document.addEventListener('cart:loaded', () => this.autoOpenOnLargeScreens(), { once: true });
         }
       }
 
@@ -1353,13 +1395,28 @@ if (!customElements.get("cart-upsells")) {
         this.icon.classList.toggle('active');
       }
 
+      showUpsells() {
+        this.carousel.classList.add('active');
+        this.icon.classList.add('active');
+      }
+
+      hideUpsells() {
+        this.carousel.classList.remove('active');
+        this.icon.classList.remove('active');
+      }
+
       /**
        * Auto-open the upsells accordion on large viewports (>= 1000px height) or low item counts
        */
       autoOpenOnLargeScreens() {
+        console.log("Auto-open upsells :: checked");
         const viewportHeight = window.innerHeight;
-        if (viewportHeight >= 1000 || Cart.cart.item_count < 2) {
-          this.header.click();
+        if (viewportHeight >= 1000 || viewportHeight < 1000 && Cart.cart.item_count < 2) {
+          this.showUpsells();
+          console.log("Auto-open upsells :: show", viewportHeight, Cart.cart.item_count);
+        } else {
+          this.hideUpsells();
+          console.log("Auto-open upsells :: hide", viewportHeight, Cart.cart.item_count);
         }
       }
     },
