@@ -1416,9 +1416,10 @@ video {
 }
 
 .hero_slide-content h2,
+.hero_slide-content h1,
 .hero_slide-content p {
     color: white;
-    font-size: var(--txt-xl);
+    font-size: var(--txt-xxl);
     margin: 0;
     line-height: 1;
     margin-top: 10px;
@@ -1426,7 +1427,7 @@ video {
 }
 
 .hero_slide-content .signature {
-    font-size: var(--txt-xl);
+    font-size: var(--txt-xxl);
     line-height: 0.9;
     scale: 1;
     margin: 0 0 -0.2em 0 !important;
@@ -1441,6 +1442,7 @@ video {
     .hero_slide-content--left {
 
     & h2,
+    & h1,
     & p {
         text-align: left;
     }
@@ -1458,6 +1460,7 @@ video {
 .hero_slide-content--right {
 
     & h2,
+    & h1,
     & p {
         text-align: right;
     }

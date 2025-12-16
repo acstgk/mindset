@@ -68,7 +68,7 @@
         {% endif %}
 
         {% unless block.settings.title == '' %}
-          <h2 class="h1 fade-in">{{ block.settings.title }}</h2>
+          <{%- if forloop.first -%}h1{%-else-%}h2{%endif%} class="h1 fade-in">{{ block.settings.title }}</{%- if forloop.first -%}h1{%-else-%}h2{%endif%} >
         {% endunless %}
 
         {% if block.settings.subtitle != '' and block.settings.subtitle_first == false %}
@@ -89,12 +89,6 @@
     </div>
   {% endfor %}
 </hero-carousel>
-
-<style>
-  .hero_slide-lockup {
-    width: min(90%, {{ }});
-  }
-</style>
 
 {% schema %}
 {
