@@ -1379,7 +1379,7 @@ video {
 }
 
 .hero_slide-content {
-    padding: 0 20px 80px;
+    padding: 0 20px max(80px, 7.5vw);
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-end;
