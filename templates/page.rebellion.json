@@ -68,8 +68,8 @@
           "settings": {
             "grid_order": "0",
             "image": "shopify://shop_images/rebellion-darkside-5.webp",
-            "img_style": "natural",
-            "image_style": "contain",
+            "img_style": "square",
+            "image_style": "cover",
             "rtf": "<p>Gym King introduces <a href=\"https://thegymking.com/collections/rebellion-darkside\" title=\"Rebellion Darkside Collection\">REBELLION DARKSIDE</a>, a hybrid performance and lifestyle menswear collection built around purpose, discipline, and belief.</p><p>Designed for everyday utility as much as physical performance, it moves seamlessly between training, recovery, and daily life, clothing you can work out in, live in, and rely on without compromise.</p>",
             "txt_color": "#ffffff",
             "text_align": "left",
@@ -89,7 +89,8 @@
       ],
       "custom_css": [
         "a {color: #f6f6f6; text-decoration: none;}",
-        " {background: #22222b;}"
+        " {background: #22222b;}",
+        "@media screen and (max-width: 600.02px) {.content-grid--wrapper .grid-row {width: calc(100% + 10vw); margin-left: -5vw; display: flex; flex-flow: column-reverse; }}"
       ],
       "name": "Content Grid",
       "settings": {
@@ -132,6 +133,9 @@
     },
     "product_collection_carousel_7TMJN4": {
       "type": "product-collection-carousel",
+      "custom_css": [
+        ".fade-in {opacity: 1; transform: none; pointer-events: all;}"
+      ],
       "name": "Product Card Carousel",
       "settings": {
         "carousel_title": "",
@@ -200,7 +204,9 @@
       ],
       "custom_css": [
         "h2 {font-family: var(--emphasis-heading-font-family);}",
-        " {background: #22222b;}"
+        " {background: #22222b;}",
+        "@media screen and (max-width: 600.02px) {.content-grid--wrapper .grid-row {width: calc(100% + 10vw); margin-left: -5vw; display: flex; flex-flow: column-reverse; }}",
+        "p {margin-inline: 0 !important;}"
       ],
       "name": "Content Grid",
       "settings": {
@@ -211,6 +217,14 @@
       }
     },
     "spacer_EGGzaM": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 50,
+        "mobile": 20
+      }
+    },
+    "spacer_B6Wpkf": {
       "type": "spacer",
       "name": "Content Spacer",
       "settings": {
@@ -263,6 +277,7 @@
     "content_grid_Pk4HQN",
     "content_rich_text_kJQbAM",
     "section_split_banner_cNFCJW",
+    "spacer_B6Wpkf",
     "product_collection_carousel_7TMJN4",
     "custom_ctas_HKQEEb",
     "content_grid_g7fpcU",
