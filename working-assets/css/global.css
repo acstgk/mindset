@@ -1489,7 +1489,7 @@ video {
     justify-content: center;
     flex-flow: row wrap;
     width: 90%;
-    margin: 20px auto 0;
+    margin: 3rem auto 0;
 
     & .button {
         flex: 1 1 max-content;
