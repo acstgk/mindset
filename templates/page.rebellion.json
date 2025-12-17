@@ -1,0 +1,257 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "content_rich_text_CH3TDW": {
+      "type": "content-rich-text",
+      "blocks": {
+        "images_pcDVfh": {
+          "type": "images",
+          "settings": {
+            "image_1": "shopify://shop_images/mono-rebellion-logo.webp"
+          }
+        },
+        "rtf_Jgx7jt": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h1>The Stoic Collection</h1><h2>Darkside</h2>"
+          }
+        }
+      },
+      "block_order": [
+        "images_pcDVfh",
+        "rtf_Jgx7jt"
+      ],
+      "custom_css": [
+        "{margin: 0; padding: 2rem 0; background: #22222b;}",
+        ".image-grid__item {width: 50px; margin: 1rem auto; display: block;}",
+        "h1,h2 {text-align: center !important; margin: 0 auto !important; color: #f6f6f6; font-family: var(--emphasis-heading-font-family); letter-spacing: 3px;}",
+        "h2 {font-weight: 400;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "",
+        "heading_style": "",
+        "v_padding": 25,
+        "is_accent": true,
+        "bg_color": "#222228",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_video_cwnKp6": {
+      "type": "content-video",
+      "custom_css": [
+        "{margin-bottom: -5px;}"
+      ],
+      "name": "Video Banner",
+      "settings": {
+        "video_file": "shopify://files/videos/GK - Rebellion Darkside - Campaign_Edit03_16-12-2025_1920x1080_lowbitrate.mp4",
+        "poster_image": "shopify://shop_images/Q4_25_REBELLION1044.jpg",
+        "autoplay": true,
+        "max_width": true
+      }
+    },
+    "content_grid_Pk4HQN": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_Xe9faw": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "0",
+            "image": "shopify://shop_images/rebellion-darkside-5.webp",
+            "img_style": "natural",
+            "image_style": "contain",
+            "rtf": "<p>Gym King introduces <a href=\"https://thegymking.com/collections/rebellion-darkside\" title=\"Rebellion Darkside Collection\">REBELLION DARKSIDE</a>, a hybrid performance and lifestyle menswear collection built around purpose, discipline, and belief.</p><p>Designed for everyday utility as much as physical performance, it moves seamlessly between training, recovery, and daily life, clothing you can work out in, live in, and rely on without compromise.</p>",
+            "txt_color": "#ffffff",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": false,
+            "cta_text": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_Xe9faw"
+      ],
+      "custom_css": [
+        "a {color: #f6f6f6; text-decoration: none;}",
+        " {background: #22222b;}"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": true,
+        "bg_color": "#222228",
+        "full_width": false,
+        "grid_style": "standard"
+      }
+    },
+    "section_split_banner_cNFCJW": {
+      "type": "section-split-banner",
+      "name": "Image Container",
+      "settings": {
+        "img1": "shopify://shop_images/9_253_3eb4a7cc-4934-4893-b63a-5ef368af8d77.jpg",
+        "title_mens": "Response Borg Jacket Details",
+        "url1": "",
+        "img2": "shopify://shop_images/Rebellion_Darkside_-_Story_Product_Cut_Out_Example.png",
+        "title_womens": "Darkside Borg Technical Details",
+        "url2": "",
+        "image_style": "",
+        "gap": 20,
+        "hide_second": false,
+        "full_width": false,
+        "flex_wrap": false
+      }
+    },
+    "product_collection_carousel_7TMJN4": {
+      "type": "product-collection-carousel",
+      "name": "Product Card Carousel",
+      "settings": {
+        "carousel_title": "",
+        "heading_style": "",
+        "product_list": [
+          "365-flared-yoga-legging-regular-storm-blue"
+        ],
+        "collection": "rebellion-darkside",
+        "product_count": 6,
+        "show_womens": true,
+        "product_list_2": [],
+        "collection_2": "",
+        "product_count_2": 6,
+        "show_kids": false,
+        "product_list_3": [],
+        "collection_3": "",
+        "product_count_3": 6
+      }
+    },
+    "custom_ctas_HKQEEb": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_EBFzFR": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop the collection",
+            "button_link": "shopify://collections/rebellion-darkside",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_EBFzFR"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
+    },
+    "content_grid_g7fpcU": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_bY6xkG": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "-1",
+            "image": "shopify://shop_images/darkside-parka-cropped.jpg",
+            "img_style": "natural",
+            "image_style": "cover",
+            "rtf": "<p><strong>Advanced Fabrics</strong><br/>Tech Weave | Grid Knit | Tech Borg Fleece | Ripstop<br/>Engineered for durability, movement, and everyday wear.</p><p><strong>Performance Functionality</strong><br/>Vented panels to regulate heat, stretch construction for unrestricted movement, and premium trims designed for longevity.</p><p><strong>Considered Details</strong><br/>Tonal reflective tactical map print and internal mantra:<br/><em>“Repetition Creates Discipline.”</em></p>",
+            "txt_color": "#ffffff",
+            "text_align": "center",
+            "use_html": false,
+            "html": "<div class=\"map-sub\">\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-head_large.png?v=2601156260054181480\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Mindset</h2>\n    <p>An attitude that drives belief and motivation </p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-spine_large.png?v=1163061127389537127\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Discipline</h2>\n    <p>Commitment to hit targets by consistently showing up</p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-spine_large.png?v=1163061127389537127\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Resilience</h2>\n    <p>Pushing through adversity to achieve goals</p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-spine_large.png?v=1163061127389537127\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Gratitude</h2>\n    <p>The ability to stop, recognise and appreciate the world around you</p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-tail_large.png?v=12016448362568737019\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <p>-</p>\n    <p><i>\"Hard work is so often the answer, the question is so often irrelevant.\"</i><br>Ross Edgley</p>\n  </div>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": false,
+            "cta_text": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_bY6xkG"
+      ],
+      "custom_css": [
+        "h2 {font-family: var(--emphasis-heading-font-family);}",
+        " {background: #22222b;}"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": true,
+        "bg_color": "#222228",
+        "full_width": false,
+        "grid_style": "standard"
+      }
+    },
+    "spacer_EGGzaM": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 50,
+        "mobile": 20
+      }
+    },
+    "content_grid_mgXRCt": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_GVkNnJ": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "0",
+            "image": "shopify://shop_images/rebellion-darkside-2.webp",
+            "img_style": "natural",
+            "image_style": "cover",
+            "rtf": "<h2>Discover Rebellion.<br/>Discover Darkside.</h2>",
+            "txt_color": "",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": true,
+            "cta_text": "Shop the Collection",
+            "cta_url": "shopify://collections/rebellion-darkside"
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_GVkNnJ"
+      ],
+      "custom_css": [
+        "h2 {font-family: var(--emphasis-heading-font-family); text-align: left; letter-spacing: 5px;}"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "grid_style": "standard"
+      }
+    }
+  },
+  "order": [
+    "content_rich_text_CH3TDW",
+    "content_video_cwnKp6",
+    "content_grid_Pk4HQN",
+    "section_split_banner_cNFCJW",
+    "product_collection_carousel_7TMJN4",
+    "custom_ctas_HKQEEb",
+    "content_grid_g7fpcU",
+    "spacer_EGGzaM",
+    "content_grid_mgXRCt"
+  ]
+}
