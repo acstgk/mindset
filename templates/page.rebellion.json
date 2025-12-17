@@ -99,6 +99,20 @@
         "grid_style": "standard"
       }
     },
+    "content_rich_text_kJQbAM": {
+      "type": "content-rich-text",
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "The collection",
+        "heading_style": "emphasis",
+        "v_padding": 25,
+        "is_accent": true,
+        "bg_color": "#ffffff",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
     "section_split_banner_cNFCJW": {
       "type": "section-split-banner",
       "name": "Image Container",
@@ -247,6 +261,7 @@
     "content_rich_text_CH3TDW",
     "content_video_cwnKp6",
     "content_grid_Pk4HQN",
+    "content_rich_text_kJQbAM",
     "section_split_banner_cNFCJW",
     "product_collection_carousel_7TMJN4",
     "custom_ctas_HKQEEb",
