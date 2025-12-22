@@ -209,9 +209,9 @@ ul.address-grid {
 }
 
 .signature.hash {
-  margin: 0 0 0 1ch !important;
+  margin: 0 -0.5ch 0 1ch !important;
   scale: 2;
-  transform: rotate(-30deg);
+  transform: rotate(-50deg);
 }
 
 .customer-order--tracking {
