@@ -271,6 +271,11 @@ blockquote {
   & .title {
     font-weight: 700;
     color: var(--c-black);
+    transition: color .2s var(--bezier);
+    }
+    
+    &:hover .title {
+      color: var(--c-grey);
   }
 
   & .colour {
