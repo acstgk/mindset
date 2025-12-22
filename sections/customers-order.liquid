@@ -144,7 +144,7 @@
           Shipping
           {% if order.shipping_methods.first.title -%}<small>({{ order.shipping_methods.first.title }})</small>{%- endif -%}
         </td>
-        <td>{{ order.total_shipping_price | money | default: 'FREE' }}</td>
+        <td>{{ order.shipping_price | money | default: 'FREE' }}</td>
       </tr>
       <tr>
         <td>
