@@ -12,6 +12,15 @@
     "main": {
       "type": "content-accordian",
       "blocks": {
+        "card_FcmYa7": {
+          "type": "card",
+          "disabled": true,
+          "settings": {
+            "title": "EXTENDED CHRISTMAS RETURNS",
+            "htmlContent": "All purchases made between 27th October and 22nd December are eligible for our extended Christmas Returns period, you will have until Saturday 31st January 2026 to return your items.\n\nAll other Return T&amp;Cs are unaffected.",
+            "content": ""
+          }
+        },
         "card_XmEykt": {
           "type": "card",
           "settings": {
@@ -102,6 +111,7 @@
         }
       },
       "block_order": [
+        "card_FcmYa7",
         "card_XmEykt",
         "card_gBjepD",
         "card_G3qCGi",
