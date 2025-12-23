@@ -66,13 +66,12 @@
       </p>
       <p>Estimated time and price varies by country, visit our <a href="/pages/help-centre-delivery-and-orders">Delivery FAQ page</a> for more information.</p>
       <hr>
-      {% comment %}
-        <p style="padding: 15px 18px;background-color: var(--accent-background);">
-          <strong>EXTENDED CHRISTMAS RETURNS</strong><br>
-          All purchases made between 18th October and 20th December are eligible for our extended Christmas Returns
-          period, you will have until Wednesday 31st January to return your items.
-        </p>
-      {% endcomment %}
+      {% if show_extended %}
+        <div class="accent-bg" style="padding: 15px 18px;">
+          <p><strong>{{ extended_title }}</strong></p>
+          {{ extended_text }}
+        </div>
+      {% endif %}
       <p>
         <strong>Easy 30 Day UK Returns - £2.95</strong><br>
         Easily arrange your paid return postage via our <a href="https://thegymking.returns.international/" target="_blank">UK returns portal</a>.
