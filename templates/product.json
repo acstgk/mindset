@@ -11,7 +11,11 @@
   "sections": {
     "product-main": {
       "type": "product-main",
-      "settings": {}
+      "settings": {
+        "show_extended-returns": false,
+        "extended-returns-title": "EXTENDED CHRISTMAS RETURNS",
+        "extended-returns-text": "<p>All purchases made between Monday 27th October and 22nd December are eligible for our extended Christmas Returns period, you will have until Wednesday 31st January to return your items.</p>"
+      }
     },
     "complete-the-look": {
       "type": "complete-the-look",

@@ -104,7 +104,7 @@
     "content_rich_text_RpmEwg": {
       "type": "content-rich-text",
       "custom_css": [
-        "{background: var(--c-off-white); padding-top: 2rem;margin-bottom: 0}"
+        "{background: var(--c-off-white); padding-top: 2rem; margin-bottom: 0;}"
       ],
       "name": "Editorial Content Block",
       "settings": {
