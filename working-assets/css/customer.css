@@ -307,7 +307,7 @@ ul.address-grid {
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 1.5rem 3rem;
-  flex: 1 0 15rem;
+  flex: 1 1 15rem;
   justify-content: flex-start;
   max-width: 900px;
   margin: 0 auto;

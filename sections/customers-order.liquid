@@ -137,25 +137,29 @@
       {%- endif -%}
       <tr>
         <td>Subtotal</td>
-        <td>{{ order.total_price | money | default: 'FREE' }}</td>
+        <td>{{ order.subtotal_price | money | default: 'FREE' }}</td>
       </tr>
       <tr>
         <td>
           Shipping
-          {% if order.shipping_methods.first.title -%}<small>({{ order.shipping_methods.first.title }})</small>{%- endif -%}
+          {% if order.shipping_methods.first.title -%}
+            <small>({{ order.shipping_methods.first.title }})</small>
+          {%- endif -%}
         </td>
         <td>{{ order.shipping_price | money | default: 'FREE' }}</td>
       </tr>
       <tr>
         <td>
           Tax
-          {% if order.tax_lines.first.title -%}<small>({{ order.tax_lines.first.title }})</small>{%- endif -%}
+          {% if order.tax_lines.first.title -%}
+            <small>({{ order.tax_lines.first.title }})</small>
+          {%- endif -%}
         </td>
         <td>{{ order.tax_price | default: '0.00' | money }}</td>
       </tr>
       <tr style="text-align:right;">
         <th>Total</th>
-        <th>{{ order.subtotal_price | money | default: 'FREE' }}</th>
+        <th>{{ order.total_price | money | default: 'FREE' }}</th>
       </tr>
     </table>
   </div>
@@ -175,7 +179,11 @@
       <p>Our team is here to help you with anything you need. Whether you have questions about this order or need assistance with something else, we're just a message away.</p>
       <div class="button-grid">
         <a href="/pages/contact-us" class="button button-primary">Contact Us</a>
-        <a href="/pages/returns" class="button button-secondary">Start a Return</a>
+        {% if order.fulfillment_status_label == 'Fulfilled' %}
+          <a href="/pages/returns" class="button button-secondary">Start a Return</a>
+        {% elsif tracking_urls.first %}
+          <a href="{{ tracking_urls.first }}" class="button button-secondary">Track Your Order</a>
+        {% endif %}
       </div>
     </div>
   </div>
