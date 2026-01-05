@@ -306,7 +306,7 @@ ul.address-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 3rem;
+  gap: 1.5rem 3rem;
   flex: 1 0 15rem;
   justify-content: flex-start;
   max-width: 900px;
@@ -355,4 +355,7 @@ tbody tr:nth-of-type(2n) {
 .table-totals th {
   text-align: right;
   padding-right: 0.3rem;
+}
+.customer-order-help .button {
+  margin: 0.5rem 0.25rem 0 0
 }
