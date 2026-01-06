@@ -2,7 +2,7 @@
 :after,
 :before {
   box-sizing: border-box !important;
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   interpolate-size: allow-keywords;
@@ -273,7 +273,7 @@ blockquote {
     color: var(--c-black);
     transition: color .2s var(--bezier);
     }
-    
+
     &:hover .title {
       color: var(--c-grey);
   }

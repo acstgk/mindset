@@ -3,7 +3,7 @@
     {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color' }}
     <span>
       {% if price >= 3000 %}
-        or make 3 interest-free payments of <strong>{{ price | divided_by: 3 | money_without_trailing_zeros }}</strong> with Klarna.
+        or make 3 interest-free payments of <strong>{{ price | divided_by: 3 | money_without_trailing_zeros }}</strong>.
         <br>
       {% else %}
         pay in 30 days with Klarna. <br>
@@ -14,7 +14,7 @@
   <div class="bnpl-placement">
     {{ 'afterpay' | payment_type_svg_tag: class: 'icon icon--full-color' }}
     <span>
-      or make 4 interest-free payments of <strong>{{ price | divided_by: 4 | money_without_trailing_zeros }}</strong> with ClearPay.
+      or make 4 interest-free payments of <strong>{{ price | divided_by: 4 | money_without_trailing_zeros }}</strong>.
       <br>
       <a href="/pages/clearpay-terms-conditions" class="clearpay-link">Learn more about ClearPay </a>
     </span>

@@ -836,11 +836,13 @@ class ProductModalManager {
     images.className = "mqatb-images";
     const loopEnd = imgURLs.length < 8 ? imgURLs.length : 8;
     for (let i = 0, len = loopEnd; i < len; i++) {
-      const img = document.createElement("img");
-      img.src = imgURLs[i];
-      img.draggable = false;
-      img.alt = `${productTitle} - image ${i + 1}`;
-      images.appendChild(img);
+      if (imgURLs[i].length > 0) {
+        const img = document.createElement("img");
+        img.src = imgURLs[i];
+        img.draggable = false;
+        img.alt = `${productTitle} - image ${i + 1}`;
+        images.appendChild(img);
+      }
     }
 
     // Copy the product details - check trigger first (for .cart_items-ctl-button), then sourceElement

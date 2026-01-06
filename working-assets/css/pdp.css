@@ -525,9 +525,10 @@ pdp-carousel {
   aspect-ratio: 1;
   border: 1px solid white;
   position: relative;
+  border-radius: calc(var(--radius) + 2px);
 
   &>img {
-    margin-bottom: -0.5em;
+    margin-bottom: -6px;
     height: 100%;
   }
 
