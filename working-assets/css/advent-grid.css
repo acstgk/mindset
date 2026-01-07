@@ -13,6 +13,8 @@
   overflow: hidden;
   box-shadow: inset 0 0 50px -25px black;
   cursor: pointer;
+  position: relative;
+    height: 100%;
 
   & p,
   &::before {
@@ -20,6 +22,8 @@
     place-content: center;
     text-align: center;
     padding: 0 25px;
+    height: 100%;
+      width: 100%;
   }
 
   &::before {

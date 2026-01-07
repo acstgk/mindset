@@ -20,7 +20,7 @@
   gap: 1.2em .6em;
   padding-top: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   height: 100%;
   overflow: auto;
 }
@@ -54,6 +54,8 @@
     scale: 1;
     filter: brightness(1);
     transition: scale 10s ease;
+    object-fit: cover;
+      object-position: center;
   }
 
   &:hover img {
