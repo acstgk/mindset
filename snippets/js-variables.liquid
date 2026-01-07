@@ -47,7 +47,8 @@
         productType: {{ product.type | json}},
         productGender: {{ product.vendor | json }},
         productColourGroup: {{ product.metafields.product.colour.value.name | json }},
-        productPrice: {{ product.price | money_without_trailing_zeros | json }}
+        productPrice: {{ product.price | money_without_trailing_zeros | json }},
+        productId: {{ product.id | json }}
       };
 
       document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');

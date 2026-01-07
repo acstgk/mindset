@@ -70,6 +70,14 @@ export default class RecentlyViewed {
 
   hasRecentlyViewed = () => {
     const list = this.getProductList();
-    return list && Object.values(list).some((arr) => Array.isArray(arr) && arr.length > 0);
+    if (!list) return false;
+
+    const allItems = Object.values(list).flat();
+
+    if (allItems.length === 1 && window.product && allItems[0].productId === window.product.productId) {
+      return false;
+    }
+
+    return allItems.length > 0;
   };
 }
