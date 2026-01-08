@@ -66,6 +66,8 @@
       <meta name="description" content="{{ settings.default-meta-description }}">
     {%- endif -%}
 
+    {% render 'social-meta-tags' %}
+
     {% if template contains 'search' or handle contains 'basket' %}
       <meta name="robots" content="noindex">
     {% endif %}
