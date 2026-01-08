@@ -688,10 +688,15 @@ form .quantity-warning {
     }
   }
 }
+
 .yotpo-product-points-inner-wrapper {
-  line-height: 2;
   background: var(--c-off-white);
-  padding: 0.5rem 1rem;
-  text-align: center;
   font-size: var(--txt-sm) !important;
+  line-height: 2;
+    padding: .5rem 1rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: flex-end;
 }
