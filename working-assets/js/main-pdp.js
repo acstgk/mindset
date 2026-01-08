@@ -397,7 +397,9 @@ if (!customElements.get("enhanced-atc")) {
 
           if (size) {
             const target = document.querySelector(`[data-id="${type}-${size}"]`);
-            target.checked = true;
+            if (target) {
+              target.checked = true;
+            }
           }
         } else {
           return;

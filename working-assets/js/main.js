@@ -1413,12 +1413,13 @@ if (!customElements.get("cart-upsells")) {
       autoOpenOnLargeScreens() {
         console.log("Auto-open upsells :: checked");
         const viewportHeight = window.innerHeight;
-        if (viewportHeight >= 1000 || viewportHeight < 1000 && Cart.cart.items.length < 2) {
+        const itemCount = Cart?.cart?.items?.length || 0;
+        if (viewportHeight >= 1000 || (viewportHeight < 1000 && itemCount < 2)) {
           this.showUpsells();
-          // console.log("Auto-open upsells :: show", viewportHeight, Cart.cart.items.length);
+          // console.log("Auto-open upsells :: show", viewportHeight, itemCount);
         } else {
           this.hideUpsells();
-          // console.log("Auto-open upsells :: hide", viewportHeight, Cart.cart.items.length);
+          // console.log("Auto-open upsells :: hide", viewportHeight, itemCount);
         }
       }
     },
