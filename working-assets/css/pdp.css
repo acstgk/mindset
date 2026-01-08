@@ -545,7 +545,9 @@ pdp-carousel {
     left: 50%;
     transform: translateX(-25%);
     width: max-content;
-    box-shadow: 0 0 4px -2px var(--c-dark-grey);
+    box-shadow: 0 0 1px 0px var(--c-dark-grey),
+        0 0 4px 0px var(--c-shadow),
+        0 0 10px 0px var(--c-light-grey);
 
     &::after {
       content: "";
