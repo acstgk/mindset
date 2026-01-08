@@ -450,7 +450,6 @@ pdp-carousel {
 }
 
 .product_details-confidence-blocks {
-  margin-top: 0.75rem;
 
   & .confidence_blocks-block {
     margin: 0;
@@ -699,4 +698,5 @@ form .quantity-warning {
     justify-content: center;
     gap: 0.5rem;
     align-items: flex-end;
+    border-radius: 0 0 var(--radius) var(--radius);
 }
