@@ -8,7 +8,7 @@
 {%- endcapture -%}
 
 <dispatch-timer data-settings="{{ delivery_options | strip_newlines | escape }}">
-  <b>Order&nbsp;<span class="countdown-endpoint">now</span></b> <br>
+  <b>Order&nbsp;<span class="countdown-endpoint">now</span></b> {% unless oneline %}<br>{% endunless %}
   for delivery <span class="eta-endpoint">within {{ settings.transit_time }} {% unless settings.enable_weekend_delivery %}working{% endunless %} days</span> <br>
   <small>when you select <span class="service-endpoint">{{  settings.fastest_delivery_service_name}}</span> at checkout</small>
 </dispatch-timer>

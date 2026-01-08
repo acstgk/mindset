@@ -13,6 +13,46 @@
         <a href="/checkout" class="checkout-button button button-primary"
           >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
         </a>
+        {% case section.settings.microcopy %}
+          {% when 'bnpl' %}
+            <div class="bnpl-icons">
+              {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color ge-hide-display-none ge-hide' }}
+              <span class="ge-hide-display-none ge-hide"
+                >Buy now, Pay later<br>
+                <small><a href="/pages/klarna-terms-conditions">18+ - T&C's apply</a></small></span
+              >
+            </div>
+
+            <style>
+              .bnpl-icons {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+              }
+
+              .bnpl-icons a {
+                font-size: var(--txt-sm);
+              }
+            </style>
+          {% when 'payments' %}
+            {% render 'payment-icons' %}
+            <style>
+              .side_menu-footer .payment-icon svg {
+                width: 2rem;
+              }
+              .side_menu-footer .payment-icons {
+                gap: 0.2rem;
+              }
+            </style>
+          {% when 'delivery' %}
+            {% render 'dispatch-timer', oneline: true %}
+
+            <style>
+              .side_menu-footer dispatch-timer {
+               text-align: center;
+              }
+            </style>
+        {% endcase %}
       </div>
     {% endif %}
   </div>
@@ -23,6 +63,19 @@
   "name": "Cart Drawer",
   "class": "section--cart_drawer",
   "limit": 1,
-  "settings": []
+  "settings": [
+    {
+      "type": "select",
+      "id": "microcopy",
+      "label": "Checkout Subtext",
+      "options": [
+        { "value": "none", "label": "None" },
+        { "value": "bnpl", "label": "Buy Now Pay Later" },
+        { "value": "payments", "label": "Payment Options" },
+        { "value": "delivery", "label": "Delivery ETA" }
+      ],
+      "default": "none"
+    }
+  ]
 }
 {% endschema %}

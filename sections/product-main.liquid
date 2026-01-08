@@ -265,10 +265,10 @@
       <div class="atc_form-button-spacer" id="atc--container">
         <button type="submit" id="atc--btn" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button>
       </div>
+    </enhanced-atc>
     {% if section.settings.show_yotpo_points %}
       <div class="yotpo-widget-instance" data-yotpo-instance-id="1268248" data-yotpo-product-id="{{product.id}}" data-yotpo-variant-id="{{ product.selected_or_first_available_variant.id }}" data-yotpo-product-variants="{{ product.variants | json | url_encode }}" data-yotpo-product-collections="{{product.collections | json | url_encode}}" data-yotpo-product-tags="{{ product.tags | json | url_encode }}" data-yotpo-product-type="{{ product.type | json | url_encode }}"></div>
     {% endif %}
-    </enhanced-atc>
   </form>
 
   {% if show_timer %}
