@@ -77,6 +77,10 @@
           </p>
         {% endif %}
 
+        {% if block.settings.customHTML %}
+          {{ block.settings.customHTML }}
+        {% endif %}
+
         {% unless block.settings.cta1 == '' %}
           <div class="hero_slide-ctas fade-in">
             <a href="{{ block.settings.url1 }}" class="button button-inverted"><span>{{ block.settings.cta1 }} </span>{% render 'icon' with 'arrow' %}</a>
@@ -175,6 +179,11 @@
           "type": "text",
           "id": "subtitle",
           "label": "Slide Subtitle"
+        },
+        {
+          "type": "html",
+          "id": "customHTML",
+          "label": "Custom HTML"
         },
         {
           "type": "select",

@@ -56,6 +56,18 @@
             </iframe>
           </div>
         {% endif %}
+      {% when 'cta' %}
+        <div
+          class="cta-wrapper"
+          style="text-align: center; padding: 30px 20px;display: flex;gap: 1rem;align-items: center;flex-direction: column;"
+        >
+          <a href="{{ block.settings.button_link }}" class="{{ section.settings.size }} button {%if block.settings.btn_color == true %}button-secondary{% else %}button-primary{% endif %}">
+            {{ block.settings.btn_text }}
+          </a>
+          {% if block.settings.microcopy %}
+            <p><i>{{ block.settings.microcopy }}</i></p>
+          {% endif %}
+        </div>
       {% else %}
         {{ block.settings.custom_html }}
     {% endcase %}
@@ -243,6 +255,33 @@
           "label": "Linked Youtube Video",
           "accept": ["youtube"]
         }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "Call to Action",
+      "settings": [
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "btn_color",
+          "label": "Use Secondary Button Style",
+          "default": false
+        },
+        {
+        "type": "text",
+      "id": "microcopy",
+      "label": "Sub Text"}
       ]
     },
     {

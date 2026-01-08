@@ -9,33 +9,66 @@
  */
 {
   "sections": {
-    "content_rich_text_CH3TDW": {
-      "type": "content-rich-text",
+    "carousel_hero_7GXRq9": {
+      "type": "carousel-hero",
       "blocks": {
-        "images_pcDVfh": {
-          "type": "images",
+        "image_qye7DT": {
+          "type": "image",
           "settings": {
-            "image_1": "shopify://shop_images/Stoic-Mindset_grande_149cedfe-afb7-4270-b55c-d0b82b9d97e3.webp"
-          }
-        },
-        "rtf_Jgx7jt": {
-          "type": "rtf",
-          "settings": {
-            "richtext_content": "<h1>The Stoic Collection</h1>"
+            "mobile_poster": "shopify://shop_images/Image_-_Our_Mindset_2_92ef3ea5-91e2-4a78-9522-a3642562f7d3.png",
+            "desktop_poster": "shopify://shop_images/Image_-_Our_Mindset_2_1db31100-4cd3-472b-8ba4-05e28b0cd03f.png",
+            "overlay_url": "",
+            "content_alignment": "left",
+            "lockup_img": "shopify://shop_images/Stoic_Games_UPDATE_STOIC_GAMES_GOLD_FULL.png",
+            "lockup_width": 200,
+            "title": "A Unique Challenge Combining Physical Discipline and Mental Resilience.",
+            "subtitle": "",
+            "customHTML": "<p style=\"margin:1rem 0 0 0;line-height:1.8 \">\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--calendar \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M16 2a1 1 0 0 1 .993 .883l.007 .117v1h1a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h1v-1a1 1 0 0 1 1.993 -.117l.007 .117v1h6v-1a1 1 0 0 1 1 -1m3 7h-14v9.625c0 .705 .386 1.286 .883 1.366l.117 .009h12c.513 0 .936 -.53 .993 -1.215l.007 -.16z\"></path><path d=\"M8 14h2v2h-2z\"></path>\n    </svg> 7th February 2026 <br>\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--map-pin \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z\"></path>\n    </svg>\n   Fighting Fit, Manchester, 88-90 Wilton St, Denton, Tameside, United Kingdom <a href=\"https://www.google.com/maps/dir/?api=1&amp;destination=Fighting+Fit%2C+88-90+Wilton+St%2C+Denton%2C+Tameside%2C+M34+3NH\" target=\"_blank\">M34 3NH</a>\n        </p>",
+            "subtitle_font": "",
+            "subtitle_first": false,
+            "cta1": "Reserve your Place",
+            "url1": "https://www.eventbrite.co.uk/e/the-stoic-games-tickets-1978280646668?aff=oddtdtcreator",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
           }
         }
       },
       "block_order": [
-        "images_pcDVfh",
-        "rtf_Jgx7jt"
+        "image_qye7DT"
       ],
       "custom_css": [
-        ".image-grid__item {width: 150px; margin: 0 auto; display: block;}",
-        "h1 {text-align: center !important; margin: 0 auto !important;}",
-        ".rtf {margin: 2rem auto;}"
+        "img.hero_slide-lockup.fade-in {margin: 5% auto 5% 0; width: min(200px, 35vw) !important;}",
+        ".hero_slide-ctas .button {max-width: 295px;}",
+        "h1,p {text-align: left;}",
+        "p a {color: white; text-decoration: underline;}",
+        "h1 {font-family: \"Octin\", var(--emphasis-heading-font-family);}",
+        ".hero_slide-content {position: static; justify-content: center;}"
       ],
-      "name": "Editorial Content Block",
+      "name": "Hero Slideshow",
+      "settings": {}
+    },
+    "content_rich_text_CH3TDW": {
+      "type": "content-rich-text",
+      "blocks": {
+        "quote_mCzfgD": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "The Stoic Games turn fitness into philosophy in motion. This isn’t about beating others; it’s about mastering what’s within your control.",
+            "quote_author": "Ross Edgley"
+          }
+        }
+      },
+      "block_order": [
+        "quote_mCzfgD"
+      ],
+      "custom_css": [
+        "{margin: 4rem 0;}"
+      ],
+      "name": "Ross Quote",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 25,
         "is_accent": false,
         "bg_color": "",
@@ -44,116 +77,21 @@
         "grid_style": "standard"
       }
     },
-    "content_video_cwnKp6": {
-      "type": "content-video",
-      "custom_css": [
-        "{margin-bottom: -5px;}"
-      ],
-      "name": "Video Banner",
-      "settings": {
-        "video_file": "shopify://files/videos/stoic collection.MP4",
-        "autoplay": false,
-        "max_width": true
-      }
-    },
-    "content_grid_Pk4HQN": {
-      "type": "content-grid",
-      "blocks": {
-        "grid_item_Xe9faw": {
-          "type": "grid-item",
-          "settings": {
-            "grid_order": "0",
-            "image": "shopify://shop_images/Stoic_Map_1_e5206eb6-6179-4b73-babf-a03ce394a9a2.png",
-            "img_style": "natural",
-            "image_style": "contain",
-            "rtf": "<p>Founded on mindset, discipline, resilience and gratitude, the Stoic Collection celebrates the stoic mindset shared by Gym King and Ross Edgley.</p>",
-            "txt_color": "#ffffff",
-            "text_align": "left",
-            "use_html": false,
-            "html": "<p>Add custom HTML content here.</p>",
-            "show_quote": false,
-            "quote_text": "This is a sample quote.",
-            "quote_author": "Author Name",
-            "show_button": false,
-            "cta_text": "",
-            "cta_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "grid_item_Xe9faw"
-      ],
-      "custom_css": [
-        ".grid-row {padding-bottom: 30px; margin-top: -6px;}"
-      ],
-      "name": "Content Grid",
-      "settings": {
-        "is_accent": true,
-        "bg_color": "#4d4d4d",
-        "full_width": true,
-        "grid_style": "standard"
-      }
-    },
-    "custom_ctas_HKQEEb": {
-      "type": "custom-ctas",
-      "blocks": {
-        "button_EBFzFR": {
-          "type": "button",
-          "settings": {
-            "btn_text": "Shop the collection",
-            "button_link": "shopify://collections/stoic",
-            "btn_color": false
-          }
-        }
-      },
-      "block_order": [
-        "button_EBFzFR"
-      ],
-      "name": "Custom CTA Buttons",
-      "settings": {
-        "size": ""
-      }
-    },
-    "section_split_banner_cNFCJW": {
-      "type": "section-split-banner",
-      "name": "Image Container",
-      "settings": {
-        "img1": "shopify://shop_images/stoic-properties.jpg",
-        "title_mens": "Mens",
-        "url1": "",
-        "img2": "shopify://shop_images/Stoic-Duo-light.jpg",
-        "title_womens": "Womens",
-        "url2": "",
-        "image_style": "",
-        "gap": 20,
-        "hide_second": false,
-        "full_width": false,
-        "flex_wrap": true
-      }
-    },
-    "spacer_T7x9Gi": {
-      "type": "spacer",
-      "name": "Content Spacer",
-      "settings": {
-        "desktop": 50,
-        "mobile": 30
-      }
-    },
     "content_grid_g7fpcU": {
       "type": "content-grid",
       "blocks": {
         "grid_item_bY6xkG": {
           "type": "grid-item",
           "settings": {
-            "grid_order": "-1",
-            "image": "shopify://shop_images/Gymking_-_Stoic-128.jpg",
-            "img_style": "natural",
+            "grid_order": "0",
+            "image": "shopify://shop_images/ross-swimming-portrait.jpg",
+            "img_style": "square",
             "image_style": "cover",
-            "rtf": "",
-            "txt_color": "#ffffff",
+            "rtf": "<p>Gym King, in collaboration with British author, ultra marathon athlete, and sea swimmer, Ross Edgley, proudly presents The Stoic Games, a first-of-its-kind athletic and philosophical challenge.</p><p>Built on Stoic principles applied by Ross Edgley during the Icelandic Swim and Great British Swim, the Games are a mindset-driven test of physical and mental resilience, in a 1,000-point challenge spanning seven max-effort disciplines designed to test strength, endurance, composure, and grit.</p>",
+            "txt_color": "#1b1b1b",
             "text_align": "center",
             "use_html": true,
-            "html": "<div class=\"map-sub\">\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-head_large.png?v=2601156260054181480\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Mindset</h2>\n    <p>An attitude that drives belief and motivation </p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-spine_large.png?v=1163061127389537127\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Discipline</h2>\n    <p>Commitment to hit targets by consistently showing up</p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-spine_large.png?v=1163061127389537127\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Resilience</h2>\n    <p>Pushing through adversity to achieve goals</p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-spine_large.png?v=1163061127389537127\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <h2>Gratitude</h2>\n    <p>The ability to stop, recognise and appreciate the world around you</p>\n    <img src=\"//thegymking.com/cdn/shop/files/stoic-tail_large.png?v=12016448362568737019\" alt=\"\" style=\"max-width: 150px;margin:auto;\">\n    <p>-</p>\n    <p><i>\"Hard work is so often the answer, the question is so often irrelevant.\"</i><br>Ross Edgley</p>\n  </div>",
+            "html": "",
             "show_quote": false,
             "quote_text": "This is a sample quote.",
             "quote_author": "Author Name",
@@ -167,61 +105,183 @@
         "grid_item_bY6xkG"
       ],
       "custom_css": [
-        "h2 {font-family: \"Octin\", var(--emphasis-heading-font-family);}",
-        ".map-sub * {text-align: center !important;}"
+        ".content-grid--media-cell {width: 100%;}",
+        ".content-grid--media-cell img {max-height: 30rem;}"
       ],
-      "name": "Content Grid",
+      "name": "Intro ",
       "settings": {
         "is_accent": true,
-        "bg_color": "#4d4d4d",
-        "full_width": false,
+        "bg_color": "#e7e7e7",
+        "full_width": true,
         "grid_style": "standard"
       }
     },
-    "content_grid_mgXRCt": {
-      "type": "content-grid",
+    "content_rich_text_RfJRPr": {
+      "type": "content-rich-text",
       "blocks": {
-        "grid_item_GVkNnJ": {
-          "type": "grid-item",
+        "rtf_c9TyYA": {
+          "type": "rtf",
           "settings": {
-            "grid_order": "0",
-            "image": "shopify://shop_images/Gymking_-_Stoic-112.jpg",
-            "img_style": "square",
-            "image_style": "cover",
-            "rtf": "<h2>Join The Stoic Tribe</h2>",
-            "txt_color": "",
-            "text_align": "left",
-            "use_html": false,
-            "html": "<p>Add custom HTML content here.</p>",
-            "show_quote": false,
-            "quote_text": "This is a sample quote.",
-            "quote_author": "Author Name",
-            "show_button": true,
-            "cta_text": "Shop the Collection",
-            "cta_url": "shopify://collections/stoic"
+            "richtext_content": "<h2>The Circuit</h2><p>Participants give maximum effort to accumulate points across seven disciplines, with five minutes allocated to each.</p>"
+          }
+        },
+        "html_NbjLTC": {
+          "type": "html",
+          "settings": {
+            "custom_html": "<div class=\"stations-list\">\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 01</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\">\n            <img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_DEADLIFT.svg?v=1766063285\" alt=\"Deadlift Icon\" loading=\"lazy\">\n          </div>\n          <div class=\"txt\">Deadlift</div>\n          <div class=\"metric\">Weight in kg</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 02</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_PUSH_UP.svg?v=1766063285\" alt=\"Push Ups Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Push Ups</div>\n          <div class=\"metric\">Total reps</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 03</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_SKI.svg?v=1766063285\" alt=\"Ski ERG Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Ski Erg</div>\n          <div class=\"metric\">Calories</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 04</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_BIKE.svg?v=1766063285\" alt=\"Bike Erg Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Bike Erg</div>\n          <div class=\"metric\">Calories</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 05</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_ROW.svg?v=1766063285\" alt=\"Rowing\" loading=\"lazy\"></div>\n          <div class=\"txt\">Rower Erg</div>\n          <div class=\"metric\">Calories</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 06</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_RUN.svg?v=1766063285\" alt=\"Run Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Curved Run</div>\n          <div class=\"metric\">Calories</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 07</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_WALL_BALL.svg?v=1766063285\" alt=\"Wall Ball Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Wall Balls</div>\n          <div class=\"metric\">Total reps</div>\n        </div>\n      </div>\n    </div>\n<style>\n\n.stations-list {\n  display: flex;\n  flex-flow: row wrap;\n  gap: 30px;\n  justify-content: space-around;\n  margin: 60px auto;\n}\n\n.station-list--item {\n  flex: 1 0 min(475px, 100%);\n  font-family: Octin, Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;\n  line-height: 1;\n}\n\n.station-list--item-number {\n    align-content: center;\n    background-color: #bab3ad;\n    border-radius: 20px;\n    color: #fff;\n    display: grid;\n    height: 20px;\n    justify-content: center;\n    margin: 0 auto;\n    padding: 1rem;\n    place-content: center;\n    position: relative;\n    text-align: center;\n    width: max-content;\n    z-index: 1;\n}\n.station-list--item-content {\n    align-items: center;\n    background-color: #414042;\n    border-radius: 80px;\n    color: #fff;\n    display: flex;\n    height: 80px;\n    justify-content: space-between;\n    margin: -10px auto 0;\n    padding: 10px 30px;\n    width: min(100%,600px);\n}\n.station-list--item-content img {\n    height: 40px;\n    -o-object-fit: contain;\n    object-fit: contain;\n    width: 40px;\n}\n.station-list--item-content .txt {\n    font-size: var(--txt-h3);\n}\n\n.station-list--item-content .metric {\n    font-size: var(--txt-sm);\n}\n</style>"
+          }
+        },
+        "rtf_UaFdgD": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Score as many points as possible within each discipline e.g. 120KG deadlift = 120 points. 50 press ups = 50 points. 100 calories burnt = 100 points.</p><p><strong>Note:</strong> Reaching the 1,000 Club is a sign of elite all-round capacity, only 1 in 200 people have achieved elite status in trials.</p>"
           }
         }
       },
       "block_order": [
-        "grid_item_GVkNnJ"
+        "rtf_c9TyYA",
+        "html_NbjLTC",
+        "rtf_UaFdgD"
       ],
-      "name": "Content Grid",
+      "custom_css": [
+        "h2 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1);}"
+      ],
+      "name": "What's On",
       "settings": {
+        "title": "",
+        "heading_style": "",
+        "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
         "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_ehhpYF": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_eaHDJf": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h1></h1><h2>Pricing</h2><h3>What's included with your ticket</h3><p>Your ticket grants:</p><ul><li><strong>Entry to </strong><em><strong>The Stoic Games</strong></em></li><li><strong>Access to the Recovery Zone</strong> with physios, compression boots, muscle guns, and vibrating foam rollers</li><li><strong>30% OFF discount code</strong> for use on Gym King clothing, including the upcoming Stoic 2.0 Collection</li><li><strong>Custom trophy</strong> for participants who achieve 1000 points</li><li><strong>Goody bag</strong> including limited edition Stoic Games finisher medal, finisher tote bag, neutonic, and other goodies.</li></ul>"
+          }
+        },
+        "cta_qhfmrm": {
+          "type": "cta",
+          "settings": {
+            "btn_text": "Buy Now",
+            "button_link": "https://www.eventbrite.co.uk/e/the-stoic-games-tickets-1978280646668?aff=oddtdtcreator",
+            "btn_color": false,
+            "microcopy": ""
+          }
+        }
+      },
+      "block_order": [
+        "rtf_eaHDJf",
+        "cta_qhfmrm"
+      ],
+      "custom_css": [
+        "h2,h3 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1); margin: 0;}",
+        "h3 {font-size: var(--txt-h3); letter-spacing: 2px; margin-bottom: 2rem;}"
+      ],
+      "name": "Pricing",
+      "settings": {
+        "title": "",
+        "heading_style": "emphasis",
+        "v_padding": 50,
+        "is_accent": true,
+        "bg_color": "#e7e7e7",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_6eBLMj": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_nJG7pE": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h2>What's On</h2><h3>Events List</h3>"
+          }
+        },
+        "html_HGCjih": {
+          "type": "html",
+          "settings": {
+            "custom_html": "<div class=\"two-col rtf\">\n      <span>\n        <p><b>Men’s Singles</b></p>\n        <ul>\n          <li>Registration: 8:15AM – 8:45AM</li>\n          <li>Circuit: 9:00AM – 10:30AM</li>\n        </ul>\n      </span>\n      <span>\n        <p><b>Women’s Singles</b></p>\n        <ul>\n          <li>Registration: 10:00AM – 10:30AM</li>\n          <li>Circuit: 11:00AM – 12:30PM</li>\n        </ul>\n      </span>\n      <span>\n        <p><b>Men’s</b><b> Doubles</b></p>\n        <ul>\n          <li>Registration: 12:00PM – 12:30PM</li>\n          <li>Circuit: 1:00PM – 2:30PM</li>\n        </ul>\n      </span>\n      <span>\n        <p><b>Women’s Doubles</b></p>\n        <ul>\n          <li>Registration: 2:00PM – 2:30PM</li>\n          <li>Circuit: 3:00PM – 4:30PM</li>\n        </ul>\n      </span>\n    </div>"
+          }
+        },
+        "cta_ykbzDw": {
+          "type": "cta",
+          "settings": {
+            "btn_text": "reserve your Place",
+            "button_link": "https://www.eventbrite.co.uk/e/the-stoic-games-tickets-1978280646668?aff=oddtdtcreator",
+            "btn_color": false,
+            "microcopy": "Tickets include voucher code for 30% off Gym King to kit yourself out."
+          }
+        }
+      },
+      "block_order": [
+        "rtf_nJG7pE",
+        "html_HGCjih",
+        "cta_ykbzDw"
+      ],
+      "custom_css": [
+        ".two-col {column-gap: 2rem; column-width: 300px; margin: 0 auto; width: min(1200px, 85vw);}",
+        ".two-col span {margin-bottom: 2rem; page-break-inside: avoid; break-inside: avoid; display: inline-block; padding-left: min(5rem, 7vw); width: 100%;}",
+        "h2,h3 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1); margin: 0;}",
+        "h3 {font-size: var(--txt-h3); letter-spacing: 2px; margin-bottom: 2rem;}"
+      ],
+      "name": "What's On",
+      "settings": {
+        "title": "",
+        "heading_style": "",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_rich_text_aDF4Ai": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_CVd8LC": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h1></h1><h3>FAQ's</h3><p><strong>Q: Where can I park?</strong><br/>A: Free parking - Denton Working Men's Club & Institute, 3 Fredrick St, Denton, Manchester, M34 3JB.<br/><a href=\"https://www.google.com/maps/dir/?api=1&destination=Denton+Working+Men%27s+Club+%26+Institute%2C+3+Fredrick+St%2C+Denton%2C+Manchester%2C+M34+3JB\" target=\"_blank\">Get Directions</a></p><p><strong>Q: How does the points system work?</strong><br/>A: Each discipline contributes points towards the 1,000-point threshold. E.g. 150KG deadlift = 150 points, 100 cals = 100 points.</p><p><strong>Q: Do I need prior experience?</strong><br/>A: Having a good level of fitness is advised, however the Games are designed for athletes of all levels; staff will guide you safely through each challenge.</p><p><strong>Q: Can I attend just to watch?</strong><br/>A: Absolutely. Tickets are required for participation; spectators are welcome to attend.</p><p><strong>Q: How do I redeem my voucher code for Gym King?</strong><br/>A: Your unique code will be included with your ticket confirmation.</p><h3>Safety</h3><p>All participants must complete a waiver prior to entry. Safety and wellbeing are our priorities, and signing the waiver is required for participation in any physical activities.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_CVd8LC"
+      ],
+      "custom_css": [
+        "h3 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1);}",
+        "h3 {font-size: var(--txt-h2); letter-spacing: 2px;}"
+      ],
+      "name": "FAQ's",
+      "settings": {
+        "title": "",
+        "heading_style": "emphasis",
+        "v_padding": 50,
+        "is_accent": true,
+        "bg_color": "#e7e7e7",
+        "full_width": false,
+        "alignment": "right",
         "grid_style": "standard"
       }
     }
   },
   "order": [
+    "carousel_hero_7GXRq9",
     "content_rich_text_CH3TDW",
-    "content_video_cwnKp6",
-    "content_grid_Pk4HQN",
-    "custom_ctas_HKQEEb",
-    "section_split_banner_cNFCJW",
-    "spacer_T7x9Gi",
     "content_grid_g7fpcU",
-    "content_grid_mgXRCt"
+    "content_rich_text_RfJRPr",
+    "content_rich_text_ehhpYF",
+    "content_rich_text_6eBLMj",
+    "content_rich_text_aDF4Ai"
   ]
 }
