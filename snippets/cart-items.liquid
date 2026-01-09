@@ -54,7 +54,7 @@
               <input
                 type="number"
                 name="quantity"
-                class="qty-input"
+                class="qty-input input-{{ item.product_id }}"
                 min="0"
                 id="{{ item.key }}"
                 value="{{ item.quantity }}"
@@ -111,6 +111,8 @@
               {% endfor %}
             </div>
           {% endif %}
+          {% comment %} YOTPO POINTS INFO {% endcomment %}
+           {% comment %} <div class="yotpo-widget-instance" data-yotpo-instance-id="1268248" data-yotpo-product-id="{{item.product.id}}" data-yotpo-variant-id="{{ item.product.selected_or_first_available_variant.id }}" data-yotpo-product-variants="{{ item.product.variants | json | url_encode }}" data-yotpo-product-collections="{{item.product.collections | json | url_encode}}" data-yotpo-product-tags="{{ item.product.tags | json | url_encode }}" data-yotpo-product-type="{{ item.product.type | json | url_encode }}" data-yotpo-quantity-selector="input.input-{{ item.product_id }}"></div> {% endcomment %}
         </line-item>
       </li>
     {% endfor %}
