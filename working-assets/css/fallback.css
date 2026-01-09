@@ -83,8 +83,6 @@
     }
 }
 .icons-grid {
-    justify-content: center;
-    margin-bottom: 2rem;
     display: flex;
     gap: 3rem;
 }
