@@ -14,7 +14,7 @@
     </div>
     <div class="careers--list rtf">
       <hr>
-      {% if section.blocks.size > 0 %}
+      {% if section.blocks.size > 0 or shop.metaobjects.jobs.values.size > 0 %}
         <div id="current-vacancies">
           <h2 style="margin-bottom: 20px;" data-title>CURRENT VACANCIES</h2>
 
@@ -32,7 +32,7 @@
                 {% render 'icon', icon: 'arrow' %}
               </a>
             {% else %}
-              <div href="{{ block.settings.linkurl }}" data-role>{{ block.settings.title }}</div>
+              <div>{{ block.settings.title }}</div>
             {% endif %}
           {% endfor %}
         </div>
