@@ -28,11 +28,11 @@
           {% for block in section.blocks %}
             {% if block.settings.linkurl %}
               <a class="button button-full button-inverted" href="{{ block.settings.linkurl }}" data-role>
-                {{ block.settings.linktext }}
+                {{ block.settings.title }}
                 {% render 'icon', icon: 'arrow' %}
               </a>
             {% else %}
-              <div href="{{ block.settings.linkurl }}" data-role>{{ block.settings.linktext }}</div>
+              <div href="{{ block.settings.linkurl }}" data-role>{{ block.settings.title }}</div>
             {% endif %}
           {% endfor %}
         </div>
@@ -117,7 +117,11 @@
   }
   .careers--content h2 {
     margin-top: 0;
+    text-align: left
   }
+
+  .careers--list {
+  width: 100%;}
 </style>
 
 {% schema %}
@@ -137,7 +141,7 @@
           "label": "Job URL"
         },
         {
-          "id": "linktext",
+          "id": "title",
           "type": "text",
           "label": "Job Title"
         }
