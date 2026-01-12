@@ -317,6 +317,9 @@
   </div>
 
   {% render 'pdp_colour-selection' %}
+  {% if product.metafields.product.features.value %}
+    {% render 'technical-specification' %}
+  {% endif %}
 </aside>
 {% comment %} END:: Product Details {% endcomment %}
 {% render 'pdp_description-tabs' show_extended: section.settings.show_extended-returns , extended_title: section.settings.extended-returns-title, extended_text: section.settings.extended-returns-text %}

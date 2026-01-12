@@ -2,7 +2,7 @@
   {% assign style_tag = product.tags | where: 'style:' | first %}
   {% assign this_url = product.url %}
       {% if style_tag %}
-         <p>other colours:</p>
+         <div class="accordian-header">more colours:</div>
         <div class="colour-grid">
             {% assign found_products = '' %}
             {% for collection in product.collections %}
@@ -17,7 +17,7 @@
                         href="{% if this_url == product.url %}#{%else%}{{ product.url }}{% endif %}"
                         pid="{{ product.id }}"
                       >
-                        {{ product.featured_image | image_url: width: 400 | image_tag: width: 400, widths: '100, 150, 200, 300, 400', sizes: '(max-width: 500px) 25vw, (max-width: 1006px) 105px, 8vw', fetchpriority: "low" }}
+                        {{ product.featured_image | image_url: width: 1 | image_tag: width: 400, widths: '100, 150, 200, 300, 400', sizes: '(max-width: 500px) 25vw, (max-width: 1006px) 105px, 8vw', fetchpriority: "low" }}
 
                         {% assign color_name = product.title | replace: '–', '-' | split: '-' %}
                         <span class="tooltip">{{ color_name[-1] }}</span>

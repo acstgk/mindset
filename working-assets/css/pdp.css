@@ -501,10 +501,10 @@ pdp-carousel {
   }
 }
 
-.colour-selection {
+.colour-selection,
+.tech-specs {
   margin-top: 1em;
   border-top: 1px solid var(--c-light-grey);
-  padding-top: 1em;
 
   & p {
     margin-bottom: 1em;
@@ -701,4 +701,14 @@ form .quantity-warning {
     gap: 0.5rem;
     align-items: flex-end;
     border-radius: 0 0 var(--radius) var(--radius);
+}
+.tech-specs--list {
+  display: grid;
+  grid-template-columns: revert;
+  grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+  gap: 0.75em;
+}
+
+.tech-specs--item {
+  padding: 0.5rem;
 }
