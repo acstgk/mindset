@@ -1,16 +1,20 @@
-{% assign complementary_count = product.metafields['shopify--discovery--product_recommendation'].complementary_products.value.size %}
 {% assign all_tags = product.tags | join: ',' %}
 {% if cart.item_count == 0 %}
-{% render "as-seen-in" %}
+  {% render 'as-seen-in' %}
 {% endif %}
 
-{% if all_tags contains 'productlink:' or complementary_count %}
+{% if all_tags contains 'productlink:' or  product.metafields['shopify--discovery--product_recommendation'].complementary_products.list?  %}
   <link rel="stylesheet" href="{{ 'complete-the-look.min.css' | asset_url }}">
   {% assign instockcount = 0 %}
   {% assign product_handles = '' %}
-  {% if complementary_count > 0 %}
+  {% if  product.metafields['shopify--discovery--product_recommendation'].complementary_products.list?  %}
+
     {% for product in product.metafields['shopify--discovery--product_recommendation'].complementary_products.value %}
-      {% if product.available and product.inventory_quantity > settings.product_buffer %}
+      {% assign inventory_quantity = 0 %}
+      {% for variant in product.variants %}
+        {% assign inventory_quantity = inventory_quantity | plus: variant.inventory_quantity %}
+      {% endfor %}
+      {% if product.available and inventory_quantity > settings.product_buffer %}
         {% assign product_handles = product_handles | append: '+' | append: product.handle %}
         {% assign instockcount = instockcount | plus: 1 %}
       {% endif %}
@@ -36,6 +40,8 @@
       {% endfor %}
     {% endif %}
   {% endif %}
+
+
 
   {% if instockcount > 0 and product.type != 'Tracksuit Set' %}
     <div class="accent-bg">
