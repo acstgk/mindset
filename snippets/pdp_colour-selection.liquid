@@ -1,13 +1,19 @@
 {% assign style_tag = product.tags | where: 'style:' | first %}
 {% assign this_url = product.url %}
 
-{% if product.type contains 'Tee' or product.type contains 'Hood' or product.type contains 'Jacket' or product.type contains 'Gilet' or product.type contains 'Top' or product.type contains 'Sweatshirt' or product.type contains 'Vest' or product.type contains 'Bra' or product.type contains 'Polo' %}
-  {% assign crop_origin = 'top' %}
-{% elsif product.type contains 'Bottoms' or product.type contains 'Leggings' or product.type contains 'Shorts' or product.type contains 'Skirt' %}
-  {% assign crop_origin = 'bottom' %}
-{% else %}
-  {% assign crop_origin = 'center' %}
-{% endif %}
+{%- assign top_types = 'Tee,Hood,Jacket,Gilet,Top,Sweatshirt,Vest,Bra,Polo' | split: ',' -%}
+{%- assign bottom_types = 'Bottoms,Leggings,Shorts,Skirt' | split: ',' -%}
+{%- assign crop_origin = 'center' -%}
+
+{%- for type in top_types -%}
+  {%- if product.type contains type -%}{%- assign crop_origin = 'top' -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
+
+{%- if crop_origin == 'center' -%}
+  {%- for type in bottom_types -%}
+    {%- if product.type contains type -%}{%- assign crop_origin = 'bottom' -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
 
 {% if style_tag %}
   <div class="colour-selection">
