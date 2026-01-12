@@ -48,7 +48,7 @@
     "franchise-url-3": "",
     "franchise-gender-3": "0",
     "nav-submenu-1-mens": "mens-shop-by-category-content-new",
-    "nav-submenu-2-mens": "mens-shop-by-discount",
+    "nav-submenu-2-mens": "mens-shop-by-activity",
     "nav-mobilemenu-mens": "mens-side-menu",
     "nav-img-1-mens": "shopify://shop_images/Capture_7.jpg",
     "nav-url-1-mens": "https://thegymking.com/collections/icons-2024/mens",
@@ -57,7 +57,7 @@
     "nav-url-2-mens": "shopify://collections/mens-new",
     "nav-txt-2-mens": "New",
     "nav-submenu-1-womens": "womens-shop-by-category-content-new",
-    "nav-submenu-2-womens": "womens-shop-by-discount",
+    "nav-submenu-2-womens": "womens-shop-by-activity",
     "nav-mobilemenu-womens": "womens-side-menu",
     "nav-img-1-womens": "shopify://shop_images/365_LONG_LINE_TANK_365_LEGGING_-_DEEP_CHERRY_WBT-BOEZ4_WLG-BOEWV_3-2.jpg",
     "nav-url-1-womens": "https://thegymking.com/collections/icons-2024/womens",
@@ -132,7 +132,9 @@
       },
       "drawer-cart": {
         "type": "drawer-cart",
-        "settings": {}
+        "settings": {
+          "microcopy": "none"
+        }
       },
       "wishlist-app-settings": {
         "type": "wishlist-app-settings",

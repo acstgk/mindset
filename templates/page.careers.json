@@ -12,24 +12,24 @@
     "main": {
       "type": "page-careers-main",
       "blocks": {
+        "link_igc3f3": {
+          "type": "link",
+          "settings": {
+            "linkurl": "shopify://metaobjects/jobs/strategic-growth-crm-manager",
+            "linktext": "Strategic Growth CRM Manager"
+          }
+        },
         "link_dmG7Ar": {
           "type": "link",
           "settings": {
             "linkurl": "shopify://pages/careers-fit-model",
             "linktext": "Fit Model"
           }
-        },
-        "link_M3zBtd": {
-          "type": "link",
-          "settings": {
-            "linkurl": "shopify://metaobjects/jobs/e-commerce-crm-growth-manager",
-            "linktext": "E-commerce & CRM Growth Manager"
-          }
         }
       },
       "block_order": [
-        "link_dmG7Ar",
-        "link_M3zBtd"
+        "link_igc3f3",
+        "link_dmG7Ar"
       ],
       "settings": {}
     }
