@@ -36,6 +36,8 @@
           <div class="tech-specs--item">{{ images['Bum_Sculpting.png'] | image_url: width: 112 | image_tag }}</div>
         {% when 'Breathable' %}
           <div class="tech-specs--item">{{ images['Breathable.png'] | image_url: width: 112 | image_tag }}</div>
+        {% else %}
+          <div class="tech-specs--item">{{ feature.title }}</div>
       {% endcase %}
     {% endfor %}
   </div>
