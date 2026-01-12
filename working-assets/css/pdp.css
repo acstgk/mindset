@@ -705,7 +705,7 @@ form .quantity-warning {
 .tech-specs--list {
   display: grid;
   grid-template-columns: revert;
-  grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(85px, 120px));
   gap: 0.75em;
 }
 
