@@ -229,3 +229,6 @@ infinite-scroll {
     grid-template-columns: repeat(auto-fit, minmax(335px, 1fr));
   }
 }
+.tagg-reset.tagg-balloon.tagg-quantity_orders.tagg-QP {
+  height: max(24px, min-content) !important
+}
