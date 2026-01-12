@@ -322,7 +322,7 @@
   {% endif %}
 </aside>
 {% comment %} END:: Product Details {% endcomment %}
-{% render 'pdp_description-tabs' show_extended: section.settings.show_extended-returns , extended_title: section.settings.extended-returns-title, extended_text: section.settings.extended-returns-text %}
+{% render 'pdp_description-tabs' show_desc: section.settings.show_description, show_extended: section.settings.show_extended-returns , extended_title: section.settings.extended-returns-title, extended_text: section.settings.extended-returns-text %}
 
 {% if is_set %}
   {% for part in is_set.value %}
@@ -340,11 +340,20 @@
     {
       "type": "checkbox",
       "id": "show_extended-returns",
-      "label": "Show Extended Returns"
+      "label": "Show Extended Returns",
+      "info": "If disabled, the Extended Returns section will not be displayed."
     },
     { "type": "text", "id": "extended-returns-title", "label": "Extended Returns Title", "visible_if": "{{ section.settings.show_extended-returns == true}}" },
     { "type": "richtext", "id": "extended-returns-text", "label": "Extended Returns Text", "visible_if": "{{ section.settings.show_extended-returns == true}}"  },
-    { "type": "checkbox", "id": "show_yotpo_points", "label": "Show Yotpo Points", "default": true }
+    {
+    "type": "checkbox",
+    "id": "show_description",
+    "label": "Show Description",
+    "default": true,
+    "info": "If disabled, the description section will not be expanded on load."
+    },
+    { "type": "checkbox", "id": "show_yotpo_points", "label": "Show Yotpo Points", "default": true,
+    "info": "If disabled, the Yotpo Points info will not be displayed below the add to bag button."}
   ]
 }
 {% endschema %}
