@@ -17,6 +17,14 @@
       {% if section.blocks.size > 0 %}
         <div id="current-vacancies">
           <h2 style="margin-bottom: 20px;" data-title>CURRENT VACANCIES</h2>
+
+          {% for job in shop.metaobjects.jobs.values %}
+            <a class="job-object button button-full button-inverted" href="{{ '/jobs/' | append: job.system.handle }}" data-role>
+              {{ job.title }}
+              {% render 'icon', icon: 'arrow' %}
+            </a>
+          {% endfor %}
+
           {% for block in section.blocks %}
             {% if block.settings.linkurl %}
               <a class="button button-full button-inverted" href="{{ block.settings.linkurl }}" data-role>
@@ -104,6 +112,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     width: 100%;
     gap: 2rem;
+    margin-bottom: 2rem;
     justify-items: center;
   }
   .careers--content h2 {
