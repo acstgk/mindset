@@ -484,6 +484,7 @@ slide-drawer {
   background-color: var(--c-white);
   color: var(--c-black);
 
+
   &>.max-width {
     display: grid;
     grid-template-columns: auto 2fr 1fr;
@@ -604,7 +605,12 @@ ul.header_desktop-menu {
   max-height: calc(100vh - 50px);
   z-index: -1;
   padding-top: 20px;
-  box-shadow: 0 0.5rem 0.5rem var(--c-shadow)
+}
+
+.header_menu-dropdown,
+header#shopify-section-header-main:has(.header_menu-item:hover) {
+  box-shadow: 0 .5rem .5rem var(--c-shadow), 0 1px 2px 0 rgb(12 12 12 / 0.2);
+  transition: box-shadow .15s var(--bezier);
 }
 
 .header_menu-item>a:hover+.header_menu-dropdown,

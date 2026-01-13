@@ -361,7 +361,6 @@ body.no-scroll page-overlay {
     transition: all 0.4s var(--bezier);
     opacity: 1;
     transform: translateY(0);
-    height: auto;
     pointer-events: all;
     visibility: visible;
 }
