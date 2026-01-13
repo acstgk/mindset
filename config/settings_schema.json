@@ -777,7 +777,8 @@
         "max": 20,
         "step": 1,
         "label": "Product Buffer",
-        "default": 0
+        "default": 0,
+        "info": "Only products with a total inventory move than this value will be displayed in carousels and search."
       }
     ]
   },

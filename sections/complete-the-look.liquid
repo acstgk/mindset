@@ -1,25 +1,48 @@
+{% comment %}
+  Dynamic 'Complete the Look' section.
+  1. Shows 'as-seen-in' if cart is empty.
+  2. Pulls complementary products from Shopify Search & Discovery app or manual 'productlink:' tags.
+  3. Filters recommendations based on a global inventory buffer.
+{% endcomment %}
+
 {% assign all_tags = product.tags | join: ',' %}
+
+{% comment %} Show fallback section if no items are in the cart {% endcomment %}
 {% if cart.item_count == 0 %}
   {% render 'as-seen-in' %}
 {% endif %}
 
-{% if all_tags contains 'productlink:' or  product.metafields['shopify--discovery--product_recommendation'].complementary_products.list?  %}
+{% comment %} Identify which variants are in stock and above the product buffer threshold {% endcomment %}
+{% assign instock_variants = '' %}
+{% for variant in product.variants %}
+  {% if variant.available and variant.inventory_quantity > settings.product_buffer %}
+    {% assign instock_variants = instock_variants | append: variant.title | append: '+' %}
+  {% endif %}
+{% endfor %}
+
+{% comment %} Check for recommendations: priority given to Search & Discovery metafields {% endcomment %}
+{% if all_tags contains 'productlink:' or product.metafields['shopify--discovery--product_recommendation'].complementary_products.list? %}
   <link rel="stylesheet" href="{{ 'complete-the-look.min.css' | asset_url }}">
   {% assign instockcount = 0 %}
   {% assign product_handles = '' %}
-  {% if  product.metafields['shopify--discovery--product_recommendation'].complementary_products.list?  %}
-
+  {% if product.metafields['shopify--discovery--product_recommendation'].complementary_products.list? %}
+    {% comment %} Iterate through Discovery App recommendations {% endcomment %}
     {% for product in product.metafields['shopify--discovery--product_recommendation'].complementary_products.value %}
+      {% comment %} Loop through the variants validate display {% endcomment %}
+
       {% assign inventory_quantity = 0 %}
       {% for variant in product.variants %}
         {% assign inventory_quantity = inventory_quantity | plus: variant.inventory_quantity %}
       {% endfor %}
+
+      {% comment %} Only add to list if total product stock is above the buffer {% endcomment %}
       {% if product.available and inventory_quantity > settings.product_buffer %}
         {% assign product_handles = product_handles | append: '+' | append: product.handle %}
         {% assign instockcount = instockcount | plus: 1 %}
       {% endif %}
     {% endfor %}
   {% else %}
+    {% comment %} Fallback: Manual 'productlink:ID+ID' tags {% endcomment %}
     {% assign tag = product.tags | where: 'productlink:' | first %}
     {% assign linked_products = tag | remove: 'productlink:' | split: '+' %}
     {% if linked_products.size >= 1 %}
@@ -29,7 +52,29 @@
             {% for product in collection.products %}
               {% assign linked_product_id = linked_product | plus: 0 %}
               {% if product.id == linked_product_id and product.available %}
-                {% unless product_handles contains product.handle %}
+                {% comment %} Aggregate total stock for the manually linked product {% endcomment %}
+                {% assign inventory_quantity = 0 %}
+                {% assign enough_stock = false %}
+                {% assign total_variants_available =  0  %}
+                {% assign total_variants =  0  %}
+                {% for variant in product.variants %}
+                  {% assign inventory_quantity = inventory_quantity | plus: variant.inventory_quantity %}
+                  {% if variant.inventory_quantity > settings.product_buffer %}
+                    {% assign total_variants_available =  total_variants_available | plus: 1  %}
+                    {% if instock_variants contains variant.title %}
+                      {% assign enough_stock = true %}
+                    {% endif %}
+                  {% endif %}
+                  {% if forloop.last %}
+                    {% assign total_variants = total_variants_available | times: 100 | divided_by: forloop.index %}
+                  {% endif %}
+                {% endfor %}
+                {% if enough_stock == false and total_variants > 49 %}
+                  {% assign enough_stock = true %}
+                {% endif %}
+
+
+                {% unless product_handles contains product.handle or inventory_quantity <= settings.product_buffer or enough_stock == false %}
                   {% assign product_handles = product_handles | append: '+' | append: product.handle %}
                   {% assign instockcount = instockcount | plus: 1 %}
                 {% endunless %}
@@ -41,17 +86,18 @@
     {% endif %}
   {% endif %}
 
-
-
+  {% comment %} Render the section if we have valid, in-stock recommendations {% endcomment %}
   {% if instockcount > 0 and product.type != 'Tracksuit Set' %}
     <div class="accent-bg">
       <h2 class="h1">COMPLETE THE LOOK</h2>
+      {% comment %} Desktop Carousel View {% endcomment %}
       <productcard-carousel id="completethelook">
         {% assign product_handles = product_handles | remove_first: '+' | split: '+' %}
         {% for handle in product_handles %}
           {%- render 'product-card' with all_products[handle] as product, class: 'splide__slide' -%}
         {% endfor %}
       </productcard-carousel>
+      {% comment %} Mobile Stacked View with ATC functionality {% endcomment %}
       <div id="completethelook--mobile" class="max-width">
         {% for handle in product_handles %}
           {% assign handle_product = all_products[handle] %}
