@@ -359,6 +359,7 @@ body.no-scroll page-overlay {
 .splide__slide.is-active .fade-in,
 .fade-in.active {
     transition: all 0.4s var(--bezier);
+    height: auto;
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
