@@ -1,7 +1,13 @@
 {% unless customer %}
-  <div class="seen-in">
-    <h3 class="h3 emphasis">As stocked by the UK's Leading Retailers</h3>
+  <div class="max-width seen-in">
+    <h3 class="h3 emphasis">stocked by the World's Leading Retailers</h3>
     <div class="icons-grid">
+      <div class="icons-grid--card splide__slide">
+        <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+          <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/selfridges.png?v=1765807122" alt="Selfridges & Co" width="150" height="26">
+        </div>
+        <p class="h5">Stocked in Selfridges & Co</p>
+      </div>
       <div class="icons-grid--card splide__slide">
         <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
           <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/next.webp?v=1765807122" alt="Next" width="84" height="20" style="height: 20px">
@@ -10,9 +16,9 @@
       </div>
       <div class="icons-grid--card splide__slide">
         <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
-          <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/selfridges.png?v=1765807122" alt="Selfridges & Co" width="150" height="26">
+          <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/jlp.webp?v=1765807122" alt="John Lewis" width="150" height="28">
         </div>
-        <p class="h5">Stocked in Selfridges & Co</p>
+        <p class="h5">Stocked in John Lewis</p>
       </div>
       <div class="icons-grid--card splide__slide">
         <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
@@ -22,16 +28,16 @@
       </div>
       <div class="icons-grid--card splide__slide">
         <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
-          <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/jlp.webp?v=1765807122" alt="John Lewis" width="150" height="28">
+          <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/frasers-group--logo.png?v=1768392322" alt="Frasers Group Stores" width="180" height="24">
         </div>
-        <p class="h5">Stocked in John Lewis</p>
+        <p class="h5">Stocked in Frasers Group Stores</p>
       </div>
     </div>
   </div>
 
   <style>
     .seen-in {
-      margin: 1rem 0 2rem;
+      margin: 1rem auto 2rem;
       padding: 2rem 0 1px 0;
     }
 
@@ -82,7 +88,7 @@
         arrows: false,
         fixedWidth: '150px',
         autoplay: true,
-        interval: 2000,
+        interval: 4000,
         speed: 1000,
         pauseOnHover: true,
         gap: '4rem',
