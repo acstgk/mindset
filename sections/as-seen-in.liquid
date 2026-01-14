@@ -1,4 +1,6 @@
-{% render 'as-seen-in' %}
+{% if cart.item_count == 0 %}
+  {% render 'as-seen-in' %}
+{% endif %}
 
 {% schema %}
 {
