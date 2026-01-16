@@ -220,32 +220,28 @@ blockquote {
 .success,
 .warning,
 .error,
-.info {
-  padding: 0.2rem 1rem;
+.info,
+.flag {
+  --color: var(--c-black);
+  padding: 0.5lh 2ch;
   display: inline-block;
   place-content: center;
   border-radius: var(--radius);
+  color: var(--colour);
+    background-color: oklch(from var(--colour) calc(l + 0.35) c h / 0.1);
+    border: 1px solid oklch(from var(--colour) calc(l + 0.175) c h / 0.2);
 }
-
 .success {
-  color: var(--c-success);
-  background-color: color-mix(in lab, var(--c-success), transparent 90%);
+  --colour: var(--c-success);
 }
-
 .error {
-  color: var(--c-error);
-  background-color: color-mix(in lab, var(--c-error), transparent 90%);
+  --colour: var(--c-error);
 }
-
 .warning {
-  color: var(--c-warning);
-  background-color: color-mix(in lab, var(--c-warning), transparent 90%);
+  --colour: var(--c-warning)
 }
-
 .info {
-  color: var(--c-info);
-  background-color: color-mix(in lab, var(--c-info), transparent 90%);
-
+  --colour: var(--c-info);
 }
 
 .emphasis {
@@ -268,14 +264,13 @@ blockquote {
   display: flex;
   align-items: center;
 
+  &:hover .title {
+      color: var(--c-grey);
+    }
   & .title {
     font-weight: 700;
     color: var(--c-black);
     transition: color .2s var(--bezier);
-    }
-
-    &:hover .title {
-      color: var(--c-grey);
   }
 
   & .colour {
@@ -939,6 +934,7 @@ li.disclosure__item a {
     scale: 1.1;
   }
 }
+
 ul.CountryList {
   position: absolute;
   background-color: white;
