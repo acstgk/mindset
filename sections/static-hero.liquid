@@ -11,9 +11,11 @@
     <h1 class="h3">{{ section.settings.heading }}</h1>
     {% render 'socials' %}
   </div>
-  <div class="static-hero--content rtf">
-    {{ section.settings.text }}
-  </div>
+  {% if section.settings.text != blank %}
+    <div class="static-hero--content rtf">
+      {{ section.settings.text }}
+    </div>
+  {% endif %}
 </div>
 
 {% schema %}
