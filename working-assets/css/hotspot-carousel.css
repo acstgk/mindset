@@ -125,7 +125,7 @@
   }
 
   .hotspot-card--content {
-    padding: 1rem;
+    padding: max(5vw, 5ch);
 
     & h3 {
       margin: 0;
