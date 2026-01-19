@@ -1,0 +1,516 @@
+<div class="PageContent max-width content-mosaic--wrapper">
+  {% for block in section.blocks %}
+    {% if block.type == 'grid-item' %}
+    <div
+      class="content-mosaic--item {% if block.settings.content_placement == 'overlay' %}item-overlay{% elsif block.settings.content_placement == '50' %}item-50{% endif %} {% if block.settings.grid_column_span < block.settings.grid_row_span %}stack-content{% endif %}"
+      style="--c-span:{{ block.settings.grid_column_span }};--r-span:{{ block.settings.grid_row_span }};--background:{{ block.settings.bg_color }};--txt-color:{{ block.settings.txt_color }};"
+    >
+      {% if block.settings.img %}
+        {{ block.settings.img | image_url: width: '1200' | image_tag: width: '1200', alt: block.settings.img_alt, class: block.settings.img_transition }}
+      {% else %}
+        <img src="https://placehold.co/400?text=IMAGE&font=oswald" alt="" height="400" width="400" class="{{ block.settings.img_transition  }}">
+      {% endif %}
+
+      {% unless block.settings.content_placement == 'hidden' %}
+        <div class="content-mosaic--content">
+          <h2 class="emphasis {{ block.settings.heading_size }}">{{ block.settings.title }}</h2>
+          {{ block.settings.text }}
+          {% if block.settings.cta_text != '' %}
+            <a class="button button-primary" style="max-width: 100%;--btn-bg:{{ block.settings.btn_color }}" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_text }}</a>
+          {% endif %}
+          {% if block.settings.cta_text2 != '' %}
+            <a class="button button-primary" style="max-width: 100%;--btn-bg:{{ block.settings.btn_color2 }}" href="{{ block.settings.cta_url2 | default: '#' }}">{{ block.settings.cta_text2 }}</a>
+          {% endif %}
+        </div>
+      {% endunless %}
+
+      {% case block.settings.flag %}
+        {% when 'best' %}
+          {% assign flag_colour = 'var(--c-warning)' %}
+          {% assign flag_copy = 'Fan Favourite' %}
+          {% assign flag_icon = 'star' %}
+        {% when 'soon' %}
+          {% assign flag_colour = 'var(--c-info)' %}
+          {% assign flag_copy = 'Coming Soon' %}
+          {% assign flag_icon = 'bell' %}
+        {% when 'limited' %}
+          {% assign flag_colour = '#701673ff' %}
+          {% assign flag_copy = 'Limited Edition' %}
+          {% assign flag_icon = 'diamond' %}
+        {% when 'legacy' %}
+          {% assign flag_colour = '#015b34ff' %}
+          {% assign flag_copy = 'From the Archive' %}
+          {% assign flag_icon = 'award' %}
+      {% endcase %}
+
+      {% unless block.settings.flag == '' %}
+        <div class="flag" style="--colour:{{ flag_colour }};">
+          {% render 'icon', icon: flag_icon %}
+          <span>{{ flag_copy }}</span>
+        </div>
+      {% endunless %}
+    </div>
+    {% elsif block.type == 'spacer' %}
+    <div class="spacer"></div>
+  {% endif %}
+  {% endfor %}
+</div>
+<style>
+  .content-mosaic--wrapper {
+    display: grid;
+    height: auto;
+    --grid-columns: 2;
+    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    gap: 1.5rem;
+    margin: 0.75rem auto;
+    align-items: stretch;
+
+     & .spacer {
+        grid-column: 1 / -1;
+        height:1px;
+        background-color: var(--c-black);
+        margin: 1rem 0;
+      }
+  }
+
+  .content-mosaic--item {
+    --c-span: 1;
+    --r-span: 1;
+    --actual-c-span: min(var(--c-span), var(--grid-columns));
+    --background: #f6f6f6;
+    background-color: var(--background);
+    width: 100%;
+    height: 100%;
+    grid-column: span var(--actual-c-span);
+    grid-row: span var(--r-span);
+    position: relative;
+    overflow: hidden;
+    color: var(--txt-color) !important;
+
+    & h2 {
+      margin: 0;
+      text-align: left;
+    }
+
+    & .content-mosaic--content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1lh;
+      padding: max(2rem, 2vh) max(1rem, 1vw);
+    }
+
+    &.item-overlay {
+      display: grid;
+      &>* {
+        grid-area: 1 / 1 / 2 / 2;
+        text-align: left;
+      }
+      & img {
+        height:100%;
+      }
+
+      & .content-mosaic--content {
+        width: 100%;
+        height: 100%;
+        text-shadow: 0 0 3px var(--c-dark-grey);
+        backdrop-filter: brightness(0.8);
+        transition: backdrop-filter 0.2s ease-in-out;
+        &:hover {
+          backdrop-filter: brightness(1);
+        }
+      }
+    }
+
+    &.item-50 {
+      display: flex;
+      flex-wrap: wrap;
+
+      & img {
+        width: 100%;
+        flex: 1 1 50%;
+        background-color: var(--background);
+
+        &.img-mask {
+          mask-image: linear-gradient(180deg, rgba(59, 59, 59, 100) 1%, rgba(52, 52, 52, 100) 70%, rgba(52, 52, 52, 0) 98%);
+        }
+      }
+
+      & .content-mosaic--content {
+        flex: 1 1 max-content;
+      }
+    }
+
+    & .flag {
+      position: absolute;
+      left: -2px;
+      top: min(30px, 5vw);
+      display: flex;
+      gap: 1ch;
+      width: max-content;
+      box-shadow: 0 0 5px var(--c-shadow);
+
+      & svg {
+        height: 1rem;
+      }
+
+      & span {
+        width: max-content;
+        display: block;
+      }
+    }
+
+    & img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .content-mosaic--wrapper {
+      --grid-columns: 4;
+    }
+
+    .content-mosaic--item {
+      aspect-ratio: var(--actual-c-span) / var(--r-span);
+
+      & .content-mosaic--content {
+        padding: max(1rem, 1vh) max(3rem, 3vw);
+        height: 100%;
+      }
+
+      & img {
+        height: 100%;
+        aspect-ratio: var(--actual-c-span) / var(--r-span);
+      }
+
+      &.item-50 {
+        &>* {
+          max-width: 50%;
+        }
+
+        & img.img-mask {
+          mask-image: linear-gradient(90deg, rgba(59, 59, 59, 100) 1%, rgba(52, 52, 52, 100) 70%, rgba(52, 52, 52, 0) 98%);
+        }
+
+        &.stack-content {
+          &>* {
+            max-width: 100%;
+            height: auto;
+          }
+          & img {
+            max-height: 50%;
+            &.img-mask {
+              mask-image: linear-gradient(180deg, rgba(59, 59, 59, 100) 1%, rgba(52, 52, 52, 100) 50%, rgba(52, 52, 52, 0) 97%);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .content-mosaic--item:has(.content-mosaic--content) {
+      grid-column: span 2 !important;
+    }
+  }
+
+</style>
+{% schema %}
+{
+  "name": "Content Mosaic",
+  "class": "section--content-mosaic",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "grid-item",
+      "name": "Grid Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Item Title"
+        },
+        {
+          "type": "select",
+          "options": [
+            { "label": "None", "value": "" },
+            { "label": "Best Sellers", "value": "best" },
+            { "label": "Coming Soon", "value": "soon" },
+            { "label": "Limited Edition", "value": "limited" },
+            { "label": "From the Archive", "value": "legacy" }
+          ],
+          "id": "flag",
+          "label": "Card Type",
+          "default": ""
+        },
+        {
+          "type": "header",
+          "content": "Grid Item Size"
+        },
+        {
+          "type": "select",
+          "id": "grid_column_span",
+          "label": "Item Width",
+          "options": [
+            { "label": "25%", "value": "1" },
+            { "label": "50%", "value": "2" },
+            { "label": "75%", "value": "3" },
+            { "label": "100%", "value": "4" }
+          ],
+          "default": "1"
+        },
+        {
+          "type": "select",
+          "id": "grid_row_span",
+          "label": "Item Height",
+          "options": [
+            { "label": "100%", "value": "1" },
+            { "label": "200%", "value": "2" }
+          ],
+          "default": "1"
+        },
+        {
+          "type": "header",
+          "content": "Media"
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "img_alt",
+          "label": "Image Alt Text",
+          "visible_if": "{{ block.settings.img != null }}",
+          "info": "alt text for the image SEO"
+        },
+        {
+          "type": "select",
+          "id": "img_transition",
+          "label": "Image Transition Style",
+          "options": [
+            { "label": "Normal", "value": "normal" },
+            { "label": "Fade In", "value": "img-mask" }
+          ],
+          "default": "normal"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "select",
+          "id": "content_placement",
+          "label": "Content Placement",
+          "options": [
+            { "label": "Overlay", "value": "overlay" },
+            { "label": "Split", "value": "50" },
+            { "label": "None", "value": "hidden" }
+          ],
+          "default": "hidden"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading Size",
+          "options": [
+            { "label": "H1", "value": "h1" },
+            { "label": "H2", "value": "h2" },
+            { "label": "H3", "value": "h3" },
+            { "label": "H4", "value": "h4" }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "visible_if": "{{ block.settings.content_placement != 'hidden' }}"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#f6f6f6",
+          "visible_if": "{{ block.settings.content_placement != 'hidden' }}"
+        },
+        {
+          "type": "color",
+          "id": "txt_color",
+          "label": "Text Color",
+          "default": "#1b1b1b",
+          "visible_if": "{{ block.settings.content_placement != 'hidden' }}"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text",
+          "default": "Shop Now",
+          "visible_if": "{{ block.settings.content_placement != 'hidden' }}"
+        },
+        {
+          "type": "url",
+          "id": "cta_url",
+          "label": "CTA URL",
+          "visible_if": "{{ block.settings.cta_text != '' }}"
+        },
+        {
+          "type": "color",
+          "id": "btn_color",
+          "label": "Button Color",
+          "default": "#1b1b1b",
+          "visible_if": "{{ block.settings.cta_text != '' }}"
+        },
+        {
+          "type": "text",
+          "id": "cta_text2",
+          "label": "CTA 2 Text",
+          "visible_if": "{{ block.settings.content_placement != 'hidden' }}"
+        },
+        {
+          "type": "url",
+          "id": "cta_url2",
+          "label": "CTA 2 URL",
+          "visible_if": "{{ block.settings.cta_text2 != '' }}"
+        },
+        {
+          "type": "color",
+          "id": "btn_color2",
+          "label": "Button 2 Color",
+          "default": "#eee",
+          "visible_if": "{{ block.settings.cta_text2 != '' }}"
+        }
+      ]
+    },
+    {"type": "spacer",
+    "name": "Spacer",
+    "settings": [
+    ]}
+  ],
+  "presets": [
+    {
+      "name": "Content Mosaic",
+      "category": "Content",
+      "blocks": {
+        "grid_item_HttinP": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "4",
+            "grid_row_span": "2",
+            "bg_color": "#f6f6f6",
+            "img_alt": "",
+            "flag": "best",
+            "cta_url": ""
+          }
+        },
+        "grid_item_pjrnWd": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "2",
+            "grid_row_span": "2",
+            "bg_color": "#f6f6f6",
+            "img_alt": "",
+            "flag": "soon",
+            "cta_url": ""
+          }
+        },
+        "grid_item_e3qjVp": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "bg_color": "#f6f6f6",
+            "img_alt": "",
+            "flag": "limited",
+            "cta_url": ""
+          }
+        },
+        "grid_item_6JNirK": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "bg_color": "#f6f6f6",
+            "img_alt": "",
+            "flag": "legacy",
+            "cta_url": ""
+          }
+        },
+        "grid_item_6NijUc": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "bg_color": "#f6f6f6",
+            "img_alt": "",
+            "flag": "legacy",
+            "cta_url": ""
+          }
+        },
+        "grid_item_bzcQ48": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "4",
+            "grid_row_span": "1",
+            "bg_color": "#ffffff",
+            "img_alt": "",
+            "flag": "best",
+            "cta_url": ""
+          }
+        },
+        "grid_item_8aCnLh": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "bg_color": "#f6f6f6",
+            "img_alt": "",
+            "flag": "",
+            "cta_url": ""
+          }
+        },
+        "grid_item_mMz6gh": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "bg_color": "#f6f6f6",
+            "img_alt": "",
+            "flag": "",
+            "cta_url": ""
+          }
+        },
+        "grid_item_KiFXzt": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "bg_color": "#f6f6f6",
+            "img_alt": "",
+            "flag": "",
+            "cta_url": ""
+          }
+        },
+        "grid_item_dVRfUD": {
+          "type": "grid-item",
+          "settings": {
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "bg_color": "#f6f6f6",
+            "img_alt": "",
+            "flag": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": ["grid_item_HttinP", "grid_item_pjrnWd", "grid_item_e3qjVp", "grid_item_6JNirK", "grid_item_6NijUc", "grid_item_bzcQ48", "grid_item_8aCnLh", "grid_item_mMz6gh", "grid_item_KiFXzt", "grid_item_dVRfUD"]
+    }
+  ]
+}
+{% endschema %}

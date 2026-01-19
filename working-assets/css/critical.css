@@ -227,19 +227,24 @@ blockquote {
   display: inline-block;
   place-content: center;
   border-radius: var(--radius);
+  backdrop-filter: blur(.5rem) contrast(0.5) brightness(1.5);
   color: var(--colour);
-    background-color: oklch(from var(--colour) calc(l + 0.35) c h / 0.1);
-    border: 1px solid oklch(from var(--colour) calc(l + 0.175) c h / 0.2);
+  background-color: oklch(from var(--colour) calc(l + 1.2) c h / 0.4);
+    border: 1px solid oklch(from var(--colour) calc(l + 0.2) c h / 0.5);
 }
+
 .success {
   --colour: var(--c-success);
 }
+
 .error {
   --colour: var(--c-error);
 }
+
 .warning {
   --colour: var(--c-warning)
 }
+
 .info {
   --colour: var(--c-info);
 }
@@ -265,8 +270,9 @@ blockquote {
   align-items: center;
 
   &:hover .title {
-      color: var(--c-grey);
+    color: var(--c-grey);
     }
+
   & .title {
     font-weight: 700;
     color: var(--c-black);

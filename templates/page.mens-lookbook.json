@@ -1,0 +1,385 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "static-hero",
+      "disabled": true,
+      "settings": {
+        "isFullheight": false,
+        "image": "shopify://shop_images/MENS1_a598af56-2b39-4220-ab1a-883b9d2e4583.jpg",
+        "heading": "Best of Mens",
+        "text": "",
+        "text_align": "end"
+      }
+    },
+    "content_mosaic_4xHKx9": {
+      "type": "content-mosaic",
+      "blocks": {
+        "grid_item_HttinP": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Fundamental Collection",
+            "flag": "best",
+            "grid_column_span": "4",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/fundamentalhoodie.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "50",
+            "heading_size": "h1",
+            "text": "<p>Our Top selling collection </p><p>⭐⭐⭐⭐⭐<br/><strong>\"A lovely quote from a lovely customer\" <br/></strong>- Mr <em>A Customer</em></p>",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#811922",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_fNzbHq": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/FUNDAMENTALHOOD_FUNDAMENTALJOGGER-DEEPPURPLEHDE-EOFFQTSB-EOFFU5.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_fp6Ckt": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/FUNDAMENTALLINEARQTRZIP_FUNDAMENTALLINEARSTRAIGHTLEGJOGGER-GREYMARLQZP-EOFG3TSB-EOFG63_4a161708-f131-493f-86ee-1dd10163718c.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_FY6Tj8": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/FUNDAMENTALCREW_FUNDAMENTALJOGGER-STORMTEALSWT-EOFFRTSB-EOFFT10_b6de9949-562a-4a37-92fe-c4559ac23d12.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_bLzy8f": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/FUNDAMENTALHOOD_FUNDAMENTALJOGGER-BLUESURGEHDE-EOFFPTSB-BOGF06.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "spacer_NTgzLG": {
+          "type": "spacer",
+          "settings": {}
+        },
+        "grid_item_pjrnWd": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Purpose 2.0",
+            "flag": "soon",
+            "grid_column_span": "2",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/PURPOSETEE_PURPOSESHORT-SOFTKHAKISST-BNTN4SHR-BNTN98.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "text": "<p><strong>The best gym set of 2025 is coming back in 2026.</strong></p>",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#ffffff",
+            "cta_text": "Don't Miss the launch",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_e3qjVp": {
+          "type": "grid-item",
+          "settings": {
+            "title": "GK X Bad Co",
+            "flag": "limited",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/Capture_158.jpg",
+            "img_alt": "",
+            "img_transition": "img-mask",
+            "content_placement": "50",
+            "heading_size": "h3",
+            "text": "<p>Building Foundations, this Limited Edition Drop sold out in 24 hours.</p>",
+            "bg_color": "#111518",
+            "txt_color": "#ffffff",
+            "cta_text": "SOLD OUT",
+            "cta_url": "",
+            "btn_color": "#ff0303",
+            "cta_text2": "Learn More",
+            "cta_url2": "",
+            "btn_color2": "#040708"
+          }
+        },
+        "grid_item_6JNirK": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Fight Divison",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/2._FD_Desktop_Cover_d68161c2-9ed3-4943-857b-ada94e4bc735.png",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "text": "<p>Built by fighters, for fighters.</p>",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#ffffff",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#7e7e7e",
+            "cta_text2": "Learn More",
+            "cta_url2": "",
+            "btn_color2": "#040708"
+          }
+        },
+        "spacer_HrA4FQ": {
+          "type": "spacer",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "grid_item_HttinP",
+        "grid_item_fNzbHq",
+        "grid_item_fp6Ckt",
+        "grid_item_FY6Tj8",
+        "grid_item_bLzy8f",
+        "spacer_NTgzLG",
+        "grid_item_pjrnWd",
+        "grid_item_e3qjVp",
+        "grid_item_6JNirK",
+        "spacer_HrA4FQ"
+      ],
+      "name": "Content Mosaic",
+      "settings": {}
+    },
+    "as_seen_in_Mp7zfK": {
+      "type": "as-seen-in",
+      "name": "As Seen In",
+      "settings": {}
+    },
+    "content_mosaic_VjHWx4": {
+      "type": "content-mosaic",
+      "blocks": {
+        "spacer_pX38eE": {
+          "type": "spacer",
+          "settings": {}
+        },
+        "grid_item_VUcr33": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Pro Logo",
+            "flag": "best",
+            "grid_column_span": "1",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/PRO-LOGO-TURB.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "50",
+            "heading_size": "h1",
+            "text": "<p>Classic Gym King.</p>",
+            "bg_color": "#080a0b",
+            "txt_color": "#eeeeee",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#435259",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eee"
+          }
+        },
+        "grid_item_dgHGCG": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/prologo355.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eee"
+          }
+        },
+        "grid_item_7DLbGU": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/PROLOG-35.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eee"
+          }
+        },
+        "grid_item_qGk4gY": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/pro-logo-mint.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h1",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eee"
+          }
+        },
+        "grid_item_BNKPRc": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/PROLOGOHOOD_JOGGER-DARKINDIGOHDE-A2CI2TSB-A2CI5_38.jpg",
+            "img_alt": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eee"
+          }
+        },
+        "spacer_WVM8GE": {
+          "type": "spacer",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "spacer_pX38eE",
+        "grid_item_VUcr33",
+        "grid_item_dgHGCG",
+        "grid_item_7DLbGU",
+        "grid_item_qGk4gY",
+        "grid_item_BNKPRc",
+        "spacer_WVM8GE"
+      ],
+      "name": "Content Mosaic",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "content_mosaic_4xHKx9",
+    "as_seen_in_Mp7zfK",
+    "content_mosaic_VjHWx4"
+  ]
+}
