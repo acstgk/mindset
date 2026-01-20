@@ -62,7 +62,6 @@
 
       & .Title {
         width: 0;
-        transition: width 0.15s var(--bezier);
         overflow: hidden;
         height: 0;
 
@@ -90,7 +89,7 @@
           width: auto;
           display: block;
           height: auto;
-          transition: width 0.15s var(--bezier), height 0.075s linear;
+          animation: product-flag 0.15s var(--bezier);
 
           & .title {
             width: auto;
@@ -231,3 +230,18 @@
       grid-column: span 2 !important;
     }
   }
+@keyframes product-flag {
+  0% {
+    width: 0;
+    height: 0
+  }
+
+  60% {
+    height: 0
+  }
+
+  100% {
+    width: auto;
+    height: auto;
+  }
+}
