@@ -9,7 +9,7 @@
     {{ section.settings.image | image_url: width: 2500 | image_tag: class: 'static-hero--image' }}
   {% endif %}
   <div class="static-hero--heading">
-    <span class="h1">Gym King</span>
+    <span class="h1">{{ section.settings.title }}</span>
     <h1 class="h3">{{ section.settings.heading }}</h1>
     {% render 'socials' %}
   </div>
@@ -42,6 +42,11 @@
       "id": "video",
       "label": "Video",
       "info": "Will autoplay on muted in a loop and therefore intended use is moving image background video, not interviews, talking heads etc."
+    },
+    {"type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Gym King"
     },
     {
       "type": "text",
