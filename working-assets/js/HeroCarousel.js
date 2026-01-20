@@ -8,12 +8,12 @@ export default class HeroCarousel extends HTMLElement {
   constructor() {
     super();
     this.splide = null;
+    this.storedGender = localStorage.getItem("GK::gender--content") || "mens";
+    this.slideNo = this.querySelector(".hero_slide[data-gender=" + this.storedGender + "]")?.dataset.index || 0;
   }
 
   connectedCallback() {
     SplideUtil.splideHTML(this);
-    this.storedGender = localStorage.getItem("GK::gender--content") | "";
-    this.slideNo = this.querySelector(".hero_slide[data-gender=mens]")?.dataset.index || 0;
     this.splide = new window.Splide(this, {
       type: "fade",
       autoplay: true,
@@ -21,7 +21,7 @@ export default class HeroCarousel extends HTMLElement {
       arrows: false,
       rewind: true,
       lazyLoad: "nearby",
-      start: this.slideNo,
+      start: Number(this.slideNo),
       preloadPages: 1,
       pauseOnHover: true,
     });
