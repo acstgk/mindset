@@ -491,7 +491,7 @@ slide-drawer {
     grid-template-columns: auto 2fr 1fr;
     gap: 15px;
     padding-inline: min(25px, 3vw);
-    width: min(98vw, 1500px);
+    width: min(98vw, 1400px);
   }
 
   & .Icon {
@@ -595,7 +595,7 @@ ul.header_desktop-menu {
   background: var(--c-white);
   position: fixed;
   top: 49px;
-  width: min(100vw, 1500px);
+  width: min(100vw, 1400px);
   margin: 0 auto;
   left: 50%;
   transform: translateX(-50%);

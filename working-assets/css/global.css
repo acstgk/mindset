@@ -64,7 +64,7 @@ hmtl>body.no-scroll {
 }
 
 .max-width {
-    width: min(90vw, 1270px);
+    width: min(90vw, 1400px);
     padding: 1em 0 0;
     margin: 0 auto;
 }

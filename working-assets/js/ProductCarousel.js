@@ -20,7 +20,7 @@ export default class ProductCarousel extends HTMLElement {
       pagination: false,
       trimSpace: false,
       focus: "center",
-      width: "min(90vw, 1270px)",
+      width: "min(90vw, 1400px)",
       fixedWidth: "25%",
       breakpoints: {
         1270: {

@@ -614,7 +614,7 @@ form .quantity-warning {
 
   .section--product_main {
     padding: 2vh 0 0;
-    width: min(90%, 1270px);
+    width: min(90%, 1400px);
     margin: 1em auto 0;
     display: grid;
     grid-template-columns: 1fr minmax(368px, 400px);
@@ -654,7 +654,7 @@ form .quantity-warning {
   }
 }
 
-@media screen and (width >=1200px) {
+@media screen and (width >=1400px) {
 
   .pdp-carousels-wrapper {
     display: flex;

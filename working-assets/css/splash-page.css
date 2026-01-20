@@ -1,6 +1,6 @@
  .section--splash-page {
    display: grid;
-   max-width: 1270px;
+  max-width: 1400px;
    margin: 0 auto;
 
    & .launchimg {
