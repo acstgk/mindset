@@ -22,15 +22,16 @@
             "overlay_url": "shopify://collections/womens-new",
             "content_alignment": "left",
             "lockup_width": 200,
-            "title": "New Arrivals",
-            "subtitle": "New Season",
+            "title": "",
+            "subtitle": "cozy knits",
+            "customHTML": "<p>NEW IN</p>",
             "subtitle_font": "signature",
-            "subtitle_first": true,
+            "subtitle_first": false,
             "cta1": "Shop New",
             "url1": "shopify://collections/womens-new",
             "cta2": "Shop Energy",
             "url2": "",
-            "target_gender": "womens"
+            "target_gender": ""
           }
         },
         "image_McwRfJ": {
@@ -45,7 +46,8 @@
             "lockup_img": "shopify://shop_images/Rebellion_Logo.png",
             "lockup_width": 200,
             "title": "New Season",
-            "subtitle": "New Look",
+            "subtitle": "New Menswear",
+            "customHTML": "",
             "subtitle_font": "",
             "subtitle_first": false,
             "cta1": "Shop New",
@@ -64,17 +66,18 @@
             "desktop_poster": "shopify://shop_images/International-Leggings-Day---Desktop-Banner.jpg",
             "overlay_url": "",
             "content_alignment": "right",
-            "lockup_img": "shopify://shop_images/mono-rebellion-logo.webp",
-            "lockup_width": 105,
+            "lockup_img": "shopify://shop_images/GK_Logos_GKW_-_Black.png",
+            "lockup_width": 150,
             "title": "Up to 50% OFF",
-            "subtitle": "All Black Leggings and stuff",
+            "subtitle": "Women's 365 Essentials",
+            "customHTML": "",
             "subtitle_font": "",
             "subtitle_first": false,
             "cta1": "Shop Now",
             "url1": "shopify://collections/black-leggings",
             "cta2": "",
             "url2": "",
-            "target_gender": ""
+            "target_gender": "womens"
           }
         }
       },
