@@ -74,6 +74,17 @@
     "blog_featured_articles_YgN7Qn": {
       "type": "blog-featured-articles",
       "blocks": {
+        "custom_i3NHtY": {
+          "type": "custom",
+          "settings": {
+            "heading_level": "h2",
+            "title": "The Stoic Games: A Unique Challenge Combining Physical Discipline and Mental Resilience",
+            "copy": "<p>Gym King, in collaboration with British author, ultra marathon athlete, and sea swimmer, Ross Edgley, proudly presents The Stoic Games, a first-of-its-kind athletic and philosophical challenge.</p>",
+            "url": "shopify://pages/stoic",
+            "cta": "Read more",
+            "image": "shopify://shop_images/STOIC_GAMES_-_DESKTOP_BANNER_6aecd09c-6c17-4570-aff3-0485c397cdd6.png"
+          }
+        },
         "custom_BbJahq": {
           "type": "custom",
           "settings": {
@@ -109,6 +120,7 @@
         },
         "custom_beeCQN": {
           "type": "custom",
+          "disabled": true,
           "settings": {
             "heading_level": "h2",
             "title": "Simpson's War at Oakwell: Zucco Stopped, European Gold Secured",
@@ -120,6 +132,7 @@
         },
         "article_dgXE3x": {
           "type": "article",
+          "disabled": true,
           "settings": {
             "heading_level": "h2",
             "article": "posts/gkw-x-girlhood-uk-run-club-event"
@@ -127,6 +140,7 @@
         }
       },
       "block_order": [
+        "custom_i3NHtY",
         "custom_BbJahq",
         "custom_JQwxcf",
         "custom_pJiF7B",
@@ -272,21 +286,22 @@
         "card_mRrDVx": {
           "type": "card",
           "settings": {
-            "title": "Hotspots Card Title",
-            "description": "This is a description paragraph for the hotspot card.",
+            "title": "Shop Maisie Smith's GKW Top Picks",
+            "description": "Grow with confidence and shop Maisie’s favourite GKW looks.",
             "image": "shopify://shop_images/LIMITLESSMESHBOYFRIENDTEE_LIMITLESSSEAMLESSSCULPTLEGGING_LIMITLESSWAFFLESCRUNCHIE-WHITEBLUEBOLDBLUEANIMALPRINTCREAMWST-BOETUWLG-BOETNACC-BOEU5_131_84d8d0fc-22bb-4925-81bd-31b841a977f8.jpg",
             "cta_text": "Learn more",
             "link_url": "shopify://metaobjects/ambassadors/maisie-smith",
             "product1": "gym-king-limitless-seamless-sculpt-legging-bold-blue-animal-print",
-            "product1_x": 60,
-            "product1_y": 30,
+            "product1_x": 40,
+            "product1_y": 60,
             "product2": "gym-king-limitless-crop-mesh-tee-white-blue",
-            "product2_x": 40,
-            "product2_y": 60
+            "product2_x": 60,
+            "product2_y": 30
           }
         },
         "card_pKJgqQ": {
           "type": "card",
+          "disabled": true,
           "settings": {
             "title": "Liam McAleese Top Picks",
             "description": "This is a description paragraph for the hotspot card.",
@@ -394,6 +409,31 @@
         "image_fit": "contain",
         "aspect_ratio": 2.4
       }
+    },
+    "content_rich_text_xHFFe9": {
+      "type": "content-rich-text",
+      "blocks": {
+        "html_EtGyqW": {
+          "type": "html",
+          "settings": {
+            "custom_html": "<div class=\"yotpo yotpo-pictures-widget\" data-gallery-id=\"68dfcf724ebd9195ec0b4455\"></div>"
+          }
+        }
+      },
+      "block_order": [
+        "html_EtGyqW"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "How you're wearing it",
+        "heading_style": "emphasis",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
     }
   },
   "order": [
@@ -406,6 +446,7 @@
     "blog_event_grid_gGXdPj",
     "section_in_page_nav_6bRQnP",
     "content_hotspot_carousel_rktLCX",
-    "content_icon_grid_gqk3x3"
+    "content_icon_grid_gqk3x3",
+    "content_rich_text_xHFFe9"
   ]
 }
