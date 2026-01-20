@@ -7,13 +7,16 @@
   {% render 'product-title', product: 'Featured Product', header: 'true'%}
 {% enddoc %}
 
+
 {% if heading == 'true' %}
   {% assign element_type = 'h1' %}
 {% else %}
   {% assign element_type = 'span' %}
 {% endif %}
 
+
 {%- if product.title contains '-' or product.title contains '–' %}
+
   {%- assign product_title = product.title | replace: '–', '-' | split: '-' -%}
   <a class="Title" href="{%if product.available %}{{ product.url }}{% else %}#{% endif %}">
     <{{ element_type }} class="{%- if heading -%}h4{% endif %} title">
