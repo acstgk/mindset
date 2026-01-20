@@ -1,14 +1,14 @@
-  .content-mosaic--wrapper {
-    display: grid;
-    height: auto;
-    --grid-columns: 2;
-    grid-template-columns: repeat(var(--grid-columns), 1fr);
-    grid-auto-flow: dense;
-    gap: 1.5rem;
-    margin: 0.75rem auto;
-    align-items: stretch;
+.content-mosaic--wrapper {
+  display: grid;
+  height: auto;
+  --grid-columns: 2;
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
+  grid-auto-flow: dense;
+  gap: 1.5rem;
+  margin: 0.75rem auto;
+  align-items: stretch;
 
-    & .spacer {
+  & .spacer {
       grid-column: 1 / -1;
       height: 1px;
       background-color: var(--c-black);
@@ -16,21 +16,21 @@
     }
   }
 
-  .content-mosaic--item {
-    --c-span: 1;
-    --r-span: 1;
-    --actual-c-span: min(var(--c-span), var(--grid-columns));
-    --background: #f6f6f6;
-    background-color: var(--background);
-    width: 100%;
-    height: 100%;
-    grid-column: span var(--actual-c-span);
-    grid-row: span var(--r-span);
-    position: relative;
-    overflow: hidden;
-    color: var(--txt-color) !important;
+.content-mosaic--item {
+  --c-span: 1;
+  --r-span: 1;
+  --actual-c-span: min(var(--c-span), var(--grid-columns));
+  --background: #f6f6f6;
+  background-color: var(--background);
+  width: 100%;
+  height: 100%;
+  grid-column: span var(--actual-c-span);
+  grid-row: span var(--r-span);
+  position: relative;
+  overflow: hidden;
+  color: var(--txt-color) !important;
 
-    & h2 {
+  & h2 {
       margin: 0;
       text-align: left;
     }
@@ -52,98 +52,98 @@
       align-items: center;
       z-index: 1;
 
-      & svg {
+    & svg {
         flex: 0 0 auto;
       }
 
-      & .colour {
-        display: none;
-      }
+        & .colour {
+          display: none;
+        }
 
-      & .Title {
-        width: 0;
-        overflow: hidden;
-        height: 0;
+        & .Title {
+          width: 0;
+          overflow: hidden;
+          height: 0;
 
-        &:hover {
+      &:hover {
           color: black !important;
         }
       }
-    }
+      }
 
     & .content-mosaic--media {
       position: relative;
       overflow: hidden;
 
-      &:only-child {
+    &:only-child {
         height: 100%;
 
-        &>img {
+      &>img {
           height: 100%;
         }
       }
 
-      &:hover,
-      &:focus {
-        & .Title {
-          width: auto;
-          display: block;
-          height: auto;
-          animation: product-flag 0.15s var(--bezier);
+        &:hover,
+        &:focus {
+          & .Title {
+            width: auto;
+            display: block;
+            height: auto;
+            animation: product-flag 0.15s var(--bezier);
 
-          & .title {
+        & .title {
             width: auto;
             height: auto;
             display: block;
-            color: var(--c-black)
+          color: var(--c-black);
           }
-        }
-      }
-    }
+          }
+          }
+          }
 
     &.item-overlay {
       display: grid;
 
-      &>* {
+    &>* {
         grid-area: 1 / 1 / 2 / 2;
         text-align: left;
       }
 
-      & img {
-        height: 100%;
-      }
+        & img {
+          height: 100%;
+        }
 
-      & .content-mosaic--content {
-        width: 100%;
-        height: 100%;
-        text-shadow: 0 0 3px var(--c-dark-grey);
-        backdrop-filter: brightness(0.8);
-        transition: backdrop-filter 0.2s ease-in-out;
+        & .content-mosaic--content {
+          width: 100%;
+          height: 100%;
+          text-shadow: 0 0 3px var(--c-dark-grey);
+          backdrop-filter: brightness(0.8);
+          transition: backdrop-filter 0.2s ease-in-out;
 
-        &:hover {
+      &:hover {
           backdrop-filter: brightness(1);
         }
       }
-    }
+      }
 
     &.item-50 {
       display: flex;
       flex-wrap: wrap;
 
-      & img {
+    & img {
         width: 100%;
         flex: 1 1 50%;
         background-color: var(--background);
 
-        &.img-mask {
+      &.img-mask {
           mask-image: linear-gradient(180deg, rgba(59, 59, 59, 100) 1%, rgba(52, 52, 52, 100) 70%, rgba(52, 52, 52, 0) 98%);
         }
       }
 
-      & .content-mosaic--content {
-        flex: 1 1 max-content;
-      }
-    }
+        & .content-mosaic--content {
+          flex: 1 1 max-content;
+        }
+        }
 
     & .flag {
       position: absolute;
@@ -154,15 +154,15 @@
       width: max-content;
       box-shadow: 0 0 5px var(--c-shadow);
 
-      & svg {
+    & svg {
         height: 1rem;
       }
 
-      & span {
-        width: max-content;
-        display: block;
-      }
-    }
+        & span {
+          width: max-content;
+          display: block;
+        }
+        }
 
     & img {
       width: 100%;
@@ -170,74 +170,75 @@
       display: block;
       object-fit: cover;
     }
-  }
-
-  @media screen and (min-width: 768px) {
-    .content-mosaic--wrapper {
-      --grid-columns: 4;
     }
+
+@media screen and (min-width: 768px) {
+  .content-mosaic--wrapper {
+    --grid-columns: 4;
+  }
 
     .content-mosaic--item {
       aspect-ratio: var(--actual-c-span) / var(--r-span);
 
-      & .content-mosaic--content {
+    & .content-mosaic--content {
         padding: max(1rem, 1vh) max(3rem, 3vw);
         height: 100%;
       }
 
-      & img {
-        height: 100%;
-        aspect-ratio: var(--actual-c-span) / var(--r-span);
-      }
+        & img {
+          height: 100%;
+          aspect-ratio: var(--actual-c-span) / var(--r-span);
+        }
 
-      &.item-50 {
-        &>* {
+        &.item-50 {
+      &>* {
           max-width: 50%;
         }
 
-        & img.img-mask {
-          mask-image: linear-gradient(90deg, rgba(59, 59, 59, 100) 1%, rgba(52, 52, 52, 100) 70%, rgba(52, 52, 52, 0) 98%);
-        }
+            & img.img-mask {
+              mask-image: linear-gradient(90deg, rgba(59, 59, 59, 100) 1%, rgba(52, 52, 52, 100) 70%, rgba(52, 52, 52, 0) 98%);
+            }
 
-        &.stack-content {
-          &>* {
+            &.stack-content {
+        &>* {
             max-width: 100%;
             height: auto;
           }
 
-          & .content-mosaic--media {
-            max-height: 50%;
-          }
+                & .content-mosaic--media {
+                  max-height: 50%;
+                }
 
-          & img {
-            max-height: 100%;
+                & img {
+                  max-height: 100%;
 
-            &.img-mask {
+          &.img-mask {
               mask-image: linear-gradient(180deg, rgba(59, 59, 59, 100) 1%, rgba(52, 52, 52, 100) 50%, rgba(52, 52, 52, 0) 97%);
             }
           }
-        }
-      }
-    }
+          }
+          }
+          }
 
     & .content-mosaic--media {
       height: 100%;
     }
-  }
-
-  @media screen and (max-width: 500px) {
-    .content-mosaic--item:has(.content-mosaic--content) {
-      grid-column: span 2 !important;
     }
+
+@media screen and (max-width: 500px) {
+  .content-mosaic--item:has(.content-mosaic--content) {
+    grid-column: span 2 !important;
   }
+}
+
 @keyframes product-flag {
   0% {
     width: 0;
-    height: 0
+    height: 0;
   }
 
   60% {
-    height: 0
+    height: 0;
   }
 
   100% {
