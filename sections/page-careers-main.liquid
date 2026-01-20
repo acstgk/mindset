@@ -19,7 +19,7 @@
           <h2 style="margin-bottom: 20px;" data-title>CURRENT VACANCIES</h2>
 
           {% for job in shop.metaobjects.jobs.values %}
-            <a class="job-object button button-full button-inverted" href="{{ '/jobs/' | append: job.system.handle }}" data-role>
+            <a class="job-object button button-full button-inverted" href="{{ '/pages/careers/' | append: job.system.handle }}" data-role>
               {{ job.title }}
               {% render 'icon', icon: 'arrow' %}
             </a>
