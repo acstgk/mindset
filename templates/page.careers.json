@@ -12,21 +12,15 @@
     "main": {
       "type": "page-careers-main",
       "blocks": {
-        "link_igc3f3": {
-          "type": "link",
-          "settings": {
-            "linkurl": "shopify://metaobjects/jobs/strategic-growth-crm-manager"
-          }
-        },
         "link_dmG7Ar": {
           "type": "link",
           "settings": {
-            "linkurl": "shopify://pages/careers-fit-model"
+            "linkurl": "shopify://pages/careers-fit-model",
+            "title": "Fit Model"
           }
         }
       },
       "block_order": [
-        "link_igc3f3",
         "link_dmG7Ar"
       ],
       "settings": {}
