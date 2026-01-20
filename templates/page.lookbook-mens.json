@@ -9,15 +9,19 @@
  */
 {
   "sections": {
-    "hero": {
+    "static_hero_tV68kr": {
       "type": "static-hero",
-      "disabled": true,
+      "custom_css": [
+        ".social-links {opacity: 0; pointer-events: none;}"
+      ],
+      "name": "Static Hero",
       "settings": {
         "isFullheight": false,
-        "image": "shopify://shop_images/MENS1_a598af56-2b39-4220-ab1a-883b9d2e4583.jpg",
-        "heading": "Best of Mens",
-        "text": "",
-        "text_align": "end"
+        "image": "shopify://shop_images/Q4_25_REBELLION1044.jpg",
+        "title": "The Best of Gym King",
+        "heading": "Product Showcase",
+        "text": "<p> Whether you're new to GK or a loyal ambassador, this page has been curated to showcase our favourite and best selling collections from the past, present and future.</p>",
+        "text_align": "start"
       }
     },
     "content_mosaic_4xHKx9": {
@@ -529,7 +533,7 @@
     }
   },
   "order": [
-    "hero",
+    "static_hero_tV68kr",
     "content_mosaic_4xHKx9",
     "as_seen_in_Mp7zfK",
     "content_mosaic_VjHWx4",
