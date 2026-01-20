@@ -130,6 +130,9 @@
     & h3 {
       margin: 0;
     }
+& p {
+  margin-left: 0;
+}
   }
 
   @media screen and (width > 768px) {
