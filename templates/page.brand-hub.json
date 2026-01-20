@@ -14,8 +14,10 @@
       "settings": {
         "isFullheight": false,
         "image": "shopify://shop_images/SCULPT_LS_TEE_SHORT_-_STONE_BLUE_WLT-A2DAD_WSR-A2DAM_50_d91d9ed9-051d-4a58-ba05-900b636939a1.jpg",
+        "title": "Gym King",
         "heading": "Brand Hub",
-        "text": "<p>We believe that if you have something to prove and the mindset to prove it, anything is possible. We hope you enjoy your experience in the brand hub. Find out latest news, events, interviews from our ambassadors and motivational content in our training hub.</p>"
+        "text": "<p>We believe that if you have something to prove and the mindset to prove it, anything is possible. We hope you enjoy your experience in the brand hub. Find out latest news, events, interviews from our ambassadors and motivational content in our training hub.</p>",
+        "text_align": "end"
       }
     },
     "spacer": {
@@ -363,6 +365,15 @@
             "cta": "Fighting Fit",
             "link_url": "https://fightingfitmanchester.com"
           }
+        },
+        "icon_YBUgYQ": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/POWERHOUSE.png",
+            "title": "Wakefield",
+            "cta": "Powerhouse Fight Club",
+            "link_url": "shopify://metaobjects/gyms/powerhouse-fight-club"
+          }
         }
       },
       "block_order": [
@@ -371,7 +382,8 @@
         "icon_ffaiAA",
         "icon_bapWrw",
         "icon_iPMkjc",
-        "icon_4BDGAz"
+        "icon_4BDGAz",
+        "icon_YBUgYQ"
       ],
       "name": "Icon Grid",
       "settings": {

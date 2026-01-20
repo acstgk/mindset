@@ -30,7 +30,7 @@
         "grid_item_HttinP": {
           "type": "grid-item",
           "settings": {
-            "title": "Fundamental Collection",
+            "title": "The Fundamental Collection",
             "flag": "best",
             "grid_column_span": "4",
             "grid_row_span": "2",
@@ -40,7 +40,7 @@
             "img_transition": "normal",
             "content_placement": "50",
             "heading_size": "h1",
-            "text": "<p>Our Top selling collection </p><p>⭐⭐⭐⭐⭐<br/><strong>\"A lovely quote from a lovely customer\" <br/></strong>- Mr <em>A Customer</em></p>",
+            "text": "<p>Our top selling collection is the essential range featuring premium fabrics, cuts and embroidered branding. </p><p>Designs include versatile Jersey Tees & Shorts & Fleece Tracksuits. </p><p>⭐ ⭐ ⭐ ⭐ ⭐<br/><strong>\"A lovely quote from a lovely customer\" <br/></strong>- Mr <em>A Customer</em></p>",
             "bg_color": "#f6f6f6",
             "txt_color": "#1b1b1b",
             "cta_text": "Shop Now",

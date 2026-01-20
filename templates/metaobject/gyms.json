@@ -69,6 +69,15 @@
             "cta": "Fighting Fit",
             "link_url": "https://fightingfitmanchester.com"
           }
+        },
+        "icon_z7hmqN": {
+          "type": "icon",
+          "settings": {
+            "icon_image": "shopify://shop_images/POWERHOUSE.png",
+            "title": "Wakefield",
+            "cta": "Powerhosue Fight Club",
+            "link_url": "shopify://metaobjects/gyms/powerhouse-fight-club"
+          }
         }
       },
       "block_order": [
@@ -77,7 +86,8 @@
         "icon_ffaiAA",
         "icon_bapWrw",
         "icon_iPMkjc",
-        "icon_4BDGAz"
+        "icon_4BDGAz",
+        "icon_z7hmqN"
       ],
       "name": "Icon Grid",
       "settings": {
