@@ -23,7 +23,7 @@
             data-quote-attribution="- {{  block.settings.quote_author }}"
           {% endunless %}
           class="
-            splide__slide {% if section.settings['background-image'] %}
+            {% if section.settings['background-image'] %}
               contrast
             {% endif %}
           "
