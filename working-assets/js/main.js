@@ -1411,7 +1411,7 @@ if (!customElements.get("cart-upsells")) {
        * Auto-open the upsells accordion on large viewports (>= 1000px height) or low item counts
        */
       autoOpenOnLargeScreens() {
-        console.log("Auto-open upsells :: checked");
+        // console.log("Auto-open upsells :: checked");
         const viewportHeight = window.innerHeight;
         const itemCount = Cart?.cart?.items?.length || 0;
         if (viewportHeight >= 1000 || (viewportHeight < 1000 && itemCount < 2)) {
