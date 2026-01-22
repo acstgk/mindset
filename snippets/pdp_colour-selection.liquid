@@ -2,7 +2,7 @@
 {% assign this_url = product.url %}
 
 {%- assign top_types = 'Tee,Hood,Jacket,Gilet,Top,Sweatshirt,Vest,Bra,Polo' | split: ',' -%}
-{%- assign bottom_types = 'Bottoms,Leggings,Shorts,Skirt' | split: ',' -%}
+{%- assign bottom_types = 'Bottoms,Leggings,Skirt' | split: ',' -%}
 {%- assign crop_origin = 'center' -%}
 
 {%- for type in top_types -%}
@@ -28,7 +28,7 @@
                 {% assign found_products = found_products | append: ' ' | append: product.id %}
                 <a
                   style="background: {{ product.metafields.product.colour.value.hex }}"
-                  class="colour-swatches {% if this_url == product.url %}active{% endif %}"
+                  class="colour-swatches {%- if this_url == product.url %} active{% endif -%}"
                   href="{% if this_url == product.url %}#{%else%}{{ product.url }}{% endif %}"
                   pid="{{ product.id }}"
                 >
