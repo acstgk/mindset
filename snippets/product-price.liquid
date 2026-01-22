@@ -8,7 +8,6 @@
 {% enddoc %}
 
 {% if product.final_price %}
-  {% assign inventory = product.variant.inventory_quantity | minus: settings.product_buffer %}
   {% assign price = product.final_price %}
   {% assign compare_at_price = product.product.compare_at_price %}
   {% assign product = product.product %}
@@ -29,6 +28,9 @@
     {% assign compare_at_price = product.compare_at_price %}
   {% endif %}
 {% endif %}
+
+
+{% assign inventory = product.inventory_quantity | minus: settings.product_buffer %}
 
 <div class="Price--wrapper">
   {% unless price >= compare_at_price or compare_at_price == null or compare_at_price == 0 %}
@@ -57,31 +59,20 @@
     {%- endif -%}
   </span>
 
-  {% if template.name contains 'cart' and inventory < 6 and inventory > 0 and product.requires_selling_plan == false %}
-    <div class="Price--saving error">
-      {% if inventory == 1 %}
-        Last One
-      {% else %}
-        Only {{ inventory }} left
-      {% endif %}
-    </div>
-  {% else %}
-    {% if inventory < 15 and product.inventory_management %}
-      {% if inventory == 1 and product.inventory_management %}
-        <span class="Price--saving error">Last One!</span>
-      {% elsif inventory == 0 and product.inventory_management %}
-        <span class="Price--saving error">Out of Stock</span>
-      {% else %}
-      <span class="Price--saving warning">Only {{ inventory }} left</span>
-      {% endif %}
-    {% elsif compare_at_price > price and product.available %}
-      {% assign saving = compare_at_price | minus: price %}
-      {% assign compare_pc = compare_at_price | divided_by: 100 %}
-      {% assign saving_pc = saving | divided_by: compare_pc %}
-      <span class="Price--saving success">-{{ saving_pc | floor }}%</span>
-    {% elsif product.available == false %}
+  {% if inventory < 10 and product.inventory_management %}
+    {% if inventory == 1 and product.inventory_management %}
+      <span class="Price--saving error">Last One!</span>
+    {% elsif inventory == 0 and product.inventory_management %}
       <span class="Price--saving error">Out of Stock</span>
-
+    {% else %}
+      <span class="Price--saving warning">Only {{ inventory }} left</span>
     {% endif %}
+  {% elsif compare_at_price > price and product.available %}
+    {% assign saving = compare_at_price | minus: price %}
+    {% assign compare_pc = compare_at_price | divided_by: 100 %}
+    {% assign saving_pc = saving | divided_by: compare_pc %}
+    <span class="Price--saving success">-{{ saving_pc | floor }}%</span>
+  {% elsif product.available == false %}
+    <span class="Price--saving error">Out of Stock</span>
   {% endif %}
 </div>
