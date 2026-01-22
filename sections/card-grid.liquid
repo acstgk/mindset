@@ -18,6 +18,16 @@
       </div>
     {% endfor %}
   </div>
+  {% if section.settings.cta_1_url != blank and section.settings.cta_2_url != blank %}
+    <div class="trending-color-ctas">
+      {% if section.settings.cta_1_url != blank %}
+        <a href="{{ section.settings.cta_1_url }}" class="button button-primary mens-gender-filter fade-in">{{ section.settings.cta_1_text }}{% render 'icon', icon: 'arrow' %}</a>
+      {% endif %}
+      {% if section.settings.cta_2_url != blank %}
+        <a href="{{ section.settings.cta_2_url }}" class="button button-primary womens-gender-filter fade-in">{{ section.settings.cta_2_text }}{% render 'icon', icon: 'arrow' %}</a>
+      {% endif %}
+    </div>
+  {% endif %}
 </div>
 
 {% schema %}
@@ -29,6 +39,26 @@
       "type": "text",
       "id": "title",
       "label": "Block Title"
+    },
+    {
+      "type": "url",
+      "id": "cta_1_url",
+      "label": "Mens CTA URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_1_text",
+      "label": "Mens CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_2_url",
+      "label": "Womens CTA URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_2_text",
+      "label": "Womens CTA Text"
     }
   ],
   "blocks": [

@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  padding-bottom: 80px
+  padding-bottom: 2rem
 }
 
 .trending-color-card {
@@ -59,4 +59,15 @@
   max-width: 100%;
   width: -moz-max-content;
   width: max-content
+}
+.trending-color-ctas {
+  margin: 0 auto;
+  padding-bottom: 4rem;
+  display: grid;
+  justify-content: center;
+
+  &>* {
+    grid-area: 1 / 1;
+
+  }
 }
