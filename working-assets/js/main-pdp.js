@@ -440,7 +440,7 @@ if (!customElements.get("enhanced-atc")) {
 
         if (this.allGroups.length == 1) {
           const availableQty = this.querySelector('input[type="radio"]:checked')?.dataset.availableQty;
-          if (availableQty < 20 && availableQty > 0) {
+          if (availableQty < 10 && availableQty > 0) {
             let warningLevel;
             availableQty == 1 ? (this.quantityWarningEl.textContent = `Hurry! this is the last one.`) : (this.quantityWarningEl.textContent = `Popular - only ${availableQty} left!`);
             availableQty == 1 ? (warningLevel = "error") : (warningLevel = "warning");
