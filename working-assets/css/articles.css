@@ -82,6 +82,7 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
   min-height: 15rem;
+  width: 100%;
 
   & .event-meta {
     position: absolute;
