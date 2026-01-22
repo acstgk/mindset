@@ -61,6 +61,9 @@
               >
               <button
                 class="button button-secondary qty-button quantity-plus"
+                {% if item.quantity == item.variant.inventory_quantity %}
+                  disabled
+                {% endif %}
                 data-new-qty="{{ item.quantity | plus: 1 }}"
               >
                 {% render 'icon', icon: 'plus' %}
