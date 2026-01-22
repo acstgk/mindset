@@ -974,13 +974,14 @@ ul.CountryList {
     border-block: 1px solid rgba(27, 27, 27, 0.15);
     border-inline: none;
     box-shadow: -5px -5px 0px 5px white, 0 3px 6px 0px rgba(27, 27, 27, 0.15);
-    left: -5px;
+    left: 205px;
     max-height: 80dvh !important;
     right: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     margin-top: 5px;
     padding-top: 0;
+    position: fixed;
   }
 
   .countrydesktop {
