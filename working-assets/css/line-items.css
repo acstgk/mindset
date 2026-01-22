@@ -118,6 +118,10 @@
    height: 36px;
    padding: 0;
    border: 1px solid var(--c-light-grey);
+&:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
  }
 
  .quantity-zero {
