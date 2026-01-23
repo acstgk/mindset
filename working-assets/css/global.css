@@ -169,7 +169,7 @@ button.splide__pagination__page {
     margin: 0.75rem auto;
     transition: background-color 0.2s ease;
 
-    &:hover {
+    &:not(:disabled):hover {
         background-color: var(--c-dark-grey);
     }
 
@@ -210,7 +210,7 @@ productcard-carousel .splide__arrow {
     fill: var(--c-grey);
     transition: fill 0.2s ease, scale 0.2s ease;
 
-    &:hover {
+    &:not(:disabled):hover {
         fill: var(--c-dark-grey);
         scale: 1.1;
     }
@@ -466,11 +466,11 @@ button {
     transition: scale 0.15s ease;
     border-radius: var(--radius);
 
-    &:hover {
+    &:not(:disabled):hover {
             scale: 1.02;
         }
 
-    &:active {
+                &:not(:disabled):active {
         scale: 0.95;
     }
 }
@@ -516,7 +516,7 @@ button {
         transition: top .1s ease-out;
     }
 
-    &:hover {
+                &:not(:disabled):hover {
         color: var(--c-white);
 
         &::after {
@@ -592,7 +592,7 @@ button {
         margin-top: 0;
     }
 
-        &:hover {
+                                &:not(:disabled):hover {
             scale: 1.1;
         }
 }

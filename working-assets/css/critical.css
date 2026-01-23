@@ -302,7 +302,7 @@ blockquote {
 
 .Price--wrapper {
   display: flex;
-  align-items: center;
+  align-items: anchor-center;
   gap: 0.5em;
 }
 
@@ -330,9 +330,9 @@ blockquote {
   display: block;
   width: fit-content;
   text-transform: uppercase;
-  padding: 0.4em 1em 0.2em;
+  padding: 0.4lh 2ch 0.2lh;
   font-size: 11px;
-  margin: 0 0 0 auto;
+  margin: .2rem 0 .2rem auto;
   letter-spacing: 0.1ch;
 }
 

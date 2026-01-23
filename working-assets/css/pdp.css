@@ -546,7 +546,7 @@ pdp-carousel {
     transform: translateX(-25%);
     width: max-content;
     box-shadow: 0 0 1px 0px var(--c-dark-grey),
-        0 0 4px 0px var(--c-shadow),
+      0 0 4px 0px var(--c-shadow),
         0 0 10px 0px var(--c-light-grey);
 
     &::after {
@@ -694,7 +694,7 @@ form .quantity-warning {
   background: var(--c-off-white);
   font-size: var(--txt-sm) !important;
   line-height: 2;
-    padding: .5rem 1rem;
+  padding: .5rem 1rem;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -702,6 +702,7 @@ form .quantity-warning {
     align-items: flex-end;
     border-radius: 0 0 var(--radius) var(--radius);
 }
+
 .tech-specs--list {
   display: grid;
   grid-template-columns: revert;
@@ -711,4 +712,9 @@ form .quantity-warning {
 
 .tech-specs--item {
   padding: 0.5rem;
+& small {
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
 }
