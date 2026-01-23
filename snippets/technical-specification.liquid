@@ -4,39 +4,39 @@
     {% for feature in product.metafields.product.features.value %}
       {% case feature %}
         {% when 'Tapered Fit' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Tapered_Fit.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Tapered_Fit.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Sweat Resistant' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Sweat_Resistant.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Sweat_Resistant.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Squat Proof' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Squat_Proof.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Squat_Proof.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Shower Proof' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Shower_Proof.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Shower_Proof.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Seamless' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Seamless.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Seamless.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Removable Pads' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Removable_Pads.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Removable_Pads.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Reflective' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Reflective.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Reflective.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Recycled Material' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Recycled_Material.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Recycled_Material.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Quick Drying' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Quick_Drying.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Quick_Drying.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Muscle Fit' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Muscle_Fit.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Muscle_Fit.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Multi Stretch' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Multi_Stretch.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Multi_Stretch.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Moisture Wicking' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Moisture_Wicking.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Moisture_Wicking.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'High Waisted' %}
-          <div class="tech-specs--item {{feature }}">{{ images['High_Waisted.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['High_Waisted.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Cropped Style' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Cropped_Style.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Cropped_Style.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Bum Sculpting' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Bum_Sculpting.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Bum_Sculpting.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% when 'Breathable' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Breathable.png'] | image_url: width: 112 | image_tag }}</div>
+          <div class="tech-specs--item {{feature }}">{{ images['Breathable.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% else %}
-          <div class="tech-specs--item {{feature }}"> <img src="https://placehold.co/62?text=IMAGE&font=oswald" alt="" height="62" width="62">{{ feature }}</div>
+          <div class="tech-specs--item {{feature }}"> <img src="https://placehold.co/62?text=IMAGE&font=oswald" alt="" height="62" width="62"><small>{{ feature }}</small></div>
       {% endcase %}
     {% endfor %}
   </div>
