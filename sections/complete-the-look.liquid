@@ -55,12 +55,12 @@
                 {% comment %} Aggregate total stock for the manually linked product {% endcomment %}
                 {% assign inventory_quantity = 0 %}
                 {% assign enough_stock = false %}
-                {% assign total_variants_available =  0  %}
-                {% assign total_variants =  0  %}
+                {% assign total_variants_available = 0 %}
+                {% assign total_variants = 0 %}
                 {% for variant in product.variants %}
                   {% assign inventory_quantity = inventory_quantity | plus: variant.inventory_quantity %}
                   {% if variant.inventory_quantity > settings.product_buffer %}
-                    {% assign total_variants_available =  total_variants_available | plus: 1  %}
+                    {% assign total_variants_available = total_variants_available | plus: 1 %}
                     {% if instock_variants contains variant.title %}
                       {% assign enough_stock = true %}
                     {% endif %}
@@ -72,7 +72,6 @@
                 {% if enough_stock == false and total_variants > 49 %}
                   {% assign enough_stock = true %}
                 {% endif %}
-
 
                 {% unless product_handles contains product.handle or inventory_quantity <= settings.product_buffer or enough_stock == false %}
                   {% assign product_handles = product_handles | append: '+' | append: product.handle %}
@@ -111,35 +110,36 @@
                 {% render 'product-price' with handle_product as product %}
               </div>
               <div id="options-{{handle_product.id}}" class="product-options">
-                <label for="atc{{handle_product.id}}" class="visually-hidden">Select Size</label>
-                <select id="atc{{handle_product.id}}" data-productid="{{handle_product.id}}" class="button product-select" required>
-                  {% if handle_product.variants.size == 1 %}
-                    One Size
-                  {%- else %}
-                    <option value="" disabled selected>Select Size</option>
-                  {% endif %}
-                  {% for variant in handle_product.variants %}
-                    {% if variant.inventory_quantity > settings.product_buffer or variant.inventory_policy == 'continue' %}
-                      <option
-                        {% comment %} START Global-e VAT tag {% endcomment %}
-                        {% if variant.taxable == false %}
-                          data-product-vat="0"
-                        {% endif %}
-                        {% if variant.metafields.GlobalE.product_meta != blank %}
-                          data-product-meta="{{variant.metafields.GlobalE.product_meta | json | escape}}"
-                        {% endif %}
-                        {% comment %}END Global-e VAT tag {% endcomment %}
-                        value="{{ variant.id }}"
-                        data-price="{{variant.price | money_without_trailing_zeros}}"
-                      >
-                        {% if handle_product.variants.size == 1 %}One Size{% else %}{{ variant.title }}{% endif %}
-                      </option>
-                    {% else %}
-                      <option class="disabled" disabled>{{ variant.title }}</option>
+                <form id="atc_form_{{handle_product.id}}" class="ctl-atc-form" method="post" action="{{ routes.cart_add_url }}">
+                  <label for="atc{{handle_product.id}}" class="visually-hidden">Select Size</label>
+                  <select name="id" id="atc{{handle_product.id}}" data-productid="{{handle_product.id}}" class="button product-select" required>
+                    {% if handle_product.variants.size > 1 %}
+                      <option value="" disabled selected>Select Size</option>
                     {% endif %}
-                  {% endfor %}
-                </select>
-                <button class="button button-primary atc-btn-contents">Add to Bag</button>
+                    {% for variant in handle_product.variants %}
+                      {% if variant.inventory_quantity > settings.product_buffer or variant.inventory_policy == 'continue' %}
+                        <option
+                          {% comment %} START Global-e VAT tag {% endcomment %}
+                          {% if variant.taxable == false %}
+                            data-product-vat="0"
+                          {% endif %}
+                          {% if variant.metafields.GlobalE.product_meta != blank %}
+                            data-product-meta="{{variant.metafields.GlobalE.product_meta | json | escape}}"
+                          {% endif %}
+                          {% comment %}END Global-e VAT tag {% endcomment %}
+                          value="{{ variant.id }}"
+                          data-price="{{variant.price | money_without_trailing_zeros}}"
+                        >
+                          {% if handle_product.variants.size == 1 %}One Size{% else %}{{ variant.title }}{% endif %}
+                        </option>
+                      {% else %}
+                        <option class="disabled" disabled>{{ variant.title }}</option>
+                      {% endif %}
+                    {% endfor %}
+                  </select>
+                  <input type="hidden" name="quantity" value="1">
+                  <button type="submit" class="button button-primary atc-btn-contents">Add to Bag</button>
+                </form>
               </div>
             </div>
           </div>
@@ -148,6 +148,38 @@
     </div>
   {% endif %}
 {% endif %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.ctl-atc-form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        const variantId = this.querySelector('select[name="id"]').value;
+
+        if (!variantId) {
+          alert('Please select a size');
+          return;
+        }
+
+        submitBtn.innerHTML = '<div class="loader" style="--height:1em;z-index:1;backdrop-filter: invert(1)"></div>';
+        submitBtn.setAttribute('disabled', 'disabled');
+
+        Cart.addItems([{ id: variantId, quantity: 1 }])
+          .then(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.removeAttribute('disabled');
+          })
+          .catch((err) => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.removeAttribute('disabled');
+            console.error('ATC Error:', err);
+          });
+      });
+    });
+  });
+</script>
 
 {% schema %}
 {
