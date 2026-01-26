@@ -1,5 +1,4 @@
 {%- if request.page_type == 'product' -%}
-  {%- assign days_product_price_valid_until = 10 | times: 86400 -%}
 
   {%- assign gtin_option = 'gtin' -%}
   {%- if product.selected_or_first_available_variant.barcode != blank -%}
@@ -133,8 +132,8 @@
     "sku": {{ product.selected_or_first_available_variant.sku | json }},
     "image": {
       "@type": "ImageObject",
-      "url": "https:{{ product.featured_media | img_url: '1024x' }}",
-      "image": "https:{{ product.featured_media | img_url: '1024x' }}",
+      "url": "https:{{ product.featured_media | image_url: width: 1024 }}",
+      "image": "https:{{ product.featured_media | image_url: width: 1024 }}",
       "name": {{ product.featured_media.alt | json }},
       "width": "1024",
       "height": "1024"
@@ -156,7 +155,7 @@
   "url": "{{ shop.url }}{{ collection.url }}",
   "description": {{ collection.description | strip_html | truncatewords: 40 | json }},
   {%- if collection.image -%}
-  "image": "https:{{ collection.image | img_url: '1024x' }}",
+  "image": "https:{{ collection.image | image_url: width: 1024 }}",
   {%- endif -%}
   "about": {
     "@type": "Thing",
@@ -192,8 +191,8 @@
     "dateModified": "{{ article.published_at | date: '%Y-%m-%dT%T' }}",
     "image": {
       "@type": "ImageObject",
-      "url": "https:{{ article.image | img_url: '1024x' }}",
-      "image": "https:{{ article.image | img_url: '1024x' }}",
+      "url": "https:{{ article.image | image_url: width: 1024 }}",
+      "image": "https:{{ article.image | image_url: width: 1024 }}",
       "name": {{ article.image.alt | json }},
       "width": "1024",
       "height": "1024"
