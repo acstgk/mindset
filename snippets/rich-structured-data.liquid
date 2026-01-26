@@ -150,8 +150,6 @@
   {%- endcapture -%}
 {%- elsif request.page_type == 'collection' -%}
   {%- capture main_entity_microdata -%}
-    {
-  "@context": "https://schema.org",
   "@type": "CollectionPage",
   "@id": "{{ shop.url }}{{ collection.url }}#collection",
   "name": {{ collection.title | json }},
