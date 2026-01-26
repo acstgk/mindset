@@ -826,7 +826,6 @@ class CompleteTheLook {
         const variantId = form.querySelector('select[name="id"]').value;
 
         if (!variantId) {
-          alert("Please select a size");
           return;
         }
 
