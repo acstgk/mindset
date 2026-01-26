@@ -17,6 +17,68 @@ import Splide from "./splide.min.js";
 window.Splide = Splide;
 
 // ===================
+// GLOBAL UTILITIES
+// ===================
+/**
+ * gkUtils - Global utility functions
+ * Currently handles Quick Add To Bag (QATB) button functionality and universal debounce
+ * @class
+ */
+class gkUtils {
+  /**
+   * Binds Quick Add To Bag buttons within a container
+   * @param {HTMLElement} root - Container element with .qatb-btn buttons
+   */
+  bindQATBButtons(root) {
+    const qatbButtons = root.querySelectorAll(".qatb-btn") || [];
+    qatbButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const targetButton = e.currentTarget;
+        const targetSize = targetButton.innerText;
+
+        const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
+        errors.forEach((error) => error.remove());
+
+        targetButton.innerHTML = `<div class="loader"></div>`;
+
+        Cart.addItems(targetButton.dataset.vId)
+          .then(() => {
+            targetButton.innerHTML = targetSize;
+            const prodID = root.id;
+            const modal = document.getElementById(prodID);
+            modal ? modal.classList.remove("active") : "";
+          })
+          .catch((error) => {
+            targetButton.innerHTML = targetSize;
+            const errorBox = document.createElement("div");
+            errorBox.className = "cart-error warning";
+            errorBox.textContent = error.description || "Sorry, something went wrong.";
+            targetButton.closest(".qatb-btns").before(errorBox);
+          });
+      });
+    });
+  }
+
+  /**
+   * Universal debounce utility
+   * @param {Function} fn - Function to debounce
+   * @param {number} delay - Delay in milliseconds
+   * @returns {Function} Debounced function
+   */
+  debounce(fn, delay = 500) {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => fn.apply(this, args), delay);
+    };
+  }
+}
+
+// Initialize gkUtils globally
+window.gkUtils = new gkUtils();
+
+// ===================
 // CART CLASS
 // ===================
 /**
@@ -679,67 +741,6 @@ if (!customElements.get("predictive-search")) {
   );
 }
 
-// ===================
-// Global Utilities
-// ===================
-/**
- * gkUtils - Global utility functions
- * Currently handles Quick Add To Bag (QATB) button functionality
- * @class
- */
-class gkUtils {
-  /**
-   * Binds Quick Add To Bag buttons within a container
-   * @param {HTMLElement} root - Container element with .qatb-btn buttons
-   */
-  bindQATBButtons(root) {
-    const qatbButtons = root.querySelectorAll(".qatb-btn") || [];
-    qatbButtons.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetButton = e.currentTarget;
-        const targetSize = targetButton.innerText;
-
-        const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
-        errors.forEach((error) => error.remove());
-
-        targetButton.innerHTML = `<div class="loader"></div>`;
-
-        Cart.addItems(targetButton.dataset.vId)
-          .then(() => {
-            targetButton.innerHTML = targetSize;
-            const prodID = root.id;
-            const modal = document.getElementById(prodID);
-            modal ? modal.classList.remove("active") : "";
-          })
-          .catch((error) => {
-            targetButton.innerHTML = targetSize;
-            const errorBox = document.createElement("div");
-            errorBox.className = "cart-error warning";
-            errorBox.textContent = error.description || "Sorry, something went wrong.";
-            targetButton.closest(".qatb-btns").before(errorBox);
-          });
-      });
-    });
-  }
-
-  /**
-   * Universal debounce utility
-   * @param {Function} fn - Function to debounce
-   * @param {number} delay - Delay in milliseconds
-   * @returns {Function} Debounced function
-   */
-  debounce(fn, delay = 500) {
-    let timeout;
-    return function (...args) {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => fn.apply(this, args), delay);
-    };
-  }
-}
-
-// Initialize gkUtils globally
-window.gkUtils = new gkUtils();
 
 // ===================
 // Product Modal Manager
