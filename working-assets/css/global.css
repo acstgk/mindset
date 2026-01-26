@@ -516,14 +516,11 @@ button {
         transition: top .1s ease-out;
     }
 
-                &:not(:disabled):hover {
-        color: var(--c-white);
 
         &::after {
             top: 0;
         }
-    }
-}
+        }
 
 .button-secondary {
     --btn-color: var(--c-black);
