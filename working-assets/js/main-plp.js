@@ -489,10 +489,25 @@ if (colControls) new ColumnControls(colControls);
 class BlurbControls {
   constructor(selector) {
     this.element = document.querySelector(selector);
-    if (this.element) {
-      this.isOverflow = this.element.clientHeight < this.element.scrollHeight;
+    if (!this.element) return;
+    this.buttonAdded = false;
+    this._init();
+  }
+
+  _init() {
+    this._checkHeight();
+    window.addEventListener("resize", window.gkUtils.debounce(() => this._checkHeight(), 200));
+  }
+
+  _checkHeight() {
+    if (!this.element) return;
+    const isOverflow = this.element.clientHeight < this.element.scrollHeight;
+    const exceedsViewport = this.element.scrollHeight > window.innerHeight;
+
+    if ((isOverflow || exceedsViewport) && !this.buttonAdded) {
+      this._addbutton();
+      this.buttonAdded = true;
     }
-    if (this.isOverflow) this._addbutton();
   }
 
   _addbutton() {

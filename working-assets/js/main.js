@@ -597,19 +597,12 @@ if (!customElements.get("predictive-search")) {
         this.inputField = this.querySelector(".search_form-terms-input");
         this.inputField.addEventListener(
           "input",
-          this.debounce((event) => {
+          window.gkUtils.debounce((event) => {
             this._onInputChange(event);
           }),
         );
       }
 
-      debounce = (fn, delay = 500) => {
-        let timeout;
-        return function (...args) {
-          clearTimeout(timeout);
-          timeout = setTimeout(() => fn.apply(this, args), delay);
-        };
-      };
 
       _onInputChange = () => {
         this.searchTerm = this.inputField.value.trim();
@@ -728,6 +721,20 @@ class gkUtils {
           });
       });
     });
+  }
+
+  /**
+   * Universal debounce utility
+   * @param {Function} fn - Function to debounce
+   * @param {number} delay - Delay in milliseconds
+   * @returns {Function} Debounced function
+   */
+  debounce(fn, delay = 500) {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => fn.apply(this, args), delay);
+    };
   }
 }
 
