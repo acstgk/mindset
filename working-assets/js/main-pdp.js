@@ -809,6 +809,47 @@ if (!customElements.get("thumbnail-carousel")) {
 }
 
 // ===================
+// Complete The Look functionality
+// ===================
+class CompleteTheLook {
+  static init() {
+    if (!document.getElementById("completethelook--mobile")) return;
+
+    const forms = document.querySelectorAll(".ctl-atc-form");
+    if (forms.length === 0) return;
+
+    forms.forEach((form) => {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        const variantId = form.querySelector('select[name="id"]').value;
+
+        if (!variantId) {
+          alert("Please select a size");
+          return;
+        }
+
+        submitBtn.innerHTML = '<div class="loader" style="--height:1em;z-index:1;backdrop-filter: invert(1)"></div>';
+        submitBtn.setAttribute("disabled", "disabled");
+
+        Cart.addItems([{ id: variantId, quantity: 1 }])
+          .then(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.removeAttribute("disabled");
+          })
+          .catch((err) => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.removeAttribute("disabled");
+            console.error("ATC Error:", err);
+          });
+      });
+    });
+  }
+}
+CompleteTheLook.init();
+
+// ===================
 // Scroll to reviews on click
 // ===================
 class ReviewsScroller {

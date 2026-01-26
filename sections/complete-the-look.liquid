@@ -149,37 +149,6 @@
   {% endif %}
 {% endif %}
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.ctl-atc-form').forEach(form => {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        const variantId = this.querySelector('select[name="id"]').value;
-
-        if (!variantId) {
-          alert('Please select a size');
-          return;
-        }
-
-        submitBtn.innerHTML = '<div class="loader" style="--height:1em;z-index:1;backdrop-filter: invert(1)"></div>';
-        submitBtn.setAttribute('disabled', 'disabled');
-
-        Cart.addItems([{ id: variantId, quantity: 1 }])
-          .then(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.removeAttribute('disabled');
-          })
-          .catch((err) => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.removeAttribute('disabled');
-            console.error('ATC Error:', err);
-          });
-      });
-    });
-  });
-</script>
 
 {% schema %}
 {
