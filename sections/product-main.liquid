@@ -142,8 +142,8 @@
 
   <form id="atc_form" method="post" action="{{ routes.cart_add_url }}">
     <enhanced-atc>
-      {% unless product.variants_count == 1 %}
-        <div class="atc_form-header">
+      <div class="atc_form-header">
+          {% unless product.variants_count == 1 %}
           <p>
             Select
             {%- if product.gift_card? -%}
@@ -165,8 +165,8 @@
               {% render 'icon' with 'ruler' as icon %}
             </a>
           {% endunless %}
+        {% endunless %}
         </div>
-      {% endunless %}
 
       {% if is_set %}
         {% for part in is_set.value %}
