@@ -1915,6 +1915,7 @@ product-card {
     }
 
     & .Price--saving {
+        --colour: var(--c-sale);
         position: absolute;
         top: 15px;
         background-color: var(--c-sale);
@@ -1924,6 +1925,7 @@ product-card {
     }
 
     & span.Price--saving.error {
+        --colour: var(--c-black);
         background-color: var(--c-black);
     }
 }
