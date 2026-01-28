@@ -3,16 +3,21 @@
     {% assign settings_img = 'franchise-img-' | append: i %}
     {% assign settings_url = 'franchise-url-' | append: i %}
     {% assign settings_bg = 'franchise-bg-' | append: i %}
+    {% assign settings_text = 'franchise-text-' | append: i %}
     {% assign settings_gender = 'franchise-gender-' | append: i %}
     {% if settings[settings_gender] == gender or settings[settings_gender] == '0' %}
-      {% if settings[settings_img] and settings[settings_url] %}
+      {% if settings[settings_url] %}
         <a
           href="{{ settings[settings_url].url }}"
           class="button-primary quick_links-link"
           style="--btn-bg:{{ settings[settings_bg] }};"
           loading="lazy"
         >
-          {{- settings[settings_img] | image_url: height: '100px' | image_tag: loading: 'lazy' -}}
+          {% if settings[settings_img] %}
+            {{- settings[settings_img] | image_url: height: '100px' | image_tag: loading: 'lazy' -}}
+          {% else %}
+            <span class="h3 emphasis" >{{ settings[settings_text] }}</span>
+          {% endif %}
         </a>
       {% endif %}
     {% endif %}

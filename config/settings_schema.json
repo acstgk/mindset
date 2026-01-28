@@ -305,6 +305,11 @@
         "info": "100px x 100px recommended"
       },
       {
+        "type": "text",
+        "id": "franchise-text-1",
+        "label": "Text 1"
+      },
+      {
         "type": "url",
         "id": "franchise-url-1",
         "label": "URL 1"
@@ -347,6 +352,11 @@
         "info": "100px x 100px recommended"
       },
       {
+        "type": "text",
+        "id": "franchise-text-2",
+        "label": "Text 2"
+      },
+      {
         "type": "url",
         "id": "franchise-url-2",
         "label": "URL 2"
@@ -387,6 +397,11 @@
         "id": "franchise-img-3",
         "label": "Image 3",
         "info": "100px x 100px recommended"
+      },
+      {
+        "type": "text",
+        "id": "franchise-text-3",
+        "label": "Text 3"
       },
       {
         "type": "url",

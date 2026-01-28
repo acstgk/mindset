@@ -523,6 +523,9 @@ button {
         }
 }
 
+.button-primary:hover {
+    color: var(--c-white);
+}
 .button-secondary {
     --btn-color: var(--c-black);
     --btn-bg: transparent;
@@ -1550,6 +1553,13 @@ video {
     padding: 50px 0 0;
 }
 
+.quick_links span {
+    display: flex;
+    height: 100%;
+    place-items: center;
+    letter-spacing: normal;
+    font-weight: 400;
+}
 .quick_links-link {
     display: flex;
     justify-content: center;
