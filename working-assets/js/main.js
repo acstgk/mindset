@@ -654,6 +654,8 @@ if (!customElements.get("predictive-search")) {
       connectedCallback() {
         this.searchButton = document.getElementById("header_search-icon");
         this.searchButton.addEventListener("click", this._handleOpenClose);
+        this.searchButtonMobile = document.getElementById("header_search-icon-mobile");
+        this.searchButtonMobile.addEventListener("click", this._handleOpenClose);
         this.closeButton = this.querySelector(".search_form-close");
         this.closeButton.addEventListener("click", this._handleOpenClose);
         this.inputField = this.querySelector(".search_form-terms-input");

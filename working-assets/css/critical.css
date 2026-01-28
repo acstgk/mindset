@@ -436,7 +436,7 @@ slide-drawer {
   background: var(--c-white);
   top: 0;
   z-index: 12;
-  width: min(375px, 95%);
+  width: min(375px, 100lvw);
   box-shadow: 0 0 6px var(--c-shadow);
   translate: -100% 0;
   transition: translate 0.15s ease-out, opacity 0.16s ease-out;
@@ -488,7 +488,7 @@ slide-drawer {
 
   &>.max-width {
     display: grid;
-    grid-template-columns: auto 2fr 1fr;
+    grid-template-columns: auto 2fr auto;
     gap: 15px;
     padding-inline: min(25px, 3vw);
     width: min(98vw, 1400px);
@@ -522,6 +522,7 @@ slide-drawer {
   display: flex;
   place-items: center;
   width: min-content;
+  margin: 0 auto;
 
   & img {
     width: min(40vw, 225px);
@@ -538,6 +539,7 @@ slide-drawer {
 ul.header_desktop-menu {
   list-style: none;
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: row;
   gap: 10%;
   justify-content: flex-start;
@@ -770,8 +772,12 @@ ul.sub_menu-items {
   gap: 10px;
   justify-content: flex-end;
   margin: 0 0 0 auto;
+  width: 100%;
 }
 
+.start {
+  justify-content: flex-start;
+}
 .header_icon {
   display: flex;
   place-items: center flex-start;
