@@ -9,9 +9,8 @@
     assign og_title = product.title | strip_html
     assign og_type = 'product'
     if product.featured_image
-      assign og_image = product.featured_image | image_url: width: '1200'
-      assign og_image = shop.url | append: og_image
-      assign og_image_secure_url = product.featured_image | image_url: width: '1200'
+      assign og_image = product.featured_image | image_url: width: '1200' | prepend: 'https:'
+      assign og_image_secure_url = product.featured_image | image_url: width: '1200' | prepend: 'https:'
       assign og_image_width = product.featured_image.width
       assign og_image_height = product.featured_image.height
       assign og_image_alt = product.featured_image.alt | default: product.title
@@ -20,8 +19,8 @@
     assign og_title = article.title | strip_html
     assign og_type = 'article'
     if article.image
-      assign og_image = article.image | img_url: 'master'
-      assign og_image_secure_url = article.image | img_url: 'master'
+      assign og_image = article.image | image_url: width: '1200' | prepend: 'https:'
+      assign og_image_secure_url = article.image | image_url: width: '1200' | prepend: 'https:'
       assign og_image_width = article.image.width
       assign og_image_height = article.image.height
       assign og_image_alt = article.image.alt | default: article.title
@@ -29,8 +28,7 @@
   elsif request.page_type == 'collection'
     assign og_title = collection.title | strip_html
     assign og_type = 'website'
-    assign collection_image = collection.image | default: collection.products.first.featured_image | image_url: width: '1200'
-    assign collection_image = shop.url | append: collection_image
+    assign collection_image = collection.image | default: collection.products.first.featured_image | image_url: width: '1200' | prepend: 'https:'
     if collection_image
       assign og_image = collection_image
       assign og_image_secure_url = collection_image
@@ -51,10 +49,10 @@
   assign twitter_image = ''
 
   if request.page_type == 'product'
-    assign twitter_image = product.featured_image | image_url: width: '1200'
+    assign twitter_image = product.featured_image | image_url: width: '1200' | prepend: 'https:'
   elsif request.page_type == 'article'
     if article.image
-      assign twitter_image = article.image | img_url: '1200x628', crop: 'center'
+      assign twitter_image = article.image | image_url: width: '1200', height: '628', crop: 'center' | prepend: 'https:'
     endif
   elsif request.page_type == 'collection'
     if collection_image
@@ -72,7 +70,7 @@
 
 {%- if og_image -%}
   <meta property="og:image" content="{{ og_image }}">
-  <meta property="og:image:secure_url" content="https:{{ og_image_secure_url }}">
+  <meta property="og:image:secure_url" content="{{ og_image_secure_url }}">
   <meta property="og:image:width" content="{{ og_image_width }}">
   <meta property="og:image:height" content="{{ og_image_height }}">
   {%- if og_image_alt -%}
