@@ -15,25 +15,7 @@
         </a>
         {% case section.settings.microcopy %}
           {% when 'bnpl' %}
-            <div class="bnpl-icons">
-              {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color ge-hide-display-none ge-hide' }}
-              <span class="ge-hide-display-none ge-hide"
-                >Buy now, Pay later<br>
-                <small><a href="/pages/klarna-terms-conditions">18+ - T&C's apply</a></small></span
-              >
-            </div>
-
-            <style>
-              .bnpl-icons {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-              }
-
-              .bnpl-icons a {
-                font-size: var(--txt-sm);
-              }
-            </style>
+            {% render 'bnpl-microcopy' %}
           {% when 'payments' %}
             {% render 'payment-icons' %}
             <style>
@@ -49,7 +31,7 @@
 
             <style>
               .side_menu-footer dispatch-timer {
-               text-align: center;
+                text-align: center;
               }
             </style>
         {% endcase %}

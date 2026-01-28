@@ -3,6 +3,8 @@
   <div class="cart_items-list fade-in">
     <p>Your Shopping Bag is empty.</p>
     {% render 'dead-end' %}
+    {% render 'bnpl-microcopy' %}
+
   </div>
 {% else %}
   {% assign cart_items = '' %}
