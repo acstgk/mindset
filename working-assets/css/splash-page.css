@@ -26,7 +26,7 @@
      }
 
      &>* {
-       background: rgb(255 255 255 / 0.8);
+      background: rgb(255 255 255 / 0.75);
        backdrop-filter: blur(3px) brightness(1.3);
        width: 100%;
      }
@@ -36,6 +36,7 @@
      width: auto;
      padding: 1rem;
      backdrop-filter: blur(3px) brightness(1.3);
+    background: rgb(255 255 255 / 0.85);
    }
  }
 
