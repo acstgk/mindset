@@ -36,12 +36,24 @@
             {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
             <li>
               <a class="side_menu-sub-menu-button" data-sub-menu="{{ settings[sub_menu].handle }}" aria-label="open sub menu" role="button" rel="nofollow">
-                <span>{{ settings[sub_menu].title | split: '-' | last }}</span>{% render 'icon' , icon: 'arrow' -%}
+                <span>{{ settings[sub_menu].title | split: '-' | last }}</span>{% render 'icon', icon: 'arrow' -%}
               </a>
             </li>
           {% endfor %}
         </ul>
-        {% render 'menu-visual-links' with gender as gender, class: 'side_menu-visual-links' %}
+        {% comment %} {% render 'menu-visual-links' with gender as gender, class: 'side_menu-visual-links' %} {% endcomment %}
+
+        <div class="side_menu-visual-links">
+          {% for i in (1..2) %}
+            <div class="">
+              {% assign img = 'nav-img-' | append: i | append: '-' | append: gender %}
+              {% assign url = 'nav-url-' | append: i | append: '-' | append: gender %}
+              {% assign txt = 'nav-txt-' | append: i | append: '-' | append: gender %}
+              <img src="{{ settings[img] | image_url: width: 500 }}" alt="{{ settings[img].alt }}" height="500" width="500" loading="lazy">
+              <a href="{{ settings[url] }}">{{ settings[txt] }}</a>
+            </div>
+          {% endfor %}
+        </div>
 
         {% for i in (1..2) %}
           {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
