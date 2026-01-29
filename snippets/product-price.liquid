@@ -71,7 +71,7 @@
     {% assign saving = compare_at_price | minus: price %}
     {% assign compare_pc = compare_at_price | divided_by: 100 %}
     {% assign saving_pc = saving | divided_by: compare_pc %}
-    <span class="Price--saving success">-{{ saving_pc | floor }}%</span>
+    <span class="Price--saving flag" style="--colour: var(--c-sale);background-color: var(--c-sale);color:var(--c-white)">-{{ saving_pc | floor }}%</span>
   {% elsif product.available == false %}
     <span class="Price--saving error">Out of Stock</span>
   {% endif %}

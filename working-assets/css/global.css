@@ -679,9 +679,9 @@ button {
 /* SEARCH  */
 
 input {
+    color: var(--c-black);
     &:focus {
         outline: none;
-        color: inherit;
     }
 
     &::-webkit-search-cancel-button {
@@ -1290,6 +1290,13 @@ free-delivery {
             padding: 0;
             display: none;
         }
+& .iWishAdd {
+    display: none;
+}
+
+& .mqatb-show {
+    top: 12px;
+}
     }
 }
 

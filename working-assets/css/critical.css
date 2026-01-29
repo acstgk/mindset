@@ -468,6 +468,7 @@ slide-drawer {
     position: absolute;
     right: 25px;
     top: 15px;
+    color: var(--c-black);
   }
 }
 
@@ -936,6 +937,7 @@ ul.sub_menu-items {
   font-weight: 400;
   min-width: max-content;
   margin-top: 5px;
+  color: var(--c-black) !important;
 }
 
 .disclosure__button .icon {
@@ -990,7 +992,7 @@ ul.CountryList {
     width: 100%;
     z-index: 2;
     margin-top: 5px;
-    padding-top: 0;
+    padding: 0 15px;
     position: fixed;
     top: -80dvh;
       display: flex;
@@ -1004,6 +1006,7 @@ ul.CountryList {
   .countrymobile .disclosure__button {
     font-weight: lighter !important;
     padding-bottom: 10px;
+    padding-left: 0;
     letter-spacing: 1px;
     text-transform: uppercase;
 & .icon.icon-caret {
@@ -1026,6 +1029,6 @@ ul.CountryList {
     height: 35px;
     line-height: 3;
     margin: 0;
-    padding: 0 20px;
+    padding: 0 15px;
   }
 }
