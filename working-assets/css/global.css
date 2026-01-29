@@ -681,6 +681,7 @@ button {
 input {
     &:focus {
         outline: none;
+        color: inherit;
     }
 
     &::-webkit-search-cancel-button {

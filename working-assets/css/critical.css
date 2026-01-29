@@ -979,8 +979,8 @@ ul.CountryList {
   ul.CountryList {
     border-block: 1px solid rgba(27, 27, 27, 0.15);
     border-inline: none;
-    box-shadow: -5px -5px 0px 5px white, 0 3px 6px 0px rgba(27, 27, 27, 0.15);
-    left: 205px;
+    box-shadow: 0 3px 6px 0px rgba(27, 27, 27, 0.15);
+      left: 195px;
     max-height: 80dvh !important;
     right: 0;
     width: 100%;
@@ -988,6 +988,9 @@ ul.CountryList {
     margin-top: 5px;
     padding-top: 0;
     position: fixed;
+    top: -80dvh;
+      display: flex;
+      flex-direction: column-reverse;
   }
 
   .countrydesktop {
@@ -999,10 +1002,19 @@ ul.CountryList {
     padding-bottom: 10px;
     letter-spacing: 1px;
     text-transform: uppercase;
+& .icon.icon-caret {
+    rotate: 0deg;
+    transition: rotate 0.15s var(--bezier);
+  }
+}
+
+.countrymobile .disclosure__button[aria-expanded='true'] .icon.icon-caret {
+  rotate: -180deg;
   }
 
   .countrymobile {
     display: block;
+    position: relative;
     padding-inline-start: 20px;
     background: #f6f6f6;
     transition: left 0.15s ease;
