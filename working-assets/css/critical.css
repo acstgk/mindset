@@ -542,7 +542,7 @@ ul.header_desktop-menu {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  gap: 30%;
+  gap: 30vw;
   justify-content: flex-start;
   padding: 0;
   height: 100%;
