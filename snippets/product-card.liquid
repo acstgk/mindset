@@ -11,6 +11,11 @@
 {% enddoc %}
 
 {% assign loading = loading | default: 'lazy' %}
+{% if loading == 'eager' %}
+{% assign fetchpriority = 'high' %}
+{% else %}
+{% assign fetchpriority = 'low' %}
+{% endif %}
 {% assign sizes = '(min-width: 1400px) 25vw, (min-width: 900px) 33vw, (min-width: 600px) 50vw, 100vw' %}
 {% assign widths = '300, 450, 600, 750, 900, 1200, 1800' %}
 {% assign show_timer = false %}
@@ -61,11 +66,11 @@
       <div class="product_card-first-image">
         {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager', class: 'background-image', draggable: false }}
         <div class="loader grid-loader"></div>
-        {{ product.featured_image | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading, draggable: false }}
+        {{ product.featured_image | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: loading, draggable: false, fetchpriority: fetchpriority }}
       </div>
 
       {% if product.images[2] %}
-        {{ product.images[2] | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: 'lazy', draggable: false }}
+        {{ product.images[2] | image_url: width: 1920 | image_tag: sizes: sizes, widths: widths, loading: 'lazy', draggable: false, fetchpriority: 'low' }}
       {% endif %}
     </a>
 
