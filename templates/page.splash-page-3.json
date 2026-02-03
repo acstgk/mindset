@@ -12,7 +12,6 @@
     "main": {
       "type": "splash-page",
       "settings": {
-        "lightMode": false,
         "pageTitle": "Coming Soon",
         "showTitle": false,
         "eventLogo": "shopify://shop_images/FIRST_EVER_KIDS_SHOOT_25-0_5_535b69d5-4683-4b2a-9078-07decb8ae89e.jpg",
