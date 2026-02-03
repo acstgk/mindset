@@ -191,6 +191,30 @@
         "url4w": "shopify://collections/womens-gym-clothes"
       }
     },
+    "gender_categories_BCJVMn": {
+      "type": "gender-categories",
+      "name": "Shop by Discount",
+      "settings": {
+        "gendered": true,
+        "title": "Shop By Discount",
+        "bold1m": "Up to 40% Off",
+        "url1m": "/collections/sale/mens?filter.v.price.gte=&filter.v.price.lte=&filter.p.m.discount.group=up+to+40%25+off&filter.v.availability=1",
+        "bold2m": "40% - 50% Off",
+        "url2m": "/collections/sale/mens?filter.v.price.gte=&filter.v.price.lte=&filter.p.m.discount.group=40-50%25+off&filter.v.availability=1",
+        "bold3m": "50% - 70% Off",
+        "url3m": "/collections/sale/mens?filter.v.price.gte=&filter.v.price.lte=&filter.p.m.discount.group=50-70%25+off&filter.v.availability=1",
+        "bold4m": "Over 70% Off",
+        "url4m": "/collections/sale/mens?filter.v.price.gte=&filter.v.price.lte=&filter.p.m.discount.group=over+70%25+off&filter.v.availability=1",
+        "bold1w": "Up to 40% Off",
+        "url1w": "/collections/sale/womens?filter.v.price.gte=&filter.v.price.lte=&filter.p.m.discount.group=up+to+40%25+off&filter.v.availability=1",
+        "bold2w": "40% - 50% Off",
+        "url2w": "/collections/sale/womens?filter.v.price.gte=&filter.v.price.lte=&filter.p.m.discount.group=40-50%25+off&filter.v.availability=1",
+        "bold3w": "50% - 70% Off",
+        "url3w": "/collections/sale/womens?filter.v.price.gte=&filter.v.price.lte=&filter.p.m.discount.group=50-70%25+off&filter.v.availability=1",
+        "bold4w": "Over 70% Off",
+        "url4w": "/collections/sale/womens?filter.v.price.gte=&filter.v.price.lte=&filter.p.m.discount.group=over+70%25+off&filter.v.availability=1"
+      }
+    },
     "gender-shop-by-size": {
       "type": "gender-shop-by-size",
       "custom_css": [
@@ -284,7 +308,11 @@
       ],
       "name": "Card Grid",
       "settings": {
-        "title": "Trending Collections"
+        "title": "Trending Collections",
+        "cta_1_url": "",
+        "cta_1_text": "",
+        "cta_2_url": "",
+        "cta_2_text": ""
       }
     },
     "gender_recommendation_carousel_QMFmBV": {
@@ -307,6 +335,7 @@
     "as_seen_in_Q7HTU7",
     "gender_selector_iPE3Hb",
     "gender_categories_9Tkx7m",
+    "gender_categories_BCJVMn",
     "gender-shop-by-size",
     "card_grid_BfCgXU",
     "gender_recommendation_carousel_QMFmBV"
