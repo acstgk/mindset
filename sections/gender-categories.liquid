@@ -1,4 +1,4 @@
-<h3>Shop {{ section.settings.title }} by Category</h3>
+<h3>{{ section.settings.title | default: "Shop by Category" }}</h3>
 
 <div class="gender-wrapper">
   <div class="loader grid-loader gender-loader"></div>
@@ -10,8 +10,8 @@
           {% assign img = 'img' | append: i | append: 'w' %}
           {% assign url = 'url' | append: i | append: 'w' %}
           {% assign txt = 'bold' | append: i | append: 'w' %}
-          <div class="categorylink img-overlay">
-            {{
+          <div class="categorylink {% if section.settings[img] != blank %}img-overlay{%else%}button button-primary {% endif %}">
+        {% if section.settings[img] != blank %}  {{
             section.settings[img]
             | image_url: width: 800
             | image_tag:
@@ -19,8 +19,9 @@
               sizes: '(min-width: 1000px) 25vw, 50vw',
               widths: '190, 390, 540, 780, 960, 1280'
           }}
+        {% endif %}
             {% if section.settings[txt] %}
-              <a class="categorytitle" href="{{ section.settings[url] }}">{{ section.settings[txt] }}</a>
+              <a class="categorytitle emphasis" href="{{ section.settings[url] }}">{{ section.settings[txt] }}</a>
             {% endif %}
           </div>
         {% endfor %}
@@ -37,8 +38,8 @@
         {% assign img = 'img' | append: i | append: 'm' %}
         {% assign url = 'url' | append: i | append: 'm' %}
         {% assign txt = 'bold' | append: i | append: 'm' %}
-        <div class="categorylink img-overlay">
-          {{
+          <div class="categorylink {% if section.settings[img] != blank %}img-overlay{%else%}button button-primary{% endif %}">
+        {% if section.settings[img] != blank %}  {{
             section.settings[img]
             | image_url: width: 800
             | image_tag:
@@ -46,8 +47,9 @@
               sizes: '(min-width: 1000px) 25vw, 50vw',
               widths: '190, 390, 540, 780, 960, 1280'
           }}
+        {% endif %}
           {% if section.settings[txt] %}
-            <a class="categorytitle" href="{{ section.settings[url] }}">{{ section.settings[txt] }}</a>
+            <a class="categorytitle emphasis" href="{{ section.settings[url] }}">{{ section.settings[txt] }}</a>
           {% endif %}
         </div>
       {% endfor %}

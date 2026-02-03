@@ -1,7 +1,16 @@
-.shop-by-category .categorylink {
+.shop-by-category .categorylink.img-overlay {
   aspect-ratio: 1 / 1;
 }
 
+.shop-by-category .categorylink.button {
+  width: 100%;
+  padding: 0.75rem 1rem .55rem;
+
+  & a {
+    color: white;
+    font-size: var(--txt-h3);
+  }
+}
 .shop-by-category .categorylink {
   position: relative;
 
@@ -34,6 +43,8 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 10px;
+  overflow: visible;
+    overflow: clip
 }
 
 .category-grid a {
