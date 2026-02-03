@@ -66,7 +66,7 @@ export class SplideUtil {
     });
 
     splide.on("mounted", () => {
-      splide.querySelectorAll(".splide__spinner").forEach((spinner) => spinner.remove());
+      target.querySelectorAll(".splide__spinner").forEach((spinner) => spinner.remove());
     });
 
     splide.mount();
