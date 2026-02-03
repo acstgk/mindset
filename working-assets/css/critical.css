@@ -223,14 +223,14 @@ blockquote {
 .info,
 .flag {
   --color: var(--c-black);
-  padding: 0.5lh 2ch;
+  padding: .25lh 1ch .2lh;
   display: inline-block;
   place-content: center;
   border-radius: var(--radius);
   backdrop-filter: blur(.5rem) contrast(0.5) brightness(1.5);
   color: var(--colour);
   background-color: oklch(from var(--colour) calc(l + 1.2) c h / 0.4);
-    border: 1px solid oklch(from var(--colour) calc(l + 0.2) c h / 0.5);
+  border: 1px solid oklch(from var(--colour) calc(l + 0.2) c h / 0.5);
 }
 
 .success {
