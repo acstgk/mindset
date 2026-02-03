@@ -33,9 +33,7 @@
   {% assign description_elements = description | split: '||' %}
   {% assign sizing_info = description_elements | where: 'Model' %}
   {% if sizing_info.first.size > 5 %}
-    {% capture model_info %}
     <div class="accent-bg">{{ description_elements | where: 'Model' }}</div>
-    {% endcapture %}
   {% endif %}
 
   {% if product.vendor == 'Mens' %}
@@ -84,7 +82,6 @@
           {% render 'size-guide-m-whl' %}
       {% endcase %}
     {% endif %}
-    {{ model_info }}
     {% render 'size-guide-m-measurements' %}
   {% elsif product.vendor == 'Womens' %}
     {% case product_type %}
@@ -133,25 +130,23 @@
       {% when 'swimsuit', 'swimwear' %}
         {% render 'size-guide-w-bwh' %}
     {% endcase %}
-    {{ model_info }}
     {% render 'size-guide-w-measurements' %}
   {% elsif product.vendor == 'Boys' or product.vendor == 'Girls' %}
     {% case product_type %}
-    {% when 'fitness top', 'hoodie', 'performance tee', 'short sleeve tee', 'sweatshirt', 'tracksuit top' %}
-      {% if product.vendor == 'Boys' %}
-        {% render 'size-guide-b-cwh' %}
-      {% else %}
-        {% render 'size-guide-g-cwh' %}
-      {% endif %}
+      {% when 'fitness top', 'hoodie', 'performance tee', 'short sleeve tee', 'sweatshirt', 'tracksuit top' %}
+        {% if product.vendor == 'Boys' %}
+          {% render 'size-guide-b-cwh' %}
+        {% else %}
+          {% render 'size-guide-g-cwh' %}
+        {% endif %}
 
-    {% else %}
-      {% if product.vendor == 'Boys' %}
-        {% render 'size-guide-b-wlh' %}
       {% else %}
-        {% render 'size-guide-g-wlh' %}
-      {% endif %}
+        {% if product.vendor == 'Boys' %}
+          {% render 'size-guide-b-wlh' %}
+        {% else %}
+          {% render 'size-guide-g-wlh' %}
+        {% endif %}
     {% endcase %}
-    {{ model_info }}
     {% render 'size-guide-k-measurements' %}
   {% elsif product_type == 'socks' %}
     {% render 'size-guide-socks' %}
