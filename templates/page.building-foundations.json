@@ -37,14 +37,25 @@
       "block_order": [
         "rtf_TWU38R"
       ],
+      "disabled": true,
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
         "full_width": false,
         "alignment": "right",
         "grid_style": "standard"
+      }
+    },
+    "spacer_MHVyrB": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 60,
+        "mobile": 20
       }
     },
     "content_grid_eitYbw": {
@@ -57,7 +68,7 @@
             "image": "shopify://shop_images/building-foundations--2-what.png",
             "img_style": "square",
             "image_style": "cover",
-            "rtf": "<h2>Building foundations  </h2><p>Supporting gyms, empowering communities world-wide, and inspiring the start of every fitness journey. </p>",
+            "rtf": "<h2>Building foundations  </h2><p>The Gym King Building Foundations project believes that fitness, sport, and well-being are the foundations of personal growth.</p><p>Building Foundations is our partnership initiative dedicated to supporting gyms and fitness communities in the UK and worldwide.</p>",
             "txt_color": "#ffffff",
             "text_align": "left",
             "use_html": false,
@@ -142,6 +153,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
@@ -168,6 +181,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 0,
         "is_accent": true,
         "bg_color": "#1b1b1b",
@@ -203,6 +218,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 0,
         "is_accent": true,
         "bg_color": "#1b1b1b",
@@ -313,6 +330,8 @@
       ],
       "name": "Editorial Content Block",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
@@ -325,6 +344,7 @@
   "order": [
     "content_video_cwnKp6",
     "content_rich_text_EjhLgA",
+    "spacer_MHVyrB",
     "content_grid_eitYbw",
     "content_rich_text_NMwMRp",
     "content_rich_text_CeJFQg",
