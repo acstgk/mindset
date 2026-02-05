@@ -11,7 +11,15 @@
       <div class="announcement_track splide__track">
         <div class="announcement_list splide__list">
           {% for block in section.blocks %}
-            {% unless localization.country.iso_code != 'GB' and block.settings.country_restriction == 'domestic_only' or localization.country.iso_code == 'GB' and block.settings.country_restriction == 'international_only' %}
+
+            {%- assign hide_announcement = false -%}
+            {%- if localization.country.iso_code != 'GB' and block.settings.country_restriction == 'domestic_only' -%}
+              {%- assign hide_announcement = true -%}
+            {%- elsif localization.country.iso_code == 'GB' and block.settings.country_restriction == 'international_only' -%}
+              {%- assign hide_announcement = true -%}
+            {%- endif -%}
+
+            {% unless hide_announcement %}
             <div class="splide__slide">
               <a
                 href="{{ block.settings.link1 | escape }}"
