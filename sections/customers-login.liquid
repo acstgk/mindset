@@ -14,7 +14,7 @@
   --------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
 
-<img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Logo-whitebg.png?v=1753428715" alt="" width="80" height="80" class="roundel">
+{% comment %} <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Logo-whitebg.png?v=1753428715" alt="" width="80" height="80" class="roundel"> {% endcomment %}
 
 <div class="form-wrapper">
   {% comment %} LOGIN FORM {% endcomment %}
@@ -45,16 +45,26 @@
     </div>
 
     <button type="submit" class="button button-primary button-full">{{ 'customer.login.submit' | t }}</button>
-
-    <p>
-      {{ 'customer.login.register_label' | t -}}
-      <br>
-      <a href="{{ routes.account_register_url }}" class="inline-flex">
-        {{- 'customer.login.register_link' | t }}
-        {% render 'icon', icon: 'arrow' -%}
-      </a>
-    </p>
   {%- endform -%}
+  <div class="max-width">
+    <div class="rtf" style="width: min(100%, 400px);">
+      <p class="h3 emphasis" style="letter-spacing:normal;">
+        {{ 'customer.login.register_label' | t -}}
+      </p>
+        <ul style="text-align:left">
+          <li>Manage your details</li>
+          <li>Track your orders</li>
+          <li>View your order history</li>
+          <li>Earn reward points on your purchases</li>
+        </ul>
+        <br>
+        <a href="{{ routes.account_register_url }}" class="inline-flex">
+          {{- 'customer.login.register_link' | t }}
+          {% render 'icon', icon: 'arrow' -%}
+        </a>
+
+    </div>
+  </div>
 
   {% comment %} RECOVERY FORM {% endcomment %}
 

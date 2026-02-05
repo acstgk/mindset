@@ -543,7 +543,7 @@ button {
 
     &::after {
         background-color: var(--btn-color);
-        opacity: 0.2;
+        opacity: 0.1;
     }
 }
 

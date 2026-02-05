@@ -67,7 +67,6 @@ ul.account-links {
   justify-content: start;
 
   & li {
-    border: 1px solid var(--c-grey);
     text-align: center;
     cursor: pointer;
 
@@ -119,6 +118,9 @@ ul.address-grid {
   margin: auto 0 0;
 }
 
+.customer-form {
+  margin-bottom: 5vh;
+}
 @media screen and (min-width: 768px) {
   .roundel {
     margin: 12vh auto 0;
@@ -127,7 +129,7 @@ ul.address-grid {
   .customer-form {
     min-height: 15vh;
     text-align: center;
-    margin-bottom: 15vh;
+    margin-top: 5vh;
   }
 }
 

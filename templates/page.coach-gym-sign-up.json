@@ -12,7 +12,6 @@
     "main": {
       "type": "splash-page",
       "settings": {
-        "lightMode": false,
         "pageTitle": "Welcome to Gym King",
         "showTitle": false,
         "eventVideo": "shopify://files/videos/coach-gym-slideshow.mp4",

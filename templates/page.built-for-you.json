@@ -11,58 +11,6 @@
   "sections": {
     "main": {
       "type": "page-built-for-you",
-      "blocks": {
-        "card_beW9ei": {
-          "type": "card",
-          "settings": {
-            "title": "Black",
-            "image": "shopify://shop_images/black-friday_-_m-black.jpg",
-            "text": "Batman's favourite",
-            "button_text": "Shop Now",
-            "url": "",
-            "gender": "mens"
-          }
-        },
-        "card_p3BHHe": {
-          "type": "card",
-          "settings": {
-            "title": "Pewter",
-            "image": "shopify://shop_images/black-friday_-_w-pewter.jpg",
-            "text": "It's a shiny Rock",
-            "button_text": "Shop Now",
-            "url": "",
-            "gender": "womens"
-          }
-        },
-        "card_peypTW": {
-          "type": "card",
-          "settings": {
-            "title": "Forest Green",
-            "image": "shopify://shop_images/black-friday_-_m-green.jpg",
-            "text": "Pine Fresh",
-            "button_text": "Shop now",
-            "url": "",
-            "gender": "mens"
-          }
-        },
-        "card_6QdNDr": {
-          "type": "card",
-          "settings": {
-            "title": "Burgundy",
-            "image": "shopify://shop_images/black-friday_-_w-burgundy.jpg",
-            "text": "It's a colour as well as The Anchorman",
-            "button_text": "Shop",
-            "url": "",
-            "gender": "womens"
-          }
-        }
-      },
-      "block_order": [
-        "card_beW9ei",
-        "card_p3BHHe",
-        "card_peypTW",
-        "card_6QdNDr"
-      ],
       "settings": {
         "mens-bestsellers": "mens-bestsellers",
         "womens-bestsellers": "bestsellers-womens"

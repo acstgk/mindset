@@ -173,7 +173,7 @@
     "account": {
       "title": "My account",
       "welcome": "Welcome back, {{first_name}}!",
-      "logout": "Logout",
+      "logout": "Log out",
       "back_to_account": "Back to account",
       "no_orders_title": "My orders",
       "no_orders_content": "You haven't placed any orders yet",
@@ -184,13 +184,13 @@
       "manage_addresses": "Manage addresses"
     },
     "login": {
-      "title": "Welcome Back",
+      "title": "Gym King Login",
       "description": "Please enter your e-mail and password:",
       "email": "Email",
       "password": "Password",
       "forgot": "Forgot your password?",
-      "submit": "Login",
-      "register_label": "Don't have an account?",
+      "submit": "Log in",
+      "register_label": "New to Gym King?",
       "register_link": "Sign up today"
     },
     "orders": {

@@ -223,16 +223,26 @@ blockquote {
 .info,
 .flag {
   --color: var(--c-black);
-  padding: 0.5lh 2ch;
+  padding: 0.5rem .7rem;
   display: inline-block;
   place-content: center;
   border-radius: var(--radius);
   backdrop-filter: blur(.5rem) contrast(0.5) brightness(1.5);
   color: var(--colour);
   background-color: oklch(from var(--colour) calc(l + 1.2) c h / 0.4);
-    border: 1px solid oklch(from var(--colour) calc(l + 0.2) c h / 0.5);
+  border: 1px solid oklch(from var(--colour) calc(l + 0.2) c h / 0.5);
 }
 
+@supports (margin-block: 1lh) {
+
+  .success,
+  .warning,
+  .error,
+  .info,
+  .flag {
+    padding: 0.5lh 2ch;
+  }
+}
 .success {
   --colour: var(--c-success);
 }
@@ -783,6 +793,7 @@ ul.sub_menu-items {
 .start {
   justify-content: flex-start;
 }
+
 .header_icon {
   display: flex;
   place-items: center flex-start;
@@ -823,6 +834,11 @@ ul.sub_menu-items {
   }
 }
 
+@media screen and (max-width: 768px) {
+  .header_icon {
+    color: var(--c-grey);
+  }
+}
 .cart_items {
   &::after {
     transform: scale(1);

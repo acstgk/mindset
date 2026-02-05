@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="{{ 'customer.min.css' | asset_url }}">
 
-<img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Logo-whitebg.png?v=1753428715" alt="" width="80" height="80" class="roundel">
+{% comment %} <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_Logo-whitebg.png?v=1753428715" alt="" width="80" height="80" class="roundel"> {% endcomment %}
 
 {%- form 'create_customer', name: 'create_customer' id: 'create_customer', class: 'customer-form' -%}
   <h1>{{ 'customer.register.title' | t }}</h1>
