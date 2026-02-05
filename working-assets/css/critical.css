@@ -595,7 +595,7 @@ ul.header_desktop-menu {
   background: var(--c-white);
   position: fixed;
   top: 49px;
-  width: min(100vw, 1400px);
+  width: min(100vw, 1800px);
   margin: 0 auto;
   left: 50%;
   transform: translateX(-50%);
