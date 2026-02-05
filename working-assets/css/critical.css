@@ -294,6 +294,7 @@ blockquote {
   flex: 0 1 auto;
   text-wrap: pretty;
   text-wrap: balanced;
+  padding-bottom: 0.75rem;
 }
 
 .Price {
