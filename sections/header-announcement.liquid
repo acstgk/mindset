@@ -11,6 +11,7 @@
       <div class="announcement_track splide__track">
         <div class="announcement_list splide__list">
           {% for block in section.blocks %}
+            {% unless localization.country.iso_code != 'GB' and block.settings.country_restriction == 'domestic_only' or localization.country.iso_code == 'GB' and block.settings.country_restriction == 'international_only' %}
             <div class="splide__slide">
               <a
                 href="{{ block.settings.link1 | escape }}"
@@ -28,6 +29,7 @@
                 {% endif %}
               </a>
             </div>
+            {% endunless %}
           {% endfor %}
         </div>
       </div>
@@ -95,6 +97,27 @@
           "label": "Enable Countdown",
           "default": false,
           "info": "This will override the sub text and display a countdown timer instead"
+        },
+        {
+          "type": "select",
+          "id": "country_restriction",
+          "label": "Country Restriction",
+          "info": "Choose which countries this announcement should display to",
+          "default": "none",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "domestic_only",
+              "label": "Domestic Only"
+            },
+            {
+              "value": "international_only",
+              "label": "International Only"
+            }
+          ]
         }
       ]
     }

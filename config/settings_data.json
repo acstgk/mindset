@@ -92,7 +92,8 @@
               "title": "FREE UK Standard Delivery",
               "subcontent1": "On Orders over £75",
               "link1": "shopify://pages/help-centre-delivery-and-orders",
-              "enable_countdown": false
+              "enable_countdown": false,
+              "country_restriction": "domestic_only"
             }
           },
           "announcement_slider_Qw6CQD": {
@@ -101,7 +102,8 @@
               "title": "FREE UK Express Delivery",
               "subcontent1": "On orders over £125",
               "link1": "shopify://pages/help-centre-delivery-and-orders",
-              "enable_countdown": false
+              "enable_countdown": false,
+              "country_restriction": "domestic_only"
             }
           },
           "announcement_slider_rTa4zL": {
@@ -110,14 +112,26 @@
               "title": "20% Off with Unidays",
               "subcontent1": "Get Your Code",
               "link1": "shopify://pages/unidays",
-              "enable_countdown": false
+              "enable_countdown": false,
+              "country_restriction": "none"
+            }
+          },
+          "announcement_slider_KeM9Hq": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "International Shipping Available",
+              "subcontent1": "pay in your local currency",
+              "link1": "",
+              "enable_countdown": false,
+              "country_restriction": "international_only"
             }
           }
         },
         "block_order": [
           "announcement_slider_ij8XhU",
           "announcement_slider_Qw6CQD",
-          "announcement_slider_rTa4zL"
+          "announcement_slider_rTa4zL",
+          "announcement_slider_KeM9Hq"
         ],
         "settings": {
           "enable_bar": true,
