@@ -54,6 +54,7 @@ if (!customElements.get("pdp-carousel")) {
           preloadPages: 1,
           perPage: 1,
           lazyLoad: "nearby",
+          drag: true,
         });
 
         if (thumbSplide) {

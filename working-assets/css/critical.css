@@ -19,7 +19,6 @@ body {
   font-family: var(--text-font-family);
   color: var(--c-black);
   margin: 0;
-  touch-action: pan-y;
   width: 100%;
   height: 100%;
   font-size: var(--txt-p);

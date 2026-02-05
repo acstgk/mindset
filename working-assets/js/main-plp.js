@@ -57,6 +57,7 @@ if (!customElements.get("product-types")) {
           pagination: false,
           autoWidth: true,
           focus: "center",
+          drag: true,
         });
 
         this.splide.on("overflow", (isOverflow) => {
