@@ -1780,6 +1780,7 @@ product-card {
         aspect-ratio: 35 / 50;
         position: relative;
         overflow-y: hidden;
+        max-height: 60svh;
 
         &.oos-overlay::after {
             backdrop-filter: blur(-1px);
@@ -1805,6 +1806,7 @@ product-card {
         width: 100%;
         height: 100%;
         position: relative;
+        touch-action: pan-x;
     }
 
     & .outofstockcontainer {
