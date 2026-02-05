@@ -7,7 +7,7 @@
         class="search_form-terms-input"
         type="text"
         name="q"
-        placeholder="{%- if request.page_type != 'search' -%}Search Gym King{% else %}Zero results found, try search again{% endif %}"
+        placeholder="{%- if request.page_type != 'search' or request.page_type != 'cart' -%}Search Gym King{% else %}Zero results found, try search again{% endif %}"
         {% if template == '404' %}
           autofocus
         {% endif %}
@@ -29,7 +29,7 @@
 </div>
 
 {% style%}
-  .dead-end {
+  :not(.cart_items-list) > .dead-end {
     margin: min(6rem, 4vh) auto;
   }
 
