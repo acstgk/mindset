@@ -852,6 +852,14 @@ class ProductModalManager {
         img.draggable = false;
         img.alt = `${productTitle} - image ${i + 1}`;
         images.appendChild(img);
+        if (i < 2) {
+          img.loading = "eager";
+          if (i == 0) {
+            img.fetchPriority = "high";
+          }
+        } else {
+          img.loading = "lazy";
+        }
       }
     }
 
