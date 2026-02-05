@@ -543,7 +543,7 @@ button {
 
     &::after {
         background-color: var(--btn-color);
-        opacity: 0.2;
+        opacity: 0.1;
     }
 }
 
@@ -679,6 +679,7 @@ button {
 /* SEARCH  */
 
 input {
+    color: var(--c-black);
     &:focus {
         outline: none;
     }
@@ -970,13 +971,13 @@ content-accordian {
         font-size: var(--txt-h2);
         color: var(--c-grey);
         opacity: 0.8;
-        transition: color 0.2s var(--bezier), scale 0.2s var(--bezier), opacity 0.2s var(--bezier), scale 0.2s var(--bezier);
-        scale: 0.75;
+        transition: color 0.1s var(--bezier), scale 0.1s var(--bezier), opacity 0.1s var(--bezier), ;
+            scale: 0.95;
 
     }
 
         & .side_menu-header-item:hover {
-            scale: .8;
+            scale: 1;
         }
 
     & .active {
@@ -1016,7 +1017,7 @@ content-accordian {
 
 .side_menu-menu,
 .side_menu-sub-menu {
-    border-top: 1px solid var(--c-light-grey);
+    /* border-top: 1px solid var(--c-light-grey); */
     scrollbar-width: thin;
     overflow-y: scroll;
     padding-bottom: 55px;
@@ -1032,8 +1033,8 @@ content-accordian {
             font-size: var(--txt-h4);
             font-weight: 700;
             padding: 10px 0;
-            border-bottom: 1px solid var(--c-light-grey);
-            color: var(--c-dark-grey);
+            border-bottom: 1px solid var(--c-off-white);
+                color: var(--c-black);
 
             & svg {
                 height: 24px;
@@ -1077,7 +1078,7 @@ content-accordian {
         padding: 15px 0 10px;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid var(--c-grey);
+        border-bottom: 1px solid var(--c-light-grey);
         position: sticky;
         top: 0;
         background: var(--c-white);
@@ -1289,6 +1290,13 @@ free-delivery {
             padding: 0;
             display: none;
         }
+& .iWishAdd {
+    display: none;
+}
+
+& .mqatb-show {
+    top: 12px;
+}
     }
 }
 

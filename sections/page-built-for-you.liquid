@@ -3,7 +3,7 @@
     <h1>
       Built for You
       {%- if customer and customer.first_name -%}
-        , <span class="signature">{{ customer.first_name -}}</span>
+        , {{ customer.first_name -}}
       {%- endif -%}
     </h1>
     {% unless customer %}

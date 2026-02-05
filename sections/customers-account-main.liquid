@@ -1,15 +1,10 @@
 <link rel="stylesheet" href="{{ 'customer.min.css' | asset_url }}">
 
 <header>
-  <a href="{{ routes.account_logout_url }}" class="inline-flex" style="width:100%;justify-content:flex-end">
-    {% render 'icon', icon: 'plus', class: 'rotate45' %}
-    {{- 'customer.account.logout' | t -}}
-  </a>
-
   <div>
     <h1 style="margin-bottom: 0;">
       {% if customer.first_name %}
-        <span class="signature">{{ customer.first_name }}'s</span>
+        {{ customer.first_name }}'s
       {%- else -%}
         Your
       {%- endif %}
@@ -27,23 +22,25 @@
     <a class="button button-secondary" href="{{  collections['all'].url }}">Go Shopping {% render 'icon', icon: 'arrow' %}</a>
   </li>
   <li>
+    <a class="button button-secondary" href="#order-history">{% render 'icon', icon: 'truck' %}Your Orders</a>
+  </li>
+  <li>
     <a class="button button-secondary" href="/apps/iwish">
       <span>{% render 'icon', icon: 'heart' %}</span>Your Wishlist
     </a>
   </li>
   <li>
-    <a class="button button-secondary" href="#order-history">{% render 'icon', icon: 'truck' %}Your Orders</a>
-  </li>
-  <li>
     <a class="button button-secondary" href="{{ routes.account_addresses_url }}">{% render 'icon', icon: 'pin' %}Your Addresses </a>
   </li>
-  <li>
-    {% if customer.tags contains 'Active Subscriber' %}
-      <a class="button button-secondary" href="/tools/recurring/login">{% render 'icon', icon: 'giftcard' %}Your Unlimited Shipping Subscription</a>
-    {% else %}
-      <a class="button button-secondary" href="/products/unlimited-uk-delivery">{% render 'icon', icon: 'giftcard' %}Get Unlimited UK Shipping </a>
-    {% endif %}
-  </li>
+  {% if localization.country.iso_code == 'GB' %}
+    <li>
+      {% if customer.tags contains 'Active Subscriber' %}
+        <a class="button button-secondary" href="/tools/recurring/login">{% render 'icon', icon: 'giftcard' %}Your Unlimited Shipping Subscription</a>
+      {% else %}
+        <a class="button button-secondary" href="/products/unlimited-uk-delivery">{% render 'icon', icon: 'giftcard' %}Get Unlimited UK Shipping </a>
+      {% endif %}
+    </li>
+  {% endif %}
   <li>
     <a class="button button-secondary" href="/pages/rewards">{% render 'icon', icon: 'crown' %}Loyalty Club</a>
   </li>
@@ -247,8 +244,11 @@
 <br>
 <hr>
 <div class="yotpo-widget-instance" data-yotpo-instance-id="1153784"></div>
-<a href="/pages/rewards" class="button button-primary" style="margin: 20px auto;margin: 20px auto;display: block;max-width: 500px;width: 90%;"> Find out more about our Loyalty Club </a>
-
+<a href="/pages/rewards" class="button button-primary" style="margin: 20px auto;margin: 20px auto;display: block;max-width: min(500px, 100%);"> Find out more about our Loyalty Club </a>
+  <a href="{{ routes.account_logout_url }}" class="inline-flex button button-secondary" style="margin-top: 3rem;gap:1.5ch">
+    {% render 'icon', icon: 'logout' %}
+    {{- 'customer.account.logout' | t -}}
+  </a>
 <style>
   .yotpo-action-buttons-tile,
   .yotpo-customized-text.yotpo-headline {
@@ -263,7 +263,7 @@
 
   .yotpo-description.yotpo-description-margin-top {
     justify-content: flex-start !important;
-}
+  }
 </style>
 {% schema %}
 {

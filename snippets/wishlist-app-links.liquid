@@ -1,5 +1,5 @@
 {% if linkType == 'wishlist-page-link' %}
-  <a class="iwishPage header_icon" href="{% unless routes.root_url == '/' %}{{ routes.root_url }}{% endunless %}/apps/iwish" title="Wishlist Page">
+  <a class="iwishPage header_icon mob-hide" href="{% unless routes.root_url == '/' %}{{ routes.root_url }}{% endunless %}/apps/iwish" title="Wishlist Page">
     {% render 'icon', icon: 'heart' %}
     <span class="iwish-counter">0</span>
   </a>

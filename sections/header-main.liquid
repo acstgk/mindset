@@ -1,7 +1,8 @@
 {% assign keywordvar = settings['highlighted-keyword'] | downcase %}
 {% assign keywordvaralt = settings['highlighted-keyword-alt'] | downcase %}
 
-  <div class="max-width">
+<div class="max-width">
+  <div class="header_icon-container start">
     <button class="drawer-button header_icon mob-only" data-target="navDrawer" aria-label="Open navigation menu">
       {%- render 'icon' with 'nav' as icon -%}
     </button>
@@ -49,27 +50,31 @@
         {% endfor %}
       </ul>
     </nav>
-    {% if section.settings.logo %}
-      <a href="{{ routes.root_url }}" aria-label="Link to Homepage" class="header_logo">
-        {{ section.settings.logo | image_url: width: 540 | image_tag: width: 540, sizes: '200px', widths: '540, 200, 80', width: section.settings.logo.width, height: section.settings.logo.height }}
-      </a>
-    {% endif %}
-    <div class="header_icon-container">
-      <div class="countrydesktop" aria-label="Country selector">{%- render 'country-switcher' -%}</div>
-      <a href="{{ routes.account_url }}" class="header_icon icon_account mob-hide" aria-label="Account Pag">
-        {% if customer %}
-          {%- render 'icon' with 'logged-in' as icon -%}
-        {% else %}
-          {%- render 'icon' with 'logged-out' as icon -%}
-        {% endif %}
-      </a>
-      {% render 'wishlist-app-links', linkType: 'wishlist-page-link' %}
-      <a href="{{ routes.search_url }}" class="header_icon" id="header_search-icon" aria-label="open search">{%- render 'icon' with 'search' as icon -%}</a>
-      <a href="{{ routes.cart_url }}" class="drawer-button header_icon" id="header_cart-icon" data-target="cartDrawer" aria-label="Open cart drawer">
-        {%- render 'icon' with 'cart' as icon -%}
-      </a>
-    </div>
+    <a href="{{ routes.search_url }}" class="header_icon mob-only" id="header_search-icon-mobile" aria-label="open search">{%- render 'icon' with 'search' as icon -%}</a>
   </div>
+
+  {% if section.settings.logo %}
+    <a href="{{ routes.root_url }}" aria-label="Link to Homepage" class="header_logo">
+      {{ section.settings.logo | image_url: width: 540 | image_tag: width: 540, sizes: '200px', widths: '540, 200, 80', width: section.settings.logo.width, height: section.settings.logo.height }}
+    </a>
+  {% endif %}
+
+  <div class="header_icon-container">
+    <div class="countrydesktop" aria-label="Country selector">{%- render 'country-switcher' -%}</div>
+    <a href="{{ routes.search_url }}" class="header_icon mob-hide " id="header_search-icon" aria-label="open search">{%- render 'icon' with 'search' as icon -%}</a>
+    {% render 'wishlist-app-links', linkType: 'wishlist-page-link' %}
+    <a href="{{ routes.account_url }}" class="header_icon icon_account" aria-label="Account Pag">
+      {% if customer %}
+        {%- render 'icon' with 'logged-in' as icon -%}
+      {% else %}
+        {%- render 'icon' with 'logged-out' as icon -%}
+      {% endif %}
+    </a>
+    <a href="{{ routes.cart_url }}" class="drawer-button header_icon" id="header_cart-icon" data-target="cartDrawer" aria-label="Open cart drawer">
+      {%- render 'icon' with 'cart' as icon -%}
+    </a>
+  </div>
+</div>
 
 {% render 'predictive-search' %}
 
