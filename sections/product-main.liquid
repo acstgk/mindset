@@ -349,6 +349,16 @@
 {% else %}
   {% render 'drawer-size-guide' with product as product %}
 {% endif %}
+
+{% unless localization.country.iso_code == "GB" %}
+  <style>
+    .gbbExtBundleUpsellContainer {
+    display: none !important;
+    height: 0;
+    width: 0
+  }
+  </style>
+  {% endunless %}
 {% schema %}
 {
   "name": "Main Product Block",
