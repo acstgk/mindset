@@ -221,7 +221,7 @@ blockquote {
 .error,
 .info,
 .flag {
-  --color: var(--c-black);
+  --colour: var(--c-black);
   padding: 0.5rem .7rem;
   display: inline-block;
   place-content: center;

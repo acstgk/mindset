@@ -34,9 +34,9 @@
 {% case order.financial_status %}
   {% when 'expired', 'unpaid ' %}
     {% assign paid_status = 'warning' %}
-  {% when 'partially_paid', 'pending' %}
+  {% when 'partially_paid', 'pending', 'partially_refunded' %}
     {% assign paid_status = 'info' %}
-  {% when 'paid', 'authorized' %}
+  {% when 'paid', 'authorized', 'refunded' %}
     {% assign paid_status = 'success' %}
 {% endcase %}
 

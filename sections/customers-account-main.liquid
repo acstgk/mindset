@@ -140,9 +140,9 @@
           {% case order.financial_status %}
             {% when 'expired', 'unpaid ' %}
               {% assign paid_status = 'warning' %}
-            {% when 'partially_paid', 'pending' %}
+            {% when 'partially_paid', 'pending', 'partially_refunded' %}
               {% assign paid_status = 'info' %}
-            {% when 'paid', 'authorized' %}
+            {% when 'paid', 'authorized', 'refunded' %}
               {% assign paid_status = 'success' %}
           {% endcase %}
 
@@ -152,8 +152,8 @@
                 <a ge-order-list-id href="{{ order.customer_url }}">
                   {{- order.name -}}
                 </a>
-                | {{ order.created_at | date: format: 'month_day_year' -}}
-                |
+                &nbsp;&nbsp;|&nbsp;&nbsp; {{ order.created_at | date: format: 'month_day_year' -}}
+                &nbsp;&nbsp;|&nbsp;&nbsp;
                 <span ge-order-list-total>
                   <b>
                     {%- if order.total_price == 0 %}FREE{% else %}{{ order.total_price | money_without_trailing_zeros }}{% endif -%}
@@ -164,7 +164,7 @@
               </div>
               <div class="customer-order--meta">
                 <span class="{{ paid_status }}">{{ order.financial_status_label }}</span> <span class="{{ fulfilment_status }}">{{ order.fulfillment_status_label }}</span>
-                <a ge-order-list-id href="{{ order.customer_url }}" class="inline-flex details-link"> full details {% render 'icon', icon: 'arrow' %} </a>
+                <a ge-order-list-id href="{{ order.customer_url }}" class="inline-flex flag" style="--colour:var(--c-grey)"> full details {% render 'icon', icon: 'arrow' %} </a>
               </div>
             </div>
             <div class="customer-order--products">
@@ -245,10 +245,10 @@
 <hr>
 <div class="yotpo-widget-instance" data-yotpo-instance-id="1153784"></div>
 <a href="/pages/rewards" class="button button-primary" style="margin: 20px auto;margin: 20px auto;display: block;max-width: min(500px, 100%);"> Find out more about our Loyalty Club </a>
-  <a href="{{ routes.account_logout_url }}" class="inline-flex button button-secondary" style="margin-top: 3rem;gap:1.5ch">
-    {% render 'icon', icon: 'logout' %}
-    {{- 'customer.account.logout' | t -}}
-  </a>
+<a href="{{ routes.account_logout_url }}" class="inline-flex button button-secondary" style="margin-top: 3rem;gap:1.5ch">
+  {% render 'icon', icon: 'logout' %}
+  {{- 'customer.account.logout' | t -}}
+</a>
 <style>
   .yotpo-action-buttons-tile,
   .yotpo-customized-text.yotpo-headline {

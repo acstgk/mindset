@@ -186,12 +186,6 @@ ul.address-grid {
   grid-template-columns: 1fr 1fr;
 }
 
-.details-link {
-  padding: 0.2rem 1rem;
-  background-color: var(--c-off-white);
-  color: var(--c-grey);
-}
-
 .customer-order--product .Title {
   justify-content: space-between;
 }
