@@ -1,16 +1,18 @@
 {% for block in section.blocks %}
-  {% if block.settings.block_link %}
-    <a
-      class="info-strip__block countdown-container"
-      href="{{ block.settings.block_link.url }}"
-      style="background:{{ block.settings.bg_colour }};color:{{block.settings.txt_colour}}"
-    >
-      {% unless block.settings.icon == 'noicon' %}{% render 'icon', icon: block.settings.icon %}{% endunless %}
-      <p>
-        {{- block.settings.title }}
-      </p>
-    </a>
-  {% endif %}
+  {% unless localization.country.iso_code != 'GB' and block.settings.country_restriction == 'domestic_only' or localization.country.iso_code == 'GB' and block.settings.country_restriction == 'international_only' %}
+    {% if block.settings.block_link %}
+      <a
+        class="info-strip__block countdown-container"
+        href="{{ block.settings.block_link.url }}"
+        style="background:{{ block.settings.bg_colour }};color:{{block.settings.txt_colour}}"
+      >
+        {% unless block.settings.icon == 'noicon' %}{% render 'icon', icon: block.settings.icon %}{% endunless %}
+        <p>
+          {{- block.settings.title }}
+        </p>
+      </a>
+    {% endif %}
+  {% endunless %}
 {% endfor %}
 
 {% style %}
@@ -127,6 +129,27 @@
             { "value": "return", "label": "Return" },
             { "value": "parcel", "label": "Parcel" },
             { "value": "giftcard", "label": "Gift Card" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "country_restriction",
+          "label": "Country Restriction",
+          "info": "Choose which countries this announcement should display to",
+          "default": "none",
+          "options": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "domestic_only",
+              "label": "Domestic Only"
+            },
+            {
+              "value": "international_only",
+              "label": "International Only"
+            }
           ]
         }
       ]
