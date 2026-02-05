@@ -29,7 +29,6 @@
   {% endif %}
 {% endif %}
 
-
 {% assign inventory = product.inventory_quantity | minus: settings.product_buffer %}
 
 <div class="Price--wrapper">
@@ -37,7 +36,11 @@
     {% if product.available %}
       {% assign markdown = true %}
       <span class="Price Price--compareAt">
-        {{- compare_at_price | money_without_trailing_zeros -}}
+        {% if cart.currency.symbol == '$' %}
+          {{- compare_at_price | money_with_currency | remove: ".00" -}}
+        {% else %}
+          {{- compare_at_price | money_without_trailing_zeros -}}
+        {% endif %}
       </span>
     {% endif %}
   {% endunless %}
@@ -53,9 +56,17 @@
   >
     {% if product.price_varies %}from{% endif %}
     {%- if product.available or compare_at_price == 0 or compare_at_price == null -%}
-      {{- price | money_without_trailing_zeros -}}
+       {% if cart.currency.symbol == '$' %}
+          {{- price | money_with_currency  | remove: ".00" -}}
+        {% else %}
+          {{- price | money_without_trailing_zeros -}}
+        {% endif %}
     {% else %}
-      {{- compare_at_price | money_without_trailing_zeros -}}
+       {% if cart.currency.symbol == '$' %}
+          {{- compare_at_price | money_with_currency | remove: ".00" -}}
+        {% else %}
+          {{- compare_at_price | money_without_trailing_zeros -}}
+        {% endif %}
     {%- endif -%}
   </span>
 

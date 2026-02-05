@@ -143,7 +143,7 @@
   <form id="atc_form" method="post" action="{{ routes.cart_add_url }}">
     <enhanced-atc>
       <div class="atc_form-header">
-          {% unless product.variants_count == 1 %}
+        {% unless product.variants_count == 1 %}
           <p>
             Select
             {%- if product.gift_card? -%}
@@ -166,7 +166,7 @@
             </a>
           {% endunless %}
         {% endunless %}
-        </div>
+      </div>
 
       {% if is_set %}
         {% for part in is_set.value %}
@@ -267,7 +267,16 @@
       </div>
     </enhanced-atc>
     {% if section.settings.show_yotpo_points %}
-      <div class="yotpo-widget-instance" data-yotpo-instance-id="1268248" data-yotpo-product-id="{{product.id}}" data-yotpo-variant-id="{{ product.selected_or_first_available_variant.id }}" data-yotpo-product-variants="{{ product.variants | json | url_encode }}" data-yotpo-product-collections="{{product.collections | json | url_encode}}" data-yotpo-product-tags="{{ product.tags | json | url_encode }}" data-yotpo-product-type="{{ product.type | json | url_encode }}"></div>
+      <div
+        class="yotpo-widget-instance"
+        data-yotpo-instance-id="1268248"
+        data-yotpo-product-id="{{product.id}}"
+        data-yotpo-variant-id="{{ product.selected_or_first_available_variant.id }}"
+        data-yotpo-product-variants="{{ product.variants | json | url_encode }}"
+        data-yotpo-product-collections="{{product.collections | json | url_encode}}"
+        data-yotpo-product-tags="{{ product.tags | json | url_encode }}"
+        data-yotpo-product-type="{{ product.type | json | url_encode }}"
+      ></div>
     {% endif %}
   </form>
 
@@ -278,42 +287,46 @@
   {% endif %}
 
   <div class="product_details-confidence-blocks">
-    <div class="confidence_blocks-block accent-bg">
-      <div class="window">{% render 'icon', icon: 'truck', class: 'ani-drive' %}</div>
-      {% render 'dispatch-timer' %}
-    </div>
+
+      <div class="confidence_blocks-block accent-bg">
+        <div class="window">{% render 'icon', icon: 'truck', class: 'ani-drive' %}</div>
+        {% render 'dispatch-timer' %}
+      </div>
+
     <div class="confidence_blocks-block accent-bg">
       {% render 'icon', icon: 'star', class: 'ani-spin' %}
       <a href="https://uk.trustpilot.com/review/thegymking.com?stars=5" target="_blank">35,000+ 5 star reviews.</a>
     </div>
-    <div class="confidence_blocks-block accent-bg ge-hide-display-none ge-hide">
-      {% render 'icon', icon: 'parcel', class: 'ani-bounce' %}
-      <freedelivery-info>
-        {%- if customer.tags contains 'Active Subscriber' -%}
-          <p class="free-delivery_text">Your Unlimited FREE Delivery Subscription is: <span class="success">active</span></p>
-        {% else %}
-          <p class="free-delivery_text">
-            {%- if cart.total_price >= settings['delivery-threshold2-value'] and settings['show-delivery-threshold2'] -%}
-              <strong> Enjoy! You've unlocked FREE {{ settings['delivery-threshold2-name'] }}</strong>.
+    {% if localization.country.iso_code == 'GB' %}
+      <div class="confidence_blocks-block accent-bg ge-hide-display-none ge-hide">
+        {% render 'icon', icon: 'parcel', class: 'ani-bounce' %}
+        <freedelivery-info>
+          {%- if customer.tags contains 'Active Subscriber' -%}
+            <p class="free-delivery_text">Your Unlimited FREE Delivery Subscription is: <span class="success">active</span></p>
+          {% else %}
+            <p class="free-delivery_text">
+              {%- if cart.total_price >= settings['delivery-threshold2-value'] and settings['show-delivery-threshold2'] -%}
+                <strong> Enjoy! You've unlocked FREE {{ settings['delivery-threshold2-name'] }}</strong>.
 
-            {% elsif cart.total_price >= settings['delivery-threshold-value'] %}
-              <strong>You've unlocked FREE {{ settings['delivery-threshold-name'] }}</strong>.
-              {%- if settings['show-delivery-threshold2'] -%}
-                <br>
-                FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value'] | money_without_trailing_zeros }}.
-              {%- endif -%}
+              {% elsif cart.total_price >= settings['delivery-threshold-value'] %}
+                <strong>You've unlocked FREE {{ settings['delivery-threshold-name'] }}</strong>.
+                {%- if settings['show-delivery-threshold2'] -%}
+                  <br>
+                  FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value'] | money_without_trailing_zeros }}.
+                {%- endif -%}
 
-            {% else %}
-              FREE {{ settings['delivery-threshold-name'] }} over {{ settings['delivery-threshold-value'] | money_without_trailing_zeros }}.
-              {%- if settings['show-delivery-threshold2'] -%}
-                <br>
-                FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value'] | money_without_trailing_zeros }}.
+              {% else %}
+                FREE {{ settings['delivery-threshold-name'] }} over {{ settings['delivery-threshold-value'] | money_without_trailing_zeros }}.
+                {%- if settings['show-delivery-threshold2'] -%}
+                  <br>
+                  FREE {{ settings['delivery-threshold2-name'] }} over {{ settings['delivery-threshold2-value'] | money_without_trailing_zeros }}.
+                {%- endif -%}
               {%- endif -%}
-            {%- endif -%}
-          </p>
-        {% endif %}
-      </freedelivery-info>
-    </div>
+            </p>
+          {% endif %}
+        </freedelivery-info>
+      </div>
+    {% endif %}
   </div>
 
   {% render 'pdp_colour-selection' %}
@@ -322,7 +335,12 @@
   {% endif %}
 </aside>
 {% comment %} END:: Product Details {% endcomment %}
-{% render 'pdp_description-tabs' show_desc: section.settings.show_description, show_extended: section.settings.show_extended-returns , extended_title: section.settings.extended-returns-title, extended_text: section.settings.extended-returns-text %}
+{% render 'pdp_description-tabs',
+  show_desc: section.settings.show_description,
+  show_extended: section.settings['show_extended-returns'],
+  extended_title: section.settings['extended-returns-title'],
+  extended_text: section.settings['extended-returns-text']
+%}
 
 {% if is_set %}
   {% for part in is_set.value %}
@@ -344,16 +362,15 @@
       "info": "If disabled, the Extended Returns section will not be displayed."
     },
     { "type": "text", "id": "extended-returns-title", "label": "Extended Returns Title", "visible_if": "{{ section.settings.show_extended-returns == true}}" },
-    { "type": "richtext", "id": "extended-returns-text", "label": "Extended Returns Text", "visible_if": "{{ section.settings.show_extended-returns == true}}"  },
+    { "type": "richtext", "id": "extended-returns-text", "label": "Extended Returns Text", "visible_if": "{{ section.settings.show_extended-returns == true}}" },
     {
-    "type": "checkbox",
-    "id": "show_description",
-    "label": "Show Description",
-    "default": true,
-    "info": "If disabled, the description section will not be expanded on load."
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show Description",
+      "default": true,
+      "info": "If disabled, the description section will not be expanded on load."
     },
-    { "type": "checkbox", "id": "show_yotpo_points", "label": "Show Yotpo Points", "default": true,
-    "info": "If disabled, the Yotpo Points info will not be displayed below the add to bag button."}
+    { "type": "checkbox", "id": "show_yotpo_points", "label": "Show Yotpo Points", "default": true, "info": "If disabled, the Yotpo Points info will not be displayed below the add to bag button." }
   ]
 }
 {% endschema %}
