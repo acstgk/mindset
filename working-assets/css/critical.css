@@ -808,7 +808,7 @@ ul.sub_menu-items {
   }
 
   &:after {
-    background-color: var(--c-black);
+    background-color: currentColor;
     border-radius: 4px;
     box-shadow: 0 0 0 2px var(--c-white);
     content: "";
