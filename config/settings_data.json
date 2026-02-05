@@ -93,7 +93,7 @@
               "subcontent1": "On Orders over £75",
               "link1": "shopify://pages/help-centre-delivery-and-orders",
               "enable_countdown": false,
-              "country_restriction": "domestic_only"
+              "country_restriction": "none"
             }
           },
           "announcement_slider_Qw6CQD": {
@@ -103,7 +103,7 @@
               "subcontent1": "On orders over £125",
               "link1": "shopify://pages/help-centre-delivery-and-orders",
               "enable_countdown": false,
-              "country_restriction": "domestic_only"
+              "country_restriction": "none"
             }
           },
           "announcement_slider_rTa4zL": {
@@ -123,7 +123,7 @@
               "subcontent1": "pay in your local currency",
               "link1": "",
               "enable_countdown": false,
-              "country_restriction": "international_only"
+              "country_restriction": "none"
             }
           }
         },
@@ -172,7 +172,7 @@
       "header-main": {
         "type": "header-main",
         "settings": {
-          "logo": "shopify://shop_images/gymking-logo.svg",
+          "logo": "shopify://shop_images/gymking-linear_black.svg",
           "main_menu": "test-desktop-main-menu"
         }
       },
