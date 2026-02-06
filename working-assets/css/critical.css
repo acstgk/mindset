@@ -841,7 +841,7 @@ ul.sub_menu-items {
 
 @media screen and (max-width: 768px) {
   .header_icon {
-    color: var(--c-grey);
+    color: var(--c-dark-grey);
   }
 }
 .cart_items {
