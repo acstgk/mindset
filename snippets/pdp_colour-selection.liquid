@@ -32,7 +32,7 @@
                   href="{% if this_url == product.url %}#{%else%}{{ product.url }}{% endif %}"
                   pid="{{ product.id }}"
                 >
-                  {{ product.images[1] | image_url: width: 400, height: 400, crop: crop_origin | image_tag: width: 400, widths: '100, 150, 200, 300, 400', sizes: '(max-width: 500px) 25vw, (max-width: 1006px) 105px, 8vw', fetchpriority: 'low' }}
+                  {{ product.featured_image | image_url: width: 400, height: 400, crop: crop_origin | image_tag: width: 400, widths: '100, 150, 200, 300, 400', sizes: '(max-width: 500px) 25vw, (max-width: 1006px) 105px, 8vw', fetchpriority: 'low' }}
 
                   {% assign color_name = product.title | replace: '–', '-' | split: '-' %}
                   <span class="tooltip">{{ color_name[-1] }}</span>
