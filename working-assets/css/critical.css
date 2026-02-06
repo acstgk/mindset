@@ -222,7 +222,7 @@ blockquote {
 .info,
 .flag {
   --colour: var(--c-black);
-  padding: 0.5rem .7rem;
+  padding: .4rem 0.75rem .3rem;
   display: inline-block;
   place-content: center;
   border-radius: var(--radius);
@@ -242,6 +242,7 @@ blockquote {
     padding: .25lh 1ch .2lh;
   }
 }
+
 .success {
   --colour: var(--c-success);
 }
@@ -365,6 +366,10 @@ ul {
   padding: 0;
 }
 
+.full-width {
+  max-width: none;
+  width: 100% !important;
+}
 .rtf {
   gap: 0.5rem 1rem;
   margin: 0 auto;

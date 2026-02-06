@@ -53,10 +53,9 @@ if (!customElements.get("product-types")) {
         this.splide = new window.Splide(this, {
           rewind: true,
           gap: 24,
-          start: 1,
           pagination: false,
           autoWidth: true,
-          focus: "center",
+          focus: "left",
           drag: true,
         });
 

@@ -51,14 +51,20 @@
       <p class="h3 emphasis" style="letter-spacing:normal;">
         {{ 'customer.login.register_label' | t -}}
       </p>
-        <ul style="text-align:left">
+        <ul class='signup-perks--list'>
           <li>Manage your details</li>
           <li>Track your orders</li>
           <li>View your order history</li>
-          <li>Earn reward points on your purchases</li>
+          <li>Access the Gym King Loyalty Club
+            <ul>
+              <li>Earn rewards points on your purchases</li>
+              <li>Get exclusive access to launches and sales</li>
+              <li>Receive birthday rewards</li>
+            </ul>
+          </li>
         </ul>
         <br>
-        <a href="{{ routes.account_register_url }}" class="inline-flex">
+        <a href="{{ routes.account_register_url }}" class="inline-flex full-width button button-secondary">
           {{- 'customer.login.register_link' | t }}
           {% render 'icon', icon: 'arrow' -%}
         </a>

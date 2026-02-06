@@ -1,11 +1,15 @@
 <div class="accent-bg" style="margin-top: 0; padding-bottom: 3rem;">
   <div class="max-width">
+    {% comment %} <a href="{{ routes.account_url }}" class="button button-secondary">{%render 'icon', icon: 'arrow', class: 'rotate180'-%} Back to Account</a> {% endcomment %}
     <h1>
       Built for You
       {%- if customer and customer.first_name -%}
         , {{ customer.first_name -}}
       {%- endif -%}
     </h1>
+    <p>
+      Welcome to your personalised edit. The more you browse and shop, the more we can tailor your recommendations and speed up your journey. Make sure you check back here for up to date recommendations.
+    </p>
     {% unless customer %}
       <p><a href="{{ routes.account_login_url }}">Sign in</a> or <a href="{{ routes.account_register_url }}">create an account</a> for better recommendations.</p>
     {% endunless %}
@@ -28,7 +32,7 @@
 
     <div class="loader previous-order-loader"></div>
     <div class="max-width previous-order-recommendations">
-      <h3 class="emphasis left">Perfect additions to your previous order...</h3>
+      <h3 class="emphasis left">Perfect additions to your last order</h3>
       <div class="carousel" data-last-item="[{{ product_ids | remove_first: ","}}]"></div>
     </div>
   {% endif %}

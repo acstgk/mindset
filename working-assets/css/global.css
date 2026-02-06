@@ -187,6 +187,9 @@ productcard-carousel {
     width: 90vw;
     max-width: var(--max-width);
 
+    & .product_card-media {
+            max-height: 60svh;
+        }
     &.no-carousel {
         & .splide__list {
             transform: translateX(0) !important;
@@ -482,24 +485,24 @@ button {
 .button-primary,
 .button-secondary,
 .button-inverted {
-    --btn-color: var(--c-black);
+    --btn-color: var(--c-white);
     --btn-bg: var(--c-black);
     background-color: transparent;
-    color: var(--c-white);
+    color: var(--btn-color);
     border: 1px solid var(--btn-bg);
     cursor: pointer;
     position: relative;
-    overflow-y: hidden;
+    overflow: hidden;
     font-weight: 700;
 
     &::before {
         background-color: var(--btn-bg);
         content: "";
-        width: 100%;
+        width: calc(100% + 2px);
         height: 100%;
         position: absolute;
         top: 0;
-        left: 0;
+        left: -1px;
         z-index: -2;
     }
 
@@ -507,11 +510,11 @@ button {
         background-color: color-mix(in lab, var(--btn-bg), white 20%);
         background-color: oklch(from var(--btn-bg) calc(l + 1.2) c h / 0.1);
         content: "";
-        width: 100%;
+        width: calc(100% + 2px);
         height: 100%;
         position: absolute;
         top: 100%;
-        left: 0;
+        left: -1px;
         z-index: -1;
         transition: top .1s ease-out;
     }
@@ -1609,8 +1612,10 @@ footer.section--footer {
     padding-top: 60px;
     margin: 60px 0 0;
     border-top: 1px solid var(--c-light-grey);
-    color: var(--c-grey);
     width: 100%;
+& a {
+        color: var(--c-black);
+    }
 }
 
 ul.social-links {
@@ -1632,15 +1637,14 @@ ul.social-links {
         text-align: center;
         display: grid;
         place-items: center;
-
+        color: var(--c-black);
         &:hover svg {
             fill: var(--c-dark-grey);
             color: var(--c-dark-grey);
         }
     }
 
-    & svg {
-        fill: var(--c-grey);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                & svg {
         transition: fill 0.2s ease;
         height: 18px;
     }
@@ -1659,7 +1663,6 @@ img.footer-logo {
     display: block;
     margin: 0 auto;
     font-size: var(--txt-h5);
-    color: var(--c-grey);
 }
 
 .meta-description {
@@ -1738,7 +1741,6 @@ img.footer-logo {
                 pointer-events: none;
                 font-size: var(--txt-p);
                 margin-bottom: 10px;
-                color: var(--c-dark-grey);
             }
 
             & .accordian-content {
@@ -1788,7 +1790,6 @@ product-card {
         aspect-ratio: 35 / 50;
         position: relative;
         overflow-y: hidden;
-        max-height: 60svh;
 
         &.oos-overlay::after {
             backdrop-filter: blur(-1px);
@@ -1814,7 +1815,6 @@ product-card {
         width: 100%;
         height: 100%;
         position: relative;
-        touch-action: pan-x;
     }
 
     & .outofstockcontainer {

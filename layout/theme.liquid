@@ -186,20 +186,24 @@
     ></iframe>
     <!-- End Google Tag Manager (noscript) -->
 
-    {% unless template == 'product' %}
+    {% if request.path contains 'help' %}
       <script src="//eu.fw-cdn.com/12832973/808139.js" chat="true" defer></script>
-    {% else %}
+      {% else %}
+        <style>
+          #fc_frame {
+            display: none;
+            visibility: hidden;
+          }
+        </style>
+      {% endif %}
+
+    {% if template.name contains 'product' %}
       <style>
         .yotpo-widget-loyalty-floater-widget.yotpo-widget-override-css {
           display: none !important;
         }
-
-        #fc_frame {
-          display: none;
-          visibility: hidden;
-        }
       </style>
-    {% endunless %}
+    {% endif %}
 
     {% render 'globale-js' %}
     {%- render 'country-switcher-global' -%}

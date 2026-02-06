@@ -121,6 +121,7 @@ ul.address-grid {
 .customer-form {
   margin-bottom: 5vh;
 }
+
 @media screen and (min-width: 768px) {
   .roundel {
     margin: 12vh auto 0;
@@ -186,6 +187,20 @@ ul.address-grid {
   grid-template-columns: 1fr 1fr;
 }
 
+.signup-perks--list {
+  text-align: left;
+  position: relative;
+
+  &>li {
+    padding-left: 1ch
+  }
+
+  &>li::marker {
+    content: "✔ ";
+    position: absolute !important;
+    left: -1ch;
+  }
+}
 .customer-order--product .Title {
   justify-content: space-between;
 }
@@ -352,6 +367,7 @@ tbody tr:nth-of-type(2n) {
   text-align: right;
   padding-right: 0.3rem;
 }
+
 .customer-order-help .button {
   margin: 0.5rem 0.25rem 0 0
 }
