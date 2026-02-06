@@ -283,14 +283,13 @@ blockquote {
     color: var(--c-grey);
     }
 
-  & .title {
-    font-weight: 700;
+        & .title {
     color: var(--c-black);
     transition: color .2s var(--bezier);
   }
 
   & .colour {
-    color: var(--c-dark-grey);
+    color: var(--c-grey);
     font-size: var(--txt-sm);
     flex: 0 1 auto;
     text-wrap: pretty;
@@ -315,6 +314,7 @@ blockquote {
   display: flex;
   align-items: anchor-center;
   gap: 0.5em;
+  font-weight: 700;
 }
 
 .Price--compareAt {

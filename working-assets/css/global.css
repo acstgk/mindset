@@ -1877,7 +1877,8 @@ product-card {
         justify-content: space-between;
         margin-bottom: 0.5rem;
         padding-bottom: 0.25rem;
-        border-bottom: 1px solid var(--c-light-grey);
+        /* border-bottom: 1px solid var(--c-light-grey); */
+            margin-bottom: 1rem;
     }
 
     & .countdown-wrapper {
@@ -1954,7 +1955,7 @@ product-card,
 .mqatb-modal {
     & .Title {
         justify-content: space-between;
-        padding-top: 1em;
+        padding-top: 0.5em;
         padding-bottom: 0.25em;
 
         & .title {
@@ -1968,6 +1969,12 @@ product-card,
     }
 }
 
+product-card {
+    & .Title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
 .qatb-btns {
     display: flex;
     justify-content: center;

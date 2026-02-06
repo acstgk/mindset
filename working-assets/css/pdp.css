@@ -388,9 +388,6 @@ pdp-carousel {
   & .Price--wrapper {
     grid-area: 2 / 1 / 3 / 2;
 
-    & span {
-      font-weight: 700;
-    }
   }
 
   & .Price--wrapper,
@@ -402,7 +399,6 @@ pdp-carousel {
     letter-spacing: normal;
     font-family: var(--text-font-family);
     text-align: left;
-    font-weight: 400;
     flex-wrap: wrap;
   }
 
