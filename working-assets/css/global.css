@@ -1973,6 +1973,7 @@ product-card {
     & .Title {
         flex-direction: column;
         align-items: flex-start;
+        padding-bottom: 0;
     }
 }
 .qatb-btns {
