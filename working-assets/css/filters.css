@@ -90,7 +90,7 @@ filters-menu-bar {
     }
   }
 
-  &[data-grid="small-grid"] .grid-control--down {
+    &[data-grid="grid"] .grid-control--down {
     cursor: default;
 
     & svg {

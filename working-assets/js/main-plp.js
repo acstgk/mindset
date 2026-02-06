@@ -458,7 +458,7 @@ class ColumnControls {
     this.buttonUp = element.querySelector(".grid-control--up");
     this.buttonDown = element.querySelector(".grid-control--down");
     this.currentSize = localStorage.getItem("GK::grid-size") || "grid";
-    this.sizes = ["small-grid", "grid", "large-grid"];
+    this.sizes = ["grid", "large-grid"];
     this._addEventListeners();
   }
 
@@ -471,8 +471,8 @@ class ColumnControls {
   }
 
   _handleClicks(button) {
-    const currentIndex = this.sizes.indexOf(this.currentSize);
-    const newIndex = button === this.buttonDown ? Math.max(0, currentIndex - 1) : Math.min(2, currentIndex + 1);
+
+    const newIndex = button === this.buttonDown ? 0 : 1;
     this.currentSize = this.sizes[newIndex];
     localStorage.setItem("GK::grid-size", this.currentSize);
     gridSize();
