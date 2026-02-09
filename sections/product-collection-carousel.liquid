@@ -1,6 +1,6 @@
 <h2 class="{{ section.settings.heading_style }}">{{ section.settings.carousel_title }}</h2>
 <div class="gender-wrapper">
-  <productcard-carousel class="mens-gender-filter fade-in">
+  <productcard-carousel class="mens-gender-filter {%if section.settings.show_womens or section.settings.show_kids %}fade-in{% endif %}">
     {% for product in section.settings.product_list %}
       <div class="splide__slide">{% render 'product-card', product: product %}</div>
     {% endfor %}
@@ -119,7 +119,7 @@
     {
       "type": "checkbox",
       "id": "show_kids",
-      "label": "Show Women's Carousel?",
+      "label": "Show Kid's Carousel?",
       "default": false
     },
     {
