@@ -63,11 +63,13 @@
           <h4 class="predictive_search-heading">Pages</h4>
           <ul role="listbox">
             {%- for page in predictive_search.resources.pages limit: 5 -%}
-              <li role="option">
-                <a href="{{ page.url }}">
-                  {{ page.title | highlight: predictive_search.terms }}
-                </a>
-              </li>
+              {% if page.metafieldscustom.display_type != 'Hide' %}
+                <li role="option">
+                  <a href="{{ page.url }}">
+                    {{ page.title | highlight: predictive_search.terms }}
+                  </a>
+                </li>
+              {% endif %}
             {%- endfor -%}
           </ul>
         </div>
