@@ -1,0 +1,45 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "content-rich-text",
+      "blocks": {
+        "quote_mCzfgD": {
+          "type": "quote",
+          "settings": {
+            "quote_text": "The Stoic Games turn fitness into philosophy in motion. This isn’t about beating others; it’s about mastering what’s within your control.",
+            "quote_author": "Ross Edgley"
+          }
+        }
+      },
+      "block_order": [
+        "quote_mCzfgD"
+      ],
+      "custom_css": [
+        "{margin: 4rem 0;}"
+      ],
+      "name": "Ross Quote",
+      "settings": {
+        "title": "",
+        "heading_style": "",
+        "v_padding": 25,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+  },
+  "order": [
+    "main"
+  ]
+}
