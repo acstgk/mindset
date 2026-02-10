@@ -98,7 +98,8 @@
             "block_link": "shopify://pages/help-centre-delivery-and-orders",
             "bg_colour": "#f8f8f8",
             "txt_colour": "#1b1b1b",
-            "icon": "truck"
+            "icon": "truck",
+            "country_restriction": "domestic_only"
           }
         },
         "subtle_text_block_7LKcb6": {
@@ -108,7 +109,8 @@
             "block_link": "shopify://collections/spring-sale",
             "bg_colour": "#f8f8f8",
             "txt_colour": "#1b1b1b",
-            "icon": "tag"
+            "icon": "tag",
+            "country_restriction": "none"
           }
         },
         "subtle_text_block_f3eyqD": {
@@ -118,7 +120,8 @@
             "block_link": "shopify://pages/help-centre-returns",
             "bg_colour": "#f8f8f8",
             "txt_colour": "#1b1b1b",
-            "icon": "return"
+            "icon": "return",
+            "country_restriction": "none"
           }
         }
       },

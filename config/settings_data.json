@@ -78,11 +78,11 @@
     "social_ig": "https://www.instagram.com/gymking/",
     "social_yt": "https://www.youtube.com/channel/UCMo0t3vIAyl-peoNAcIwi9g/videos",
     "social_tt": "https://www.tiktok.com/@thegymking/",
+    "sale_colour": "#1b1a1b",
     "favicon": "shopify://shop_images/Gym_King_Logo-whitebg.png",
     "alt_favicon": "shopify://shop_images/Gym_King_Logo-blackbg.png",
     "nav-mobilemenu-1": "mens-side-menu",
     "nav-mobilemenu-2": "womens-side-menu",
-    "sale_colour": "#1b1a1b",
     "sections": {
       "header-announcement": {
         "type": "header-announcement",
@@ -94,7 +94,7 @@
               "subcontent1": "On Orders over £75",
               "link1": "shopify://pages/help-centre-delivery-and-orders",
               "enable_countdown": false,
-              "country_restriction": "none"
+              "country_restriction": "domestic_only"
             }
           },
           "announcement_slider_Qw6CQD": {
@@ -104,7 +104,17 @@
               "subcontent1": "On orders over £125",
               "link1": "shopify://pages/help-centre-delivery-and-orders",
               "enable_countdown": false,
-              "country_restriction": "none"
+              "country_restriction": "domestic_only"
+            }
+          },
+          "announcement_slider_KeM9Hq": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "International Shipping Available",
+              "subcontent1": "pay in your local currency",
+              "link1": "",
+              "enable_countdown": false,
+              "country_restriction": "international_only"
             }
           },
           "announcement_slider_rTa4zL": {
@@ -116,23 +126,13 @@
               "enable_countdown": false,
               "country_restriction": "none"
             }
-          },
-          "announcement_slider_KeM9Hq": {
-            "type": "announcement_slider",
-            "settings": {
-              "title": "International Shipping Available",
-              "subcontent1": "pay in your local currency",
-              "link1": "",
-              "enable_countdown": false,
-              "country_restriction": "none"
-            }
           }
         },
         "block_order": [
           "announcement_slider_ij8XhU",
           "announcement_slider_Qw6CQD",
-          "announcement_slider_rTa4zL",
-          "announcement_slider_KeM9Hq"
+          "announcement_slider_KeM9Hq",
+          "announcement_slider_rTa4zL"
         ],
         "settings": {
           "enable_bar": true,
