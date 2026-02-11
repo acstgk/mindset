@@ -69,10 +69,30 @@
         "alignment": "right",
         "grid_style": "standard"
       }
+    },
+    "product_collection_carousel_EjWG9w": {
+      "type": "product-collection-carousel",
+      "name": "Product Card Carousel",
+      "settings": {
+        "carousel_title": "Shop Stoic",
+        "heading_style": "emphasis",
+        "product_list": [],
+        "collection": "stoic-ross-edgley",
+        "product_count": 6,
+        "show_womens": false,
+        "product_list_2": [],
+        "collection_2": "",
+        "product_count_2": 6,
+        "show_kids": false,
+        "product_list_3": [],
+        "collection_3": "",
+        "product_count_3": 6
+      }
     }
   },
   "order": [
     "content_rich_text_3XUqGm",
-    "main"
+    "main",
+    "product_collection_carousel_EjWG9w"
   ]
 }
