@@ -409,6 +409,9 @@ pdp-carousel {
 
 .pdp-tabs h4 {
   text-align: left;
+  &:first-child {
+      display: none;
+    }
 }
 
 .countdown-wrapper {

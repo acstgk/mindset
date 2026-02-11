@@ -364,6 +364,15 @@ ul {
   justify-content: center;
   gap: 1em;
   padding: 0;
+  margin-block: 0;
+  }
+  
+  p+ul {
+    margin-top: 1.5rem;
+  }
+  
+  ul:has(+p) {
+    margin-bottom: 1.5rem;
 }
 
 .full-width {
