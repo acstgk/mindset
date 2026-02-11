@@ -44,25 +44,17 @@
             "url": ""
           }
         },
-        "link_6ikELB": {
-          "type": "link",
-          "settings": {
-            "text": "Interviews",
-            "url": ""
-          }
-        },
         "link_9bJ4Pw": {
           "type": "link",
           "settings": {
-            "text": "Training Hub",
-            "url": "/blogs/posts/tagged/training-hub"
+            "text": "Building Foundations",
+            "url": "shopify://pages/building-foundations"
           }
         }
       },
       "block_order": [
         "link_EKpNmj",
         "link_MGV7RC",
-        "link_6ikELB",
         "link_9bJ4Pw"
       ],
       "name": "In-Page Navigation",
@@ -253,25 +245,17 @@
             "url": ""
           }
         },
-        "link_6ikELB": {
-          "type": "link",
-          "settings": {
-            "text": "Interviews",
-            "url": ""
-          }
-        },
         "link_9bJ4Pw": {
           "type": "link",
           "settings": {
-            "text": "Training Hub",
-            "url": "/blogs/posts/tagged/training-hub"
+            "text": "Building Foundation",
+            "url": "shopify://pages/building-foundations"
           }
         }
       },
       "block_order": [
         "link_EKpNmj",
         "link_MGV7RC",
-        "link_6ikELB",
         "link_9bJ4Pw"
       ],
       "name": "In-Page Navigation",
