@@ -41,6 +41,7 @@
     text-shadow: 0 0 1rem rgb(0 0 0 / 0.2);
     fill: white;
     padding: 0 5vw;
+    margin-bottom: 2rem;
 
     & ul.social-links svg {
       fill: var(--c-light-grey);
@@ -75,6 +76,7 @@
       flex-direction: column;
       justify-content: flex-end;
       align-items: end;
+
     }
 
     .static-hero--content {
