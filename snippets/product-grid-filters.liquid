@@ -16,6 +16,7 @@
       <form id="filter-form">
         {% comment %} Mobile Filters {% endcomment %}
         <div class="filterby-container">
+          <small><span class="product-count">{{ collection.products_count }}</span> products</small><br>
           <span> Filter by:</span>
           {% assign active_count = 0 %}
 
@@ -67,7 +68,7 @@
                                     {%- when 'image' -%}
                                       {{ filter_value.swatch.image | image_url: width: 15 | image_tag: alt: filter_value.swatch.image.alt, class: 'swatch' }}
                                   {%- endcase -%}
-                                  {{ filter_value.label }} ({{ filter_value.count }})
+                                  {{ filter_value.label }} ({{ filter_value.count }}){% if filter_value.active%}<b>active</b>{% endif %}
                                 </label>
                               </li>
                             {%- endfor -%}

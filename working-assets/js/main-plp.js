@@ -334,7 +334,7 @@ class EnhancedFilters {
       const currentGrid = document.querySelector("infinite-scroll");
       const currentPaginationNext = document.getElementById("pagination-next");
       const currentPaginationPrev = document.getElementById("pagination-prev");
-      const currentTotalCount = document.querySelector(".product-count");
+      const currentTotalCount = document.querySelectorAll(".product-count");
 
       if (currentPaginationNext) currentPaginationNext.style.display = "none";
       if (currentPaginationPrev) currentPaginationPrev.style.display = "none";
@@ -406,7 +406,9 @@ class EnhancedFilters {
       const newfilterCheckboxes = doc.querySelectorAll(".filter_value-checkbox");
       const newTotalCount = doc.querySelector(".product-count").innerText;
 
-      currentTotalCount.innerText = newTotalCount;
+      currentTotalCount.forEach((el) => {
+        el.innerText = newTotalCount;
+      });
 
       const maxLength = Math.max(this.filterTitles.length, newFilterTitles.length, this.filterLabels.length, newFilterLabels.length, this.filterCheckboxes.length, newfilterCheckboxes.length);
 
