@@ -723,3 +723,6 @@ form .quantity-warning {
     margin: auto 0 0
   }
 }
+.yotpo-pictures-widget {
+  background-color: var(--c-off-white) !important;
+}
