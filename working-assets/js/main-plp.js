@@ -295,7 +295,7 @@ class EnhancedFilters {
   constructor(formElement) {
     this.form = formElement;
     this.applyFilters = this.applyFilters.bind(this);
-    this.filterTitles = this.form.querySelectorAll(".filter_item-name");
+    this.filterTitles = this.form.querySelectorAll(".filter_item-title");
     this.filterLabels = this.form.querySelectorAll(".filter_value-label");
     this.filterCheckboxes = this.form.querySelectorAll(".filter_value-checkbox");
     this.form.addEventListener("change", this.applyFilters);
@@ -401,7 +401,7 @@ class EnhancedFilters {
       }
 
       // Update filter titles
-      const newFilterTitles = doc.querySelectorAll(".filter_item-name");
+      const newFilterTitles = doc.querySelectorAll(".filter_item-title");
       const newFilterLabels = doc.querySelectorAll(".filter_value-label");
       const newfilterCheckboxes = doc.querySelectorAll(".filter_value-checkbox");
       const newTotalCount = doc.querySelector(".product-count").innerText;

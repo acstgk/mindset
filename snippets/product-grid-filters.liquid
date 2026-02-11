@@ -26,11 +26,13 @@
                 {% unless request.path contains '/mens' and filter.label == 'Gender' or request.path contains '/womens' and filter.label == 'Gender' %}
                   <div class="accordian-items filter_item filter_item-{{- filter.label | handleize -}} ">
                     <div class="accordian-header filter_item-name item-{{- filter.label | handleize -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
-                      {{ filter.label }}
-                      {%- if filter.active_values.size > 0 -%}
-                        {% assign active_count = active_count | plus: 1 %}
-                        <i>({{ filter.active_values.size }})</i>
-                      {%- endif -%}
+                      <div class="filter_item-title">
+                        {{ filter.label }}
+                        {%- if filter.active_values.size > 0 -%}
+                          {% assign active_count = active_count | plus: 1 %}
+                          <i>&nbsp;({{ filter.active_values.size }} {{filter.active_values.size | pluralize: 'filter', 'filters' }} selected)</i>
+                        {%- endif -%}
+                      </div>
                     </div>
                     {%- case filter.type -%}
                       {%- when 'list' -%}
@@ -53,7 +55,7 @@
                                   type="checkbox"
                                   name="{{ filter_value.param_name }}"
                                   value="{{ filter_value.value }}"
-                                  id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                                  id="Filter-{{ filter_value.param_name }}-{{ forloop.index }}"
                                   {% if filter_value.active -%}
                                     checked
                                   {%- endif %}

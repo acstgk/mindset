@@ -255,6 +255,12 @@ filters-menu-bar {
   }
 }
 
+.filter_item-name {
+  & i {
+    font-weight: 400;
+    font-size: var(--txt-sm)
+  }
+}
 .filter_value-label {
   display: flex;
   gap: .5em;
@@ -309,6 +315,9 @@ filters-menu-bar {
   }
 }
 
+#productFilters {
+  overflow-y: auto;
+}
 @media screen and (width > 900px) {
   .filterby-container {
     display: flex;
@@ -401,7 +410,11 @@ filters-menu-bar {
   }
 
         #productFilters {
-          overflow-y: auto;
+          overflow-y: visible;
+          
+            & small {
+              display: none;
+            }
         }
   #productFilters[aria-hidden="false"]~.mobile-filter-button {
     filter: blur(2px);
