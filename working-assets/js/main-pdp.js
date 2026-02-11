@@ -51,7 +51,7 @@ if (!customElements.get("pdp-carousel")) {
           type: "loop",
           pagination: true,
           arrows: false,
-          preloadPages: 1,
+          preloadPages: 3,
           perPage: 1,
           lazyLoad: "nearby",
           drag: true,
