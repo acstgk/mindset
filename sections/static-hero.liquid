@@ -11,7 +11,7 @@
   <div class="static-hero--heading">
     <span class="h1">{{ section.settings.title }}</span>
     <h1 class="h3">{{ section.settings.heading }}</h1>
-    {% render 'socials' %}
+    {% comment %} {% render 'socials' %} {% endcomment %}
   </div>
   {% if section.settings.text != blank %}
     <div class="static-hero--content rtf">
