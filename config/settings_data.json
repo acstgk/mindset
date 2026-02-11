@@ -87,8 +87,19 @@
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
+          "announcement_slider_CxdCHz": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "Click and Collect now available",
+              "subcontent1": "FREE for orders over £75",
+              "link1": "shopify://pages/help-centre-delivery-and-orders",
+              "enable_countdown": false,
+              "country_restriction": "domestic_only"
+            }
+          },
           "announcement_slider_ij8XhU": {
             "type": "announcement_slider",
+            "disabled": true,
             "settings": {
               "title": "FREE UK Standard Delivery",
               "subcontent1": "On Orders over £75",
@@ -129,6 +140,7 @@
           }
         },
         "block_order": [
+          "announcement_slider_CxdCHz",
           "announcement_slider_ij8XhU",
           "announcement_slider_Qw6CQD",
           "announcement_slider_KeM9Hq",
