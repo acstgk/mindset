@@ -1,0 +1,30 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "static_hero_xnwWr7": {
+      "type": "static-hero",
+      "name": "Static Hero",
+      "settings": {
+        "isFullheight": false,
+        "image": "shopify://shop_images/stoic2-0-1.jpg",
+        "title": "Stoic 2.0",
+        "heading": "Forged by the Coastline. Anchored by the Compass.",
+        "text": "<p>ROSS EDGLEY:<br/>FIRST PERSON TO SWIM AROUND ICELAND<br/>1,000 miles. 113 days.<br/>Icy waters. 13ft waves. Hurricane tides.<br/>And still: Unbreakable belief.<br/>A world record never thought achievable.<br/></p><p>NOTHING BEATS BELIEF.</p>",
+        "cta_text": "Shop Stoic 2.0",
+        "link_url": "shopify://collections/stoic-ross-edgley",
+        "text_align": "center"
+      }
+    }
+  },
+  "order": [
+    "static_hero_xnwWr7"
+  ]
+}
