@@ -1303,6 +1303,11 @@ free-delivery {
     }
 }
 
+@media screen and (height > 849px) {
+    .cart-upsells--carousel product-card {
+        width: 40%;
+    }
+}
 /*  recently viewed tab */
 
 #side_menu-recents {
