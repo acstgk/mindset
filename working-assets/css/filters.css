@@ -67,6 +67,7 @@ filters-menu-bar {
 
   & svg {
     transition: stroke var(--bezier) 0.1s;
+    color: var(--c-black);
   }
 
   & button {
