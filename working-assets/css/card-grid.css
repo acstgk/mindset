@@ -43,19 +43,27 @@
   scale: 1
 }
 
-.trending-color-card--content{
-  background: #fff;
-  bottom: 5%;
+.trending-color-card--content {
   padding: 1rem;
   position: absolute;
-  right: 0;
-  width: 70%
+  background: #fff;
+    width: 100%;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+    
+      &:has(>h4) {
+      bottom: 5%;
+      align-items: flex-start;
+        right: 0;
+      width: 70%;
+      }
 }
 
-.trending-color-card--contenta {
+.trending-color-card--content a {
   display: block;
-  font-size: 12px;
-  margin: 0 0 0 auto;
   max-width: 100%;
   width: -moz-max-content;
   width: max-content

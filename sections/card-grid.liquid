@@ -9,8 +9,10 @@
           {{ block.settings.image | image_url: width: 1270 | image_tag }}
         {% endif %}
         <div class="trending-color-card--content">
-          <h4 class="h3 emphasis left" style="margin: 0">{{ block.settings.title }}</h4>
-          {% if block.settings.text %}
+          {% if block.settings.title != blank %}
+            <h4 class="h3 emphasis left" style="margin: 0 0 1em">{{ block.settings.title }}</h4>
+          {% endif %}
+          {% if block.settings.text != blank %}
             <p>{{ block.settings.text }}</p>
           {% endif %}
           <a href="{{ block.settings.url }}" class="button button-primary">{{ block.settings.button_text | default: 'read more' }}</a>
@@ -21,10 +23,16 @@
   {% if section.settings.cta_1_url != blank and section.settings.cta_2_url != blank %}
     <div class="trending-color-ctas">
       {% if section.settings.cta_1_url != blank %}
-        <a href="{{ section.settings.cta_1_url }}" class="button button-primary mens-gender-filter fade-in">{{ section.settings.cta_1_text }}{% render 'icon', icon: 'arrow' %}</a>
+        <a href="{{ section.settings.cta_1_url }}" class="button button-primary mens-gender-filter fade-in">
+          {{- section.settings.cta_1_text -}}
+          {%- render 'icon', icon: 'arrow' -%}
+        </a>
       {% endif %}
       {% if section.settings.cta_2_url != blank %}
-        <a href="{{ section.settings.cta_2_url }}" class="button button-primary womens-gender-filter fade-in">{{ section.settings.cta_2_text }}{% render 'icon', icon: 'arrow' %}</a>
+        <a href="{{ section.settings.cta_2_url }}" class="button button-primary womens-gender-filter fade-in">
+          {{- section.settings.cta_2_text -}}
+          {%- render 'icon', icon: 'arrow' -%}
+        </a>
       {% endif %}
     </div>
   {% endif %}
