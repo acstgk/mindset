@@ -43,7 +43,7 @@
 <div class="pdp-carousels-wrapper">
   {% comment %} START:: thumbnail navigation carousel {% endcomment %}
   <thumbnail-carousel>
-    {% for image in product.images %}
+    {% for image in product.images limit: 13 %}
       {% unless forloop.index == 2 %}
         <div class="thumbs_slide splide__slide">
           <img
@@ -69,7 +69,7 @@
         {% render 'evergreen-decal', product: product, class: 'splide__decal' %}
       {% endif %}
 
-      {% for image in product.images %}
+      {% for image in product.images limit: 13 %}
         {% unless forloop.index == 2 %}
           {% assign base_url = image | image_url: width: 1111 | remove: '1111' %}
           {% assign img_widths = '' %}
