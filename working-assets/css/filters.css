@@ -231,6 +231,7 @@ filters-menu-bar {
 .filter_item-values {
   & ul {
     flex-direction: column;
+    margin-top: 0;
   }
 
   & li {
