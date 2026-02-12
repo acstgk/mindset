@@ -121,6 +121,9 @@
    & .Title {
      display: block;
    }
+& .Price--wrapper {
+  flex-wrap: wrap;
+}
  }
 
  .cart-upsells--carousel product-card {

@@ -189,6 +189,7 @@ productcard-carousel {
 
     & .product_card-media {
             max-height: 60svh;
+            width: 100%;
         }
     &.no-carousel {
         & .splide__list {
@@ -465,16 +466,17 @@ button {
     gap: 0.15rem;
     justify-content: center;
     width: max-content;
-    scale: 1;
-    transition: scale 0.15s ease;
+    transform: scale(1);
+        transition: transform 0.15s ease;
     border-radius: var(--radius);
+        isolation: isolate;
 
     &:not(:disabled):hover {
-            scale: 1.02;
+            transform: scale(1.02);
         }
 
                 &:not(:disabled):active {
-        scale: 0.95;
+        transform: scale(0.95);
     }
 }
 
@@ -487,24 +489,13 @@ button {
 .button-inverted {
     --btn-color: var(--c-white);
     --btn-bg: var(--c-black);
-    background-color: transparent;
+    background-color: var(--btn-bg);
     color: var(--btn-color);
     border: 1px solid var(--btn-bg);
     cursor: pointer;
     position: relative;
     overflow: hidden;
     font-weight: 700;
-
-    &::before {
-        background-color: var(--btn-bg);
-        content: "";
-        width: calc(100% + 2px);
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: -1px;
-        z-index: -2;
-    }
 
     &::after {
         background-color: color-mix(in lab, var(--btn-bg), white 20%);
@@ -540,10 +531,6 @@ button {
         color: var(--c-black);
     }
 
-    &::before {
-        background-color: var(--btn-bg);
-    }
-
     &::after {
         background-color: var(--btn-color);
         opacity: 0.1;
@@ -553,13 +540,9 @@ button {
 .button-inverted {
     color: var(--c-black);
     border: none;
-
+background-color: var(--c-white);
     &:hover {
         color: var(--c-black);
-    }
-
-    &::before {
-        background-color: var(--c-white);
     }
 
     &::after {
@@ -586,8 +569,8 @@ button {
     background: color-mix(in lab, var(--c-white), transparent 70%);
     box-shadow: 0 0 4px var(--c-shadow);
     cursor: pointer;
-    scale: 1;
-    transition: scale 0.15s var(--bezier);
+    transform: scale(1);
+        transition: transform 0.15s var(--bezier);
 
     & svg {
         /* overwriting 3rd party css */
@@ -597,7 +580,7 @@ button {
     }
 
                                 &:not(:disabled):hover {
-            scale: 1.1;
+            transform: scale(1.1);
         }
 }
 
