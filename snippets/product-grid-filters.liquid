@@ -29,6 +29,8 @@
                       <div class="filter_item-title">
                         {% if filter.label == 'Size' and request.path contains 'kids' or filter.label == 'Size' and request.path contains 'boys' or filter.label == 'Size' and request.path contains 'girls' %}
                           Age
+                        {% elsif filter.label == 'Sale' and request.path contains 'sale' %}
+                          Discount
                         {% else %}
                           {{ filter.label }}
                         {% endif %}
