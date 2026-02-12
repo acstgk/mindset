@@ -260,6 +260,9 @@ filters-menu-bar {
     font-weight: 400;
     font-size: var(--txt-sm)
   }
+& .pluralize {
+  display: inline
+}
 }
 .filter_value-label {
   display: flex;
@@ -325,6 +328,9 @@ filters-menu-bar {
     gap: 1em;
   }
 
+.filter_item-name .pluralize {
+  displaY: none;
+}
   .sortby-container label {
     display: block;
   }
@@ -411,7 +417,7 @@ filters-menu-bar {
 
         #productFilters {
           overflow-y: visible;
-          
+
             & small {
               display: none;
             }

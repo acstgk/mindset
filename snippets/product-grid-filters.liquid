@@ -27,10 +27,14 @@
                   <div class="accordian-items filter_item filter_item-{{- filter.label | handleize -}} ">
                     <div class="accordian-header filter_item-name item-{{- filter.label | handleize -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
                       <div class="filter_item-title">
-                        {{ filter.label }}
+                        {% if filter.label == 'Size' and request.path contains 'kids' or filter.label == 'Size' and request.path contains 'boys' or filter.label == 'Size' and request.path contains 'girls' %}
+                          Age
+                        {% else %}
+                          {{ filter.label }}
+                        {% endif %}
                         {%- if filter.active_values.size > 0 -%}
                           {% assign active_count = active_count | plus: 1 %}
-                          <i>&nbsp;({{ filter.active_values.size }} {{filter.active_values.size | pluralize: 'filter', 'filters' }} selected)</i>
+                          <i>({{ filter.active_values.size }}<span class="pluralize"> {{filter.active_values.size | pluralize: 'filter', 'filters' }} selected</span>)</i>
                         {%- endif -%}
                       </div>
                     </div>
@@ -43,6 +47,8 @@
                             {% assign sorted_values = filter.values %}
                             {% if filter.label == 'Product Type' %}
                               {% assign sorted_values = filter.values | sort: 'count' | reverse %}
+                            {% else %}
+                              {% assign sorted_values = filter.values | sort: 'label' %}
                             {% endif %}
                             {%- for filter_value in sorted_values -%}
                               <li
