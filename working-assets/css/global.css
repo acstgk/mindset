@@ -660,9 +660,9 @@ button {
         font-size: var(--txt-h1);
         text-transform: uppercase;
         color: var(--c-white);
-        text-shadow: 0 0 3px var(--c-dark-grey);
-        --webkit-text-stroke: 1px dimgray;
-        transition: font-size 0.2s ease, text-shadow 0.2s ease;
+        text-shadow: 0 0 .75em #4d4d4d;
+            --webkit-text-stroke: 1px var(--c-light-grey);
+            transition: font-size 0.2s var(--bezier), text-shadow 0.2s var(--bezier);
     }
 
     &:hover {
@@ -673,7 +673,7 @@ button {
 
         & a {
             font-size: calc(var(--txt-h1) * 1.1);
-            text-shadow: 0 0 9px var(--c-dark-grey);
+            text-shadow: 0 0 1em var(--c-dark-grey);
 
         }
     }
