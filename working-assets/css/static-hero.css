@@ -90,6 +90,10 @@
         text-align: right;
         max-width: 65ch;
       }
+& .button {
+  margin: 1.5rem 0 0 auto;
+  display: flex
+}
     }
 
         .align-start {
@@ -101,8 +105,29 @@
               margin: 0 auto 0 0;
 
         & p {
-            text-align: left;
+          text-align: left;
           }
-        }
-        }
+& .button {
+  margin: 1.5rem auto 0 0;
+}
+}
+}
+
+.align-center {
+  & .static-hero--heading {
+    align-items: center;
+  }
+
+  & .static-hero--content {
+    margin: 0 auto 0 auto;
+
+    & p {
+      text-align: center;
+    }
+
+    & .button {
+      margin: 1.5rem auto 0;
+    }
+                                                }
+                                                }
   }

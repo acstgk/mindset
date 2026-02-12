@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="{{ 'static-hero.min.css' | asset_url }}">
 
 <div class="static-hero align-{{- section.settings.text_align }}{% if section.settings.isFullheight %}hero_slide{% endif %}">
-{% if section.settings.image == blank and section.settings.video == blank %}
-   <img src="https://placehold.co/1270x627?text=IMAGE&font=oswald" alt="" height="627" width="1270" class="static-hero--image">
-{% elsif section.settings.video != blank %}
+  {% if section.settings.image == blank and section.settings.video == blank %}
+    <img src="https://placehold.co/1270x627?text=IMAGE&font=oswald" alt="" height="627" width="1270" class="static-hero--image">
+  {% elsif section.settings.video != blank %}
     {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'static-hero--image' }}
   {% elsif section.settings.image != blank %}
     {{ section.settings.image | image_url: width: 2500 | image_tag: class: 'static-hero--image' }}
@@ -13,12 +13,18 @@
     <h1 class="h3">{{ section.settings.heading }}</h1>
     {% comment %} {% render 'socials' %} {% endcomment %}
   </div>
-  {% if section.settings.text != blank %}
+  {% if section.settings.text != blank or section.settings.link_url != blank %}
     <div class="static-hero--content rtf">
       {{ section.settings.text }}
+      {% if section.settings.link_url %}
+        <a href="{{ section.settings.link_url }}" class="button button-primary inline-flex">
+          {{- section.settings.cta_text | default: 'Learn more' }}
+          {% render 'icon', icon: 'arrow' -%}
+        </a>
+      {% endif %}
+    </div>
     </div>
   {% endif %}
-</div>
 
 {% schema %}
 {
@@ -43,11 +49,7 @@
       "label": "Video",
       "info": "Will autoplay on muted in a loop and therefore intended use is moving image background video, not interviews, talking heads etc."
     },
-    {"type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Gym King"
-    },
+    { "type": "text", "id": "title", "label": "Title", "default": "Gym King" },
     {
       "type": "text",
       "id": "heading",
@@ -61,9 +63,21 @@
       "default": "<p>We believe that if you have something to prove and the mindset to prove it, anything is possible. We hope you enjoy your experience in the brand hub. Find out latest news, events, interviews from our ambassadors and motivational content in our training hub.</p>"
     },
     {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "Learn more"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "CTA Link URL"
+    },
+
+    {
       "type": "select",
       "id": "text_align",
-      "label": "Text Alignment",
+      "label": "Content Alignment",
       "default": "end",
       "options": [
         {
