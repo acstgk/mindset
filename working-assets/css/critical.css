@@ -533,7 +533,7 @@ slide-drawer {
 
   & .Icon {
     height: 24px;
-    stroke-width: 1.5;
+    stroke-width: 1.15;
   }
 
   & .return-key {
@@ -550,6 +550,9 @@ slide-drawer {
     justify-content: center;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
+      & .Icon {
+          stroke-width: 1.5;
+        }
   }
 
 
