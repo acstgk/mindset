@@ -12,10 +12,12 @@
   }
 
   .static-hero--image {
+    --brightness: 1;
     min-height: 400px;
     height: 100%;
     width: 100vw;
     grid-area: 1 / 1;
+    filter: brightness(var(--brightness));
   }
 
   .static-hero--content {
@@ -23,6 +25,7 @@
     max-width: 90vw;
     padding: 2rem 0;
     text-shadow: 0 0 1rem rgb(0 0 0 / 0.2);
+    z-index: 1;
 
     & p {
       font-size: var(--txt-h4);
@@ -48,13 +51,13 @@
       color: var(--c-light-grey);
     }
 
-    & .h1 {
+                                & h1 {
       font-size: var(--txt-xxl);
       margin: 0;
       letter-spacing: 0;
     }
 
-    & h1 {
+                                & h2 {
       margin: 0;
       line-height: 0;
       font-size: var(--txt-h4);

@@ -1,20 +1,21 @@
 <link rel="stylesheet" href="{{ 'static-hero.min.css' | asset_url }}">
 
 <div class="static-hero align-{{- section.settings.text_align }}{% if section.settings.isFullheight %}hero_slide{% endif %}">
+  {%  assign media_brightness = "--brightness:" | append: section.settings.img_overlay | append: "%" %}
   {% if section.settings.image == blank and section.settings.video == blank %}
-    <img src="https://placehold.co/1270x627?text=IMAGE&font=oswald" alt="" height="627" width="1270" class="static-hero--image">
+    <img src="https://placehold.co/1270x627?text=IMAGE&font=oswald" alt="" height="627" width="1270" class="static-hero--image" style="{{ media_brightness }}">
   {% elsif section.settings.video != blank %}
-    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'static-hero--image' }}
+    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'static-hero--image', style: media_brightness }}
   {% elsif section.settings.image != blank %}
-    {{ section.settings.image | image_url: width: 2500 | image_tag: class: 'static-hero--image' }}
+    {{ section.settings.image | image_url: width: 2500 | image_tag: class: 'static-hero--image', style:   media_brightness }}
   {% endif %}
   <div class="static-hero--heading">
-    <span class="h1">{{ section.settings.title }}</span>
-    <h1 class="h3">{{ section.settings.heading }}</h1>
+    <h1 class="h1">{{ section.settings.title }}</h1>
+    <h2>{{ section.settings.heading }}</h2>
     {% comment %} {% render 'socials' %} {% endcomment %}
   </div>
   {% if section.settings.text != blank or section.settings.link_url != blank %}
-    <div class="static-hero--content rtf">
+    <div class="static-hero--content rtf text-align--{{- section.settings.text_align }}">
       {{ section.settings.text }}
       {% if section.settings.link_url %}
         <a href="{{ section.settings.link_url }}" class="button button-primary inline-flex">
@@ -23,8 +24,8 @@
         </a>
       {% endif %}
     </div>
-    </div>
   {% endif %}
+</div>
 
 {% schema %}
 {
@@ -49,6 +50,7 @@
       "label": "Video",
       "info": "Will autoplay on muted in a loop and therefore intended use is moving image background video, not interviews, talking heads etc."
     },
+    { "type": "range", "id": "img_overlay", "label": "Media Brightness", "min": 0, "max": 120, "step": 5, "default": 100, "unit": "%", "info": "0% = black, 100% = original image" },
     { "type": "text", "id": "title", "label": "Title", "default": "Gym King" },
     {
       "type": "text",
