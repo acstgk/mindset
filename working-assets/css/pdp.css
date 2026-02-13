@@ -445,6 +445,12 @@ pdp-carousel {
     top: 5px;
     left: 5px;
     opacity: 0.5;
+    scale: 1;
+      transition: scale 0.2s var(--bezier);
+    }
+    
+    &:hover svg {
+      scale: 1.35;
   }
 }
 
@@ -526,7 +532,7 @@ pdp-carousel {
   border-radius: calc(var(--radius) + 2px);
 
   &>img {
-    margin-bottom: -6px;
+    margin-bottom: -0.5rem;
     height: 100%;
   }
 

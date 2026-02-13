@@ -955,7 +955,7 @@ content-accordian {
     & .side_menu-header-item {
         text-transform: uppercase;
         font-family: var(--emphasis-heading-font-family);
-        font-size: var(--txt-h2);
+        font-size: var(--txt-h3);
         color: var(--c-grey);
         opacity: 0.8;
         transition: color 0.1s var(--bezier), scale 0.1s var(--bezier), opacity 0.1s var(--bezier), ;
@@ -989,7 +989,7 @@ content-accordian {
     padding: 0 15px;
 
     & p {
-        font-size: var(--txt-h5);
+        font-size: var(--txt-h4);
     }
 }
 
@@ -1331,6 +1331,9 @@ recently-viewed:not(.active) {
 
 hero-carousel {
     display: grid;
+& button.splide__pagination__page:hover {
+        background-color: transparent !important;
+    }
 }
 
 .hero_slide {
@@ -1446,7 +1449,7 @@ video {
 }
 
 .hero_slide-content p {
-    font-size: initial;
+    font-size: var(--txt-h4);
     letter-spacing: var(--letter-spacing);
 }
 
@@ -1651,7 +1654,7 @@ img.footer-logo {
     letter-spacing: calc(var(--letter-spacing) * 2);
     display: block;
     margin: 0 auto;
-    font-size: var(--txt-h5);
+    font-size: var(--txt-h4);
 }
 
 .meta-description {

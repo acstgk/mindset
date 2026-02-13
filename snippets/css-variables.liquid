@@ -21,7 +21,7 @@
       font-style: normal;
       src: url("{{ 'font-condensed.woff2' | asset_url }}") format("woff2"), url("{{  'font-condensed.ttf' | asset_url }}") format("truetype");
       font-display: swap;
-      scale: 1.5;
+      size-adjust: 125%;
     }
 
     @font-face {
@@ -82,14 +82,26 @@
       --signature-text-font-family : signature;
       --octin-font-family : octin, condensed, condensed-fallback, Impact, san-serif;
 
-      --txt-sm: clamp(0.67rem, 0.05vi + 0.7rem, 0.76rem);
+      /* --txt-sm: clamp(0.67rem, 0.05vi + 0.7rem, 0.76rem);
       --txt-p: clamp(0.8rem, 0.09vi + 0.78rem, 0.86rem);
       --txt-h4: clamp(1rem, 0.22vi + 0.94rem, 1.14rem);
       --txt-h3: clamp(1.25rem, 0.43vi + 1.13rem, 1.52rem);
       --txt-h2: clamp(1.56rem, 0.73vi + 1.36rem, 2.03rem);
       --txt-h1: clamp(1.95rem, 1.18vi + 1.63rem, 2.71rem);
       --txt-xl: clamp(2.5rem, 1.83vi + 2rem, 3.75rem);
-      --txt-xxl: clamp(3.25rem, 2.2vi + 2.9rem, 4.6rem);
+      --txt-xxl: clamp(3.25rem, 2.2vi + 2.9rem, 4.6rem); */
+
+--txt-sm: clamp(0.71rem, 0.06vi + 0.7rem, 0.75rem);
+--txt-p: clamp(0.88rem, 0.21vi + 0.82rem, 1rem);
+--txt-h4: clamp(0.96rem, 0.32vi + 0.88rem, 1.225rem);
+--txt-h3: clamp(1.07rem, 0.44vi + 0.95rem, 1.33rem);
+--txt-h2: clamp(1.31rem, 0.78vi + 1.09rem, 1.78rem);
+--txt-h1: clamp(1.61rem, 1.28vi + 1.25rem, 2.37rem);
+--txt-xl: clamp(2.41rem, 3.02vi + 1.56rem, 4.21rem);
+--txt-xxl: clamp(2.96rem, 4.47vi + 1.7rem, 5.61rem);
+
+
+
 
       --letter-spacing: 0.075em;
       --radius: 2px;
