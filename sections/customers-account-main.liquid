@@ -172,20 +172,20 @@
                 <div class="customer-order--product">
                   {% render 'product-title', product: item.product %}
                   {{ item.product.featured_image | image_url: width: 500 | image_tag }}
-                  {% if item.product.available %}
-                    {% assign product_title = item.product.title | remove: "Gym King" | url_encode %}
-                    {% assign review_url = "https://landing-pages.yotpo.com/base/#/review?account_logo=https:%2F%2Fcdn-yotpo-images-production.yotpo.com%2FAccount%2F586366%2F745263746%2Flogo.png%3F1756211481&appkey=mGo5FhszPmLGubCDUdVsQHN2xMih5fT47CPV6sbj&b2c_store_logo_url=https:%2F%2Fcdn-yotpo-images-production.yotpo.com%2FAccount%2F586366%2F745263746%2Flogo.png%3F1756211481&display_name=&email=&email_type=review_request_link_product&font_color=051146&form_id=105473&header_color=EBF7FE&mandatories=&page_title=Please%20write%20a%20review&product_title="
-                      | append: product_title
-                      | append: "&review_accept_one_field=true&review_images=true&review_source=review_request_link_product&review_title_required=true&skip_share=false&sku="
-                      | append: item.product.id
-                      | append: "&stars_color=E7721B&ref=yotpo"
-                    %}
+                  {% assign product_title = item.product.title | remove: "Gym King" | url_encode %}
+                  {% assign review_url = "https://landing-pages.yotpo.com/base/#/review?account_logo=https:%2F%2Fcdn-yotpo-images-production.yotpo.com%2FAccount%2F586366%2F745263746%2Flogo.png%3F1756211481&appkey=mGo5FhszPmLGubCDUdVsQHN2xMih5fT47CPV6sbj&b2c_store_logo_url=https:%2F%2Fcdn-yotpo-images-production.yotpo.com%2FAccount%2F586366%2F745263746%2Flogo.png%3F1756211481&display_name=&email=&email_type=review_request_link_product&font_color=051146&form_id=105473&header_color=EBF7FE&mandatories=&page_title=Please%20write%20a%20review&product_title="
+                    | append: product_title
+                    | append: "&review_accept_one_field=true&review_images=true&review_source=review_request_link_product&review_title_required=true&skip_share=false&sku="
+                    | append: item.product.id
+                    | append: "&stars_color=E7721B&ref=yotpo"
+                  %}
 
-                    <div class="customer-order--product-buttons">
-                      <a href="{{ review_url }}" class="button button-inverted button-full" target="_blank">{% render 'icon', icon: 'star' %} leave review</a>
+                  <div class="customer-order--product-buttons">
+                    <a href="{{ review_url }}" class="button button-inverted button-full" target="_blank">{% render 'icon', icon: 'star' %} leave review</a>
+                    {% if item.product.available %}
                       <a href="{{ item.product.url }}" class="button button-secondary button-full"> buy again {% render 'icon', icon: 'arrow' %} </a>
+                    {% endif %}
                     </div>
-                  {% endif %}
                 </div>
               {% endfor %}
             </div>
