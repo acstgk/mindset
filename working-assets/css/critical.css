@@ -368,6 +368,9 @@ p {
   max-width: none;
 }
 
+small {
+  font-size: var(--txt-sm);
+}
 ul {
   list-style: none;
   display: flex;
