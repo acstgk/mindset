@@ -448,7 +448,7 @@ pdp-carousel {
     scale: 1;
       transition: scale 0.2s var(--bezier);
     }
-    
+
     &:hover svg {
       scale: 1.35;
   }
@@ -697,7 +697,7 @@ form .quantity-warning {
 
 .yotpo-product-points-inner-wrapper {
   background: var(--c-off-white);
-  font-size: var(--txt-sm) !important;
+  font-size: var(--txt-p) !important;
   line-height: 2;
   padding: .5rem 1rem;
     text-align: center;
@@ -708,6 +708,9 @@ form .quantity-warning {
     border-radius: 0 0 var(--radius) var(--radius);
 }
 
+.yotpo-product-points-widget-icon {
+  line-height: 1.5;
+}
 .tech-specs--list {
   display: grid;
   grid-template-columns: revert;
