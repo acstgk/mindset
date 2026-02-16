@@ -582,6 +582,8 @@ if (!customElements.get("dispatch-timer")) {
           this.adjustForWeekend(dispatchTime);
         }
 
+        // if saturday delivery is available check if it is before 1.30pm on friday
+
         if (this.settings.isSaturday) {
           // Calculate the next Saturday
           const nextSaturday = new Date(now);
@@ -608,7 +610,7 @@ if (!customElements.get("dispatch-timer")) {
         }
 
         // If it's Friday, use earlier cutoff time
-        if (dispatchTime.getDay() === 5 && dispatchTime.getHours < this.cutoffFriHours) {
+        if (this.useSaturdayDelivery && dispatchTime.getDay() === 5 && dispatchTime.getHours < this.cutoffFriHours) {
           dispatchTime.setHours(this.cutoffFriHours, 0, 0, 0);
         }
 
