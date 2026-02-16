@@ -6,6 +6,14 @@
 </a>
 
 <h1 class="SectionHeader__Heading Heading u-h1">{{ 'customer.addresses.title' | t }}</h1>
+{% if customer.default_address %}
+    <div class="formatted-address accent-bg">
+      <p><b>Default Address</b></p>
+            {{ customer.default_address | format_address }}
+            <span>{{ customer.default_address.phone }}</span>
+          </div>
+{% endif %}
+
 <button type="button" class="button button-primary" data-action="open-modal" id="new-form-button">{{ 'customer.addresses.add_address' | t }}</button>
 
 {% form 'customer_address', customer.new_address, class: 'new-address_form customer-form' %}
