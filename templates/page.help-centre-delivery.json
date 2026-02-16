@@ -16,7 +16,7 @@
           "type": "card",
           "settings": {
             "title": "What services do you offer?",
-            "htmlContent": "<table>\n<caption class=\"h4 left\"> Delivery Information\n  </caption>\n <tbody>\n    <tr>\n      <th>Service</th>\n      <th>Price</th>\n      <th>Transit Time</th>\n      <th>Carrier</th>\n      <th>Notes</th>\n    </tr>\n\n    <!-- unlimited delivery -->\n    <tr>\n      <td data-cell=\"service\">Unlimited UK Delivery</td>\n      <td data-cell=\"price\">£10 per year</td>\n      <td data-cell=\"time\">3-5 days</td>\n      <td data-cell=\"carrier\">Royal Mail</td>\n      <td data-cell=\"notes\">Unlimited Standard UK delivery with no minimum order value for 12 months.</td>\n    </tr>\n\n    <!-- standard UK delivery -->\n    <tr>\n      <td data-cell=\"service\">Standard UK Delivery</td>\n      <td data-cell=\"price\">£3.99</td>\n      <td data-cell=\"time\">3-5 days</td>\n      <td data-cell=\"carrier\">Royal Mail</td>\n      <td data-cell=\"notes\"><b>Free on orders over £75</b></td>\n    </tr>\n\n    <!-- express UK delivery -->\n    <tr>\n      <td data-cell=\"service\">Express UK Delivery</td>\n      <td data-cell=\"price\">£5.99</td>\n      <td data-cell=\"time\">1-2 working days</td>\n      <td data-cell=\"carrier\">DPD</td>\n      <td data-cell=\"notes\">\n        PIN number, SECURE DELIVERY METHOD.<br>\n        <b>Free on orders over £125</b>\n      </td>\n    </tr>\n\n    <!-- saturday UK  delivery -->\n    <tr>\n      <td data-cell=\"service\">Saturday UK Delivery</td>\n      <td data-cell=\"price\">£8.99</td>\n      <td data-cell=\"time\">Saturday Delivery</td>\n      <td data-cell=\"carrier\">DPD</td>\n      <td data-cell=\"notes\">PIN number, SECURE DELIVERY METHOD. <i>Order Monday to Thursday, or before 7pm Friday to receive on the nearest Saturday.</i>\n</td>\n    </tr>\n\n    <!-- International Standard delivery -->\n    <tr>\n      <td data-cell=\"service\">Worldwide Standard Shipping</td>\n      <td data-cell=\"price\">from £5<br>(in local currency)</td>\n      <td data-cell=\"time\">From 5 days+<br>(varies per country)</td>\n      <td data-cell=\"carrier\">Varies per Country</td>\n      <td data-cell=\"notes\"></td>\n    </tr>\n    <!-- International Express delivery -->\n    <tr>\n      <td data-cell=\"service\">Worldwide Express Shipping</td>\n      <td data-cell=\"price\">from £10<br>(in local currency)</td>\n      <td data-cell=\"time\">From 3 days+ <br>(varies per country)</td>\n      <td data-cell=\"carrier\">DHL</td>\n      <td data-cell=\"notes\"></td>\n    </tr>\n  </tbody>\n</table>",
+            "htmlContent": "<table>\n<caption class=\"h4 left\"> Delivery Information\n  </caption>\n <tbody>\n    <tr>\n      <th>Service</th>\n      <th>Price</th>\n      <th>Transit Time</th>\n      <th>Carrier</th>\n      <th>Notes</th>\n    </tr>\n\n    <!-- unlimited delivery -->\n    <tr>\n      <td data-cell=\"service\">Unlimited UK Delivery</td>\n      <td data-cell=\"price\">£10 per year</td>\n      <td data-cell=\"time\">3-5 days</td>\n      <td data-cell=\"carrier\">Royal Mail</td>\n      <td data-cell=\"notes\">Unlimited Standard UK delivery with no minimum order value for 12 months.</td>\n    </tr>\n\n    <!-- standard UK delivery -->\n    <tr>\n      <td data-cell=\"service\">Standard UK Delivery</td>\n      <td data-cell=\"price\">£3.99</td>\n      <td data-cell=\"time\">3-5 days</td>\n      <td data-cell=\"carrier\">Royal Mail</td>\n      <td data-cell=\"notes\"><b>Free on orders over £75</b></td>\n    </tr>\n\n    <!-- Click and Collect UK delivery -->\n    <tr>\n      <td data-cell=\"service\">Click and Collect UK Locker Delivery</td>\n      <td data-cell=\"price\">£3.99</td>\n      <td data-cell=\"time\">3-5 days</td>\n      <td data-cell=\"carrier\">InPost</td>\n      <td data-cell=\"notes\"><b>Free on orders over £75</b></td>\n    </tr>\n\n    <!-- express UK delivery -->\n    <tr>\n      <td data-cell=\"service\">Express UK Delivery</td>\n      <td data-cell=\"price\">£5.99</td>\n      <td data-cell=\"time\">1-2 working days</td>\n      <td data-cell=\"carrier\">DPD</td>\n      <td data-cell=\"notes\">\n        PIN number, SECURE DELIVERY METHOD.<br>\n        <b>Free on orders over £125</b>\n      </td>\n    </tr>\n\n    <!-- saturday UK  delivery -->\n    <tr>\n      <td data-cell=\"service\">Saturday UK Delivery</td>\n      <td data-cell=\"price\">£8.99</td>\n      <td data-cell=\"time\">Saturday Delivery</td>\n      <td data-cell=\"carrier\">DPD</td>\n      <td data-cell=\"notes\">PIN number, SECURE DELIVERY METHOD. <i>Order Monday to Thursday, or before 7pm Friday to receive on the nearest Saturday.</i>\n</td>\n    </tr>\n\n    <!-- International Standard delivery -->\n    <tr>\n      <td data-cell=\"service\">Worldwide Standard Shipping</td>\n      <td data-cell=\"price\">from £5<br>(in local currency)</td>\n      <td data-cell=\"time\">From 5 days+<br>(varies per country)</td>\n      <td data-cell=\"carrier\">Varies per Country</td>\n      <td data-cell=\"notes\"></td>\n    </tr>\n    <!-- International Express delivery -->\n    <tr>\n      <td data-cell=\"service\">Worldwide Express Shipping</td>\n      <td data-cell=\"price\">from £10<br>(in local currency)</td>\n      <td data-cell=\"time\">From 3 days+ <br>(varies per country)</td>\n      <td data-cell=\"carrier\">DHL</td>\n      <td data-cell=\"notes\"></td>\n    </tr>\n  </tbody>\n</table>",
             "content": "<p>Our DPD deliveries are on a secure PIN delivery service:<br/><em>When the driver comes to deliver your order you will be asked for a PIN number. This number is unique to each individual order, and is only sent to the person that placed the order. Your PIN number will be sent to you via email and text message by DPD when your order is marked as out for delivery.</em></p><p><em>If you do not have your PIN number when the driver arrives, they are able to send you a SMS with your PIN number whilst at your door.</em></p>"
           }
         },
@@ -26,6 +26,14 @@
             "title": "Do you ship internationally?",
             "htmlContent": "",
             "content": "<p>International delivery times vary per country. Delivery times will be stated during the checkout process.</p><p>If you have an enquiry regarding international deliveries please visit our <a href=\"https://service.global-e.com/?id=2863383a-6c07-48d5-9568-66a68ca24eb6\" target=\"_blank\" title=\"https://service.global-e.com/?id=2863383a-6c07-48d5-9568-66a68ca24eb6\">International Service Center</a>.</p>"
+          }
+        },
+        "card_WrHxfd": {
+          "type": "card",
+          "settings": {
+            "title": "Click and Collection with InPost",
+            "htmlContent": "",
+            "content": "<p><strong>Collection time 3 days.</strong></p><p>Your parcel will be safely stored in the locker for <strong>3 days</strong> from the time it’s delivered. We recommend collecting it as soon as you can — if it’s not picked up within this period, it will automatically be returned us.</p><p><strong>No Compartments Available.</strong></p><p>If there still aren’t any available compartments on the day of delivery, the driver will either re-attempt delivery later that day or, where possible, deliver your parcel to a nearby locker with available space for your convenience.</p><p><strong>InPost Delivery & Collection Guide.</strong></p><p>Once you’ve completed your purchase and selected InPost, here’s what to expect:</p><ol><li><strong> Track & Collect Your Parcel</strong><br/>You’ll receive an email and SMS from InPost with your collection code as soon as your parcel is ready.<br/>If you’re using the InPost app, you can track your parcel every step of the way — and your collection code will appear in the app once it arrives at your chosen locker.</li><li><strong> Collection Timeframe</strong><br/>Your parcel will be safely held at your selected locker for <strong>3 days</strong>from the day it arrives.<br/>We’ll send you SMS reminders to make sure you don’t miss it. If it’s not collected within this time, it will be returned to the retailer.</li></ol><p><strong>Find Your Nearest Locker</strong><br/>You can locate your closest location with the <a href=\"https://inpost.co.uk/lockers\" target=\"_blank\">InPost Locker Locator</a>.</p>"
           }
         },
         "card_X77qzY": {
@@ -96,6 +104,7 @@
       "block_order": [
         "card_W7bD7M",
         "card_UYPJTV",
+        "card_WrHxfd",
         "card_X77qzY",
         "card_WnTkdH",
         "card_DDX7kf",
@@ -105,7 +114,10 @@
         "card_L4DqqY",
         "card_6ed6Ak"
       ],
-      "settings": {}
+      "settings": {
+        "openFirst": true,
+        "showTitle": true
+      }
     }
   },
   "order": [
