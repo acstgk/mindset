@@ -1,5 +1,5 @@
 {% assign position_count = 0 %}
-  <infinite-scroll class="max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}">
+  <infinite-scroll class="max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}" data-page="{{ page }}" data-total-pages="{{ pages }}">
     {%- for product in product_list -%}
       {% assign lazyload = 'lazy' %}
       {% if forloop.index0 < 5 %}
@@ -56,4 +56,18 @@
       <article data-page="{{ page }}" id="item-{{- product.id -}}" class="Grid__Item">{%- render 'product-card', product: product, loading: lazyload -%}</article>
     {%- endfor -%}
   </infinite-scroll>
+
+
+  {% comment %} prevent collection page overflow by redirciting overfrlow pages to the first page of the collection {% endcomment %}
+  <script>
+    const maxPage = {{ pages | default: 1 }};
+    const currentPage = {{ page | default: 1 }};
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (currentPage > maxPage) {
+      console.log('page:: overflowed')
+      urlParams.set('page', 1);
+      window.location.href = '{{ shop.url}}{{ request.path }}?' + urlParams.toString();
+    }
+  </script>
 
