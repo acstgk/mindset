@@ -15,7 +15,7 @@
 
   {% if paginate.next.is_link %}
     <div class="grid-nav accent-bg max-width"  id="pagination-next">
-      <a id="infinite-trigger" href="{{ paginate.next.url }}">Go to Next Page {% render 'icon', icon: 'arrow' %}</a>
+      <a id="infinite-trigger" href="{{ paginate.next.url }}"><span class="inline-flex">Go to Next Page {% render 'icon', icon: 'arrow' %}</span><div class="loader" style="--height:1.1rem;"></div></a>
     </div>
   {% else %}
     <div class="grid-nav accent-bg max-width" id="pagination-next" id="pagination-next">

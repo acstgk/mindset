@@ -115,12 +115,15 @@ if (!customElements.get("infinite-scroll")) {
       };
 
       async _loadMore() {
+        this.loadTriggerActive.classList.add("loading");
         try {
           if (!this.nextPageUrl) return;
+
 
           //fetch the next page in full
           const response = await fetch(this.nextPageUrl);
           if (!response.ok) {
+            this.loadTriggerActive.classList.remove("loading");
             throw new Error(`HTTP error! status: ${response.status}`);
           }
 
