@@ -222,6 +222,9 @@
               </li>
             {% endfor %}
           </ul>
+          {% if forloop.last == false %}
+            <hr>
+          {% endif %}
         {% endfor %}
 
       {% else %}
@@ -287,11 +290,10 @@
   {% endif %}
 
   <div class="product_details-confidence-blocks">
-
-      <div class="confidence_blocks-block accent-bg">
-        <div class="window">{% render 'icon', icon: 'truck', class: 'ani-drive' %}</div>
-        {% render 'dispatch-timer' %}
-      </div>
+    <div class="confidence_blocks-block accent-bg">
+      <div class="window">{% render 'icon', icon: 'truck', class: 'ani-drive' %}</div>
+      {% render 'dispatch-timer' %}
+    </div>
 
     <div class="confidence_blocks-block accent-bg">
       {% render 'icon', icon: 'star', class: 'ani-spin' %}
@@ -350,15 +352,15 @@
   {% render 'drawer-size-guide' with product as product %}
 {% endif %}
 
-{% unless localization.country.iso_code == "GB" %}
+{% unless localization.country.iso_code == 'GB' %}
   <style>
     .gbbExtBundleUpsellContainer {
-    display: none !important;
-    height: 0;
-    width: 0
-  }
+      display: none !important;
+      height: 0;
+      width: 0;
+    }
   </style>
-  {% endunless %}
+{% endunless %}
 {% schema %}
 {
   "name": "Main Product Block",

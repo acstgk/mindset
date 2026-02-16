@@ -1,6 +1,9 @@
 form#atc_form {
   margin-bottom: 0.75rem;
 
+  & hr {
+      margin: 0.75rem 0;
+    }
   & .yotpo-reviews-star-ratings-widget {
     margin: 0 0 -10px 0 !important;
   }
@@ -10,10 +13,12 @@ form#atc_form {
     grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.5em), 70px));
     gap: 0.5em;
     justify-content: start;
+    margin-top: 1rem;
 
     &:last-of-type {
       margin-bottom: 0;
     }
+
   }
 
   & input[type='radio'] {
@@ -41,11 +46,19 @@ form#atc_form {
     align-items: center;
     gap: 1rem;
 
+    &+div {
+        margin-bottom: 1rem;
+      }
     &>a {
       display: flex;
       align-items: center;
       gap: 0.25rem;
     }
+& .drawer-button {
+  flex: 1 0 auto;
+  justify-content: end;
+  font-size: var(--txt-sm)
+}
   }
 
   .part_title {
@@ -94,6 +107,7 @@ form#atc_form {
       width: max-content;
       gap: 0.5em;
       align-items: center;
+      font-size: var(--txt-sm);
 
       & span {
         width: max-content;
