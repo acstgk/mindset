@@ -349,7 +349,7 @@ filters-menu-bar {
     min-height: 0;
   }
 
-  content-accordian {
+                                filters-menu-bar content-accordian {
     font-size: var(--txt-p);
     display: flex;
     flex-grow: 1;
@@ -444,6 +444,9 @@ filters-menu-bar {
       background: var(--c-white);
       display: none;
       border: 1px solid var(--c-grey);
+& ul {
+    margin-top: 1.25rem;
+  }
     }
 
     &:hover {
