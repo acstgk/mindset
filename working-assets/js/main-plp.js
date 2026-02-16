@@ -100,6 +100,7 @@ if (!customElements.get("infinite-scroll")) {
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
+                this.loadTriggerActive.classList.add("loading");
                 this._loadMore();
               }
             });
@@ -115,7 +116,7 @@ if (!customElements.get("infinite-scroll")) {
       };
 
       async _loadMore() {
-        this.loadTriggerActive.classList.add("loading");
+
         try {
           if (!this.nextPageUrl) return;
 
