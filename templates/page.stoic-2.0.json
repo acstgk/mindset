@@ -14,19 +14,146 @@
       "custom_css": [
         ".static-hero {height: auto;}",
         "h1,h2,.button {font-family: var(--octin-font-family);}",
-        "h1 {margin: 0.5em auto; padding-bottom: 0.2em; border-bottom: 1px solid white; width: min(500px, 90vw); text-align: center;}",
+        "h1 {margin: 0.5em auto; padding-bottom: 0.2em; border-bottom: 2px solid goldenrod; width: min(500px, 90vw); text-align: center;}",
         "h2 {line-height: normal !important;}",
         ".button {font-size: var(--txt-h4);}",
-        "@media screen and (min-width: 769px) {p {text-align: left; width: min(900px, 90vw); } .rtf {width: min(900px, 90vw); margin-block: 2rem; } .button {margin-top: 4rem; background: white; color: var(--c-black); } .static-hero--image {aspect-ratio: 16 / 9; }}"
+        "@media screen and (min-width: 769px) {p {text-align: left; width: min(900px, 90vw); } .rtf {margin-block: 2rem; } .button {margin-top: 4rem; background: white; color: var(--c-black); } .static-hero--image {aspect-ratio: 16 / 9; }}"
       ],
       "name": "Static Hero",
       "settings": {
         "isFullheight": false,
         "image": "shopify://shop_images/stoic2-0-1.jpg",
-        "img_overlay": 50,
+        "video": "shopify://files/videos/stoic2-0-desktop-banner.mp4",
+        "img_overlay": 45,
         "title": "Stoic 2.0",
         "heading": "Forged by the Coastline. Anchored by the Compass.",
-        "text": "<p>ROSS EDGLEY:<br/>FIRST PERSON TO SWIM AROUND ICELAND<br/>1,000 miles. 113 days.<br/>Icy waters. 13ft waves. Hurricane tides.<br/>And still: Unbreakable belief.<br/>A world record never thought achievable.<br/></p><p>NOTHING BEATS BELIEF.</p>",
+        "text": "<p><strong>ROSS EDGLEY:</strong><br/>FIRST PERSON TO SWIM AROUND ICELAND<br/>1,000 miles. 113 days.<br/>Icy waters. 13ft waves. Hurricane tides.<br/>And still: Unbreakable belief.<br/>A world record never thought achievable.<br/></p><p><strong>NOTHING BEATS BELIEF.</strong></p>",
+        "cta_text": "Shop Stoic 2.0",
+        "link_url": "shopify://collections/stoic-ross-edgley",
+        "text_align": "center"
+      }
+    },
+    "static_hero_FcxDLN": {
+      "type": "static-hero",
+      "custom_css": [
+        ".static-hero {height: auto; margin-top: -1px;}",
+        "h2 {font-family: var(--octin-font-family); margin: 6rem 0 3rem; text-align: center; font-size: var(--txt-xl); letter-spacing: 0.25ch; line-height: normal !important;}",
+        ".static-hero--content {text-align: justify; margin-bottom: 6rem;}",
+        "img {max-height: 900px; object-fit: cover;}"
+      ],
+      "name": "Static Hero",
+      "settings": {
+        "isFullheight": false,
+        "image": "shopify://shop_images/stoic2-0-1.jpg",
+        "img_overlay": 60,
+        "title": "",
+        "heading": "The Iceland Swim",
+        "text": "<p>When Gym King endurance athlete Ross Edgley committed to swimming the entire coastline of Iceland, he wasn’t just chasing a physical milestone, he was putting mindset on trial.</p><p>A 1,000-mile (≈1,610 km) odyssey of ice, salt and fast-moving currents capable of pulling even strong swimmers off course. Day after day. Storm after storm. The kind of challenge that doesn’t just test the body,  it tests what you believe you’re made of.</p><p>Ross set off from Garðskagi Lighthouse (64°05.00’ N, 22°41.11’ W) in May, returning to Nauthólsvík Beach, Reykjavík four months later, swimming clockwise around Iceland through churning seas, ice-cold conditions, and injuries severe enough to break most people.</p><p>He finished, because Nothing Beats Belief.</p>",
+        "cta_text": "Learn more",
+        "link_url": "",
+        "text_align": "center"
+      }
+    },
+    "spacer_dn9rPg": {
+      "type": "spacer",
+      "disabled": true,
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 60,
+        "mobile": -70
+      }
+    },
+    "content_grid_cRphTz": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_DidTVj": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "0",
+            "image": "shopify://shop_images/STOIC2_798eaa7b-d851-479a-b62a-0e9d142affe9.jpg",
+            "img_style": "square",
+            "image_style": "cover",
+            "rtf": "<h2><strong>The STOIC 2.0 Collection</strong></h2><p><strong>STOIC 2.0</strong> celebrates that journey, and the mindset required to complete it.</p><p>Each piece draws its identity from a landmark or stretch of coastline Ross encountered: rugged, symbolic, and built to carry the story forward, not as a souvenir, but as a reminder.</p>",
+            "txt_color": "#f5f5f5",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": true,
+            "cta_text": "Shop the Collection",
+            "cta_url": "shopify://collections/stoic-ross-edgley"
+          }
+        },
+        "grid_item_zKdbBc": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "-1",
+            "image": "shopify://shop_images/STOICESJALOOPBACKHOOD_STOICESJALOOPBACKJOGGER-FOSSILGREYVOLCANICBLACKHDE-BOGNHTSB-BOH645.jpg",
+            "img_style": "square",
+            "image_style": "cover",
+            "rtf": "<h2><strong>The Stoic Compass</strong></h2><p>At the heart of every product sits the <strong>Stoic Compass</strong>, four points representing the pillars that guided Ross through freezing water and relentless storm:</p><h3><strong>Mindset</strong></h3><p>The decision to start.</p><h3><strong>Discipline</strong></h3><p>To repeat the swim day after day.</p><h3><strong>Gratitude</strong></h3><p>For the coastline, the crew, and the opportunity.</p><h3><strong>Resilience</strong></h3><p>To keep going when the waves wouldn’t relent.</p>",
+            "txt_color": "#ffffff",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": false,
+            "cta_text": "",
+            "cta_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_DidTVj",
+        "grid_item_zKdbBc"
+      ],
+      "custom_css": [
+        ".content-grid--content-cell {margin: 2rem 1rem;}",
+        "h2,h3 {font-family: var(--octin-font-family); text-align: left; margin: 0.5rem 0;}",
+        "h2 {margin: 0 0 1rem 0; letter-spacing: normal;}",
+        "h3 {margin-bottom: 0;}",
+        "p {margin-left: 0; margin-top: 0;}",
+        ".media-wrapper {max-height: 90vh;}"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": true,
+        "bg_color": "#404040",
+        "full_width": true,
+        "grid_style": "standard"
+      }
+    },
+    "spacer_gtAbfA": {
+      "type": "spacer",
+      "disabled": true,
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 60,
+        "mobile": -70
+      }
+    },
+    "static_hero_cBbLHp": {
+      "type": "static-hero",
+      "custom_css": [
+        ".static-hero {height: auto; margin-top: -1px;}",
+        "h2,.button {font-family: var(--octin-font-family);}",
+        "h2 {margin: 6rem 0 3rem; text-align: center; font-size: var(--txt-xl); letter-spacing: 0.25ch; line-height: normal !important;}",
+        ".static-hero--content {text-align: justify; margin-bottom: 6rem;}",
+        "img {max-height: 900px; object-fit: cover;}",
+        "@media screen and (min-width: 768px) {.button {background: white; color: var(--c-black); font-size: var(--txt-h3); margin-top: 4rem; }}"
+      ],
+      "name": "Static Hero",
+      "settings": {
+        "isFullheight": false,
+        "image": "shopify://shop_images/stoic2-0-2.jpg",
+        "img_overlay": 50,
+        "title": "",
+        "heading": "Nothing Beats Belief",
+        "text": "<p>This isn’t about hype.</p><p>It’s about the quiet, repeated choice to keep going, when conditions shift, when comfort disappears, when the finish line feels fictional.</p><p><strong>STOIC 2.0</strong> is built for the people who show up anyway.</p><p></p>",
         "cta_text": "Shop Stoic 2.0",
         "link_url": "shopify://collections/stoic-ross-edgley",
         "text_align": "center"
@@ -34,6 +161,11 @@
     }
   },
   "order": [
-    "static_hero_xnwWr7"
+    "static_hero_xnwWr7",
+    "static_hero_FcxDLN",
+    "spacer_dn9rPg",
+    "content_grid_cRphTz",
+    "spacer_gtAbfA",
+    "static_hero_cBbLHp"
   ]
 }

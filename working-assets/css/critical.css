@@ -441,8 +441,8 @@ ul {
     text-decoration: underline
   }
 
-  & p:nth-of-type(n+2) {
-    margin-block: 1em;
+    & p:has(+*) {
+      margin-bottom: 1.5em;
   }
 
   &>* {
