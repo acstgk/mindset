@@ -783,6 +783,11 @@ predictive-search {
         margin: 0.5em 0;
         text-align: left;
         font-size: var(--txt-p);
+        display: none;
+        
+            &:has(+*) {
+                display: block;
+            }
     }
 
     & .predictive-search__container,
