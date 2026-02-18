@@ -266,10 +266,14 @@
       {% comment %} Add to Cart button  {% endcomment %}
       <span class="quantity-warning uppercase"></span>
       <div class="atc_form-button-spacer" id="atc--container">
+        {% if product.available %}
         <button type="submit" id="atc--btn" class="atc_form-button button button-primary" name="main_add-to-cart">Add to Bag</button>
+        {% else %}
+          <button disabled class="button-full button button-primary">Out of Stock</button>
+        {% endif %}
       </div>
     </enhanced-atc>
-    {% if section.settings.show_yotpo_points %}
+    {% if section.settings.show_yotpo_points and product.available %}
       <div
         class="yotpo-widget-instance"
         data-yotpo-instance-id="1268248"
