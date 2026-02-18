@@ -261,6 +261,36 @@
         </ul>
       {% endif %}
 
+            {% if product.metafields.custom.alt_sizing and product.metafields.custom.alt_sizing.value.available %}
+        {% if product.title contains 'Petite' %}
+          {% assign is_petite = true %}
+        {% endif %}
+
+        <div class="ProductForm__Option">
+          <div class="atc_form-header" style="border-top: none;">Lengths:</div>
+          <ul class="atc_form-sizes " style="display: flex;">
+            <li>
+              <a
+                href="{%- if is_petite -%}{{ product.metafields.custom.alt_sizing.value.url }}{% else %}#{%- endif -%}"
+                class="button button-inverted button_add-to-cart"
+                style="border: 1px solid;{% unless is_petite %}background:var(--c-light-grey);{% endunless %}"
+              >
+                Regular
+              </a>
+            </li>
+            <li>
+              <a
+                href="{%- unless is_petite -%}{{ product.metafields.custom.alt_sizing.value.url }}{% else %}#{%- endunless -%}"
+                class="button button-inverted button_add-to-cart"
+                style="border: 1px solid;{% if is_petite %}background:var(--c-light-grey);{% endif %}"
+              >
+                Petite
+              </a>
+            </li>
+          </ul>
+        </div>
+      {% endif %}
+
       {% comment %}  Quantity Selector  {% endcomment %}
       <input type="number" id="Quantity" name="quantity" value="1" min="1" hidden>
       {% comment %} Add to Cart button  {% endcomment %}
