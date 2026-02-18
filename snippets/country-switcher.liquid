@@ -3,6 +3,14 @@
     {% form 'localization' %}
       <div class="disclosure">
         <button type="button" class="disclosure__button" aria-expanded="false" aria-controls="CountryList">
+          <img
+            class="country-icon"
+            src="https://flagcdn.com/h20/{{ localization.country.iso_code | downcase }}.png"
+            srcset="https://flagcdn.com/h40/{{ localization.country.iso_code | downcase }}.png 2x, https://flagcdn.com/h60/{{ localization.country.iso_code | downcase }}.png 3x"
+            width="28"
+            height="20"
+            alt="{{ localization.country.name }}"
+          >
           {{ localization.country.currency.iso_code }}
 
           <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
@@ -53,8 +61,18 @@
                 {% endif %}
                 data-value="{{ country.iso_code }}"
               >
-                {{ country.name }} ({{ country.currency.iso_code }}
-                {{ country.currency.symbol }})
+                <img
+                  class="country-icon"
+                  src="https://flagcdn.com/h20/{{ country.iso_code | downcase }}.png"
+                  srcset="https://flagcdn.com/h40/{{ country.iso_code | downcase }}.png 2x, https://flagcdn.com/h60/{{ country.iso_code | downcase }}.png 3x"
+                  width="28"
+                  height="20"
+                  alt="{{ country.name }}"
+                >
+                <span>
+                  {{ country.name }} ({{ country.currency.iso_code }}
+                  {{ country.currency.symbol }})
+                </span>
               </a>
             </li>
           {% endfor %}
