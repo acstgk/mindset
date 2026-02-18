@@ -15,10 +15,10 @@ if (!customElements.get("pdp-carousel")) {
         super();
         this.availableHeight =
           window.innerHeight * 0.95 -
-          document.querySelector(".atc_form-button").getBoundingClientRect().height - // atb button
-          document.getElementById("shopify-section-header-main").getBoundingClientRect().height - // header
-          document.getElementById("shopify-section-header-announcement").getBoundingClientRect().height - //annoucement bar
-          document.getElementById("product-summary").getBoundingClientRect().height; // product summary information
+          (document.querySelector(".atc_form-button")?.getBoundingClientRect().height || 0) - // atb button
+          (document.getElementById("shopify-section-header-main")?.getBoundingClientRect().height || 0) - // header
+          (document.getElementById("shopify-section-header-announcement")?.getBoundingClientRect().height || 0) - //annoucement bar
+          (document.getElementById("product-summary")?.getBoundingClientRect().height || 0); // product summary information
         this.splide = null;
         this.zoomBtn = document.createElement("button");
         this.zoomBtn.className = "pdp-zoom-btn round-btn";
@@ -349,6 +349,7 @@ if (!customElements.get("enhanced-atc")) {
         this.atcButtonPosition = this.querySelector(".atc_form-button-spacer");
         this.actualForm = this.closest("form");
         this.atcButton = this.querySelector(".atc_form-button");
+        if (!this.atcButton) return;
         this.totalRadio = this.querySelectorAll('input[type="radio"]').length;
         this.allGroups = this.querySelectorAll(".atc_form-sizes");
         this.quantityWarningEl = this.querySelector(".quantity-warning");
