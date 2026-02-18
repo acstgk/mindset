@@ -93,7 +93,6 @@ form#atc_form {
   .atc_form-header {
     display: flex;
     flex-flow: row nowrap;
-    border-top: 1px solid var(--c-grey);
     padding-top: 1em;
     justify-content: space-between;
     align-items: center;
@@ -618,13 +617,81 @@ form .quantity-warning {
   }
 }
 
-@media screen and (width >=768px) {
+ bnpl-options {
+   display: flex;
+   flex-flow: column;
+   gap: 0.5em;
+   margin-block: 1em;
+   padding-top: 1em;
+ }
+
+ .bnpl-placement,
+ .bnpl-placement a {
+   font-size: var(--txt-sm) !important;
+   display: flex;
+   gap: 1em;
+   align-items: center;
+ }
+
+ .bnpl-placement a {
+   gap: 0.2em;
+   text-decoration: underline;
+ }
+
+ .bnpl-modal {
+   position: fixed;
+   background-color: var(--c-white);
+   inset: 0;
+   margin: auto;
+   width: min(100vw, 1400px);
+   max-height: min(100vh, 950px);
+   z-index: 11;
+   padding: 4rem 1rem 2rem;
+   overflow: hidden;
+ }
+
+ .bnpl-modal .bnpl-modal--content {
+   overflow-y: auto;
+   position: static;
+   max-height: calc(100vh - 6rem);
+   padding: 0.5rem;
+ }
+
+ button.modal-close {
+   position: absolute;
+   inset: 1.5rem 1rem auto auto;
+ }
+
+ button.modal-close svg {
+   transform: rotate(0deg);
+   transition: transform 0.4s var(--bezier);
+ }
+
+ button.modal-close :hover svg {
+   transform: rotate(360deg);
+ }
+
+ @media screen and (width >=768px) {
+   .bnpl-modal {
+     width: var(--max-width);
+     max-height: min(90vh, 950px);
+     padding: 4rem 3rem 3rem;
+   }
+
+   .bnpl-modal .bnpl-modal--content {
+     max-height: calc(90vh - 7rem);
+     height: 100%;
+   }
 
   pdp-carousel {
     max-height: fit-content !important;
     /* override the size adjustment made for mobile with js */
   }
 
+                .atc_form-header,
+                bnpl-options {
+                  border-top: 1px solid var(--c-grey);
+                }
   .product_details-confidence-blocks {
     display: flex;
     flex-direction: column;
