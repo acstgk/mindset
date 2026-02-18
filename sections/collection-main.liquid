@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="{{ 'plp.min.css' | asset_url }}">
-{% assign products = collection.products | where: 'type', 'Leggings' %}
-{%- paginate products by 22 -%}
-  {% render 'product-grid-filters' with products as group %}
+{%- paginate collection.products by 22 -%}
+  {% render 'product-grid-filters' with collection as group %}
 
   {% if paginate.previous %}
     <div class="previousNav grid-nav max-width accent-bg" id="pagination-prev">
@@ -12,7 +11,7 @@
     </div>
   {% endif %}
 
-  {% render 'product-grid' with products as product_list, page: paginate.current_page, nexturl: paginate.next.url, pages: paginate.pages %}
+  {% render 'product-grid' with collection.products as product_list, page: paginate.current_page, nexturl: paginate.next.url, pages: paginate.pages %}
 
   {% if paginate.next.is_link %}
     <div class="grid-nav accent-bg max-width"  id="pagination-next">
