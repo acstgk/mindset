@@ -22,7 +22,7 @@
       {%- if predictive_search.resources.products.size > 0 -%}
         <h4 class="predictive_search-heading">Products</h4>
         {%- for product in predictive_search.resources.products -%}
-          {% unless product.available == false or product.metafields.custom.always_show == true  %}
+          {% unless product.available == false and product.metafields.custom.always_show != true  %}
           {%- render 'product-card' with product as product -%}
           {% endunless %}
         {%- endfor -%}
