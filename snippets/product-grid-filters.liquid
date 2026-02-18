@@ -36,7 +36,7 @@
                         {% endif %}
                         {%- if filter.active_values.size > 0 -%}
                           {% assign active_count = active_count | plus: 1 %}
-                          <i>({{ filter.active_values.size }}<span class="pluralize"> {{filter.active_values.size | pluralize: 'filter', 'filters' }} selected</span>)</i>
+                          <i>({{ filter.active_values.size }}<span class="pluralize"> {{filter.active_values.size | pluralize: 'filter', 'filters' }} active</span>)</i>
                         {%- endif -%}
                       </div>
                     </div>
@@ -78,7 +78,7 @@
                                     {%- when 'image' -%}
                                       {{ filter_value.swatch.image | image_url: width: 15 | image_tag: alt: filter_value.swatch.image.alt, class: 'swatch' }}
                                   {%- endcase -%}
-                                  {{ filter_value.label }} ({{ filter_value.count }}){% if filter_value.active%}<b>active</b>{% endif %}
+                                  {{ filter_value.label }} ({{ filter_value.count }})
                                 </label>
                               </li>
                             {%- endfor -%}
