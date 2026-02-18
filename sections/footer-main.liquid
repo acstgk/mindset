@@ -30,7 +30,10 @@
 {% endif %}
 <div class="max-width">
   {% render 'trust-widget' with 'carousel' %}
-  {% render 'payment-icons' %}
+  <div class="sub-footer">
+    <div class="countrydesktop" aria-label="Country selector">{%- render 'country-switcher' -%}</div>
+    {% render 'payment-icons' %}
+  </div>
 </div>
 
 <div class="footer-copyright">

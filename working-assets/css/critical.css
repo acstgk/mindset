@@ -8,6 +8,11 @@
   interpolate-size: allow-keywords;
 }
 
+[hidden] {
+  display: none !important;
+  opacity: 0 !important;
+  transform: scale(0) !important;
+}
 @media screen and (width <=400px) {
   html {
     scrollbar-gutter: stable;
@@ -996,19 +1001,20 @@ ul.sub_menu-items {
 li.disclosure__item a {
   text-decoration: none;
   transition: scale 0.15s var(--bezier);
+  color: var(--c-dark-grey);
 
   &:hover {
     scale: 1.1;
   }
 }
 
+
 ul.CountryList {
   position: absolute;
   background-color: white;
   padding: 20px;
-  max-height: 35vh !important;
+  max-height: min(80vh, 30rem) !important;
   overflow-y: scroll;
-  margin-left: 5px;
   scrollbar-color: #e4e4e4;
   scrollbar-width: thin;
   border: solid 1px rgba(27, 27, 27, 0.1);
@@ -1016,8 +1022,8 @@ ul.CountryList {
   flex-flow: column nowrap;
   justify-content: normal;
   width: 270px;
-  margin-top: 10px;
-  transform: translateX(-200px);
+margin-bottom: 1rem;
+  bottom: 100%;
 }
 
 .CountryList li {
@@ -1028,28 +1034,39 @@ ul.CountryList {
 .countrydesktop {
   display: grid;
   place-content: center;
+  position: relative;
 }
 
 @media screen and (max-width: 768px) {
+.countrymobile ul.CountryList {
+    position: absolute;
+    bottom: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 0;
+    margin-left: -15px;
+  }
   ul.CountryList {
     border-block: 1px solid rgba(27, 27, 27, 0.15);
     border-inline: none;
     box-shadow: 0 3px 6px 0px rgba(27, 27, 27, 0.15);
-      left: 195px;
     max-height: 80dvh !important;
-    right: 0;
     width: 100%;
     z-index: 2;
-    margin-top: 5px;
     padding: 0 15px;
-    position: fixed;
-    top: -80dvh;
-      display: flex;
-      flex-direction: column-reverse;
   }
 
   .countrydesktop {
-    display: none;
+    margin: 0 auto;
+    }
+    
+    .countrydesktop ul.CountryList {
+      width: 100vw;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 57vh;
+      padding-top: 1rem;
   }
 
   .countrymobile .disclosure__button {

@@ -49,12 +49,6 @@ hmtl>body.no-scroll {
     border-radius: 0;
 }
 
-[hidden] {
-    display: none !important;
-    opacity: 0 !important;
-    transform: scale(0) !important;
-}
-
 [visible],
 .visible {
     visibility: visible !important;
@@ -1666,10 +1660,6 @@ img.footer-logo {
     }
 }
 
-.payment-icons {
-    margin: 40px 0 0;
-}
-
 .payment-icon {
     filter: grayscale(0.25);
     transition: filter .15s var(--bezier);
@@ -1699,6 +1689,14 @@ img.footer-logo {
     place-content: center;
 }
 
+.sub-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0 0;
+    gap: 3rem 1rem;
+}
 @media screen and (width > 768px) {
     .footer-container {
         display: flex;

@@ -10,7 +10,7 @@
           </svg>
         </button>
 
-        <ul id="" role="list" class="CountryList disclosure__list" hidden style="position:absolute;">
+        <ul id="" role="list" class="CountryList disclosure__list" hidden>
           {% for country in localization.available_countries %}
             {% if country.iso_code == localization.country.iso_code %}
               {% assign list_position = -8 %}
