@@ -1,0 +1,120 @@
+{% assign product = section.settings.product %}
+
+<div class="rtf">
+  {% render 'product-title', product: product, heading: 'h2' %}
+  <p>{{ section.settings.text }}</p>
+</div>
+ <div class="focus-images">
+        {{ product.media[section.settings.image_1] | image_url: width: '400px' | image_tag: class: 'split__image' }}
+        {{ product.media[section.settings.image_2] | image_url: width: '400px' | image_tag: class: 'split__image' }}
+        {{ product.media[section.settings.image_3] | image_url: width: '400px' | image_tag: class: 'split__image' }}
+    </div>
+
+    <a href="{{ product.url }}" class="button button-primary" style="--btn-color:{{ section.settings.background_color }};--btn-bg:{{ section.settings.text_color }}">Shop Now</a>
+<style>
+    #shopify-section-{{ section.id }} {
+      background-color: {{ section.settings.background_color }};
+      color: {{ section.settings.text_color }};
+      padding: 3rem;
+
+      & .rtf {
+      & a {
+      text-decoration: none;
+      }
+    }
+
+    & .focus-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    width: min(1000px, 90vw);
+    gap: 1rem;
+    margin: 4rem auto 0;
+
+    & img {
+    aspect-ratio: 0.72;}
+   }
+
+   & .button {
+  margin: 2rem auto;
+display: block;}
+
+      h2 {
+      margin: 0;}
+
+      .Title {
+      justify-content: center;
+      flex-flow: column;
+          gap: 0;
+          margin-bottom: 2rem;
+
+          & h2 {
+            font-size: var(--txt-h2);
+            margin-bottom: 0;
+            color: {{ section.settings.text_color }};
+          }
+    }
+
+    p {
+  text-align: }
+    }
+</style>
+
+{% schema %}
+{
+  "name": "Product Focus",
+  "class": "section--product-focus",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Product Overview / Intro"
+    },
+    {
+      "type": "number",
+      "id": "image_1",
+      "label": "Image 1",
+      "default": 0
+    },
+    {
+      "type": "number",
+      "id": "image_2",
+      "label": "Image 2",
+      "default": 2,
+    },
+    {
+      "type": "number",
+      "id": "image_3",
+      "label": "Image 3",
+      "default": 3
+    }
+
+
+  ],
+  "presets": [
+    {
+      "name": "Product Focus",
+      "category": "Products",
+       "settings": {
+        "product": "gym-king-sport-core-3-6-5-legging-black",
+
+      }
+    }
+  ]
+}
+{% endschema %}

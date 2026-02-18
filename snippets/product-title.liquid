@@ -2,24 +2,22 @@
   Formatted Product title
 
   @param {object} product - Product object
-  @param {boolean} [heading] - is this a page heading?
+  @param {string} [heading] - is this a page heading?
+
   @example
-  {% render 'product-title', product: 'Featured Product', header: 'true'%}
+  {% render 'product-title', product: 'Featured Product', heading: 'h1'%}
 {% enddoc %}
 
-
-{% if heading == 'true' %}
-  {% assign element_type = 'h1' %}
+{% if heading %}
+  {% assign element_type = heading %}
 {% else %}
   {% assign element_type = 'span' %}
 {% endif %}
 
-
 {%- if product.title contains '-' or product.title contains '–' %}
-
   {%- assign product_title = product.title | replace: '–', '-' | split: '-' -%}
   <a class="Title" href="{%if product.available %}{{ product.url }}{% else %}#{% endif %}">
-    <{{ element_type }} class="{%- if heading -%}h4{% endif %} title">
+    <{{ element_type }} class="title">
       {{- product.title | remove: 'Gym King ' | remove: product_title.last | remove_last: '-' | strip -}}
     </{{ element_type }}>
     <span class="colour">{{ product_title.last }}</span>

@@ -127,6 +127,32 @@
         "grid_style": "standard"
       }
     },
+    "product_focus_CxPbfJ": {
+      "type": "product-focus",
+      "name": "Product Focus",
+      "settings": {
+        "product": "gym-king-stoic-hekla-jersey-tee-volcanic-black",
+        "background_color": "#ffffff",
+        "text_color": "#3d3f43",
+        "text": "A visual tribute to the unrelenting waters of Ross’ journey - movement, force, and forward momentum, captured in a graphic that feels as relentless as the sea itself.",
+        "image_1": 3,
+        "image_2": 5,
+        "image_3": 4
+      }
+    },
+    "product_focus_CftTrF": {
+      "type": "product-focus",
+      "name": "Product Focus",
+      "settings": {
+        "product": "gym-king-stoic-krafla-jersey-tee-sand-stone",
+        "background_color": "#3d3f43",
+        "text_color": "#ffffff",
+        "text": "Designed with Icelandic Viking runes - a nod to the heritage, raw conditions, and the spirit required to endure a circumnavigation that demanded everything.",
+        "image_1": 4,
+        "image_2": 6,
+        "image_3": 5
+      }
+    },
     "spacer_gtAbfA": {
       "type": "spacer",
       "disabled": true,
@@ -165,6 +191,8 @@
     "static_hero_FcxDLN",
     "spacer_dn9rPg",
     "content_grid_cRphTz",
+    "product_focus_CxPbfJ",
+    "product_focus_CftTrF",
     "spacer_gtAbfA",
     "static_hero_cBbLHp"
   ]

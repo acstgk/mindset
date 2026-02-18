@@ -125,7 +125,7 @@
 {% comment %} START:: Product Details {% endcomment %}
 <aside id="product-details" data-details="{{ product_details | escape }}">
   <div id="product-summary">
-    {% render 'product-title' with product as 'product', heading: 'true' %}
+    {% render 'product-title' with product as 'product', heading: 'h1' %}
     {% render 'product-price' with product as 'product' %}
     {% unless product.type == 'Tracksuit Set' %}
       <div
