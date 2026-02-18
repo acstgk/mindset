@@ -1660,6 +1660,10 @@ img.footer-logo {
     }
 }
 
+.payment-icons {
+    height: 30px;
+    overflow: hidden;
+}
 .payment-icon {
     filter: grayscale(0.25);
     transition: filter .15s var(--bezier);
@@ -1695,7 +1699,7 @@ img.footer-logo {
     justify-content: space-between;
     align-items: center;
     margin: 40px 0 0;
-    gap: 3rem 1rem;
+    gap: 3rem;
 }
 @media screen and (width > 768px) {
     .footer-container {
