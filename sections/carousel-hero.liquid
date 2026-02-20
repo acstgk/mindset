@@ -68,7 +68,7 @@
         {% endif %}
 
         {% unless block.settings.title == '' %}
-          <{%- if forloop.first -%}h1{%-else-%}h2{%endif%} class="h1 fade-in">{{ block.settings.title }}</{%- if forloop.first -%}h1{%-else-%}h2{%endif%} >
+          <{%- if forloop.first -%}h1{%-else-%}h2{%endif%} class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</{%- if forloop.first -%}h1{%-else-%}h2{%endif%} >
         {% endunless %}
 
         {% if block.settings.subtitle != '' and block.settings.subtitle_first == false %}
@@ -175,15 +175,25 @@
           "id": "title",
           "label": "Slide Title"
         },
+           {
+          "type": "select",
+          "id": "title_font",
+          "label": "Title Font",
+          "options": [
+            {
+              "label": "Normal",
+              "value": ""
+            },
+            {
+              "label": "Baskerville",
+              "value": "baskerville"
+            }
+          ]
+        },
         {
           "type": "text",
           "id": "subtitle",
           "label": "Slide Subtitle"
-        },
-        {
-          "type": "html",
-          "id": "customHTML",
-          "label": "Custom HTML"
         },
         {
           "type": "select",
@@ -205,6 +215,11 @@
           "label": "Subtitle first?",
           "id": "subtitle_first",
           "default": false
+        },
+        {
+          "type": "html",
+          "id": "customHTML",
+          "label": "Custom HTML"
         },
         {
           "type": "header",
