@@ -1,4 +1,4 @@
-/* global IntersectionObserver Cart MutationObserver URL history */
+/* global IntersectionObserver Cart MutationObserver URL history URLSearchParams */
 import { SplideUtil } from "./SplideUtil.js";
 import { CountdownManager } from "./CountdownManager.js";
 import Panzoom from "./panzoom.js";
@@ -159,7 +159,7 @@ if (!customElements.get("pdp-carousel")) {
               maxScale: 2,
               minScale: 0.25,
               startScale: scale,
-              focal: {x: 50, y: 50},
+              focal: { x: 50, y: 50 },
             });
             panzoomEl.addEventListener("wheel", panzoom.zoomWithWheel);
           });
@@ -367,11 +367,19 @@ if (!customElements.get("enhanced-atc")) {
       _autoSelectOption = () => {
         this.allGroups.forEach((optionGroup) => {
           if (optionGroup.childElementCount > 1) {
-            this._getStorage();
+            if (window.location.search.includes("variant")) {
+              const variantId = new URLSearchParams(window.location.search).get('variant');
+              console.log("variant found :: ", variantId);
+              const target = optionGroup.querySelector(`#variant-${variantId}`);
+              if (target) target.checked = true;
+            } else {
+              this._getStorage();
+            }
           } else {
             optionGroup.children[0].querySelector("input").checked = true;
           }
         });
+
       };
 
       // save any selected size to this product type for auto selection going forwards.
