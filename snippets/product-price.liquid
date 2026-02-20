@@ -2,10 +2,15 @@
   Formatted Product Price
 
   @param {object} product - Product object
+  @param {boolean} use_variants - Whether to use variants for pricing
 
   @example
-  {% render 'product-price', product: 'Featured Product'%}
+  {% render 'product-price', product: 'Featured Product', use_variants: true %}
 {% enddoc %}
+
+{% if product.price_varies and use_variants %}
+  {% assign product = product.selected_or_first_available_variant %}
+{% endif %}
 
 {% if product.final_price %}
   {% assign price = product.final_price %}

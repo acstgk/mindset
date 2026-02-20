@@ -126,7 +126,7 @@
 <aside id="product-details" data-details="{{ product_details | escape }}">
   <div id="product-summary">
     {% render 'product-title' with product as 'product', heading: 'h1' %}
-    {% render 'product-price' with product as 'product' %}
+    {% render 'product-price' with product as 'product', use_variants: true %}
     {% unless product.type == 'Tracksuit Set' %}
       <div
         class="yotpo-widget-instance"

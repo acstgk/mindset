@@ -1,4 +1,4 @@
-/* global IntersectionObserver Cart MutationObserver */
+/* global IntersectionObserver Cart MutationObserver URL history */
 import { SplideUtil } from "./SplideUtil.js";
 import { CountdownManager } from "./CountdownManager.js";
 import Panzoom from "./panzoom.js";
@@ -440,7 +440,10 @@ if (!customElements.get("enhanced-atc")) {
           this._currentSubmitHandler = this._addToCart;
         }
 
+
+        // if this isn't a group (tracksuit) product page than update urgency flag, variant url and price.
         if (this.allGroups.length == 1) {
+          //chech the availability and update the urgency flag, displaying if required.
           const availableQty = this.querySelector('input[type="radio"]:checked')?.dataset.availableQty;
           if (availableQty < 10 && availableQty > 0) {
             let warningLevel;
@@ -451,6 +454,25 @@ if (!customElements.get("enhanced-atc")) {
           } else {
             this.quantityWarningEl.classList.remove("warning-active", "warning", "error");
           }
+
+          // update the current url to include the variant for this selected size allowing better history traversal.
+          const url = new URL(window.location.href);
+          const variantId = this.allGroups[0].querySelector('input[type="radio"]:checked').value;
+          url.searchParams.set('variant', variantId);
+          history.replaceState({}, '', url);
+
+          //now we have an updated url we can update the price.
+          const fetchURL = window.location.href + '&section_id=product-price';
+          fetch(fetchURL)
+            .then((response) => response.text())
+            .then((html) => {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(html, 'text/html');
+              const livePrice = document.querySelector('#product-summary .Price--wrapper');
+              const incomingPrice = doc.querySelector('.Price--wrapper');
+              if (livePrice && incomingPrice) livePrice.innerHTML = incomingPrice.innerHTML;
+            });
+
         }
       };
 
