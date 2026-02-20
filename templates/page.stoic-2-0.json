@@ -129,6 +129,9 @@
     },
     "product_focus_CxPbfJ": {
       "type": "product-focus",
+      "custom_css": [
+        "h2,.button {font-family: var(--octin-font-family);}"
+      ],
       "name": "Product Focus",
       "settings": {
         "product": "gym-king-stoic-hekla-jersey-tee-volcanic-black",
@@ -142,6 +145,9 @@
     },
     "product_focus_CftTrF": {
       "type": "product-focus",
+      "custom_css": [
+        "h2, .button {font-family: var(--octin-font-family);}"
+      ],
       "name": "Product Focus",
       "settings": {
         "product": "gym-king-stoic-krafla-jersey-tee-sand-stone",
