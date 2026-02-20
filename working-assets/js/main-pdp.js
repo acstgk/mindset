@@ -356,12 +356,12 @@ if (!customElements.get("enhanced-atc")) {
         this.allGroups.length > 1 ? (this.atcButton.innerText = "Select Sizes") : (this.atcButton.innerText = "Select Size");
         this._currentSubmitHandler = this._scrollToSizes;
         this.actualForm.addEventListener("submit", this._submitDispatcher);
-        this.actualForm.addEventListener("change", this._watchSizeSelection);
         this.storedSizesItem = "GK::sizes";
         this._autoSelectOption();
         this._handleStickyButton();
         this._setObserver();
         this._watchSizeSelection();
+        this.actualForm.addEventListener("change", this._watchSizeSelection);
       }
 
       _autoSelectOption = () => {

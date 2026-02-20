@@ -379,7 +379,7 @@ pdp-carousel {
 
   & #product-summary {
     display: grid;
-    grid-template-columns: 6fr 4fr;
+    grid-template-columns: 7fr 4fr;
     column-gap: 1em;
 
     & .yotpo-widget-instance {
