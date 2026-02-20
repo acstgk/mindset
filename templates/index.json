@@ -91,10 +91,22 @@
     "section_value_props_FBFJKV": {
       "type": "section-value-props",
       "blocks": {
-        "subtle_text_block_fbX7Vw": {
+        "subtle_text_block_4hemRj": {
           "type": "subtle-text-block",
           "settings": {
-            "title": "FREE Standard UK Delivery over £75",
+            "title": "Over 36,000 5 star reviews",
+            "block_link": "https://uk.trustpilot.com/review/thegymking.com?stars=5",
+            "bg_colour": "#f8f8f8",
+            "txt_colour": "#1b1b1b",
+            "icon": "star",
+            "country_restriction": "none"
+          }
+        },
+        "subtle_text_block_fbX7Vw": {
+          "type": "subtle-text-block",
+          "disabled": true,
+          "settings": {
+            "title": "Click and Collect Locker Delivery Available",
             "block_link": "shopify://pages/help-centre-delivery-and-orders",
             "bg_colour": "#f8f8f8",
             "txt_colour": "#1b1b1b",
@@ -126,6 +138,7 @@
         }
       },
       "block_order": [
+        "subtle_text_block_4hemRj",
         "subtle_text_block_fbX7Vw",
         "subtle_text_block_7LKcb6",
         "subtle_text_block_f3eyqD"
