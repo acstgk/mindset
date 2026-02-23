@@ -9,6 +9,66 @@
  */
 {
   "sections": {
+    "content_rich_text_BEMXNe": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_63e7Pj": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h1>Help Centre - Returns</h1>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_63e7Pj"
+      ],
+      "custom_css": [
+        ".rtf {max-width: none;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "",
+        "heading_style": "emphasis",
+        "v_padding": 0,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "custom_ctas_MH7aAk": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_b3Wcqe": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Start a UK Return",
+            "button_link": "https://thegymking.returns.international",
+            "btn_color": false
+          }
+        },
+        "button_QxmPRk": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Start an International Return",
+            "button_link": "https://web.global-e.com/Returns/Portal",
+            "btn_color": true
+          }
+        }
+      },
+      "block_order": [
+        "button_b3Wcqe",
+        "button_QxmPRk"
+      ],
+      "custom_css": [
+        "{margin: -1rem 0; display: block;}"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
+    },
     "main": {
       "type": "content-accordian",
       "blocks": {
@@ -126,11 +186,13 @@
       ],
       "settings": {
         "openFirst": true,
-        "showTitle": true
+        "showTitle": false
       }
     }
   },
   "order": [
+    "content_rich_text_BEMXNe",
+    "custom_ctas_MH7aAk",
     "main"
   ]
 }
