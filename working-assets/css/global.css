@@ -1441,10 +1441,10 @@ video {
 }
 
 .hero_slide-content .signature {
-    font-size: var(--txt-xxl);
-    line-height: 0.9;
+    font-size: var(--txt-h1);
+        line-height: 0.75;
     scale: 1;
-    margin: 0 0 -0.2em 0 !important;
+    margin: 0.5em 0 0 !important;
     font-weight: 400;
 }
 
@@ -1497,7 +1497,7 @@ video {
     justify-content: center;
     flex-flow: row wrap;
     width: 90%;
-    margin: 3rem auto 0;
+    margin: 2rem auto 0;
 
     & .button {
         flex: 1 1 max-content;
