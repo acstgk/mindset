@@ -1,6 +1,6 @@
 {% for collection in product.collections %}
   {% if collection.metafields.Collection.franchise_name %}
-    <a href="{{ collection.url}}" alt="collection.title" class="button button-primary">
+    <a href="{{ collection.url}}" alt="{{ collection.title }}" class="button button-primary">
       {% render 'icon', icon: 'arrow-left' %}
       {{ collection.metafields.Collection.franchise_name | capitalize }} Collection {% render 'icon' with 'arrow' as icon -%}
     </a>
