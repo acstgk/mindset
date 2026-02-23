@@ -3,12 +3,24 @@
 
   @param {string} [formId] - The ID of the ometria form we are pushing submission to
   @param {string} [signupSource] - the value of the sign up that we want to association with this form
+  @param {string} [successHeading] - The heading to display when the form is submitted successfully
+  @param {string} [successCopy] - The copy to display when the form is submitted successfully
+  @param {string} [pageTitle] - The title of the form
+  @param {string} [pageSubtitle] - The subtitle of the form
+  @param {string} [CTAtxt] - The CTA text of the form
+
   @example
-  {% render 'ometria-form', formId: 'ad1254b0165617d1cf8a0d4e4dcfc2e6', signupSource: 'footer form' %}
+  {% render 'ometria-form', formId: 'ad1254b0165617d1cf8a0d4e4dcfc2e6', signupSource: 'footer form', successHeading: 'Thanks for signing up!', successCopy: 'You will now receive emails about our latest products and offers.' %}
 {% enddoc %}
 
-
 <ometria-form>
+    <div class="rtf">
+    <h1>{{ pageTitle }}</h1>
+    <h2 class="h4 emphasis">{{ pageSubtitle }}</h2>
+    {% if CTAtxt %}
+      <p class="ctatxt">{{ CTAtxt }}</p>
+    {% endif %}
+  </div>
   <form action="https://api.ometria.com/forms/signup" method="post">
     {% comment %} OMETRIA FIELDS {% endcomment %}
     <input class="ometria-push" type="hidden" name="__form_id" value="{{ formId | default: 'ad1254b0165617d1cf8a0d4e4dcfc2e6' }}">
@@ -83,8 +95,12 @@
   </form>
 </ometria-form>
 
-<style>
+<script>
+  window.successTitle = '{{ successHeading | default: 'Success! Thank you for signing up.' }}';
+  window.successText = '{{ successCopy | default: '<p>You are now on the list to receive updates, new product launches and exclusive discounts.</p>' }}';
+</script>
 
+<style>
   ometria-form {
     display: block;
     margin-top: 2rem;
@@ -96,9 +112,8 @@
     gap: 1rem;
     justify-content: center;
     margin: 1rem auto;
-
-    & button {
+  }
+  .input-group-btn button {
     flex: 1 0 auto;
-}
   }
 </style>

@@ -131,6 +131,7 @@ infinite-scroll {
   display: flex;
   justify-content: flex-end;
 }
+
 #infinite-trigger {
   & .loader {
     display: none;
@@ -246,7 +247,26 @@ infinite-scroll {
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   }
 }
+
 .tagg-reset.tagg-balloon.tagg-quantity_orders.tagg-QP,
 .tagg-reset.tagg-balloon.tagg-quantity_orders.tagg-QPH.tagg-hot {
   height: max(24px, 100%) !important
+}
+ometria-form {
+  & .rtf {
+
+    & h1,
+    & h2,
+    & p {
+      text-align: center;
+    }
+
+    & h2 {
+      font-size: var(--txt-h3);
+    }
+
+    & p {
+      margin-bottom: 2rem;
+    }
+  }
 }

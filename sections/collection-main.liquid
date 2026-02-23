@@ -29,9 +29,7 @@
   {%- endpaginate -%}
 {% else %}
   <div class="max-width" style="padding:2rem 0;">
-    <h2 class="h3 emphasis">This Collection is temporarily Out of Stock</h2>
-    <p class="center">Check back soon for new arrivals or sign up for a restock notification.</p>
-    {% render 'ometria-form' %}
+    {% render 'ometria-form', pageSubtitle: "This Collection is temporarily Out of Stock", CTAtxt: "Check back soon for new arrivals or sign up for a restock notification." %}
     <br>
   </div>
   <hr>
