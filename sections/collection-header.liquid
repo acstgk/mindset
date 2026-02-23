@@ -1,9 +1,11 @@
 <div class=collection-heading>
   <div class="no-block-margin">
     <h1>{{ collection.title }}</h1>
-    <p>
-      <span class="product-count">{{ collection.products_count }}</span> products
-    </p>
+    {% if collection.products_count > 0 %}
+      <p>
+        <span class="product-count">{{ collection.products_count }}</span> products
+      </p>
+    {% endif %}
   </div>
   <div class="rtf full-width collection-blurb">{{ collection.description }}</div>
 </div>
