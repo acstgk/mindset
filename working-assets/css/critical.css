@@ -37,6 +37,7 @@ main {
   display: block;
   flex-grow: 1;
   background-color: var(--c-white);
+  min-height: 65vh;
 }
 
 #fc_frame {
