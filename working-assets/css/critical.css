@@ -1020,7 +1020,7 @@ li.disclosure__item a {
     gap: 0.5rem;
 
   &:hover {
-    scale: 1.1;
+    scale: 1.025;
   }
 }
 
