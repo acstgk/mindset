@@ -28,6 +28,9 @@
   opacity: 0.75;
 }
 
+.button-full {
+  width: 100%;
+}
 .section--black-friday-splash {
   text-align: center;
   padding: 2vh 2vw;
