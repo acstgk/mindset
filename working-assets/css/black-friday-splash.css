@@ -19,12 +19,12 @@
   display: none;
 }
 
-.Button::before {
+.button::before {
   transition: opacity 0.2s ease;
   opacity: 1;
 }
 
-.Button:hover::before {
+.button:hover::before {
   opacity: 0.75;
 }
 
@@ -105,15 +105,6 @@ countdown-timer {
   text-decoration: underline;
 }
 
-.Button-container .Button.Button--inverted {
-  color: #aaa;
-  border: none;
-
-  &::before {
-    background: #333;
-    border: none;
-  }
-}
 
 /* glitch effect */
 .box {
@@ -161,6 +152,8 @@ countdown-timer {
 
   & button {
     flex: 1 0 auto;
+    --btn-bg: var(--c-white);
+      --btn-color: var(--c-black);
   }
 }
 

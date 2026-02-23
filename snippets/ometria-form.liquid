@@ -1,0 +1,104 @@
+{% doc %}
+  Ometria Sign up form
+
+  @param {string} [formId] - The ID of the ometria form we are pushing submission to
+  @param {string} [signupSource] - the value of the sign up that we want to association with this form
+  @example
+  {% render 'ometria-form', formId: 'ad1254b0165617d1cf8a0d4e4dcfc2e6', signupSource: 'footer form' %}
+{% enddoc %}
+
+
+<ometria-form>
+  <form action="https://api.ometria.com/forms/signup" method="post">
+    {% comment %} OMETRIA FIELDS {% endcomment %}
+    <input class="ometria-push" type="hidden" name="__form_id" value="{{ formId | default: 'ad1254b0165617d1cf8a0d4e4dcfc2e6' }}">
+    <input class="ometria-push" type="hidden" name="email" value="" autocomplete="off">
+    <div style="display:none !important">
+      <input class="ometria-push" name="__email" type="email" value="" autocomplete="off">
+    </div>
+    <input class="ometria-push" name="@account" type="hidden" value="f647cb688e2297ba">
+    <input class="ometria-push" name="@return_url" type="hidden" value="">
+    <input class="ometria-push" name="@subscription_status" type="hidden" value="SUBSCRIBED">
+    <input class="ometria-push" name="properties.sign_up_source" type="hidden" value="{{ signupSource | default: 'onsite form' }}">
+    <input class="ometria-push" type="hidden" name="gender" value="" id="newsletter[gender]">
+    <input class="ometria-push" name="phone_number" id="newsletter[hiddenphone]" type="hidden" value="">
+    {% comment %} END OMETRIA FIELDS {% endcomment %}
+
+    <div class="Form__Item">
+      <input
+        name="ue"
+        id="newsletter[email]"
+        type="email"
+        class="ometria-push Form__Input"
+        name="customer[email]"
+        required="required"
+        placeholder="Email"
+        aria-label="{{ 'customer.login.email' | t }}"
+        autocorrect="off"
+        autocapitalize="off"
+        autofocus
+      >
+      <label for="newsletter[email]">Email</label>
+    </div>
+    <div id="extra-fields">
+      <div class="Form__Item">
+        <input
+          id="newsletter[firstname]"
+          class="ometria-push Form__Input"
+          value="{% if customer %}{{ customer.first_name }}{% endif %}"
+          placeholder="First Name"
+          name="firstname"
+          type="text"
+          autofocus
+        >
+        <label for="newsletter[firstname]">First Name</label>
+      </div>
+      <div class="Form__Item telcode ge-hide-display-none ge-hide">
+        <input
+          class="Form__Input"
+          placeholder="Phone Number"
+          name="visible_phone_number"
+          id="newsletter[phone]"
+          type="tel"
+          value=""
+          minlength="10"
+          maxlength="11"
+        >
+        <label for="newsletter[phone]">Phone Number</label>
+      </div>
+      <div class="sms-optin  ge-hide-display-none ge-hide">
+        <input class="ometria-push" id="newsletter[sms]" name="@sms_optin_checkbox" type="checkbox">
+        {% comment %} <input id="newsletter[sms]" name="sms_optin" type="checkbox"> {% endcomment %}
+        <label for="newsletter[sms]">Sign up to SMS to be the first to hear about new launches and exclusive discounts</label>
+      </div>
+
+      <p class="newsletter-error warning visually-hidden">Error: Please check details and try again</p>
+
+      <div class="input-group-btn">
+        <button type="submit" data-gender="Male" class="gender-submit-button button button-primary" name="commit" id="newsletter[male]">Male</button>
+        <button type="submit" data-gender="Female" class="gender-submit-button button button-primary" name="commit" id="newsletter[female]">Female</button>
+        <button type="submit" data-gender="Other" class="gender-submit-button button button-primary" name="commit" id="newsleter[other]">Prefer not to answer</button>
+      </div>
+    </div>
+  </form>
+</ometria-form>
+
+<style>
+
+  ometria-form {
+    display: block;
+    margin-top: 2rem;
+  }
+
+  .input-group-btn {
+    display: flex;
+    flex-flow: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem auto;
+
+    & button {
+    flex: 1 0 auto;
+}
+  }
+</style>
