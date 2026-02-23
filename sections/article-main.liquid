@@ -6,6 +6,8 @@
   <p class="article-meta">
     {%- if article.metafields.article.event_location.value -%}
       <b>Event:</b> {{ article.metafields.article.event_location.value }} | {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
+    {% elsif article.metafields.article.event_date.value %}
+      <b>Event:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
     {% else %}
       <b>Article:</b> {{ article.published_at | date: '%B %d, %Y' }}
     {%- endif -%}
