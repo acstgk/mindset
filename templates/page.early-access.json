@@ -14,15 +14,15 @@
       "settings": {
         "pageTitle": "Coming Soon",
         "showTitle": false,
-        "eventLogo": "shopify://shop_images/FIRST_EVER_KIDS_SHOOT_25-0_5_535b69d5-4683-4b2a-9078-07decb8ae89e.jpg",
-        "pageSubtitle": "Sign up now for Early Access",
-        "CTAtxt": "this is some copy about the launch.",
+        "eventLogo": "shopify://shop_images/BF_Sign_Up_Unit_-_Desktop_V1_056829b9.jpg",
+        "pageSubtitle": "Subscribe to The Mailing List",
+        "CTAtxt": "for news, events, exclusive discounts and early access.",
         "successHeading": "Success! Thank you for signing up.",
         "successCopy": "<p>You are now on the list to receive exclusive early access.</p>",
-        "linkCollectionCTA": "Shop Sale Now",
+        "linkCollectionCTA": "",
         "linkCollection": "",
         "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
-        "signupSource": "Splash Page"
+        "signupSource": "Early Access"
       }
     }
   },
