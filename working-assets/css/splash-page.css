@@ -73,6 +73,14 @@
    }
  }
 
+ .section--splash-page>small {
+   width: min(90%, 100ch);
+   display: block;
+   text-align: center;
+   margin: 4rem auto;
+   color: var(--c-grey);
+   grid-column: 1 / -1
+ }
  @media screen and (width > 700px) {
    .section--splash-page {
      grid-template-columns: 1fr 1fr;

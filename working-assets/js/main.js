@@ -1601,11 +1601,11 @@ class KeyboardShortcutsManager {
 
 const shortcuts = new KeyboardShortcutsManager();
 
-shortcuts.registerShortcut("ctrl+/", () => {
+shortcuts.registerShortcut("/", () => {
   document.querySelector("#header_search-icon")?.click();
 });
 
-shortcuts.registerShortcut("ctrl+c", () => {
+shortcuts.registerShortcut("alt+c", () => {
   document.querySelector("#header_cart-icon")?.click();
 });
 
