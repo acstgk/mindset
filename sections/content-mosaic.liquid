@@ -26,10 +26,10 @@
             <h2 class="emphasis {{ block.settings.heading_size }}">{{ block.settings.title }}</h2>
             {{ block.settings.text }}
             {% if block.settings.cta_text != '' %}
-              <a class="button button-primary" style="max-width: 100%;--btn-bg:{{ block.settings.btn_color }}" href="{{ block.settings.cta_url | default: '#' }}">{{ block.settings.cta_text }}</a>
+              <a class="button button-primary" style="max-width: 100%;--btn-bg:{{ block.settings.btn_color }}" {% if block.settings.cta_url %}href="{{ block.settings.cta_url }}"{%else%} disabled{% endif %}>{{ block.settings.cta_text }}</a>
             {% endif %}
             {% if block.settings.cta_text2 != '' %}
-              <a class="button button-primary" style="max-width: 100%;--btn-bg:{{ block.settings.btn_color2 }}" href="{{ block.settings.cta_url2 | default: '#' }}">{{ block.settings.cta_text2 }}</a>
+              <a class="button button-primary" style="max-width: 100%;--btn-bg:{{ block.settings.btn_color2 }}" {% if block.settings.cta_url2  %}href="{{ block.settings.cta_url2 }}"{%else%} disabled{% endif %}>{{ block.settings.cta_text2 }}</a>
             {% endif %}
           </div>
         {% endunless %}
