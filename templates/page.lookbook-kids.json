@@ -1,0 +1,549 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "static_hero_tV68kr": {
+      "type": "static-hero",
+      "custom_css": [
+        "a.button.button-primary.inline-flex:first-child {--btn-bg: #39cef6}",
+        "a.button.button-primary.inline-flex {--btn-bg: #ff98ca;}"
+      ],
+      "name": "Static Hero",
+      "settings": {
+        "isFullheight": false,
+        "image": "shopify://shop_images/FIRST_EVER_KIDS_SHOOT_25-0_5.jpg",
+        "img_overlay": 85,
+        "title": "Welcome to GK KIDS",
+        "heading": "",
+        "text": "",
+        "cta_text": "Shop Boys",
+        "link_url": "/collections/kidswear/boys",
+        "second_cta": true,
+        "cta_text2": "Shop Girls",
+        "link_url2": "/collections/kidswear/girls",
+        "text_align": "center"
+      }
+    },
+    "content_mosaic_4xHKx9": {
+      "type": "content-mosaic",
+      "blocks": {
+        "grid_item_HttinP": {
+          "type": "grid-item",
+          "settings": {
+            "title": "The Fundamental Collection",
+            "flag": "best",
+            "grid_column_span": "4",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/FUNDAMENTAL_FLEECE_HOOD_FUNDAMENTAL_FLEECE_JOGGER_-_FOREST_GREEN_HDE-A2ACF_TSB-A2ACI_57904866-c9a1-4dec-9844-2f75fb444daa.jpg",
+            "img_alt": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "50",
+            "heading_size": "h1",
+            "text": "<p>Our top selling collection is the essential range featuring premium fabrics, cuts and embroidered branding. </p><p>Designs include versatile Jersey Tees & Shorts & Fleece Tracksuits. </p><p>⭐ ⭐ ⭐ ⭐ ⭐<br/><strong>\"great fit, price and comfort\" <br/></strong>- Mr Paul M.</p>",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/mens-fundamental",
+            "btn_color": "#811922",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_fNzbHq": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/F1_40b57edb-20df-46d1-82db-a9b845013ef6.jpg",
+            "img_alt": "",
+            "product": "gym-king-linear-fundamental-hood-navy",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_fp6Ckt": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/F2_b485a3d2-dc54-44ee-b6b5-adbe876eb5b4.jpg",
+            "img_alt": "",
+            "product": "gym-king-fundamental-fleece-jogger-black",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_FY6Tj8": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/F3_ef7aa4d8-b799-4452-b877-789f6a01897f.jpg",
+            "img_alt": "",
+            "product": "gym-king-fundamental-fleece-jogger-grey-marl",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_bLzy8f": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/F4_467a666c-eaf7-4213-a8cc-bf9db6b8ebee.jpg",
+            "img_alt": "",
+            "product": "gym-king-fundamental-linear-tee-deep-olive",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "spacer_NTgzLG": {
+          "type": "spacer",
+          "settings": {}
+        },
+        "grid_item_pjrnWd": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Purpose 2.0",
+            "flag": "soon",
+            "grid_column_span": "2",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/PURPOSETEE_PURPOSESHORT-SOFTKHAKISST-BNTN4SHR-BNTN98.jpg",
+            "img_alt": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "text": "<p><strong>The best gym set of 2025 is coming back in 2026.</strong></p>",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#ffffff",
+            "cta_text": "Don't Miss the launch",
+            "cta_url": "shopify://pages/early-access",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_e3qjVp": {
+          "type": "grid-item",
+          "settings": {
+            "title": "GK X Bad Co",
+            "flag": "limited",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/Capture_158.jpg",
+            "img_alt": "",
+            "product": "",
+            "img_transition": "img-mask",
+            "content_placement": "50",
+            "heading_size": "h3",
+            "text": "<p>Building Foundations, this Limited Edition Drop sold out in 24 hours.</p>",
+            "bg_color": "#111518",
+            "txt_color": "#ffffff",
+            "cta_text": "SOLD OUT",
+            "cta_url": "",
+            "btn_color": "#ff0303",
+            "cta_text2": "Learn More",
+            "cta_url2": "shopify://blogs/posts/limited-edition-bad-company-x-gym-king-collection",
+            "btn_color2": "#040708"
+          }
+        },
+        "grid_item_6JNirK": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Fight Divison",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/2._FD_Desktop_Cover_d68161c2-9ed3-4943-857b-ada94e4bc735.png",
+            "img_alt": "",
+            "product": "gym-king-combat-long-sleeve-rash-guard-black",
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "text": "<p>Built by fighters, for fighters.</p>",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#ffffff",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/fight-division-collection",
+            "btn_color": "#7e7e7e",
+            "cta_text2": "Learn More",
+            "cta_url2": "shopify://pages/fight-division",
+            "btn_color2": "#040708"
+          }
+        },
+        "spacer_HrA4FQ": {
+          "type": "spacer",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "grid_item_HttinP",
+        "grid_item_fNzbHq",
+        "grid_item_fp6Ckt",
+        "grid_item_FY6Tj8",
+        "grid_item_bLzy8f",
+        "spacer_NTgzLG",
+        "grid_item_pjrnWd",
+        "grid_item_e3qjVp",
+        "grid_item_6JNirK",
+        "spacer_HrA4FQ"
+      ],
+      "name": "Content Mosaic",
+      "settings": {}
+    },
+    "as_seen_in_Mp7zfK": {
+      "type": "as-seen-in",
+      "name": "As Seen In",
+      "settings": {}
+    },
+    "content_mosaic_VjHWx4": {
+      "type": "content-mosaic",
+      "blocks": {
+        "spacer_pX38eE": {
+          "type": "spacer",
+          "settings": {}
+        },
+        "grid_item_VUcr33": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Pro Logo",
+            "flag": "best",
+            "grid_column_span": "1",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/PRO_HOOD_PRO_JOGGER_-_GRAPHITE_HDE-A2C36_TSB-A2C3C.jpg",
+            "img_alt": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "50",
+            "heading_size": "h1",
+            "text": "<p>Classic Gym King.</p>",
+            "bg_color": "#4c4d5b",
+            "txt_color": "#eeeeee",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/pro-logo",
+            "btn_color": "#1b1a1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_dgHGCG": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/prologo355.jpg",
+            "img_alt": "",
+            "product": "gk-sport-logo-tee-white",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_7DLbGU": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/PROLOG-35.jpg",
+            "img_alt": "",
+            "product": "gym-king-pro-logo-fleece-hood-black",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_qGk4gY": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/PRO1.jpg",
+            "img_alt": "",
+            "product": "gym-king-pro-logo-jersey-tee-black",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h1",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_BNKPRc": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/PROLOGOHOOD_JOGGER-DARKINDIGOHDE-A2CI2TSB-A2CI5_38.jpg",
+            "img_alt": "",
+            "product": "gym-king-emblem-fleece-hood-royal-blue",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "spacer_WVM8GE": {
+          "type": "spacer",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "spacer_pX38eE",
+        "grid_item_VUcr33",
+        "grid_item_dgHGCG",
+        "grid_item_7DLbGU",
+        "grid_item_qGk4gY",
+        "grid_item_BNKPRc",
+        "spacer_WVM8GE"
+      ],
+      "name": "Content Mosaic",
+      "settings": {}
+    },
+    "content_mosaic_a6hTMr": {
+      "type": "content-mosaic",
+      "blocks": {
+        "grid_item_a6yVMV": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/Q424ENIGMA_REBELLIONPROCAMP6405_7da29add-1995-4b2a-86ec-e515970bf69d.jpg",
+            "img_alt": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_bJADEL": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/rebellion-darkside-3.webp",
+            "img_alt": "",
+            "product": "gym-king-rebellion-oblivion-jersey-tee-white",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_aQNqki": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Rebellion Darkside",
+            "flag": "best",
+            "grid_column_span": "1",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/Q4_25_REBELLION1044.jpg",
+            "img_alt": "",
+            "product": "",
+            "img_transition": "img-mask",
+            "content_placement": "overlay",
+            "heading_size": "h1",
+            "text": "<p>Hybrid performance and lifestyle menswear collection designed for everyday utility as well as physical performance.</p>",
+            "bg_color": "#29282b",
+            "txt_color": "#eeeeee",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/rebellion-darkside",
+            "btn_color": "#5a565f",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_8Qm4f4": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/darkside-parka-cropped.jpg",
+            "img_alt": "",
+            "product": "gym-king-rebellion-storm-mid-length-parka-black",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h1",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_Txf4k8": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/9_253_3eb4a7cc-4934-4893-b63a-5ef368af8d77.jpg",
+            "img_alt": "",
+            "product": "gym-king-rebellion-darkside-full-zip-track-top-black",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "spacer_HE3N3A": {
+          "type": "spacer",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "grid_item_a6yVMV",
+        "grid_item_bJADEL",
+        "grid_item_aQNqki",
+        "grid_item_8Qm4f4",
+        "grid_item_Txf4k8",
+        "spacer_HE3N3A"
+      ],
+      "name": "Content Mosaic",
+      "settings": {}
+    }
+  },
+  "order": [
+    "static_hero_tV68kr",
+    "content_mosaic_4xHKx9",
+    "as_seen_in_Mp7zfK",
+    "content_mosaic_VjHWx4",
+    "content_mosaic_a6hTMr"
+  ]
+}
