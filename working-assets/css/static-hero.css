@@ -32,6 +32,10 @@
     }
   }
 
+    .static-hero--ctas {
+      display: flex;
+      gap: 1rem;
+    }
   .static-hero--heading {
     grid-area: 1 / 1 / 2 / 2;
     color: var(--c-off-white);
