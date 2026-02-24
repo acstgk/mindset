@@ -12,8 +12,8 @@
     "static_hero_tV68kr": {
       "type": "static-hero",
       "custom_css": [
-        "a.button.button-primary.inline-flex:first-child {--btn-bg: #39cef6}",
-        "a.button.button-primary.inline-flex {--btn-bg: #ff98ca;}"
+        "a.button.button-primary.inline-flex:first-child {--btn-bg: var(--c-boys)}",
+        "a.button.button-primary.inline-flex {--btn-bg: var(--c-girls)}"
       ],
       "name": "Static Hero",
       "settings": {
