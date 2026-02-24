@@ -720,8 +720,8 @@ predictive-search {
         padding: 0.5em;
         background-color: transparent;
 
-        &:focus::placeholder {
-            opacity: 0.2;
+        &:focus {
+                outline: none;
         }
     }
 
