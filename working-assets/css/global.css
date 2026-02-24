@@ -662,7 +662,8 @@ background-color: var(--c-white);
 input {
     color: var(--c-black);
     &:focus {
-        outline: none;
+        outline: 1px solid var(--c-black);
+            ;
     }
 
     &::-webkit-search-cancel-button {
@@ -2262,6 +2263,9 @@ form {
             color: var(--c-black);
             letter-spacing: 0.1ch;
         }
+&:focus::placeholder {
+    opacity: 0.25;
+}
     }
 
     & .checkbox-label {
