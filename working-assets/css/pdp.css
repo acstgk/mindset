@@ -308,7 +308,7 @@ input.pdp-zoom-range {
 }
 
 pdp-carousel {
-  aspect-ratio: 0.723;
+  aspect-ratio: var(--aspect-ratio);
   width: 100%;
   overflow-x: auto;
   display: flex;
