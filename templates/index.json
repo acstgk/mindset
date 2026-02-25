@@ -99,6 +99,7 @@
           "settings": {
             "title": "Over 36,000 5 star reviews",
             "block_link": "https://uk.trustpilot.com/review/thegymking.com?stars=5",
+            "link_target": "_self",
             "bg_colour": "#f8f8f8",
             "txt_colour": "#1b1b1b",
             "icon": "star",
@@ -111,6 +112,7 @@
           "settings": {
             "title": "Click and Collect Locker Delivery Available",
             "block_link": "shopify://pages/help-centre-delivery-and-orders",
+            "link_target": "_self",
             "bg_colour": "#f8f8f8",
             "txt_colour": "#1b1b1b",
             "icon": "truck",
@@ -122,6 +124,7 @@
           "settings": {
             "title": "SALE | up to 70% OFF",
             "block_link": "shopify://collections/spring-sale",
+            "link_target": "_self",
             "bg_colour": "#f8f8f8",
             "txt_colour": "#1b1b1b",
             "icon": "tag",
@@ -133,6 +136,7 @@
           "settings": {
             "title": "Easy 30 day returns",
             "block_link": "shopify://pages/help-centre-returns",
+            "link_target": "_self",
             "bg_colour": "#f8f8f8",
             "txt_colour": "#1b1b1b",
             "icon": "return",
@@ -250,10 +254,10 @@
         "card_KR4jd4": {
           "type": "card",
           "settings": {
-            "title": "Sculpt",
+            "title": "",
             "image": "shopify://shop_images/Capture.webp",
             "text": "",
-            "button_text": "Browse",
+            "button_text": "Sculpt Collection",
             "url": "shopify://collections/sculpt-q1",
             "gender": "womens"
           }
@@ -261,10 +265,10 @@
         "card_JEAxxg": {
           "type": "card",
           "settings": {
-            "title": "Pro Logo",
+            "title": "",
             "image": "shopify://shop_images/black-friday--pro-logo-flatlay.jpg",
             "text": "",
-            "button_text": "Browse",
+            "button_text": "Pro Logo Collection",
             "url": "shopify://collections/pro-logo",
             "gender": "mens"
           }
@@ -272,10 +276,10 @@
         "card_mg8qYw": {
           "type": "card",
           "settings": {
-            "title": "Borg",
+            "title": "",
             "image": "shopify://shop_images/black-friday--borg-flatlay.jpg",
             "text": "",
-            "button_text": "Browse",
+            "button_text": "Borg Fleece",
             "url": "shopify://collections/borg-fleece-collection",
             "gender": "womens"
           }
@@ -283,10 +287,10 @@
         "card_jaEGg6": {
           "type": "card",
           "settings": {
-            "title": "Fundamental",
+            "title": "",
             "image": "shopify://shop_images/black-friday--fundamental-flatlay.jpg",
             "text": "",
-            "button_text": "Browse",
+            "button_text": "Fundamental Collection",
             "url": "shopify://collections/mens-fundamental",
             "gender": "mens"
           }
@@ -294,10 +298,10 @@
         "card_QqTzmg": {
           "type": "card",
           "settings": {
-            "title": "Energy",
+            "title": "",
             "image": "shopify://shop_images/black-friday--energy-flatlay.jpg",
             "text": "",
-            "button_text": "Browse",
+            "button_text": "Energy Gymwear",
             "url": "shopify://collections/mens-energy",
             "gender": "mens"
           }
@@ -305,10 +309,10 @@
         "card_niNhVm": {
           "type": "card",
           "settings": {
-            "title": "365",
+            "title": "",
             "image": "shopify://shop_images/black-friday--365-flatlay.jpg",
             "text": "",
-            "button_text": "Browse",
+            "button_text": "365 Collection",
             "url": "shopify://collections/core-3-6-5",
             "gender": "womens"
           }
