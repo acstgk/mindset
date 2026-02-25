@@ -1587,7 +1587,15 @@ class KeyboardShortcutsManager {
     if (event.ctrlKey) parts.push("ctrl");
     if (event.altKey) parts.push("alt");
     if (event.shiftKey) parts.push("shift");
-    parts.push(event.key.toLowerCase());
+
+    let key = event.key.toLowerCase();
+    // macOS 'Alt' modifier changes event.key to special chars (e.g. Alt+C -> 'ç')
+    // Get original letter using keyCode for alphabetical letters (A-Z are 65-90)
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+      key = String.fromCharCode(event.keyCode).toLowerCase();
+    }
+
+    parts.push(key);
     return parts.join("+");
   }
 
@@ -1613,11 +1621,11 @@ shortcuts.registerShortcut("escape", () => {
   document.querySelector("page-overlay").closeAllOverlays();
 });
 
-shortcuts.registerShortcut("ctrl+h", () => {
+shortcuts.registerShortcut("alt+h", () => {
   window.location.href = "/";
 });
 
-shortcuts.registerShortcut("ctrl+p", () => {
+shortcuts.registerShortcut("alt+a", () => {
   window.location.href = "/account";
 });
 
@@ -1630,7 +1638,7 @@ shortcuts.registerShortcut("enter", () => {
   }
 });
 
-shortcuts.registerShortcut("ctrl+?", () => {
+shortcuts.registerShortcut("alt+?", () => {
   //  open shortcuts info modal
 });
 
