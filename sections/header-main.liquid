@@ -54,7 +54,7 @@
   </div>
 
   {% if section.settings.logo %}
-    <a href="{{ routes.root_url }}" aria-label="Link to Homepage" class="header_logo">
+    <a {% if request.page_type != 'index' %}href="{{ routes.root_url }}"{% else %}disabled{% endif %} aria-label="Link to Homepage" class="header_logo">
       {{ section.settings.logo | image_url: width: 540 | image_tag: width: 540, sizes: '200px', widths: '540, 200, 80', width: section.settings.logo.width, height: section.settings.logo.height }}
     </a>
   {% endif %}
