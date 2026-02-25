@@ -169,7 +169,7 @@ a,
   filter: brightness(1);
   transition: color .2s ease, filter .2s ease;
 
-  &:hover {
+  &[href]:hover {
     color: var(--c-dark-grey)
   }
 /* &[target="_blank"]::after {
@@ -309,7 +309,7 @@ blockquote {
   display: flex;
   align-items: center;
 
-  &:hover .title {
+  &[href]:hover .title {
     color: var(--c-grey);
     }
 
