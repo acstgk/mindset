@@ -465,21 +465,25 @@ if (!customElements.get("enhanced-atc")) {
 
           // update the current url to include the variant for this selected size allowing better history traversal.
           const url = new URL(window.location.href);
-          const variantId = this.allGroups[0].querySelector('input[type="radio"]:checked').value;
-          url.searchParams.set('variant', variantId);
-          history.replaceState({}, '', url);
+          const checkedInput = this.allGroups[0].querySelector('input[type="radio"]:checked');
 
-          //now we have an updated url we can update the price.
-          const fetchURL = window.location.href + '&section_id=product-price';
-          fetch(fetchURL)
-            .then((response) => response.text())
-            .then((html) => {
-              const parser = new DOMParser();
-              const doc = parser.parseFromString(html, 'text/html');
-              const livePrice = document.querySelector('#product-summary .Price--wrapper');
-              const incomingPrice = doc.querySelector('.Price--wrapper');
-              if (livePrice && incomingPrice) livePrice.innerHTML = incomingPrice.innerHTML;
-            });
+          if (checkedInput) {
+            const variantId = checkedInput.value;
+            url.searchParams.set('variant', variantId);
+            history.replaceState({}, '', url);
+
+            //now we have an updated url we can update the price.
+            const fetchURL = window.location.href + '&section_id=product-price';
+            fetch(fetchURL)
+              .then((response) => response.text())
+              .then((html) => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const livePrice = document.querySelector('#product-summary .Price--wrapper');
+                const incomingPrice = doc.querySelector('.Price--wrapper');
+                if (livePrice && incomingPrice) livePrice.innerHTML = incomingPrice.innerHTML;
+              });
+          }
 
         }
       };
