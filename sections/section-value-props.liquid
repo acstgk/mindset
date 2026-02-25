@@ -12,6 +12,7 @@
         class="info-strip__block countdown-container"
         href="{{ block.settings.block_link.url }}"
         style="background:{{ block.settings.bg_colour }};color:{{block.settings.txt_colour}}"
+        target="{{ block.settings.link_target }}"
       >
         {% unless block.settings.icon == 'noicon' %}{% render 'icon', icon: block.settings.icon %}{% endunless %}
         <p>
@@ -102,6 +103,16 @@
           "type": "url",
           "id": "block_link",
           "label": "Link URL"
+        },
+        {
+        "type":"select",
+        "id":"link_target",
+        "label":"Link Target",
+        "options": [
+          { "label": "Same Tab", "value": "_self" },
+          { "label": "New Tab", "value": "_blank" }
+        ],
+        "default": "_self"
         },
         {
           "type": "color",
