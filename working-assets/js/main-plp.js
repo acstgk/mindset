@@ -343,7 +343,7 @@ class EnhancedFilters {
       if (currentPaginationNext) currentPaginationNext.style.display = "none";
       if (currentPaginationPrev) currentPaginationPrev.style.display = "none";
       currentGrid.style.minHeight = "40vh";
-      currentGrid.innerHTML = `<div class="loader"></div>`;
+      currentGrid.innerHTML = `<div class="loader"style="z-index: 1;grid-column: 1 / -1;"></div>`;
 
       const response = await fetch(fetchUrl, { method });
       if (!response.ok) {
