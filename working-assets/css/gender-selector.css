@@ -38,4 +38,8 @@
     &>productcard-carousel {
       grid-area: 1 / 1;
     }
+& .loader {
+  margin-top: 10rem;
+  align-self: flex-start;
+}
   }
