@@ -1652,6 +1652,7 @@ shortcuts.registerShortcut("/", () => {
   document.querySelector("#header_search-icon")?.click();
 });
 
+
 shortcuts.registerShortcut("alt+c", () => {
   document.querySelector("#header_cart-icon")?.click();
 });
@@ -1677,9 +1678,9 @@ shortcuts.registerShortcut("enter", () => {
   }
 });
 
-shortcuts.registerShortcut("alt+?", () => {
-  //  open shortcuts info modal
-});
+// shortcuts.registerShortcut("shift+?", () => {
+//   //  open shortcuts info modal
+// });
 
 // ===================
 // Annoucement Carousel
