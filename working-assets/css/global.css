@@ -80,6 +80,9 @@ hmtl>body.no-scroll {
 
 input[type="checkbox"] {
     accent-color: var(--c-black);
+    &:focus {
+            outline: none;
+        }
 }
 
 select {
@@ -95,7 +98,7 @@ select {
 }
 
 select,
-input:not([type=checkbox]) {
+input:not([type="checkbox"]) {
     border-radius: 0;
     padding: 0.5em 0.8em;
     border: 1px solid var(--c-grey);

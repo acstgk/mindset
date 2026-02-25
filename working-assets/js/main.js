@@ -73,10 +73,43 @@ class gkUtils {
       timeout = setTimeout(() => fn.apply(this, args), delay);
     };
   }
+
+  pageRedirect() {
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+
+      // Only unmodified left-clicks
+      if (e.button !== 0) return;
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      // Ignore new tab/window and downloads
+      if (a.target === '_blank') return;
+      if (a.hasAttribute('download')) return;
+
+      const href = a.getAttribute('href');
+      if (!href) return;
+
+      // Ignore non-navigation links
+      if (href.startsWith('#')) return;
+      if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
+
+      // Wait one frame so other scripts can cancel navigation
+      requestAnimationFrame(() => {
+        if (e.defaultPrevented) return; // JS hijacked it
+
+        // Apply progress cursor globally
+        document.documentElement.style.setProperty('cursor', 'progress', 'important');
+        document.querySelector("page-overlay").closeAllOverlays();
+        document.body.classList.add('no-scroll');
+      });
+    });
+  }
 }
 
 // Initialize gkUtils globally
 window.gkUtils = new gkUtils();
+window.gkUtils.pageRedirect();
 
 // ===================
 // CART CLASS
