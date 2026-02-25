@@ -205,8 +205,8 @@ productcard-carousel .splide__arrows {
     position: absolute;
         top: 40%;
         z-index: 1;
-        left: 12px;
-        width: calc(100% - 24px);
+        left: -14px;
+            width: calc(100% + 28px);
         justify-content: space-between;
 }
 
