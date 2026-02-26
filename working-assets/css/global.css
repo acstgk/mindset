@@ -2388,7 +2388,7 @@ form {
     width: 100% !important;
     padding-left: 0;
 }
-li.disclosure__item.bordered {
+.countrymobile li.disclosure__item.bordered {
         border-bottom: 1px solid rgba(27, 27, 27, 0.15);
         border-top: 0;
         padding-top: 0;
