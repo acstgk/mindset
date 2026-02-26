@@ -20,12 +20,29 @@
         </div>
         <p class="h5">Stocked in John Lewis</p>
       </div>
+      {% if localization.country.currency.iso_code == 'GBP' %}
       <div class="icons-grid--card splide__slide">
         <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
           <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/debenhams.webp?v=1765807122" alt="Debenhams" width="150" height="24">
         </div>
         <p class="h5">Stocked in Debenhams</p>
       </div>
+    {% elsif localization.country.iso_code == 'AE' %}
+      <div class="icons-grid--card splide__slide">
+        <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+          <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/namshi-logo.png?v=1772112936" alt="Namshi" width="150" height="24">
+        </div>
+        <p class="h5">Stocked in Namshi</p>
+      </div>
+    {% elsif localization.country.continent == 'Europe' %}
+      <div class="icons-grid--card splide__slide">
+        <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+          <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/decathlon-logo.svg?v=1772112218" alt="Decathlon" width="150" height="24">
+        </div>
+        <p class="h5">Stocked in Decathlon</p>
+      </div>
+    {% endif %}
+    {{ localization.market.handle }}
       <div class="icons-grid--card splide__slide">
         <div class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
           <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/frasers-group--logo.png?v=1768392322" alt="Frasers Group Stores" width="180" height="24">
