@@ -69,13 +69,9 @@
               >
                 <img
                   class="country-icon"
-                  src="https://flagcdn.com/h20/{{ country.iso_code | downcase }}.png"
-                  srcset="
-                    https://flagcdn.com/h40/{{ country.iso_code | downcase }}.png 2x,
-                    https://flagcdn.com/h60/{{ country.iso_code | downcase }}.png 3x
-                  "
+                  src="https://hatscripts.github.io/circle-flags/flags/{{ country.iso_code | downcase }}.svg"
                   height="20"
-                  width="28"
+                  width="20"
                   alt="{{ country.name }}"
                   fetchpriority="low"
                   loading="lazy"
