@@ -49,15 +49,17 @@
 
             {% if forloop.first and list_position == 1 %}
               {% assign border_location = 'border-top:1px solid rgba(27,27,27,0.15);' %}
+              {% assign border_location = 'bordered' %}
             {% elsif forloop.index == 2 and first_selected %}
               {% assign border_location = 'border-top:1px solid rgba(27,27,27,0.15);' %}
+              {% assign border_location = 'bordered' %}
               {% assign first_selected = false %}
             {% else %}
               {% assign border_location = '' %}
               {% assign first_selected = true %}
             {% endif %}
 
-            <li class="disclosure__item" tabindex="-1" style="order:{{ list_position }};{{ border_location }}">
+            <li class="disclosure__item {{ border_location }}" tabindex="-1" style="order:{{ list_position }};">
               <a
                 href="#"
                 {% if country.iso_code == localization.country.iso_code %}

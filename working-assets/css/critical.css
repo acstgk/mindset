@@ -1020,6 +1020,10 @@ ul.sub_menu-items {
   object-fit: cover;
   border-radius: 50%;
 }
+li.disclosure__item.bordered {
+  border-top: 1px solid rgba(27, 27, 27, 0.15);
+  padding-top: 1rem;
+}
 li.disclosure__item a {
   text-decoration: none;
   transition: scale 0.15s var(--bezier);
@@ -1072,6 +1076,7 @@ margin-bottom: 1rem;
     margin-bottom: 0;
     margin-left: -15px;
     width: 100%;
+    gap: 0;
   }
 
   ul.CountryList {
