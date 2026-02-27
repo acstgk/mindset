@@ -12,8 +12,32 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_DMmXBN": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Payday Offer - Mobile Banner (1).mp4",
+            "mobile_poster": "shopify://shop_images/payday-mobile.jpg",
+            "desktop_video": "shopify://files/videos/Payday Offer - Desktop Banner (1).mp4",
+            "desktop_poster": "shopify://shop_images/payday-desktop.jpg",
+            "overlay_url": "shopify://collections/sale",
+            "content_alignment": "center",
+            "lockup_width": 200,
+            "title": "25% Off New",
+            "title_font": "",
+            "subtitle": "Payday Exclusive Offer",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "cta1": "Shop Womens",
+            "url1": "/collections/sale/womens",
+            "cta2": "Shop Mens",
+            "url2": "/collections/sale/mens",
+            "target_gender": ""
+          }
+        },
         "image_i7tBKt": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Pre Payday Exclusive Brief - Mobile Banner V1_6f8e9318-a3eb-4445-b9e9-c826355f2f3a.mp4",
             "mobile_poster": "shopify://shop_images/New-Season---Mobile-Banner-Womens-V1.jpg",
@@ -28,10 +52,10 @@
             "subtitle_font": "signature",
             "subtitle_first": true,
             "customHTML": "",
-            "cta1": "Shop New",
-            "url1": "shopify://collections/womens-new",
-            "cta2": "Shop Energy",
-            "url2": "",
+            "cta1": "Shop Mens",
+            "url1": "/collections/sale/womens",
+            "cta2": "Shop Womens",
+            "url2": "/collections/sale/mens",
             "target_gender": ""
           }
         },
@@ -61,6 +85,7 @@
         },
         "image_9UDpyK": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/International Leggings Day - Mobile Banner_8748c14b-0063-49c1-a035-0cacd7ceb521.mp4",
             "mobile_poster": "shopify://shop_images/International-Leggings-Day---Mobile-Banner.jpg",
@@ -85,6 +110,7 @@
         }
       },
       "block_order": [
+        "image_DMmXBN",
         "image_i7tBKt",
         "image_McwRfJ",
         "image_9UDpyK"
@@ -188,28 +214,28 @@
       "settings": {
         "gendered": true,
         "title": "",
-        "img1m": "shopify://shop_images/twinset2-pod.jpg",
-        "bold1m": "Twin Sets",
-        "url1m": "shopify://collections/twin-sets",
-        "img2m": "shopify://shop_images/gympod22.jpg",
-        "bold2m": "Gymwear",
-        "url2m": "shopify://collections/mens-gym-clothes",
-        "img3m": "shopify://shop_images/tracksuit-cat34.jpg",
-        "bold3m": "Tracksuits",
-        "url3m": "shopify://collections/mens-tracksuits",
-        "img4m": "shopify://shop_images/menspodtees.jpg",
-        "bold4m": "Tees",
+        "img1m": "shopify://shop_images/Mens-Hoodie_ff3333cc-20ff-47a7-bb30-d46e590ace7a.jpg",
+        "bold1m": "Hoodies",
+        "url1m": "shopify://collections/mens-sweatshirts-hoodies",
+        "img2m": "shopify://shop_images/mens-jogger_5a00c443-9efb-46f5-b950-c971f9d6120f.jpg",
+        "bold2m": "Joggers",
+        "url2m": "shopify://collections/mens-tracksuit-bottoms",
+        "img3m": "shopify://shop_images/gymwear-mens-pod_d577a909-37f2-4d57-9c16-8c48b3ac160f.jpg",
+        "bold3m": "Gymwear",
+        "url3m": "shopify://collections/mens-gym-clothes",
+        "img4m": "shopify://shop_images/mens-tee-pod_035dc1f3-cd17-4ac5-8de7-4dc4342a56a4.jpg",
+        "bold4m": "T-Shirts",
         "url4m": "shopify://collections/all-mens-t-shirts",
-        "img1w": "shopify://shop_images/knit-cat.jpg",
-        "bold1w": "Co-Ords",
-        "url1w": "shopify://collections/co-ords-sets",
-        "img2w": "shopify://shop_images/legging-pod44.jpg",
+        "img1w": "shopify://shop_images/RESET_OVERSIZED_HOOD_SCULPT_SEAMLESS_LEGGING_-_DEEP_PLUM_WHD-BOEV9_WLG-BOEVG_2.jpg",
+        "bold1w": "Hoodies",
+        "url1w": "shopify://collections/womens-sweatshirts-hoodies",
+        "img2w": "shopify://shop_images/365_LONG_LINE_TANK_365_LEGGING_-_BLACK_WBT-A267F_WLG-A267R_1-2.jpg",
         "bold2w": "Leggings",
         "url2w": "shopify://collections/all-womens-leggings",
-        "img3w": "shopify://shop_images/borg-cat.jpg",
-        "bold3w": "Jackets",
-        "url3w": "shopify://collections/womens-coats-jackets",
-        "img4w": "shopify://shop_images/leggings-pod10.jpg",
+        "img3w": "shopify://shop_images/BORG_FUNNEL_365_FLARED_YOGA_LEGGING_-_REGULAR_-_CREAM_BLACK_WCJ-B2DTK_WTB-BNVFB_1.jpg",
+        "bold3w": "Fleece",
+        "url3w": "shopify://collections/borg-fleece-collection",
+        "img4w": "shopify://shop_images/SCULPT_SEAMLESS_SCRUNCH_BRA_SCULPT_SEAMLESS_LEGGING_-_DEEP_PLUM_WBT-BOEVE_WLG-BOEVG_4-3.jpg",
         "bold4w": "Gymwear",
         "url4w": "shopify://collections/womens-gym-clothes"
       }
@@ -251,6 +277,28 @@
     "card_grid_BfCgXU": {
       "type": "card-grid",
       "blocks": {
+        "card_niNhVm": {
+          "type": "card",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/black-friday--365-flatlay.jpg",
+            "text": "",
+            "button_text": "365 Collection",
+            "url": "shopify://collections/core-3-6-5",
+            "gender": "womens"
+          }
+        },
+        "card_7f8xbx": {
+          "type": "card",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/Script_mindset_shot.jpg",
+            "text": "",
+            "button_text": "Script Mindset",
+            "url": "shopify://collections/script-mindset-collection",
+            "gender": "womens"
+          }
+        },
         "card_KR4jd4": {
           "type": "card",
           "settings": {
@@ -260,17 +308,6 @@
             "button_text": "Sculpt Collection",
             "url": "shopify://collections/sculpt-q1",
             "gender": "womens"
-          }
-        },
-        "card_JEAxxg": {
-          "type": "card",
-          "settings": {
-            "title": "",
-            "image": "shopify://shop_images/black-friday--pro-logo-flatlay.jpg",
-            "text": "",
-            "button_text": "Pro Logo Collection",
-            "url": "shopify://collections/pro-logo",
-            "gender": "mens"
           }
         },
         "card_mg8qYw": {
@@ -295,41 +332,54 @@
             "gender": "mens"
           }
         },
+        "card_JEAxxg": {
+          "type": "card",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/engerise_flatlay.jpg",
+            "text": "",
+            "button_text": "Energise Collection",
+            "url": "shopify://collections/energise-collection",
+            "gender": "mens"
+          }
+        },
         "card_QqTzmg": {
           "type": "card",
           "settings": {
             "title": "",
-            "image": "shopify://shop_images/black-friday--energy-flatlay.jpg",
+            "image": "shopify://shop_images/taped_fleece_flatlay.jpg",
             "text": "",
-            "button_text": "Energy Gymwear",
-            "url": "shopify://collections/mens-energy",
+            "button_text": "Taped Collection",
+            "url": "shopify://collections/taped-collection",
             "gender": "mens"
           }
         },
-        "card_niNhVm": {
+        "card_AJxV9n": {
           "type": "card",
           "settings": {
             "title": "",
-            "image": "shopify://shop_images/black-friday--365-flatlay.jpg",
+            "image": "shopify://shop_images/ENERGY_TEE_ENERGY_SHORT_-_WHITE_BLACK.jpg",
             "text": "",
-            "button_text": "365 Collection",
-            "url": "shopify://collections/core-3-6-5",
-            "gender": "womens"
+            "button_text": "Energy Collection",
+            "url": "shopify://collections/energy-q1",
+            "gender": "mens"
           }
         }
       },
       "block_order": [
+        "card_niNhVm",
+        "card_7f8xbx",
         "card_KR4jd4",
-        "card_JEAxxg",
         "card_mg8qYw",
         "card_jaEGg6",
+        "card_JEAxxg",
         "card_QqTzmg",
-        "card_niNhVm"
+        "card_AJxV9n"
       ],
       "custom_css": [
         "{margin-bottom: 0; background: var(--c-off-white); padding-top: 2rem;}"
       ],
-      "name": "Card Grid",
+      "name": "Trending Collection",
       "settings": {
         "title": "Trending Collections",
         "cta_1_url": "",
