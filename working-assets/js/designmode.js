@@ -1,14 +1,17 @@
-/* global Hero */
+/* global */
 
-document.addEventListener("shopify:section:load", (event) => {
-  if (event.target.querySelector("hero-carousel")) {
-    new Hero("hero-carousel");
-  }
+// Pause autoplay on all hero-carousel splides in the theme editor
+function pauseHeroCarousels() {
+  customElements.whenDefined("hero-carousel").then(() => {
+    document.querySelectorAll("hero-carousel").forEach((carousel) => {
+      carousel.splide?.Components?.Autoplay?.pause();
+    });
+  });
+}
 
-  if (event.target.querySelector("announcement-bar")) {
-    new Hero("announcement-bar");
-  }
-});
+document.addEventListener("shopify:section:load", pauseHeroCarousels);
+document.addEventListener("shopify:inspector:activate", pauseHeroCarousels);
+
 
 document.addEventListener("shopify:section:select", (event) => {
   customElements.whenDefined("slide-drawer").then(() => {
@@ -16,7 +19,7 @@ document.addEventListener("shopify:section:select", (event) => {
       item.close();
     });
     const drawer = event.target.querySelector("slide-drawer");
-    if (drawer && typeof drawer.open === "function") {
+    if (drawer && typeof drawer.open === "function" && !drawer.classList.contains("sizeDrawer")) {
       drawer.open();
     }
   });
