@@ -116,13 +116,15 @@ if (!customElements.get("infinite-scroll")) {
       };
 
       async _loadMore() {
-
+        console.log(`_loadMore:: ${this.nextPageUrl}`)
         try {
           if (!this.nextPageUrl) return;
 
+          // Capture the URL we're about to fetch before any state mutations
+          const fetchedUrl = this.nextPageUrl;
 
           //fetch the next page in full
-          const response = await fetch(this.nextPageUrl);
+          const response = await fetch(fetchedUrl);
           if (!response.ok) {
             this.loadTriggerActive.classList.remove("loading");
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -151,9 +153,10 @@ if (!customElements.get("infinite-scroll")) {
 
           // append the new products cards to the infinite-scroll element
           if (newGrid) {
-            this._updateURL(this.nextPageUrl);
             this.nextPageUrl = newGrid.dataset.nextPage;
             this.insertAdjacentHTML("beforeend", newGrid.innerHTML);
+            // Update URL using the captured fetch URL, not the (now mutated) nextPageUrl
+            this._updateURL(fetchedUrl);
           }
         } catch (error) {
           console.error("Failed to load more products:", error);
@@ -161,6 +164,7 @@ if (!customElements.get("infinite-scroll")) {
       }
 
       _updateURL(url) {
+        console.log(`_updateURL:: ${url}`)
         if (typeof url === "string" && url.startsWith("/")) {
           history.pushState(null, "", url);
         } else {
