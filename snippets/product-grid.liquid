@@ -8,7 +8,7 @@
 
       {% if template.name == 'collection' %}
         {% assign position_count = position_count | plus: 1 %}
-        {% assign current_page = paginate.current_page | modulo: 3 %}
+        {% assign current_page = page | modulo: 3 %}
         {% case current_page %}
           {% when 0 -%}
             {%- assign banner_location = 7 %}
@@ -26,24 +26,23 @@
           {% endif %}
           {% assign gender_letter = gender_key | slice: 0, 1 %}
 
-          {% assign tier = '3' %}
-          {% if paginate.current_page >= 3 and current_page == 0 and forloop.last == false %}
-            {% assign tier = '3' %}
-          {% elsif paginate.current_page >= 2 and current_page == 2 and forloop.last == false %}
+          {% assign tier = '' %}
+          {% if current_page == 2 %}
             {% assign tier = '2' %}
-          {% elsif forloop.last == false %}
-            {% assign tier = '' %}
+          {% elsif current_page == 0 %}
+            {% assign tier = '3' %}
           {% endif %}
 
+
           {% assign img_key = 'img-' | append: gender_key | append: '-content' %}
-          {% assign url_key = 'url' | append: gender_letter | append: '-plp-content' %}
+          {% assign url_key = 'url-' | append: gender_letter | append: '-plp-content' %}
           {% if tier != '' %}
             {% assign img_key = img_key | append: '-' | append: tier %}
             {% assign url_key = url_key | append: '-' | append: tier %}
           {% endif %}
 
           {% if settings[img_key] %}
-            <article class="product-grid-insert">
+            <article class="product-grid-insert tier-{{ tier }} curent_page-{{ current_page }} page-{{ page }}">
               <a data-gender="{{ product.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}" aria-label="{{ settings[img_key].alt | default: 'Current Offer'}}">
                 {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1400px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazy' }}
               </a>
