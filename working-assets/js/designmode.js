@@ -9,16 +9,24 @@ function pauseHeroCarousels() {
   });
 }
 
+function resetGenderSwitch() {
+  const genderSwitch = document.querySelector('.section-gender-switch');
+  const activeGender = genderSwitch?.querySelector('.active');
+  if (activeGender) activeGender.click();
+}
+
 document.addEventListener("shopify:inspector:activate", pauseHeroCarousels);
 
 document.addEventListener("shopify:section:load", () => {
   pauseHeroCarousels();
-
-  const genderSwitch = document.querySelector('.section-gender-switch');
-  const activeGender = genderSwitch?.querySelector('.active');
-  if (activeGender) activeGender.click();
+  resetGenderSwitch();
 
 });
+
+document.addEventListener("shopify:block:load", () => {
+  resetGenderSwitch();
+});
+
 
 document.addEventListener("shopify:section:select", (event) => {
   customElements.whenDefined("slide-drawer").then(() => {
