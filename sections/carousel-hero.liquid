@@ -27,7 +27,11 @@
         </video>
 
       {% else %}
-        {{ block.settings.mobile_poster | image_url: height: 800 | image_tag: height: 800, class: 'hero_slide-video mob-only', loading: preload, fetchpriority: 'high' }}
+        {% if block.settings.mobile_poster %}
+          {{ block.settings.mobile_poster | image_url: height: 800 | image_tag: height: 800, class: 'hero_slide-video mob-only', loading: preload, fetchpriority: 'high' }}
+        {% else %}
+           <img src="https://placehold.co/300x600?text=IMAGE&font=oswald" alt="" height="600" width="300" class="hero_slide-video mob-only" loading="preload">
+        {% endif %}
       {% endif %}
 
       {% if block.settings.desktop_video %}
@@ -48,7 +52,11 @@
           <source data-src-lazy="{{ video_src.url }}" type="video/mp4">
         </video>
       {% else %}
-        {{ block.settings.desktop_poster | image_url: width: '1400px' | image_tag: width: 1270, class: 'hero_slide-video mob-hide', loading: preload }}
+        {% if block.settings.desktop_poster %}
+          {{ block.settings.desktop_poster | image_url: width: '1400px' | image_tag: width: 1400, class: 'hero_slide-video mob-hide', loading: preload }}
+        {% else %}
+          <img src="https://placehold.co/1400x800?text=IMAGE&font=oswald" alt="" height="800" width="1400" class="hero_slide-video mob-hide" loading="preload">
+        {% endif %}
       {% endif %}
 
       <div class="hero_slide-content hero_slide-content--{{ block.settings.content_alignment }}">
@@ -280,7 +288,26 @@
       "category": "Hero Elements",
       "name": "Hero Slideshow",
       "settings": {},
-      "blocks": []
+      "blocks": {
+        "image_yzGEVe": {
+          "type": "image",
+          "settings": {
+            "overlay_url": "",
+            "title": "",
+            "subtitle": "",
+            "subtitle_font": "",
+            "subtitle_first": false,
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/all",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
+        }
+      }
+    },
+       "block_order": [
+        "image_yzGEVe"
+      ],
     }
   ]
 }
