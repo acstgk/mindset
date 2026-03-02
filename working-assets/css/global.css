@@ -1474,6 +1474,8 @@ video {
             & h1,
             & p {
                 text-align: left;
+                width: min(90vw, 600px);
+                    margin: 0 auto 0 0;
             }
 
         & .hero_slide-lockup {
@@ -1492,6 +1494,8 @@ video {
             & h1,
             & p {
                 text-align: right;
+                width: min(90vw, 600px);
+                    margin: 0 0 0 auto;
             }
 
         & .hero_slide-lockup {
