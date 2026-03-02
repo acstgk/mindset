@@ -3,32 +3,18 @@
   <div class="tech-specs--list">
     {% for feature in product.metafields.product.features.value %}
       {% assign image_name = feature | handle | append: '.svg' | prepend: 'feature-' %}
-      {% case feature %}
-        {% when 'Tapered Fit' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Tapered_Fit.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
-        {% when 'Shower Proof' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Shower_Proof.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
-        {% when 'Seamless' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Seamless.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
-        {% when 'Removable Pads' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Removable_Pads.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
-        {% when 'Recycled Material' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Recycled_Material.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
-        {% when 'Quick Drying' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Quick_Drying.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
-        {% when 'Multi Stretch' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Multi_Stretch.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
-        {% when 'High Waisted' %}
-          <div class="tech-specs--item {{feature }}">{{ images['High_Waisted.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
-        {% when 'Cropped Style' %}
-          <div class="tech-specs--item {{feature }}">{{ images['Cropped_Style.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
-        {% else %}
-          {% if images[image_name] != blank %}
-            <div class="tech-specs--item {{feature | handle }}">{{ images[image_name] | image_url: width: 24 | image_tag }}<small>{{ feature }}</small></div>
-          {% else %}
-              <div class="tech-specs--item {{feature | handle }}"> <img src="https://placehold.co/62?text=IMAGE&font=oswald" alt="" height="62" width="62"><small>{{ feature }}</small></div>
-          {% endif %}
-      {% endcase %}
+      {% assign image_tag =  images[image_name] | image_url: width: 24 | image_tag  %}
+
+      {% if image_tag != blank %}
+        <div class="tech-specs--item {{feature | handle }}">
+          {{ image_tag -}}
+          <small>{{ feature }}</small>
+        </div>
+      {% comment %} {% else %}
+        <div class="tech-specs--item {{feature | handle }}">
+          <img src="https://placehold.co/62?text=IMAGE&font=oswald" alt="" height="62" width="62"><small>{{ feature }}</small>
+        </div> {% endcomment %}
+      {% endif %}
     {% endfor %}
   </div>
 </div>
