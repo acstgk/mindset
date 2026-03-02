@@ -2,7 +2,7 @@
   <div class="accordian-header">Key Features:</div>
   <div class="tech-specs--list">
     {% for feature in product.metafields.product.features.value %}
-      {% assign image_name = feature | handleize | append: '.svg' | prepend: 'feature-' %}
+      {% assign image_name = feature | handle | append: '.svg' | prepend: 'feature-' %}
       {% case feature %}
         {% when 'Tapered Fit' %}
           <div class="tech-specs--item {{feature }}">{{ images['Tapered_Fit.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
@@ -24,9 +24,9 @@
           <div class="tech-specs--item {{feature }}">{{ images['Cropped_Style.png'] | image_url: width: 112 | image_tag }}<small>{{ feature }}</small></div>
         {% else %}
           {% if images[image_name] != blank %}
-            <div class="tech-specs--item {{feature }}">{{ images[image_name] | image_url: width: 24 | image_tag }}<small>{{ feature }}</small></div>
+            <div class="tech-specs--item {{feature | handle }}">{{ images[image_name] | image_url: width: 24 | image_tag }}<small>{{ feature }}</small></div>
           {% else %}
-              <div class="tech-specs--item {{feature }}"> <img src="https://placehold.co/62?text=IMAGE&font=oswald" alt="" height="62" width="62"><small>{{ feature }}</small></div>
+              <div class="tech-specs--item {{feature | handle }}"> <img src="https://placehold.co/62?text=IMAGE&font=oswald" alt="" height="62" width="62"><small>{{ feature }}</small></div>
           {% endif %}
       {% endcase %}
     {% endfor %}

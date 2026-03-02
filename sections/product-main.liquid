@@ -202,7 +202,7 @@
                   id="variant-{{ variant.id }}"
                   data-available-qty="{{ variant.inventory_quantity | minus: settings.product_buffer }}"
                   data-size="{{ variant.title }}"
-                  data-id="{{- part.type | handleize -}}{{- variant.title -}}"
+                  data-id="{{- part.type | handle -}}{{- variant.title -}}"
                   {% if variant.selling_plan_allocations.size > 0 %}
                     data-subscription-id="{{ variant.selling_plan_allocations.first.selling_plan.id }}"
                   {% endif %}
@@ -238,7 +238,7 @@
                 id="variant-{{ variant.id }}"
                 data-available-qty="{{ variant.inventory_quantity | minus: settings.product_buffer }}"
                 data-size="{{ variant.title }}"
-                data-id="{{- product.type | handleize -}}-{{- variant.title -}}"
+                data-id="{{- product.type | handle -}}-{{- variant.title -}}"
                 {% if variant.selling_plan_allocations.size > 0 %}
                   data-subscription-id="{{ variant.selling_plan_allocations.first.selling_plan.id }}"
                 {% endif %}

@@ -41,7 +41,7 @@
   <div class="cart-upsells">
     <h2 class="h4 emphasis">You might like {% render 'icon', icon: 'plus', class: 'inline-flex' %}</h2>
 
-    <div class="cart-upsells--carousel" data-collection="{{ upsell_collection.title | handleize }}">
+    <div class="cart-upsells--carousel" data-collection="{{ upsell_collection.title | handle }}">
       {% for product in upsell_collection.products %}
         {% if forloop.last and in_range and product.available %}
           {% render 'product-card', product: product, modal: true, class: 'first-item' %}

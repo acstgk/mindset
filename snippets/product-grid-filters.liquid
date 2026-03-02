@@ -24,8 +24,8 @@
             {%- for filter in group.filters -%}
               {% if filter.values.size > 1 or filter.type == 'price_range' %}
                 {% unless request.path contains '/mens' and filter.label == 'Gender' or request.path contains '/womens' and filter.label == 'Gender' %}
-                  <div class="accordian-items filter_item filter_item-{{- filter.label | handleize -}} ">
-                    <div class="accordian-header filter_item-name item-{{- filter.label | handleize -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
+                  <div class="accordian-items filter_item filter_item-{{- filter.label | handle -}} ">
+                    <div class="accordian-header filter_item-name item-{{- filter.label | handle -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
                       <div class="filter_item-title">
                         {% if filter.label == 'Size' and request.path contains 'kids' or filter.label == 'Size' and request.path contains 'boys' or filter.label == 'Size' and request.path contains 'girls' %}
                           Age
@@ -42,7 +42,7 @@
                     </div>
                     {%- case filter.type -%}
                       {%- when 'list' -%}
-                        <div id="filter-{{ filter.label | handleize }}" class="filter_item-values accordian-content">
+                        <div id="filter-{{ filter.label | handle }}" class="filter_item-values accordian-content">
                           <p class="mob-hide">{{ filter.label }}</p>
                           <ul>
                             {% comment %} sort the product types by quantity {% endcomment %}
@@ -86,7 +86,7 @@
                           <input type="submit" value="Apply" class="filter-apply button button-secondary">
                         </div>
                       {%- when 'price_range' -%}
-                        <div id="filter-{{ filter.label | handleize }}" class="filter_item-values accordian-content filter_item-price-range">
+                        <div id="filter-{{ filter.label | handle }}" class="filter_item-values accordian-content filter_item-price-range">
                           {% liquid
                             if filter.min_value.value
                               assign min_value = filter.min_value.value | money_without_currency | floor
