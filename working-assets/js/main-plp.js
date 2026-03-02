@@ -71,127 +71,6 @@ if (!customElements.get("product-types")) {
 }
 
 // ===================
-// Infinite Scroll
-// ===================
-
-if (!customElements.get("infinite-scroll")) {
-  customElements.define(
-    "infinite-scroll",
-    class InfiniteScroll extends HTMLElement {
-      connectedCallback() {
-        this.nextPageUrl = this.dataset.nextPage;
-        this.loadTrigger = document.getElementById("pagination-next");
-        this.loadTriggerActive = this.loadTrigger?.querySelector("#infinite-trigger");
-        if (this.loadTriggerActive) this.addEventListener("click", this._onProductCardClick);
-        this.observer = null;
-        this._observeLoadTrigger();
-      }
-
-      _observeLoadTrigger = () => {
-        if (!this.loadTrigger || !this.loadTriggerActive) return;
-
-        // Ensure nextPageUrl reflects the latest pagination (including new filter params)
-        const refreshedNext = this.loadTriggerActive?.dataset?.nextPage || this.loadTrigger?.dataset?.nextPage || this.loadTriggerActive?.getAttribute?.("href");
-        if (refreshedNext) {
-          this.nextPageUrl = refreshedNext;
-        }
-
-        this.observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                this.loadTriggerActive.classList.add("loading");
-                this._loadMore();
-              }
-            });
-          },
-          {
-            root: null,
-            rootMargin: "0px 0px 700px 0px",
-            threshold: 0,
-          },
-        );
-
-        this.observer.observe(this.loadTrigger);
-      };
-
-      async _loadMore() {
-        console.log(`_loadMore:: ${this.nextPageUrl}`)
-        try {
-          if (!this.nextPageUrl) return;
-
-          // Capture the URL we're about to fetch before any state mutations
-          const fetchedUrl = this.nextPageUrl;
-
-          //fetch the next page in full
-          const response = await fetch(fetchedUrl);
-          if (!response.ok) {
-            this.loadTriggerActive.classList.remove("loading");
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          // parse the returned data parsing into HTML
-          const htmlText = await response.text();
-          const parser = new DOMParser();
-          const doc = parser.parseFromString(htmlText, "text/html");
-
-          // define the elements we require
-          const newGrid = doc.querySelector("infinite-scroll");
-          const newPagination = doc.getElementById("pagination-next").innerHTML;
-
-          // update the next page pagination link
-          if (newPagination) {
-            this.loadTrigger.innerHTML = newPagination;
-
-            // Re-attach observer to the new pagination element
-            if (this.observer) {
-              this.observer.disconnect();
-            }
-            this.loadTrigger = document.getElementById("pagination-next");
-            this._observeLoadTrigger();
-          }
-
-          // append the new products cards to the infinite-scroll element
-          if (newGrid) {
-            this.nextPageUrl = newGrid.dataset.nextPage;
-            this.insertAdjacentHTML("beforeend", newGrid.innerHTML);
-            // Update URL using the captured fetch URL, not the (now mutated) nextPageUrl
-            this._updateURL(fetchedUrl);
-          }
-        } catch (error) {
-          console.error("Failed to load more products:", error);
-        }
-      }
-
-      _updateURL(url) {
-        console.log(`_updateURL:: ${url}`)
-        if (typeof url === "string" && url.startsWith("/")) {
-          history.pushState(null, "", url);
-        } else {
-          console.warn("Invalid URL passed to _updateURL:", url);
-        }
-      }
-
-      _onProductCardClick(event) {
-        const productAnchor = event.target.closest('a[href*="/products/"]');
-        if (productAnchor) {
-          const article = productAnchor.closest("article");
-          if (article) {
-            // set the correct page in the history so the user can continue the search from the same point
-            const url = new URL(window.location.href);
-            url.searchParams.set("page", article.dataset.page);
-            history.replaceState(null, "", url.toString());
-            //remember the product card and page
-            const path = url.pathname; // store only the path name
-            sessionStorage.setItem("GK::clickedProductId", JSON.stringify({ id: article.id, path }));
-          }
-        }
-      }
-    },
-  );
-}
-
-// ===================
 // Price range controls
 // ===================
 
@@ -534,3 +413,211 @@ class BlurbControls {
 }
 
 new BlurbControls(".collection-blurb");
+
+
+// ===================
+// Previous Page Navigation
+// ===================
+
+if (!customElements.get("previous-nav")) {
+  customElements.define(
+    "previous-nav",
+    class PreviousNav extends HTMLElement {
+      connectedCallback() {
+        this.observer = null;
+        this.currentUrl = new URL(window.location.href);
+        this.previousButton = this.querySelector("#previous-page");
+        this.firstButton = this.querySelector("#first-page");
+        this.previousUrl = this.previousButton.href;
+        this.previousButton.addEventListener("click", (event) => this._goToPreviousPage(event));
+        this.liveGrid = document.querySelector('infinite-scroll');
+        this.loader = document.createElement("div");
+        this.loader.style.gridColumn = "1 / -1";
+        this.loader.style.margin = "1rem auto 2rem";
+        const loaderInner = document.createElement("div");
+        loaderInner.className = "loader";
+        loaderInner.style.zIndex = 1;
+        this.loader.appendChild(loaderInner);
+      }
+
+      _goToPreviousPage(event) {
+        event.preventDefault();
+        this.liveGrid.insertAdjacentElement("afterbegin", this.loader);
+        this._loadMore();
+      }
+
+      async _loadMore() {
+        try {
+          if (!this.previousUrl) return false;
+
+          //fetch the next page in full
+          const response = await fetch(this.previousUrl);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          // parse the returned data parsing into HTML and define the new grid
+          const htmlText = await response.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, "text/html");
+          const newGrid = doc.querySelector("infinite-scroll");
+
+          // prepend the new products cards to the infinite-scroll element
+          if (newGrid) {
+            this.liveGrid.insertAdjacentHTML("afterbegin", newGrid.innerHTML);
+            this._updateURL(this.previousUrl);
+
+            const newPrevious = new URL(this.previousUrl);
+            if (newPrevious.searchParams.get("page") === "1") {
+              this.remove();
+            } else if (newPrevious.searchParams.get("page") === "2") {
+              this.firstButton?.remove();
+            }
+            this.previousUrl = this._getPrev(this.previousUrl);
+            this.previousButton.href = this.previousUrl;
+          }
+
+        } catch (error) {
+          console.error("Failed to load more products:", error);
+        }
+        this.liveGrid.removeChild(this.loader);
+      }
+
+      _getPrev() {
+        const url = new URL(window.location.href);
+        const page = parseInt(url.searchParams.get("page")) || 1;
+        url.searchParams.set("page", page - 1);
+        return url.toString();
+      }
+
+      _updateURL(url) {
+        if (typeof url === "string") {
+          history.pushState(null, "", url);
+        } else {
+          console.warn("Invalid URL passed to _updateURL::", url);
+        }
+      }
+
+    },
+  );
+}
+
+// ===================
+// Infinite Scroll
+// ===================
+
+if (!customElements.get("infinite-scroll")) {
+  customElements.define(
+    "infinite-scroll",
+    class InfiniteScroll extends HTMLElement {
+      connectedCallback() {
+        this.nextPageUrl = this.dataset.nextPage;
+        this.loadTrigger = document.getElementById("pagination-next");
+        this.loadTriggerActive = this.loadTrigger?.querySelector("#infinite-trigger");
+        if (this.loadTriggerActive) this.addEventListener("click", this._onProductCardClick);
+        this.observer = null;
+        this._observeLoadTrigger();
+      }
+
+      _observeLoadTrigger = () => {
+        if (!this.loadTrigger || !this.loadTriggerActive) return;
+
+        // Ensure nextPageUrl reflects the latest pagination (including new filter params)
+        const refreshedNext = this.loadTriggerActive?.dataset?.nextPage || this.loadTrigger?.dataset?.nextPage || this.loadTriggerActive?.getAttribute?.("href");
+        if (refreshedNext) {
+          this.nextPageUrl = refreshedNext;
+        }
+
+        this.observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                this.loadTriggerActive.classList.add("loading");
+                this._loadMore();
+              }
+            });
+          },
+          {
+            root: null,
+            rootMargin: "0px 0px 700px 0px",
+            threshold: 0,
+          },
+        );
+
+        this.observer.observe(this.loadTrigger);
+      };
+
+      async _loadMore() {
+        try {
+          if (!this.nextPageUrl) return;
+
+          // Capture the URL we're about to fetch before any state mutations
+          const fetchedUrl = this.nextPageUrl;
+
+          //fetch the next page in full
+          const response = await fetch(fetchedUrl);
+          if (!response.ok) {
+            this.loadTriggerActive.classList.remove("loading");
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          // parse the returned data parsing into HTML
+          const htmlText = await response.text();
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(htmlText, "text/html");
+
+          // define the elements we require
+          const newGrid = doc.querySelector("infinite-scroll");
+          const newPagination = doc.getElementById("pagination-next").innerHTML;
+
+          // update the next page pagination link
+          if (newPagination) {
+            this.loadTrigger.innerHTML = newPagination;
+            this.loadTriggerActive = this.loadTrigger?.querySelector("#infinite-trigger");
+            // Re-attach observer to the new pagination element
+            if (this.observer) {
+              this.observer.disconnect();
+            }
+            this.loadTrigger = document.getElementById("pagination-next");
+            this._observeLoadTrigger();
+
+          }
+
+          // append the new products cards to the infinite-scroll element
+          if (newGrid) {
+            this.nextPageUrl = newGrid.dataset.nextPage;
+            this.insertAdjacentHTML("beforeend", newGrid.innerHTML);
+            // Update URL using the captured fetch URL, not the (now mutated) nextPageUrl
+            this._updateURL(fetchedUrl);
+          }
+        } catch (error) {
+          console.error("Failed to load more products:", error);
+        }
+      }
+
+      _updateURL(url) {
+        if (typeof url === "string" && url.startsWith("/")) {
+          history.pushState(null, "", url);
+        } else {
+          console.warn("Invalid URL passed to _updateURL:", url);
+        }
+      }
+
+      _onProductCardClick(event) {
+        const productAnchor = event.target.closest('a[href*="/products/"]');
+        if (productAnchor) {
+          const article = productAnchor.closest("article");
+          if (article) {
+            // set the correct page in the history so the user can continue the search from the same point
+            const url = new URL(window.location.href);
+            url.searchParams.set("page", article.dataset.page);
+            history.replaceState(null, "", url.toString());
+            //remember the product card and page
+            const path = url.pathname; // store only the path name
+            sessionStorage.setItem("GK::clickedProductId", JSON.stringify({ id: article.id, path }));
+          }
+        }
+      }
+    },
+  );
+}

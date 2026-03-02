@@ -5,12 +5,12 @@
     {% render 'product-grid-filters' with search as group %}
 
     {% if paginate.previous %}
-      <div class="previousNav grid-nav max-width accent-bg" id="pagination-prev">
-        <a href="{{ paginate.previous.url }}">{% render 'icon', icon: 'arrow', class: 'rotate180' %} Go to Previous Page</a>
+      <previous-nav class="previousNav grid-nav max-width accent-bg" id="pagination-prev">
+        <a href="{{ paginate.previous.url }}" id="previous-page">{% render 'icon', icon: 'arrow', class: 'rotate180' %} Go to Previous Page</a>
         {% if paginate.current_page > 2 %}
           <a href="{{ paginate.parts[0].url }}" id="first-page">Go to First Page{% render 'icon', icon: 'arrow', class: 'rotate-90' %}</a>
         {% endif %}
-      </div>
+      </previous-nav>
     {% endif %}
 
     {% render 'product-grid' with search.results as product_list, page: paginate.current_page, nexturl: paginate.next.url %}
