@@ -1869,6 +1869,7 @@ product-card {
     }
 
     & .product_card-images {
+        background-color: var(--c-off-white);
         display: flex;
         overflow: auto hidden;
         white-space: nowrap;
@@ -1896,7 +1897,6 @@ product-card {
         flex: 0 0 100%;
         align-items: center;
         height: 100%;
-        background-color: var(--c-off-white);
 
         & .background-image {
             z-index: -1;

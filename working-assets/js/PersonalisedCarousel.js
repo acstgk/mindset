@@ -8,6 +8,7 @@ export default class PersonalRecommendations extends HTMLElement {
   connectedCallback() {
     this.noscript = this.querySelector("noscript");
     this.fallbackHtml = this.noscript.textContent || this.noscript.innerText;
+    this.noscript.remove()
     this.gender = this.dataset.gender;
     this._initCarousel();
   }
@@ -54,7 +55,6 @@ export default class PersonalRecommendations extends HTMLElement {
         this.appendChild(carousel);
       } catch (error) {
         console.error("personal recs :: failed:", error);
-        this._fallback();
       }
     } else {
       this._fallback();
@@ -64,7 +64,6 @@ export default class PersonalRecommendations extends HTMLElement {
   _fallback = () => {
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = this.fallbackHtml;
-    this.insertBefore(tempDiv.childNodes[1], this.noscript);
-    this.removeChild(this.noscript);
+    this.appendChild(tempDiv.childNodes[1]);
   };
 }
