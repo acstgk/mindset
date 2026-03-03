@@ -58,6 +58,7 @@
                                 {% if filter_value.label == 'hidden' %}
                                   hidden
                                 {% endif %}
+                                {% if filter_value.label contains "up to 40% off" %} style="order:-1;" {% endif %}
                               >
                                 <input
                                   type="checkbox"
