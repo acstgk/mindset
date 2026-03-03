@@ -31,6 +31,10 @@
   }
 }
 
+.section-gender-categories,
+.section-gender-shop-size {
+  margin: 4rem auto 5rem;
+}
 .section-gender-categories .gender-wrapper>div:not(.loader) {
   width: 100%;
 }

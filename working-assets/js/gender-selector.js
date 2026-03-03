@@ -14,7 +14,7 @@ class GenderSelector {
   }
 
   _initFromStorage() {
-    this.loaderElements.forEach((el) => (el.style.opacity = "0"));
+    this.loaderElements.forEach((el) => (el.remove()));
     const storedGender = localStorage.getItem("GK::gender--content");
     let matchButton = null;
 
@@ -60,7 +60,7 @@ class GenderSelector {
 
     // Hide no-gender-filter elements
     this.noGenderElements.forEach((el) => (el.style.display = "none"));
-    this.loaderElements.forEach((el) => (el.style.opacity = "0"));
+    this.loaderElements.forEach((el) => (el.remove()));
   }
 }
 

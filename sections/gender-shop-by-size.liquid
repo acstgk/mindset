@@ -1,4 +1,4 @@
-<h3 style="margin-top: 3em">Shop {{ section.settings.title }} by Size</h3>
+<h3>Shop {{ section.settings.title }} by Size</h3>
 
 <div class="gender-wrapper">
   <div id="womens-sbs" class="womens-gender-filter fade-in max-width">
@@ -37,6 +37,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5em;
+
+    & li {
+      font-size: var(--txt-h3);
+      min-width: 5ch;
+    }
   }
 
   ul.sizes a.button {
@@ -63,7 +68,7 @@
 {% schema %}
 {
   "name": "Recommendation Carousel",
-  "class": "section-gender-shop-size",
+  "class": "section-gender-shop-size max-width",
   "limit": 1,
   "settings": [
     {

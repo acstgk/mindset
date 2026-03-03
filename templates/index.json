@@ -212,9 +212,6 @@
     },
     "gender-shop-by-size": {
       "type": "gender-shop-by-size",
-      "custom_css": [
-        "{margin-bottom: 2rem;}"
-      ],
       "name": "Shop By Size",
       "settings": {
         "title": ""
