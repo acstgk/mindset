@@ -315,6 +315,38 @@ body.no-scroll page-overlay {
     pointer-events: all;
 }
 
+page-overlay .page-overlay__cancel-btn {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: color-mix(in lab, var(--c-white), transparent 20%);
+    box-shadow: 0 0 6px var(--c-shadow);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgb(0 0 0 / 0.08);
+    cursor: pointer;
+    scale: 1;
+    transition: scale 0.15s var(--bezier), background-color 0.15s ease;
+
+    & svg {
+        width: 16px;
+        height: 16px;
+        pointer-events: none;
+    }
+
+    &:hover {
+        scale: 1.1;
+        background-color: var(--c-off-white);
+    }
+
+    &:active {
+        scale: 0.95;
+    }
+}
 .drawer {
     z-index: 11;
 }
