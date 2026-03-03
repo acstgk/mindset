@@ -12,7 +12,7 @@
  * - ComponentLoader: Dynamic component loading system
  */
 
-/* global requestIdleCallback DOMException AbortController MutationObserver IntersectionObserver, Shopify, theme, clearTimeout sessionStorage location URL iWish navigator */
+/* global requestIdleCallback MutationObserver IntersectionObserver, Shopify, theme, clearTimeout sessionStorage location URL iWish navigator */
 import Splide from "./splide.min.js";
 window.Splide = Splide;
 
@@ -75,123 +75,43 @@ class gkUtils {
   }
 
   pageRedirect() {
-    const pageOverlay = document.querySelector("page-overlay");
-
-    /**
-     * Resets the page overlay back to its default (invisible) state
-     * and restores cursor and scroll — used when navigation is cancelled.
-     */
-    const resetOverlay = () => {
-      document.documentElement.style.removeProperty('cursor');
-      document.body.classList.remove('no-scroll');
-      pageOverlay.innerHTML = '';
-      pageOverlay.style.removeProperty('background-color');
-      pageOverlay.style.removeProperty('transition');
-      pageOverlay.style.removeProperty('display');
-      pageOverlay.style.removeProperty('place-content');
-    };
-
-    /**
-     * Activates the overlay with a loader and a cancel '×' button.
-     * @param {AbortController} [controller] - Optional controller whose .abort()
-     *   is called when the user clicks the cancel button.
-     */
-    const showOverlay = (controller) => {
-      pageOverlay.closeAllOverlays();
-      document.documentElement.style.setProperty('cursor', 'progress', 'important');
-      pageOverlay.style.setProperty('background-color', 'rgba(255 255 255)');
-      pageOverlay.style.setProperty('transition', 'opacity 1s, visibility 1s', 'important');
-      pageOverlay.style.setProperty('display', 'grid');
-      pageOverlay.style.setProperty('place-content', 'center');
-
-      pageOverlay.innerHTML = "<div class='loader'></div>";
-
-      // Only show the cancel button if the Navigation API is available (controller will be non-null)
-      if (controller) {
-        const cancelBtn = document.createElement('button');
-        cancelBtn.setAttribute('aria-label', 'Cancel navigation');
-        cancelBtn.className = 'page-overlay__cancel-btn';
-        cancelBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-        </svg>`;
-
-        cancelBtn.addEventListener('click', (e) => {
-          e.stopPropagation(); // prevent overlay's own click handler firing
-          controller.abort();
-          resetOverlay();
-        });
-
-        pageOverlay.appendChild(cancelBtn);
-      }
-
-      setTimeout(() => {
-        document.body.classList.add('no-scroll');
-      }, 500);
-    };
-
-    // ------------------------------------------------------------------
-    // Navigation API path (Chrome 102+, Edge 102+)
-    // ------------------------------------------------------------------
-    if ('navigation' in window) {
-      window.navigation.addEventListener('navigate', (event) => {
-        // Only intercept same-origin, browser-initiated navigations
-        if (!event.canIntercept) return;
-        if (event.hashChange) return;
-        if (event.downloadRequest !== null) return;
-
-        const url = new URL(event.destination.url);
-        if (url.origin !== location.origin) return;
-
-        // Create our own AbortController so the cancel button can abort
-        const controller = new AbortController();
-
-        event.intercept({
-          handler: async () => {
-            showOverlay(controller);
-
-            // Listen for the Navigation API's own signal (e.g. user presses
-            // browser Stop, or another navigation supersedes this one)
-            event.signal.addEventListener('abort', () => {
-              resetOverlay();
-            });
-
-            // Wait until our controller is aborted (cancel btn) OR the
-            // navigation's own signal fires — whichever comes first.
-            // If neither fires, the browser completes the navigation normally
-            // and the new page takes over, so the promise just never resolves.
-            await new Promise((_resolve, reject) => {
-              controller.signal.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')));
-              event.signal.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')));
-            });
-          }
-        });
-      });
-
-      return; // Navigation API registered — no need for the fallback below
-    }
-
-    // ------------------------------------------------------------------
-    // Fallback: traditional click listener (Safari / Firefox)
-    // ------------------------------------------------------------------
     document.addEventListener('click', (e) => {
       const a = e.target.closest('a[href]');
       if (!a) return;
 
+      // Only unmodified left-clicks
       if (e.button !== 0) return;
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+      // Ignore new tab/window and downloads
       if (a.target === '_blank') return;
       if (a.hasAttribute('download')) return;
 
       const href = a.getAttribute('href');
       if (!href) return;
+
+      // Ignore non-navigation links
       if (href.startsWith('#')) return;
       if (/^(mailto:|tel:|javascript:)/i.test(href)) return;
 
+      // Wait one frame so other scripts can cancel navigation
       requestAnimationFrame(() => {
-        if (e.defaultPrevented) return;
-        // No abort capability in the fallback path
-        showOverlay(null);
+        if (e.defaultPrevented) return; // JS hijacked it
+
+        // Apply progress cursor globally
+        document.documentElement.style.setProperty('cursor', 'progress', 'important');
+        const pageOverlay = document.querySelector("page-overlay");
+        pageOverlay.closeAllOverlays();
+        pageOverlay.style.setProperty('background-color', 'rgba(255 255 255)');
+        pageOverlay.style.setProperty('transition', 'opacity 1s, visibility 1s', 'important');
+        pageOverlay.style.setProperty('display', 'grid');
+        pageOverlay.style.setProperty('place-content', 'center');
+        pageOverlay.innerHTML = "<div class='loader'></div>";
+
+        setTimeout(() => {
+          document.body.classList.add('no-scroll');
+
+        }, 500);
       });
     });
   }
