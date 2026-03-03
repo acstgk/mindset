@@ -238,7 +238,7 @@ class EnhancedFilters {
       const doc = parser.parseFromString(html, "text/html");
 
       // Update URL in browser immediately after parsing
-      window.history.pushState(null, "", fetchUrl);
+      window.history.replaceState(null, "", fetchUrl);
 
       // Replace product grid
       const newGrid = doc.querySelector("infinite-scroll");
@@ -492,7 +492,7 @@ if (!customElements.get("previous-nav")) {
 
       _updateURL(url) {
         if (typeof url === "string") {
-          history.pushState(null, "", url);
+          history.replaceState(null, "", url);
         } else {
           console.warn("Invalid URL passed to _updateURL::", url);
         }
@@ -597,7 +597,7 @@ if (!customElements.get("infinite-scroll")) {
 
       _updateURL(url) {
         if (typeof url === "string" && url.startsWith("/")) {
-          history.pushState(null, "", url);
+          history.replaceState(null, "", url);
         } else {
           console.warn("Invalid URL passed to _updateURL:", url);
         }
