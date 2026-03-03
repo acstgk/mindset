@@ -820,3 +820,7 @@ form .quantity-warning {
 .yotpo-pictures-widget {
   background-color: var(--c-off-white) !important;
 }
+.footer-copyright {
+  margin-bottom: 0;
+  padding: 20px;
+}
