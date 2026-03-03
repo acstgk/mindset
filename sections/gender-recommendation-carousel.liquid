@@ -7,11 +7,13 @@
 
     {% comment %} use JS to render the productcard-carousel here {% endcomment %}
 
-    <productcard-carousel class="gender-recommendations-carousel product-grid">
-      {% for product in section.settings['fallback-1'].products limit: 6 %}
-        {% render 'product-card', product: product, class: 'splide__slide' %}
-      {% endfor %}
-    </productcard-carousel>
+    <noscript>
+      <productcard-carousel class="gender-recommendations-carousel product-grid">
+        {% for product in section.settings['fallback-1'].products limit: 6 %}
+          {% render 'product-card', product: product, class: 'splide__slide' %}
+        {% endfor %}
+      </productcard-carousel>
+    </noscript>
   </personal-recommendations>
 
   <personal-recommendations id="mens-recommendations" class="mens-gender-filter fade-in" data-gender="mens">
@@ -19,11 +21,13 @@
 
     {% comment %} use JS to render the productcard-carousel here {% endcomment %}
 
-    <productcard-carousel class="gender-recommendations-carousel product-grid">
-      {% for product in section.settings['fallback-2'].products limit: 6 %}
-        {% render 'product-card', product: product, class: 'splide__slide' %}
-      {% endfor %}
-    </productcard-carousel>
+    <noscript>
+      <productcard-carousel class="gender-recommendations-carousel product-grid">
+        {% for product in section.settings['fallback-2'].products limit: 6 %}
+          {% render 'product-card', product: product, class: 'splide__slide' %}
+        {% endfor %}
+      </productcard-carousel>
+    </noscript>
   </personal-recommendations>
 </div>
 

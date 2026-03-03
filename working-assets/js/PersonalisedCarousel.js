@@ -36,6 +36,7 @@ export default class PersonalRecommendations extends HTMLElement {
         );
 
         if (!response.ok) {
+          this._fallback();
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
