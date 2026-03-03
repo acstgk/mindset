@@ -552,6 +552,7 @@ pdp-carousel {
   &.active {
     border-color: var(--c-black);
     cursor: default;
+    filter: contrast(0.9) saturate(0.9) brightness(0.9);
   }
 
   & .tooltip {
@@ -579,7 +580,7 @@ pdp-carousel {
     }
   }
 
-  &:hover {
+                &:not(.active):hover {
     z-index: 1;
     filter: brightness(1.15);
 
