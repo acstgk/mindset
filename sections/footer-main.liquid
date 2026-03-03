@@ -1,9 +1,55 @@
+{% if section.settings.show_signup and template.name == 'index' or section.settings.show_signup and template.name == 'product' %}
+  <div class="max-width footer-signup">
+    <div class="form-header">
+      <h2 class="emphasis left" style="margin-top:0;">{{ section.settings.signup_title  }}</h2>
+      <p>{{ section.settings.signup_cta }}</p>
+    </div>
+
+    <ometria-form>
+<form action="https://api.ometria.com/forms/signup" method="post">
+    {% comment %} OMETRIA FIELDS {% endcomment %}
+    <input class="ometria-push" type="hidden" name="__form_id" value="{{ formId | default: 'ad1254b0165617d1cf8a0d4e4dcfc2e6' }}">
+    <input class="ometria-push" type="hidden" name="email" value="" autocomplete="off">
+    <div style="display:none !important">
+      <input class="ometria-push" name="__email" type="email" value="" autocomplete="off">
+    </div>
+    <input class="ometria-push" name="@account" type="hidden" value="f647cb688e2297ba">
+    <input class="ometria-push" name="@return_url" type="hidden" value="">
+    <input class="ometria-push" name="@subscription_status" type="hidden" value="SUBSCRIBED">
+    <input class="ometria-push" name="properties.sign_up_source" type="hidden" value="footer form">
+    <input class="ometria-push" type="hidden" name="gender" value="" id="newsletter[gender]">
+    {% comment %} END OMETRIA FIELDS {% endcomment %}
+         <div class="Form__Item">
+      <input
+        name="ue"
+        id="newsletter[email]"
+        type="email"
+        class="ometria-push Form__Input"
+        name="customer[email]"
+        required="required"
+        placeholder="Email"
+        aria-label="{{ 'customer.login.email' | t }}"
+        autocorrect="off"
+        autocapitalize="off"
+      >
+      <label for="newsletter[email]">Email</label>
+    </div>
+     <div class="input-group-btn">
+       <button type="submit" data-gender="Other" class="gender-submit-button button button-primary" name="commit" id="newsleter[other]">All Mail</button>
+        <button type="submit" data-gender="Male" class="gender-submit-button button button-primary" name="commit" id="newsletter[male]">Men's News</button>
+        <button type="submit" data-gender="Female" class="gender-submit-button button button-primary" name="commit" id="newsletter[female]">Women's News</button>
+      </div>
+  </form>
+    </ometria-form>
+  </div>
+{% endif %}
+
 <div class="footer-container max-width">
   <div class="footer-socials">
     {% render 'socials' %}
     <span>@GYMKING</span>
-    {% if section.settings.footer-logo %}
-      {{ section.settings.footer-logo | image_url: width: 300 | image_tag: class: 'footer-logo'  }}
+    {% if section.settings['footer-logo'] %}
+      {{ section.settings['footer-logo'] | image_url: width: 300 | image_tag: class: 'footer-logo' }}
     {% endif %}
   </div>
 
@@ -76,6 +122,30 @@
       "type": "image_picker",
       "id": "footer-logo",
       "label": "footer_logo"
+    },
+    {
+      "type": "header",
+      "content": "Signup Form"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_signup",
+      "label": "Show Signup Form",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "signup_title",
+      "label": "Signup Title",
+      "default": "Sign up to our newsletter",
+      "visible_if": "{{ section.settings.show_signup }}"
+    },
+    {
+      "type": "text",
+      "id": "signup_cta",
+      "label": "Signup CTA",
+      "default": "Subscribe for the latest news, offers and launches.",
+      "visible_if": "{{ section.settings.show_signup }}"
     }
   ]
 }

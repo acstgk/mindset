@@ -11,7 +11,7 @@ if (!customElements.get("ometria-form")) {
         this.formSubtitle = this.querySelector("h2");
         this.formCopy = this.querySelector(".ctatxt");
         this.onwardLinks = document.querySelector(".continueShopping");
-
+        this.hiddenPhone = document.getElementById("newsletter[hiddenphone]");
         this.submitButtons = this.querySelectorAll(".gender-submit-button");
         this.submitButtons.forEach((button) => {
           const gender = button.dataset.gender;
@@ -20,11 +20,11 @@ if (!customElements.get("ometria-form")) {
       }
 
       _submitForm = async (gender, e) => {
-        if (this._isValid()) {
+        if (this._isValid() || !this.hiddenPhone) {
           e.preventDefault();
           document.getElementById("newsletter[gender]").value = gender;
-          document.getElementById("newsletter[hiddenphone]").value = this._addIntCode();
-          document.querySelector(".newsletter-error").classList.add("visually-hidden");
+          if (this.hiddenPhone) this.hiddenPhone.value = this._addIntCode();
+          document.querySelector(".newsletter-error")?.classList.add("visually-hidden");
 
           const urlEncodedDataPairs = Object.keys(this.requiredElements).map((key) => {
             const el = this.requiredElements[key];
@@ -47,11 +47,15 @@ if (!customElements.get("ometria-form")) {
             });
 
             if (resp.ok) {
-              this.formSubtitle.remove();
+              this.formSubtitle?.remove();
               this.form.remove();
-              this.formTitle.innerHTML = window.successTitle;
-              this.formCopy.innerHTML = window.successText;
-              this.onwardLinks.classList.add("active");
+              if (this.formTitle) {
+                this.formTitle.innerHTML = window.successTitle;
+              } else {
+                this.innerHTML = "<div><h3 class='emphasis' style='margin:0;'>Success!</h3><p class='center'>Thank you for subscribing to our newsletter.</p></div>"
+              }
+              this.formCopy && (this.formCopy.innerHTML = window.successText);
+              this.onwardLinks?.classList.add("active");
             }
           } catch (error) {
             const errorEl = document.createElement("p");
@@ -60,7 +64,7 @@ if (!customElements.get("ometria-form")) {
             this.form.appendChild(errorEl);
           }
         } else {
-          document.querySelector(".newsletter-error").classList.remove("visually-hidden");
+          document.querySelector(".newsletter-error")?.classList.remove("visually-hidden");
         }
         return false;
       };
@@ -82,8 +86,8 @@ if (!customElements.get("ometria-form")) {
       _isValid() {
         let valid = false;
         if (
-          document.querySelector("input[name='ue']").value.length > 0 &&
-          (document.getElementById("newsletter[phone]").value.length == 0 || (document.getElementById("newsletter[phone]").value.length > 9 && document.getElementById("newsletter[phone]").value.length < 12))
+          document.querySelector("input[name='ue']")?.value.length > 0 &&
+          (document.getElementById("newsletter[phone]")?.value.length == 0 || (document.getElementById("newsletter[phone]")?.value.length > 9 && document.getElementById("newsletter[phone]")?.value.length < 12))
         ) {
           valid = true;
         }
@@ -92,10 +96,8 @@ if (!customElements.get("ometria-form")) {
 
       _handleSubmit(result) {
         if (result.ok) {
-          this.formSubtitle.remove();
-          this.form.remove();
-          this.formTitle.innerHTML = window.successTitle;
-          this.formCopy.innerHTML = window.successText;
+          this.formSubtitle?.remove();
+          this.formCopy && (this.formCopy.innerHTML = window.successText);
         } else {
           const error = document.createElement("p");
           error.className = "warning";
