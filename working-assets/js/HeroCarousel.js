@@ -59,14 +59,18 @@ export default class HeroCarousel extends HTMLElement {
     });
 
     this.splide.on("inactive", (slide) => {
-      const mobVid = slide.slide.querySelector(".mob-only");
-      const deskVid = slide.slide.querySelector(".mob-hide");
+      const mobVid = slide.slide.querySelector(".hero_slide-video.mob-only");
+      const deskVid = slide.slide.querySelector(".hero_slide-video.mob-hide");
       const width = window.innerWidth;
 
       if (width < 768) {
-        mobVid.pause();
+        if (mobVid) {
+          mobVid.pause();
+        }
       } else {
-        deskVid.pause();
+        if (deskVid) {
+          deskVid.pause();
+        }
       }
     });
 
@@ -77,7 +81,7 @@ export default class HeroCarousel extends HTMLElement {
     if (!slide) return;
 
     const width = window.innerWidth;
-    let video = width < 768 ? slide.querySelector(".mob-only") : slide.querySelector(".mob-hide");
+    let video = width < 768 ? slide.querySelector(".hero_slide-video.mob-only") : slide.querySelector(".hero_slide-video.mob-hide");
 
     if (!video) return;
 

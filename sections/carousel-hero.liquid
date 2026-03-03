@@ -6,7 +6,7 @@
         {% assign preload = 'eager' %}
       {% endunless %}
 
-      {% if block.settings.mobile_video %}
+      {% if block.settings.mobile_video != blank %}
         {{ block.settings.mobile_video.preview_image | image_url: width: 1, height: 1 | image_tag: width: 1, class: 'hero_slide-color', alt: 'background color' }}
 
         {% assign poster_image = block.settings.mobile_poster | image_url: height: '800px' | default: block.settings.mobile_video.preview_image %}
@@ -28,13 +28,13 @@
 
       {% else %}
         {% if block.settings.mobile_poster %}
-          {{ block.settings.mobile_poster | image_url: height: 800 | image_tag: height: 800, class: 'hero_slide-video mob-only', loading: preload, fetchpriority: 'high' }}
+          {{ block.settings.mobile_poster | image_url: height: 800 | image_tag: height: 800, class: 'hero_slide-image mob-only', loading: preload, fetchpriority: 'high' }}
         {% else %}
-           <img src="https://placehold.co/300x600?text=IMAGE&font=oswald" alt="" height="600" width="300" class="hero_slide-video mob-only" loading="preload">
+           <img src="https://placehold.co/300x600?text=IMAGE&font=oswald" alt="" height="600" width="300" class="hero_slide-image mob-only" loading="preload">
         {% endif %}
       {% endif %}
 
-      {% if block.settings.desktop_video %}
+      {% if block.settings.desktop_video != blank %}
         {% assign poster_image = block.settings.desktop_poster | image_url: width: '1400px' | default: block.settings.desktop_video.preview_image %}
 
         {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.desktop_video.aspect_ratio %}
@@ -53,9 +53,9 @@
         </video>
       {% else %}
         {% if block.settings.desktop_poster %}
-          {{ block.settings.desktop_poster | image_url: width: '1400px' | image_tag: width: 1400, class: 'hero_slide-video mob-hide', loading: preload }}
+          {{ block.settings.desktop_poster | image_url: width: '1400px' | image_tag: width: 1400, class: 'hero_slide-image mob-hide', loading: preload }}
         {% else %}
-          <img src="https://placehold.co/1400x800?text=IMAGE&font=oswald" alt="" height="800" width="1400" class="hero_slide-video mob-hide" loading="preload">
+          <img src="https://placehold.co/1400x800?text=IMAGE&font=oswald" alt="" height="800" width="1400" class="hero_slide-image mob-hide" loading="preload">
         {% endif %}
       {% endif %}
 
