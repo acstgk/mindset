@@ -104,9 +104,13 @@ class gkUtils {
         pageOverlay.closeAllOverlays();
         pageOverlay.style.setProperty('background-color', 'rgba(255 255 255)');
         pageOverlay.style.setProperty('transition', 'opacity 1s, visibility 1s', 'important');
+        pageOverlay.style.setProperty('display', 'grid');
+        pageOverlay.style.setProperty('place-content', 'center');
+        pageOverlay.innerHTML = "<div class='loader'></div>";
 
         setTimeout(() => {
           document.body.classList.add('no-scroll');
+
         }, 500);
       });
     });
