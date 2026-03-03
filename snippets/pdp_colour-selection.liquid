@@ -5,19 +5,20 @@
 {%- assign bottom_types = 'Bottoms,Leggings,Skirt,Tracksuit Bottoms' | split: ',' -%}
 {%- assign crop_origin = 'center' -%}
 
-{%- for type in top_types -%}
-  {%- if product.type == type -%}{%- assign crop_origin = 'top' -%}{%- break -%}{%- endif -%}
+{%- for type in bottom_types -%}
+  {%- if product.type contains type -%}{%- assign crop_origin = 'bottom' -%}{%- break -%}{%- endif -%}
 {%- endfor -%}
 
 {%- if crop_origin == 'center' -%}
-  {%- for type in bottom_types -%}
-    {%- if product.type == type -%}{%- assign crop_origin = 'bottom' -%}{%- break -%}{%- endif -%}
+  {%- for type in top_types -%}
+    {%- if product.type contains type -%}{%- assign crop_origin = 'top' -%}{%- break -%}{%- endif -%}
   {%- endfor -%}
 {%- endif -%}
 
 {% if style_tag %}
   <div class="colour-selection">
-    <div class="accordian-header">Colours:</div>
+    <div class="accordian-header">Colours: {{ product.type }}</div>
+
     <div class="colour-grid">
       {% assign found_products = '' %}
       {% for collection in product.collections %}
