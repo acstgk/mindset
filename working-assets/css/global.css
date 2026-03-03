@@ -460,6 +460,7 @@ button {
     display: flex;
     gap: 1em;
     flex-wrap: wrap;
+    margin-bottom: 2.5rem;
 }
 
 .button {

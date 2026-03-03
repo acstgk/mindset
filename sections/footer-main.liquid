@@ -1,4 +1,4 @@
-{% if section.settings.show_signup and template.name == 'index' or section.settings.show_signup and template.name == 'product' %}
+{% if section.settings.show_signup and template.name != 'collection'%}
   <div class="max-width footer-signup">
     <div class="form-header">
       <h2 class="emphasis left" style="margin-top:0;">{{ section.settings.signup_title  }}</h2>
