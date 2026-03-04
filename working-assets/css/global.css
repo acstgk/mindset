@@ -1467,7 +1467,7 @@ video {
 .hero_slide-content p {
     font-size: var(--txt-h4);
     letter-spacing: var(--letter-spacing);
-    margin: 0 0 10px;
+    margin: 0 .75rem;
 }
 
 @media screen and (width > 768px) {
