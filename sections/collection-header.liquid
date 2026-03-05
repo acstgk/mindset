@@ -10,7 +10,7 @@
   <div class="rtf full-width collection-blurb">{{ collection.description }}</div>
 </div>
 
-{% if collection.all_types.size > 1 %}
+{% if collection.all_types.size > 2 %}
   <product-types class="product_type-bar">
     {%- for filter in collection.filters -%}
       {% if filter.label == 'Product Type' %}
