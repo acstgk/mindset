@@ -225,6 +225,10 @@ class EnhancedFilters {
 
       if (currentPaginationNext) currentPaginationNext.style.display = "none";
       if (currentPaginationPrev) currentPaginationPrev.style.display = "none";
+      const productTypes = document.querySelector("product-types");
+      if (productTypes && productTypes.getBoundingClientRect().top < 0) {
+        window.scrollTo({ top: productTypes.offsetTop, behavior: "smooth" });
+      }
       currentGrid.style.minHeight = "40vh";
       currentGrid.innerHTML = `<div class="loader"style="z-index: 1;grid-column: 1 / -1;"></div>`;
 
