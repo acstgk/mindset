@@ -466,6 +466,10 @@ if (!customElements.get("slide-drawer")) {
 
       close() {
         document.body.classList.remove("no-scroll");
+        // Blur any focused descendant before hiding from assistive technology.
+        // Browsers block aria-hidden if a focused element is inside the subtree.
+        const focused = this.querySelector(":focus");
+        if (focused) focused.blur();
         this.setAttribute("aria-hidden", "true");
         this.removeEventListener("touchstart", this._onTouchStart);
         this.removeEventListener("touchend", this._onTouchEnd);
