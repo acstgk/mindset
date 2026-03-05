@@ -101,6 +101,10 @@ class gkUtils {
         // Apply progress cursor globally
         document.documentElement.style.setProperty('cursor', 'progress', 'important');
         setTimeout(() => {
+          const mobilefilters = document.querySelector('filters-menu-bar');
+          if (mobilefilters) {
+            mobilefilters.style.setProperty('z-index', '-1');
+          }
           const pageOverlay = document.querySelector("page-overlay");
           pageOverlay.closeAllOverlays();
           pageOverlay.style.setProperty('background-color', 'rgba(255 255 255)');
