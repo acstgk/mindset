@@ -25,6 +25,7 @@
           {%- if variant.sku != blank -%}
             "sku": {{ variant.sku | json }},
           {%- endif -%}
+          "color": {{ product.metafields.product.colour.value.name | json }},
           "url": "{{ product.url }}?variant={{ variant.id }}",
           {%- if variant.requires_shipping -%}
             "hasMerchantReturnPolicy": {
