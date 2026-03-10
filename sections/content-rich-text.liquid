@@ -44,7 +44,7 @@
         </div>
       {% when 'video' %}
         {% if block.settings.hosted_video %}
-          <custom-video-controls class="splide__slide">{{ block.settings.hosted_video | video_tag: image_size: '1270x' }}</custom-video-controls>
+          <custom-video-controls class="splide__slide" >{{ block.settings.hosted_video | video_tag: image_size: '1270x', controls: true }}</custom-video-controls>
         {% else %}
           <div class="video-container splide__slide">
             <iframe
