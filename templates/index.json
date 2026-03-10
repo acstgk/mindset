@@ -12,54 +12,58 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
-        "image_DMmXBN": {
+        "image_McwRfJ": {
           "type": "image",
           "settings": {
-            "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner_V2.png",
-            "desktop_poster": "shopify://shop_images/Spring_Essentials_-_Desktop_Banner_V1.png",
-            "overlay_url": "shopify://collections/womens-new",
-            "content_alignment": "right",
-            "lockup_width": 200,
-            "title": "Spring Essentials",
-            "title_font": "baskerville",
-            "subtitle": "New In",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "cta1": "Shop now",
-            "url1": "shopify://collections/womens-new",
-            "cta2": "",
-            "url2": "",
-            "target_gender": "womens"
-          }
-        },
-        "image_cFkRUK": {
-          "type": "image",
-          "settings": {
-            "mobile_video": "shopify://files/videos/Core Piped Panel - Mobile Banners V1 (2).mp4",
-            "mobile_poster": "shopify://shop_images/cp-banner.jpg",
-            "desktop_video": "shopify://files/videos/Core Piped Panel - Desktop Banner (1).mp4",
-            "desktop_poster": "shopify://shop_images/cp-desktop.jpg",
+            "mobile_video": "shopify://files/videos/Fundamental - Mobile Banner.mp4",
+            "mobile_poster": "shopify://shop_images/Fundamental---Mobile-Banner-2.jpg",
+            "desktop_video": "shopify://files/videos/Fundamental - Desktop Banner.mp4",
+            "desktop_poster": "shopify://shop_images/Fundamental---Desktop-Banner-2.jpg",
             "overlay_url": "shopify://collections/mens-new",
             "content_alignment": "center",
+            "lockup_img": "shopify://shop_images/Rebellion_Logo.png",
             "lockup_width": 200,
-            "title": "Core Piped",
+            "title": "New Season",
             "title_font": "",
-            "subtitle": "New In",
+            "subtitle": "New Menswear",
             "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "<p style=\"text-transform:uppercase;font-size:var(--txt-h2);\">Collection</p>",
-            "cta1": "Shop Now",
+            "subtitle_first": false,
+            "customHTML": "",
+            "cta1": "Shop New",
             "url1": "shopify://collections/mens-new",
             "cta2": "",
             "url2": "",
             "target_gender": "mens"
           }
+        },
+        "image_9UDpyK": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/International Leggings Day - Mobile Banner_8748c14b-0063-49c1-a035-0cacd7ceb521.mp4",
+            "mobile_poster": "shopify://shop_images/International-Leggings-Day---Mobile-Banner.jpg",
+            "desktop_video": "shopify://files/videos/International Leggings Day - Desktop Banner_44af19fd-1758-478d-b3d2-70621ae89648.mp4",
+            "desktop_poster": "shopify://shop_images/International-Leggings-Day---Desktop-Banner.jpg",
+            "overlay_url": "",
+            "content_alignment": "right",
+            "lockup_img": "shopify://shop_images/GK_Logos_GKW_-_Black.png",
+            "lockup_width": 150,
+            "title": "Up to 50% OFF",
+            "title_font": "",
+            "subtitle": "Women's 365 Essentials",
+            "subtitle_font": "",
+            "subtitle_first": false,
+            "customHTML": "",
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/black-leggings",
+            "cta2": "",
+            "url2": "",
+            "target_gender": "womens"
+          }
         }
       },
       "block_order": [
-        "image_DMmXBN",
-        "image_cFkRUK"
+        "image_McwRfJ",
+        "image_9UDpyK"
       ],
       "settings": {}
     },

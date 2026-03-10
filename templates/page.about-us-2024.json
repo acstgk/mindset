@@ -20,9 +20,15 @@
         "isFullheight": false,
         "image": "shopify://shop_images/Members_Lounge_Concept_Refresh_-_Still_1.png",
         "video": "shopify://files/videos/Members Lounge Web Banner 1500px_1.mp4",
+        "img_overlay": 100,
         "title": "Gym King",
         "heading": "About Us",
         "text": "<p>At Gym King our foundation is built on continuous development and a resilient mindset, inspiring individuals to believe in themselves both inside and outside of the gym. </p>",
+        "cta_text": "Learn more",
+        "link_url": "",
+        "second_cta": false,
+        "cta_text2": "",
+        "link_url2": "",
         "text_align": "start"
       }
     },
@@ -426,6 +432,7 @@
         "rtf_B3Qyta",
         "html_Td3Xkc"
       ],
+      "disabled": true,
       "custom_css": [
         "h2 {font-family: var(--emphasis-heading-font-family); text-align: center;}"
       ],
