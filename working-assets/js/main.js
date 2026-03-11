@@ -534,6 +534,18 @@ class SideMenuGenderSelector {
     if (!button) return;
 
     const gender = button.dataset.gender;
+    const targetMenu = document.getElementById(`${gender}_gender-menu`);
+
+    document.querySelectorAll('.side_menu-header-item').forEach((el) => {
+      el.setAttribute('aria-pressed', false);
+    });
+    document.querySelectorAll('.side_menu-menu').forEach((el) => {
+      el.setAttribute('aria-expanded', false);
+    });
+
+
+    button.setAttribute('aria-pressed', true);
+    targetMenu.setAttribute('aria-expanded', true);
     const menuOffset = { kids: 200, womens: 100 }[gender] || 0;
     document.querySelector(".side_menu-slider").style.left = `-${menuOffset}%`;
 

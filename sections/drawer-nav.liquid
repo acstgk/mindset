@@ -3,9 +3,9 @@
 
 <slide-drawer aria-hidden="true" id="navDrawer" data-side="left">
   <header class="side_menu-header">
-    <div id="side_menu-mens" class="side_menu-header-item active" role="button" tabindex="0" data-gender="mens" aria-pressed="true">Mens</div>
-    <div id="side_menu-womens" class="side_menu-header-item" role="button" tabindex="0" data-gender="womens" aria-pressed="false">Womens</div>
-    <div id="side_menu-kids" class="side_menu-header-item" role="button" tabindex="0" data-gender="kids" aria-pressed="false">Kids</div>
+    <div id="side_menu-mens" class="side_menu-header-item active" role="button" tabindex="0" data-gender="mens" aria-controls="mens_gender-menu" aria-pressed="true">Mens</div>
+    <div id="side_menu-womens" class="side_menu-header-item" role="button" tabindex="0" data-gender="womens" aria-controls="womens_gender-menu" aria-pressed="false">Womens</div>
+    <div id="side_menu-kids" class="side_menu-header-item" role="button" tabindex="0" data-gender="kids" aria-controls="kids_gender-menu" aria-pressed="false">Kids</div>
   </header>
 
   <div class="side_menu-slider">
@@ -19,8 +19,8 @@
           {% assign gender = 'kids' %}
       {% endcase %}
       {% assign mobile_menu = 'nav-mobilemenu-' | append: gender %}
-      <div class="side_menu-menu">
-        <ul id="{{- gender -}}_gender-switch" class="gender-btn" role="navigation">
+      <div class="side_menu-menu" id="{{- gender -}}_gender-menu" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
+        <ul class="gender-btn" role="navigation">
           {% for link in settings[mobile_menu].links %}
             {% assign link_title = link.title | downcase %}
             <li>
