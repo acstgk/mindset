@@ -1389,6 +1389,7 @@ hero-carousel {
 .hero_slide-overlay {
     width: 100%;
     height: 100%;
+    object-fit: cover;
     grid-area: 1/1;
     text-align: center;
     place-content: end;
@@ -1454,6 +1455,7 @@ video {
     order: -2;
 }
 
+
 .hero_slide-content h2,
 .hero_slide-content h1,
 .hero_slide-content p {
@@ -1472,10 +1474,18 @@ video {
     font-weight: 400;
 }
 
+  .hero_slide-content .baskerville+p {
+      letter-spacing: var(--letter-spacing);
+
+  }
 .hero_slide-content p {
-    font-size: var(--txt-h4);
-    letter-spacing: var(--letter-spacing);
-}
+    font-size: var(--txt-h3);
+        letter-spacing: calc(var(--letter-spacing) * 4);
+    
+        &:has(+.baskerville) {
+            letter-spacing: var(--letter-spacing);
+        }
+                                }
 
 @media screen and (width > 768px) {
     .hero_slide-content--left {
