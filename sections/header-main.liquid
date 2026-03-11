@@ -63,7 +63,7 @@
     {% comment %} <div class="countrydesktop" aria-label="Country selector">{%- render 'country-switcher' -%}</div> {% endcomment %}
     <a href="{{ routes.search_url }}" class="header_icon mob-hide " id="header_search-icon" aria-label="open search">{%- render 'icon' with 'search' as icon -%}</a>
     {% render 'wishlist-app-links', linkType: 'wishlist-page-link' %}
-    <a href="{{ routes.account_url }}" class="header_icon icon_account" aria-label="Account Pag">
+    <a href="{{ routes.account_url }}" class="header_icon icon_account" aria-label="Account Page">
       {% if customer %}
         {%- render 'icon' with 'logged-in' as icon -%}
       {% else %}
