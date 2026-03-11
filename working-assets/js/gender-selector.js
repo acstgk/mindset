@@ -36,10 +36,16 @@ class GenderSelector {
     const gender = button.dataset.gender;
     localStorage.setItem("GK::gender--content", gender);
 
-    // Remove active from all buttons
-    this.genderButtons.forEach((btn) => btn.classList.remove("active"));
-    // Add active to current
+    // Remove active from all buttons and update aria-pressed
+    this.genderButtons.forEach((btn) => {
+      btn.classList.remove("active");
+      btn.setAttribute("aria-pressed", "false");
+      btn.setAttribute("aria-expanded", "false");
+    });
+    // Add active to current button
     button.classList.add("active");
+    button.setAttribute("aria-pressed", "true");
+    button.setAttribute("aria-expanded", "true");
 
     // Hide all gender-specific elements
     const targetClass = `.${gender}-gender-filter`;
@@ -49,6 +55,7 @@ class GenderSelector {
     genderFilters.forEach((el) => {
       if (!el.classList.contains(targetClass)) {
         el.classList.remove("active");
+        el.setAttribute("aria-hidden", "true");
       }
     });
 
@@ -56,6 +63,7 @@ class GenderSelector {
     const matchingElements = document.querySelectorAll(targetClass);
     matchingElements.forEach((el) => {
       el.classList.add("active");
+      el.setAttribute("aria-hidden", "false");
     });
 
     // Hide no-gender-filter elements

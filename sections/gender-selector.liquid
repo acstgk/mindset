@@ -1,7 +1,7 @@
-<button id="mens_gender-switch" data-gender="mens" class="gender-btn" aria-expanded="false">MENS</button>
-<button id="womens_gender-switch" data-gender="womens" class="gender-btn" aria-expanded="false">WOMENS</button>
+<button id="mens_gender-switch" data-gender="mens" class="gender-btn" aria-expanded="false" aria-pressed="true">MENS</button>
+<button id="womens_gender-switch" data-gender="womens" class="gender-btn" aria-expanded="false" aria-pressed="false">WOMENS</button>
 {% if section.settings.showKids %}
-  <button id="kids_gender-switch" data-gender="kids" class="gender-btn" aria-expanded="false">KIDS</button>
+  <button id="kids_gender-switch" data-gender="kids" class="gender-btn" aria-expanded="false" aria-pressed="false">KIDS</button>
 {% endif %}
 
 <link rel="stylesheet" href="{{ 'gender-selector.min.css' | asset_url }}">
