@@ -472,7 +472,7 @@ button {
     text-box-trim: trim-both;
         text-box-edge: cap alphabetic;
     letter-spacing: var(--letter-spacing);
-    padding: 0.75rem 1.5rem 0.55rem;
+    padding: 0.75rem 1.5rem;
     display: inline-flex;
     text-align: center;
     align-items: center;
@@ -484,6 +484,10 @@ button {
     border-radius: var(--radius);
     isolation: isolate;
 
+    & span {
+            text-box-edge: cap alphabetic;
+            letter-spacing: var(--letter-spacing);
+        }
     &:not(:disabled):hover {
             scale: 1.02;
         }
