@@ -305,6 +305,7 @@ blockquote {
   font-family: var(--baskerville-font-family);
   letter-spacing: calc(var(--letter-spacing) * 1.333);
   line-height: 0.75 !important;
+  margin-inline: calc(var(--letter-spacing) * 1.333 * -1);
 }
 .Title {
   display: flex;

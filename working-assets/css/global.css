@@ -1453,9 +1453,8 @@ video {
 .hero_slide-content p {
     color: white;
     font-size: var(--txt-xxl);
-    margin: 0;
+    margin-block: 0.33rem;
     line-height: 1;
-    margin-top: 10px;
     text-shadow: 0 0 15px color-mix(in lab, var(--c-black), transparent 70%);
 }
 
@@ -1470,7 +1469,6 @@ video {
 .hero_slide-content p {
     font-size: var(--txt-h4);
     letter-spacing: var(--letter-spacing);
-    margin: 0 .75rem;
 }
 
 @media screen and (width > 768px) {

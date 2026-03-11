@@ -1,0 +1,56 @@
+  .info-strip {
+    margin-block: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: stretch;
+    justify-content: stretch;
+    font-size: var(--txt--2);
+    text-wrap: pretty;
+    text-align: center;
+    padding: 0;
+  }
+
+  .info-strip .countdown-decal {
+    display: inline-block;
+  }
+
+  .info-strip svg {
+    min-width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+
+  .info-strip__block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background: var(--accent-background);
+    padding: 10px;
+    flex: 1 1 0;
+    position: relative;
+    align-content: center;
+    transition: filter 0.2s ease;
+    border-radius: var(--radius);
+  }
+
+  .info-strip__block>p,
+  .info-strip__block>a {
+    flex-grow: 1;
+  }
+
+  @media screen and (width > 641px) {
+    .info-strip {
+      flex-direction: row;
+      gap: 15px;
+    }
+
+    .info-strip a:hover {
+      filter: brightness(0.96);
+    }
+
+    .info-strip__block {
+      padding: 15px 20px;
+    }
+  }
