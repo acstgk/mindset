@@ -894,7 +894,7 @@ class ProductModalManager {
     // create the image container and render the images
     const images = document.createElement("div");
     images.className = "mqatb-images";
-    const loopEnd = imgURLs.length < 8 ? imgURLs.length : 8;
+    const loopEnd = imgURLs.length < 6 ? imgURLs.length : 6;
     for (let i = 0, len = loopEnd; i < len; i++) {
       if (imgURLs[i].length > 0) {
         const img = document.createElement("img");
