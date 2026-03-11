@@ -30,7 +30,7 @@
 
   .gender-wrapper {
     display: grid;
-    overflow-y: hidden;
+    overflow: hidden;
     place-items: center;
 
     &>div,
