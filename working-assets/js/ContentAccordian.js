@@ -16,14 +16,24 @@ export default class ContentAccordian extends HTMLElement {
     this._addCloseButtons();
 
     this.headers.forEach((header) => {
-      header.setAttribute("aria-expanded", "false");
       header.addEventListener("click", this._handleHeaderClick);
+      if (header.classList.contains('active')) {
+        header.setAttribute("aria-expanded", "true");
+      } else {
+        header.setAttribute("aria-expanded", "false");
+      }
     });
 
-    this.contents.forEach((content) => {
-      content.setAttribute("aria-hidden", "true");
+    this.contents.forEach((content, index) => {
+      if (this.headers[index].classList.contains('active')) {
+        content.setAttribute("aria-hidden", "false");
+      } else {
+        content.setAttribute("aria-hidden", "true");
+      }
     });
   }
+
+
 
   _addCloseButtons() {
     const iconHTML = `
@@ -68,7 +78,7 @@ export default class ContentAccordian extends HTMLElement {
         header.scrollIntoView({
           behavior: "smooth",
         })
-      },200)
+      }, 200)
     }
   }
 }
