@@ -12,58 +12,48 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
-        "image_McwRfJ": {
+        "image_n7KCwa": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/Fundamental - Mobile Banner.mp4",
-            "mobile_poster": "shopify://shop_images/Fundamental---Mobile-Banner-2.jpg",
-            "desktop_video": "shopify://files/videos/Fundamental - Desktop Banner.mp4",
-            "desktop_poster": "shopify://shop_images/Fundamental---Desktop-Banner-2.jpg",
-            "overlay_url": "shopify://collections/mens-new",
-            "content_alignment": "center",
-            "lockup_img": "shopify://shop_images/Rebellion_Logo.png",
-            "lockup_width": 200,
-            "title": "New Season",
-            "title_font": "",
-            "subtitle": "New Menswear",
-            "subtitle_font": "",
-            "subtitle_first": false,
-            "customHTML": "",
-            "cta1": "Shop New",
-            "url1": "shopify://collections/mens-new",
-            "cta2": "",
-            "url2": "",
-            "target_gender": "mens"
-          }
-        },
-        "image_9UDpyK": {
-          "type": "image",
-          "settings": {
-            "mobile_video": "shopify://files/videos/International Leggings Day - Mobile Banner_8748c14b-0063-49c1-a035-0cacd7ceb521.mp4",
-            "mobile_poster": "shopify://shop_images/International-Leggings-Day---Mobile-Banner.jpg",
-            "desktop_video": "shopify://files/videos/International Leggings Day - Desktop Banner_44af19fd-1758-478d-b3d2-70621ae89648.mp4",
-            "desktop_poster": "shopify://shop_images/International-Leggings-Day---Desktop-Banner.jpg",
             "overlay_url": "",
-            "content_alignment": "right",
-            "lockup_img": "shopify://shop_images/GK_Logos_GKW_-_Black.png",
-            "lockup_width": 150,
-            "title": "Up to 50% OFF",
+            "content_alignment": "center",
+            "lockup_width": 200,
+            "title": "Twin Sets",
             "title_font": "",
-            "subtitle": "Women's 365 Essentials",
+            "subtitle": "New Season",
             "subtitle_font": "",
-            "subtitle_first": false,
+            "subtitle_first": true,
             "customHTML": "",
             "cta1": "Shop Now",
-            "url1": "shopify://collections/black-leggings",
+            "url1": "shopify://collections/twin-sets",
             "cta2": "",
             "url2": "",
-            "target_gender": "womens"
+            "target_gender": ""
+          }
+        },
+        "image_Fz4CbB": {
+          "type": "image",
+          "settings": {
+            "overlay_url": "",
+            "content_alignment": "right",
+            "lockup_width": 200,
+            "title": "Spring Essentials",
+            "title_font": "baskerville",
+            "subtitle": "New In",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "cta1": "Shop New",
+            "url1": "shopify://collections/womens-new",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
           }
         }
       },
       "block_order": [
-        "image_McwRfJ",
-        "image_9UDpyK"
+        "image_n7KCwa",
+        "image_Fz4CbB"
       ],
       "settings": {}
     },
@@ -140,9 +130,9 @@
         "title_womens": "Shop Womens",
         "url2": "shopify://collections/womens",
         "image_style": "",
-        "gap": 16,
+        "gap": 0,
         "hide_second": false,
-        "full_width": false,
+        "full_width": true,
         "flex_wrap": true
       }
     },
@@ -246,17 +236,6 @@
             "gender": "womens"
           }
         },
-        "card_KR4jd4": {
-          "type": "card",
-          "settings": {
-            "title": "",
-            "image": "shopify://shop_images/Capture.webp",
-            "text": "",
-            "button_text": "Sculpt Collection",
-            "url": "shopify://collections/sculpt-q1",
-            "gender": "womens"
-          }
-        },
         "card_mg8qYw": {
           "type": "card",
           "settings": {
@@ -268,11 +247,22 @@
             "gender": "womens"
           }
         },
+        "card_KR4jd4": {
+          "type": "card",
+          "settings": {
+            "title": "",
+            "image": "shopify://shop_images/Capture.webp",
+            "text": "",
+            "button_text": "Sculpt Collection",
+            "url": "shopify://collections/sculpt-q1",
+            "gender": "womens"
+          }
+        },
         "card_jaEGg6": {
           "type": "card",
           "settings": {
             "title": "",
-            "image": "shopify://shop_images/black-friday--fundamental-flatlay.jpg",
+            "image": "shopify://shop_images/FUNDAMENTAL_FLEECE_HOOD_FUNDAMENTAL_FLEECE_JOGGER_-_FOREST_GREEN_HDE-A2ACF_TSB-A2ACI_57904866-c9a1-4dec-9844-2f75fb444daa.jpg",
             "text": "",
             "button_text": "Fundamental Collection",
             "url": "shopify://collections/mens-fundamental",
@@ -316,8 +306,8 @@
       "block_order": [
         "card_niNhVm",
         "card_7f8xbx",
-        "card_KR4jd4",
         "card_mg8qYw",
+        "card_KR4jd4",
         "card_jaEGg6",
         "card_JEAxxg",
         "card_QqTzmg",
