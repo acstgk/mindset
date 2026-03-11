@@ -15,17 +15,19 @@
         "image_n7KCwa": {
           "type": "image",
           "settings": {
+            "mobile_video": "shopify://files/videos/Pro Twin Sets - Mobile Banner.mp4",
+            "desktop_video": "shopify://files/videos/Pro Twin Sets - Desktop Banner.mp4",
             "overlay_url": "",
             "content_alignment": "center",
             "lockup_width": 200,
-            "title": "Twin Sets",
+            "title": "New Season",
             "title_font": "",
-            "subtitle": "New Season",
+            "subtitle": "Arrivals",
             "subtitle_font": "",
-            "subtitle_first": true,
+            "subtitle_first": false,
             "customHTML": "",
             "cta1": "Shop Now",
-            "url1": "shopify://collections/twin-sets",
+            "url1": "shopify://collections/mens-new",
             "cta2": "",
             "url2": "",
             "target_gender": "mens"
@@ -34,6 +36,8 @@
         "image_Fz4CbB": {
           "type": "image",
           "settings": {
+            "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner_V1_30cb3bee-8f6d-49c7-8302-cafa65c6344a.png",
+            "desktop_poster": "shopify://shop_images/Spring_Essentials_-_Desktop_Banner_V1_de80fca0-7ca3-4167-bc82-c64233ff5501.png",
             "overlay_url": "",
             "content_alignment": "right",
             "lockup_width": 200,
@@ -54,6 +58,9 @@
       "block_order": [
         "image_n7KCwa",
         "image_Fz4CbB"
+      ],
+      "custom_css": [
+        "@media screen and (max-width: 768px) {#splide02-slide02 .hero_slide-content {top: 25px; justify-content: flex-start;}#splide02-slide02 .hero_slide-ctas {margin-top: auto;}}"
       ],
       "settings": {}
     },
