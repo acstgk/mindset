@@ -481,6 +481,8 @@ pdp-carousel {
 
     a {
       color: var(--c-dark-grey);
+      text-box-edge: cap alphabetic;
+        text-box-trim: trim-both;
     }
 
     & svg {

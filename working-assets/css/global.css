@@ -469,6 +469,8 @@ button {
 .button {
     text-transform: uppercase;
     text-decoration: none !important;
+    text-box-trim: trim-both;
+        text-box-edge: cap alphabetic;
     letter-spacing: var(--letter-spacing);
     padding: 0.75rem 1.5rem 0.55rem;
     display: inline-flex;
@@ -478,9 +480,9 @@ button {
     justify-content: center;
     width: max-content;
     scale: 1;
-        transition: scale 0.15s var(--bezier), color 0.15s var(--bezier);
+    transition: scale 0.15s var(--bezier), color 0.15s var(--bezier);
     border-radius: var(--radius);
-        isolation: isolate;
+    isolation: isolate;
 
     &:not(:disabled):hover {
             scale: 1.02;

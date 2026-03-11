@@ -11,9 +11,14 @@
     font-size: var(--txt-h3);
   }
 }
+
 .shop-by-category .categorylink {
   position: relative;
 
+  & a {
+      text-box-trim: trim-both;
+      text-box-edge: cap alphabetic;
+    }
   & img {
     filter: brightness(1);
     transition: scale 10s ease;
@@ -33,8 +38,9 @@
 
 .section-gender-categories,
 .section-gender-shop-size {
-margin: min(4rem, 5vw) auto min(5rem, 8vw);
+  margin: min(4rem, 5vw) auto min(5rem, 8vw);
 }
+
 .section-gender-categories .gender-wrapper>div:not(.loader) {
   width: 100%;
 }
@@ -48,7 +54,7 @@ margin: min(4rem, 5vw) auto min(5rem, 8vw);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 10px;
   overflow: visible;
-    overflow: clip
+  overflow: clip
 }
 
 .category-grid a {

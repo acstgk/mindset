@@ -38,6 +38,8 @@
   .info-strip__block>p,
   .info-strip__block>a {
     flex-grow: 1;
+    text-box-trim: trim-both;
+      text-box-edge: cap alphabetic;
   }
 
   @media screen and (width > 641px) {
