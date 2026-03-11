@@ -560,6 +560,58 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ===================
+// DESKTOP NAV DROPDOWN ARIA
+// ===================
+/**
+ * DesktopNavDropdown - Syncs aria-expanded / aria-hidden with CSS hover state
+ * The dropdown is shown via CSS (a:hover + .header_menu-dropdown), so JS
+ * listens to mouseenter/mouseleave and focusin/focusout to mirror that state
+ * in ARIA attributes for screen reader users.
+ */
+class DesktopNavDropdown {
+  constructor() {
+    this.menuItems = document.querySelectorAll(".header_menu-item");
+    if (!this.menuItems.length) return;
+    this._bindEvents();
+  }
+
+  _bindEvents() {
+    this.menuItems.forEach((item) => {
+      const dropdown = item.querySelector(".header_menu-dropdown");
+      if (!dropdown) return;
+
+      // Mouse events — mirror CSS hover
+      item.addEventListener("mouseenter", () => this._open(item, dropdown));
+      item.addEventListener("mouseleave", () => this._close(item, dropdown));
+
+      // Keyboard / focus events — ensure keyboard users also get correct state
+      item.addEventListener("focusin", () => this._open(item, dropdown));
+      item.addEventListener("focusout", (e) => {
+        // Only close if focus has truly left the menu item subtree
+        if (!item.contains(e.relatedTarget)) {
+          this._close(item, dropdown);
+        }
+      });
+    });
+  }
+
+  _open(item, dropdown) {
+    item.setAttribute("aria-expanded", "true");
+    dropdown.setAttribute("aria-hidden", "false");
+  }
+
+  _close(item, dropdown) {
+    item.setAttribute("aria-expanded", "false");
+    dropdown.setAttribute("aria-hidden", "true");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  new DesktopNavDropdown();
+});
+
+
+// ===================
 // DRAWER MENU SUB MENU CONTROLS
 // ===================
 /**
