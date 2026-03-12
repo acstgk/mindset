@@ -817,6 +817,9 @@ predictive-search {
     & .predictive-search__container,
     & .predictive_search-products {
         padding: 0 1em;
+&:last-child {
+        margin-bottom: 1rem;
+    }
     }
 
     & .predictive_search-products {
@@ -1481,7 +1484,7 @@ video {
 .hero_slide-content p {
     font-size: var(--txt-h3);
         letter-spacing: calc(var(--letter-spacing) * 4);
-    
+
         &:has(+.baskerville) {
             letter-spacing: var(--letter-spacing);
         }

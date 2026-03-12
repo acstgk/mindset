@@ -13,8 +13,7 @@
      padding: 2rem;
      display: flex;
      flex-direction: column;
-     justify-content: flex-end;
-     margin-bottom: 5rem;
+    justify-content: flex-end;
 
      & .rtf {
        padding: 1rem;
@@ -92,8 +91,7 @@
 
      & .column2 {
        grid-area: 1 / 2 / 2 / 3;
-       justify-content: center;
-       margin-bottom: 0;
+      justify-content: center;
      }
    }
  }
