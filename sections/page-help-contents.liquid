@@ -28,21 +28,23 @@
     transition: background-color 0.2s ease;
   }
 
-  .contents-grid--card :hover {
+  .contents-grid--card:hover {
     background-color: color-mix(in lab, var(--c-off-white), black 10%);
   }
 
-  .contents-grid--card :hover img {
+  .contents-grid--card:hover img {
     scale: 1.1;
   }
 
   .contents-grid--card h2 {
     text-transform: none;
+    color: var(--c-dark-grey);
   }
 
   .contents-grid--card img {
-    width: min(35%, 120px);
+    width: min(35%, 100px);
     transition: scale 0.2s ease;
+    opacity: 0.75;
   }
 
   @media screen and (width > 600px) {
