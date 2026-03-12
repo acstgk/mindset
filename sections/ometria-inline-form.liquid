@@ -2,10 +2,8 @@
 
 <ometria-form class="max-width">
   <div class="rtf">
-    <h2 class="h4">{{ section.settings.pageSubtitle }}</h2>
-    {% if section.settings.CTAtxt %}
-      <p class="ctatxt">{{ section.settings.CTAtxt }}</p>
-    {% endif %}
+    <h2 class="emphasis">{{ section.settings.title }}</h2>
+    <p class="ctatxt">{{ section.settings.copy }}</p>
   </div>
 
   <form action="https://api.ometria.com/forms/signup" method="post">
@@ -38,50 +36,33 @@
       >
       <label for="newsletter[email]">Email</label>
     </div>
-    <div id="extra-fields">
-      <div class="input-group-btn">
-        <button type="submit" data-gender="Male" class="gender-submit-button button button-primary" name="commit" id="newsletter[male]">Male</button>
-        <button type="submit" data-gender="Female" class="gender-submit-button button button-primary" name="commit" id="newsletter[female]">Female</button>
-        <button type="submit" data-gender="Other" class="gender-submit-button button button-primary" name="commit" id="newsleter[other]">Prefer not to answer</button>
-      </div>
-      <p class="newsletter-error warning visually-hidden">Error: Please check details and try again</p>
-    </div>
+      <button type="submit" data-gender="Male" class="gender-submit-button button button-primary" name="commit" id="newsletter[male]">Male</button>
+      <button type="submit" data-gender="Female" class="gender-submit-button button button-primary" name="commit" id="newsletter[female]">Female</button>
+      <button type="submit" data-gender="Other" class="gender-submit-button button button-primary" name="commit" id="newsleter[other]">Prefer not to answer</button>
   </form>
 </ometria-form>
-
-<div class="continueShopping fade-in input-group-btn">
-  {% if section.settings.linkCollection != '' %}
-    <a href="{{ section.settings.linkCollection.url }}" class="button button-primary">
-      {{ section.settings.linkCollectionCTA }}
-    </a>
-    <br>
-  {% endif %}
-  <a href="{{ routes.collections_url }}/mens" class="button button-primary">Shop All Mens</a>
-  <a href="{{ routes.collections_url }}/womens" class="button button-primary">Shop All Womens</a>
-  <a href="{{ routes.root_url }}" class="button button-secondary">Homepage</a>
-</div>
 
 <script>
   window.successTitle = '{{ section.settings.successHeading }}';
   window.successText = '{{ section.settings.successCopy }}';
 </script>
 
-
 {% schema %}
 {
-  "name": "Ometria Form",
-  "class": "section--ometria-form",
+  "name": "Ometria Inline Form",
+  "class": "section--ometria-inline-form",
   "settings": [
     {
       "type": "text",
-      "id": "pageSubtitle",
-      "label": "Page subtitle",
-      "default": "Sign up now for Early Access"
+      "id": "title",
+      "label": "Title",
+      "default": "Subscribe to our newsletter"
     },
     {
-      "type": "text",
-      "id": "CTAtxt",
-      "label": "CTA"
+        "type": "text",
+      "id": "copy",
+      "label": "Call to Action",
+      "default": "Sign up for early access, exclusive offers and the lastest news."
     },
     {
       "type": "header",
@@ -101,17 +82,6 @@
       "default": "<p>You are now on the list to receive exclusive early access.</p>"
     },
     {
-      "type": "text",
-      "id": "linkCollectionCTA",
-      "label": "Button Collection Button Text",
-      "default": "Shop Sale Now"
-    },
-    {
-      "type": "collection",
-      "id": "linkCollection",
-      "label": "Sale Button Collection"
-    },
-    {
       "type": "header",
       "content": "Form Settings",
       "info": "These two settings must be completed as they will affect the data passed to ometria"
@@ -129,11 +99,5 @@
       "default": "Site Form"
     }
   ],
-  "presets": [
-    {
-      "name": "Ometria Form",
-      "category": "Forms"
-    }
-  ]
 }
 {% endschema %}

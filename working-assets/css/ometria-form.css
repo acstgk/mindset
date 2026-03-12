@@ -1,0 +1,98 @@
+/* GLOBAL OMETRIA STYLING */
+
+/* STANDARD FORM */
+.section--ometria-form {
+  ometria-form {
+    display: block;
+  }
+
+  .rtf {
+    padding: 1rem;
+  }
+
+  .rtf h1,
+  .rtf h2 {
+    margin: 0;
+  }
+
+  .rtf>* {
+    background: rgb(255 255 255 / 0.8);
+    backdrop-filter: blur(3px) brightness(1.3);
+    width: 100%;
+  }
+
+  ometria-form form {
+    width: auto;
+    padding: 1rem;
+    backdrop-filter: blur(3px) brightness(1.3);
+  }
+
+  form .telcode {
+    display: flex;
+    margin-bottom: 0.5rem;
+  }
+
+  form .telcode::before {
+    display: block;
+    content: '+44';
+    background: var(--c-off-white);
+    display: grid;
+    place-content: center;
+    border: 1px solid var(--c-grey);
+    border-right: 0;
+    width: 8ch;
+  }
+
+  form .telcode label {
+    left: 10ch;
+  }
+
+  .input-group-btn {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: stretch;
+  }
+
+  .input-group-btn>button,
+  .input-group-btn>a {
+    flex: 1 1 auto;
+  }
+}
+
+/* INLINE FORM */
+
+.section--ometria-inline-form {
+  ometria-form {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--c-light-grey);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    justify-content: center;
+
+    & .rtf {
+      margin-left: 0;
+    }
+
+    & h2,
+    & .Form__Item {
+      margin: 0;
+    }
+  }
+
+  ometria-form form,
+  ometria-form form .input-group-btn {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 auto;
+    gap: 1rem;
+    justify-content: stretch;
+
+    & .button {
+      flex: 1 1 auto;
+    }
+  }
+}

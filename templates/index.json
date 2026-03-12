@@ -60,7 +60,7 @@
         "image_Fz4CbB"
       ],
       "custom_css": [
-        "@media screen and (max-width: 768px) {#splide02-slide02 .hero_slide-content {top: 25px; justify-content: flex-start;}#splide02-slide02 .hero_slide-ctas {margin-top: auto;}}"
+        "@media screen and (max-width: 768px) {#splide02-slide02 .hero_slide-content {top: 25px; justify-content: flex-start; } #splide02-slide02 .hero_slide-ctas {margin-top: auto; }}"
       ],
       "settings": {}
     },
@@ -343,6 +343,17 @@
         "best_sellers-2": "mens-bestsellers",
         "new-2": "mens-new"
       }
+    },
+    "ometria_inline_form_PzpkYY": {
+      "type": "ometria-inline-form",
+      "name": "Ometria Inline Form",
+      "settings": {
+        "title": "Subscribe to our newsletter",
+        "successHeading": "Success! Thank you for signing up.",
+        "successCopy": "<p>You are now on the list to receive exclusive early access.</p>",
+        "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
+        "signupSource": "Footer Form"
+      }
     }
   },
   "order": [
@@ -355,6 +366,7 @@
     "gender_categories_BCJVMn",
     "gender-shop-by-size",
     "card_grid_BfCgXU",
-    "gender_recommendation_carousel_QMFmBV"
+    "gender_recommendation_carousel_QMFmBV",
+    "ometria_inline_form_PzpkYY"
   ]
 }
