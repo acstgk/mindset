@@ -114,6 +114,7 @@
           },
           "announcement_slider_Qw6CQD": {
             "type": "announcement_slider",
+            "disabled": true,
             "settings": {
               "title": "FREE UK Express Delivery",
               "subcontent1": "On orders over £125",
@@ -135,9 +136,19 @@
           "announcement_slider_rTa4zL": {
             "type": "announcement_slider",
             "settings": {
-              "title": "20% Off with Unidays",
+              "title": "15% Off with Unidays",
               "subcontent1": "Get Your Code",
               "link1": "shopify://pages/unidays",
+              "enable_countdown": false,
+              "country_restriction": "none"
+            }
+          },
+          "announcement_slider_AbApwE": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "End of Season Sale",
+              "subcontent1": "Get up to 70% Off",
+              "link1": "shopify://collections/sale",
               "enable_countdown": false,
               "country_restriction": "none"
             }
@@ -148,7 +159,8 @@
           "announcement_slider_ij8XhU",
           "announcement_slider_Qw6CQD",
           "announcement_slider_KeM9Hq",
-          "announcement_slider_rTa4zL"
+          "announcement_slider_rTa4zL",
+          "announcement_slider_AbApwE"
         ],
         "settings": {
           "enable_bar": true,
@@ -200,7 +212,10 @@
           "menu-2": "footer",
           "menu-3": "brand-menu",
           "menu-4": "legal",
-          "seo_copy": "<p><em>Discover gym clothes, loungewear, and activewear designed for both performance and lifestyle. From premium tracksuits, fleece, and borg layers to high-performance gym wear and athleisure staples, every piece is built to move with you, whether you’re training hard, unwinding in comfort, or taking on the everyday. Rooted in resilience, ambition, and community, this is more than just workout clothing; it’s a mindset.  </em></p><p><em>Shop the latest men’s ,women’s and kids gym clothing, tracksuits, and loungewear essentials to look and feel your best inside and outside the gym.</em></p>"
+          "seo_copy": "<p><em>Discover gym clothes, loungewear, and activewear designed for both performance and lifestyle. From premium tracksuits, fleece, and borg layers to high-performance gym wear and athleisure staples, every piece is built to move with you, whether you’re training hard, unwinding in comfort, or taking on the everyday. Rooted in resilience, ambition, and community, this is more than just workout clothing; it’s a mindset.  </em></p><p><em>Shop the latest men’s ,women’s and kids gym clothing, tracksuits, and loungewear essentials to look and feel your best inside and outside the gym.</em></p>",
+          "show_signup": true,
+          "signup_title": "Sign up to our newsletter",
+          "signup_cta": "Subscribe for the latest news, offers and launches."
         }
       }
     },
