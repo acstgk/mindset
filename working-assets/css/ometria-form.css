@@ -65,8 +65,8 @@
 
 .section--ometria-inline-form {
   ometria-form {
-    margin-top: 4rem;
-    padding-top: 2rem;
+    margin-top: min(10rem, 15vw);
+      padding-top: 3rem;
     border-top: 1px solid var(--c-light-grey);
     display: flex;
     flex-wrap: wrap;
