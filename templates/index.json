@@ -189,6 +189,7 @@
     },
     "gender_categories_BCJVMn": {
       "type": "gender-categories",
+      "disabled": true,
       "name": "Shop by Discount",
       "settings": {
         "gendered": true,
@@ -349,6 +350,7 @@
       "name": "Ometria Inline Form",
       "settings": {
         "title": "Subscribe to our newsletter",
+        "copy": "Sign up for early access, exclusive offers and the lastest news.",
         "successHeading": "Success! Thank you for signing up.",
         "successCopy": "<p>You are now on the list to receive exclusive early access.</p>",
         "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
