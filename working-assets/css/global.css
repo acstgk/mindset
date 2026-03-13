@@ -115,7 +115,7 @@ input[type=range] {
     right: 0;
     bottom: 1em;
     position: absolute;
-    width: min(200px, 65%);
+    width: min(10rem, 65%);
     font-size: var(--txt-h2);
     z-index: 2;
     text-align: center;
@@ -156,6 +156,7 @@ input[type=range] {
     right: 0;
     bottom: 10%;
     z-index: 1;
+
 &>div {
         padding: 2rem 2rem 2rem 3rem;
     }
@@ -195,6 +196,9 @@ input[type=range] {
     }
 }
 
+.splide__track {
+    height: 100%;
+}
 .splide__slide {
     border-radius: var(--radius);
     overflow: hidden;

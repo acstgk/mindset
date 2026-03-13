@@ -267,7 +267,7 @@ blockquote {
   .error,
   .info,
   .flag {
-    padding: .25lh 1ch .2lh;
+    padding: .5lh 1ch;
   }
 }
 
