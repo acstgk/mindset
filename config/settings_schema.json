@@ -734,6 +734,17 @@
         "label": "Delivery Service Name",
         "default": "UK Express Delivery",
         "visible_if": "{{ settings.show-delivery-threshold2 == true }}"
+      },
+      {
+        "type": "header",
+        "content": "Returns",
+      },
+      {
+        "type": "number",
+        "id": "return_fee",
+        "label": "Domestic (UK) Return Fee Amount",
+        "info": "enter the fee in pence",
+        "default": 349
       }
     ]
   },
