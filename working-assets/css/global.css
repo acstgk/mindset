@@ -1324,6 +1324,13 @@ free-delivery {
             rotate: 45deg;
             }
     }
+& .evergreen-decal {
+    display: none;
+}
+
+& product-card .product_card-info {
+    margin-bottom: 0;
+}
 }
 
 .cart-upsells--carousel {
