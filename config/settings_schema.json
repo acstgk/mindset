@@ -843,6 +843,27 @@
         "label": "Default Meta Description",
         "info": "shown if page meta description is missing for",
         "default": "Discover gym clothes, loungewear, and activewear designed for both performance and lifestyle. From premium tracksuits, fleece, and borg layers to high-performance gym wear and athleisure staples, every piece is built to move with you, whether you’re training hard, unwinding in comfort, or taking on the everyday. Rooted in resilience, ambition, and community, this is more than just workout clothing; it’s a mindset."
+      },
+      {
+        "type": "header",
+        "content": "Product Decals"
+      },
+      {
+        "type": "checkbox",
+        "id": "decal_new",
+        "label": "Show New Product Decals?",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "decal_new_days",
+        "label": "New Product Days",
+        "info": "For how many days should a product be classed as new?",
+        "default": 28,
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "visible_if": "{{ settings.decal_new == true }}"
       }
     ]
   }
