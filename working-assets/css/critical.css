@@ -248,14 +248,16 @@ blockquote {
 .flag {
   --colour: var(--c-black);
   --bg-colour: var(--colour);
-  padding: .4rem 0.75rem .3rem;
+  padding: .4rem 0.75rem;
   display: inline-block;
   place-content: center;
   border-radius: var(--radius);
   backdrop-filter: blur(.5rem) contrast(0.5) brightness(1.5);
   color: var(--colour);
   background-color: oklch(from var(--bg-colour) calc(l + 1.2) c h / 0.4);
-    border: 1px solid oklch(from var(--bg-colour) calc(l + 0.2) c h / 0.5);
+  border: 1px solid oklch(from var(--bg-colour) calc(l + 0.2) c h / 0.5);
+  text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
 }
 
 @supports (margin-block: 1lh) {
@@ -373,7 +375,9 @@ blockquote {
   display: block;
   width: fit-content;
   text-transform: uppercase;
-  padding: 0.4lh 2ch 0.2lh;
+  padding: 0.4lh 2ch;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
   font-size: 11px;
   margin: .2rem 0 .2rem auto;
   letter-spacing: 0.1ch;

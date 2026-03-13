@@ -399,6 +399,9 @@ pdp-carousel {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
+& .colour {
+    text-align: right;
+  }
   }
 
   & .Price--wrapper {
