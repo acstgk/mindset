@@ -2198,7 +2198,7 @@ product-card {
         & img {
             scroll-snap-align: start;
             height: 100%;
-            width: 100%;
+            width: auto;
             object-fit: cover;
             object-position: top center;
 
