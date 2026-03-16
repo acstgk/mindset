@@ -1,22 +1,24 @@
-{% if product.tags contains 'impactpro' %}
+{% assign now = 'now' | date: '%s' %}
+{% assign published = product.published_at | date: '%s' %}
+{% assign time_diff = now | minus: published %}
+{% assign days_for_new = settings.decal_new_days | times: 86400 %}
+{% assign is_new = false %}
+{% if time_diff < days_for_new %}
+  {% assign is_new = true %}
+{% endif %}
+
+{% if product.tags contains 'new' and settings.decal_new and is_new %}
+  {% unless request.path contains 'new' %}
+    <div class="evergreen-decal {{ class }}">
+      <div><span class="emphasis">New</span></div>
+    </div>
+  {% endunless %}
+
+{% elsif product.tags contains 'impactpro' %}
   <div class="evergreen-decal {{ class }}">
     <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/IMPACTpro.svg?v=1773396429" width="330" height="70" alt="ImpactPRO Combat Fabric">
   </div>
-{% elsif product.tags contains 'new' and settings.decal_new %}
-  {% assign now = 'now' | date: '%s' %}
-  {% assign published = product.published_at | date: '%s' %}
-  {% assign time_diff = now | minus: published %}
-  {% assign days_for_new = settings.decal_new_days | times: 86400 %}
-
-  {% if time_diff < days_for_new %}
-    {% unless request.path contains 'new' %}
-      <div class="evergreen-decal {{ class }}">
-        <div><span class="emphasis">New</span><span class="p">Arrival</span></div>
-      </div>
-    {% endunless %}
-  {% endif %}
-
-{% elsif product.tags contains 'bundle' and localization.country.iso_code == 'GB' %}
+{% elsif product.tags contains 'bundle' %}
   <div class="evergreen-decal {{ class }}">
     <div><span class="p">Save with</span><span class="emphasis">Bundle</span></div>
   </div>

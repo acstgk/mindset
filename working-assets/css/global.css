@@ -115,8 +115,9 @@ input[type=range] {
     right: 0;
     bottom: 1em;
     position: absolute;
-    width: min(10rem, 65%);
-    font-size: var(--txt-h2);
+    width: max-content;
+        min-width: min(8rem, 30%);
+        font-size: var(--txt-h3);
     z-index: 2;
     text-align: center;
     border-radius: calc(calc(1rem + var(--txt-p)) + var(--txt-h1)) 0 0 calc(calc(1rem + var(--txt-p)) + var(--txt-h1));
@@ -124,6 +125,7 @@ input[type=range] {
 
     & img {
         padding: max(0.75rem, 10%) max(0.75rem, 10%) max(0.75rem, 10%) max(1.25rem, 12.5%);
+        width: min(8rem, 35vw);
     }
 
     &>div {
@@ -145,7 +147,7 @@ input[type=range] {
     & .p {
         white-space: nowrap;
         text-transform: uppercase;
-        font-size: var(--txt-sm);
+        font-size: calc(var(--txt-sm) * 0.8);
         letter-spacing: .5ch;
     }
 
