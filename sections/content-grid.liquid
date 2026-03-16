@@ -1,9 +1,9 @@
 {{ 'content-grid.min.css' | asset_url | stylesheet_tag }}
 <div class="PageContent content-grid--wrapper{% unless section.settings.full_width %} max-width{% endunless %}  {% if section.settings.grid_style == 'carousel' %}carousel{% endif %}">
   {% for block in section.blocks %}
-    <div class="grid-row splide__slide">
+    <div class="grid-row {% if section.settings.grid_style == 'carousel' %}splide__slide{% endif %}">
       {% if block.settings.image or block.settings.video %}
-        <div class="content-grid--media-cell" style="{%- if block.settings.rtf == "" and block.settings.use_html == false -%}grid-column: span 2;{%- endif -%}">
+        <div data-entry-animation="true" class="content-grid--media-cell" style="{%- if block.settings.rtf == "" and block.settings.use_html == false -%}grid-column: span 2;{%- endif -%}">
           {% if block.settings.img_style == 'square' %}
             {% assign aspect_ratio = '1 / 1' %}
           {% else %}

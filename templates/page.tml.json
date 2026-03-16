@@ -49,7 +49,7 @@
       "custom_css": [
         ".loader.grid-loader.gender-loader {display: none;}",
         "#mens-categories {transition: all 0.4s var(--bezier); opacity: 1; transform: translateY(0); height: auto; pointer-events: all;}",
-        ".section-gender-categories {width: 100vw !important; background: #1b1b1b; color: white;}",
+        ".section--gender-categories {width: 100vw !important; background: #1b1b1b; color: white;}",
         ".category-grid a {font-size: 30px;}"
       ],
       "name": "Shop by Category",

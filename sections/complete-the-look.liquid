@@ -87,10 +87,10 @@
 
   {% comment %} Render the section if we have valid, in-stock recommendations {% endcomment %}
   {% if instockcount > 0 and product.type != 'Tracksuit Set' %}
-    <div class="accent-bg">
+    <div class="accent-bg" data-entry-animation="true">
       <h2 class="h1">COMPLETE THE LOOK</h2>
       {% comment %} Desktop Carousel View {% endcomment %}
-      <productcard-carousel id="completethelook">
+      <productcard-carousel id="completethelook" class="entry-animation">
         {% assign product_handles = product_handles | remove_first: '+' | split: '+' %}
         {% for handle in product_handles %}
           {%- render 'product-card' with all_products[handle] as product, class: 'splide__slide' -%}
@@ -153,7 +153,7 @@
 {% schema %}
 {
   "name": "Complete the Look",
-  "class": "section--complete-the-look",
+  "class": "section--complete-the-look entry-animation",
   "settings": []
 }
 {% endschema %}

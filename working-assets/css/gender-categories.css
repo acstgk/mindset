@@ -36,12 +36,12 @@
   }
 }
 
-.section-gender-categories,
-.section-gender-shop-size {
+.section--gender-categories,
+.section--gender-shop-size {
   margin: min(4rem, 5vw) auto min(5rem, 8vw);
 }
 
-.section-gender-categories .gender-wrapper>div:not(.loader) {
+.section--gender-categories .gender-wrapper>div:not(.loader) {
   width: 100%;
 }
 
