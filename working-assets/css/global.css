@@ -117,10 +117,10 @@ input[type=range] {
     position: absolute;
     width: max-content;
         min-width: min(8rem, 30%);
-        font-size: var(--txt-h3);
+        font-size: var(--txt-h4);
     z-index: 2;
     text-align: center;
-    border-radius: calc(calc(1rem + var(--txt-p)) + var(--txt-h1)) 0 0 calc(calc(1rem + var(--txt-p)) + var(--txt-h1));
+    border-radius: calc(calc(1rem + var(--txt-p)) + var(--txt-h4)) 0 0 calc(calc(1rem + var(--txt-p)) + var(--txt-h4));
     box-shadow: 0 0 2rem -.5rem rgb(125 125 125 / 0.5);
 
     & img {
@@ -147,7 +147,7 @@ input[type=range] {
     & .p {
         white-space: nowrap;
         text-transform: uppercase;
-        font-size: calc(var(--txt-sm) * 0.8);
+        font-size: calc(var(--txt-sm) * 0.75);
         letter-spacing: .5ch;
     }
 
