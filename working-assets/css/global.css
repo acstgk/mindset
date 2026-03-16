@@ -2571,7 +2571,7 @@ form {
 [data-entry-animation="true"],
 .shopify-section.entry-animation,
 .rtf,
-form:not('#filter-form') {
+form:not(#filter-form) {
     overflow: hidden;
 
     &.is-animating {
