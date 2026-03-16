@@ -1797,3 +1797,100 @@ if (!customElements.get("announcement-bar")) {
     },
   );
 }
+
+// ===================
+// Entry Animations
+// ===================
+class EntryAnimationObserver {
+  constructor() {
+    this.selector = '.shopify-section, [data-entry-animation="true"]';
+    this.observer = null;
+    this.mutationObserver = null;
+    this.init();
+  }
+
+  init() {
+    // 1. Create the IntersectionObserver
+    this.observer = new window.IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            // Add the animation class
+            el.classList.add('has-animated');
+            // Remove the prep class (optional, but clean)
+            el.classList.remove('is-animating');
+            // We only want to animate once, so stop observing
+            obs.unobserve(el);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '0px 0px -100px 0px', // trigger slightly before it comes fully into view
+        threshold: 0,
+      }
+    );
+
+    // 2. Prep existing elements on the page
+    this.prepElements(document.querySelectorAll(this.selector));
+
+    // 3. Set up MutationObserver to catch dynamically injected elements (like from infinite-scroll)
+    this.mutationObserver = new MutationObserver((mutations) => {
+      let newElements = [];
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === 1) { // ELEMENT_NODE
+            if (node.matches(this.selector)) {
+              newElements.push(node);
+            }
+            // Also check children of added nodes
+            const children = node.querySelectorAll(this.selector);
+            if (children.length > 0) {
+              newElements.push(...children);
+            }
+          }
+        });
+      });
+
+      if (newElements.length > 0) {
+        this.prepElements(newElements);
+      }
+    });
+
+    this.mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
+  prepElements(elements) {
+    elements.forEach((el) => {
+      // Avoid processing elements we've already set up
+      if (el.dataset.animationPrepped === "true") return;
+      el.dataset.animationPrepped = "true";
+
+      // Check if element is below the initial viewport
+      const rect = el.getBoundingClientRect();
+      if (rect.top > window.innerHeight) {
+        // Only if it's below the fold do we apply the initial hidden state
+        el.classList.add('is-animating');
+        // And observe it for when it scrolls into view
+        this.observer.observe(el);
+      } else {
+        // If it's already in viewport on load, just let it be visible naturally
+        // No animation needed, prevents FOIT
+        el.classList.add('has-animated');
+      }
+    });
+  }
+}
+
+// Initialize on DOM load or immediately if already loaded
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    window.entryAnimations = new EntryAnimationObserver();
+  });
+} else {
+  window.entryAnimations = new EntryAnimationObserver();
+}

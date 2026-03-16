@@ -2567,3 +2567,19 @@ form {
         transform: translateY(-7%);
     }
 }
+/* Entry Animations */
+[data-entry-animation="true"],
+.shopify-section.entry-animation {
+    overflow: hidden;
+
+    &.is-animating {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    &.has-animated {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.5s var(--bezier, cubic-bezier(0.25, 0.46, 0.45, 0.94)), transform 0.5s var(--bezier, cubic-bezier(0.25, 0.46, 0.45, 0.94));
+    }
+}
