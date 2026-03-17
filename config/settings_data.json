@@ -140,7 +140,7 @@
               "subcontent1": "Get Your Code",
               "link1": "shopify://pages/unidays",
               "enable_countdown": false,
-              "country_restriction": "none"
+              "country_restriction": "domestic_only"
             }
           },
           "announcement_slider_AbApwE": {

@@ -381,6 +381,7 @@ blockquote {
   font-size: 11px;
   margin: .2rem 0 .2rem auto;
   letter-spacing: 0.1ch;
+  height: max-content
 }
 
 .Price--markdown {
@@ -838,9 +839,11 @@ ul.sub_menu-items {
   & a {
     color: var(--c-dark-grey);
     display: block;
+    transition: scale 0.15s var(--bezier);
 
     &:hover {
       color: color-mix(in lab, var(--c-dark-grey), white 30%);
+      scale: 1.02;
     }
   }
 }

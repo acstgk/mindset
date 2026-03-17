@@ -306,7 +306,7 @@
             "image": "shopify://shop_images/ENERGY_TEE_ENERGY_SHORT_-_WHITE_BLACK.jpg",
             "text": "",
             "button_text": "Energy Collection",
-            "url": "shopify://collections/energy-q1",
+            "url": "shopify://collections/mens-energy",
             "gender": "mens"
           }
         }
@@ -324,7 +324,7 @@
       "custom_css": [
         "{margin-bottom: 0; background: var(--c-off-white); padding-top: 2rem;}"
       ],
-      "name": "Trending Collection",
+      "name": "Trending Collections",
       "settings": {
         "title": "Trending Collections",
         "cta_1_url": "",
