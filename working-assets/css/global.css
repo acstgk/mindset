@@ -1039,7 +1039,7 @@ content-accordian {
     & .side_menu-header-item {
         text-transform: uppercase;
         font-family: var(--emphasis-heading-font-family);
-        font-size: var(--txt-h3);
+        font-size: var(--txt-h2);
         color: var(--c-grey);
         opacity: 0.8;
         transition: color 0.1s var(--bezier), scale 0.1s var(--bezier), opacity 0.1s var(--bezier), ;
