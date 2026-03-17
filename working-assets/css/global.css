@@ -1333,6 +1333,10 @@ free-delivery {
 & product-card .product_card-info {
     margin-bottom: 0;
 }
+& .Price--wrapper {
+    flex-wrap: wrap;
+    gap: 0 0.5rem;
+}
 }
 
 .cart-upsells--carousel {

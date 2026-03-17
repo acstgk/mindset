@@ -123,6 +123,7 @@
    }
 & .Price--wrapper {
   flex-wrap: wrap;
+  gap: 0 0.5rem;
 }
  }
 
