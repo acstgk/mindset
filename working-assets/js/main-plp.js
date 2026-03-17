@@ -2,6 +2,7 @@
 
 ;
 import { SplideUtil } from "./SplideUtil.js";
+import { debounce } from "./utils.js";
 
 // ===================
 // Loading Initial Setting
@@ -389,7 +390,7 @@ class BlurbControls {
 
   _init() {
     this._checkHeight();
-    window.addEventListener("resize", window.gkUtils.debounce(() => this._checkHeight(), 200));
+    window.addEventListener("resize", debounce(() => this._checkHeight(), 200));
   }
 
   _checkHeight() {

@@ -1,5 +1,6 @@
 /* global Shopify Cart iWish */
 import RecentlyViewed from "./RecentlyViewed.js";
+import { bindQATBButtons } from "./utils.js";
 
 // ===================
 // Recently Viewed List
@@ -163,7 +164,7 @@ export default class RecentlyViewedElement extends HTMLElement {
             li.querySelector(".Price--wrapper").insertBefore(compareAtEl, li.querySelector(".Price"));
           }
 
-          window.gkUtils.bindQATBButtons(li); // bind logic to qatb buttons
+          bindQATBButtons(li); // bind logic to qatb buttons
           li.appendChild(iWishBtn); // append the wishlist button
           this.list.appendChild(li); // add the element to the DOM
 
