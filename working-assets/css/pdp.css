@@ -15,7 +15,7 @@ form#atc_form {
     }
   & .atc_form-sizes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.5em), 70px));
+    grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.4em), 70px));
     gap: 0.5em;
     justify-content: start;
     margin-top: 1rem;
