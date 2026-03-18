@@ -115,6 +115,12 @@ if (!customElements.get("pdp-carousel")) {
           const imgSrc = newImg.src || newImg.dataset.splideLazy;
           const zoomImg = document.createElement("img");
           zoomImg.className = "pdp-zoom-img";
+
+          outgoingImage.querySelector(".loader")?.remove();
+          const loader = document.createElement("div");
+          loader.className = "loader";
+          outgoingImage.prepend(loader);
+
           zoomImg.src = imgSrc;
           outgoingImage.prepend(zoomImg);
 
@@ -131,6 +137,7 @@ if (!customElements.get("pdp-carousel")) {
               startScale: scale,
             });
             outgoingImage.addEventListener("wheel", panzoom.zoomWithWheel);
+            loader.remove();
           });
         }
       };
@@ -140,6 +147,11 @@ if (!customElements.get("pdp-carousel")) {
         const panzoomEl = document.createElement("div");
         panzoomEl.classList.add("pdp-zoom-panzoom", direction);
         panzoomEl.dataset.index = index ? index : 0;
+
+        panzoomEl.querySelector(".loader")?.remove();
+        const loader = document.createElement("div");
+        loader.className = "loader";
+        panzoomEl.prepend(loader);
 
         if (img) {
           const imgSrc = img.src;
@@ -162,6 +174,7 @@ if (!customElements.get("pdp-carousel")) {
               focal: { x: 50, y: 50 },
             });
             panzoomEl.addEventListener("wheel", panzoom.zoomWithWheel);
+            loader.remove();
           });
         }
         this.zoomEl.prepend(panzoomEl);
