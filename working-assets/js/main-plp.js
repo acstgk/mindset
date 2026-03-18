@@ -216,7 +216,12 @@ class EnhancedFilters {
     url.search = "";
     url.search = new URLSearchParams(formData).toString();
 
-    const fetchUrl = url.toString();
+    let fetchUrl = url.toString();
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('q')) {
+      fetchUrl += `&q=${params.get('q')}`;
+    }
 
     try {
       const currentGrid = document.querySelector("infinite-scroll");
