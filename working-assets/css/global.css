@@ -120,7 +120,8 @@ input[type=range] {
         font-size: var(--txt-h4);
     z-index: 2;
     text-align: center;
-    border-radius: calc(calc(1rem + var(--txt-p)) + var(--txt-h4)) 0 0 calc(calc(1rem + var(--txt-p)) + var(--txt-h4));
+    border-radius: 200px 0 0 200px;
+        /* oversize the border radius for a circular arc that is always 50% of element height  */
     box-shadow: 0 0 2rem -.5rem rgb(125 125 125 / 0.5);
 
     & img {
