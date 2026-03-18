@@ -816,7 +816,7 @@ if (!customElements.get("thumbnail-carousel")) {
           fixedHeight: 200,
           fixedWidth: 150,
           lazyLoad: "sequential",
-          gap: "10px",
+          gap: ".75rem",
           pagination: false,
           arrows: false,
           wheel: true,

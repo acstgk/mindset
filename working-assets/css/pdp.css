@@ -720,7 +720,7 @@ button.modal-close :hover svg {
     display: grid;
     grid-template-columns: 1fr minmax(368px, 400px);
     grid-template-rows: max-content 1fr;
-    gap: 1em;
+    gap: 1.5em;
 
     & bnpl-options {
       margin-block: 0.5em;
@@ -762,7 +762,7 @@ button.modal-close :hover svg {
 
   .pdp-carousels-wrapper {
     display: flex;
-    gap: 10px;
+    gap: .75rem;
     height: min-content;
   }
 
