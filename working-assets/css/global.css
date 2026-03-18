@@ -631,7 +631,10 @@ background-color: var(--c-white);
     margin: 15px auto 0;
     max-width: 90%;
     padding: 5px 10px;
+}
 
+#BISModal .modal-header {
+    justify-content: space-between;
 }
 
 .round-btn {
