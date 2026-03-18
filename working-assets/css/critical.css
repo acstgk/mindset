@@ -63,6 +63,7 @@ img {
   height: auto;
   object-fit: cover;
   border-radius: var(--radius);
+  filter: saturate(1.05) contrast(1.05);
 
   &.cover {
     min-height: 100%;
