@@ -88,23 +88,15 @@ form#atc_form {
     color: var(--c-grey);
     border: 1px solid var(--c-light-grey);
     overflow: hidden;
-    text-shadow:
-        4px 4px 0 var(--c-white),
-        -4px -4px 0 var(--c-white),
-        4px -4px 0 var(--c-white),
-        -4px 4px 0 var(--c-white),
-        3px 3px 0 var(--c-white),
-        -3px -3px 0 var(--c-white),
-        3px -3px 0 var(--c-white),
-        -3px 3px 0 var(--c-white),
-        2px 2px 0 var(--c-white),
-        -2px -2px 0 var(--c-white),
-        2px -2px 0 var(--c-white),
-        -2px 2px 0 var(--c-white);
 
     &:after {
       inset: 0;
-        background: linear-gradient(to bottom right,
+        background:
+            linear-gradient(transparent calc(50% - .5rem),
+              var(--c-white) calc(50% - .5rem),
+              var(--c-white) calc(50% + .5rem),
+              transparent calc(50% + .5rem)),
+            linear-gradient(to bottom right,
             transparent calc(50% - 0.5px),
             var(--c-light-grey) 50%,
             transparent calc(50% + 0.5px));
