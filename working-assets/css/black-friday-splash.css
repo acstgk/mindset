@@ -82,7 +82,7 @@ countdown-timer {
 countdown-timer {
   background-color: #131313;
   color: #eee;
-  font-size: var(--txt-3, 40px);
+  font-size: var(--txt-h2);
   display: block;
   margin: 20px 0 0;
   padding: 10px 0;

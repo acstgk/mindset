@@ -1,9 +1,4 @@
 /* GLOBAL  */
-
-hmtl>body.no-scroll {
-    overflow: hidden;
-}
-
 @view-transition {
     navigation: auto;
 }
@@ -237,7 +232,6 @@ button.splide__pagination__page {
 
 productcard-carousel {
     margin: 0 auto;
-    display: none;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(175px, 350px));
     width: 90vw;
@@ -262,21 +256,21 @@ productcard-carousel {
 productcard-carousel .splide__arrows {
     display: flex;
     position: absolute;
-        top: 40%;
+    top: 40%;
         z-index: 1;
         left: -14px;
-            width: calc(100% + 28px);
+        width: calc(100% + 28px);
         justify-content: space-between;
 }
 
 productcard-carousel .splide__arrow {
     width: 24px;
-        height: 24px;
+    height: 24px;
     display: grid;
     fill: var(--c-dark-grey);
     transition: fill 0.2s ease, scale 0.2s ease;
     background: color-mix(in lab, var(--c-white), transparent 70%);
-        box-shadow: 0 0 5px -1px var(--c-shadow);
+    box-shadow: 0 0 5px -1px var(--c-shadow);
         border: 1px solid rgb(0 0 0 / 0.1);
         border-radius: 50%;
         backdrop-filter: blur(3px);
@@ -376,6 +370,9 @@ body.no-scroll page-overlay {
     pointer-events: all;
 }
 
+.no-scroll {
+    overflow: hidden;
+}
 .drawer {
     z-index: 11;
 }
@@ -390,12 +387,13 @@ body.no-scroll page-overlay {
     & a:not[class|='button'],
     & .a:not[class|='button'] {
         color: var(--c-dark-grey);
+        &:hover {
+                color: var(--c-black);
+            }
     }
 }
 
-.no-scroll {
-    overflow: hidden;
-}
+
 
 .mob-hide {
     display: none;
@@ -631,13 +629,6 @@ background-color: var(--c-white);
     margin: 15px auto 0;
     max-width: 90%;
     padding: 5px 10px;
-}
-
-#BISModal .modal-header {
-    justify-content: space-between;
-}
-
-.round-btn {
     border-radius: 15px;
     border-radius: 50%;
     width: 30px;
@@ -1043,7 +1034,7 @@ content-accordian {
     & .side_menu-header-item {
         text-transform: uppercase;
         font-family: var(--emphasis-heading-font-family);
-        font-size: var(--txt-h2);
+        font-size: min(1.5rem, var(--txt-h2));
         color: var(--c-grey);
         opacity: 0.8;
         transition: color 0.1s var(--bezier), scale 0.1s var(--bezier), opacity 0.1s var(--bezier), ;
@@ -2581,7 +2572,7 @@ form {
 .shopify-section.entry-animation,
 .rtf,
 form:not(#filter-form) {
-    overflow: hidden;
+    overflow: visible;
 
     &.is-animating {
         opacity: 0;
