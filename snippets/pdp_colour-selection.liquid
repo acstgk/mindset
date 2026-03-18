@@ -1,5 +1,6 @@
 {% assign style_tag = product.tags | where: 'style:' | first %}
 {% assign this_url = product.url %}
+{% assign alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
 
 {%- assign top_types = 'Tee,Hood,Jacket,Gilet,Top,Sweatshirt,Vest,Bra,Polo,Tracksuit' | split: ',' -%}
 {%- assign bottom_types = 'Bottoms,Leggings,Skirt,Tracksuit Bottoms' | split: ',' -%}
@@ -27,16 +28,25 @@
             {% if product.tags contains style_tag %}
               {% unless found_products contains product.id %}
                 {% assign found_products = found_products | append: ' ' | append: product.id %}
+                 {% assign color_name = product.title | replace: '–', '-' | split: '-' | last | strip %}
+                 {% assign letter = color_name | upcase | slice: 0, 1 %}
+                 {% if alphabet contains letter %}
+                   {% assign parts = alphabet | split: letter %}
+                   {% assign position = parts[0].size | plus: 1 %}
+                 {% else %}
+                   {% assign position = 0 %}
+                 {% endif %}
                 <a
-                  style="background: {{ product.metafields.product.colour.value.hex }}"
+                  style="background: {{ product.metafields.product.colour.value.hex }};order:{{ position }}"
                   class="colour-swatches {%- if this_url == product.url %} active{% endif -%}"
                   href="{% if this_url == product.url %}#{%else%}{{ product.url }}{% endif %}"
                   pid="{{ product.id }}"
+
                 >
                   {{ product.featured_image | image_url: width: 400, height: 400, crop: crop_origin | image_tag: width: 400, widths: '100, 150, 200, 300, 400', sizes: '(max-width: 500px) 25vw, (max-width: 1006px) 105px, 8vw', fetchpriority: 'low' }}
 
-                  {% assign color_name = product.title | replace: '–', '-' | split: '-' %}
-                  <span class="tooltip">{{ color_name[-1] }}</span>
+
+                  <span class="tooltip">{{ color_name }}</span>
                   {% comment %}
                     {% if section.settings.show_color_swatch %}
                       <div class="colourtype" style="border-top:1px solid white; height: 3px;"></div>
