@@ -624,6 +624,25 @@ background-color: var(--c-white);
     }
 }
 
+.round-btn {
+    width: 2rem;
+    height: 2rem;
+    display: grid;
+    fill: var(--c-dark-grey);
+    transition: fill 0.2s ease, scale 0.2s ease;
+    background: color-mix(in lab, var(--c-white), transparent 70%);
+    box-shadow: 0 0 5px -1px var(--c-shadow);
+    border: 1px solid rgb(0 0 0 / 0.1);
+    border-radius: 50%;
+    backdrop-filter: blur(3px);
+    padding: 0.25rem;
+
+    &:not(:disabled):hover {
+        fill: var(--c-dark-grey);
+        scale: 1.05;
+    }
+
+}
 .BIS_trigger {
     font-size: calc(var(--txt-sm) * 0.9);
     margin: 15px auto 0;
