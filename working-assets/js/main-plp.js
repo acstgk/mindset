@@ -11,15 +11,17 @@ import { debounce } from "./utils.js";
 // Remember and reset grid size
 function gridSize() {
   const gridSize = localStorage.getItem("GK::grid-size");
-  const grid = document.querySelector("infinite-scroll");
+  const grid = document.querySelector("infinite-scroll.max-width");
   if (!gridSize) {
     grid.style.opacity = 1;
+    grid.style.marginTop = "0";
     return;
   }
 
   grid.classList = "max-width";
   grid.classList.add(gridSize);
   grid.style.opacity = 1;
+  grid.style.marginTop = "0";
   document.querySelector(".column-controls").dataset.grid = gridSize;
 }
 
@@ -219,7 +221,7 @@ class EnhancedFilters {
     let fetchUrl = url.toString();
 
     const params = new URLSearchParams(window.location.search);
-    if (params.has('q') && !url.search.includes('q=')) {
+    if (params.has('q') && !url.search.includes('')) {
       fetchUrl += `&q=${params.get('q')}`;
     }
 
