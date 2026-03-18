@@ -789,6 +789,7 @@ button.modal-close :hover svg {
 
     & .thumbs_slide {
       border: 2px solid transparent;
+      cursor: pointer;
     }
 
     & .is-active {
