@@ -258,14 +258,14 @@ productcard-carousel .splide__arrows {
     position: absolute;
     top: 40%;
         z-index: 1;
-        left: -14px;
-        width: calc(100% + 28px);
+        left: calc(0px - max(1.25rem, 12px));
+            width: calc(100% + 2.5rem);
         justify-content: space-between;
 }
 
 productcard-carousel .splide__arrow {
-    width: 24px;
-    height: 24px;
+    width: max(2.5rem, 24px);
+        height: max(2.5rem, 24px);
     display: grid;
     fill: var(--c-dark-grey);
     transition: fill 0.2s ease, scale 0.2s ease;
@@ -282,8 +282,8 @@ productcard-carousel .splide__arrow {
     }
 
     & svg {
-        width: 12px;
-            height: 12px;
+        width: max(14px, 1rem);
+            height: max(14px, 1rem);
     }
 }
 
@@ -625,9 +625,10 @@ background-color: var(--c-white);
 }
 
 .round-btn {
-    width: 2rem;
-    height: 2rem;
+    width: max(2rem, 24px);
+        height: max(2rem, 24px);
     display: grid;
+    place-content: center;
     fill: var(--c-dark-grey);
     transition: fill 0.2s ease, scale 0.2s ease;
     background: color-mix(in lab, var(--c-white), transparent 70%);
@@ -642,21 +643,18 @@ background-color: var(--c-white);
         scale: 1.05;
     }
 
+& svg {
+    width: max(1rem, 12px);
+    height: max(1rem, 12px);
+}
 }
 .BIS_trigger {
     font-size: calc(var(--txt-sm) * 0.9);
     margin: 15px auto 0;
     max-width: 90%;
     padding: 5px 10px;
-    border-radius: 15px;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
     display: grid;
     place-items: center;
-    backdrop-filter: blur(3px);
-    background: color-mix(in lab, var(--c-white), transparent 70%);
-    box-shadow: 0 0 4px var(--c-shadow);
     cursor: pointer;
     scale: 1;
         transition: scale 0.15s var(--bezier);
@@ -668,7 +666,7 @@ background-color: var(--c-white);
         margin-top: 0;
     }
 
-                                &:not(:disabled):hover {
+&:not(:disabled):hover {
             scale: 1.1;
         }
 }
@@ -2137,6 +2135,7 @@ product-card {
 .qatb-btns {
     display: flex;
     justify-content: center;
+    align-items: flex-end;
     gap: 12px;
     flex-flow: row wrap;
     grid-column: 1 / -1;
@@ -2146,11 +2145,12 @@ product-card {
 .qatb-btn,
 .qatb-btn--oos {
     min-width: 24px;
-    height: 18px;
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    display: inline;
     padding-bottom: 1px;
+    height: 1.2rem;
+        text-box-trim: trim-both;
+        text-box-edge: cap alphabetic;
 }
 
 .qatb-btn--oos {
@@ -2178,11 +2178,12 @@ product-card {
 
     &:not(:has(> .loader)):hover {
         color: var(--c-black);
-        border-bottom-width: 2px;
-        padding-bottom: 0;
-        font-weight: 700;
         border-bottom-color: var(--c-black);
+            border-bottom-width: 2px;
+        padding-bottom: 0px;
+        font-weight: 700;
         transition: scale 0.1s ease;
+        height: 1.2rem;
 
         &:active {
             scale: 0.9;
@@ -2589,7 +2590,7 @@ form {
 /* Entry Animations */
 [data-entry-animation="true"],
 .shopify-section.entry-animation,
-.rtf,
+.rtf:not(.accordian-content),
 form:not(#filter-form) {
     overflow: visible;
 

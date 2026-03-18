@@ -255,7 +255,6 @@ form#atc_form {
     width: 15px;
     height: 15px;
     stroke: var(--c-dark-grey);
-    position: absolute;
   }
 }
 
