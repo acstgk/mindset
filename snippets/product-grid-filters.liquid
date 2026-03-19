@@ -16,7 +16,9 @@
       <form id="filter-form">
         {% comment %} Mobile Filters {% endcomment %}
         <div class="filterby-container">
-          <small><span class="product-count">{{ collection.products_count }}</span> matching products</small><br>
+          <small
+            ><span class="product-count">{{ collection.products_count }}</span> matching products</small
+          ><br>
           <span> Filter by:</span>
           {% assign active_count = 0 %}
 
@@ -27,16 +29,17 @@
                   <div class="accordian-items filter_item filter_item-{{- filter.label | handle -}} ">
                     <div class="accordian-header filter_item-name item-{{- filter.label | handle -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
                       <div class="filter_item-title">
-                        {% if filter.label == 'Size' and request.path contains 'kids' or filter.label == 'Size' and request.path contains 'boys' or filter.label == 'Size' and request.path contains 'girls' %}
-                          Age
-                        {% elsif filter.label == 'Sale' and request.path contains 'sale' %}
+                        {% if filter.label == 'Sale' and request.path contains 'sale' %}
                           Discount
                         {% else %}
                           {{ filter.label }}
                         {% endif %}
                         {%- if filter.active_values.size > 0 -%}
                           {% assign active_count = active_count | plus: 1 %}
-                          <i>({{ filter.active_values.size }}<span class="pluralize"> {{filter.active_values.size | pluralize: 'filter', 'filters' }} active</span>)</i>
+                          <i
+                            >({{ filter.active_values.size -}}
+                            <span class="pluralize"> {{ filter.active_values.size | pluralize: 'filter', 'filters' }} active</span>)</i
+                          >
                         {%- endif -%}
                       </div>
                     </div>
@@ -53,12 +56,22 @@
                               {% assign sorted_values = filter.values | sort: 'label' %}
                             {% endif %}
                             {%- for filter_value in sorted_values -%}
+                              {% assign order = "-1" %}
+                              {% assign kids_sizes = '3-45-67-89-1011-1213-14' %}
+                              {% assign is_kids = false %}
+                              {% if kids_sizes contains filter_value.label %}
+                                {% assign is_kids = true %}
+                                {% assign order = "1" %}
+                              {% endif %}
+
                               <li
                                 class="filter_value-checkbox"
                                 {% if filter_value.label == 'hidden' %}
                                   hidden
                                 {% endif %}
-                                {% if filter_value.label contains "up to 40% off" %} style="order:-1;" {% endif %}
+                                {% if filter_value.label contains 'up to 40% off' or is_kids %}
+                                  style="order:{{order}};"
+                                {% endif %}
                               >
                                 <input
                                   type="checkbox"
@@ -79,7 +92,8 @@
                                     {%- when 'image' -%}
                                       {{ filter_value.swatch.image | image_url: width: 15 | image_tag: alt: filter_value.swatch.image.alt, class: 'swatch' }}
                                   {%- endcase -%}
-                                  {{ filter_value.label }} ({{ filter_value.count }})
+                                  {{ filter_value.label -}}
+                                  {%- if is_kids %} years{% endif %} ({{ filter_value.count }})
                                 </label>
                               </li>
                             {%- endfor -%}
