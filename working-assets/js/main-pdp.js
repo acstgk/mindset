@@ -625,7 +625,7 @@ if (!customElements.get("dispatch-timer")) {
       getNextDispatchTime() {
         const now = new Date();
         const dispatchTime = new Date(now);
-        dispatchTime.setHours(this.cutoffHours, this.cutoffMins, 0, 0);
+        dispatchTime.setHours(this.cutoffHours, 0, 0, 0);
 
         // If current time is past cutoff, set for next business day
         if (now > dispatchTime) {
@@ -641,7 +641,7 @@ if (!customElements.get("dispatch-timer")) {
           const dayOfWeek = nextSaturday.getDay();
           const daysUntilSaturday = (6 - dayOfWeek + 7) % 7 || 7;
           nextSaturday.setDate(nextSaturday.getDate() + daysUntilSaturday);
-          nextSaturday.setHours(this.cutoffFriHours, 0, 0, 0);
+          nextSaturday.setHours(this.cutoffFriHours, this.cutoffMins, 0, 0);
 
           // Calculate ETA for Saturday delivery
           const saturdayETA = new Date(nextSaturday);
@@ -655,14 +655,14 @@ if (!customElements.get("dispatch-timer")) {
             // Set dispatchTime to be Friday at cutoffFriHours
             const fridayBeforeSaturday = new Date(nextSaturday);
             fridayBeforeSaturday.setDate(nextSaturday.getDate() - 1); // Friday before Saturday
-            fridayBeforeSaturday.setHours(this.cutoffFriHours, 0, 0, 0);
+            fridayBeforeSaturday.setHours(this.cutoffFriHours, this.cutoffMins, 0, 0);
             dispatchTime.setTime(fridayBeforeSaturday.getTime());
           }
         }
 
         // If it's Friday, use earlier cutoff time
         if (this.useSaturdayDelivery && dispatchTime.getDay() === 5 && dispatchTime.getHours < this.cutoffFriHours) {
-          dispatchTime.setHours(this.cutoffFriHours, 0, 0, 0);
+          dispatchTime.setHours(this.cutoffFriHours, this.cutoffMins, 0, 0);
         }
 
         const diff = dispatchTime - now;
