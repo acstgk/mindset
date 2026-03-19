@@ -2593,7 +2593,7 @@ form {
 /* Entry Animations */
 [data-entry-animation="true"],
 .shopify-section.entry-animation,
-.rtf:not(.accordian-content),
+.rtf:not(.no-animation),
 form:not(#filter-form) {
     overflow: visible;
 
