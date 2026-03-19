@@ -16,6 +16,7 @@ export default class ContentAccordian extends HTMLElement {
     this._addCloseButtons();
 
     this.headers.forEach((header) => {
+
       header.addEventListener("click", this._handleHeaderClick);
       if (header.classList.contains('active')) {
         header.setAttribute("aria-expanded", "true");
@@ -25,6 +26,7 @@ export default class ContentAccordian extends HTMLElement {
     });
 
     this.contents.forEach((content, index) => {
+      content.classList.add('no-animation');
       if (this.headers[index].classList.contains('active')) {
         content.setAttribute("aria-hidden", "false");
       } else {
@@ -32,8 +34,6 @@ export default class ContentAccordian extends HTMLElement {
       }
     });
   }
-
-
 
   _addCloseButtons() {
     const iconHTML = `
