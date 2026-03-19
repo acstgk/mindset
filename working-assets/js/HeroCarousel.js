@@ -1,4 +1,3 @@
-;
 import { SplideUtil } from "./SplideUtil.js";
 
 // ===================
@@ -43,8 +42,8 @@ export default class HeroCarousel extends HTMLElement {
     });
 
     this.splide.on("ready", () => {
-      const firstSlide = this.splide.root.querySelector("#splide01-slide01");
-      this.loadAndPlayVideo(firstSlide);
+      const firstSlide = this.splide.Components.Slides.getAt(0)?.slide;
+      if (firstSlide) this.loadAndPlayVideo(firstSlide);
     });
 
     this.splide.on("active", (slide) => {
@@ -53,25 +52,20 @@ export default class HeroCarousel extends HTMLElement {
 
     this.splide.on("resized", () => {
       const slideIndex = this.splide.index;
-      const slideEl = this.splide.Components.Slides.get(slideIndex)[slideIndex].slide;
+      const slideEl = this.splide.Components.Slides.getAt(slideIndex)?.slide;
 
-      this.loadAndPlayVideo(slideEl);
+      if (slideEl) this.loadAndPlayVideo(slideEl);
     });
 
     this.splide.on("inactive", (slide) => {
-      const mobVid = slide.slide.querySelector(".hero_slide-video.mob-only");
-      const deskVid = slide.slide.querySelector(".hero_slide-video.mob-hide");
-      const width = window.innerWidth;
-
-      if (width < 768) {
-        if (mobVid) {
-          mobVid.pause();
+      const videos = slide.slide.querySelectorAll(".hero_slide-video");
+      videos.forEach((video) => {
+        try {
+          if (!video.paused) video.pause();
+        } catch (err) {
+          console.debug("Video pause failed", err);
         }
-      } else {
-        if (deskVid) {
-          deskVid.pause();
-        }
-      }
+      });
     });
 
     this.splide.mount();
@@ -81,9 +75,10 @@ export default class HeroCarousel extends HTMLElement {
     if (!slide) return;
 
     const width = window.innerWidth;
-    let video = width < 768 ? slide.querySelector(".hero_slide-video.mob-only") : slide.querySelector(".hero_slide-video.mob-hide");
+    const selector = width < 768 ? ".hero_slide-video.mob-only" : ".hero_slide-video.mob-hide";
+    const video = slide.querySelector(selector);
 
-    if (!video) return;
+    if (!video || video.tagName !== "VIDEO") return;
 
     const source = video.querySelector("source[data-src-lazy]");
     if (source && !source.src) {
@@ -91,6 +86,12 @@ export default class HeroCarousel extends HTMLElement {
       video.load();
     }
 
-    video.play();
+    try {
+      video.play().catch((err) => {
+        console.debug("Autoplay blocked or video not ready", err);
+      });
+    } catch (err) {
+      console.debug("Video play ignored", err);
+    }
   }
 }

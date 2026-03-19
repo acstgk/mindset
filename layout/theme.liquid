@@ -104,6 +104,24 @@
 
     {{ content_for_header }}
     {% render 'rich-structured-data' %}
+    <script>
+      window.splideReady = false;
+      window.thirdPartyInitialized = false;
+
+      window.initThirdParty = function() {
+        if (window.thirdPartyInitialized) return;
+        window.thirdPartyInitialized = true;
+        document.dispatchEvent(new CustomEvent('third-party:init'));
+      };
+
+      // Fallback: Initialize 3rd party after 2.5s if Splide is slow
+      setTimeout(window.initThirdParty, 2500);
+
+      document.addEventListener('splide:ready', () => {
+        window.splideReady = true;
+        window.initThirdParty();
+      });
+    </script>
   </head>
 
   <body class="{%- if template.directory -%}template-{{ template.directory | handle }}{%- endif -%} template-{{ template.name | handle }}">
@@ -148,13 +166,20 @@
     <script src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" defer></script>
 
     <!-- included iwish_v2 with footer my added---------- -->
-    {% render 'tracking-clarity' %}
-    {% render 'tracking-criteo' %}
-    {% render 'tracking-adroll', customer: customer %}
-    {% render 'tracking-omteria' %}
-    {% render 'tracking-adscale' %}
-    {% render 'tracking-ometria', cart: cart %}
-    {% render 'tracking-taggstar' %}
+    <script>
+      document.addEventListener('third-party:init', () => {
+        {% render 'tracking-clarity' %}
+        {% render 'tracking-criteo' %}
+        {% render 'tracking-adroll', customer: customer %}
+        {% render 'tracking-omteria' %}
+        {% render 'tracking-adscale' %}
+        {% render 'tracking-ometria', cart: cart %}
+        {% render 'tracking-taggstar' %}
+      });
+      if (window.splideReady || window.thirdPartyInitialized) {
+        window.initThirdParty();
+      }
+    </script>
 
     {% section 'wishlist-app-settings' %}
     {% render 'wishlist-app-links', linkType: 'footer-script' %}
