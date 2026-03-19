@@ -209,6 +209,10 @@ class EnhancedFilters {
 
   async applyFilters(event) {
     event.preventDefault();
+    const accordianItem = event.target.closest(".accordian-items")
+    accordianItem.querySelector(".accordian-header i") ? accordianItem.querySelector(".accordian-header i").classList.add("mob-hide") : ""
+    accordianItem.querySelector(".accordian-header .filter_item-title .loader") ? "" : accordianItem.querySelector(".accordian-header .filter_item-title").insertAdjacentHTML("beforeend", "<div class='loader mob-only' style='--height: 10px;'></div>")
+    console.log("test::", accordianItem.querySelector(".accordian-header i"));
 
     const formData = new FormData(this.form);
     const method = this.form.method.toUpperCase() || "GET";
@@ -237,7 +241,7 @@ class EnhancedFilters {
       if (productTypes && productTypes.getBoundingClientRect().top < 0) {
         window.scrollTo({ top: productTypes.offsetTop, behavior: "smooth" });
       }
-      currentGrid.style.minHeight = "40vh";
+      currentGrid.style.minHeight = "100vh";
       currentGrid.innerHTML = `<div class="loader"style="z-index: 1;grid-column: 1 / -1;"></div>`;
 
       const response = await fetch(fetchUrl, { method });

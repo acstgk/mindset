@@ -238,6 +238,14 @@ filters-menu-bar.accent-bg:has(slide-drawer[aria-hidden="false"]) .column-contro
   flex-direction: column;
 }
 
+.filter_item-title {
+  display: flex;
+  flex-wrap: nowrap;
+
+  & .loader {
+    display: none;
+  }
+}
 .filter_item-values {
   & ul {
     flex-direction: column;
@@ -464,6 +472,18 @@ filters-menu-bar.accent-bg:has(slide-drawer[aria-hidden="false"]) .column-contro
       & .filter_item-values {
         display: block;
       }
+    }
+  }
+}
+@media screen and (width < 900px) {
+  .filter_item-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    & .loader {
+      display: block;
+      margin-left: 3ch;
     }
   }
 }
