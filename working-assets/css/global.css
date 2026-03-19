@@ -1243,6 +1243,9 @@ content-accordian {
     display: flex;
 }
 
+.cart_items-item .qatb-btns:has(> :only-child) {
+    display: none;
+}
 
 span.cart_items-ctl-title {
     flex: 1 0 100%;
