@@ -1,11 +1,6 @@
 <link rel="stylesheet" href="{{ 'pdp.min.css' | asset_url }}">
 {% comment %} set images sizes  {% endcomment %}
 {% assign is_set = product.metafields.custom.product_set %}
-{% if product.price_min == 0 %}
-  {% assign oos = true %}
-{% else %}
-  {% assign oos = false %}
-{% endif %}
 {% assign widths = '600,750,900,1200,1920,2400,3000' | split: ',' %}
 
 {% comment %} set the shown price - either calculate for 'sets' or use product price {% endcomment %}
@@ -204,6 +199,11 @@
           ></div>
           <ul class="atc_form-sizes">
             {% for variant in part.variants %}
+              {% if variant.price > 0 %}
+                {% assign oos = false %}
+              {% else %}
+                {% assign oos = true %}
+              {% endif %}
               <li>
                 <input
                   type="radio"
@@ -240,6 +240,11 @@
       {% else %}
         <ul class="atc_form-sizes {% if product.variants_count == 1 %}visually-hidden{% endif %}">
           {% for variant in product.variants %}
+              {% if variant.price > 0 %}
+                {% assign oos = false %}
+              {% else %}
+                {% assign oos = true %}
+              {% endif %}
             <li>
               <input
                 type="radio"
@@ -311,7 +316,7 @@
         {% endif %}
       </div>
     </enhanced-atc>
-    {% if section.settings.show_yotpo_points and product.available %}
+    {% if section.settings.show_yotpo_points and product.available and is_set == blank %}
       <div
         class="yotpo-widget-instance"
         data-yotpo-instance-id="1268248"
