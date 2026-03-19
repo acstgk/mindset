@@ -1,7 +1,11 @@
 <link rel="stylesheet" href="{{ 'pdp.min.css' | asset_url }}">
 {% comment %} set images sizes  {% endcomment %}
 {% assign is_set = product.metafields.custom.product_set %}
-{% assign oos = false %}
+{% if product.price_min == 0 %}
+  {% assign oos = true %}
+{% else %}
+  {% assign oos = false %}
+{% endif %}
 {% assign widths = '600,750,900,1200,1920,2400,3000' | split: ',' %}
 
 {% comment %} set the shown price - either calculate for 'sets' or use product price {% endcomment %}
@@ -206,9 +210,9 @@
                   {% if variant.selling_plan_allocations.size > 0 %}
                     data-subscription-id="{{ variant.selling_plan_allocations.first.selling_plan.id }}"
                   {% endif %}
-                  {% unless variant.available %}
+                  {% if variant.available == false or oos == true %}
                     disabled
-                  {% endunless %}
+                  {% endif %}
                   {% if part.variants_count == 1 %}
                     checked
                   {% endif %}
@@ -242,10 +246,10 @@
                 {% if variant.selling_plan_allocations.size > 0 %}
                   data-subscription-id="{{ variant.selling_plan_allocations.first.selling_plan.id }}"
                 {% endif %}
-                {% unless variant.available %}
+                {% if variant.available == false or oos == true %}
                   {%- assign oos = true -%}
                   disabled
-                {% endunless %}
+                {% endif %}
                 {% if product.variants_count == 1 %}
                   checked
                 {% endif %}
