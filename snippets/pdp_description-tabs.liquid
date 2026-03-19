@@ -6,7 +6,7 @@
   {% comment %} description {% endcomment %}
   <div class="accordian-item item-1">
     <div class="accordian-header {%if show_desc %}active{% endif %}" aria-controls="accordian-content-1" role="button" tabindex="0">Product Details</div>
-    <div class="rtf accordian-content {%if show_desc %}active{% endif %}" id="accordian-content-1">
+    <div class="rtf accordian-content no-animation {%if show_desc %}active{% endif %}" id="accordian-content-1">
       {{ product.description | replace: 'Product Details', '' }}
       {% comment %}
         {% for element in description_elements %}
@@ -24,7 +24,7 @@
   {% comment %} Shipping Information {% endcomment %}
   <div class="accordian-item item-2">
     <div class="accordian-header" aria-controls="accordian-content-2" role="button" tabindex="0">Delivery & Returns</div>
-    <div class="rtf accordian-content" id="accordian-content-2">
+    <div class="rtf accordian-content no-animation" id="accordian-content-2">
       <p class="accent-bg" style="padding: 15px 18px;">
         <strong
           ><a href="https://thegymking.com/products/unlimited-uk-delivery" target="_blank">Unlimited UK Delivery </a>- £10 per year<br>
