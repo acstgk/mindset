@@ -56,12 +56,12 @@
                               {% assign sorted_values = filter.values | sort: 'label' %}
                             {% endif %}
                             {%- for filter_value in sorted_values -%}
-                              {% assign order = "-1" %}
-                              {% assign kids_sizes = '3-45-67-89-1011-1213-14' %}
+                              {% assign order = '-1' %}
+                              {% assign kids_sizes = '3-45-67-89-1011-1213-1415' %}
                               {% assign is_kids = false %}
                               {% if kids_sizes contains filter_value.label and filter_value.label contains '-' or filter_value.label == '15' %}
                                 {% assign is_kids = true %}
-                                {% assign order = "1" %}
+                                {% assign order = '1' %}
                               {% endif %}
 
                               <li
