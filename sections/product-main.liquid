@@ -54,8 +54,14 @@
             width="{{ image.width }}"
             height="{{ image.height }}"
             alt="{{ image.alt }} thumbnail"
-            fetchpriority="low"
-            data-splide-lazy="{{ image | image_url: width: 150 }}"
+            {% if forloop.first %}
+              fetchpriority="high"
+              loading="eager"
+              src="{{ image | image_url: width: 150 }}"
+            {% else %}
+              fetchpriority="low"
+              data-splide-lazy="{{ image | image_url: width: 150 }}"
+            {% endif %}
           >
         </div>
       {% endunless %}
@@ -136,7 +142,7 @@
         class="yotpo-widget-instance"
         data-yotpo-instance-id="1008278"
         data-yotpo-product-id="{{product.id}}"
-        data-yotpo-cart-product-id="{{item.product.id}}"
+        data-yotpo-cart-product-id="{{product.id}}"
         data-yotpo-section-id="{{template.name}}"
       ></div>
     {% endunless %}

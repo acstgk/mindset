@@ -30,9 +30,11 @@ if (!customElements.get("pdp-carousel")) {
       }
 
       connectedCallback() {
-        this._splideMainInit();
-        this._addEventListeners();
-        this.appendChild(this.zoomBtn);
+        requestAnimationFrame(() => {
+          this._splideMainInit();
+          this._addEventListeners();
+          this.appendChild(this.zoomBtn);
+        });
       }
 
       // initialise the Main splide slider for the product images
@@ -72,6 +74,7 @@ if (!customElements.get("pdp-carousel")) {
         this.splide.on("mounted", () => {
           // Remove all spinners after Splide creates them
           this.querySelectorAll(".splide__spinner").forEach((spinner) => spinner.remove());
+          document.dispatchEvent(new CustomEvent("splide:ready"));
         });
 
         this.splide.mount();
@@ -777,7 +780,9 @@ if (!customElements.get("thumbnail-carousel")) {
       }
 
       connectedCallback() {
-        this._maybeInitSplide();
+        requestAnimationFrame(() => {
+          this._maybeInitSplide();
+        });
         window.addEventListener("resize", this._onResize);
       }
 
@@ -836,6 +841,10 @@ if (!customElements.get("thumbnail-carousel")) {
           drag: true,
           isNavigation: true,
           wheelSleep: 300,
+        });
+
+        this.splide.on("mounted", () => {
+          document.dispatchEvent(new CustomEvent("splide:ready"));
         });
 
         this.splide.mount();
