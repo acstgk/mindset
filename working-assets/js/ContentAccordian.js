@@ -13,7 +13,6 @@ export default class ContentAccordian extends HTMLElement {
   connectedCallback() {
     this.headers = this.querySelectorAll(".accordian-header");
     this.contents = this.querySelectorAll(".accordian-content");
-    this._addCloseButtons();
 
     this.headers.forEach((header) => {
 
@@ -26,13 +25,15 @@ export default class ContentAccordian extends HTMLElement {
     });
 
     this.contents.forEach((content, index) => {
-      content.classList.add('no-animation');
       if (this.headers[index].classList.contains('active')) {
         content.setAttribute("aria-hidden", "false");
       } else {
         content.setAttribute("aria-hidden", "true");
       }
+      content.classList.add('no-animation');
     });
+
+    this._addCloseButtons();
   }
 
   _addCloseButtons() {
