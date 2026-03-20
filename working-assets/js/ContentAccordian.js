@@ -13,16 +13,7 @@ export default class ContentAccordian extends HTMLElement {
   connectedCallback() {
     this.headers = this.querySelectorAll(".accordian-header");
     this.contents = this.querySelectorAll(".accordian-content");
-
-    this.headers.forEach((header) => {
-
-      header.addEventListener("click", this._handleHeaderClick);
-      if (header.classList.contains('active')) {
-        header.setAttribute("aria-expanded", "true");
-      } else {
-        header.setAttribute("aria-expanded", "false");
-      }
-    });
+    this._addCloseButtons();
 
     this.contents.forEach((content, index) => {
       if (this.headers[index].classList.contains('active')) {
@@ -30,10 +21,8 @@ export default class ContentAccordian extends HTMLElement {
       } else {
         content.setAttribute("aria-hidden", "true");
       }
-      content.classList.add('no-animation');
     });
 
-    this._addCloseButtons();
   }
 
   _addCloseButtons() {
@@ -50,6 +39,12 @@ export default class ContentAccordian extends HTMLElement {
       const iconContainer = document.createElement("span");
       iconContainer.innerHTML = iconHTML;
       header.appendChild(iconContainer);
+      header.addEventListener("click", this._handleHeaderClick);
+      if (header.classList.contains('active')) {
+        header.setAttribute("aria-expanded", "true");
+      } else {
+        header.setAttribute("aria-expanded", "false");
+      }
     });
   }
 

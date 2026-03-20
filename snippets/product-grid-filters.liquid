@@ -45,7 +45,7 @@
                     </div>
                     {%- case filter.type -%}
                       {%- when 'list' -%}
-                        <div id="filter-{{ filter.label | handle }}" class="filter_item-values accordian-content">
+                        <div id="filter-{{ filter.label | handle }}" class="filter_item-values accordian-content no-animation">
                           <p class="mob-hide">{{ filter.label }}</p>
                           <ul>
                             {% comment %} sort the product types by quantity {% endcomment %}
@@ -101,7 +101,7 @@
                           <input type="submit" value="Apply" class="filter-apply button button-secondary">
                         </div>
                       {%- when 'price_range' -%}
-                        <div id="filter-{{ filter.label | handle }}" class="filter_item-values accordian-content filter_item-price-range">
+                        <div id="filter-{{ filter.label | handle }}" class="filter_item-values accordian-content no-animation filter_item-price-range">
                           {% liquid
                             if filter.min_value.value
                               assign min_value = filter.min_value.value | money_without_currency | floor
