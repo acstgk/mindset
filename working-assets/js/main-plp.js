@@ -210,9 +210,10 @@ class EnhancedFilters {
   async applyFilters(event) {
     event.preventDefault();
     const accordianItem = event.target.closest(".accordian-items")
-    accordianItem.querySelector(".accordian-header i") ? accordianItem.querySelector(".accordian-header i").classList.add("mob-hide") : ""
-    accordianItem.querySelector(".accordian-header .filter_item-title .loader") ? "" : accordianItem.querySelector(".accordian-header .filter_item-title").insertAdjacentHTML("beforeend", "<div class='loader mob-only' style='--height: 10px;'></div>")
-    console.log("test::", accordianItem.querySelector(".accordian-header i"));
+    if (accordianItem) {
+      accordianItem.querySelector(".accordian-header i") ? accordianItem.querySelector(".accordian-header i").classList.add("mob-hide") : ""
+      accordianItem.querySelector(".accordian-header .filter_item-title .loader") ? "" : accordianItem.querySelector(".accordian-header .filter_item-title").insertAdjacentHTML("beforeend", "<div class='loader mob-only' style='--height: 10px;'></div>")
+    }
 
     const formData = new FormData(this.form);
     const method = this.form.method.toUpperCase() || "GET";
