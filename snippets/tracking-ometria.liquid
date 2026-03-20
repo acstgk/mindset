@@ -1,9 +1,6 @@
 
-  var glegem =
-    window['glegem'] ||
-    function () {
-      (window['glegem'].q = window['glegem'].q || []).push(arguments);
-    };
+  window['glegem'] = window['glegem'] || function () { (window['glegem'].q = window['glegem'].q || []).push(arguments); };
+  var glegem = window['glegem'];
 
   glegem('OnCheckoutStepLoaded', function (data) {
     window.gleConfData = data;

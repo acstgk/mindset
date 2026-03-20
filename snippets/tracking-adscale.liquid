@@ -1,11 +1,8 @@
 
   window.adscale_init = window.adscale_init || false;
   function registerGlobalEConversion() {
-    var glegem =
-      window['glegem'] ||
-      function () {
-        (window['glegem'].q = window['glegem'].q || []).push(arguments);
-      };
+    window['glegem'] = window['glegem'] || function () { (window['glegem'].q = window['glegem'].q || []).push(arguments); };
+    var glegem = window['glegem'];
     glegem('OnCheckoutStepLoaded', function (data) {
       switch (data.StepId) {
         case data.Steps.LOADED:
@@ -33,7 +30,7 @@
     // see if DOM is already available
     if (document.readyState === 'complete') {
       if (typeof window['glegem'] === 'undefined') {
-        setTimeout(docReady(fn), 2000);
+        setTimeout(function() { docReady(fn); }, 2000);
       } else {
         // call on next available tick
         setTimeout(fn, 100);
@@ -42,7 +39,7 @@
       document.addEventListener('readystatechange', function () {
         if (document.readyState === 'complete') {
           if (typeof window['glegem'] === 'undefined') {
-            setTimeout(docReady(fn), 2000);
+            setTimeout(function() { docReady(fn); }, 2000);
           } else {
             // call on next available tick
             setTimeout(fn, 100);
