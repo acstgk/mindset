@@ -60,12 +60,13 @@ filters-menu-bar {
 
 }
 
-filters-menu-bar.accent-bg:has(slide-drawer[aria-hidden="false"]) {
+.no-scroll filters-menu-bar.accent-bg {
   background-color: #BFBFBF;
   border-color: #BFBFBF;
 }
 
-filters-menu-bar.accent-bg:has(slide-drawer[aria-hidden="false"]) .column-controls {
+.no-scroll filters-menu-bar.accent-bg .mobile-filter-button,
+.no-scroll filters-menu-bar.accent-bg .column-controls {
   filter: blur(2px);
 }
 .column-controls {
