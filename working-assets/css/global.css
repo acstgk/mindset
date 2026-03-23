@@ -326,7 +326,7 @@ productcard-carousel .splide__arrow {
     }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 500px) {
     productcard-carousel .splide__slide {
         scale: 1;
         transition: scale 0.3s var(--bezier);
@@ -1010,7 +1010,7 @@ predictive-search {
     .predictive-search--skeleton .predictive_search-grid {
         flex-flow: row-reverse nowrap;
     }
-    
+
     .predictive-search--skeleton .skeleton-links {
         width: 25%;
         min-width: 250px;

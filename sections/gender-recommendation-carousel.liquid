@@ -1,11 +1,11 @@
 <h3>Recommended for You</h3>
 
-<div class="gender-wrapper">
+<div class="gender-wrapper carousel-height">
   <div class="loader grid-loader gender-loader" style="z-index:1;"></div>
   <personal-recommendations id="womens-recommendations" class="womens-gender-filter fade-in" data-gender="womens">
     <h4 class="no-gender-filter">WOMENS</h4>
 
-    {% comment %} use JS to render the productcard-carousel here {% endcomment %}
+    {% comment %} use JS to render the.section--gender-recommendation-carousel .carousel-heighthere {% endcomment %}
 
     <noscript>
       <productcard-carousel class="gender-recommendations-carousel product-grid">
@@ -19,7 +19,7 @@
   <personal-recommendations id="mens-recommendations" class="mens-gender-filter fade-in" data-gender="mens">
     <h4 class="no-gender-filter">MENS</h4>
 
-    {% comment %} use JS to render the productcard-carousel here {% endcomment %}
+    {% comment %} use JS to render the.section--gender-recommendation-carousel .carousel-heighthere {% endcomment %}
 
     <noscript>
       <productcard-carousel class="gender-recommendations-carousel product-grid">
@@ -59,6 +59,35 @@
   .section--gender-recommendation-carousel h3 {
     margin: 4em 0 1em;
   }
+
+  .section--gender-recommendation-carousel .carousel-height{
+      height: calc(calc(min(90vw, 1400px) / 25) * 42);
+  }
+
+  @media screen and (width > 400px) {
+   .section--gender-recommendation-carousel .carousel-height{
+        height: calc(calc(calc(min(90vw, 1400px) * 0.75) / 25) * 42);
+    }
+}
+
+@media screen and (width > 500px) {
+   .section--gender-recommendation-carousel .carousel-height{
+        height: calc(calc(calc(min(90vw, 1400px) * 0.5) / 25) * 42);
+    }
+}
+
+@media screen and (width > 800px) {
+   .section--gender-recommendation-carousel .carousel-height{
+        height: calc(calc(calc(min(90vw, 1400px) * 0.34) / 25) * 42);
+    }
+}
+
+@media screen and (width > 1100px) {
+   .section--gender-recommendation-carousel .carousel-height{
+        height: calc(calc(calc(min(90vw, 1400px) * 0.25) / 25) * 42);
+    }
+}
+
 
   .recommendation-ctas {
     display: flex;
