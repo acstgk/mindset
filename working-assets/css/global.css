@@ -342,6 +342,33 @@ productcard-carousel .splide__arrow {
     }
 }
 
+  .carousel-height {
+      height: calc(calc(min(90vw, 1400px) / 25) * 42);
+  }
+
+  @media screen and (width > 400px) {
+      .carousel-height {
+          height: calc(calc(calc(min(90vw, 1400px) * 0.75) / 25) * 42);
+      }
+  }
+
+  @media screen and (width > 500px) {
+      .carousel-height {
+          height: calc(calc(calc(min(90vw, 1400px) * 0.5) / 25) * 42);
+      }
+  }
+
+  @media screen and (width > 800px) {
+      .section--gender-recommendation-carousel .carousel-height {
+          height: calc(calc(calc(min(90vw, 1400px) * 0.34) / 25) * 42);
+      }
+  }
+
+  @media screen and (width > 1100px) {
+      .carousel-height {
+          height: calc(calc(calc(min(90vw, 1400px) * 0.25) / 25) * 42);
+      }
+  }
 .product-grid:not(.splide) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));

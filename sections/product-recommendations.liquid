@@ -11,7 +11,7 @@
   {% assign tag = product.tags | where: "style:" | first %}
 {% endif %}
 
-<product-recommendations data-product-id="{{ product_id }}" data-style="{{ tag }}">
+<product-recommendations data-product-id="{{ product_id }}" data-style="{{ tag }}" class="carousel-height">
 </product-recommendations>
 
 {% schema %}
