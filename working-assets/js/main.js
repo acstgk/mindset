@@ -688,18 +688,22 @@ if (!customElements.get("predictive-search")) {
       };
 
       _getSearchResults = () => {
-        fetch(
+        this._showSkeleton();
+        
+        const fetchPromise = fetch(
           `/search/suggest?q=${this.searchTerm}&resources[limit]=10&resources[limit_scope]=each&resources[type]=product,page,collection,article,query&resources[options][fields]=body,product_type,title,variants.sku&section_id=predictive-search-results`,
-        )
-          .then((response) => {
-            if (!response.ok) {
-              var error = new Error(response.status);
-              throw error;
-            }
+        ).then((response) => {
+          if (!response.ok) {
+            var error = new Error(response.status);
+            throw error;
+          }
+          return response.text();
+        });
 
-            return response.text();
-          })
-          .then((text) => {
+        const minDisplayPromise = new Promise(resolve => setTimeout(resolve, 1000));
+
+        Promise.all([fetchPromise, minDisplayPromise])
+          .then(([text]) => {
             this._resetResults();
             const resultsMarkup = new DOMParser().parseFromString(text, "text/html").querySelector("#shopify-section-predictive-search-results").innerHTML;
             // If countdown timers are present, ensure the custom element is defined (guarded)
@@ -716,12 +720,43 @@ if (!customElements.get("predictive-search")) {
             this.appendChild(resultEL);
           })
           .catch((error) => {
+            this._resetResults();
             throw error;
           });
       };
 
       _resetResults = () => {
         if (this.querySelector(".predictive-search--results")) this.querySelector(".predictive-search--results").remove();
+        if (this.querySelector(".predictive-search--skeleton")) this.querySelector(".predictive-search--skeleton").remove();
+      };
+
+      _showSkeleton = () => {
+        this._resetResults();
+        const skeletonEL = document.createElement("div");
+        skeletonEL.classList.add("predictive-search--skeleton");
+        skeletonEL.innerHTML = `
+          <div class="predictive_search-grid">
+            <div class="skeleton-products">
+              <div class="skeleton-shimmer skeleton-heading"></div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 0.5em;">
+                <div class="skeleton-shimmer skeleton-card"></div>
+                <div class="skeleton-shimmer skeleton-card"></div>
+                <div class="skeleton-shimmer skeleton-card"></div>
+                <div class="skeleton-shimmer skeleton-card"></div>
+              </div>
+            </div>
+            <div class="skeleton-links">
+              <div class="skeleton-shimmer skeleton-heading"></div>
+              <div class="skeleton-shimmer skeleton-list-item"></div>
+              <div class="skeleton-shimmer skeleton-list-item"></div>
+              <div class="skeleton-shimmer skeleton-list-item"></div>
+              <div class="skeleton-shimmer skeleton-heading" style="margin-top: 2rem;"></div>
+              <div class="skeleton-shimmer skeleton-list-item"></div>
+              <div class="skeleton-shimmer skeleton-list-item"></div>
+            </div>
+          </div>
+        `;
+        this.appendChild(skeletonEL);
       };
 
       _handleOpenClose = (event) => {

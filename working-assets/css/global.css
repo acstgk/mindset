@@ -993,6 +993,76 @@ predictive-search {
     }
 }
 
+/* PREDICTIVE SEARCH SKELETON */
+.predictive-search--skeleton {
+    padding: 1rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+.predictive-search--skeleton .predictive_search-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media screen and (width >=800px) {
+    .predictive-search--skeleton .predictive_search-grid {
+        flex-flow: row-reverse nowrap;
+    }
+    
+    .predictive-search--skeleton .skeleton-links {
+        width: 25%;
+        min-width: 250px;
+    }
+
+    .predictive-search--skeleton .skeleton-products {
+        flex: 1;
+    }
+}
+
+.skeleton-shimmer {
+    background: #f6f7f8;
+    background-image: linear-gradient(
+        to right,
+        #f6f7f8 0%,
+        #edeef1 20%,
+        #f6f7f8 40%,
+        #f6f7f8 100%
+    );
+    background-repeat: no-repeat;
+    background-size: 800px 100%;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeholderShimmer;
+    animation-timing-function: linear;
+    border-radius: 4px;
+}
+
+@keyframes placeholderShimmer {
+    0% { background-position: -468px 0; }
+    100% { background-position: 468px 0; }
+}
+
+.skeleton-heading {
+    height: 24px;
+    width: 40%;
+    margin-bottom: 1rem;
+}
+
+.skeleton-card {
+    height: 350px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.skeleton-list-item {
+    height: 18px;
+    width: 80%;
+    margin-bottom: 0.75rem;
+}
+
 /* ACCORDION */
 
 content-accordian {
