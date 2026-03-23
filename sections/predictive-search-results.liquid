@@ -124,5 +124,5 @@
     </div>
   </div>
 
-  <a href="{{ routes.search_url }}?type=product&q={{ predictive_search.terms | escape }}" class="accent-bg predictive_search-view-all"> view all results for “{{ predictive_search.terms }}” {% render 'icon', icon: 'arrow' %} </a>
+  <a href="{{ routes.search_url }}?type=product&q={{ predictive_search.terms | escape }}" class="accent-bg predictive_search-view-all"> view all products matching “{{ predictive_search.terms }}” {% render 'icon', icon: 'arrow' %} </a>
 {%- endif -%}
