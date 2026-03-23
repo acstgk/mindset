@@ -23,7 +23,7 @@
     <div><span class="p">Save with</span><span class="emphasis">Bundle</span></div>
   </div>
   {% comment %} <img class="{{ class }}" src="https://cdn.shopify.com/s/files/1/1659/8997/files/Decal_Decal_-_Save_with_Bundle.png?v=1761311619" width="960" height="835" alt="Bundle this product and save"> {% endcomment %}
-{% elsif product.tags contains 'Mini Me' %}
+{% elsif product.tags contains settings.mini_tag and settings.showMiniDecal %}
   <div class="evergreen-decal {{ class }}">
     <div><span class="emphasis">Mini Me</span><span class="p">Available</span></div>
   </div>

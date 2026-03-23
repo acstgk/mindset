@@ -850,6 +850,19 @@
       },
       {
         "type": "checkbox",
+        "id": "showMiniDecal",
+        "label": "Show Mini Me Product Decals?",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "mini_tag",
+        "label": "Mini Me Product Tag",
+        "default": "Mini Me",
+        "visible_if": "{{ settings.showMiniDecal == true }}"
+      },
+      {
+        "type": "checkbox",
         "id": "decal_new",
         "label": "Show New Product Decals?",
         "default": true
