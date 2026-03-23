@@ -96,6 +96,7 @@
     {%- endif -%}
 
     {% render 'css-variables' %}
+    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     <link rel="stylesheet" href="{{ 'critical.min.css' | asset_url }}">
     <link rel="preload" href="{{ 'splide-core.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="{{ 'global.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -105,7 +106,6 @@
     {{ content_for_header }}
     {% render 'rich-structured-data' %}
     <script>
-      window.splideReady = false;
       window.thirdPartyInitialized = false;
 
       window.initThirdParty = function() {
@@ -114,12 +114,16 @@
         document.dispatchEvent(new CustomEvent('third-party:init'));
       };
 
-      // Fallback: Initialize 3rd party after 2.5s if Splide is slow
-      setTimeout(window.initThirdParty, 2500);
-
-      document.addEventListener('splide:ready', () => {
-        window.splideReady = true;
+      // Initialize 3rd party scripts on first user interaction for better TTI
+      const initThirdPartyOnInteraction = () => {
         window.initThirdParty();
+        ['scroll', 'mouseover', 'touchstart', 'keydown'].forEach((event) => {
+          window.removeEventListener(event, initThirdPartyOnInteraction);
+        });
+      };
+
+      ['scroll', 'mouseover', 'touchstart', 'keydown'].forEach((event) => {
+        window.addEventListener(event, initThirdPartyOnInteraction, { passive: true });
       });
     </script>
   </head>
@@ -176,9 +180,8 @@
         {% render 'tracking-ometria', cart: cart %}
         {% render 'tracking-taggstar' %}
       });
-
-      if (window.splideReady || window.thirdPartyInitialized) {
-        window.initThirdParty();
+      if (window.thirdPartyInitialized) {
+        document.dispatchEvent(new CustomEvent('third-party:init'));
       }
     </script>
 
