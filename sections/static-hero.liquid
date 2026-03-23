@@ -5,9 +5,9 @@
   {% if section.settings.image == blank and section.settings.video == blank %}
     <img src="https://placehold.co/1270x627?text=IMAGE&font=oswald" alt="" height="627" width="1270" class="static-hero--image" style="{{ media_brightness }}">
   {% elsif section.settings.video != blank %}
-    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'static-hero--image', style: media_brightness }}
+    {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, fetchpriority: 'high', loading: 'eager', class: 'static-hero--image', widths: '375, 550, 750, 1100, 1500, 2500', style: media_brightness }}
   {% elsif section.settings.image != blank %}
-    {{ section.settings.image | image_url: width: 2500 | image_tag: class: 'static-hero--image', style: media_brightness }}
+    {{ section.settings.image | image_url: width: 2500 | image_tag: class: 'static-hero--image', fetchpriority: 'high', loading: 'eager', widths: '375, 550, 750, 1100, 1500, 2500', style: media_brightness }}
   {% endif %}
   <div class="static-hero--heading">
     <h1 class="h1">{{ section.settings.title }}</h1>
