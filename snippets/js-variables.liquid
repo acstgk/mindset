@@ -32,6 +32,7 @@
       };
 
       window.languages = {
+        currency: {{ localization.country.currency.symbol | json }},
         cartAddNote: {{ 'cart.general.add_note' | t | json }},
         cartEditNote: {{ 'cart.general.edit_note' | t | json }},
         productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
@@ -48,7 +49,9 @@
         productGender: {{ product.vendor | json }},
         productColourGroup: {{ product.metafields.product.colour.value.name | json }},
         productPrice: {{ product.price | money_without_trailing_zeros | json }},
+        productPriceRaw: {{ product.price | json }},
         productId: {{ product.id | json }}
+
       };
 
       document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');

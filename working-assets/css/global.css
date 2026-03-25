@@ -1123,6 +1123,10 @@ content-accordian {
     cursor: pointer;
     scroll-margin-top: 100px;
 
+    &.accent-bg {
+            padding: 0.5rem 1rem;
+            margin-block: 0.25rem;
+        }
     & span {
         display: grid;
         place-content: centre;
