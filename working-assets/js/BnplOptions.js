@@ -31,32 +31,34 @@ export default class BnplOptions extends HTMLElement {
     closeBtn.addEventListener("click", () => document.querySelector("page-overlay").closeAllOverlays());
 
     // add the content div and loader
-    let payin3Content;
-    if (this.productPriceValue < 3000) {
-      payin3Content = `<p>Based on a purchase price of <b>${this.productPriceDisplay}</b>, pay nothing today and then <b>${this.productPriceDisplay}</b> in 30 days.</p>
-       <div class="payments">
-        <div class="payin pc0">Pay&nbsp;${window.languages.currency + '0.00'} Now</div>
-        <div class="payin pc100">Pay&nbsp;${this.productPriceDisplay} in 30 days</div>
-        </div>`;
-    } else {
-      const payments = this.splitPayments(this.productPriceValue, 3);
-      payin3Content = `<p> Based on a purchase price of <b> ${this.productPriceDisplay}</b>, you could pay in 3 interest free instalments of <b> ${window.languages.currency + (this.productPriceValue / 300).toFixed(2)}</b>.</p>
+
+    const payments = this.splitPayments(this.productPriceValue, 3);
+    const payin3Content = `<p> Based on a purchase price of <b> ${this.productPriceDisplay}</b>, you could pay in 3 interest free instalments of <b> ${window.languages.currency + (this.productPriceValue / 300).toFixed(2)}</b>.</p>
         <div class="payments">
           <div class="payin pc33">Pay&nbsp;${window.languages.currency + payments[0]} Now</div>
           <div class="payin pc66">Pay&nbsp;${window.languages.currency + payments[1]} in 30 days</div>
           <div class="payin pc100">Pay&nbsp;${window.languages.currency + payments[2]} in 60 days</div>
         </div>`;
-    }
 
-    let payin4Content;
     const payments4 = this.splitPayments(this.productPriceValue, 4);
-    payin4Content = `<p> Based on a purchase price of <b> ${this.productPriceDisplay}</b>, you could pay in 4 interest free instalments of <b> ${window.languages.currency + (this.productPriceValue / 400).toFixed(2)}</b>.</p>
+    const payin4Content = `<p> Based on a purchase price of <b> ${this.productPriceDisplay}</b>, you could pay in 4 interest free instalments of <b> ${window.languages.currency + (this.productPriceValue / 400).toFixed(2)}</b>.</p>
         <div class="payments">
           <div class="payin pc25">Pay&nbsp;${window.languages.currency + payments4[0]} Now</div>
           <div class="payin pc50">Pay&nbsp;${window.languages.currency + payments4[1]} in 2 weeks</div>
           <div class="payin pc75">Pay&nbsp;${window.languages.currency + payments4[2]} in 4 weeks</div>
           <div class="payin pc100">Pay&nbsp;${window.languages.currency + payments4[3]} in 6 weeks</div>
         </div>`;
+
+    let klarnaContent
+    if (this.productPriceValue < 3000) {
+      klarnaContent = `<p>Based on a purchase price of <b>${this.productPriceDisplay}</b>, pay nothing today and then <b>${this.productPriceDisplay}</b> in 30 days.</p>
+       <div class="payments">
+        <div class="payin pc0">Pay&nbsp;${window.languages.currency + '0.00'} Now</div>
+        <div class="payin pc100">Pay&nbsp;${this.productPriceDisplay} in 30 days</div>
+        </div>`;
+    } else {
+      klarnaContent = payin3Content;
+    }
 
 
     const contentEl = document.createElement("div");
@@ -67,7 +69,7 @@ export default class BnplOptions extends HTMLElement {
             <div class="accordian-items">
               <div class="accordian-header accent-bg active" aria-controls="accordian-content-klarna" role="button" tabindex="0"><div style="display:flex; align-items:center;">${this.querySelector('.icon--klarna').outerHTML}&nbsp;Klarna</div></div>
               <div class="accordian-content no-animation rtf active" id="accordian-content-klarna">
-                ${payin3Content}
+                ${klarnaContent}
                 <p>Klarna's Pay in 30 days and Pay in 3 are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status. <a href="https://cdn.klarna.com/1.0/shared/content/legal/terms/en-GB/payin30bycard" target="_blank">Terms and conditions</a> and late fees apply</p>
               </div>
             </div>
