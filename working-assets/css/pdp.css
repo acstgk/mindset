@@ -639,17 +639,20 @@ form .quantity-warning {
 
 bnpl-options {
   display: flex;
-  flex-flow: column;
+  align-items: center;
+    flex-direction: column;
   gap: 0.5em;
   margin-block: 1em;
   padding-top: 1em;
+& svg {
+    flex: 0 0 auto;
+  }
 }
 
 .bnpl-placement,
 .bnpl-placement a {
-  font-size: var(--txt-sm) !important;
   display: flex;
-  gap: 1em;
+    gap: 0.5rem;
   align-items: center;
 }
 
