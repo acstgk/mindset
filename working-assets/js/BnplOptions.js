@@ -33,7 +33,7 @@ export default class BnplOptions extends HTMLElement {
     // add the content div and loader
     let payin3Content;
     if (this.productPriceValue < 3000) {
-      payin3Content = `<p>Based on a purchase price of <b>${this.productPriceDisplay}</b>, pay <b>${this.productPriceDisplay}</b> in 30 days.</p>
+      payin3Content = `<p>Based on a purchase price of <b>${this.productPriceDisplay}</b>, pay nothing today and then <b>${this.productPriceDisplay}</b> in 30 days.</p>
        <div class="payments">
         <div class="payin pc0">Pay&nbsp;${window.languages.currency + '0.00'} Now</div>
         <div class="payin pc100">Pay&nbsp;${this.productPriceDisplay} in 30 days</div>
