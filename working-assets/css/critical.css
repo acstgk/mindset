@@ -329,6 +329,8 @@ blockquote {
 .Price--wrapper {
   display: flex;
   align-items: anchor-center;
+  text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
   gap: 0.5em;
   font-weight: 700;
 }

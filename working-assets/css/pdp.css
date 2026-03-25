@@ -642,7 +642,7 @@ bnpl-options {
   flex-flow: column;
   gap: 0.5em;
   margin-block: 1em;
-  padding-top: 1em;
+  padding: .75em 0 0.25em 0;
 }
 
 .bnpl-placement,
