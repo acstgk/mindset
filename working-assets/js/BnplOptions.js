@@ -36,7 +36,7 @@ export default class BnplOptions extends HTMLElement {
       payin3Content = `<p>Based on a purchase price of <b>${this.productPriceDisplay}</b>, pay <b>${this.productPriceDisplay}</b> in 30 days.</p>
        <div class="payments">
         <div class="payin pc0">Pay&nbsp;${window.languages.currency + '0.00'} Now</div>
-        <div class="payin pc100">Pay&nbsp;${window.languages.currency + this.productPriceValue} in 30 days</div>
+        <div class="payin pc100">Pay&nbsp;${this.productPriceDisplay} in 30 days</div>
         </div>`;
     } else {
       const payments = this.splitPayments(this.productPriceValue, 3);
