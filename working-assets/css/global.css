@@ -360,7 +360,7 @@ productcard-carousel .splide__arrow {
 
   @media screen and (width > 800px) {
       .section--gender-recommendation-carousel .carousel-height {
-          height: calc(calc(calc(min(90vw, 1400px) * 0.34) / 25) * 42);
+        height: calc(calc(calc(min(90vw, 1400px) * 0.30) / 25) * 42);
       }
   }
 
