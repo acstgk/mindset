@@ -20,12 +20,13 @@
             "overlay_url": "",
             "content_alignment": "left",
             "lockup_img": "shopify://shop_images/Stoic_Games_UPDATE_STOIC_GAMES_GOLD_FULL.png",
-            "lockup_width": 200,
+            "lockup_width": 150,
             "title": "A Unique Challenge Combining Physical Discipline and Mental Resilience.",
+            "title_font": "",
             "subtitle": "",
-            "customHTML": "<p style=\"margin:1rem 0 0 0;line-height:1.8 \">\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--calendar \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M16 2a1 1 0 0 1 .993 .883l.007 .117v1h1a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h1v-1a1 1 0 0 1 1.993 -.117l.007 .117v1h6v-1a1 1 0 0 1 1 -1m3 7h-14v9.625c0 .705 .386 1.286 .883 1.366l.117 .009h12c.513 0 .936 -.53 .993 -1.215l.007 -.16z\"></path><path d=\"M8 14h2v2h-2z\"></path>\n    </svg> 7th February 2026 <br>\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--map-pin \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z\"></path>\n    </svg>\n   Fighting Fit, Manchester, 88-90 Wilton St, Denton, Tameside, United Kingdom <a href=\"https://www.google.com/maps/dir/?api=1&amp;destination=Fighting+Fit%2C+88-90+Wilton+St%2C+Denton%2C+Tameside%2C+M34+3NH\" target=\"_blank\">M34 3NH</a>\n        </p>",
             "subtitle_font": "",
             "subtitle_first": false,
+            "customHTML": "<p style=\"margin:1rem 0 0 0;line-height:1.8 \">\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--calendar \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M16 2a1 1 0 0 1 .993 .883l.007 .117v1h1a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h1v-1a1 1 0 0 1 1.993 -.117l.007 .117v1h6v-1a1 1 0 0 1 1 -1m3 7h-14v9.625c0 .705 .386 1.286 .883 1.366l.117 .009h12c.513 0 .936 -.53 .993 -1.215l.007 -.16z\"></path><path d=\"M8 14h2v2h-2z\"></path>\n    </svg> 7th February 2026 <br>\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--map-pin \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z\"></path>\n    </svg>\n   Fighting Fit, Manchester, 88-90 Wilton St, Denton, Tameside, United Kingdom <a href=\"https://www.google.com/maps/dir/?api=1&amp;destination=Fighting+Fit%2C+88-90+Wilton+St%2C+Denton%2C+Tameside%2C+M34+3NH\" target=\"_blank\">M34 3NH</a>\n        </p>",
             "cta1": "Shop The collection",
             "url1": "shopify://collections/stoic",
             "cta2": "Get Notified of The Next Games",
@@ -38,11 +39,12 @@
         "image_qye7DT"
       ],
       "custom_css": [
-        "img.hero_slide-lockup.fade-in {margin: 5% auto 5% 0; width: min(200px, 35vw) !important;}",
+        "img.hero_slide-lockup.fade-in {margin: 5% auto 5% 0; width: min(200px, 35vw) !important; aspect-ratio: 1; object-fit: cover; min-height: 0;}",
         ".hero_slide-ctas .button {max-width: 295px;}",
-        "h1,p {text-align: left;}",
+        ".hero_slide-image {grid-area: 1 / 1;}",
+        "h1,.hero_slide-content p {text-align: left; letter-spacing: normal;}",
         "p a {color: white; text-decoration: underline;}",
-        "h1 {font-family: \"Octin\", var(--emphasis-heading-font-family);}",
+        "h1 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1);}",
         ".hero_slide-content {position: static; justify-content: center;}"
       ],
       "name": "Hero Slideshow",
@@ -55,6 +57,7 @@
           "type": "quote",
           "settings": {
             "quote_text": "Train only the body and you risk strength without mindset. Train only the mind and you risk wisdom without strength.",
+            "quote_author": ""
           }
         }
       },
