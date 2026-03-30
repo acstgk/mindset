@@ -295,10 +295,11 @@ blockquote {
 }
 
 .baskerville {
-  font-family: var(--baskerville-font-family);
+  font-family: var(--baskerville-font-family) !important;
   letter-spacing: calc(var(--letter-spacing) * 1.333);
-  line-height: 0.75 !important;
+  line-height: 1 !important;
   margin-inline: calc(var(--letter-spacing) * 1.333 * -1);
+    font-weight: 400 !important
 }
 .Title {
   display: flex;

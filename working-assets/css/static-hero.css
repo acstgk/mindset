@@ -55,17 +55,20 @@
       color: var(--c-light-grey);
     }
 
-                                & h1 {
-      font-size: var(--txt-xxl);
-      margin: 0;
-      letter-spacing: 0;
-    }
+& h1 {
+  font-size: var(--txt-xxl);
+  margin: 0;
+}
 
-                                & h2 {
-      margin: 0;
-      font-size: var(--txt-h4);
-      letter-spacing: 0.75ch;
-    }
+& .emphasis {
+letter-spacing: 0;
+}
+
+& h2 {
+  margin: 0;
+  font-size: var(--txt-h4);
+  letter-spacing: 0.75ch;
+}
   }
 
   @media screen and (width > 768px) {

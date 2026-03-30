@@ -19,18 +19,44 @@
               {% render 'product-title', product: block.settings.product %}
             </div>
           {% endif %}
+          {% if block.settings.overlay_link and block.settings.content_placement == 'hidden' %}
+            <a href="{{ block.settings.overlay_link }}" class="content-mosaic--overlay-link"></a>
+          {% endif %}
         </div>
 
         {% unless block.settings.content_placement == 'hidden' %}
           <div class="content-mosaic--content">
-            <h2 class="emphasis {{ block.settings.heading_size }}">{{ block.settings.title }}</h2>
+            <h2 class="{{block.settings.heading_style}} {{ block.settings.heading_size }}">{{ block.settings.title }}</h2>
             {{ block.settings.text }}
             {% if block.settings.cta_text != '' %}
-              <a class="button button-primary" style="max-width: 100%;--btn-bg:{{ block.settings.btn_color }}" {% if block.settings.cta_url %}href="{{ block.settings.cta_url }}"{%else%} disabled{% endif %}>{{ block.settings.cta_text }}</a>
+              <a
+                class="button button-primary"
+                style="max-width: 100%;--btn-bg:{{ block.settings.btn_color }}"
+                {% if block.settings.cta_url %}
+                  href="{{ block.settings.cta_url }}"
+                {% else %}
+                  disabled
+                {% endif %}
+              >
+                {{- block.settings.cta_text -}}
+              </a>
             {% endif %}
             {% if block.settings.cta_text2 != '' %}
-              <a class="button button-primary" style="max-width: 100%;--btn-bg:{{ block.settings.btn_color2 }}" {% if block.settings.cta_url2  %}href="{{ block.settings.cta_url2 }}"{%else%} disabled{% endif %}>{{ block.settings.cta_text2 }}</a>
+              <a
+                class="button button-primary"
+                style="max-width: 100%;--btn-bg:{{ block.settings.btn_color2 }}"
+                {% if block.settings.cta_url2 %}
+                  href="{{ block.settings.cta_url2 }}"
+                {% else %}
+                  disabled
+                {% endif %}
+              >
+                {{- block.settings.cta_text2 -}}
+              </a>
             {% endif %}
+             {% if block.settings.overlay_link %}
+            <a href="{{ block.settings.overlay_link }}" class="content-mosaic--overlay-link"></a>
+          {% endif %}
           </div>
         {% endunless %}
 
@@ -138,6 +164,11 @@
           "info": "alt text for the image SEO"
         },
         {
+          "type": "url",
+          "label": "Overlay Link",
+          "id": "overlay_link"
+        },
+        {
           "type": "product",
           "id": "product",
           "label": "Product"
@@ -179,6 +210,19 @@
           ],
           "default": "h2"
         },
+        {
+          "type": "select",
+          "id": "heading_style",
+          "label": "Heading Style",
+          "options": [
+            { "value": "", "label": "Normal" },
+            { "label": "Emphasis", "value": "emphasis" },
+            { "label": "Baskerville", "value": "baskerville" },
+            { "label": "Signature", "value": "signature" }
+          ],
+          "default": "emphasis"
+        },
+
         {
           "type": "richtext",
           "id": "text",

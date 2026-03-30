@@ -21,6 +21,7 @@
   --r-span: 1;
   --actual-c-span: min(var(--c-span), var(--grid-columns));
   --background: #f6f6f6;
+  --alignment: left
   background-color: var(--background);
   width: 100%;
   height: 100%;
@@ -32,7 +33,7 @@
 
   & h2 {
       margin: 0;
-      text-align: left;
+      text-align: var(--alignment);
     }
 
     & .content-mosaic--content {
@@ -43,6 +44,10 @@
       padding: max(2rem, 2vh) max(1rem, 1vw);
     }
 
+        & .content-mosaic--overlay-link {
+          position: absolute;
+          inset: 0;
+        }
     .content-mosaic--product-link.flag {
       font-size: var(--txt-sm);
       inset: auto -2px 5% auto;

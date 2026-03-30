@@ -10,7 +10,7 @@
     {{ section.settings.image | image_url: width: 2500 | image_tag: class: 'static-hero--image', fetchpriority: 'high', loading: 'eager', widths: '375, 550, 750, 1100, 1500, 2500', style: media_brightness }}
   {% endif %}
   <div class="static-hero--heading">
-    <h1 class="h1">{{ section.settings.title }}</h1>
+    <h1 class="h1 {{ section.settings.heading_style }}">{{ section.settings.title }}</h1>
     <h2>{{ section.settings.heading }}</h2>
     {% comment %} {% render 'socials' %} {% endcomment %}
   </div>
@@ -64,6 +64,18 @@
       "id": "heading",
       "label": "Heading",
       "default": "Brand Hub"
+    },
+        {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Font Style",
+      "options": [
+        { "value": "", "label": "Normal" },
+        { "label": "Emphasis", "value": "emphasis" },
+        { "label": "Baskerville", "value": "baskerville" },
+        { "label": "Signature", "value": "signature" }
+      ],
+      "default": "emphasis"
     },
     {
       "type": "richtext",
