@@ -21,7 +21,7 @@
   --r-span: 1;
   --actual-c-span: min(var(--c-span), var(--grid-columns));
   --background: #f6f6f6;
-  --alignment: left
+  --alignment: left;
   background-color: var(--background);
   width: 100%;
   height: 100%;
