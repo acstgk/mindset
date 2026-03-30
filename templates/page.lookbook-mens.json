@@ -17,13 +17,16 @@
       "name": "Static Hero",
       "settings": {
         "isFullheight": false,
-        "image": "shopify://shop_images/Q4_25_REBELLION1044.jpg",
+        "image": "shopify://shop_images/FUNDAMENTAL_TEE_FUNDAMENTAL_SHORT_-_FOSSIL_STONE_SST-BOG4M_SHR-BOG4Q_5.jpg",
         "img_overlay": 100,
         "title": "The Best of Gym King",
-        "heading": "Product Showcase",
+        "heading": "Men's Product Showcase",
         "text": "<p> Whether you're new to GK or a loyal ambassador, this page has been curated to showcase our favourite and best selling collections from the past, present and future.</p>",
         "cta_text": "Learn more",
         "link_url": "",
+        "second_cta": false,
+        "cta_text2": "",
+        "link_url2": "",
         "text_align": "start"
       }
     },
@@ -54,16 +57,16 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_fNzbHq": {
+        "grid_item_bLzy8f": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/F1_40b57edb-20df-46d1-82db-a9b845013ef6.jpg",
+            "img": "shopify://shop_images/F4_467a666c-eaf7-4213-a8cc-bf9db6b8ebee.jpg",
             "img_alt": "",
-            "product": "gym-king-linear-fundamental-hood-navy",
+            "product": "gym-king-fundamental-linear-tee-deep-olive",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -126,16 +129,16 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_bLzy8f": {
+        "grid_item_fNzbHq": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/F4_467a666c-eaf7-4213-a8cc-bf9db6b8ebee.jpg",
+            "img": "shopify://shop_images/FundamentalLinearJerseyTank-WHITEVST-BOGPW3.jpg",
             "img_alt": "",
-            "product": "gym-king-fundamental-linear-tee-deep-olive",
+            "product": "gym-king-fundamental-linear-jersey-tank-white",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -157,7 +160,7 @@
         "grid_item_pjrnWd": {
           "type": "grid-item",
           "settings": {
-            "title": "Purpose 2.0",
+            "title": "Nothing Beats Belief",
             "flag": "soon",
             "grid_column_span": "2",
             "grid_row_span": "2",
@@ -167,7 +170,7 @@
             "img_transition": "normal",
             "content_placement": "overlay",
             "heading_size": "h2",
-            "text": "<p><strong>The best gym set of 2025 is coming back in 2026.</strong></p>",
+            "text": "",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
             "cta_text": "Don't Miss the launch",
@@ -233,10 +236,10 @@
       },
       "block_order": [
         "grid_item_HttinP",
-        "grid_item_fNzbHq",
+        "grid_item_bLzy8f",
         "grid_item_fp6Ckt",
         "grid_item_FY6Tj8",
-        "grid_item_bLzy8f",
+        "grid_item_fNzbHq",
         "spacer_NTgzLG",
         "grid_item_pjrnWd",
         "grid_item_e3qjVp",
@@ -265,15 +268,15 @@
             "flag": "best",
             "grid_column_span": "1",
             "grid_row_span": "2",
-            "img": "shopify://shop_images/PRO_HOOD_PRO_JOGGER_-_GRAPHITE_HDE-A2C36_TSB-A2C3C.jpg",
+            "img": "shopify://shop_images/Q1_25_TWIN_SET_FLATS5732.jpg",
             "img_alt": "",
             "product": "",
-            "img_transition": "normal",
+            "img_transition": "img-mask",
             "content_placement": "50",
             "heading_size": "h1",
             "text": "<p>Classic Gym King.</p>",
-            "bg_color": "#4c4d5b",
-            "txt_color": "#eeeeee",
+            "bg_color": "#a4a7a8",
+            "txt_color": "#0c0c13",
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/pro-logo",
             "btn_color": "#1b1a1b",
@@ -291,7 +294,7 @@
             "grid_row_span": "1",
             "img": "shopify://shop_images/prologo355.jpg",
             "img_alt": "",
-            "product": "gk-sport-logo-tee-white",
+            "product": "gym-king-pro-logo-tee-white",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -313,9 +316,9 @@
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/PROLOG-35.jpg",
+            "img": "shopify://shop_images/PRO_2.0_TEE_PRO_2.0_JERSEY_6_SHORT_-_LIGHT_STONE_SST-BOG9Z_SHR-BOGA3_8_2.jpg",
             "img_alt": "",
-            "product": "gym-king-pro-logo-fleece-hood-black",
+            "product": "gym-king-pro-logo-tee-light-stone",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -339,7 +342,7 @@
             "grid_row_span": "1",
             "img": "shopify://shop_images/PRO1.jpg",
             "img_alt": "",
-            "product": "gym-king-pro-logo-jersey-tee-black",
+            "product": "gym-king-pro-logo-tee-black-white",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h1",
@@ -361,9 +364,9 @@
             "flag": "",
             "grid_column_span": "2",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/PROLOGOHOOD_JOGGER-DARKINDIGOHDE-A2CI2TSB-A2CI5_38.jpg",
+            "img": "shopify://shop_images/PRO_2.0_TEE_PRO_2.0_JERSEY_6_SHORT_-_SOFT_KHAKI_SST-BOGOB_SHR-BOGOD_1_1.jpg",
             "img_alt": "",
-            "product": "gym-king-emblem-fleece-hood-royal-blue",
+            "product": "gym-king-pro-logo-tee-soft-khaki",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -395,9 +398,32 @@
       "name": "Content Mosaic",
       "settings": {}
     },
+    "product_collection_carousel_7CVb8L": {
+      "type": "product-collection-carousel",
+      "name": "Product Card Carousel",
+      "settings": {
+        "carousel_title": "Current Best Sellers",
+        "heading_style": "emphasis",
+        "product_list": [],
+        "collection": "mens-bestsellers",
+        "product_count": 6,
+        "show_womens": false,
+        "product_list_2": [],
+        "collection_2": "",
+        "product_count_2": 6,
+        "show_kids": false,
+        "product_list_3": [],
+        "collection_3": "",
+        "product_count_3": 6
+      }
+    },
     "content_mosaic_a6hTMr": {
       "type": "content-mosaic",
       "blocks": {
+        "spacer_HE3N3A": {
+          "type": "spacer",
+          "settings": {}
+        },
         "grid_item_a6yVMV": {
           "type": "grid-item",
           "settings": {
@@ -450,7 +476,7 @@
           "type": "grid-item",
           "settings": {
             "title": "Rebellion Darkside",
-            "flag": "best",
+            "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "2",
             "img": "shopify://shop_images/Q4_25_REBELLION1044.jpg",
@@ -518,21 +544,59 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "spacer_HE3N3A": {
+        "spacer_pTagxP": {
           "type": "spacer",
           "settings": {}
         }
       },
       "block_order": [
+        "spacer_HE3N3A",
         "grid_item_a6yVMV",
         "grid_item_bJADEL",
         "grid_item_aQNqki",
         "grid_item_8Qm4f4",
         "grid_item_Txf4k8",
-        "spacer_HE3N3A"
+        "spacer_pTagxP"
       ],
       "name": "Content Mosaic",
       "settings": {}
+    },
+    "spacer_3r49QP": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 50,
+        "mobile": 0
+      }
+    },
+    "custom_ctas_mUDqqn": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_PR4UEw": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop New",
+            "button_link": "shopify://collections/mens-new",
+            "btn_color": false
+          }
+        },
+        "button_fwke6G": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Best Sellers",
+            "button_link": "",
+            "btn_color": true
+          }
+        }
+      },
+      "block_order": [
+        "button_PR4UEw",
+        "button_fwke6G"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": "h3"
+      }
     }
   },
   "order": [
@@ -540,6 +604,9 @@
     "content_mosaic_4xHKx9",
     "as_seen_in_Mp7zfK",
     "content_mosaic_VjHWx4",
-    "content_mosaic_a6hTMr"
+    "product_collection_carousel_7CVb8L",
+    "content_mosaic_a6hTMr",
+    "spacer_3r49QP",
+    "custom_ctas_mUDqqn"
   ]
 }
