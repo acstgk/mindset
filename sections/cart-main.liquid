@@ -56,16 +56,10 @@
 
   {% render 'trust-widget' with 'micro' %}
 
-  <div class="usp">
-    <div class="img">
-      {{ section.settings.about_img | image_url: width: '700' | image_tag }}
-    </div>
-    <div class="rtf">
-      <h3 class="h4">Why Gym King?</h3>
-      {{ section.settings.about_text }}
-      <a href="/pages/about-us" class="button button-primary">More about us</a>
-    </div>
-  </div>
+  {% render 'cart-usp',
+    about_img: section.settings.about_img,
+    about_text: section.settings.about_text
+  %}
 </div>
 
 {% unless cart_empty %}

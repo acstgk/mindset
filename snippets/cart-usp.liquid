@@ -1,0 +1,27 @@
+<div class="usp">
+  <div class="img">
+    {{ about_img | image_url: width: '700' | image_tag }}
+  </div>
+  <div class="rtf">
+    {% assign primary_button_href = button_href | default: '/pages/about-us' %}
+    {% assign primary_button_content = button_content | default: 'More about us' %}
+    {% assign secondary_button_href = second_button_href  %}
+    {% assign secondary_button_content = second_button_content %}
+
+    <h3 class="h4">{{ heading | default: 'Why Gym King?' }}</h3>
+    {{ about_text }}
+    <div class="usp-buttons">
+      <a href="{{ primary_button_href }}" class="button button-primary">
+        {{ primary_button_content }}
+      </a>
+      {% if secondary_button_href != blank and secondary_button_content != blank %}
+        <a href="{{ secondary_button_href }}" class="button button-secondary">
+          {{ secondary_button_content }}
+        </a>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+<link rel="stylesheet" href="{{ 'cart-usp.min.css' | asset_url }}">
+

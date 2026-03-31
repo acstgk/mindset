@@ -1,0 +1,1 @@
+.usp{align-items:center;border:1px solid var(--c-light-grey);display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:4rem;margin-top:4rem;padding:3rem}.usp>*{flex:0 1 100%}.usp-buttons{display:flex;flex-wrap:wrap;gap:.5rem 1rem;justify-content:stretch}.usp-buttons .button{flex:1 0 auto}@media (min-width:600px){.usp>*{flex:0 1 45%}}

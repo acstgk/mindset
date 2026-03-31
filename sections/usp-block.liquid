@@ -1,0 +1,63 @@
+<div class="max-width">
+  {% render 'cart-usp',
+    about_img: section.settings.about_img,
+    about_text: section.settings.about_text,
+    heading: section.settings.heading,
+    button_content: section.settings.button_content,
+    button_href: section.settings.button_href,
+    second_button_content: section.settings.second_button_content,
+    second_button_href: section.settings.second_button_href
+  %}
+</div>
+<link rel="stylesheet" href="{{ 'cart-usp.min.css' | asset_url }}">
+
+{% schema %}
+{
+  "name": "USP Block",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Gym King?"
+    },
+    {
+      "type": "image_picker",
+      "id": "about_img",
+      "label": "Image"
+    },
+    {
+      "type": "richtext",
+      "id": "about_text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "button_content",
+      "label": "Button content",
+      "default": "More about us"
+    },
+    {
+      "type": "url",
+      "id": "button_href",
+      "label": "Button href"
+    },
+    {
+      "type": "text",
+      "id": "second_button_content",
+      "label": "Second button content"
+    },
+    {
+      "type": "url",
+      "id": "second_button_href",
+      "label": "Second button href"
+    }
+  ],
+  "presets": [
+    {
+      "name": "USP Block"
+    }
+  ]
+}
+{% endschema %}
+

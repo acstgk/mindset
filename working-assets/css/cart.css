@@ -41,27 +41,6 @@
    place-content: center;
  }
 
- .usp {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 1rem;
-   border: 1px solid var(--c-light-grey);
-   padding: 3rem;
-   align-items: center;
-   margin-block: 4rem;
-
-   &>* {
-     flex: 0 1 100%
-   }
-
- }
-
- @media (min-width: 600px) {
-   .usp>* {
-     flex: 0 1 45%;
-   }
- }
-
  .cart-header,
  .cart-footer {
    display: grid;
