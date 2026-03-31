@@ -12,56 +12,56 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
-        "image_n7KCwa": {
+        "image_eT8DWX": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/Pro Twin Sets - Mobile Banner.mp4",
-            "desktop_video": "shopify://files/videos/Pro Twin Sets - Desktop Banner.mp4",
+            "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner.png",
+            "desktop_poster": "shopify://shop_images/Signature_Summer_-_Mens_-_Desktop_Banner.png",
             "overlay_url": "",
-            "content_alignment": "center",
+            "content_alignment": "right",
             "lockup_width": 200,
-            "title": "New Season",
+            "title": "Signature Summer",
             "title_font": "",
-            "subtitle": "Arrivals",
+            "subtitle": "New Collection",
             "subtitle_font": "",
-            "subtitle_first": false,
+            "subtitle_first": true,
             "customHTML": "",
-            "cta1": "Shop Now",
-            "url1": "shopify://collections/mens-new",
+            "cta1": "Shop now",
+            "url1": "",
             "cta2": "",
             "url2": "",
             "target_gender": "mens"
           }
         },
-        "image_Fz4CbB": {
+        "image_6BmG7G": {
           "type": "image",
           "settings": {
-            "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner_V1_30cb3bee-8f6d-49c7-8302-cafa65c6344a.png",
-            "desktop_poster": "shopify://shop_images/Spring_Essentials_-_Desktop_Banner_V1_de80fca0-7ca3-4167-bc82-c64233ff5501.png",
+            "mobile_video": "shopify://files/videos/Signature Summer - Womens - Mobile Banner.mp4",
+            "mobile_poster": "shopify://shop_images/Signature_Summer_-_Womens_-_Mobile_Banner.png",
+            "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner.mp4",
+            "desktop_poster": "shopify://shop_images/Signature_Summer_-_Womens_-_Desktop_Banner.png",
             "overlay_url": "",
-            "content_alignment": "right",
+            "content_alignment": "left",
             "lockup_width": 200,
-            "title": "Spring Essentials",
+            "title": "Signature <em>Summer</em>",
             "title_font": "baskerville",
-            "subtitle": "New In",
-            "subtitle_font": "",
+            "subtitle": "new collection",
+            "subtitle_font": "signature",
             "subtitle_first": true,
             "customHTML": "",
-            "cta1": "Shop New",
-            "url1": "shopify://collections/womens-new",
+            "cta1": "Shop Now",
+            "url1": "",
             "cta2": "",
             "url2": "",
-            "target_gender": "womens"
+            "target_gender": ""
           }
         }
       },
       "block_order": [
-        "image_n7KCwa",
-        "image_Fz4CbB"
+        "image_eT8DWX",
+        "image_6BmG7G"
       ],
-      "custom_css": [
-        "@media screen and (max-width: 768px) {#splide02-slide02 .hero_slide-content {top: 25px; justify-content: flex-start; } #splide02-slide02 .hero_slide-ctas {margin-top: auto; }}"
-      ],
+      "custom_css": [],
       "settings": {}
     },
     "section_value_props_FBFJKV": {
