@@ -11,10 +11,28 @@
       {% if block.settings.mobile_video != blank %}
         {{ block.settings.mobile_video.preview_image | image_url: width: 1, height: 1 | image_tag: width: 1, class: 'hero_slide-color', alt: 'background color', loading: 'lazy' }}
 
-        {% assign poster_image = block.settings.mobile_poster | image_url: height: '800px' | default: block.settings.mobile_video.preview_image %}
+        {% assign mobile_poster_asset = block.settings.mobile_poster | default: block.settings.mobile_video.preview_image %}
+        {% assign poster_image = mobile_poster_asset | image_url: width: 960 %}
 
         {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.mobile_video.aspect_ratio %}
-        {% assign video_src = block.settings.mobile_video.sources | where: 'format', 'mp4' | first %}
+        {% assign mobile_video_max_width = 1080 %}
+        {% assign video_src = blank %}
+        {% assign first_mp4_src = blank %}
+        {% assign selected_width = 0 %}
+        {% for source in block.settings.mobile_video.sources %}
+          {% if source.format == 'mp4' %}
+            {% if first_mp4_src == blank %}
+              {% assign first_mp4_src = source %}
+            {% endif %}
+            {% if source.width <= mobile_video_max_width and source.width > selected_width %}
+              {% assign video_src = source %}
+              {% assign selected_width = source.width %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {% if video_src == blank %}
+          {% assign video_src = first_mp4_src %}
+        {% endif %}
 
         <video
           playsinline="true"
@@ -30,17 +48,35 @@
 
       {% else %}
         {% if block.settings.mobile_poster %}
-          {{ block.settings.mobile_poster | image_url: width: 800 | image_tag: width: 800, class: 'hero_slide-image mob-only', loading: preload, fetchpriority: fetchpriority }}
+          {{ block.settings.mobile_poster | image_url: width: 1600 | image_tag: widths: '480, 640, 800, 960, 1200, 1600', sizes: '100vw', class: 'hero_slide-image mob-only', loading: preload, fetchpriority: fetchpriority }}
         {% else %}
-           <img src="https://placehold.co/650x1300?text=IMAGE&font=oswald" alt="" height="1300" width="650" class="hero_slide-image mob-only" loading="preload">
+           <img src="https://placehold.co/650x1300?text=IMAGE&font=oswald" alt="placeholder image" height="1300" width="650" class="hero_slide-image mob-only">
         {% endif %}
       {% endif %}
 
       {% if block.settings.desktop_video != blank %}
-        {% assign poster_image = block.settings.desktop_poster | image_url: width: '1920px' | default: block.settings.desktop_video.preview_image %}
+        {% assign desktop_poster_asset = block.settings.desktop_poster | default: block.settings.desktop_video.preview_image %}
+        {% assign poster_image = desktop_poster_asset | image_url: width: 1920 %}
 
         {% assign aspect_ratio = 'aspect-ratio: ' | append: block.settings.desktop_video.aspect_ratio %}
-        {% assign video_src = block.settings.desktop_video.sources | where: 'format', 'mp4' | first %}
+        {% assign desktop_video_max_width = 1920 %}
+        {% assign video_src = blank %}
+        {% assign first_mp4_src = blank %}
+        {% assign selected_width = 0 %}
+        {% for source in block.settings.desktop_video.sources %}
+          {% if source.format == 'mp4' %}
+            {% if first_mp4_src == blank %}
+              {% assign first_mp4_src = source %}
+            {% endif %}
+            {% if source.width <= desktop_video_max_width and source.width > selected_width %}
+              {% assign video_src = source %}
+              {% assign selected_width = source.width %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {% if video_src == blank %}
+          {% assign video_src = first_mp4_src %}
+        {% endif %}
 
         <video
           playsinline="true"
@@ -55,9 +91,9 @@
         </video>
       {% else %}
         {% if block.settings.desktop_poster %}
-          {{ block.settings.desktop_poster | image_url: width: '1400px' | image_tag: width: 1400, class: 'hero_slide-image mob-hide', loading: preload, fetchpriority: fetchpriority }}
+          {{ block.settings.desktop_poster | image_url: width: 2560 | image_tag: widths: '960, 1280, 1600, 1920, 2240, 2560', sizes: '100vw', class: 'hero_slide-image mob-hide', loading: preload, fetchpriority: fetchpriority }}
         {% else %}
-          <img src="https://placehold.co/1400x800?text=IMAGE&font=oswald" alt="" height="800" width="1400" class="hero_slide-image mob-hide" loading="preload">
+          <img src="https://placehold.co/1400x800?text=IMAGE&font=oswald" alt="placeholder image" height="800" width="1400" class="hero_slide-image mob-hide">
         {% endif %}
       {% endif %}
 
@@ -78,7 +114,11 @@
         {% endif %}
 
         {% unless block.settings.title == '' %}
-          <{%- if forloop.first -%}h1{%-else-%}h2{%endif%} class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</{%- if forloop.first -%}h1{%-else-%}h2{%endif%} >
+          {% if forloop.first %}
+            <h1 class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</h1>
+          {% else %}
+            <h2 class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</h2>
+          {% endif %}
         {% endunless %}
 
         {% if block.settings.subtitle != '' and block.settings.subtitle_first == false %}
@@ -93,9 +133,9 @@
 
         {% unless block.settings.cta1 == '' %}
           <div class="hero_slide-ctas fade-in">
-            <a href="{{ block.settings.url1 }}" class="button button-inverted"><span>{{ block.settings.cta1 }} </span>{% render 'icon' with 'arrow' %}</a>
+            <a href="{{ block.settings.url1 }}" class="button button-inverted"><span>{{ block.settings.cta1 }} </span>{% render 'icon', icon: 'arrow' %}</a>
             {% unless block.settings.cta2 == '' %}
-              <a href="{{ block.settings.url2 }}" class="button button-inverted"><span>{{ block.settings.cta2 }} </span>{% render 'icon' with 'arrow' %}</a>
+              <a href="{{ block.settings.url2 }}" class="button button-inverted"><span>{{ block.settings.cta2 }} </span>{% render 'icon', icon: 'arrow' %}</a>
             {% endunless %}
           </div>
         {% endunless %}
@@ -125,7 +165,7 @@
           "type": "video",
           "id": "mobile_video",
           "label": "Mobile Video",
-          "info": "Recommended: Portrait video "
+          "info": "Recommended: 720x1280 portrait MP4 (H.264), 24-30fps, target <=3 MB."
         },
         {
           "type": "image_picker",
@@ -136,7 +176,7 @@
           "type": "video",
           "id": "desktop_video",
           "label": "Desktop Video",
-          "info": "Recommended: Landscape video"
+          "info": "Recommended: 1920x1080 landscape MP4 (H.264), 24-30fps, target <=8 MB."
         },
         {
           "type": "image_picker",
