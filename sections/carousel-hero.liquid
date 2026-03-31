@@ -30,9 +30,9 @@
 
       {% else %}
         {% if block.settings.mobile_poster %}
-          {{ block.settings.mobile_poster | image_url: height: 800 | image_tag: height: 800, class: 'hero_slide-image mob-only', loading: preload, fetchpriority: fetchpriority }}
+          {{ block.settings.mobile_poster | image_url: width: 650 | image_tag: width: 650, class: 'hero_slide-image mob-only', loading: preload, fetchpriority: fetchpriority }}
         {% else %}
-           <img src="https://placehold.co/300x600?text=IMAGE&font=oswald" alt="" height="600" width="300" class="hero_slide-image mob-only" loading="preload">
+           <img src="https://placehold.co/650x1300?text=IMAGE&font=oswald" alt="" height="1300" width="650" class="hero_slide-image mob-only" loading="preload">
         {% endif %}
       {% endif %}
 

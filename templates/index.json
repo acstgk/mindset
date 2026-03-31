@@ -17,7 +17,7 @@
           "settings": {
             "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner.png",
             "desktop_poster": "shopify://shop_images/Signature_Summer_-_Mens_-_Desktop_Banner.png",
-            "overlay_url": "",
+            "overlay_url": "shopify://collections/mens-new",
             "content_alignment": "right",
             "lockup_width": 200,
             "title": "Signature Summer",
@@ -27,7 +27,7 @@
             "subtitle_first": true,
             "customHTML": "",
             "cta1": "Shop now",
-            "url1": "",
+            "url1": "shopify://collections/mens-new",
             "cta2": "",
             "url2": "",
             "target_gender": "mens"
@@ -40,7 +40,7 @@
             "mobile_poster": "shopify://shop_images/Signature_Summer_-_Womens_-_Mobile_Banner.png",
             "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner.mp4",
             "desktop_poster": "shopify://shop_images/Signature_Summer_-_Womens_-_Desktop_Banner.png",
-            "overlay_url": "",
+            "overlay_url": "shopify://collections/womens-new",
             "content_alignment": "left",
             "lockup_width": 200,
             "title": "Signature <em>Summer</em>",
@@ -50,10 +50,10 @@
             "subtitle_first": true,
             "customHTML": "",
             "cta1": "Shop Now",
-            "url1": "",
+            "url1": "shopify://collections/womens-new",
             "cta2": "",
             "url2": "",
-            "target_gender": ""
+            "target_gender": "womens"
           }
         }
       },
