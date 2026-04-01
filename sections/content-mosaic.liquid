@@ -1,5 +1,9 @@
 <link rel="stylesheet" href="{{ 'content-mosaic.min.css' | asset_url }}">
 
+{% if section.settings.title != '' %}
+  <h2 class="content-mosaic--title {{ section.settings.heading_style }} {{ section.settings.heading_size }}" >{{ section.settings.title }}</h2>
+{% endif %}
+
 <div class="PageContent max-width content-mosaic--wrapper">
   {% for block in section.blocks %}
     {% if block.type == 'grid-item' %}
@@ -28,32 +32,34 @@
           <div class="content-mosaic--content">
             <h2 class="{{block.settings.heading_style}} {{ block.settings.heading_size }}">{{ block.settings.title }}</h2>
             {{ block.settings.text }}
-            {% if block.settings.cta_text != '' %}
-              <a
-                class="button button-primary"
-                style="max-width: 100%;--btn-bg:{{ block.settings.btn_color }}"
-                {% if block.settings.cta_url %}
-                  href="{{ block.settings.cta_url }}"
-                {% else %}
-                  disabled
-                {% endif %}
-              >
-                {{- block.settings.cta_text -}}
-              </a>
-            {% endif %}
-            {% if block.settings.cta_text2 != '' %}
-              <a
-                class="button button-primary"
-                style="max-width: 100%;--btn-bg:{{ block.settings.btn_color2 }}"
-                {% if block.settings.cta_url2 %}
-                  href="{{ block.settings.cta_url2 }}"
-                {% else %}
-                  disabled
-                {% endif %}
-              >
-                {{- block.settings.cta_text2 -}}
-              </a>
-            {% endif %}
+            <div class="content-mosaic--ctas cta-position--{{ block.settings.cta_position }}">
+              {% if block.settings.cta_text != '' %}
+                <a
+                  class="button button-primary"
+                  style="max-width: 100%;--btn-bg:{{ block.settings.btn_color }}"
+                  {% if block.settings.cta_url %}
+                    href="{{ block.settings.cta_url }}"
+                  {% else %}
+                    disabled
+                  {% endif %}
+                >
+                  {{- block.settings.cta_text -}}
+                </a>
+              {% endif %}
+              {% if block.settings.cta_text2 != '' %}
+                <a
+                  class="button button-primary"
+                  style="max-width: 100%;--btn-bg:{{ block.settings.btn_color2 }}"
+                  {% if block.settings.cta_url2 %}
+                    href="{{ block.settings.cta_url2 }}"
+                  {% else %}
+                    disabled
+                  {% endif %}
+                >
+                  {{- block.settings.cta_text2 -}}
+                </a>
+              {% endif %}
+            </div>
              {% if block.settings.overlay_link %}
             <a href="{{ block.settings.overlay_link }}" class="content-mosaic--overlay-link"></a>
           {% endif %}
@@ -96,7 +102,38 @@
 {
   "name": "Content Mosaic",
   "class": "section--content-mosaic",
-  "settings": [],
+  "settings": [
+
+        {
+          "type": "inline_richtext",
+          "id": "title",
+          "label": "Title",
+        },
+       {
+          "type": "select",
+          "id": "heading_size",
+          "label": "Heading Size",
+          "options": [
+            { "label": "H1", "value": "h1" },
+            { "label": "H2", "value": "h2" },
+            { "label": "H3", "value": "h3" },
+            { "label": "H4", "value": "h4" }
+          ],
+          "default": "h2"
+        },
+        {
+          "type": "select",
+          "id": "heading_style",
+          "label": "Heading Style",
+          "options": [
+            { "value": "", "label": "Normal" },
+            { "label": "Emphasis", "value": "emphasis" },
+            { "label": "Baskerville", "value": "baskerville" },
+            { "label": "Signature", "value": "signature" }
+          ],
+          "default": "emphasis"
+        }
+  ],
   "blocks": [
     {
       "type": "grid-item",
@@ -262,6 +299,15 @@
           "label": "Button Color",
           "default": "#1b1b1b",
           "visible_if": "{{ block.settings.cta_text != '' }}"
+        },
+        {"type" :"select", 
+        "id": "cta_position",
+        "label": "CTA Position",
+        "options": [
+          { "label": "Left", "value": "left" },
+          { "label": "Center", "value": "center" }
+        ],
+        "default": "left"
         },
         {
           "type": "text",
