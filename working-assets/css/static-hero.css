@@ -78,13 +78,20 @@ letter-spacing: 0;
 
     .static-hero--heading {
       grid-area: 1 / 1 / 2 / 2;
-      text-align: right;
       padding: 0px max(calc(calc(100vw - 1400px) / 2), 5rem);
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
       align-items: end;
+
+      &.align--start {
+        text-align: left;
+      }
+
+      &.align--end  { 
+        text-align: right;
+      }
 
     }
 

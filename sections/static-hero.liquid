@@ -9,13 +9,13 @@
   {% elsif section.settings.image != blank %}
     {{ section.settings.image | image_url: width: 2500 | image_tag: class: 'static-hero--image', fetchpriority: 'high', loading: 'eager', widths: '375, 550, 750, 1100, 1500, 2500', style: media_brightness }}
   {% endif %}
-  <div class="static-hero--heading">
+  <div class="static-hero--heading align--{{- section.settings.text_align }}">
     <h1 class="h1 {{ section.settings.heading_style }}">{{ section.settings.title }}</h1>
     <h2>{{ section.settings.heading }}</h2>
     {% comment %} {% render 'socials' %} {% endcomment %}
   </div>
   {% if section.settings.text != blank or section.settings.link_url != blank %}
-    <div class="static-hero--content rtf text-align--{{- section.settings.text_align }}">
+    <div class="static-hero--content rtf align--{{- section.settings.text_align }}">
       {{ section.settings.text }}
       {% if section.settings.link_url %}
         <div class="static-hero--ctas">
