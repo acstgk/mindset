@@ -188,13 +188,11 @@
   .content-mosaic--item {
     aspect-ratio: var(--actual-c-span) / var(--r-span);
 
-    &:has(.content-mosaic--content) {
-      aspect-ratio: auto;
-      height: auto;
-    }
-
     & .content-mosaic--content {
       height: 100%;
+      overflow:  visible auto;
+      justify-content: flex-start; /* fallback */
+  justify-content: safe center;
     }
 
     & img {
@@ -244,7 +242,11 @@
   flex-wrap: wrap;
 
   &.cta-position--center {
-    justify-content: stretch;
+    justify-content: center;
+
+    & .button {
+      width: 100%;
+    }
   }
   &.cta-position--right {
     justify-content: flex-end;
