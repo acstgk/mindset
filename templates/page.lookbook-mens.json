@@ -55,6 +55,7 @@
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/mens-fundamental",
             "btn_color": "#811922",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -81,6 +82,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -107,6 +109,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -133,6 +136,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -159,6 +163,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -189,6 +194,7 @@
             "cta_text": "Don't Miss the launch",
             "cta_url": "shopify://pages/early-access",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -215,6 +221,7 @@
             "cta_text": "SOLD OUT",
             "cta_url": "",
             "btn_color": "#ff0303",
+            "cta_position": "left",
             "cta_text2": "Learn More",
             "cta_url2": "shopify://blogs/posts/limited-edition-bad-company-x-gym-king-collection",
             "btn_color2": "#040708"
@@ -241,6 +248,7 @@
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/fight-division-collection",
             "btn_color": "#7e7e7e",
+            "cta_position": "left",
             "cta_text2": "Learn More",
             "cta_url2": "shopify://pages/fight-division",
             "btn_color2": "#040708"
@@ -303,6 +311,7 @@
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/pro-logo",
             "btn_color": "#1b1a1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -329,6 +338,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -355,6 +365,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -381,6 +392,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -407,6 +419,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -480,6 +493,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -506,6 +520,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -532,6 +547,7 @@
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/rebellion-darkside",
             "btn_color": "#5a565f",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -558,6 +574,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -584,6 +601,7 @@
             "cta_text": "Shop Now",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -634,6 +652,7 @@
             "cta_text": "",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -660,6 +679,7 @@
             "cta_text": "",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -686,6 +706,7 @@
             "cta_text": "",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
@@ -712,6 +733,7 @@
             "cta_text": "",
             "cta_url": "",
             "btn_color": "#1b1b1b",
+            "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
             "btn_color2": "#eeeeee"
