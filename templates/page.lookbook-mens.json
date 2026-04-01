@@ -264,7 +264,11 @@
         "spacer_HrA4FQ"
       ],
       "name": "Content Mosaic",
-      "settings": {}
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis"
+      }
     },
     "as_seen_in_Mp7zfK": {
       "type": "as-seen-in",
@@ -423,7 +427,11 @@
         "spacer_WVM8GE"
       ],
       "name": "Content Mosaic",
-      "settings": {}
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis"
+      }
     },
     "product_collection_carousel_7CVb8L": {
       "type": "product-collection-carousel",
@@ -596,7 +604,138 @@
         "spacer_pTagxP"
       ],
       "name": "Content Mosaic",
-      "settings": {}
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis"
+      }
+    },
+    "content_mosaic_fCNPNq": {
+      "type": "content-mosaic",
+      "blocks": {
+        "grid_item_LN7VW9": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Resort",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/1_32273ed4-1ed5-47b3-ae3c-66f3ca624969.jpg",
+            "img_alt": "",
+            "overlay_link": "shopify://collections/mens-summer-clothes",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#ffffff",
+            "cta_text": "",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_pCW7bM": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Travel",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/PRO_2.0_TEE_PRO_2.0_JERSEY_6_SHORT_-_SOFT_KHAKI_SST-BOGOB_SHR-BOGOD_13.jpg",
+            "img_alt": "",
+            "overlay_link": "shopify://collections/mens-airport-fits",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#ffffff",
+            "cta_text": "",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_47K8bk": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Lounge",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/FUNDAMENTAL_LINEAR_FLEECE_HOOD_FUNDAMENTAL_LINEAR_STRAIGHT_LEG_JOGGER_-_NAVY_HDE-BNVRH_TSB-EOFG5_50_1.jpg",
+            "img_alt": "",
+            "overlay_link": "shopify://collections/mens-essentials",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#ffffff",
+            "cta_text": "",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_Ftjbmc": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Gym",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/ENERGY_VEST_ENERGY_SHORT_-_WHITE_NAVY_VST-A26WE_SHR-B2BC2_1.jpg",
+            "img_alt": "",
+            "overlay_link": "shopify://collections/mens-gym-clothes",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#ffffff",
+            "cta_text": "",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_LN7VW9",
+        "grid_item_pCW7bM",
+        "grid_item_47K8bk",
+        "grid_item_Ftjbmc"
+      ],
+      "custom_css": [
+        "{text-align: center;}",
+        ".content-mosaic--item h2 {--alignment: center;}",
+        ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.2);}",
+        ".content-mosaic--item.item-overlay .content-mosaic--content:hover,div.content-mosaic--item.item-overlay .content-mosaic--content:focus {backdrop-filter: brightness(1);}"
+      ],
+      "name": "Activity Grid",
+      "settings": {
+        "title": "Shop by Activity",
+        "heading_size": "h2",
+        "heading_style": "emphasis"
+      }
     },
     "usp_block_uQ3YpN": {
       "type": "usp-block",
@@ -618,6 +757,7 @@
     "content_mosaic_VjHWx4",
     "product_collection_carousel_7CVb8L",
     "content_mosaic_a6hTMr",
+    "content_mosaic_fCNPNq",
     "usp_block_uQ3YpN"
   ]
 }
