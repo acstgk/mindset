@@ -621,7 +621,171 @@
         "grid_item_Txf4k8",
         "spacer_pTagxP"
       ],
-      "name": "Content Mosaic",
+      "name": "Rebelion Darkside",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis"
+      }
+    },
+    "content_mosaic_DMiMJE": {
+      "type": "content-mosaic",
+      "blocks": {
+        "spacer_7Ccrxy": {
+          "type": "spacer",
+          "disabled": true,
+          "settings": {}
+        },
+        "grid_item_KxMhXp": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Signature Woven",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/Day_3_-_2_275.webp",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "",
+            "img_transition": "img-mask",
+            "content_placement": "overlay",
+            "heading_size": "h1",
+            "heading_style": "emphasis",
+            "text": "<p>Perfect summer fits made with premium textured fabrics.</p>",
+            "bg_color": "#29282b",
+            "txt_color": "#eeeeee",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/rebellion-darkside",
+            "btn_color": "#152d43",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_rDgDDk": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/SIGNATUREWOVENSHIRT_SIGNATUREWOVENSHORT-TAUPESSS-BOG3DSHR-BOG3F8.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_BqEYpx": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/signature-powder-blue.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_tca4xL": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/GK_May_Joss-8269.png",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_fAY8qQ": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/SIGNATUREWOVENSHIRT_SIGNATUREWOVENPANT-CLAYPOS-B2DGRTSB-BOG3J5.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h1",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "spacer_qMfika": {
+          "type": "spacer",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "spacer_7Ccrxy",
+        "grid_item_KxMhXp",
+        "grid_item_rDgDDk",
+        "grid_item_BqEYpx",
+        "grid_item_tca4xL",
+        "grid_item_fAY8qQ",
+        "spacer_qMfika"
+      ],
+      "name": "Signature Resort",
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -638,36 +802,9 @@
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/1_32273ed4-1ed5-47b3-ae3c-66f3ca624969.jpg",
+            "img": "shopify://shop_images/Day_2_-_38_587.webp",
             "img_alt": "",
             "overlay_link": "shopify://collections/mens-summer-clothes",
-            "product": "",
-            "img_transition": "normal",
-            "content_placement": "overlay",
-            "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#ffffff",
-            "cta_text": "",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_pCW7bM": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Travel",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/PRO_2.0_TEE_PRO_2.0_JERSEY_6_SHORT_-_SOFT_KHAKI_SST-BOGOB_SHR-BOGOD_13.jpg",
-            "img_alt": "",
-            "overlay_link": "shopify://collections/mens-airport-fits",
             "product": "",
             "img_transition": "normal",
             "content_placement": "overlay",
@@ -695,6 +832,33 @@
             "img": "shopify://shop_images/FUNDAMENTAL_LINEAR_FLEECE_HOOD_FUNDAMENTAL_LINEAR_STRAIGHT_LEG_JOGGER_-_NAVY_HDE-BNVRH_TSB-EOFG5_50_1.jpg",
             "img_alt": "",
             "overlay_link": "shopify://collections/mens-essentials",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#ffffff",
+            "cta_text": "",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_pCW7bM": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Travel",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/PRO_2.0_TEE_PRO_2.0_JERSEY_6_SHORT_-_SOFT_KHAKI_SST-BOGOB_SHR-BOGOD_13.jpg",
+            "img_alt": "",
+            "overlay_link": "shopify://collections/mens-airport-fits",
             "product": "",
             "img_transition": "normal",
             "content_placement": "overlay",
@@ -742,8 +906,8 @@
       },
       "block_order": [
         "grid_item_LN7VW9",
-        "grid_item_pCW7bM",
         "grid_item_47K8bk",
+        "grid_item_pCW7bM",
         "grid_item_Ftjbmc"
       ],
       "custom_css": [
@@ -763,7 +927,7 @@
       "type": "usp-block",
       "settings": {
         "heading": "Why Gym King?",
-        "about_img": "shopify://shop_images/hisandhers.jpg",
+        "about_img": "shopify://shop_images/Day_2_-_40_630.webp",
         "about_text": "<p>With over 35,000 5* reviews on Trustpilot, there’s a reason our bestsellers are in demand. </p><p>At Gym King, we focus on premium quality and great fitting designs with affordable prices. We want you to look and feel your best all day long. </p><p><strong>Discover what our customers are saying about us:</strong></p><p><em>“I absolutely love Gym King. Their products are outstanding quality.”</em></p><p><em>“10/10. Great fit. Fast delivery. Amazing value. Can’t ask for more than that.”</em></p><p><em>“Love everything about Gym King. The material, the fit, fast delivery, easy returns.” </em></p>",
         "button_content": "Shop New",
         "button_href": "shopify://collections/mens-new",
@@ -779,6 +943,7 @@
     "content_mosaic_VjHWx4",
     "product_collection_carousel_7CVb8L",
     "content_mosaic_a6hTMr",
+    "content_mosaic_DMiMJE",
     "content_mosaic_fCNPNq",
     "usp_block_uQ3YpN"
   ]
