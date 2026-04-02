@@ -363,7 +363,8 @@
     "product_collection_carousel_VxiMbj": {
       "type": "product-collection-carousel",
       "custom_css": [
-        "h2 {margin-bottom: 2em;}"
+        "h2 {margin-bottom: 2em;}",
+        "productcard-carousel {border-bottom: 1px solid var(--c-black); padding-bottom: 2rem;}"
       ],
       "name": "Product Card Carousel",
       "settings": {
@@ -563,7 +564,8 @@
         "grid_item_pntjpj"
       ],
       "custom_css": [
-        "h3 {margin: 2rem;}"
+        "h3 {margin: 2rem;}",
+        "{margin-top: 3rem;}"
       ],
       "name": "Content Mosaic",
       "settings": {
@@ -712,7 +714,7 @@
       "custom_css": [
         "{text-align: center; margin: 2rem auto; padding-top: 1rem; border-top: 1px solid var(--c-grey); width: var(--max-width);}",
         ".content-mosaic--item h2 {--alignment: center;}",
-        ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.2);}",
+        ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.2); overflow-x: clip;}",
         ".content-mosaic--item.item-overlay .content-mosaic--content:hover,div.content-mosaic--item.item-overlay .content-mosaic--content:focus {backdrop-filter: brightness(1);}"
       ],
       "name": "Shop by Activity",

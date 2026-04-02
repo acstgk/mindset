@@ -621,6 +621,7 @@
         "grid_item_Txf4k8",
         "spacer_pTagxP"
       ],
+      "disabled": true,
       "name": "Rebelion Darkside",
       "settings": {
         "title": "",
@@ -655,7 +656,7 @@
             "bg_color": "#29282b",
             "txt_color": "#eeeeee",
             "cta_text": "Shop Now",
-            "cta_url": "shopify://collections/rebellion-darkside",
+            "cta_url": "shopify://collections/mens-summer-clothes",
             "btn_color": "#152d43",
             "cta_position": "left",
             "cta_text2": "",
