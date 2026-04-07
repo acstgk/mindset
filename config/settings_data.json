@@ -176,7 +176,7 @@
       "drawer-cart": {
         "type": "drawer-cart",
         "settings": {
-          "microcopy": "none"
+          "microcopy": "bnpl"
         }
       },
       "wishlist-app-settings": {
