@@ -14,9 +14,16 @@
       "settings": {
         "isFullheight": false,
         "image": "shopify://shop_images/SCULPT_LS_TEE_SHORT_-_STONE_BLUE_WLT-A2DAD_WSR-A2DAM_50_d91d9ed9-051d-4a58-ba05-900b636939a1.jpg",
+        "img_overlay": 100,
         "title": "Gym King",
         "heading": "Brand",
+        "heading_style": "emphasis",
         "text": "<p>We believe that if you have something to prove and the mindset to prove it, anything is possible. Find the latest news, events, interviews from our ambassadors and motivational content in our training hub.</p>",
+        "cta_text": "Learn more",
+        "link_url": "",
+        "second_cta": false,
+        "cta_text2": "",
+        "link_url2": "",
         "text_align": "end"
       }
     },
@@ -248,7 +255,7 @@
         "link_9bJ4Pw": {
           "type": "link",
           "settings": {
-            "text": "Building Foundation",
+            "text": "Building Foundations",
             "url": "shopify://pages/building-foundations"
           }
         }
@@ -305,6 +312,7 @@
         "card_mRrDVx",
         "card_pKJgqQ"
       ],
+      "disabled": true,
       "name": "Hotspot Carousel",
       "settings": {}
     },
@@ -407,6 +415,7 @@
       "block_order": [
         "html_EtGyqW"
       ],
+      "disabled": true,
       "name": "Editorial Content Block",
       "settings": {
         "title": "How you're wearing it",
@@ -417,6 +426,35 @@
         "full_width": false,
         "alignment": "right",
         "grid_style": "standard"
+      }
+    },
+    "custom_ctas_QCLdk8": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_fAFttp": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Best of Men's",
+            "button_link": "shopify://pages/best-of-gym-king-mens",
+            "btn_color": false
+          }
+        },
+        "button_bygtqN": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Best of GK Womens",
+            "button_link": "shopify://pages/best-of-gym-king-womens",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_fAFttp",
+        "button_bygtqN"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
       }
     }
   },
@@ -431,6 +469,7 @@
     "section_in_page_nav_6bRQnP",
     "content_hotspot_carousel_rktLCX",
     "content_icon_grid_gqk3x3",
-    "content_rich_text_xHFFe9"
+    "content_rich_text_xHFFe9",
+    "custom_ctas_QCLdk8"
   ]
 }
