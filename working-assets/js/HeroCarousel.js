@@ -16,7 +16,7 @@ export default class HeroCarousel extends HTMLElement {
     this.splide = new window.Splide(this, {
       type: "fade",
       autoplay: true,
-      interval: 5000,
+      interval: 7000,
       arrows: false,
       rewind: true,
       lazyLoad: "nearby",
