@@ -102,34 +102,32 @@
           <a href="{{ block.settings.overlay_url }}" class="hero_slide-overlay"></a>
         {% endif %}
 
-        {% if block.settings.lockup_img %}
-          {% assign lockup_width = 'width:min(90vw, ' | append: block.settings.lockup_width | append: 'px)' %}
-          {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in', style: lockup_width }}
-        {% endif %}
-
-        {% if block.settings.subtitle != '' and block.settings.subtitle_first %}
-          <p class="h3 fade-in {{ block.settings.subtitle_font }}">
-            {{- block.settings.subtitle -}}
-          </p>
-        {% endif %}
-
-        {% unless block.settings.title == '' %}
-          {% if forloop.first %}
-            <h1 class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</h1>
-          {% else %}
-            <h2 class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</h2>
+        <div class="hero_slide-titles">
+          {% if block.settings.lockup_img %}
+            {% assign lockup_width = 'width:min(90vw, ' | append: block.settings.lockup_width | append: 'px)' %}
+            {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in', style: lockup_width }}
           {% endif %}
-        {% endunless %}
-
-        {% if block.settings.subtitle != '' and block.settings.subtitle_first == false %}
-          <p class="h3 fade-in  {{ block.settings.subtitle_font }}">
-            {{- block.settings.subtitle -}}
-          </p>
-        {% endif %}
-
-        {% if block.settings.customHTML %}
-          {{ block.settings.customHTML }}
-        {% endif %}
+          {% if block.settings.subtitle != '' and block.settings.subtitle_first %}
+            <p class="h3 fade-in {{ block.settings.subtitle_font }}">
+              {{- block.settings.subtitle -}}
+            </p>
+          {% endif %}
+          {% unless block.settings.title == '' %}
+            {% if forloop.first %}
+              <h1 class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</h1>
+            {% else %}
+              <h2 class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</h2>
+            {% endif %}
+          {% endunless %}
+          {% if block.settings.subtitle != '' and block.settings.subtitle_first == false %}
+            <p class="h3 fade-in  {{ block.settings.subtitle_font }}">
+              {{- block.settings.subtitle -}}
+            </p>
+          {% endif %}
+          {% if block.settings.customHTML %}
+            {{ block.settings.customHTML }}
+          {% endif %}
+        </div>
 
         {% unless block.settings.cta1 == '' %}
           <div class="hero_slide-ctas fade-in">
