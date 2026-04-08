@@ -1,6 +1,6 @@
 <hero-carousel>
   {%- for block in section.blocks -%}
-    <div class="hero_slide  splide__slide" data-gender="{{ block.settings.target_gender }}" data-index="{{forloop.index0}}" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+    <div class="hero_slide  splide__slide {{ block.settings.title | handle }}-{{ forloop.index }}" data-gender="{{ block.settings.target_gender }}" data-index="{{forloop.index0}}" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
       {% assign preload = 'lazy' %}
       {% assign fetchpriority = 'low' %}
       {% if forloop.first %}
