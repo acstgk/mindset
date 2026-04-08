@@ -1525,7 +1525,9 @@ class iWishCustom {
   updateClass() {
     if (!this.counterElement || !this.iconElement) return;
     const count = parseInt((this.counterElement.textContent || "").trim(), 10);
-    this.iconElement.classList.toggle("wishlisted", !isNaN(count) && count > 0);
+    const hasWish = !isNaN(count) && count > 0;
+    this.iconElement.classList.toggle("wishlisted", hasWish);
+    hasWish ? this.iconElement.classList.remove("mob-hide") : this.iconElement.classList.add("mob-hide");
   }
 }
 
