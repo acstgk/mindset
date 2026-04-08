@@ -53,8 +53,8 @@
             "subtitle_first": true,
             "customHTML": "",
             "content_alignment": "left",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "middle-mob",
+            "v_align_desk": "middle-desk",
+            "v_align_mob": "bottom-mob",
             "cta1": "Shop Now",
             "url1": "shopify://collections/womens-new",
             "cta2": "",
@@ -68,9 +68,9 @@
         "image_6BmG7G"
       ],
       "custom_css": [
-        "@media screen and (max-width: 768px) {.hero_slide-content--middle-mob {padding-top: 40%; } .signature-em-summer-em-2 .h1 {font-size: var(--txt-xl); }}",
-        ".h3 {font-size: var(--txt-h5);}",
-        ".h1 {font-size: var(--txt-h1); letter-spacing: 0.35ch}"
+        "@media screen and (max-width: 768px) {.signature-summer-1 .h1 {font-size: var(--txt-h1); }}",
+        ".h3 {font-size: var(--txt-h4);}",
+        ".h1 {font-size: var(--txt-xl); letter-spacing: 0.35ch; margin-right: -0.3ch;}"
       ],
       "settings": {}
     },
