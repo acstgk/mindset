@@ -2547,6 +2547,13 @@ product-card {
     padding-bottom: 0.25rem;
     /* border-bottom: 1px solid var(--c-light-grey); */
     margin-bottom: 1rem;
+
+    & .minus {
+      display: inline;
+    }
+    & .off {
+      display: none;
+    }
   }
 
   & .countdown-wrapper {

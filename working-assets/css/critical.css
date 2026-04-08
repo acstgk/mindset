@@ -360,13 +360,17 @@ blockquote {
   display: block;
   width: fit-content;
   text-transform: uppercase;
-  padding: 0.4lh 2ch;
+  padding: 0.4lh 1.5ch;
     text-box-trim: trim-both;
     text-box-edge: cap alphabetic;
   font-size: 11px;
   margin: .2rem 0 .2rem auto;
   letter-spacing: 0.1ch;
-  height: max-content
+  height: max-content;
+
+  & .minus {
+    display: none;
+  }
 }
 
 .Price--markdown {
