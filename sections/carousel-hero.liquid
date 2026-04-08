@@ -1,6 +1,12 @@
 <hero-carousel>
   {%- for block in section.blocks -%}
-    <div class="hero_slide  splide__slide {{ block.settings.title | handle }}-{{ forloop.index }}" data-gender="{{ block.settings.target_gender }}" data-index="{{forloop.index0}}" data-block-id="{{ block.id }}" {{ block.shopify_attributes }}>
+    <div
+      class="hero_slide  splide__slide {{ block.settings.title | handle }}-{{ forloop.index }}"
+      data-gender="{{ block.settings.target_gender }}"
+      data-index="{{forloop.index0}}"
+      data-block-id="{{ block.id }}"
+      {{ block.shopify_attributes }}
+    >
       {% assign preload = 'lazy' %}
       {% assign fetchpriority = 'low' %}
       {% if forloop.first %}
@@ -103,34 +109,46 @@
         {% endif %}
 
         <div class="hero_slide-titles">
+          {% assign fade_in_count = 0 %}
+          {% assign fade_in_delay = 0.15 %}
+
           {% if block.settings.lockup_img %}
+            {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
             {% assign lockup_width = 'width:min(90vw, ' | append: block.settings.lockup_width | append: 'px)' %}
             {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in', style: lockup_width }}
           {% endif %}
+
           {% if block.settings.subtitle != '' and block.settings.subtitle_first %}
-            <p class="h3 fade-in {{ block.settings.subtitle_font }}">
+            {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
+            <p class="h3 fade-in {{ block.settings.subtitle_font }}" style="--fade-delay: {{ fade_in_count }}s;">
               {{- block.settings.subtitle -}}
             </p>
           {% endif %}
+
           {% unless block.settings.title == '' %}
+            {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
             {% if forloop.first %}
-              <h1 class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</h1>
+              <h1 class="h1 fade-in {{ block.settings.title_font }}" style="--fade-delay: {{ fade_in_count }}s;">{{ block.settings.title }}</h1>
             {% else %}
-              <h2 class="h1 fade-in {{ block.settings.title_font }}">{{ block.settings.title }}</h2>
+              <h2 class="h1 fade-in {{ block.settings.title_font }}" style="--fade-delay: {{ fade_in_count }}s;">{{ block.settings.title }}</h2>
             {% endif %}
           {% endunless %}
+
           {% if block.settings.subtitle != '' and block.settings.subtitle_first == false %}
-            <p class="h3 fade-in  {{ block.settings.subtitle_font }}">
+            {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
+            <p class="h3 fade-in  {{ block.settings.subtitle_font }}" style="--fade-delay: {{ fade_in_count }}s;">
               {{- block.settings.subtitle -}}
             </p>
           {% endif %}
+
           {% if block.settings.customHTML %}
+            {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
             {{ block.settings.customHTML }}
           {% endif %}
         </div>
 
         {% unless block.settings.cta1 == '' %}
-          <div class="hero_slide-ctas fade-in">
+          <div class="hero_slide-ctas fade-in" style="--fade-delay: {{ fade_in_count }}s;">
             <a href="{{ block.settings.url1 }}" class="button button-inverted"
               ><span>{{ block.settings.cta1 }} </span>{% render 'icon', icon: 'arrow' -%}
             </a>
@@ -262,7 +280,7 @@
           "id": "customHTML",
           "label": "Custom HTML"
         },
-                {
+        {
           "type": "select",
           "id": "content_alignment",
           "label": "Content Alignment",
