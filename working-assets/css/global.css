@@ -1988,12 +1988,10 @@ video {
 }
 
 .hero_slide-content {
-  padding: max(50px, 4vw) 20px max(80px, 7.5vw);
+  padding:  max(2rem, 4vw) 20px max(5rem, 7.5vw);
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
-  position: absolute;
-  inset: 0;
 }
 
 .hero_slide-titles {
