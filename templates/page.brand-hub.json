@@ -97,6 +97,7 @@
         },
         "custom_JQwxcf": {
           "type": "custom",
+          "disabled": true,
           "settings": {
             "heading_level": "h2",
             "title": "GKW X CoppaFeel!",
@@ -108,6 +109,7 @@
         },
         "custom_pJiF7B": {
           "type": "custom",
+          "disabled": true,
           "settings": {
             "heading_level": "h2",
             "title": "Ross Edgley is taking on his toughest test yet—swimming over 1,000 miles around Iceland’s brutal coastline.",
@@ -116,35 +118,13 @@
             "cta": "Read more",
             "image": "shopify://shop_images/Ross_Iceland_Day_2-8.jpg"
           }
-        },
-        "custom_beeCQN": {
-          "type": "custom",
-          "disabled": true,
-          "settings": {
-            "heading_level": "h2",
-            "title": "Simpson's War at Oakwell: Zucco Stopped, European Gold Secured",
-            "copy": "<p>Barnsley's own Callum Simpson delivered a night for the ages at a roaring Oakwell Football Ground, stopping the previously unbeaten Ivan Zucco in the 10th round to claim the European Super Middleweight title. This was more than a fight; it was a testament to Simpson's unwavering heart and skill...</p>",
-            "url": "shopify://blogs/posts/simpsons-war-at-oakwell-zucco-stopped-european-gold-secured",
-            "cta": "Read more",
-            "image": "shopify://shop_images/0aeb2f90-43f1-11f0-b3c0-334b50e52e04.jpg"
-          }
-        },
-        "article_dgXE3x": {
-          "type": "article",
-          "disabled": true,
-          "settings": {
-            "heading_level": "h2",
-            "article": "posts/gkw-x-girlhood-uk-run-club-event"
-          }
         }
       },
       "block_order": [
         "custom_i3NHtY",
         "custom_BbJahq",
         "custom_JQwxcf",
-        "custom_pJiF7B",
-        "custom_beeCQN",
-        "article_dgXE3x"
+        "custom_pJiF7B"
       ],
       "name": "Featured Articles Carousel",
       "settings": {}

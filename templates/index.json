@@ -16,6 +16,7 @@
           "type": "image",
           "settings": {
             "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner.png",
+            "desktop_video": "shopify://files/videos/Signature Summer - Mens - Desktop Banner V2.mp4",
             "desktop_poster": "shopify://shop_images/Signature_Summer_-_Mens_-_Desktop_Banner.png",
             "overlay_url": "shopify://collections/mens-new",
             "content_alignment": "right",

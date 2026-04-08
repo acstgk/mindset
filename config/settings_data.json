@@ -91,6 +91,16 @@
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
+          "announcement_slider_KeM9Hq": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "International Shipping Available",
+              "subcontent1": "pay in your local currency",
+              "link1": "",
+              "enable_countdown": false,
+              "country_restriction": "international_only"
+            }
+          },
           "announcement_slider_CxdCHz": {
             "type": "announcement_slider",
             "settings": {
@@ -103,7 +113,6 @@
           },
           "announcement_slider_ij8XhU": {
             "type": "announcement_slider",
-            "disabled": true,
             "settings": {
               "title": "FREE UK Standard Delivery",
               "subcontent1": "On Orders over £75",
@@ -123,44 +132,23 @@
               "country_restriction": "domestic_only"
             }
           },
-          "announcement_slider_KeM9Hq": {
-            "type": "announcement_slider",
-            "settings": {
-              "title": "International Shipping Available",
-              "subcontent1": "pay in your local currency",
-              "link1": "",
-              "enable_countdown": false,
-              "country_restriction": "international_only"
-            }
-          },
           "announcement_slider_rTa4zL": {
             "type": "announcement_slider",
             "settings": {
-              "title": "15% Off with Unidays",
+              "title": "20% Off with UNiDAYS",
               "subcontent1": "Get Your Code",
               "link1": "shopify://pages/unidays",
               "enable_countdown": false,
               "country_restriction": "domestic_only"
             }
-          },
-          "announcement_slider_AbApwE": {
-            "type": "announcement_slider",
-            "settings": {
-              "title": "End of Season Sale",
-              "subcontent1": "Get up to 70% Off",
-              "link1": "shopify://collections/sale",
-              "enable_countdown": false,
-              "country_restriction": "none"
-            }
           }
         },
         "block_order": [
+          "announcement_slider_KeM9Hq",
           "announcement_slider_CxdCHz",
           "announcement_slider_ij8XhU",
           "announcement_slider_Qw6CQD",
-          "announcement_slider_KeM9Hq",
-          "announcement_slider_rTa4zL",
-          "announcement_slider_AbApwE"
+          "announcement_slider_rTa4zL"
         ],
         "settings": {
           "enable_bar": true,
