@@ -15,6 +15,7 @@
         "image_eT8DWX": {
           "type": "image",
           "settings": {
+            "mobile_video": "shopify://files/videos/Signature Summer - Mens - Mobile Banner V2_6f61119a-4691-4178-b92e-d93ec1f98ab5.mp4",
             "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner.png",
             "desktop_video": "shopify://files/videos/Signature Summer - Mens - Desktop Banner V2.mp4",
             "desktop_poster": "shopify://shop_images/Signature_Summer_-_Mens_-_Desktop_Banner.png",
