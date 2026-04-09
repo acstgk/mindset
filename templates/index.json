@@ -258,10 +258,10 @@
           "type": "card",
           "settings": {
             "title": "",
-            "image": "shopify://shop_images/black-friday--borg-flatlay.jpg",
+            "image": "shopify://shop_images/Q2_WOMENS_FLATLAYS_1.jpg",
             "text": "",
-            "button_text": "Borg Fleece",
-            "url": "shopify://collections/borg-fleece-collection",
+            "button_text": "Signature",
+            "url": "/collections/signature/womens",
             "gender": "womens"
           }
         },
@@ -291,10 +291,10 @@
           "type": "card",
           "settings": {
             "title": "",
-            "image": "shopify://shop_images/engerise_flatlay.jpg",
+            "image": "shopify://shop_images/Grey_0cfa8a5f-4187-4fa7-9da3-ef93feba8e39.jpg",
             "text": "",
-            "button_text": "Energise Collection",
-            "url": "shopify://collections/energise-collection",
+            "button_text": "Pro Logo Collection",
+            "url": "shopify://collections/pro-logo",
             "gender": "mens"
           }
         },
@@ -302,10 +302,10 @@
           "type": "card",
           "settings": {
             "title": "",
-            "image": "shopify://shop_images/taped_fleece_flatlay.jpg",
+            "image": "shopify://shop_images/Q1_25_TWIN_SET_FLATS-5_4ee57092-a432-436e-89b2-0eb3a463d48c.jpg",
             "text": "",
-            "button_text": "Taped Collection",
-            "url": "shopify://collections/taped-collection",
+            "button_text": "Contrast Panel Collection",
+            "url": "shopify://collections/contrast-panel",
             "gender": "mens"
           }
         },
