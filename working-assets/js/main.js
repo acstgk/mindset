@@ -689,7 +689,7 @@ if (!customElements.get("predictive-search")) {
 
       _getSearchResults = () => {
         this._showSkeleton();
-        
+
         const fetchPromise = fetch(
           `/search/suggest?q=${this.searchTerm}&resources[limit]=10&resources[limit_scope]=each&resources[type]=product,page,collection,article,query&resources[options][fields]=body,product_type,title,variants.sku&section_id=predictive-search-results`,
         ).then((response) => {
@@ -1118,10 +1118,33 @@ class ComponentLoader {
   init() {
     const target = document.querySelector(this.selector)?.closest(".shopify-section") || document.querySelector(this.selector);
     const rect = target?.getBoundingClientRect();
-    const triggerLocation = window.innerHeight * 2;
+    const triggerLocation = Math.min(window.innerHeight * 1.75, 1800);
 
-    if (!rect || rect.top <= triggerLocation) {
+    if (!rect || rect.top < window.innerHeight) {
       this.loadAndDefine();
+      return;
+    }
+
+    if (rect.top <= triggerLocation) {
+      const loadAfterRender = () => {
+        const run = () => {
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => this.loadAndDefine());
+          });
+        };
+
+        if ("requestIdleCallback" in window) {
+          requestIdleCallback(run, { timeout: 1000 });
+        } else {
+          setTimeout(run, 0);
+        }
+      };
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", loadAfterRender, { once: true });
+      } else {
+        loadAfterRender();
+      }
       return;
     }
 
