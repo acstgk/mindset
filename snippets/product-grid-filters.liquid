@@ -24,15 +24,18 @@
 
           <content-accordian>
             {%- for filter in group.filters -%}
+              {% if request.path contains '/mens' or  request.path contains '/womens' or filter.values.size < 3 %}
+              {% assign is_gendered =  true %}
+              {% endif %}
               {% if filter.values.size > 1 or filter.type == 'price_range' %}
-                {% unless request.path contains '/mens' and filter.label == 'Gender' or request.path contains '/womens' and filter.label == 'Gender' %}
+                {% unless is_gendered and filter.label == 'Gender'%}
                   <div class="accordian-items filter_item filter_item-{{- filter.label | handle -}} ">
                     <div class="accordian-header filter_item-name item-{{- filter.label | handle -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
                       <div class="filter_item-title">
                         {% if filter.label == 'Sale' and request.path contains 'sale' %}
                           Discount
                         {% else %}
-                          {{ filter.label }}
+                          {{ filter.label }} 
                         {% endif %}
                         {%- if filter.active_values.size > 0 -%}
                           {% assign active_count = active_count | plus: 1 %}

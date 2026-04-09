@@ -70,7 +70,7 @@
       "custom_css": [
         "@media screen and (max-width: 768px) {.signature-summer-1 .h1 {font-size: var(--txt-h1); }}",
         ".h3 {font-size: var(--txt-h4);}",
-        ".h1 {font-size: var(--txt-xl); letter-spacing: 0.35ch; margin-right: -0.3ch;}"
+        ".h1 {font-size: calc(var(--txt-xl) * .75); letter-spacing: 0.35ch; margin-right: -0.3ch;}"
       ],
       "settings": {}
     },
