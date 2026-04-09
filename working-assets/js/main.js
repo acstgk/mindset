@@ -1118,8 +1118,9 @@ class ComponentLoader {
   init() {
     const target = document.querySelector(this.selector)?.closest(".shopify-section") || document.querySelector(this.selector);
     const rect = target?.getBoundingClientRect();
+    const triggerLocation = window.innerHeight * 2;
 
-    if (!rect || rect.top <= window.innerHeight) {
+    if (!rect || rect.top <= triggerLocation) {
       this.loadAndDefine();
       return;
     }
@@ -1133,7 +1134,7 @@ class ComponentLoader {
       },
       {
         root: null,
-        rootMargin: "0px 0px 600px 0px",
+        rootMargin: `0px 0px ${triggerLocation}px 0px`,
         threshold: 0,
       },
     );
