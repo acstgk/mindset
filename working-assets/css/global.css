@@ -375,17 +375,6 @@ productcard-carousel .splide__arrow {
   column-gap: 10px;
 }
 
-.visually-hidden {
-  overflow: hidden;
-  position: absolute !important;
-  clip: rect(0 0 0 0);
-  border: 0;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  width: 1px;
-}
-
 .rotate180 {
   transform: rotate(180deg);
 }
@@ -462,11 +451,6 @@ body.no-scroll page-overlay {
       color: var(--c-black);
     }
   }
-}
-
-.mob-hide {
-  display: none;
-  visibility: hidden;
 }
 
 .Icon {
@@ -754,20 +738,6 @@ button {
 
 /* GLOBAL DESKTOP  */
 
-@media screen and (width > 768px) {
-  .mob-only {
-    display: none !important;
-    visibility: hidden !important;
-    height: 0 !important;
-    width: 0 !important;
-  }
-
-  .mob-hide {
-    display: inherit;
-    visibility: visible;
-  }
-}
-
 .img-overlay {
   position: relative;
   width: 100%;
@@ -860,46 +830,6 @@ predictive-search {
 
   &:focus {
     outline: none;
-  }
-}
-
-#search_form,
-#search_page-form {
-  display: flex;
-  justify-content: center;
-  margin: 1.5em auto;
-  gap: 1em;
-  padding: 0;
-  max-width: 90vw;
-
-  & .search_form-close,
-  & .search_form-terms-input {
-    margin: 0 0 0 auto;
-  }
-
-  & .search_form-terms-input {
-    flex: 1 0 auto;
-    width: 20ch;
-    max-width: 800px;
-    border: none;
-    border-bottom: 1px solid var(--c-black);
-    font-size: var(--txt-h4);
-    padding: 0.5em;
-    background-color: transparent;
-
-    &:focus {
-      outline: none;
-    }
-  }
-
-  & button {
-    display: grid;
-    place-content: center;
-    margin: 0;
-
-    & svg {
-      max-height: 20px;
-    }
   }
 }
 
@@ -2697,7 +2627,7 @@ product-card {
 
   & .loader {
     scale: 0.5;
-    margin-top: -3px;
+    margin-top: -3px !important;
   }
 
   &:not(:has(> .loader)):hover {
