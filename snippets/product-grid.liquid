@@ -42,7 +42,7 @@
           {% endif %}
 
           {% if settings[img_key] %}
-            <article class="product-grid-insert" data-entry-animation="true">
+            <article class="product-grid-insert" >
               <a data-gender="{{ product.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}" aria-label="{{ settings[img_key].alt | default: 'Current Offer'}}">
                 {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1400px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazy' }}
               </a>
@@ -52,7 +52,7 @@
       {% endif %}
 
       {% comment %} ---- Product Cards ---- {% endcomment %}
-      <article data-entry-animation="true" data-page="{{ page }}" id="item-{{- product.id -}}" class="Grid__Item">{%- render 'product-card', product: product, loading: lazyload -%}</article>
+      <article data-page="{{ page }}" id="item-{{- product.id -}}" class="Grid__Item">{%- render 'product-card', product: product, loading: lazyload -%}</article>
     {%- endfor -%}
   </infinite-scroll>
 

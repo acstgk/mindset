@@ -424,6 +424,8 @@ svg {
 page-overlay {
   position: fixed;
   inset: 0;
+  max-width: 100svw;
+  max-height: 100svh;
   backdrop-filter: brightness(0.75) blur(2px);
   z-index: 10;
   opacity: 0;
@@ -1988,7 +1990,7 @@ video {
 }
 
 .hero_slide-content {
-  padding:  max(2rem, 4vw) 20px max(5rem, 7.5vw);
+  padding: max(2rem, 4vw) 20px max(5rem, 7.5vw);
   display: flex;
   flex-flow: column nowrap;
   justify-content: flex-end;
@@ -2004,17 +2006,16 @@ video {
 @media screen and (max-width: 768px) {
   .hero_slide-content--bottom-mob {
     justify-content: flex-end;
-        & .hero_slide-titles {
+    & .hero_slide-titles {
       justify-content: flex-end; /* vertical centering */
     }
   }
 
   .hero_slide-content--top-mob {
     justify-content: flex-start;
-        & .hero_slide-titles {
+    & .hero_slide-titles {
       justify-content: flex-start; /* vertical centering */
     }
-
   }
 
   .hero_slide-content--middle-mob {
