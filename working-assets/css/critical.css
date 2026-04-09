@@ -72,6 +72,7 @@ blockquote {
   letter-spacing: var(--letter-spacing);
   font-weight: 400;
   letter-spacing: 0;
+  text-wrap: pretty;
 }
 
 @media screen and (min-width: 800px) {
@@ -86,7 +87,8 @@ h2,
   text-transform: uppercase;
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
-  text-align: center;
+  text-align: center;  
+  text-wrap: pretty;
 }
 
 h3,
@@ -95,6 +97,7 @@ h3,
   font-family: var(--text-font-family);
   text-transform: uppercase;
   text-align: center;
+  text-wrap: pretty;
 }
 
 h4,
@@ -103,6 +106,7 @@ h4,
   font-family: var(--text-font-family);
   text-align: center;
   color: oklch(from currentColor calc(l + .1) c h);
+  text-wrap: pretty;
 }
 
 h5,
@@ -111,6 +115,7 @@ h5,
   font-family: var(--text-font-family);
   font-weight: 400;
   color: oklch(from currentColor calc(l + .2) c h);
+  text-wrap: pretty;
 }
 
 p,
