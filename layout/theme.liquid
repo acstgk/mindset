@@ -108,7 +108,7 @@
     <script>
       window.thirdPartyInitialized = false;
 
-      window.initThirdParty = function() {
+      window.initThirdParty = function () {
         if (window.thirdPartyInitialized) return;
         window.thirdPartyInitialized = true;
         document.dispatchEvent(new CustomEvent('third-party:init'));
@@ -126,6 +126,14 @@
         window.addEventListener(event, initThirdPartyOnInteraction, { passive: true });
       });
     </script>
+
+    {% if template.name contains 'product' %}
+      <link rel="preload" href="{{ 'pdp.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="{{ 'pdp.min.css' | asset_url }}"></noscript>
+    {% elsif template.name contains 'collection' or template.name contains 'search' %}
+      <link rel="preload" href="{{ 'plp.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript><link rel="stylesheet" href="{{ 'plp.min.css' | asset_url }}"></noscript>
+    {% endif %}
   </head>
 
   <body class="{%- if template.directory -%}template-{{ template.directory | handle }}{%- endif -%} template-{{ template.name | handle }}">

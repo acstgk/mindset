@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="{{ 'plp.min.css' | asset_url }}">
 {% if collection.products_count > 0 %}
   {%- paginate collection.products by 22 -%}
     {% render 'product-grid-filters' with collection as group %}
