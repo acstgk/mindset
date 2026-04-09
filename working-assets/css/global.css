@@ -2468,6 +2468,8 @@ product-card {
     aspect-ratio: 35 / 50;
     position: relative;
     overflow-y: hidden;
+    margin-right: 0;
+    border-radius: var(--radius);
 
     &.oos-overlay::after {
       backdrop-filter: blur(-1px);
@@ -2783,7 +2785,7 @@ product-card {
       display: grid;
 
       & img {
-        width: calc(100% - 2px);
+        /* width: calc(100% - 2px); */
         height: calc(100% - 2px);
       }
     }
