@@ -580,7 +580,7 @@ button {
   text-box-trim: trim-both;
   text-box-edge: cap alphabetic;
   letter-spacing: var(--letter-spacing);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75em 1.5em;
   display: inline-flex;
   text-align: center;
   align-items: center;
@@ -1885,6 +1885,7 @@ hero-carousel {
 }
 
 .hero_slide-video,
+.hero_slide-image,
 .hero_slide-content,
 .hero_slide-overlay {
   width: 100%;
@@ -1901,6 +1902,7 @@ hero-carousel {
 }
 
 .hero_slide-video,
+.hero_slide-image,
 .hero_slide-image {
   pointer-events: none;
   z-index: -3;
