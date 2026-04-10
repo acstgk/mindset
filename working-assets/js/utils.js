@@ -88,13 +88,13 @@ export function pageRedirect() {
         const pageOverlay = document.querySelector("page-overlay");
         pageOverlay.closeAllOverlays();
         pageOverlay.style.setProperty('background-color', 'rgba(255 255 255)');
-        pageOverlay.style.setProperty('transition', 'opacity 1s, visibility 1s', 'important');
+        pageOverlay.style.setProperty('transition', 'opacity 1.5s, visibility 1.5s', 'important');
         pageOverlay.style.setProperty('display', 'grid');
         pageOverlay.style.setProperty('place-content', 'center');
         pageOverlay.innerHTML = "<div class='loader'></div>";
         document.body.classList.add('no-scroll');
 
-      }, 500);
+      }, 750);
     });
   });
 }
