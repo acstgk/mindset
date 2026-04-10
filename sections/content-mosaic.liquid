@@ -71,6 +71,10 @@
             {% assign flag_colour = 'var(--c-black)' %}
             {% assign flag_copy = 'Fan Favourite' %}
             {% assign flag_icon = 'star' %}
+          {% when 'loved' %}
+            {% assign flag_colour = '#d58199' %}
+            {% assign flag_copy = 'Loved by You' %}
+            {% assign flag_icon = 'heart' %}
           {% when 'soon' %}
             {% assign flag_colour = 'var(--c-info)' %}
             {% assign flag_copy = 'Coming Soon' %}
@@ -149,7 +153,8 @@
           "type": "select",
           "options": [
             { "label": "None", "value": "" },
-            { "label": "Best Sellers", "value": "best" },
+            { "label": "Favourite", "value": "best" },
+            { "label": "Loved", "value": "loved" },
             { "label": "Coming Soon", "value": "soon" },
             { "label": "Limited Edition", "value": "limited" },
             { "label": "From the Archive", "value": "legacy" }
