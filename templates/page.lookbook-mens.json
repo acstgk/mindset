@@ -12,14 +12,13 @@
     "static_hero_tV68kr": {
       "type": "static-hero",
       "custom_css": [
-        ".social-links {opacity: 0; pointer-events: none;}",
-        "@media screen and (min-width: 768px) {.static-hero--image {width: 125%; }}"
+        "@media screen and (max-width: 768px) {.static-hero--image {object-position: 60% !important; }}"
       ],
       "name": "Static Hero",
       "settings": {
         "isFullheight": false,
-        "image": "shopify://shop_images/FUNDAMENTAL_TEE_FUNDAMENTAL_SHORT_-_FOSSIL_STONE_SST-BOG4M_SHR-BOG4Q_5.jpg",
-        "img_overlay": 100,
+        "image": "shopify://shop_images/banner-mens-bestofgk.jpg",
+        "img_overlay": 90,
         "title": "The Best of Gym King",
         "heading": "Our most in demand styles",
         "heading_style": "emphasis",
