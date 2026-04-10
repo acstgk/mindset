@@ -21,15 +21,40 @@
         "image": "shopify://shop_images/FUNDAMENTAL_TEE_FUNDAMENTAL_SHORT_-_FOSSIL_STONE_SST-BOG4M_SHR-BOG4Q_5.jpg",
         "img_overlay": 100,
         "title": "The Best of Gym King",
-        "heading": "Men's Product Showcase",
+        "heading": "Our most in demand styles",
         "heading_style": "emphasis",
-        "text": "<p> Whether you're new to GK or a loyal ambassador, this page has been curated to showcase our favourite and best selling collections from the past, present and future.</p>",
+        "text": "",
         "cta_text": "Learn more",
         "link_url": "",
         "second_cta": false,
         "cta_text2": "",
         "link_url2": "",
         "text_align": "start"
+      }
+    },
+    "content_rich_text_zyYh4q": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_n6CDX6": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Whether you’re just discovering GK, or have been with us for a while, this page has been curated to highlight our favourite and bestselling collections.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_n6CDX6"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "",
+        "heading_style": "",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
       }
     },
     "content_mosaic_4xHKx9": {
@@ -50,12 +75,12 @@
             "content_placement": "50",
             "heading_size": "h1",
             "heading_style": "emphasis",
-            "text": "<p>Our top selling collection is the essential range featuring premium fabrics, cuts and embroidered branding. </p><p>Designs include versatile Jersey Tees & Shorts & Fleece Tracksuits. </p><p>⭐ ⭐ ⭐ ⭐ ⭐<br/><strong>\"great fit, price and comfort\" <br/></strong>- Mr Paul M.</p>",
+            "text": "<p>Our bestselling collection featuring clean everyday essentials designed in premium jersey and fleece fabric.</p><p>★★★★★<br/><strong>\"great fit, price and comfort\" <br/></strong>- Mr Paul M.</p>",
             "bg_color": "#f6f6f6",
             "txt_color": "#1b1b1b",
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/mens-fundamental",
-            "btn_color": "#811922",
+            "btn_color": "#1b1b1b",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -69,10 +94,10 @@
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/F4_467a666c-eaf7-4213-a8cc-bf9db6b8ebee.jpg",
+            "img": "shopify://shop_images/FUNDAMENTAL_HOOD_FUNDAMENTAL_JOGGER_-_BLACK_WHITE_HDE-A2ACF_TSB-BOEY3_10.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-fundamental-linear-tee-deep-olive",
+            "product": "gym-king-fundamental-fleece-hood-black",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -96,37 +121,10 @@
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/F2_b485a3d2-dc54-44ee-b6b5-adbe876eb5b4.jpg",
+            "img": "shopify://shop_images/FUNDAMENTAL_HOOD_FUNDAMENTAL_JOGGER_-_BLACK_WHITE_HDE-A2ACF_TSB-BOEY3_4.jpg",
             "img_alt": "",
             "overlay_link": "",
             "product": "gym-king-fundamental-fleece-jogger-black",
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop Now",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_FY6Tj8": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Item Title",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/F3_ef7aa4d8-b799-4452-b877-789f6a01897f.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-fundamental-fleece-jogger-grey-marl",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -154,6 +152,33 @@
             "img_alt": "",
             "overlay_link": "",
             "product": "gym-king-fundamental-linear-jersey-tank-white",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_FY6Tj8": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/FUNDAMENTAL_LINEAR_FLEECE_HOOD_FUNDAMENTAL_LINEAR_STRAIGHT_LEG_JOGGER_HDE-BNVRG_TSB-EOFG4_04.webp",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-fundamental-linear-straight-leg-jogger-black",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -216,12 +241,12 @@
             "content_placement": "50",
             "heading_size": "h3",
             "heading_style": "emphasis",
-            "text": "<p>Building Foundations, this Limited Edition Drop sold out in 24 hours.</p>",
+            "text": "<p>Our limited edition drop is back in stock in all sizes.</p>",
             "bg_color": "#111518",
             "txt_color": "#ffffff",
-            "cta_text": "SOLD OUT",
-            "cta_url": "",
-            "btn_color": "#ff0303",
+            "cta_text": "Buy Now",
+            "cta_url": "shopify://products/gym-king-bad-company-jersey-tee-black-black",
+            "btn_color": "#747476",
             "cta_position": "left",
             "cta_text2": "Learn More",
             "cta_url2": "shopify://blogs/posts/limited-edition-bad-company-x-gym-king-collection",
@@ -264,8 +289,8 @@
         "grid_item_HttinP",
         "grid_item_bLzy8f",
         "grid_item_fp6Ckt",
-        "grid_item_FY6Tj8",
         "grid_item_fNzbHq",
+        "grid_item_FY6Tj8",
         "spacer_NTgzLG",
         "grid_item_pjrnWd",
         "grid_item_e3qjVp",
@@ -291,71 +316,17 @@
           "type": "spacer",
           "settings": {}
         },
-        "grid_item_VUcr33": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Pro Logo",
-            "flag": "best",
-            "grid_column_span": "1",
-            "grid_row_span": "2",
-            "img": "shopify://shop_images/Q1_25_TWIN_SET_FLATS5732.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "",
-            "img_transition": "img-mask",
-            "content_placement": "50",
-            "heading_size": "h1",
-            "heading_style": "emphasis",
-            "text": "<p>Classic Gym King.</p>",
-            "bg_color": "#a4a7a8",
-            "txt_color": "#0c0c13",
-            "cta_text": "Shop Now",
-            "cta_url": "shopify://collections/pro-logo",
-            "btn_color": "#1b1a1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_dgHGCG": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Item Title",
-            "flag": "",
-            "grid_column_span": "2",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/prologo355.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-pro-logo-tee-white",
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop Now",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
         "grid_item_7DLbGU": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
-            "flag": "",
+            "flag": "best",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/PRO_2.0_TEE_PRO_2.0_JERSEY_6_SHORT_-_LIGHT_STONE_SST-BOG9Z_SHR-BOGA3_8_2.jpg",
+            "img": "shopify://shop_images/Grey_0cfa8a5f-4187-4fa7-9da3-ef93feba8e39.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-pro-logo-tee-light-stone",
+            "product": "",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -399,6 +370,33 @@
             "btn_color2": "#eeeeee"
           }
         },
+        "grid_item_VUcr33": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Pro Logo",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/PRO_LOGO_TEE_PRO_LOGO_JERSEY_6_SHORT_-_BLACK_WHITE_SST-BOHC1_SHR-BOHC7_7.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "50",
+            "heading_size": "h1",
+            "heading_style": "emphasis",
+            "text": "<p>Classic muscle fit twin sets and fleece tracksuits featuring refined contrast branding.</p>",
+            "bg_color": "#f8f8f8",
+            "txt_color": "#0c0c13",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/pro-logo",
+            "btn_color": "#1b1a1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
         "grid_item_BNKPRc": {
           "type": "grid-item",
           "settings": {
@@ -433,14 +431,13 @@
       },
       "block_order": [
         "spacer_pX38eE",
-        "grid_item_VUcr33",
-        "grid_item_dgHGCG",
         "grid_item_7DLbGU",
         "grid_item_qGk4gY",
+        "grid_item_VUcr33",
         "grid_item_BNKPRc",
         "spacer_WVM8GE"
       ],
-      "name": "Content Mosaic",
+      "name": "Pro Logo",
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -643,7 +640,7 @@
           "settings": {
             "title": "Signature Woven",
             "flag": "",
-            "grid_column_span": "1",
+            "grid_column_span": "2",
             "grid_row_span": "2",
             "img": "shopify://shop_images/SIGNATURE4_a220f574-c371-44bc-a6ee-f12870f24bce.jpg",
             "img_alt": "",
@@ -653,12 +650,12 @@
             "content_placement": "overlay",
             "heading_size": "h1",
             "heading_style": "emphasis",
-            "text": "<p>Perfect summer fits made with premium textured fabrics.</p>",
+            "text": "<p>Summer fits designed in a premium textured woven fabric.</p>",
             "bg_color": "#29282b",
             "txt_color": "#ffffff",
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/mens-summer-clothes",
-            "btn_color": "#21508e",
+            "btn_color": "#000000",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -697,36 +694,9 @@
           "settings": {
             "title": "Item Title",
             "flag": "",
-            "grid_column_span": "2",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/signature-powder-blue.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "",
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop Now",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_tca4xL": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Item Title",
-            "flag": "",
-            "grid_column_span": "2",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/GK_May_Joss-8269.png",
+            "grid_column_span": "1",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/SIGNATURE_WOVEN_SHIRT_SIGNATURE_WOVEN_SHORT_-_BLACK_POS-BOEQF_SHR-BOEQG_3.webp",
             "img_alt": "",
             "overlay_link": "",
             "product": "",
@@ -783,7 +753,6 @@
         "grid_item_KxMhXp",
         "grid_item_rDgDDk",
         "grid_item_BqEYpx",
-        "grid_item_tca4xL",
         "grid_item_fAY8qQ",
         "spacer_qMfika"
       ],
@@ -797,16 +766,16 @@
     "content_mosaic_fCNPNq": {
       "type": "content-mosaic",
       "blocks": {
-        "grid_item_LN7VW9": {
+        "grid_item_47K8bk": {
           "type": "grid-item",
           "settings": {
-            "title": "Resort",
+            "title": "Lounge",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/Day_2_-_38_587.webp",
+            "img": "shopify://shop_images/FUNDAMENTAL_LINEAR_FLEECE_HOOD_FUNDAMENTAL_LINEAR_STRAIGHT_LEG_JOGGER_-_NAVY_HDE-BNVRH_TSB-EOFG5_50_1.jpg",
             "img_alt": "",
-            "overlay_link": "shopify://collections/mens-summer-clothes",
+            "overlay_link": "shopify://collections/mens-essentials",
             "product": "",
             "img_transition": "normal",
             "content_placement": "overlay",
@@ -824,16 +793,16 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_47K8bk": {
+        "grid_item_Ftjbmc": {
           "type": "grid-item",
           "settings": {
-            "title": "Lounge",
+            "title": "Gym",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/FUNDAMENTAL_LINEAR_FLEECE_HOOD_FUNDAMENTAL_LINEAR_STRAIGHT_LEG_JOGGER_-_NAVY_HDE-BNVRH_TSB-EOFG5_50_1.jpg",
+            "img": "shopify://shop_images/ENERGY_VEST_ENERGY_SHORT_-_WHITE_NAVY_VST-A26WE_SHR-B2BC2_1.jpg",
             "img_alt": "",
-            "overlay_link": "shopify://collections/mens-essentials",
+            "overlay_link": "shopify://collections/mens-gym-clothes",
             "product": "",
             "img_transition": "normal",
             "content_placement": "overlay",
@@ -878,16 +847,16 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_Ftjbmc": {
+        "grid_item_LN7VW9": {
           "type": "grid-item",
           "settings": {
-            "title": "Gym",
+            "title": "Resort",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/ENERGY_VEST_ENERGY_SHORT_-_WHITE_NAVY_VST-A26WE_SHR-B2BC2_1.jpg",
+            "img": "shopify://shop_images/Day_2_-_38_587.webp",
             "img_alt": "",
-            "overlay_link": "shopify://collections/mens-gym-clothes",
+            "overlay_link": "shopify://collections/mens-summer-clothes",
             "product": "",
             "img_transition": "normal",
             "content_placement": "overlay",
@@ -907,15 +876,15 @@
         }
       },
       "block_order": [
-        "grid_item_LN7VW9",
         "grid_item_47K8bk",
+        "grid_item_Ftjbmc",
         "grid_item_pCW7bM",
-        "grid_item_Ftjbmc"
+        "grid_item_LN7VW9"
       ],
       "custom_css": [
         "{text-align: center;}",
         ".content-mosaic--item h2 {--alignment: center;}",
-        ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.2);}",
+        ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.9);}",
         ".content-mosaic--item.item-overlay .content-mosaic--content:hover,div.content-mosaic--item.item-overlay .content-mosaic--content:focus {backdrop-filter: brightness(1);}"
       ],
       "name": "Activity Grid",
@@ -940,6 +909,7 @@
   },
   "order": [
     "static_hero_tV68kr",
+    "content_rich_text_zyYh4q",
     "content_mosaic_4xHKx9",
     "as_seen_in_Mp7zfK",
     "content_mosaic_VjHWx4",

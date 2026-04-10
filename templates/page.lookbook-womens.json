@@ -974,7 +974,6 @@
       "custom_css": [
         "{text-align: center; margin: 2rem auto; padding-top: 1rem; border-top: 1px solid var(--c-grey); width: var(--max-width);}",
         ".content-mosaic--item h2 {--alignment: center; transform: scale(0.8);}",
-        ".content-mosaic--content {padding-inline: 0;}",
         ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.8); overflow: clip;}",
         ".content-mosaic--item.item-overlay .content-mosaic--content:hover,div.content-mosaic--item.item-overlay .content-mosaic--content:focus {backdrop-filter: brightness(1);}"
       ],
