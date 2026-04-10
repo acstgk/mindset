@@ -44,14 +44,13 @@
     flex-direction: column;
     justify-content: center;
     gap: 1lh;
-    padding: min(2rem, 10%) min(2rem, 7.5%);
+    padding: min(2rem, 10%) min(3rem, 5%);
 
-    & p {
+    & p,
+    & .button {
       font-size: calc(var(--txt-p) * calc(calc(var(--c-span) + 10) / 14));
     }
   }
-
-  
 
   & .content-mosaic--overlay-link {
     position: absolute;
@@ -96,6 +95,11 @@
       & > img {
         height: 100%;
       }
+    }
+
+    & video {
+      object-fit: cover;
+      object-position: bottom;
     }
 
     &:hover,
@@ -197,9 +201,9 @@
 
     & .content-mosaic--content {
       height: 100%;
-      overflow:  visible auto;
+      overflow: visible auto;
       justify-content: flex-start; /* fallback */
-  justify-content: safe center;
+      justify-content: safe center;
     }
 
     & img {

@@ -12,7 +12,9 @@
         style="--c-span:{{ block.settings.grid_column_span }};--r-span:{{ block.settings.grid_row_span }};--background:{{ block.settings.bg_color }};--txt-color:{{ block.settings.txt_color }};"
       >
         <div class="content-mosaic--media">
-          {% if block.settings.img %}
+          {% if block.settings.video %}
+            {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
+          {% elsif block.settings.img %}
             {{ block.settings.img | image_url: width: '1200' | image_tag: width: '1200', alt: block.settings.img_alt, class: block.settings.img_transition }}
           {% else %}
             <img src="https://placehold.co/400?text=IMAGE&font=oswald" alt="" height="400" width="400" class="{{ block.settings.img_transition  }}">
@@ -194,6 +196,11 @@
           "content": "Media"
         },
         {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
           "type": "image_picker",
           "id": "img",
           "label": "Image"
@@ -219,6 +226,7 @@
           "type": "select",
           "id": "img_transition",
           "label": "Image Transition Style",
+          "visible_if": "{{ block.settings.img != null }}",
           "options": [
             { "label": "Normal", "value": "normal" },
             { "label": "Fade In", "value": "img-mask" }
