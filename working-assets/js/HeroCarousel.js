@@ -87,6 +87,7 @@ export default class HeroCarousel extends HTMLElement {
     }
 
     try {
+      video.currentTime = 0;
       video.play().catch((err) => {
         console.debug("Autoplay blocked or video not ready", err);
       });
