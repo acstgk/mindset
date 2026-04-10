@@ -1,3 +1,4 @@
+/* global MutationObserver */
 import RecentlyViewed from "./RecentlyViewed.js";
 
 // ===================
@@ -17,7 +18,7 @@ export default class PersonalRecommendations extends HTMLElement {
       this.fallbackHtml = this.noscript.textContent || this.noscript.innerText;
       this.noscript.remove();
     }
-    
+
     this.gender = this.dataset.gender;
     this.loader = this.closest(".gender-wrapper")?.querySelector(".gender-loader");
 
@@ -58,6 +59,12 @@ export default class PersonalRecommendations extends HTMLElement {
     if (this.initialized) return;
     this.initialized = true;
 
+    // Disconnect observer if it exists (in case of manual trigger)
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer = null;
+    }
+
     const vRecents = new RecentlyViewed();
     const recentlyViewed = vRecents.getProductList();
 
@@ -90,17 +97,17 @@ export default class PersonalRecommendations extends HTMLElement {
         const data = await response.json();
         const carousel = document.createElement("productcard-carousel");
         carousel.classList.add("gender-recommendations-carousel", "product-grid");
-        
+
         const wrapper = document.createElement("div");
         wrapper.innerHTML = data["product-dynamic-cards"];
         const section = wrapper.querySelector("#shopify-section-product-dynamic-cards");
-        
+
         if (section) {
           while (section.firstChild) {
             carousel.appendChild(section.firstChild);
           }
         }
-        
+
         this.appendChild(carousel);
       } catch (error) {
         console.error("personal recs :: failed:", error);
@@ -112,7 +119,26 @@ export default class PersonalRecommendations extends HTMLElement {
       this._fallback();
       this._removeLoader();
     }
+
+    // If this was the active one, start loading the others immediately after
+    if (this.classList.contains("active")) {
+      this._initOtherCarousels();
+    }
   };
+
+  /**
+   * Triggers initialization of other carousels that are not yet active
+   */
+  _initOtherCarousels() {
+    // Wait a bit to let the active one finish rendering and browser to breathe
+    setTimeout(() => {
+      document.querySelectorAll("personal-recommendations:not(.active)").forEach((el) => {
+        if (typeof el._initCarousel === "function") {
+          el._initCarousel();
+        }
+      });
+    }, 200);
+  }
 
   _fallback = () => {
     if (!this.fallbackHtml) return;

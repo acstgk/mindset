@@ -689,7 +689,7 @@ if (!customElements.get("predictive-search")) {
 
       _getSearchResults = () => {
         this._showSkeleton();
-        
+
         const fetchPromise = fetch(
           `/search/suggest?q=${this.searchTerm}&resources[limit]=10&resources[limit_scope]=each&resources[type]=product,page,collection,article,query&resources[options][fields]=body,product_type,title,variants.sku&section_id=predictive-search-results`,
         ).then((response) => {
