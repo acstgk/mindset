@@ -21,7 +21,7 @@
         "title": "The Best of Gym King",
         "heading": "Discover our most-loved and bestselling collections.",
         "heading_style": "baskerville",
-        "text": "<p> </p>",
+        "text": "",
         "cta_text": "Learn more",
         "link_url": "",
         "second_cta": false,
@@ -62,18 +62,18 @@
           "type": "grid-item",
           "settings": {
             "title": "The 365 Collection",
-            "flag": "best",
+            "flag": "loved",
             "grid_column_span": "4",
             "grid_row_span": "2",
             "img": "shopify://shop_images/Airbrush-image-extender.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-365-capri-legging-black",
+            "product": "gym-king-365-halter-neck-tank-black",
             "img_transition": "normal",
             "content_placement": "50",
             "heading_size": "h1",
             "heading_style": "baskerville",
-            "text": "<p>From the coffee shop, to the gym, 365 offers versatile wardrobe staples to be worn both for performance and everyday activity.</p><p>★★★★★<br/><strong>\"Best leggings I have bought in a long time. So comfy and fantastic quality\" <br/></strong>- Emma R.</p>",
+            "text": "<p>Fall in love with our buttery soft 365 Collection. </p><p>Versatile wardrobe staples designed for all day, everyday comfort without compromising on style. Whether you’re running errands or hitting the gym, this collection has you covered.</p><p>★★★★★<br/><strong>\"Best leggings I have bought in a long time. So comfy and fantastic quality\" <br/></strong>- Emma R.</p>",
             "bg_color": "#f8f8f8",
             "txt_color": "#1b1b1b",
             "cta_text": "Shop Now",
@@ -87,6 +87,7 @@
         },
         "grid_item_fNzbHq": {
           "type": "grid-item",
+          "disabled": true,
           "settings": {
             "title": "Item Title",
             "flag": "",
@@ -114,6 +115,7 @@
         },
         "grid_item_FY6Tj8": {
           "type": "grid-item",
+          "disabled": true,
           "settings": {
             "title": "Item Title",
             "flag": "",
@@ -141,6 +143,7 @@
         },
         "grid_item_fp6Ckt": {
           "type": "grid-item",
+          "disabled": true,
           "settings": {
             "title": "Item Title",
             "flag": "",
@@ -168,6 +171,7 @@
         },
         "grid_item_bLzy8f": {
           "type": "grid-item",
+          "disabled": true,
           "settings": {
             "title": "Item Title",
             "flag": "",
@@ -177,6 +181,114 @@
             "img_alt": "",
             "overlay_link": "",
             "product": "gym-king-365-halter-neck-tank-brown-plum",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_9Yi46f": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/365_LONG_LINE_TANK_365_LEGGING_-_BLACK_WBT-A267F_WLG-A267R_1_706cb4cb-78d9-46e3-b88b-853b4152487d.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-sport-core-3-6-5-legging-black",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_K7DL8J": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/365_HALTER_NECK_365_CAPRI_LEGGING_-_SOFT_PINK_WVS-BOHIC_WLG-BOHIA_4.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-365-capri-legging-soft-pink",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_kXekJM": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/365_HALTER_NECK_365_CAPRI_LEGGING_-_SOFT_PINK_WVS-BOHIC_WLG-BOHIA_1.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-365-halter-neck-soft-pink",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_J6zTXi": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/365_HALTER_NECK_TANK_365_CAPRI_LEGGING_-_BLACK_WVS-EOFCZ_WLG-BOGOI_3.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-365-capri-legging-black",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -204,6 +316,10 @@
         "grid_item_FY6Tj8",
         "grid_item_fp6Ckt",
         "grid_item_bLzy8f",
+        "grid_item_9Yi46f",
+        "grid_item_K7DL8J",
+        "grid_item_kXekJM",
+        "grid_item_J6zTXi",
         "spacer_NTgzLG"
       ],
       "name": "365 Block",
@@ -232,10 +348,10 @@
           "type": "grid-item",
           "settings": {
             "title": "Sculpt",
-            "flag": "best",
+            "flag": "loved",
             "grid_column_span": "1",
             "grid_row_span": "2",
-            "img": "shopify://shop_images/Capture.png",
+            "img": "shopify://shop_images/GKWomen_Scult365_Jan_Melissa-5629.jpg",
             "img_alt": "",
             "overlay_link": "",
             "product": "",
@@ -243,12 +359,12 @@
             "content_placement": "50",
             "heading_size": "h1",
             "heading_style": "baskerville",
-            "text": "<p>Figure contouring, sweat wicking, seamless high waisted designs featuring bum scrunch detail for a flattering fit. </p>",
-            "bg_color": "#111518",
-            "txt_color": "#ffffff",
+            "text": "<p>Discover our Sculpt Collection. Flattering seamless designs perfect for mid to high impact gym activity.</p>",
+            "bg_color": "#f8f8f8",
+            "txt_color": "#1b1b1b",
             "cta_text": "Shop Now",
             "cta_url": "",
-            "btn_color": "#ac384c",
+            "btn_color": "#1b1b1b",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -309,17 +425,17 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_dgHGCG": {
+        "grid_item_BNKPRc": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "2",
-            "img": "shopify://shop_images/SCULPTSEAMLESSBRA_SEAMLESSLEGGING-BLACKWBT-A2AYLWSR-A2BQ8-129.jpg",
+            "video": "shopify://files/videos/GKWomen_Melissa_OutfitReel2_SculptBlack.mp4",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-sculpt-seamless-3-short-black",
+            "product": "",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -336,17 +452,17 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_BNKPRc": {
+        "grid_item_dgHGCG": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/SCULPTSEAMLESSSHORTSLEEVETEE_SCULPTSEAMLESS3INCHSHORT-BLACKWST-BOF03WSR-A2BQ83.jpg",
+            "img": "shopify://shop_images/SCULPTSEAMLESSBRA_SEAMLESSLEGGING-BLACKWBT-A2AYLWSR-A2BQ8-129.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-sculpt-seamless-short-sleeve-tee-black",
+            "product": "gym-king-sculpt-seamless-3-short-black",
             "img_transition": "normal",
             "content_placement": "hidden",
             "heading_size": "h2",
@@ -373,8 +489,8 @@
         "grid_item_VUcr33",
         "grid_item_qGk4gY",
         "grid_item_7DLbGU",
-        "grid_item_dgHGCG",
         "grid_item_BNKPRc",
+        "grid_item_dgHGCG",
         "spacer_WVM8GE"
       ],
       "custom_css": [],
@@ -431,7 +547,7 @@
             "content_placement": "50",
             "heading_size": "h2",
             "heading_style": "baskerville",
-            "text": "<p>The perfect squat proof gym legging made from buttery soft, moisture wicking fabric</p>",
+            "text": "<p>The perfect everyday legging designed in a buttery soft flattering fabric with minimal branding.</p>",
             "bg_color": "#f6f6f6",
             "txt_color": "#2a2a2a",
             "cta_text": "Shop 365",
@@ -458,7 +574,7 @@
             "content_placement": "50",
             "heading_size": "h2",
             "heading_style": "baskerville",
-            "text": "<p>Combining soft, breathable, and quick drying fabric with a compressive seamless knit that contours perfectly to your body.</p>",
+            "text": "<p>The perfect gym legging. Designed in a compressive seamless fabric featuring a bum scrunch detail to enhance your glutes.</p>",
             "bg_color": "#f6f6f6",
             "txt_color": "#2a2a2a",
             "cta_text": "Shop Sculpt",
@@ -472,6 +588,7 @@
         },
         "grid_item_J3QJfU": {
           "type": "grid-item",
+          "disabled": true,
           "settings": {
             "title": "Poise Legging",
             "flag": "",
@@ -499,6 +616,7 @@
         },
         "grid_item_z9NnKi": {
           "type": "grid-item",
+          "disabled": true,
           "settings": {
             "title": "Power",
             "flag": "",
@@ -526,6 +644,7 @@
         },
         "grid_item_jXzPNT": {
           "type": "grid-item",
+          "disabled": true,
           "settings": {
             "title": "Knockout",
             "flag": "",
@@ -553,6 +672,7 @@
         },
         "grid_item_pntjpj": {
           "type": "grid-item",
+          "disabled": true,
           "settings": {
             "title": "",
             "flag": "",
@@ -577,6 +697,114 @@
             "cta_url2": "",
             "btn_color2": "#eeeeee"
           }
+        },
+        "grid_item_DHtLeX": {
+          "type": "grid-item",
+          "settings": {
+            "title": "",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/365_HALTER_NECK_TANK_365_CAPRI_LEGGING_-_BLACK_WVS-EOFCZ_WLG-BOGOI_3_4ec2d539-d9c6-478b-a505-ba6c58a5f15e.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-365-capri-legging-black",
+            "img_transition": "img-mask",
+            "content_placement": "overlay",
+            "heading_size": "h3",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "",
+            "cta_url": "shopify://collections/all-womens-leggings",
+            "btn_color": "#2b2b2b",
+            "cta_position": "center",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_rHdmN3": {
+          "type": "grid-item",
+          "settings": {
+            "title": "",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/365_SQUARE_NECK_TANK_365_FLARED_YOGA_LEGGING_-_REGULAR_-_BLACK_WVS-ANVR2_WTB-BNVFB_1.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-365-flared-trousers-black",
+            "img_transition": "img-mask",
+            "content_placement": "overlay",
+            "heading_size": "h3",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "",
+            "cta_url": "shopify://collections/all-womens-leggings",
+            "btn_color": "#2b2b2b",
+            "cta_position": "center",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_HbRdMN": {
+          "type": "grid-item",
+          "settings": {
+            "title": "",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/365_CAP_SLEEVE_TEE_365_STRAIGHT_LEG_YOGA_PANT_-_GREEN_SMOKE_BLACK_WTT-BNVF9_WLG-BOGF7_1.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-365-straight-leg-yoga-pant-black",
+            "img_transition": "img-mask",
+            "content_placement": "overlay",
+            "heading_size": "h3",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "",
+            "cta_url": "shopify://collections/all-womens-leggings",
+            "btn_color": "#2b2b2b",
+            "cta_position": "center",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_mmUMan": {
+          "type": "grid-item",
+          "settings": {
+            "title": "",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/SCULPT_SEAMLESS_SCRUNCH_BRA_SCULPT_SEAMLESS_LEGGING_-_BLACK_WBT-BOFTC_WLG-A2AYV_2.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-sport-core-3-6-5-legging-black",
+            "img_transition": "img-mask",
+            "content_placement": "overlay",
+            "heading_size": "h3",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "",
+            "cta_url": "shopify://collections/all-womens-leggings",
+            "btn_color": "#2b2b2b",
+            "cta_position": "center",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
         }
       },
       "block_order": [
@@ -586,7 +814,11 @@
         "grid_item_J3QJfU",
         "grid_item_z9NnKi",
         "grid_item_jXzPNT",
-        "grid_item_pntjpj"
+        "grid_item_pntjpj",
+        "grid_item_DHtLeX",
+        "grid_item_rHdmN3",
+        "grid_item_HbRdMN",
+        "grid_item_mmUMan"
       ],
       "custom_css": [
         "h3 {margin: 2rem;}",
@@ -601,6 +833,9 @@
     },
     "product_collection_carousel_F7CExJ": {
       "type": "product-collection-carousel",
+      "custom_css": [
+        "{margin-top: 3rem; margin-bottom: -1rem;}"
+      ],
       "name": "Product Card Carousel",
       "settings": {
         "carousel_title": "",
@@ -709,7 +944,7 @@
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/SIGNATURE_POPLIN_STRIPE_SHIRT_RIB_ASYMMETRIC_VEST_SIGNATURE_POPLIN_SHORT_-_DUNE_WHITE_STRIPE_WLT-BOGBQ_WST-A2ARI_WSR-BOGBY_2.webp",
+            "img": "shopify://shop_images/RENEW_FLATLOCK_HOOD_RENEW_FLATLOCK_SHORT_-_MIDNIGHT_BLUE_WHD-BOHWN_WSR-BOGP2_2.webp",
             "img_alt": "",
             "overlay_link": "shopify://collections/pilates-yoga",
             "product": "",
@@ -738,8 +973,9 @@
       ],
       "custom_css": [
         "{text-align: center; margin: 2rem auto; padding-top: 1rem; border-top: 1px solid var(--c-grey); width: var(--max-width);}",
-        ".content-mosaic--item h2 {--alignment: center;}",
-        ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.8); overflow-x: clip;}",
+        ".content-mosaic--item h2 {--alignment: center; transform: scale(0.8);}",
+        ".content-mosaic--content {padding-inline: 0;}",
+        ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.8); overflow: clip;}",
         ".content-mosaic--item.item-overlay .content-mosaic--content:hover,div.content-mosaic--item.item-overlay .content-mosaic--content:focus {backdrop-filter: brightness(1);}"
       ],
       "name": "Shop by Activity",
@@ -755,7 +991,7 @@
         "h3 {font-family: var(--signature-text-font-family); text-transform: none; font-weight: 400; font-size: var(--txt-h2);}"
       ],
       "settings": {
-        "heading": "Why Gym King?",
+        "heading": "why gym king?",
         "about_img": "shopify://shop_images/Q2_WOMENS_FLATLAYS_6.jpg",
         "about_text": "<p>With over 36,000 5* reviews on Trustpilot, there’s a reason our bestsellers are in demand. </p><p>At Gym King, we focus on premium quality and great fitting designs with affordable prices. We want you to look and feel your best all day long. </p><p><strong>Discover what our customers are saying about us:</strong></p><p><em>“I absolutely love Gym King. Their products are outstanding quality.”</em></p><p><em>“10/10. Great fit. Fast delivery. Amazing value. Can’t ask for more than that.”</em></p><p><em>“Love everything about Gym King. The material, the fit, fast delivery, easy returns.” </em></p>",
         "button_content": "Shop New",
