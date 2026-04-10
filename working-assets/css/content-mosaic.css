@@ -36,6 +36,7 @@
   & h2 {
     margin: 0;
     text-align: var(--alignment);
+    font-size: calc(var(--txt-h1) * calc(calc(var(--c-span) + 6) / 10));
   }
 
   & .content-mosaic--content {
@@ -44,7 +45,13 @@
     justify-content: center;
     gap: 1lh;
     padding: min(2rem, 10%) min(2rem, 7.5%);
+
+    & p {
+      font-size: calc(var(--txt-p) * calc(calc(var(--c-span) + 10) / 14));
+    }
   }
+
+  
 
   & .content-mosaic--overlay-link {
     position: absolute;
