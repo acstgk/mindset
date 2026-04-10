@@ -9,7 +9,7 @@
     {% elsif article.metafields.article.event_date.value %}
       <b>Event:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
     {% else %}
-      <b>Article:</b> {{ article.published_at | date: '%B %d, %Y' }}
+      <b>Article:</b> {{ article.published_at | date: '%B %d, %Y' | default: '<i>publish date TBC</i>' }}
     {%- endif -%}
   </p>
   <h1>{{ article.title }}</h1>

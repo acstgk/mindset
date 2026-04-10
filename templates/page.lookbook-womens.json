@@ -16,18 +16,43 @@
       ],
       "settings": {
         "isFullheight": false,
-        "image": "shopify://shop_images/SIGNATUREPOPLINSTRIPESHIRT_SIGNATUREPOPLINSHORT-BLUECANVASWHITESTRIPEWLT-BOGBPWSR-BOGBW1.png",
-        "img_overlay": 75,
+        "image": "shopify://shop_images/BESTOFGK-Desktop.jpg",
+        "img_overlay": 85,
         "title": "The Best of Gym King",
-        "heading": "Women's Product Showcase",
+        "heading": "Discover our most-loved and bestselling collections.",
         "heading_style": "baskerville",
-        "text": "<p> Whether you’re just discovering GK or have been with us for a while, this page has been thoughtfully curated to highlight our most loved and best-selling collections—past, present, and those still to come. </p>",
+        "text": "<p> </p>",
         "cta_text": "Learn more",
         "link_url": "",
         "second_cta": false,
         "cta_text2": "",
         "link_url2": "",
         "text_align": "start"
+      }
+    },
+    "content_rich_text_dfcbat": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_Pp3KRQ": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Whether you’re just discovering GK, or have been with us for a while, this page has been thoughtfully curated to highlight our most loved and bestselling collections.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_Pp3KRQ"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "",
+        "heading_style": "",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
       }
     },
     "content_mosaic_4xHKx9": {
@@ -40,20 +65,20 @@
             "flag": "best",
             "grid_column_span": "4",
             "grid_row_span": "2",
-            "img": "shopify://shop_images/365_CONTRAST_TANK_365_CONTRAST_LEGGING_-_FERN_WVS-EOFSY_WLG-EOFT7_3.jpg",
+            "img": "shopify://shop_images/Airbrush-image-extender.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-365-contrast-tank-fern",
+            "product": "gym-king-365-capri-legging-black",
             "img_transition": "normal",
             "content_placement": "50",
             "heading_size": "h1",
             "heading_style": "baskerville",
-            "text": "<p>From the coffee shop, to the gym, 365 offers versatile wardrobe staples to be worn both for performance and everyday activity.</p><p>⭐⭐⭐⭐⭐<br/><strong>\"Best leggings I have bought in a long time. So comfy and fantastic quality\" <br/></strong>- Emma R.</p>",
-            "bg_color": "#efece8",
-            "txt_color": "#49502a",
+            "text": "<p>From the coffee shop, to the gym, 365 offers versatile wardrobe staples to be worn both for performance and everyday activity.</p><p>★★★★★<br/><strong>\"Best leggings I have bought in a long time. So comfy and fantastic quality\" <br/></strong>- Emma R.</p>",
+            "bg_color": "#f8f8f8",
+            "txt_color": "#1b1b1b",
             "cta_text": "Shop Now",
             "cta_url": "",
-            "btn_color": "#2a2c1c",
+            "btn_color": "#2a2a2a",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -407,11 +432,11 @@
             "heading_size": "h2",
             "heading_style": "baskerville",
             "text": "<p>The perfect squat proof gym legging made from buttery soft, moisture wicking fabric</p>",
-            "bg_color": "#e7e5e6",
-            "txt_color": "#31223a",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#2a2a2a",
             "cta_text": "Shop 365",
             "cta_url": "",
-            "btn_color": "#31223a",
+            "btn_color": "#2a2a2a",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -434,11 +459,11 @@
             "heading_size": "h2",
             "heading_style": "baskerville",
             "text": "<p>Combining soft, breathable, and quick drying fabric with a compressive seamless knit that contours perfectly to your body.</p>",
-            "bg_color": "#e7e5e6",
-            "txt_color": "#0b0b11",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#2a2a2a",
             "cta_text": "Shop Sculpt",
             "cta_url": "",
-            "btn_color": "#0b0b11",
+            "btn_color": "#2a2a2a",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -546,7 +571,7 @@
             "txt_color": "#1b1b1b",
             "cta_text": "Shop All Leggings",
             "cta_url": "shopify://collections/all-womens-leggings",
-            "btn_color": "#581049",
+            "btn_color": "#2b2b2b",
             "cta_position": "center",
             "cta_text2": "",
             "cta_url2": "",
@@ -714,7 +739,7 @@
       "custom_css": [
         "{text-align: center; margin: 2rem auto; padding-top: 1rem; border-top: 1px solid var(--c-grey); width: var(--max-width);}",
         ".content-mosaic--item h2 {--alignment: center;}",
-        ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.2); overflow-x: clip;}",
+        ".content-mosaic--item.item-overlay .content-mosaic--content {backdrop-filter: brightness(0.8); overflow-x: clip;}",
         ".content-mosaic--item.item-overlay .content-mosaic--content:hover,div.content-mosaic--item.item-overlay .content-mosaic--content:focus {backdrop-filter: brightness(1);}"
       ],
       "name": "Shop by Activity",
@@ -742,6 +767,7 @@
   },
   "order": [
     "hero",
+    "content_rich_text_dfcbat",
     "content_mosaic_4xHKx9",
     "as_seen_in_Mp7zfK",
     "content_mosaic_VjHWx4",
