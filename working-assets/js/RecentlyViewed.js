@@ -3,9 +3,16 @@
 export default class RecentlyViewed {
   constructor() {
     this.listKey = "GK::recently-viewed";
+
+    // Bind methods to maintain 'this' context in older environments
+    this.addProductToList = this.addProductToList.bind(this);
+    this.removeFromProductList = this.removeFromProductList.bind(this);
+    this.checkProductListDates = this.checkProductListDates.bind(this);
+    this.getProductList = this.getProductList.bind(this);
+    this.hasRecentlyViewed = this.hasRecentlyViewed.bind(this);
   }
 
-  addProductToList = () => {
+  addProductToList() {
     const productData = document.getElementById("product-details");
 
     const details = JSON.parse(productData.dataset.details);
@@ -40,9 +47,19 @@ export default class RecentlyViewed {
       localObject[category] = matchingCategory;
       localStorage.setItem(this.listKey, JSON.stringify(localObject));
     }
-  };
+  }
 
-  checkProductListDates = () => {
+  removeFromProductList(productId) {
+    const list = this.getProductList();
+    if (list) {
+      Object.keys(list).forEach((category) => {
+        list[category] = list[category].filter((item) => item.productId !== productId);
+      });
+      localStorage.setItem(this.listKey, JSON.stringify(list));
+    }
+  }
+
+  checkProductListDates() {
     const list = JSON.parse(localStorage.getItem(this.listKey));
 
     if (list) {
@@ -62,13 +79,13 @@ export default class RecentlyViewed {
 
       localStorage.setItem(this.listKey, JSON.stringify(list));
     }
-  };
+  }
 
-  getProductList = () => {
+  getProductList() {
     return JSON.parse(localStorage.getItem(this.listKey));
-  };
+  }
 
-  hasRecentlyViewed = () => {
+  hasRecentlyViewed() {
     const list = this.getProductList();
     if (!list) return false;
 
@@ -79,5 +96,5 @@ export default class RecentlyViewed {
     }
 
     return allItems.length > 0;
-  };
+  }
 }
