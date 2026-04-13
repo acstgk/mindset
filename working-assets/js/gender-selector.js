@@ -29,6 +29,7 @@ class GenderSelector {
 
     if (matchButton) matchButton.click();
     this.noGenderElements.forEach((el) => (el.style.display = "none"));
+    document.querySelectorAll(".gender-loader").forEach((el) => el.remove());
   }
 
   _handleGenderClick(button) {
