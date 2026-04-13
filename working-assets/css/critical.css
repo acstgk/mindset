@@ -37,8 +37,10 @@
 }
   @media screen and (width <= 768px) {
   .mob-hide {
-    display: none;
-    visibility: hidden;
+    display: none !important;
+    visibility: hidden !important;
+    width: 0;
+    height: 0;
   }
 }
 
