@@ -1,10 +1,17 @@
-/* global MutationObserver */
+/* global MutationObserver  */
 
 // ===================
 // Product Page Recommendations
 // ===================
 
 export default class ProductRecommendations extends HTMLElement {
+  constructor() {
+    super();
+    this.carouselInstance = null;
+    this.viewportObserver = null;
+    this.carouselObserver = null;
+  }
+
   connectedCallback() {
     this.productID = this.dataset.productId;
     this.productStyle = this.dataset.style;
@@ -15,6 +22,49 @@ export default class ProductRecommendations extends HTMLElement {
         customElements.define("product-carousel", module.default);
       });
     }
+  }
+
+  disconnectedCallback() {
+    this._cleanupCarousel();
+  }
+
+  _trackCarouselInstance(carousel) {
+    this.carouselInstance = carousel?.splide || null;
+
+    if (this.carouselInstance) return;
+
+    if (this.carouselObserver) {
+      this.carouselObserver.disconnect();
+      this.carouselObserver = null;
+    }
+
+    this.carouselObserver = new MutationObserver(() => {
+      if (carousel?.splide) {
+        this.carouselInstance = carousel.splide;
+        this.carouselObserver.disconnect();
+        this.carouselObserver = null;
+      }
+    });
+
+    this.carouselObserver.observe(carousel, { childList: true, subtree: true, attributes: true });
+  }
+
+  _cleanupCarousel() {
+    if (this.viewportObserver) {
+      this.viewportObserver.disconnect();
+      this.viewportObserver = null;
+    }
+
+    if (this.carouselObserver) {
+      this.carouselObserver.disconnect();
+      this.carouselObserver = null;
+    }
+
+    if (this.carouselInstance && typeof this.carouselInstance.destroy === "function") {
+      this.carouselInstance.destroy();
+    }
+
+    this.carouselInstance = null;
   }
 
   _getRecommendations = () => {
@@ -41,6 +91,7 @@ export default class ProductRecommendations extends HTMLElement {
         if (html && html.length > 0) {
           // if there is some data then ->
           const carousel = document.createElement("productcard-carousel"); // find the carousel
+          this._trackCarouselInstance(carousel);
           this.innerHTML = "";
           this.appendChild(carousel);
 
@@ -48,7 +99,11 @@ export default class ProductRecommendations extends HTMLElement {
             const wrapper = document.createElement("div");
             wrapper.innerHTML = html;
             target.innerHTML = wrapper.querySelector("#shopify-section-product-dynamic-cards").innerHTML;
-            this.querySelector("productcard-carousel").splide.refresh();
+            const carouselEl = this.querySelector("productcard-carousel");
+            if (carouselEl?.splide) {
+              this.carouselInstance = carouselEl.splide;
+              this.carouselInstance.refresh();
+            }
           };
 
           let listEl = this.querySelector(".splide__list");
