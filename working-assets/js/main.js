@@ -16,10 +16,7 @@
 import Splide from "./splide.min.js";
 window.Splide = Splide;
 
-import { bindQATBButtons, debounce, pageRedirect } from "./utils.js";
-
-// Initialize pageRedirect globally
-pageRedirect();
+import { bindQATBButtons, debounce } from "./utils.js";
 
 // ===================
 // CART CLASS
