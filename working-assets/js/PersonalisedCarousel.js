@@ -20,7 +20,7 @@ export default class PersonalRecommendations extends HTMLElement {
     }
 
     this.gender = this.dataset.gender;
-    this.loader = this.closest(".gender-wrapper")?.querySelector(".gender-loader");
+    this.loader = this.querySelector('.loader')
 
     // Only proceed if active, otherwise wait for activation
     if (this.classList.contains("active")) {

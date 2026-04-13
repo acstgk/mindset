@@ -4,7 +4,7 @@
   <div class="loader grid-loader gender-loader" style="z-index:1;"></div>
   <personal-recommendations id="womens-recommendations" class="womens-gender-filter fade-in" data-gender="womens">
     <h4 class="no-gender-filter">WOMENS</h4>
-
+    <div class="loader"></div>
     {% comment %} use JS to render the.section--gender-recommendation-carousel .carousel-heighthere {% endcomment %}
 
     <noscript>
@@ -20,7 +20,7 @@
     <h4 class="no-gender-filter">MENS</h4>
 
     {% comment %} use JS to render the.section--gender-recommendation-carousel .carousel-heighthere {% endcomment %}
-
+    <div class="loader"></div>
     <noscript>
       <productcard-carousel class="gender-recommendations-carousel product-grid">
         {% for product in section.settings['fallback-2'].products limit: 6 %}

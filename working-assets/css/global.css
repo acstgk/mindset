@@ -341,33 +341,38 @@ productcard-carousel .splide__arrow {
   }
 }
 
-.carousel-height {
+.carousel-height .loader {
+  margin-bottom: 7.5rem;
+}
+
+.carousel-height:not(:has(.active)) {
   height: calc(calc(min(90vw, 1400px) / 25) * 42);
 }
 
 @media screen and (width > 400px) {
-  .carousel-height {
-    height: calc(calc(calc(min(90vw, 1400px) * 0.75) / 25) * 42);
+  .carousel-height:not(:has(.active)) {
+    height: calc(calc(calc(min(90vw, 400px) * 0.75) / 25) * 42);
   }
 }
 
 @media screen and (width > 500px) {
-  .carousel-height {
-    height: calc(calc(calc(min(90vw, 1400px) * 0.5) / 25) * 42);
+  .carousel-height:not(:has(.active)) {
+    height: calc(calc(calc(min(90vw, 500px) * 0.5) / 25) * 42);
   }
 }
 
 @media screen and (width > 800px) {
-  .section--gender-recommendation-carousel .carousel-height {
-    height: calc(calc(calc(min(90vw, 1400px) * 0.3) / 25) * 42);
+  .section--gender-recommendation-carousel .carousel-height:not(:has(.active)) {
+    height: calc(calc(calc(min(90vw, 800px) * 0.25) / 25) * 42);
   }
 }
 
 @media screen and (width > 1100px) {
-  .carousel-height {
+  .carousel-height:not(:has(.active)) {
     height: calc(calc(calc(min(90vw, 1400px) * 0.25) / 25) * 42);
   }
 }
+
 .product-grid:not(.splide) {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));

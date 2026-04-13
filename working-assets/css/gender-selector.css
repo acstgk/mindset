@@ -17,7 +17,7 @@
       font-family: var(--emphasis-heading-font-family);
       color: var(--c-grey);
       transition: color 0.2s ease;
-
+      
       &:hover {
         color: var(--c-dark-grey);
       }

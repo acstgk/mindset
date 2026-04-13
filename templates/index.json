@@ -12,6 +12,29 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_6BmG7G": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Signature Summer - Womens - Mobile Banner V2_11ad0ed4-056c-48f0-a372-aaf40c7f3a31.mp4",
+            "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner V2_1.mp4",
+            "overlay_url": "shopify://collections/womens-new",
+            "lockup_width": 200,
+            "title": "Signature <em>Summer</em>",
+            "title_font": "baskerville",
+            "subtitle": "new collection",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/womens-new",
+            "cta2": "",
+            "url2": "",
+            "target_gender": "womens"
+          }
+        },
         "image_eT8DWX": {
           "type": "image",
           "settings": {
@@ -36,41 +59,16 @@
             "url2": "",
             "target_gender": "mens"
           }
-        },
-        "image_6BmG7G": {
-          "type": "image",
-          "settings": {
-            "mobile_video": "shopify://files/videos/Signature Summer - Womens - Mobile Banner.mp4",
-            "mobile_poster": "shopify://shop_images/Signature_Summer_-_Womens_-_Mobile_Banner.png",
-            "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner.mp4",
-            "desktop_poster": "shopify://shop_images/Signature_Summer_-_Womens_-_Desktop_Banner.png",
-            "overlay_url": "shopify://collections/womens-new",
-            "lockup_width": 200,
-            "title": "Signature <em>Summer</em>",
-            "title_font": "baskerville",
-            "subtitle": "new collection",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "left",
-            "v_align_desk": "middle-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Now",
-            "url1": "shopify://collections/womens-new",
-            "cta2": "",
-            "url2": "",
-            "target_gender": "womens"
-          }
         }
       },
       "block_order": [
-        "image_eT8DWX",
-        "image_6BmG7G"
+        "image_6BmG7G",
+        "image_eT8DWX"
       ],
       "custom_css": [
         "@media screen and (max-width: 768px) {.signature-summer-1 .h1 {font-size: var(--txt-h1); }}",
         ".h3 {font-size: var(--txt-h4);}",
-        ".h1 {font-size: calc(var(--txt-xl) * .75); letter-spacing: 0.35ch; margin-right: -0.3ch;}"
+        ".h1 {font-size: calc(var(--txt-xl) * 0.85); letter-spacing: 0.35ch; margin-right: -0.3ch;}"
       ],
       "settings": {}
     },
