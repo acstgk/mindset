@@ -20,7 +20,6 @@ export default class PersonalRecommendations extends HTMLElement {
     }
 
     this.gender = this.dataset.gender;
-    this.loader = this.querySelector('.loader')
 
     // Only proceed if active, otherwise wait for activation
     if (this.classList.contains("active")) {
@@ -112,12 +111,9 @@ export default class PersonalRecommendations extends HTMLElement {
       } catch (error) {
         console.error("personal recs :: failed:", error);
         this._fallback();
-      } finally {
-        this._removeLoader();
-      }
+      } 
     } else {
       this._fallback();
-      this._removeLoader();
     }
 
     // If this was the active one, start loading the others immediately after
@@ -147,12 +143,6 @@ export default class PersonalRecommendations extends HTMLElement {
     // Append the actual carousel content from noscript
     if (tempDiv.childNodes.length > 0) {
       this.appendChild(tempDiv.querySelector('productcard-carousel') || tempDiv.childNodes[1]);
-    }
-  };
-
-  _removeLoader = () => {
-    if (this.loader && this.loader.parentNode) {
-      this.loader.remove();
     }
   };
 }

@@ -343,6 +343,12 @@ productcard-carousel .splide__arrow {
 
 .carousel-height .loader {
   margin-bottom: 7.5rem;
+
+  &:has( + .is-active) {
+    display: none;
+    height: 0;
+    margin: 0;
+  }
 }
 
 .carousel-height:not(:has(.active)) {
