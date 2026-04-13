@@ -1,4 +1,3 @@
-;
 import { SplideUtil } from "./SplideUtil.js";
 
 // ===================
@@ -51,18 +50,25 @@ export default class ProductCarousel extends HTMLElement {
       this.classList.toggle("no-carousel", !isOverflow);
     });
 
-    this.splide.on("move", (newIndex, prevIndex, destIndex) => {
-      // Remove any existing "about-to-be-active" class
+    this.splide.on("move", (_newIndex, _prevIndex, destIndex) => {
       this.querySelectorAll(".splide__slide").forEach((slide) => {
         slide.classList.remove("is-active");
       });
 
-      // Add the class to the upcoming slide
-      const nextSlide = this.splide.Components.Slides.getAt(destIndex).slide;
-      nextSlide.classList.add("is-active");
+      const targetSlide = this.splide?.Components?.Slides?.getAt(destIndex)?.slide;
+      if (targetSlide) {
+        targetSlide.classList.add("is-active");
+      }
     });
 
     this.splide.mount();
   }
-}
 
+  disconnectedCallback() {
+    if (this.splide) {
+      this.splide.destroy(true);
+      this.splide = null;
+    }
+    this._initialized = false;
+  }
+}
