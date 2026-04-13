@@ -68,7 +68,7 @@ export default class RecentlyViewedElement extends HTMLElement {
         cartitems.push(cartitem.dataset.productId);
       });
 
-      if (!cartitems.includes(String(item.productId))) {
+      // if (!cartitems.includes(String(item.productId))) {
         try {
           const response = await fetch(productDataUrl);
           if (response.status === 404) {
@@ -172,7 +172,7 @@ export default class RecentlyViewedElement extends HTMLElement {
         } catch (err) {
           console.error(`Failed to fetch product data for ${item.productName}:`, err);
         }
-      }
+      // }
     }
 
     this.loader.remove();
