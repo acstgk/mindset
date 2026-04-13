@@ -223,7 +223,7 @@
                   {% endif %}
                 >
                 <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
-                  {{ variant.title | replace: '.00', '' }}
+                  {% render 'variant-title', title: variant.title, product: part %}
                   {% unless variant.available %}
                     <div href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  part | json | escape }}">{% render 'icon', icon: 'mail' %}</div>
                   {% endunless %}
@@ -265,7 +265,7 @@
                 {% endif %}
               >
               <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
-                {{ variant.title | replace: '.00', '' }}
+                {% render 'variant-title', title: variant.title, product: product %}
                 {% unless variant.available %}
                   <div href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  product | json | escape }}">{% render 'icon', icon: 'mail' %}</div>
                 {% endunless %}

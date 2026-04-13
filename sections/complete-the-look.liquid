@@ -130,10 +130,10 @@
                           value="{{ variant.id }}"
                           data-price="{{variant.price | money_without_trailing_zeros}}"
                         >
-                          {% if handle_product.variants.size == 1 %}One Size{% else %}{{ variant.title }}{% endif %}
+                          {% if handle_product.variants.size == 1 %}One Size{% else %}{% render 'variant-title', title: variant.title, product: product %}{% endif %}
                         </option>
                       {% else %}
-                        <option class="disabled" disabled>{{ variant.title }}</option>
+                        <option class="disabled" disabled>{% render 'variant-title', title: variant.title, product: handle_product  %}</option>
                       {% endif %}
                     {% endfor %}
                   </select>

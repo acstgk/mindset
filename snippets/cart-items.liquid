@@ -21,7 +21,7 @@
             <div class="cart_item-info">
               <h3>{% render 'product-title' with item.product as product %}</h3>
               {%- unless item.product.has_only_default_variant or all_products[item.product.handle].variants.size == 1 -%}
-                <span class="cart_item-size">{{ item.variant.title }}</span>
+                <span class="cart_item-size">{% render 'variant-title', title: item.variant.title, product: item.product %}</span>
               {% endunless %}
               {%- for property in item.properties -%}
                 {% if property.first == 'Items' %}
@@ -107,7 +107,7 @@
                             class="{%if variant.inventory_quantity != 0 and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% endif %}"
                             data-v-id="{{ variant.id }}"
                           >
-                            {{ variant.title | replace: 'One Size', 'Add to Bag' | replace: '.00', '' }}
+                           {% render 'variant-title', title: variant.title, product: product %}
                           </a>
                         {% endfor %}
                       </div>

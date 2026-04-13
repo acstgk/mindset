@@ -86,7 +86,7 @@
               <div class="customer-order--item-details">
                 <h3>{% render 'product-title', product: item.product %}</h3>
                 {%- unless item.product.has_only_default_variant or all_products[item.product.handle].variants.size == 1 -%}
-                  <p>{{ item.variant.title }}</p>
+                  <p>{% render 'variant-title', title: item.variant.title, product: item.product %}</p>
                 {% endunless %}
                 {%- for property in item.properties -%}
                   {% if property.first == 'Items' %}
