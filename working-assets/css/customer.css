@@ -192,13 +192,17 @@ ul.address-grid {
   position: relative;
 
   &>li {
-    padding-left: 1ch
+    padding-left: 1ch;
+    font-weight: 700;
   }
 
   &>li::marker {
     content: "✔ ";
     position: absolute !important;
     left: -1ch;
+  }
+  &>li li {
+    font-weight: 400;
   }
 }
 .customer-order--product .Title {
