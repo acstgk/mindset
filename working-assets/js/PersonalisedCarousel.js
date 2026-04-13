@@ -1,4 +1,5 @@
-/* global  sessionStorage*/
+/* global  */
+
 import RecentlyViewed from "./RecentlyViewed.js";
 
 // ===================
@@ -10,7 +11,7 @@ export default class PersonalRecommendations extends HTMLElement {
     super();
     this.initialized = false;
     this.observer = null;
-    this.preferredGender = sessionStorage.getItem("GK::gender--content") || "womens";
+    this.preferredGender = localStorage.getItem("GK::gender--content") || "womens";
     this.otherGender = this.preferredGender === "womens" ? "mens" : "womens";
   }
 
@@ -86,7 +87,6 @@ export default class PersonalRecommendations extends HTMLElement {
 
 
   _fallback = (gender) => {
-    console.log('fallback', gender);
     const content = this.querySelector(`noscript[data-gender="${gender}"]`);
     const carousel = this.querySelector(`#${gender}-recommendations`);
     if (!content || !carousel) return;
