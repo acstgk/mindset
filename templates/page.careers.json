@@ -11,18 +11,6 @@
   "sections": {
     "main": {
       "type": "page-careers-main",
-      "blocks": {
-        "link_dmG7Ar": {
-          "type": "link",
-          "settings": {
-            "linkurl": "shopify://pages/careers-fit-model",
-            "title": "Fit Model"
-          }
-        }
-      },
-      "block_order": [
-        "link_dmG7Ar"
-      ],
       "settings": {}
     }
   },
