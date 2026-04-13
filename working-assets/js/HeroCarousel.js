@@ -19,6 +19,7 @@ export default class HeroCarousel extends HTMLElement {
       interval: 7000,
       arrows: false,
       rewind: true,
+      keyboard: "focused",
       lazyLoad: "nearby",
       start: Number(this.slideNo),
       preloadPages: 1,

@@ -51,6 +51,7 @@ if (!customElements.get("pdp-carousel")) {
         SplideUtil.splideHTML(this);
         this.splide = new window.Splide(this, {
           type: "loop",
+          keyboard: "global",
           pagination: true,
           arrows: false,
           preloadPages: 3,
@@ -830,6 +831,7 @@ if (!customElements.get("thumbnail-carousel")) {
         this.splide = new window.Splide(this, {
           type: "slide",
           direction: "ttb",
+          keyboard: "focused",
           height: this._calculateHeight(),
           fixedHeight: 200,
           fixedWidth: 150,
