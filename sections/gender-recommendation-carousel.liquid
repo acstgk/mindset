@@ -1,32 +1,41 @@
 <h3>Recommended for You</h3>
 
-<div class="gender-wrapper carousel-height">
+<div class="carousel-height">
   <div class="loader grid-loader gender-loader" style="z-index:1;"></div>
-  <personal-recommendations id="womens-recommendations" class="womens-gender-filter fade-in" data-gender="womens">
+  <personal-recommendations class="gender-wrapper">
     <h4 class="no-gender-filter">WOMENS</h4>
-    <div class="loader"></div>
-    {% comment %} use JS to render the.section--gender-recommendation-carousel .carousel-heighthere {% endcomment %}
+    {% comment %} ================ {% endcomment %}
+    {% comment %} === WOMENS ===== {% endcomment %}
+    {% comment %} ================ {% endcomment %}
+    <productcard-carousel id="womens-recommendations" class="womens-gender-filter fade-in gender-recommendations-carousel product-grid" data-gender="womens">
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+    </productcard-carousel>
 
-    <noscript>
-      <productcard-carousel class="gender-recommendations-carousel product-grid">
-        {% for product in section.settings['fallback-1'].products limit: 6 %}
-          {% render 'product-card', product: product, class: 'splide__slide' %}
-        {% endfor %}
-      </productcard-carousel>
+    <noscript data-gender="womens">
+      {% for product in section.settings['fallback-1'].products limit: 8 %}
+        {% render 'product-card', product: product, class: 'splide__slide' %}
+      {% endfor %}
     </noscript>
-  </personal-recommendations>
 
-  <personal-recommendations id="mens-recommendations" class="mens-gender-filter fade-in" data-gender="mens">
     <h4 class="no-gender-filter">MENS</h4>
-
-    {% comment %} use JS to render the.section--gender-recommendation-carousel .carousel-heighthere {% endcomment %}
-    <div class="loader"></div>
-    <noscript>
-      <productcard-carousel class="gender-recommendations-carousel product-grid">
-        {% for product in section.settings['fallback-2'].products limit: 6 %}
-          {% render 'product-card', product: product, class: 'splide__slide' %}
-        {% endfor %}
-      </productcard-carousel>
+    {% comment %} ================ {% endcomment %}
+    {% comment %} ==== MENS ====== {% endcomment %}
+    {% comment %} ================ {% endcomment %}
+    <productcard-carousel id="mens-recommendations" class="mens-gender-filter fade-in gender-recommendations-carousel product-grid" data-gender="mens">
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+      <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
+    </productcard-carousel>
+    <noscript data-gender="mens">
+      {% for product in section.settings['fallback-2'].products limit: 8 %}
+        {% render 'product-card', product: product, class: 'splide__slide' %}
+      {% endfor %}
     </noscript>
   </personal-recommendations>
 </div>
@@ -56,6 +65,15 @@
 </div>
 
 <style>
+  personal-recommendations productcard-carousel {
+    margin-top: 2rem;
+  }
+
+  .loader-skeleton {
+    aspect-ratio: 0.65;
+    background: var(--c-off-white);
+  }
+
   .section--gender-recommendation-carousel h3 {
     margin: 4em 0 1em;
   }
@@ -65,7 +83,7 @@
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
-    padding: 2.5rem 5vw 1.5rem ;
+    padding: 2.5rem 5vw 1.5rem;
   }
   .recommendation-ctas a {
     flex: 1 0 max-content;
