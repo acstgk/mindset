@@ -347,7 +347,7 @@
       "name": "Product Recommendation Carousel",
       "settings": {
         "fallback-1": "bestsellers-womens",
-        "best_sellers-1": "womens-bestsellers",
+        "best_sellers-1": "bestsellers-womens",
         "new-1": "womens-new",
         "fallback-2": "mens-bestsellers",
         "best_sellers-2": "mens-bestsellers",
