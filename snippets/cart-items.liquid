@@ -21,7 +21,7 @@
             <div class="cart_item-info">
               <h3>{% render 'product-title' with item.product as product %}</h3>
               {%- unless item.product.has_only_default_variant or all_products[item.product.handle].variants.size == 1 -%}
-                <span class="cart_item-size">{% render 'variant-title', title: item.variant.title, product: item.product %}</span>
+                <span class="cart_item-size">{% render 'variant-title', title: item.variant.title %}</span>
               {% endunless %}
               {%- for property in item.properties -%}
                 {% if property.first == 'Items' %}

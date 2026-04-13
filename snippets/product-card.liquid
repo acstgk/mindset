@@ -38,7 +38,7 @@
         class="{%if variant.inventory_quantity > settings.product_buffer and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% assign oos = true %}{% endif %}"
         data-v-id="{{ variant.id }}"
       >
-        {% render 'variant-title', title: variant.title, product: product %}
+        {% render 'variant-title', title: variant.title  %}
         {% comment %} {{ variant.title | replace: 'One Size', 'Add to Bag' | replace: ".00", "" }} {% endcomment %}
       </a>
     {% endfor %}
