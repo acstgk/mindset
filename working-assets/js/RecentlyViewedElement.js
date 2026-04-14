@@ -54,7 +54,7 @@ export default class RecentlyViewedElement extends HTMLElement {
   }
 
   async _renderProducts() {
-    this.list.innerHTML = `<li class="nothing-viewed">No recently viewed products avaialble to display</li>`;
+    this.list.innerHTML = `<li class="nothing-viewed">No recently viewed products available to display.</li>`;
 
     let renderedItems = 0;
     for (let i = 0; i < this.flattenedData.length; i++) {
@@ -182,7 +182,10 @@ export default class RecentlyViewedElement extends HTMLElement {
 
   _handleClicks() {
     this.rcButton.addEventListener("click", () => {
-      if (this.hasRendered) return;
+      if (this.hasRendered) {
+        this.switchView();
+        return;
+      };
       this._renderProducts();
       this.hasRendered = true;
       this.classList.add("active");
