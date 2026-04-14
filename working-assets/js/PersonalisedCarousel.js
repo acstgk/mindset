@@ -25,12 +25,12 @@ export default class PersonalRecommendations extends HTMLElement {
 
   async init() {
     try {
-      await this._initRecommendations(this.preferredGender);
-      await this._initRecommendations(this.otherGender);
+      await this._initRecommendations(this.preferredGender || 'womens');
+      await this._initRecommendations(this.otherGender || 'mens');
     } catch (error) {
       console.error("personal recs :: failed:", error);
-      this._fallback(this.preferredGender);
-      this._fallback(this.otherGender);
+      this._fallback(this.preferredGender || 'womens');
+      this._fallback(this.otherGender || 'mens');
     }
   }
 
@@ -62,15 +62,23 @@ export default class PersonalRecommendations extends HTMLElement {
         }
 
         const data = await response.json();
-        window.data = data
         const parser = new DOMParser();
         const doc = parser.parseFromString(data['product-dynamic-cards'], "text/html");
-        const html = doc.querySelectorAll('.splide__slide');
 
-        carousel.splide.remove('.loader-skeleton');
-        html.forEach(slide => {
-          carousel.splide.add(slide);
-        });
+
+        if (carousel.splide != null) {
+          carousel.splide.remove('.loader-skeleton');
+          const splideList = carousel.splide.root.querySelector('.splide__list');
+          if (!splideList) return;
+          splideList.innerHTML += doc.querySelector('#shopify-section-product-dynamic-cards').innerHTML.replace(/>\s+</g, '><').trim();
+          carousel.splide.refresh();
+
+          // html.forEach(slide => {
+          //   carousel.splide.add(slide);
+          // });
+        } else {
+          carousel.innerHTML = doc.querySelector('body').innerHTML;
+        }
 
 
       } catch (error) {
@@ -83,21 +91,27 @@ export default class PersonalRecommendations extends HTMLElement {
 
   }
 
-
-
-
   _fallback = (gender) => {
-    const content = this.querySelector(`noscript[data-gender="${gender}"]`);
+    const content = document.querySelector(`noscript[data-gender="${gender}"]`);
     const carousel = this.querySelector(`#${gender}-recommendations`);
     if (!content || !carousel) return;
     const parser = new DOMParser();
-    const doc = parser.parseFromString(content.innerHTML, "text/html");
+    const doc = parser.parseFromString(content.textContent, "text/html");
 
-    carousel.splide.remove('.loader-skeleton');
+    if (carousel.splide != null) {
+      carousel.splide.remove('.loader-skeleton');
 
-    doc.querySelectorAll('.splide__slide').forEach(slide => {
-      carousel.splide.add(slide);
-    });
+      const splideList = carousel.splide.root.querySelector('.splide__list');
+      if (!splideList) return;
+      splideList.innerHTML += doc.body.innerHTML.replace(/>\s+</g, '><').trim();
+      carousel.splide.refresh();
+
+      // doc.querySelectorAll('.splide__slide').forEach(slide => {
+      //   carousel.splide.add(slide);
+      // });
+    } else {
+      carousel.innerHTML = doc.querySelector('body').innerHTML;
+    }
   };
 
 }

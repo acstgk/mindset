@@ -30,13 +30,13 @@
 
   <noscript data-gender="womens">
     {% for product in section.settings['fallback-1'].products limit: 8 %}
-      {% render 'product-card', product: product, class: 'splide__slide' %}
+      {% render 'product-card', product: product, class: 'splide__slide womens-gender-filter ' %}
     {% endfor %}
   </noscript>
 
   <noscript data-gender="mens">
     {% for product in section.settings['fallback-2'].products limit: 8 %}
-      {% render 'product-card', product: product, class: 'splide__slide' %}
+      {% render 'product-card', product: product, class: 'splide__slide mens-gender-filter ' %}
     {% endfor %}
   </noscript>
 </div>

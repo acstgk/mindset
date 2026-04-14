@@ -1216,13 +1216,10 @@ function initDynamicComponents() {
   new ComponentLoader("custom-video-controls", () => import("./CustomVideo.js"));
 }
 
-// Initialize components when browser is idle (better performance)
-// Use requestIdleCallback with a fallback for unsupported browsers
-if ("requestIdleCallback" in window) {
-  requestIdleCallback(initDynamicComponents, { timeout: 2000 });
-} else {
-  setTimeout(initDynamicComponents, 1500);
-}
+// Initialize dynamic component loaders immediately.
+// ComponentLoader already handles lazy-loading via IntersectionObserver
+// and viewport proximity — no need to defer the loader registration itself.
+initDynamicComponents();
 
 
 // ===================
