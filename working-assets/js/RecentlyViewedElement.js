@@ -181,7 +181,8 @@ export default class RecentlyViewedElement extends HTMLElement {
 
   _handleClicks() {
     this.rcButton.addEventListener("click", () => {
-      !this.hasRendered ? this._renderProducts() : "";
+      if (this.hasRendered) return;
+      this._renderProducts();
       this.hasRendered = true;
       this.classList.add("active");
       this.rcButton.classList.add("active");
