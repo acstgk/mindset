@@ -330,7 +330,7 @@ if (!customElements.get("slide-drawer")) {
 
       _handleSwipe() {
         const distance = this._endX - this._startX;
-        const threshold = 50;
+        const threshold = 200;
 
         if (this.side === "right" && distance > threshold) {
           this.close();
