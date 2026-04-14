@@ -9,7 +9,7 @@
   @example
   {% render 'example-snippet', product: 'Featured Products', loading: "lazy", class: "custom-class" %}
 {% enddoc %}
-
+{% assign modal = modal | default: false %}
 {% assign loading = loading | default: 'lazy' %}
 {% if loading == 'eager' %}
 {% assign fetchpriority = 'high' %}
