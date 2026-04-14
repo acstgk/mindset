@@ -15,12 +15,6 @@
       <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
     </productcard-carousel>
 
-    <noscript data-gender="womens">
-      {% for product in section.settings['fallback-1'].products limit: 8 %}
-        {% render 'product-card', product: product, class: 'splide__slide' %}
-      {% endfor %}
-    </noscript>
-
     <h4 class="no-gender-filter">MENS</h4>
     {% comment %} ================ {% endcomment %}
     {% comment %} ==== MENS ====== {% endcomment %}
@@ -32,12 +26,19 @@
       <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
       <div class="splide__slide loader-skeleton"><div class="loader"></div></div>
     </productcard-carousel>
-    <noscript data-gender="mens">
-      {% for product in section.settings['fallback-2'].products limit: 8 %}
-        {% render 'product-card', product: product, class: 'splide__slide' %}
-      {% endfor %}
-    </noscript>
   </personal-recommendations>
+
+  <noscript data-gender="womens">
+    {% for product in section.settings['fallback-1'].products limit: 8 %}
+      {% render 'product-card', product: product, class: 'splide__slide' %}
+    {% endfor %}
+  </noscript>
+
+  <noscript data-gender="mens">
+    {% for product in section.settings['fallback-2'].products limit: 8 %}
+      {% render 'product-card', product: product, class: 'splide__slide' %}
+    {% endfor %}
+  </noscript>
 </div>
 
 {% comment %} continue shopping buttons {% endcomment %}
