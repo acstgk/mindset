@@ -54,7 +54,7 @@ export default class RecentlyViewedElement extends HTMLElement {
   }
 
   async _renderProducts() {
-    this.list.innerHTML = "";
+    this.list.innerHTML = `<li class="nothing-viewed">No recently viewed products avaialble to display</li>`;
 
     let renderedItems = 0;
     for (let i = 0; i < this.flattenedData.length; i++) {
@@ -68,7 +68,7 @@ export default class RecentlyViewedElement extends HTMLElement {
         cartitems.push(cartitem.dataset.productId);
       });
 
-      // if (!cartitems.includes(String(item.productId))) {
+      if (!cartitems.includes(String(item.productId))) {
         try {
           const response = await fetch(productDataUrl);
           if (response.status === 404) {
@@ -172,10 +172,11 @@ export default class RecentlyViewedElement extends HTMLElement {
         } catch (err) {
           console.error(`Failed to fetch product data for ${item.productName}:`, err);
         }
-      // }
+      }
     }
 
     this.loader.remove();
+    this.querySelector('.nothing-viewed').classList.add('active');
     // document.addEventListener("cart:loaded", this._renderProducts);
   }
 

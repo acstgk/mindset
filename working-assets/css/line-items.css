@@ -6,6 +6,16 @@
    height: 100%;
  }
 
+ .cart_items-list .nothing-viewed {
+  display: none;
+  padding: 2rem 0.5rem;
+  text-align: center;
+
+  &.active:not(:has(+li)) {
+    display: block;
+  }
+ }
+
  ul.cart_items-list {
    list-style: none;
    padding: 0;
