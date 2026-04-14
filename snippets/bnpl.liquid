@@ -1,22 +1,24 @@
-<bnpl-options class=" ge-hide-display-none ge-hide">
-  <div class="bnpl-placement">
-    {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color' }}
-    <span>
-      {% if price >= 3000 %}
-        or make 3 interest-free payments of <strong>{{ price | divided_by: 3 | money_without_trailing_zeros }}</strong>.
+{% if localization.country.iso_code == 'GB' %}
+  <bnpl-options>
+    <div class="bnpl-placement">
+      {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+      <span>
+        {% if price >= 3000 %}
+          or make 3 interest-free payments of <strong>{{ price | divided_by: 3 | money_without_trailing_zeros }}</strong>.
+          <br>
+        {% else %}
+          pay in 30 days with Klarna. <br>
+        {% endif %}
+        <a href="/pages/klarna-terms-conditions" class="klarna-link">Discover Klarna</a>
+      </span>
+    </div>
+    <div class="bnpl-placement">
+      {{ 'afterpay' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+      <span>
+        or make 4 interest-free payments of <strong>{{ price | divided_by: 4 | money_without_trailing_zeros }}</strong>.
         <br>
-      {% else %}
-        pay in 30 days with Klarna. <br>
-      {% endif %}
-      <a href="/pages/klarna-terms-conditions" class="klarna-link">Discover Klarna</a>
-    </span>
-  </div>
-  <div class="bnpl-placement">
-    {{ 'afterpay' | payment_type_svg_tag: class: 'icon icon--full-color' }}
-    <span>
-      or make 4 interest-free payments of <strong>{{ price | divided_by: 4 | money_without_trailing_zeros }}</strong>.
-      <br>
-      <a href="/pages/clearpay-terms-conditions" class="clearpay-link">Discover ClearPay </a>
-    </span>
-  </div>
-</bnpl-options>
+        <a href="/pages/clearpay-terms-conditions" class="clearpay-link">Discover ClearPay </a>
+      </span>
+    </div>
+  </bnpl-options>
+{% endif %}
