@@ -13,7 +13,7 @@
   {% assign last_letter = 's' %}
 {% else %}
   {% assign last_letter = product.type | slice: -1 %}
-  {% assign type_link = '/collections/types?q=' | append: product.type | append: '&filter.p.vendor=' | append: product.vendor | append: '&sort_by=best-selling' %}
+  {% assign type_link = '/collections/types?q=' | append: product.type | append: '&filter.p.vendor=' | append: product.vendor | append: '&sort_by=featured' %}
   {% assign category = product.type %}
   {%- unless last_letter == 's' %}
     {% assign category = category | append: 's' %}
