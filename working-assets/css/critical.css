@@ -205,14 +205,19 @@ p {
 a,
 .a {
   color: var(--c-grey);
-  filter: brightness(1);
+  filter: brightness(1) !important;
   transition:
     color 0.2s ease,
     filter 0.2s ease;
 
   &:hover {
-    color: var(--c-dark-grey);
-  }
+    filter: brightness(1.2) !important;
+      transform: scale(1.01);
+    }
+    
+    &:active {
+      filter: brightness(0.5) !important;
+    }
   /* &[target="_blank"]::after {
   content: "";
   width: 1em;
