@@ -574,7 +574,7 @@ if (!customElements.get("freedelivery-info")) {
         let msg = "";
 
         if (details.thresholdReached && (!details.threshold2Reached || !details.threshold2Show)) {
-          msg = `<strong>You've unlocked ${details.thresholdName}.</strong>`;
+          msg = `<strong>You've unlocked FREE ${details.thresholdName}.</strong>`;
         } else if (!details.threshold2Reached || !details.threshold2Show) {
           msg = `FREE ${details.thresholdName} over ${Cart.formatMoney(details.thresholdValue)}.`;
         }
@@ -582,7 +582,7 @@ if (!customElements.get("freedelivery-info")) {
         if (details.threshold2Show) {
           msg != "" ? (msg += `<br>`) : "";
           if (details.threshold2Reached) {
-            msg += `<strong>You've unlocked ${details.threshold2Name}.</strong>`;
+            msg += `<strong>You've unlocked FREE ${details.threshold2Name}.</strong>`;
           } else {
             msg += `FREE ${details.threshold2Name} over ${Cart.formatMoney(details.threshold2Value)}.`;
           }
