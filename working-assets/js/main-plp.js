@@ -226,7 +226,7 @@ class EnhancedFilters {
     let fetchUrl = url.toString();
 
     const params = new URLSearchParams(window.location.search);
-    if (params.has('q')) {
+    if (params.has('q') && !fetchUrl.includes('q=')) {
       fetchUrl += `&q=${params.get('q')}`;
     }
 
