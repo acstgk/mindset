@@ -2,7 +2,9 @@
   <infinite-scroll class="max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}" data-page="{{ page }}" data-total-pages="{{ pages }}">
     {%- for product in product_list -%}
       {% assign lazyload = 'lazy' %}
+      {% assign pre_render = false %}
       {% if forloop.index0 < 5 %}
+        {% assign pre_render = true %}
         {% assign lazyload = 'eager' %}
       {% endif %}
 
@@ -52,7 +54,7 @@
       {% endif %}
 
       {% comment %} ---- Product Cards ---- {% endcomment %}
-      <article data-page="{{ page }}" id="item-{{- product.id -}}" class="Grid__Item">{%- render 'product-card', product: product, loading: lazyload -%}</article>
+      <article data-page="{{ page }}" id="item-{{- product.id -}}" class="Grid__Item">{%- render 'product-card', product: product, loading: lazyload, pre_render: pre_render -%}</article>
     {%- endfor -%}
   </infinite-scroll>
 

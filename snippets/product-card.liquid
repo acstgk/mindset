@@ -3,7 +3,8 @@
 
   @param {object} product - Product object
   @param {string} [loading] - Defaults to "lazy" but can be changed to "eager" or "auto"
-  @param {string} [class] - add a custom class - ideal for splider
+  @param {string} [class] - add a custom class - ideal for splide
+  @param {boolean} [pre_render] - if true add a speculation rule to pre-render
   @param {boolean} [modal] - force the modal button to always display - ideal for carousels with limited width
 
   @example
@@ -11,6 +12,11 @@
 {% enddoc %}
 {% assign modal = modal | default: false %}
 {% assign loading = loading | default: 'lazy' %}
+{% if pre_render == true %}
+  {% assign pre_render = "pre-render" %} 
+{% else %}
+  {% assign pre_render = "" %} 
+{% endif %}
 {% if loading == 'eager' %}
 {% assign fetchpriority = 'high' %}
 {% else %}
@@ -63,7 +69,7 @@
     {% else %}
        {% render 'evergreen-decal', product: product, class: 'product_card-decal' %}
     {% endif %}
-    <a class="product_card-images product-container--{{ product.id }}" href="{{ product.url }}">
+    <a class="product_card-images product-container--{{ product.id }} {{ pre_render -}}" href="{{ product.url }}">
       <div class="product_card-first-image">
         {% comment %} {{ product.featured_image | image_url: width: 1, height: 1 | image_tag: loading: 'eager', class: 'background-image', draggable: false }} {% endcomment %}
         <div class="loader grid-loader"></div>

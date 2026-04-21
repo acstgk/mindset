@@ -38,7 +38,7 @@
                  {% endif %}
                 <a
                   style="background: {{ product.metafields.product.colour.value.hex }};order:{{ position }}"
-                  class="colour-swatches {%- if this_url == product.url %} active{% endif -%}"
+                  class="colour-swatches pre-render{%- if this_url == product.url %} active{% endif -%}"
                   href="{% if this_url == product.url %}#{%else%}{{ product.url }}{% endif %}"
                   pid="{{ product.id }}"
 

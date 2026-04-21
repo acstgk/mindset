@@ -285,7 +285,7 @@
           <li>
             <a
               href="{%- if is_petite -%}{{ product.metafields.custom.alt_sizing.value.url }}{% else %}#{%- endif -%}"
-              class="button button-inverted button_add-to-cart"
+              class="button button-inverted button_add-to-cart pre-render"
               style="border: 1px solid;{% unless is_petite %}background:var(--c-light-grey);{% endunless %}"
             >
               Regular
@@ -294,7 +294,7 @@
           <li>
             <a
               href="{%- unless is_petite -%}{{ product.metafields.custom.alt_sizing.value.url }}{% else %}#{%- endunless -%}"
-              class="button button-inverted button_add-to-cart"
+              class="button button-inverted button_add-to-cart pre-render"
               style="border: 1px solid;{% if is_petite %}background:var(--c-light-grey);{% endif %}"
             >
               Petite
