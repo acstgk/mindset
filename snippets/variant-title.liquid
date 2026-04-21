@@ -1,6 +1,6 @@
 {% assign mapped_title = title | replace: 'One Size', 'Add to Bag' | replace: ".00", "" %}
 
-{% if localization.market.handle != 'gb' %}
+{% if localization.market.handle != 'gb' and localization.market.handle != 'ie' %}
   {% assign mapping = "" %}
 
   {% comment %} {% if product.tags contains 'Women' or product.tags contains 'Womens' or product.tags contains 'women' or product.tags contains 'womens' %}
@@ -30,3 +30,4 @@
 {% endif %}
 
 {{-region-}}{{- mapped_title -}}
+
