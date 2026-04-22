@@ -208,12 +208,12 @@ class CartAPI {
    * @param {number} value - Total cart value in cents
    */
   updateCheckoutTotal(value) {
-    let totalPoint = document.querySelector(".cart-total");
+    let totalPoint = document.querySelectorAll(".cart-total");
     if (value === 0) {
-      totalPoint.parentElement.remove();
+      totalPoint.forEach(el => el.parentElement.remove());
       Cart.getLineItems();
     } else {
-      totalPoint.innerHTML = Cart.formatMoney(value);
+      totalPoint.forEach(el => el.innerHTML = Cart.formatMoney(value));
     }
   }
 
