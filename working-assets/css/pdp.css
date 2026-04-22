@@ -851,3 +851,7 @@ button.modal-close :hover svg {
 .yotpo-pictures-widget {
   background-color: var(--c-off-white) !important;
 }
+
+.yotpo-product-points-widget-link {
+  font-weight: 700 !important;
+}
