@@ -55,7 +55,7 @@
     filter: brightness(1);
     transition: scale 10s ease;
     object-fit: cover;
-      object-position: center;
+    object-position: center;
   }
 
   &:hover img {
@@ -113,15 +113,28 @@
 }
 
 .article-hero {
+  --scroll: 0;
   height: 40vh;
   width: 100%;
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
+  position: relative;
+    overflow: hidden;
+  }
+  
+  .article-hero::before {
+    content: "";
+    position: absolute;
+    top: -10vh;
+    left: 0;
+    width: 100vw;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    transform: translateY(calc(var(--scroll, 0) * 0.5px));
+    will-change: transform;
   }
 
-  :has(.article-hero + .article-wrapper) .article-wrapper {
-    margin: -5rem auto 0;
+:has(.article-hero + .article-wrapper) .article-wrapper {
+  margin: -5rem auto 0;
 }
 
 

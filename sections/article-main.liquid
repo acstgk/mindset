@@ -1,14 +1,21 @@
 <link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
 
 {% if article.image %}
-  <div class="article-hero" style="background-image: url('{{ article.image | image_url: width: 1400 }}');"></div>
+  <style>
+    .article-hero::before {
+      background-image: url('{{ article.image | image_url: width: 1400 }}');
+    }
+  </style>
+  <div class="article-hero"></div>
+
 {% endif %}
 
 <div class="article-wrapper rtf">
   <div class="article-meta">
     <div class="article-details">
       {%- if article.metafields.article.event_location.value -%}
-        <b>Event date:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }} <br>
+        <b>Event date:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
+        <br>
         <b>Event location:</b> {{ article.metafields.article.event_location.value }}
       {% elsif article.metafields.article.event_date.value %}
         <b>Event date:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
@@ -40,6 +47,41 @@
   {% endif %}
 </div>
 
+  <script>
+    (function() {
+      const header = document.querySelector('.article-hero');
+      if (!header) return;
+
+      let currentScroll = window.scrollY;
+      let targetScroll = window.scrollY;
+      const ease = 0.1;
+      let isRunning = false;
+
+      function update() {
+        isRunning = true;
+        const diff = targetScroll - currentScroll;
+        if (Math.abs(diff) > 0.1) {
+          currentScroll += diff * ease;
+          header.style.setProperty('--scroll', currentScroll.toFixed(2));
+          requestAnimationFrame(update);
+        } else {
+          currentScroll = targetScroll;
+          header.style.setProperty('--scroll', currentScroll.toFixed(2));
+          isRunning = false;
+        }
+      }
+
+      window.addEventListener('scroll', () => {
+        targetScroll = window.scrollY;
+        if (!isRunning) {
+          requestAnimationFrame(update);
+        }
+      }, { passive: true });
+
+      // Initial set
+      header.style.setProperty('--scroll', currentScroll.toFixed(2));
+    })();
+  </script>
 {% schema %}
 {
   "name": "Article Main",
