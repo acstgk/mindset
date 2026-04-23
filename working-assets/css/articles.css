@@ -113,14 +113,18 @@
 }
 
 .article-hero {
-  max-height: 40vh;
+  height: 40vh;
   min-width: 100%;
-    width: auto;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 500px;
   }
-  
+
   :has(.article-hero + .article-wrapper) .article-wrapper {
     margin: -5rem auto 0;
 }
+
 
 .article-wrapper {
   width: min(90vw, 80ch);

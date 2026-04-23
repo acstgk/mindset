@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
 
 {% if article.image %}
-  {{ article.image | image_url: width: 1400 | image_tag: class: 'article-hero' }}
+  <div class="article-hero" style="background-image: url('{{ article.image | image_url: width: 1400 }}');">
+  </div>
 {% endif %}
 
 <div class="article-wrapper rtf">
