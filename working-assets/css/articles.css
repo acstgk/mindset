@@ -114,11 +114,10 @@
 
 .article-hero {
   height: 40vh;
-  min-width: 100%;
+  width: 100%;
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  height: 500px;
   }
 
   :has(.article-hero + .article-wrapper) .article-wrapper {
