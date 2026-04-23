@@ -114,11 +114,16 @@
 
 .article-hero {
   max-height: 40vh;
+  min-width: 100%;
+    width: auto;
+  }
+  
+  :has(.article-hero + .article-wrapper) .article-wrapper {
+    margin: -5rem auto 0;
 }
 
 .article-wrapper {
   width: min(90vw, 80ch);
-  margin: -5rem auto 0;
   background-color: var(--c-white);
   padding: 2rem min(5vw, 3rem);
   position: relative;

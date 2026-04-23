@@ -1,19 +1,30 @@
 <link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
 
-{{ article.image | image_url: width: 1290 | image_tag: class: 'article-hero' }}
+{% if article.image %}
+  {{ article.image | image_url: width: 1400 | image_tag: class: 'article-hero' }}
+{% endif %}
 
 <div class="article-wrapper rtf">
   <p class="article-meta">
     {%- if article.metafields.article.event_location.value -%}
-      <b>Event:</b> {{ article.metafields.article.event_location.value }} | {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
+      <b>Event details:</b> {{ article.metafields.article.event_location.value }} | {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
     {% elsif article.metafields.article.event_date.value %}
-      <b>Event:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
+      <b>Event date:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
     {% else %}
-      <b>Article:</b> {{ article.published_at | date: '%B %d, %Y' | default: '<i>publish date TBC</i>' }}
+      <b>Article date:</b> {{ article.published_at | date: '%B %d, %Y' | default: '<i>publish date TBC</i>' }}
     {%- endif -%}
   </p>
   <h1>{{ article.title }}</h1>
-  {{ article.content }}
+
+  {% if article.metafields.custom.video.value %}
+    {% assign video = article.metafields.custom.video.value %}
+    {% assign poster = '/cdn/shop/' | append: video.preview_image | replace: '.jpg', '_grande.jpg' %}
+    {% assign video_tag = article.metafields.custom.video.value | video_tag: controls: true, poster: poster %}
+    {% assign split_content = article.content | replace: 'insert-video-here', video_tag %}
+    {{ split_content }}
+  {% else %}
+    {{ article.content }}
+  {% endif %}
 </div>
 
 {% schema %}
