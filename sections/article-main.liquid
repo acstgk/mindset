@@ -1,20 +1,32 @@
 <link rel="stylesheet" href="{{ 'articles.min.css' | asset_url }}">
 
 {% if article.image %}
-  <div class="article-hero" style="background-image: url('{{ article.image | image_url: width: 1400 }}');">
-  </div>
+  <div class="article-hero" style="background-image: url('{{ article.image | image_url: width: 1400 }}');"></div>
 {% endif %}
 
 <div class="article-wrapper rtf">
-  <p class="article-meta">
-    {%- if article.metafields.article.event_location.value -%}
-      <b>Event details:</b> {{ article.metafields.article.event_location.value }} | {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
-    {% elsif article.metafields.article.event_date.value %}
-      <b>Event date:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
-    {% else %}
-      <b>Article date:</b> {{ article.published_at | date: '%B %d, %Y' | default: '<i>publish date TBC</i>' }}
-    {%- endif -%}
-  </p>
+  <div class="article-meta">
+    <div class="article-details">
+      {%- if article.metafields.article.event_location.value -%}
+        <b>Event date:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }} <br>
+        <b>Event location:</b> {{ article.metafields.article.event_location.value }}
+      {% elsif article.metafields.article.event_date.value %}
+        <b>Event date:</b> {{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}
+      {% else %}
+        <b>Article date:</b> {{ article.published_at | date: '%B %d, %Y' | default: '<i>publish date TBC</i>' }}
+      {%- endif -%}
+    </div>
+    {% if blog.next_article or blog.previous_article %}
+      <div class="article-nav">
+        {% if blog.next_article %}
+          <a href="{{ blog.next_article.url }}" class="article-nav__item">{% render 'icon', icon: 'arrow', class: 'rotate180' %}</a>
+        {% endif %}
+        {% if blog.previous_article %}
+          <a href="{{ blog.previous_article.url }}" class="article-nav__item">{% render 'icon', icon: 'arrow' %}</a>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
   <h1>{{ article.title }}</h1>
 
   {% if article.metafields.custom.video.value %}

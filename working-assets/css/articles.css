@@ -141,8 +141,28 @@
   }
 }
 
-p.article-meta {
-  margin-left: 0;
+.article-meta {
+  display: flex;
+  justify-content: flex-start;
+
+  & .article-details {
+    margin: 0 auto 1rem 0;
+  }
+}
+
+.article-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1ch;
+}
+
+.article-nav__item {
+  transition: transform 0.15s ease;
+  display: inline-block;
+
+  &:hover {
+    transform: scale(1.2);
+  }
 }
 
 @media screen and (width > 600px) {
