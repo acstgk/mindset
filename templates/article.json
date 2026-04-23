@@ -12,7 +12,20 @@
     "main": {
       "type": "article-main",
       "settings": {}
+    },
+    "blog_article_grid_6gwMFb": {
+      "type": "blog-article-grid",
+      "name": "Article Grid",
+      "settings": {
+        "title": "Latest Articles",
+        "heading_level": "3",
+        "blog": "posts",
+        "limit": 3
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "blog_article_grid_6gwMFb"
+  ]
 }
