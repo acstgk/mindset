@@ -10,8 +10,10 @@
 </div>
 
 <div class="article-grid">
-  {% for article in section.settings.blog.articles limit: section.settings.limit %}
-    {% render 'article-card', article: article %}
+  {% for post in section.settings.blog.articles limit: section.settings.limit %}
+    {% unless post.url == article.url %}
+      {% render 'article-card', article: post %}
+    {% endunless %}
   {% endfor %}
 </div>
 
