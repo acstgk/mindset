@@ -19,10 +19,10 @@
     {% if blog.next_article or blog.previous_article %}
       <div class="article-nav">
         {% if blog.next_article %}
-          <a href="{{ blog.next_article.url }}" class="article-nav__item">{% render 'icon', icon: 'arrow', class: 'rotate180' %}</a>
+          <a href="{{ blog.next_article.url }}" class="article-nav__item pre_render">{% render 'icon', icon: 'arrow', class: 'rotate180' %}</a>
         {% endif %}
         {% if blog.previous_article %}
-          <a href="{{ blog.previous_article.url }}" class="article-nav__item">{% render 'icon', icon: 'arrow' %}</a>
+          <a href="{{ blog.previous_article.url }}" class="article-nav__item pre_render">{% render 'icon', icon: 'arrow' %}</a>
         {% endif %}
       </div>
     {% endif %}
