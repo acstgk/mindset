@@ -126,7 +126,7 @@
 
 
 .article-wrapper {
-  width: min(90vw, 80ch);
+  width: min(100vw, 80ch);
   background-color: var(--c-white);
   padding: 2rem min(5vw, 3rem);
   position: relative;
