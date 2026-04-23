@@ -144,9 +144,10 @@
 .article-meta {
   display: flex;
   justify-content: flex-start;
+  margin-bottom: 1.2rem;
 
   & .article-details {
-    margin: 0 auto 1rem 0;
+    margin: 0 auto 0 0;
   }
 }
 
