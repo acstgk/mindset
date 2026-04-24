@@ -43,7 +43,8 @@
             {% assign url_key = url_key | append: '-' | append: tier %}
           {% endif %}
 
-          {% if settings[img_key] %}
+          {% assign path = settings[url_key] | remove: "https://gymking.com" %}
+          {% if settings[img_key] and path != request.path %}
             <article class="product-grid-insert" >
               <a data-gender="{{ product.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}" aria-label="{{ settings[img_key].alt | default: 'Current Offer'}}">
                 {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1400px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazy' }}
