@@ -68,7 +68,12 @@
   flex-direction: row;
 
   & .event-meta {
-    margin: .25rem 0.65em
+    margin: .25rem 0.65em;
+      align-items: flex-start;
+    
+      & svg {
+        height: 1.2em;
+      }
   }
 
   & .article-card--content {
@@ -107,6 +112,7 @@
     justify-content: flex-end;
     position: absolute;
     bottom: 0;
+    left: 0;
     background: var(--c-off-white);
     padding: 0.5em;
   }
@@ -115,7 +121,8 @@
 .article-hero {
   --scroll: 0;
   height: 40vh;
-  width: 100%;
+  width: min(1400px, 100%);
+    margin: 0 auto;
   position: relative;
     overflow: hidden;
   }

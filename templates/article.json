@@ -22,10 +22,21 @@
         "blog": "posts",
         "limit": 3
       }
+    },
+    "blog_event_grid_3MdFEP": {
+      "type": "blog-event-grid",
+      "name": "Events Grid",
+      "settings": {
+        "title": "Recent Events",
+        "heading_level": "3",
+        "blog": "posts",
+        "limit": 3
+      }
     }
   },
   "order": [
     "main",
-    "blog_article_grid_6gwMFb"
+    "blog_article_grid_6gwMFb",
+    "blog_event_grid_3MdFEP"
   ]
 }

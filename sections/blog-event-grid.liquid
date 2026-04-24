@@ -26,10 +26,10 @@
             <h3 class="h2 no-block-margin left">{{ article.title }}</h3>
           </a>
           {%- if article.metafields.article.event_location.value -%}
-            <div class="event-meta event-location">{{ article.metafields.article.event_location.value }}</div>
+            <div class="event-meta event-location inline-flex">{% render 'icon', icon: 'pin' %}{{ article.metafields.article.event_location.value }}</div>
           {%- endif -%}
           {%- if article.metafields.article.event_date.value -%}
-            <div class="event-meta event-date">{{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}</div>
+            <div class="event-meta event-date inline-flex">{% render 'icon', icon: 'minus' %}{{ article.metafields.article.event_date.value | date: '%B %d, %Y' }}</div>
           {%- endif -%}
           <a href="{{ article.url }}" class="inline-flex read-more-link">more info {% render 'icon', icon: 'arrow' %}</a>
         </div>
