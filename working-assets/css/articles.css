@@ -137,6 +137,12 @@
   margin: -5rem auto 0;
 }
 
+.inline-video {
+  width: 100%;
+  margin: 0 auto;
+  max-height: 80svh;
+  height: fit-content;
+}
 
 .article-wrapper {
   width: min(100vw, 80ch);
@@ -191,6 +197,13 @@
   }
 }
 
+.article-author {
+  display: block;
+  margin: .75em 2ch 0 0;
+  text-align: right;
+  color: var(--c-grey);
+  font-size: calc(var(--txt-p) * .8);
+}
 /* GYMS ARTICLE PAGES */
 
 .gyms-hero {

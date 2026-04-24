@@ -39,12 +39,14 @@
   {% if article.metafields.custom.video.value %}
     {% assign video = article.metafields.custom.video.value %}
     {% assign poster = '/cdn/shop/' | append: video.preview_image | replace: '.jpg', '_grande.jpg' %}
-    {% assign video_tag = article.metafields.custom.video.value | video_tag: controls: true, poster: poster %}
+    {% assign video_tag = article.metafields.custom.video.value | video_tag: controls: true, poster: poster, class: 'inline-video' %}
     {% assign split_content = article.content | replace: 'insert-video-here', video_tag %}
     {{ split_content }}
   {% else %}
     {{ article.content }}
   {% endif %}
+
+  <small class="article-author">written by: <b>{{ article.author }}</b></small>
 </div>
 
   <script>
