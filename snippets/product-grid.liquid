@@ -1,75 +1,102 @@
+{%- comment -%}
+  Product Grid Component
+  - Handles infinite scrolling
+  - Implements performance optimizations (eager loading for first items)
+  - Dynamically inserts promotional banners based on page number and position
+{%- endcomment -%}
+
 {% assign position_count = 0 %}
-  <infinite-scroll class="max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}" data-page="{{ page }}" data-total-pages="{{ pages }}">
-    {%- for product in product_list -%}
-      {% assign lazyload = 'lazy' %}
-      {% assign pre_render = false %}
-      {% if forloop.index0 < 5 %}
-        {% assign pre_render = true %}
-        {% assign lazyload = 'eager' %}
-      {% endif %}
 
-      {% if template.name == 'collection' %}
-        {% assign position_count = position_count | plus: 1 %}
-        {% assign current_page = page | modulo: 3 %}
-        {% case current_page %}
-          {% when 0 -%}
-            {%- assign banner_location = 7 %}
-          {% when 2 -%}
-            {%- assign banner_location = 11 %}
-          {% when 1 -%}
-            {%- assign banner_location = 13 %}
-        {% endcase %}
+<infinite-scroll class="max-width" data-next-page="{{ nexturl }}" data-total-items="{{ product_list.size }}" data-page="{{ page }}" data-total-pages="{{ pages }}">
+  {%- for product in product_list -%}
+    {%- comment -%} Performance: Load the first 5 items eagerly to improve LCP {%- endcomment -%}
+    {% assign lazyload = 'lazy' %}
+    {% assign pre_render = false %}
+    {% if forloop.index0 < 5 %}
+      {% assign pre_render = true %}
+      {% assign lazyload = 'eager' %}
+    {% endif %}
 
-        {% if position_count == banner_location %}
-          {% assign gender = product.vendor | downcase %}
-          {% assign gender_key = gender %}
-          {% if gender == 'boys' or gender == 'girls' %}
-            {% assign gender_key = 'kids' %}
-          {% endif %}
-          {% assign gender_letter = gender_key | slice: 0, 1 %}
+    {%- comment -%} Banner Insertion Logic (Collection pages only) {%- endcomment -%}
+    {% if template.name == 'collection' %}
+      {% assign position_count = position_count | plus: 1 %}
 
-          {% assign tier = '' %}
-          {% if current_page == 2 %}
-            {% assign tier = '2' %}
-          {% elsif current_page == 0 %}
-            {% assign tier = '3' %}
-          {% endif %}
+      {%- comment -%}
+        Determine the banner insertion point based on a 3-page cycle.
+        Page 0 (or multiple of 3) -> Position 7
+        Page 1 -> Position 13
+        Page 2 -> Position 11
+      {%- endcomment -%}
+      {% assign current_page = page | modulo: 3 %}
+      {% case current_page %}
+        {% when 0 -%}
+          {%- assign banner_location = 7 %}
+        {% when 2 -%}
+          {%- assign banner_location = 11 %}
+        {% when 1 -%}
+          {%- assign banner_location = 13 %}
+      {% endcase %}
 
+      {%- comment -%} If we've reached the insertion point, calculate the banner keys {%- endcomment -%}
+      {% if position_count == banner_location %}
+        {%- comment -%} Normalize gender for setting keys {%- endcomment -%}
+        {% assign gender = product.vendor | downcase %}
+        {% assign gender_key = gender %}
+        {% if gender == 'boys' or gender == 'girls' %}
+          {% assign gender_key = 'kids' %}
+        {% endif %}
+        {% assign gender_letter = gender_key | slice: 0, 1 %}
 
-          {% assign img_key = 'img-' | append: gender_key | append: '-content' %}
-          {% assign url_key = 'url-' | append: gender_letter | append: '-plp-content' %}
-          {% if tier != '' %}
-            {% assign img_key = img_key | append: '-' | append: tier %}
+        {%- comment -%} Tier logic based on page cycle {%- endcomment -%}
+        {% assign tier = '' %}
+        {% if current_page == 2 %}
+          {% assign tier = '2' %}
+        {% elsif current_page == 0 %}
+          {% assign tier = '3' %}
+        {% endif %}
+
+        {%- comment -%} Construct dynamic settings keys for image and URL {%- endcomment -%}
+        {% assign img_key = 'img-' | append: gender_key | append: '-content' %}
+        {% assign url_key = 'url-' | append: gender_letter | append: '-plp-content' %}
+        {% if tier != '' %}
+          {% assign temp_img_key = img_key | append: '-' | append: tier %}
+          {% if settings[temp_img_key] %}
+            {% assign img_key = temp_img_key %}
             {% assign url_key = url_key | append: '-' | append: tier %}
           {% endif %}
+        {% endif %}
 
-          {% assign path = settings[url_key] | remove: "https://gymking.com" %}
-          {% if settings[img_key] and path != request.path %}
-            <article class="product-grid-insert" >
-              <a data-gender="{{ product.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}" aria-label="{{ settings[img_key].alt | default: 'Current Offer'}}">
-                {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1400px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazy' }}
-              </a>
-            </article>
-          {% endif %}
+        {%- comment -%} Render the insert if it exists and isn't pointing to the current page {%- endcomment -%}
+        {% assign path = settings[url_key] | remove: 'https://gymking.com' %}
+        {% if settings[img_key] and path != request.path %}
+          <article class="product-grid-insert">
+            <a data-gender="{{ product.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}" aria-label="{{ settings[img_key].alt | default: 'Current Offer'}}">
+              {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1400px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazy' }}
+            </a>
+          </article>
         {% endif %}
       {% endif %}
+    {% endif %}
 
-      {% comment %} ---- Product Cards ---- {% endcomment %}
-      <article data-page="{{ page }}" id="item-{{- product.id -}}" class="Grid__Item">{%- render 'product-card', product: product, loading: lazyload, pre_render: pre_render -%}</article>
-    {%- endfor -%}
-  </infinite-scroll>
+    {% comment %} ---- Product Cards ---- {% endcomment %}
+    <article data-page="{{ page }}" id="item-{{- product.id -}}" class="Grid__Item">
+      {%- render 'product-card', product: product, loading: lazyload, pre_render: pre_render -%}
+    </article>
+  {%- endfor -%}
+</infinite-scroll>
 
+{% comment -%}
+  Safety Check: If the page parameter exceeds total pages,
+  redirect back to page 1 to avoid showing an empty grid.
+{% endcomment -%}
+<script>
+  const maxPage = {{ pages | default: 1 }};
+  const currentPage = {{ page | default: 1 }};
+  const urlParams = new URLSearchParams(window.location.search);
 
-  {% comment %} prevent collection page overflow by redirciting overfrlow pages to the first page of the collection {% endcomment %}
-  <script>
-    const maxPage = {{ pages | default: 1 }};
-    const currentPage = {{ page | default: 1 }};
-    const urlParams = new URLSearchParams(window.location.search);
-
-    if (currentPage > maxPage) {
-      console.log('page:: overflowed')
-      urlParams.set('page', 1);
-      window.location.href = '{{ shop.url}}{{ request.path }}?' + urlParams.toString();
-    }
-  </script>
-
+  if (currentPage > maxPage) {
+    console.log('page:: overflowed')
+    urlParams.set('page', 1);
+    window.location.href = '{{ shop.url}}{{ request.path }}?' + urlParams.toString();
+  }
+</script>
