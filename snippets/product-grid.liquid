@@ -55,7 +55,11 @@
           {% assign tier = '3' %}
         {% endif %}
 
-        {%- comment -%} Construct dynamic settings keys for image and URL {%- endcomment -%}
+        {%- comment -%} 
+          Construct dynamic settings keys for image and URL.
+          If a tier-specific image exists (e.g., img-mens-content-2), use it.
+          Otherwise, fall back to the base/first slot (e.g., img-mens-content).
+        {%- endcomment -%}
         {% assign img_key = 'img-' | append: gender_key | append: '-content' %}
         {% assign url_key = 'url-' | append: gender_letter | append: '-plp-content' %}
         {% if tier != '' %}
