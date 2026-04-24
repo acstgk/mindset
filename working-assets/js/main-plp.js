@@ -304,47 +304,33 @@ class EnhancedFilters {
         infiniteScroll._observeLoadTrigger();
       }
 
-      // Update filter titles
-      const newFilterTitles = doc.querySelectorAll(".filter_item-title");
-      const newFilterLabels = doc.querySelectorAll(".filter_value-label");
-      const newfilterCheckboxes = doc.querySelectorAll(".filter_value-checkbox");
+      // Update filter titles and values
+      const newFilterGroups = doc.querySelectorAll(".accordian-items");
+      const currentFilterGroups = this.form.querySelectorAll(".accordian-items");
       const newTotalCount = doc.querySelector(".product-count").innerText;
 
       currentTotalCount.forEach((el) => {
         el.innerText = newTotalCount;
       });
 
-      const maxLength = Math.max(this.filterTitles.length, newFilterTitles.length, this.filterLabels.length, newFilterLabels.length, this.filterCheckboxes.length, newfilterCheckboxes.length);
-
-      for (let i = 0; i < maxLength; i++) {
-        const newTitle = newFilterTitles[i];
-        const newLabel = newFilterLabels[i];
-        const newCheckboxWrapper = newfilterCheckboxes[i];
-        const currentTitle = this.filterTitles[i];
-        const currentLabel = this.filterLabels[i];
-        const currentCheckboxWrapper = this.filterCheckboxes[i];
-
-        if (currentTitle && newTitle) {
-          currentTitle.innerHTML = newTitle.innerHTML;
-          currentTitle.dataset.activeCount = newTitle.dataset.activeCount;
-        }
-
-        if (currentLabel && newLabel) {
-          currentLabel.innerHTML = newLabel.innerHTML;
-          currentLabel.dataset.activeCount = newLabel.dataset.activeCount;
-        }
-
-        const currentInput = currentCheckboxWrapper?.querySelector("input[type='checkbox']");
-        const newInput = newCheckboxWrapper?.querySelector("input[type='checkbox']");
-
-        if (currentInput && newInput) {
-          if (newInput.disabled) {
-            currentInput.setAttribute("disabled", "");
-          } else {
-            currentInput.removeAttribute("disabled");
+      currentFilterGroups.forEach((oldGroup, index) => {
+        const newGroup = newFilterGroups[index];
+        if (newGroup) {
+          // Update header
+          const oldHeader = oldGroup.querySelector(".filter_item-title");
+          const newHeader = newGroup.querySelector(".filter_item-title");
+          if (oldHeader && newHeader) {
+            oldHeader.innerHTML = newHeader.innerHTML;
+            oldHeader.dataset.activeCount = newHeader.dataset.activeCount;
+          }
+          // Update values container (ul, labels, inputs)
+          const oldValues = oldGroup.querySelector(".filter_item-values");
+          const newValues = newGroup.querySelector(".filter_item-values");
+          if (oldValues && newValues) {
+            oldValues.innerHTML = newValues.innerHTML;
           }
         }
-      }
+      });
     } catch (error) {
       console.error("Error fetching filtered results:", error);
     }

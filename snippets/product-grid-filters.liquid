@@ -88,7 +88,7 @@
                                     disabled
                                   {%- endif %}
                                 >
-                                <label for="Filter-{{ filter.param_name }}-{{ forloop.index }}" class="filter_value-label {% if filter_value.count == 0 and filter_value.active == false -%}disabled-label{% endif %}">
+                                <label for="Filter-{{ filter_value.param_name }}-{{ forloop.index }}" class="filter_value-label {% if filter_value.count == 0 and filter_value.active == false -%}disabled-label{% endif %}">
                                   {%- case filter.presentation -%}
                                     {%- when 'swatch' -%}
                                       <div class="swatch" style="background: {{ filter_value.swatch.color }};border-color:{{ filter_value.swatch.color | color_darken: 15 }}"></div>
