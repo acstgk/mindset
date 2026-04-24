@@ -21,32 +21,14 @@
       </ul>
     </div>
   {%- endif -%}
-
-  {%- if request.locale.iso_code == 'ja' -%}
-    <div class="Form__Item">
-      <input type="text" class="Form__Input" name="customer[last_name]" aria-label="{{ 'customer.register.last_name' | t }}" placeholder="{{ 'customer.register.last_name' | t }}">
-      <label>{{ 'customer.register.last_name' | t }}</label>
-    </div>
-
-    <div class="Form__Item">
-      <input type="text" class="Form__Input" name="customer[first_name]" aria-label="{{ 'customer.register.first_name' | t }}" placeholder="{{ 'customer.register.first_name' | t }}" autofocus>
-      <label>{{ 'customer.register.first_name' | t }}</label>
-    </div>
-  {%- else -%}
-    <div class="Form__Item">
-      <input type="text" class="Form__Input" name="customer[first_name]" aria-label="{{ 'customer.register.first_name' | t }}" placeholder="{{ 'customer.register.first_name' | t }}" autofocus>
-      <label>{{ 'customer.register.first_name' | t }}</label>
-    </div>
-
-    <div class="Form__Item">
-      <input type="text" class="Form__Input" name="customer[last_name]" aria-label="{{ 'customer.register.last_name' | t }}" placeholder="{{ 'customer.register.last_name' | t }}">
-      <label>{{ 'customer.register.last_name' | t }}</label>
-    </div>
-  {%- endif -%}
+  <div class="Form__Item">
+    <input type="email" class="Form__Input" name="customer[email]" aria-label="{{ 'customer.register.email' | t }}" placeholder="{{ 'customer.register.email' | t }}" required="required" autofocus>
+    <label>{{ 'customer.register.email' | t }}</label>
+  </div>
 
   <div class="Form__Item">
-    <input type="email" class="Form__Input" name="customer[email]" aria-label="{{ 'customer.register.email' | t }}" placeholder="{{ 'customer.register.email' | t }}" required="required">
-    <label>{{ 'customer.register.email' | t }}</label>
+    <input type="text" class="Form__Input" name="customer[first_name]" aria-label="{{ 'customer.register.first_name' | t }}" placeholder="{{ 'customer.register.first_name' | t }}">
+    <label>{{ 'customer.register.first_name' | t }}</label>
   </div>
 
   <div class="Form__Item">
@@ -56,20 +38,21 @@
 
   <label style="margin-bottom:1em;display:block" class="button-full">
     <input type="checkbox" name="customer[accepts_marketing]" value="true" id="marketing">
-    I’d like to receive email updates with exclusive offers, new launches and sale early access.
+    I’d like to receive email updates with exclusive offers, new launches and exclusive early access.
   </label>
+
+  {% comment %} put hidden elements for two-step sign up here {% endcomment %}
 
   <button type="submit" class="button button-primary button-full">{{ 'customer.register.submit' | t }}</button>
 
-   <p>
+  <p>
     Already have an account?
-      <br>
-      <a href="{{ routes.account_login_url }}" class="inline-flex">
-        {{- 'customer.login.submit' | t }}
-        {% render 'icon', icon: 'arrow' -%}
-      </a>
-    </p>
-
+    <br>
+    <a href="{{ routes.account_login_url }}" class="inline-flex">
+      {{- 'customer.login.submit' | t }}
+      {% render 'icon', icon: 'arrow' -%}
+    </a>
+  </p>
 {%- endform -%}
 
 {% schema %}
