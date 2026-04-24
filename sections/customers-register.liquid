@@ -44,16 +44,17 @@
   {% comment %} put hidden elements for two-step sign up here {% endcomment %}
 
   <button type="submit" class="button button-primary button-full">{{ 'customer.register.submit' | t }}</button>
-
-  <p>
-    Already have an account?
-    <br>
-    <a href="{{ routes.account_login_url }}" class="inline-flex">
-      {{- 'customer.login.submit' | t }}
-      {% render 'icon', icon: 'arrow' -%}
-    </a>
-  </p>
 {%- endform -%}
+{%render 'signup-perks', title: "Register and enjoy" %}
+
+  <p style="text-align:right; background: var(--c-off-white);padding: 2rem;margin-top:2rem">
+    Already have an account?
+    <br><br>
+     <a href="{{ routes.account_login_url }}" class="inline-flex button button-secondary">
+          {{- 'customer.login.submit' | t }}
+          {% render 'icon', icon: 'arrow' -%}
+        </a>
+  </p>
 
 {% schema %}
 {
