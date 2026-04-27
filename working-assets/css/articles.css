@@ -70,7 +70,7 @@
   & .event-meta {
     margin: .25rem 0.65em;
       align-items: flex-start;
-    
+
       & svg {
         height: 1.2em;
       }
@@ -148,7 +148,7 @@
   width: 100%;
   margin: 0 auto;
   max-height: 80svh;
-  height: fit-content;
+  height: auto;
 }
 
 .article-wrapper {
