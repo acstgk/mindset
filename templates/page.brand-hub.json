@@ -408,6 +408,28 @@
         "grid_style": "standard"
       }
     },
+    "spacer_e3wMjb": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 70,
+        "mobile": 50
+      }
+    },
+    "content_rich_text_MPch8w": {
+      "type": "content-rich-text",
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "Check out Gym King Best Sellers",
+        "heading_style": "emphasis",
+        "v_padding": 0,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
     "custom_ctas_QCLdk8": {
       "type": "custom-ctas",
       "blocks": {
@@ -432,9 +454,39 @@
         "button_fAFttp",
         "button_bygtqN"
       ],
-      "name": "Custom CTA Buttons",
+      "disabled": true,
+      "name": "Best of pages",
       "settings": {
         "size": ""
+      }
+    },
+    "custom_ctas_Bqj9mk": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_LnpUaa": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Men's Best Sellers",
+            "button_link": "shopify://collections/mens-bestsellers",
+            "btn_color": false
+          }
+        },
+        "button_dn7Rde": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Women's Best Sellers",
+            "button_link": "shopify://collections/bestsellers-womens",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_LnpUaa",
+        "button_dn7Rde"
+      ],
+      "name": "Bestsellers",
+      "settings": {
+        "size": "h4"
       }
     }
   },
@@ -450,6 +502,9 @@
     "content_hotspot_carousel_rktLCX",
     "content_icon_grid_gqk3x3",
     "content_rich_text_xHFFe9",
-    "custom_ctas_QCLdk8"
+    "spacer_e3wMjb",
+    "content_rich_text_MPch8w",
+    "custom_ctas_QCLdk8",
+    "custom_ctas_Bqj9mk"
   ]
 }
