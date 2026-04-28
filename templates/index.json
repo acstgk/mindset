@@ -12,6 +12,30 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_hkkRfY": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "mobile_poster": "shopify://shop_images/HERITAGE_MOBILE_BANNER_NO_COPY.png",
+            "desktop_poster": "shopify://shop_images/HERITAGE_DESKTOP_BANNER_NO_COPY.png",
+            "overlay_url": "",
+            "lockup_width": 200,
+            "title": "Heritage Collection",
+            "title_font": "",
+            "subtitle": "New Arrivals",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Mens",
+            "url1": "shopify://collections/mens-new",
+            "cta2": "Shop Womens",
+            "url2": "shopify://collections/womens-new",
+            "target_gender": ""
+          }
+        },
         "image_6BmG7G": {
           "type": "image",
           "settings": {
@@ -62,13 +86,14 @@
         }
       },
       "block_order": [
+        "image_hkkRfY",
         "image_6BmG7G",
         "image_eT8DWX"
       ],
       "custom_css": [
-        "@media screen and (max-width: 768px) {.signature-summer-1 .h1 {font-size: var(--txt-h1); }}",
+        "@media screen and (max-width: 768px) {.h1 {font-size: var(--txt-h1); }}",
         ".h3 {font-size: var(--txt-h4);}",
-        ".h1 {font-size: calc(var(--txt-xl) * 0.85); letter-spacing: 0.35ch; margin-right: -0.3ch;}",
+        ".h1 {font-size: calc(var(--txt-xl) * 0.85); margin-right: -0.3ch;}",
         "em {width: 100%; display: inline-block;}"
       ],
       "settings": {}
