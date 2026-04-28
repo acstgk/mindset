@@ -436,7 +436,138 @@
         "grid_item_BNKPRc",
         "spacer_WVM8GE"
       ],
+      "disabled": true,
       "name": "Pro Logo",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis"
+      }
+    },
+    "content_mosaic_rCTVPU": {
+      "type": "content-mosaic",
+      "blocks": {
+        "grid_item_a6iTBM": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Debossed Camo",
+            "flag": "best",
+            "grid_column_span": "2",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/DEBOSSED_CAMO_TEE_SHORT_-_BLACK_SST-A2B0F_SHR-A2B0H.webp",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "",
+            "img_transition": "normal",
+            "content_placement": "50",
+            "heading_size": "h1",
+            "heading_style": "emphasis",
+            "text": "<p>The best selling gymwear collection, featuring a striking debossed print, premium breathable fabric, and unrestricted movement.<br/><br/>★★★★★<br/><strong>\"Best fitting t-shirt Gym King have ever done!\"</strong><em><br/></em>- Jake L.</p>",
+            "bg_color": "#f8f8f8",
+            "txt_color": "#0c0c13",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/debossed-camo",
+            "btn_color": "#1b1a1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_bT7449": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/DEBOSSEDCAMOTEE_DEBOSSEDCAMOSHORT-OLIVESST-BOEYOSHR-BOEYQ12.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-debossed-camo-tee-olive",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_npkCQC": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/dcshortblk.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-debossed-short-5-black",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h1",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_AcNyUF": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/DEBOSSEDCAMOQTRZIPFUNNEL_DEBOSSEDCAMOSHORT-RUSTICTAUPEQZP-BOFR0SHR-BOFQY4.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-debossed-camo-1-4-zip-funnel-rustic-taupe",
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "spacer_aTKgrr": {
+          "type": "spacer",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "grid_item_a6iTBM",
+        "grid_item_bT7449",
+        "grid_item_npkCQC",
+        "grid_item_AcNyUF",
+        "spacer_aTKgrr"
+      ],
+      "name": "Debossed Camo",
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -654,7 +785,7 @@
             "txt_color": "#ffffff",
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/mens-summer-clothes",
-            "btn_color": "#000000",
+            "btn_color": "#3f2c28",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -912,6 +1043,7 @@
     "content_mosaic_4xHKx9",
     "as_seen_in_Mp7zfK",
     "content_mosaic_VjHWx4",
+    "content_mosaic_rCTVPU",
     "product_collection_carousel_7CVb8L",
     "content_mosaic_a6hTMr",
     "content_mosaic_DMiMJE",
