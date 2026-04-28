@@ -260,7 +260,7 @@ productcard-carousel {
   max-width: var(--max-width);
 
   & .product_card-media {
-    max-height: 60svh;
+    max-height: 75svh;
     width: 100%;
   }
   &.no-carousel {
