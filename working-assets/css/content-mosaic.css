@@ -103,7 +103,8 @@
     }
 
     &:hover,
-    &:focus {
+        &:focus,
+        &.active {
       & .Title {
         width: auto;
         display: block;

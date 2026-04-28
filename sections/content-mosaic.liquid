@@ -11,7 +11,7 @@
         class="content-mosaic--item {% if block.settings.content_placement == 'overlay' %}item-overlay{% elsif block.settings.content_placement == '50' %}item-50{% endif %} {% if block.settings.grid_column_span < block.settings.grid_row_span %}stack-content{% endif %}"
         style="--c-span:{{ block.settings.grid_column_span }};--r-span:{{ block.settings.grid_row_span }};--background:{{ block.settings.bg_color }};--txt-color:{{ block.settings.txt_color }};"
       >
-        <div class="content-mosaic--media">
+        <div class="content-mosaic--media {% if block.settings.always_show %}active{% endif %}">
           {% if block.settings.video %}
             {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
           {% elsif block.settings.img %}
@@ -223,6 +223,13 @@
           "label": "Product"
         },
         {
+          "type": "checkbox",
+          "id": "always_show",
+          "label": "Always Show Product Link",
+          "default": false,
+          "visible_if": "{{ block.settings.product != null }}"
+        },
+        {
           "type": "select",
           "id": "img_transition",
           "label": "Image Transition Style",
@@ -313,7 +320,7 @@
           "default": "#1b1b1b",
           "visible_if": "{{ block.settings.cta_text != '' }}"
         },
-        {"type" :"select", 
+        {"type" :"select",
         "id": "cta_position",
         "label": "CTA Position",
         "options": [
