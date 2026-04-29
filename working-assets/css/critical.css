@@ -353,6 +353,7 @@ blockquote {
   line-height: 1 !important;
   margin-inline: calc(var(--letter-spacing) * 1.333 * -1);
   font-weight: 400 !important;
+  font-variant-numeric: lining-nums;
 }
 .Title {
   display: flex;
