@@ -13,7 +13,8 @@ form#atc_form {
   & .button {
     width: 100%;
   }
-  & .atc_form-sizes {
+  & .atc_form-sizes,
+  & .alternative-sizing-options {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.4em), 70px));
     gap: 0.5em;
