@@ -38,6 +38,7 @@
         },
         "image_6BmG7G": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Signature Summer - Womens - Mobile Banner V2_11ad0ed4-056c-48f0-a372-aaf40c7f3a31.mp4",
             "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner V2_1.mp4",
@@ -61,6 +62,7 @@
         },
         "image_eT8DWX": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Signature Summer - Mens - Mobile Banner V2_6f61119a-4691-4178-b92e-d93ec1f98ab5.mp4",
             "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner.png",
@@ -84,9 +86,31 @@
             "target_gender": "mens"
           }
         },
+        "image_DKDKPi": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/30% Off Bank Hol - Womens Mobile Banner 2_42c7db96-7bf3-469a-a438-aba68f36a415.mp4",
+            "desktop_video": "shopify://files/videos/30% Off Bank Hol - Womens Desktop Banner 2.mp4",
+            "overlay_url": "/collections/bank-holiday-sale/womens",
+            "lockup_width": 200,
+            "title": "Get 30% Off",
+            "title_font": "baskerville",
+            "subtitle": "Bank Holiday Sitewide Offer",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "middle-mob",
+            "cta1": "Shop Now",
+            "url1": "/collections/bank-holiday-sale/womens",
+            "cta2": "",
+            "url2": "",
+            "target_gender": "womens"
+          }
+        },
         "image_JhPCiY": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/30% Off Bank Hol - Mens Mobile Banner_ad42ecb4-6290-46b7-be59-597215cf84f9.mp4",
             "desktop_video": "shopify://files/videos/30% Off Bank Hol - Mens Desktop Banner_faf13ac6-1ddc-429c-a70d-bc6ceb90fb0b.mp4",
@@ -100,36 +124,12 @@
             "customHTML": "",
             "content_alignment": "center",
             "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
+            "v_align_mob": "middle-mob",
             "cta1": "Shop Now",
             "url1": "/collections/bank-holiday-sale/mens",
             "cta2": "",
             "url2": "",
             "target_gender": "mens"
-          }
-        },
-        "image_DKDKPi": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "mobile_video": "shopify://files/videos/30% Off Bank Hol - Womens Mobile Banner 2.mp4",
-            "desktop_video": "shopify://files/videos/30% Off Bank Hol - Womens Desktop Banner 2.mp4",
-            "overlay_url": "/collections/bank-holiday-sale/womens",
-            "lockup_width": 200,
-            "title": "Get 30% Off",
-            "title_font": "baskerville",
-            "subtitle": "Bank Holiday Sitewide Offer",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Now",
-            "url1": "/collections/bank-holiday-sale/womens",
-            "cta2": "",
-            "url2": "",
-            "target_gender": "womens"
           }
         }
       },
@@ -137,14 +137,15 @@
         "image_hkkRfY",
         "image_6BmG7G",
         "image_eT8DWX",
-        "image_JhPCiY",
-        "image_DKDKPi"
+        "image_DKDKPi",
+        "image_JhPCiY"
       ],
       "custom_css": [
         "@media screen and (max-width: 768px) {.signature-summer-2 .h1 {font-size: var(--txt-h1); }}",
         ".h3 {font-size: var(--txt-h4);}",
-        ".signature-summer-2 .h1,.signature-em-summer-em-1 .h1 {font-size: calc(var(--txt-xl) * 0.85); margin-right: -0.3ch;}",
-        "em {width: 100%; display: inline-block;}"
+        ".signature-summer-2 .h1,.signature-em-summer-em-1 .h1,.get-30-off-1 .h1 {font-size: calc(var(--txt-xl) * 0.95); margin-right: -0.3ch; font-weight: 600 !important;}",
+        "em {width: 100%; display: inline-block;}",
+        ".hero_slide-ctas .button {font-size: calc(var(--txt-p) * 0.85);}"
       ],
       "settings": {}
     },
