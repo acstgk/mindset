@@ -2910,6 +2910,11 @@ form {
 
 .yotpo-banner-layout.yotpo-banner-low {
   border-top: 1px solid var(--c-light-grey);
+  height: 32px !important;
+
+  & * {
+    font-size: var(--txt-sm) !important;
+  }
 }
 
 #fc_frame,
