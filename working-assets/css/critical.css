@@ -391,6 +391,7 @@ blockquote {
   text-box-edge: cap alphabetic;
   gap: 0.5em;
   font-weight: 700;
+  padding: 0.15lh 0 0;
 }
 
 .Price--compareAt {
