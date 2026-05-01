@@ -132,7 +132,7 @@ input[type="range"] {
   background: var(--c-black);
   color: var(--c-white);
   right: 0;
-  bottom: 1em;
+  bottom: 1.65em;
   position: absolute;
   width: max-content;
   min-width: min(8rem, 30%);
@@ -2563,8 +2563,8 @@ product-card {
   border-bottom-style: solid;
   padding-bottom: 1px;
   height: 1.2rem;
-  text-box-trim: trim-both;
   text-box-edge: cap alphabetic;
+  line-height: 1.5rem;
 }
 
 .qatb-btn--oos {
