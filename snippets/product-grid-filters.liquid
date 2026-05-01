@@ -4,7 +4,7 @@
   {% comment %} Mobile Filters Button {% endcomment %}
   {% comment %} Wrapper {% endcomment %}
   <div class="max-width inline-flex">
-    <div class="column-controls">
+    <div class="column-controls" data-grid="grid">
       <span>Grid Size:</span>
       <button class="grid-control--down" aria-label="change grid size">{% render 'icon', icon: 'smaller' %}</button>
       <button class="grid-control--up" aria-label="change grid size">{% render 'icon', icon: 'bigger', class: 'rotate180' %}</button>
@@ -35,7 +35,7 @@
                         {% if filter.label == 'Sale' and request.path contains 'sale' %}
                           Discount
                         {% else %}
-                          {{ filter.label }} 
+                          {{ filter.label }}
                         {% endif %}
                         {%- if filter.active_values.size > 0 -%}
                           {% assign active_count = active_count | plus: 1 %}
