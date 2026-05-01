@@ -17,7 +17,7 @@
 }
 
 .article-grid {
-  gap: 1.2em .6em;
+  gap: 1.2em 0.6em;
   padding-top: 1em;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -45,7 +45,6 @@
 
     &:hover {
       color: var(--c-grey);
-
     }
   }
 
@@ -68,12 +67,12 @@
   flex-direction: row;
 
   & .event-meta {
-    margin: .25rem 0.65em;
-      align-items: flex-start;
+    margin: 0.25rem 0.65em;
+    align-items: flex-start;
 
-      & svg {
-        height: 1.2em;
-      }
+    & svg {
+      height: 1.2em;
+    }
   }
 
   & .article-card--content {
@@ -122,23 +121,23 @@
   --scroll: 0;
   height: 40vh;
   width: min(1400px, 100%);
-    margin: 0 auto;
+  margin: 0 auto;
   position: relative;
-    overflow: hidden;
-  }
+  overflow: hidden;
+}
 
-  .article-hero::before {
-    content: "";
-    position: absolute;
-    top: -10vh;
-    left: 0;
-    width: 100vw;
-    height: 60vh;
-    background-size: cover;
-    background-position: center;
-    transform: translateY(calc(var(--scroll, 0) * 0.15px));
-    will-change: transform;
-  }
+.article-hero::before {
+  content: "";
+  position: absolute;
+  top: -10vh;
+  left: 0;
+  width: min(1400px, 100vw);
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  transform: translateY(calc(var(--scroll, 0) * 0.15px));
+  will-change: transform;
+}
 
 :has(.article-hero + .article-wrapper) .article-wrapper {
   margin: -5rem auto 0;
@@ -206,10 +205,10 @@
 
 .article-author {
   display: block;
-  margin: .75em 2ch 0 0;
+  margin: 0.75em 2ch 0 0;
   text-align: right;
   color: var(--c-grey);
-  font-size: calc(var(--txt-p) * .8);
+  font-size: calc(var(--txt-p) * 0.8);
 }
 /* GYMS ARTICLE PAGES */
 
@@ -220,7 +219,7 @@
   padding-bottom: 5rem;
   position: relative;
 
-  &>* {
+  & > * {
     position: absolute;
     inset: 0;
   }
@@ -274,7 +273,7 @@
   max-width: min(100px, 20vw);
   max-height: min(70px, 15vw);
   filter: contrast(0) brightness(5) saturate(0);
-  object-fit: contain
+  object-fit: contain;
 }
 
 .gyms-footer--image,
