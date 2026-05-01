@@ -1806,7 +1806,7 @@ recently-viewed:not(.active) {
 /* HERO CSS */
 .shopify-section--hero-carousel,
 .hero_slide-content {
-  max-height: calc(100vh - 130px);
+  max-height: calc(100vh - 121px);
   min-height: 30rem;
   overflow: hidden;
 }
@@ -1822,7 +1822,7 @@ hero-carousel {
   width: 100vw;
   display: grid;
   overflow: hidden;
-  max-height: calc(100vh - 130px) !important;
+  max-height: calc(100vh - 121px) !important;
   min-height: 300px;
   grid-area: 1 / 1;
   position: relative;
