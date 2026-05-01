@@ -6,6 +6,7 @@
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
   interpolate-size: allow-keywords;
+  font-variant-numeric: lining-nums;
 }
 
 [hidden] {
@@ -212,11 +213,11 @@ a,
 
   &:hover {
     filter: brightness(1.02) !important;
-    }
+  }
 
-    &:active {
-      filter: brightness(0.5) !important;
-    }
+  &:active {
+    filter: brightness(0.5) !important;
+  }
   /* &[target="_blank"]::after {
   content: "";
   width: 1em;
@@ -353,7 +354,6 @@ blockquote {
   line-height: 1 !important;
   margin-inline: calc(var(--letter-spacing) * 1.333 * -1);
   font-weight: 500 !important;
-  font-variant-numeric: lining-nums;
 }
 
 .Title {
@@ -937,7 +937,6 @@ predictive-search {
   text-transform: uppercase;
   font-size: 10px;
 }
-
 
 iframe#attentive_creative {
   bottom: 45px !important;
