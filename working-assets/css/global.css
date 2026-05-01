@@ -330,7 +330,7 @@ productcard-carousel .splide__arrow {
 .carousel-height .loader {
   margin-bottom: 7.5rem;
 
-  &:has( + .is-active) {
+  &:has(+ .is-active) {
     display: none;
     height: 0;
     margin: 0;
@@ -2558,6 +2558,7 @@ product-card {
 .qatb-btn,
 .qatb-btn--oos {
   min-width: 24px;
+  min-height: 24px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
   padding-bottom: 1px;
