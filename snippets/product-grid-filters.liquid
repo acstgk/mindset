@@ -16,19 +16,20 @@
       <form id="filter-form">
         {% comment %} Mobile Filters {% endcomment %}
         <div class="filterby-container">
-          <small
-            ><span class="product-count">{{ collection.products_count }}</span> matching products</small
-          ><br>
+          <small>
+            <span class="product-count">{{ collection.products_count }}</span> matching products
+          </small>
+          <br>
           <span> Filter by:</span>
           {% assign active_count = 0 %}
 
           <content-accordian>
             {%- for filter in group.filters -%}
-              {% if request.path contains '/mens' or  request.path contains '/womens' or filter.values.size < 3 %}
-              {% assign is_gendered =  true %}
+              {% if request.path contains '/mens' or request.path contains '/womens' or filter.values.size < 3 %}
+                {% assign is_gendered = true %}
               {% endif %}
               {% if filter.values.size > 1 or filter.type == 'price_range' %}
-                {% unless is_gendered and filter.label == 'Gender'%}
+                {% unless is_gendered and filter.label == 'Gender' %}
                   <div class="accordian-items filter_item filter_item-{{- filter.label | handle -}} ">
                     <div class="accordian-header filter_item-name item-{{- filter.label | handle -}}" data-active-count="{{ filter.active_values.size | default: 0}}">
                       <div class="filter_item-title">
