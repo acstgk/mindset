@@ -1,0 +1,47 @@
+{
+  "name": "d2c",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"gulp\" \"shopify theme dev\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acstgk/theme.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acstgk/theme/issues"
+  },
+  "homepage": "https://github.com/acstgk/theme#readme",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@shopify/prettier-plugin-liquid": "^1.10.2",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
+    "cssnano": "^7.0.6",
+    "eslint": "^9.31.0",
+    "gulp": "^5.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^2.1.0",
+    "postcss": "^8.5.3",
+    "postcss-nested": "^7.0.2",
+    "postcss-preset-env": "^10.1.5",
+    "prettier": "^3.8.3"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.31.0",
+    "eslint-plugin-import": "^2.32.0",
+    "gulp-eslint-new": "^2.4.0"
+  }
+}
