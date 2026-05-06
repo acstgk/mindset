@@ -385,7 +385,7 @@ if (!customElements.get("enhanced-atc")) {
         this.allGroups.forEach((optionGroup) => {
           if (optionGroup.childElementCount > 1) {
             if (window.location.search.includes("variant")) {
-              const variantId = new URLSearchParams(window.location.search).get('variant');
+              const variantId = new URLSearchParams(window.location.search).get("variant");
               console.log("variant found :: ", variantId);
               const target = optionGroup.querySelector(`#variant-${variantId}`);
               if (target) target.checked = true;
@@ -396,7 +396,6 @@ if (!customElements.get("enhanced-atc")) {
             optionGroup.children[0].querySelector("input").checked = true;
           }
         });
-
       };
 
       // save any selected size to this product type for auto selection going forwards.
@@ -465,14 +464,13 @@ if (!customElements.get("enhanced-atc")) {
           this._currentSubmitHandler = this._addToCart;
         }
 
-
         // if this isn't a group (tracksuit) product page than update urgency flag, variant url and price.
         if (this.allGroups.length == 1) {
           //chech the availability and update the urgency flag, displaying if required.
           const availableQty = this.querySelector('input[type="radio"]:checked')?.dataset.availableQty;
           if (availableQty < 10 && availableQty > 0) {
             let warningLevel;
-            availableQty == 1 ? (this.quantityWarningEl.textContent = `Hurry! this is the last one.`) : (this.quantityWarningEl.textContent = `Popular - only ${availableQty} left!`);
+            availableQty == 1 ? (this.quantityWarningEl.textContent = `Hurry! Last one in this size`) : (this.quantityWarningEl.textContent = `Popular! Only ${availableQty} left in this size`);
             availableQty == 1 ? (warningLevel = "error") : (warningLevel = "warning");
             this.quantityWarningEl.classList.remove("warning", "error");
             this.quantityWarningEl.classList.add("warning-active", warningLevel);
@@ -486,22 +484,21 @@ if (!customElements.get("enhanced-atc")) {
 
           if (checkedInput) {
             const variantId = checkedInput.value;
-            url.searchParams.set('variant', variantId);
-            history.replaceState({}, '', url);
+            url.searchParams.set("variant", variantId);
+            history.replaceState({}, "", url);
 
             //now we have an updated url we can update the price.
-            const fetchURL = window.location.href + '&section_id=product-price';
+            const fetchURL = window.location.href + "&section_id=product-price";
             fetch(fetchURL)
               .then((response) => response.text())
               .then((html) => {
                 const parser = new DOMParser();
-                const doc = parser.parseFromString(html, 'text/html');
-                const livePrice = document.querySelector('#product-summary .Price--wrapper');
-                const incomingPrice = doc.querySelector('.Price--wrapper');
+                const doc = parser.parseFromString(html, "text/html");
+                const livePrice = document.querySelector("#product-summary .Price--wrapper");
+                const incomingPrice = doc.querySelector(".Price--wrapper");
                 if (livePrice && incomingPrice) livePrice.innerHTML = incomingPrice.innerHTML;
               });
           }
-
         }
       };
 
