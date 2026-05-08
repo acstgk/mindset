@@ -82,7 +82,11 @@ export default class RecentlyViewed {
   }
 
   getProductList() {
-    return JSON.parse(localStorage.getItem(this.listKey));
+    try {
+      return JSON.parse(localStorage.getItem(this.listKey));
+    } catch {
+      return null;
+    }
   }
 
   hasRecentlyViewed() {
