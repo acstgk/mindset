@@ -23,6 +23,7 @@
         "img_overlay": 100,
         "title": "Gym King",
         "heading": "About Us",
+        "heading_style": "emphasis",
         "text": "<p>At Gym King our foundation is built on continuous development and a resilient mindset, inspiring individuals to believe in themselves both inside and outside of the gym. </p>",
         "cta_text": "Learn more",
         "link_url": "",
@@ -301,7 +302,7 @@
         "icon_GgXdN4"
       ],
       "custom_css": [
-        "h3 {font-size: var(--txt-h2);}"
+        "h3 {font-size: var(--txt-h1);}"
       ],
       "name": "Icon Grid",
       "settings": {
@@ -482,7 +483,66 @@
         "button_9ehUPE",
         "button_AY8gAP"
       ],
+      "disabled": true,
       "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
+    },
+    "content_rich_text_DtmytD": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_t9YXxT": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Our most dominant collections and highest-performing products, curated to inspire. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_t9YXxT"
+      ],
+      "custom_css": [
+        "p {text-align: center !important;}",
+        "h2 {font-weight: 400; font-size: var(--txt-h1); letter-spacing: normal; margin-bottom: 0;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "Definitive Gym King",
+        "heading_style": "emphasis",
+        "v_padding": 0,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "custom_ctas_mqzGJy": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_m6MU4t": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Best of Men's",
+            "button_link": "shopify://pages/best-of-gym-king-mens",
+            "btn_color": false
+          }
+        },
+        "button_3TABTt": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Best of GK Womens",
+            "button_link": "shopify://pages/best-of-gym-king-womens",
+            "btn_color": false
+          }
+        }
+      },
+      "block_order": [
+        "button_m6MU4t",
+        "button_3TABTt"
+      ],
+      "name": "Best of pages",
       "settings": {
         "size": ""
       }
@@ -503,6 +563,8 @@
     "custom_ctas_XD8DGy",
     "content_rich_text_4xmbgK",
     "content_rich_text_GAWgYX",
-    "custom_ctas_YrzL6n"
+    "custom_ctas_YrzL6n",
+    "content_rich_text_DtmytD",
+    "custom_ctas_mqzGJy"
   ]
 }

@@ -14,9 +14,10 @@
       "blocks": {
         "image_hkkRfY": {
           "type": "image",
-          "disabled": true,
           "settings": {
+            "mobile_video": "shopify://files/videos/Heritage - Mobile Banner V2.mp4",
             "mobile_poster": "shopify://shop_images/HERITAGE_MOBILE_BANNER_NO_COPY.png",
+            "desktop_video": "shopify://files/videos/Heritage - Desktop Banner.mp4",
             "desktop_poster": "shopify://shop_images/HERITAGE_DESKTOP_BANNER_NO_COPY.png",
             "overlay_url": "",
             "lockup_width": 200,
@@ -41,7 +42,7 @@
           "settings": {
             "mobile_video": "shopify://files/videos/Signature Summer - Womens - Mobile Banner V2_11ad0ed4-056c-48f0-a372-aaf40c7f3a31.mp4",
             "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner V2_1.mp4",
-            "overlay_url": "shopify://collections/womens-new",
+            "overlay_url": "/collections/signature/womens",
             "lockup_width": 200,
             "title": "Signature <em>Summer</em>",
             "title_font": "baskerville",
@@ -53,7 +54,7 @@
             "v_align_desk": "bottom-desk",
             "v_align_mob": "bottom-mob",
             "cta1": "Shop Now",
-            "url1": "shopify://collections/womens-new",
+            "url1": "/collections/signature/womens",
             "cta2": "",
             "url2": "",
             "target_gender": "womens"
@@ -66,7 +67,7 @@
             "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner.png",
             "desktop_video": "shopify://files/videos/Signature Summer - Mens - Desktop Banner V2.mp4",
             "desktop_poster": "shopify://shop_images/Signature_Summer_-_Mens_-_Desktop_Banner.png",
-            "overlay_url": "shopify://collections/mens-new",
+            "overlay_url": "/collections/signature/mens",
             "lockup_width": 200,
             "title": "Signature Summer",
             "title_font": "",
@@ -78,7 +79,7 @@
             "v_align_desk": "bottom-desk",
             "v_align_mob": "middle-mob",
             "cta1": "Shop now",
-            "url1": "shopify://collections/mens-new",
+            "url1": "/collections/signature/mens",
             "cta2": "",
             "url2": "",
             "target_gender": "mens"
@@ -141,9 +142,9 @@
         "image_JhPCiY"
       ],
       "custom_css": [
-        "@media screen and (max-width: 768px) {.signature-summer-2 .h1 {font-size: var(--txt-h1); }}",
+        "@media screen and (max-width: 768px) {.h1 {font-size: var(--txt-h1); }}",
         ".h3 {font-size: var(--txt-h4);}",
-        ".signature-summer-2 .h1,.signature-em-summer-em-1 .h1 {font-size: calc(var(--txt-xl) * 0.95); margin-right: -0.3ch;}",
+        ".h1 {font-size: calc(var(--txt-xl) * 0.85); margin-right: -0.3ch;}",
         "em {width: 100%; display: inline-block;}",
         ".hero_slide-ctas .button {font-size: calc(var(--txt-p) * 0.85);}"
       ],

@@ -418,9 +418,24 @@
     },
     "content_rich_text_MPch8w": {
       "type": "content-rich-text",
+      "blocks": {
+        "rtf_H6UVUi": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Our most dominant collections and highest-performing products, curated to inspire. </p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_H6UVUi"
+      ],
+      "custom_css": [
+        "p {text-align: center !important;}",
+        "h2 {font-weight: 400; font-size: var(--txt-h1); letter-spacing: normal; margin-bottom: 0;}"
+      ],
       "name": "Editorial Content Block",
       "settings": {
-        "title": "Check out Gym King Best Sellers",
+        "title": "Definitive Gym King",
         "heading_style": "emphasis",
         "v_padding": 0,
         "is_accent": false,
@@ -454,39 +469,9 @@
         "button_fAFttp",
         "button_bygtqN"
       ],
-      "disabled": true,
       "name": "Best of pages",
       "settings": {
         "size": ""
-      }
-    },
-    "custom_ctas_Bqj9mk": {
-      "type": "custom-ctas",
-      "blocks": {
-        "button_LnpUaa": {
-          "type": "button",
-          "settings": {
-            "btn_text": "Men's Best Sellers",
-            "button_link": "shopify://collections/mens-bestsellers",
-            "btn_color": false
-          }
-        },
-        "button_dn7Rde": {
-          "type": "button",
-          "settings": {
-            "btn_text": "Women's Best Sellers",
-            "button_link": "shopify://collections/bestsellers-womens",
-            "btn_color": false
-          }
-        }
-      },
-      "block_order": [
-        "button_LnpUaa",
-        "button_dn7Rde"
-      ],
-      "name": "Bestsellers",
-      "settings": {
-        "size": "h4"
       }
     }
   },
@@ -504,7 +489,6 @@
     "content_rich_text_xHFFe9",
     "spacer_e3wMjb",
     "content_rich_text_MPch8w",
-    "custom_ctas_QCLdk8",
-    "custom_ctas_Bqj9mk"
+    "custom_ctas_QCLdk8"
   ]
 }
