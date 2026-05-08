@@ -4,7 +4,10 @@
 {% assign subheading_level = section.settings.heading_level | times: 1 | minus: 1 %}
 {% assign subheading_level = 'h' | append: subheading_level %}
 
-<{{ heading_level }} class="h1">{{ section.settings.title }}</{{ heading_level }}>
+{% if section.settings.title.size > 0 %}
+  <{{ heading_level }} class="h1">{{ section.settings.title }}</{{ heading_level }}>
+{% endif %}
+
 <div class="icons-grid">
   {% for block in section.blocks %}
     {% assign url = block.settings.link_url %}
@@ -17,15 +20,15 @@
 
     <div class="icons-grid--card splide__slide">
       {% comment %} image {% endcomment %}
-      <{{ element_type }} {{ has_link }} class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto;">
+      <{{ element_type }} {{ has_link }} class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto; {% if section.settings.icon_shape == 'circle' %}border-radius: 50%;{% endif %}">
         {% if block.settings.icon_image != blank %}
           {% if section.settings.image_fit == 'cover' %}
-            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1 -}}
+            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1, aspect-ratio: {{ section.settings.aspect_ratio }} -}}
           {% else %}
-            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1, style: 'object-fit:contain;aspect-ratio: 2' -}}
+            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1, aspect-ratio: {{ section.settings.aspect_ratio }}, style: 'object-fit:contain;' -}}
           {% endif %}
         {% else %}
-  <img src="https://placehold.co/100?text=IMAGE&font=oswald" alt="" height="100" width="100">
+          <img src="https://placehold.co/100?text=IMAGE&font=oswald" alt="" height="100" width="100" aspect-ratio="{{ section.settings.aspect_ratio }}">
         {% endif %}
       </{{ element_type }}>
       <{{ subheading_level }} class="h4">{{ block.settings.title }}</{{ subheading_level }}>
@@ -117,6 +120,16 @@
       "min": 0,
       "step": 0.1,
       "default": 1
+    },
+    {
+      "type": "select",
+      "id": "icon_shape",
+      "label": "Icon Shape",
+      "options": [
+        { "value": "square", "label": "Square" },
+        { "value": "circle", "label": "Circle" }
+      ],
+      "default": "square"
     }
   ],
   "blocks": [
@@ -154,7 +167,7 @@
     {
       "name": "Icon Grid",
       "category": "Content",
-            "blocks": {
+      "blocks": {
         "icon_fGryg3": {
           "type": "icon",
           "settings": {
@@ -188,12 +201,7 @@
           }
         }
       },
-      "block_order": [
-        "icon_fGryg3",
-        "icon_xgpFH9",
-        "icon_hJJG7p",
-        "icon_iqxYWr"
-      ],
+      "block_order": ["icon_fGryg3", "icon_xgpFH9", "icon_hJJG7p", "icon_iqxYWr"]
     }
   ]
 }
