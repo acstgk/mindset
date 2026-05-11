@@ -37,9 +37,107 @@
       "name": "Value Proposition Bar",
       "settings": {}
     },
+    "content_icon_grid_AtnxkF": {
+      "type": "content-icon-grid",
+      "blocks": {
+        "icon_xkrE9L": {
+          "type": "icon",
+          "settings": {
+            "title": "",
+            "cta": "Girl's Tops",
+            "link_url": "shopify://collections/girls-tops-t-shirts"
+          }
+        },
+        "icon_y4ybhL": {
+          "type": "icon",
+          "settings": {
+            "title": "",
+            "cta": "Boy's Tees",
+            "link_url": "shopify://collections/boys-t-shirts"
+          }
+        },
+        "icon_DaxY6e": {
+          "type": "icon",
+          "settings": {
+            "title": "",
+            "cta": "Boy's Shorts",
+            "link_url": "shopify://collections/boys-shorts"
+          }
+        },
+        "icon_gULnq3": {
+          "type": "icon",
+          "settings": {
+            "title": "",
+            "cta": "Girl's Shorts",
+            "link_url": "shopify://collections/girls-shorts"
+          }
+        },
+        "icon_MfAQQc": {
+          "type": "icon",
+          "settings": {
+            "title": "",
+            "cta": "Boy's Hoodies",
+            "link_url": "shopify://collections/boys-hoodies"
+          }
+        },
+        "icon_izzY8k": {
+          "type": "icon",
+          "settings": {
+            "title": "",
+            "cta": "Girl's Leggings",
+            "link_url": "shopify://collections/girls-leggings"
+          }
+        }
+      },
+      "block_order": [
+        "icon_xkrE9L",
+        "icon_y4ybhL",
+        "icon_DaxY6e",
+        "icon_gULnq3",
+        "icon_MfAQQc",
+        "icon_izzY8k"
+      ],
+      "name": "Icon Grid",
+      "settings": {
+        "heading_level": "2",
+        "title": "",
+        "init_splide": true,
+        "icon_size": "50%",
+        "image_fit": "cover",
+        "aspect_ratio": 1
+      }
+    },
     "content_mosaic_VjHWx4": {
       "type": "content-mosaic",
       "blocks": {
+        "grid_item_eqne78": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Pro Logo Twin Sets",
+            "flag": "",
+            "grid_column_span": "4",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/FIRST_EVER_KIDS_SHOOT_25-0_3.webp",
+            "img_alt": "",
+            "overlay_link": "shopify://products/pro-logo-bundle-kids-1",
+            "product": "",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "overlay",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f7f7f7",
+            "txt_color": "#ffffff",
+            "cta_text": "Bundle & Save",
+            "cta_url": "shopify://products/pro-logo-bundle-kids-1",
+            "btn_color": "#4bc3e6",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
         "grid_item_dgHGCG": {
           "type": "grid-item",
           "settings": {
@@ -49,18 +147,18 @@
             "grid_row_span": "2",
             "img": "shopify://shop_images/fd_kids-closeup.webp",
             "img_alt": "",
-            "overlay_link": "",
+            "overlay_link": "shopify://collections/kids-fight-division",
             "product": "gk-sport-logo-tee-white",
             "always_show": false,
             "img_transition": "normal",
-            "content_placement": "50",
+            "content_placement": "overlay",
             "heading_size": "h2",
             "heading_style": "emphasis",
             "text": "",
             "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
+            "txt_color": "#ffffff",
             "cta_text": "Shop Now",
-            "cta_url": "",
+            "cta_url": "shopify://collections/kids-fight-division",
             "btn_color": "#1b1b1b",
             "cta_position": "left",
             "cta_text2": "",
@@ -71,25 +169,25 @@
         "grid_item_qGk4gY": {
           "type": "grid-item",
           "settings": {
-            "title": "Mini Me",
+            "title": "Mini Me - Girls",
             "flag": "",
             "grid_column_span": "2",
             "grid_row_span": "1",
             "img": "shopify://shop_images/RIB_KNIT_SWEATSHIRT_365_LEGGING_RIB_KNIT_SWEATSHIRT_KNOCKOUT_LEGGING_-_CANDY_PINK_PEACH_BLUSH_DARK_CHERRY_GSS-BOGI0_GLG-EOFW8_WSS-EOFPX_WLG-BOFUV_177_copy.webp",
             "img_alt": "",
-            "overlay_link": "",
+            "overlay_link": "shopify://collections/mini-me-girls",
             "product": "",
             "always_show": false,
             "img_transition": "normal",
-            "content_placement": "50",
+            "content_placement": "overlay",
             "heading_size": "h1",
             "heading_style": "emphasis",
             "text": "",
             "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
+            "txt_color": "#ffffff",
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/mini-me-girls",
-            "btn_color": "#1b1b1b",
+            "btn_color": "#ff98ca",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -99,22 +197,22 @@
         "grid_item_8BTpkM": {
           "type": "grid-item",
           "settings": {
-            "title": "Mini Me",
+            "title": "Mini Me - Boys",
             "flag": "",
             "grid_column_span": "2",
             "grid_row_span": "1",
             "img": "shopify://shop_images/3_PRO_HOOD_PRO_JOGGER_-_BLACK_HDE-A2C37_TSB-A2C3E_BHE-BOEWT_BTB-BOEX1_3.jpg",
             "img_alt": "",
-            "overlay_link": "",
+            "overlay_link": "shopify://collections/mini-me-boys",
             "product": "",
             "always_show": false,
             "img_transition": "normal",
-            "content_placement": "50",
+            "content_placement": "overlay",
             "heading_size": "h1",
             "heading_style": "emphasis",
             "text": "",
             "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
+            "txt_color": "#ffffff",
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/mini-me-boys",
             "btn_color": "#1b1b1b",
@@ -130,6 +228,7 @@
         }
       },
       "block_order": [
+        "grid_item_eqne78",
         "grid_item_dgHGCG",
         "grid_item_qGk4gY",
         "grid_item_8BTpkM",
@@ -141,11 +240,68 @@
         "heading_size": "h2",
         "heading_style": "emphasis"
       }
+    },
+    "content_rich_text_y4cRwV": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_hFPkbn": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Whether you’re stocking up on everyday essentials or picking out something for a special occasion, our <a href=\"/collections/kidswear\" title=\"Kidswear\">kids’ clothing</a> collection has them covered. We have matching co-ord sets in on-trend colours, activewear that moves with them from school to sports day, and mini me styles made for mum and daughter to twin in our <a href=\"/collections/kidswear/girls\" title=\"/collections/kidswear/girls\">girls’ clothing</a> selection. Look to our <a href=\"/collections/kidswear/boys\" title=\"/collections/kidswear/boys\">boys’ clothing</a> edit for matching twin sets, tracksuits for easy everyday wear, and Fight Division fight-wear.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_hFPkbn"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "",
+        "heading_style": "",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "custom_ctas_cQAwDn": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_tzQWkq": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Boys",
+            "button_link": "/collections/kidswear/boys",
+            "btn_color": false
+          }
+        },
+        "button_AegCg8": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Girls",
+            "button_link": "/collections/kidswear/girls",
+            "btn_color": true
+          }
+        }
+      },
+      "block_order": [
+        "button_tzQWkq",
+        "button_AegCg8"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "size": ""
+      }
     }
   },
   "order": [
     "static_hero_tV68kr",
     "section_value_props_EdAxRY",
-    "content_mosaic_VjHWx4"
+    "content_icon_grid_AtnxkF",
+    "content_mosaic_VjHWx4",
+    "content_rich_text_y4cRwV",
+    "custom_ctas_cQAwDn"
   ]
 }
