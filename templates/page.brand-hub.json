@@ -37,31 +37,31 @@
     "section_in_page_nav": {
       "type": "section-in-page-nav",
       "blocks": {
-        "link_EKpNmj": {
-          "type": "link",
-          "settings": {
-            "text": "News",
-            "url": "shopify://blogs/posts"
-          }
-        },
         "link_MGV7RC": {
           "type": "link",
           "settings": {
-            "text": "Events",
-            "url": ""
+            "text": "Gym King Events",
+            "url": "/blogs/posts/tagged/events"
+          }
+        },
+        "link_EKpNmj": {
+          "type": "link",
+          "settings": {
+            "text": "Press Releases",
+            "url": "shopify://blogs/press-releases"
           }
         },
         "link_9bJ4Pw": {
           "type": "link",
           "settings": {
-            "text": "Building Foundations",
-            "url": "shopify://pages/building-foundations"
+            "text": "Training Hub",
+            "url": "/blogs/posts/tagged/training-hub"
           }
         }
       },
       "block_order": [
-        "link_EKpNmj",
         "link_MGV7RC",
+        "link_EKpNmj",
         "link_9bJ4Pw"
       ],
       "name": "In-Page Navigation",
@@ -73,8 +73,27 @@
     "blog_featured_articles_YgN7Qn": {
       "type": "blog-featured-articles",
       "blocks": {
+        "custom_JQwxcf": {
+          "type": "custom",
+          "settings": {
+            "heading_level": "h2",
+            "title": "Behind The Scenes: Heritage",
+            "copy": "<p>We sat down with our head designer, Lindsay Clegg, to talk through the inspiration behind our new Heritage Collection, honouring more than a decade of Gym King.</p>",
+            "url": "shopify://blogs/posts/bts-gym-king-heritage-collection-marking-more-than-a-decade-of-gym-king",
+            "cta": "read more",
+            "image": "shopify://shop_images/Screenshot_2026-05-05_at_14.12.43.png"
+          }
+        },
+        "article_FGLMYT": {
+          "type": "article",
+          "settings": {
+            "heading_level": "h2",
+            "article": "posts/behind-the-campaign-signature-summer-in-greece-portugal"
+          }
+        },
         "custom_i3NHtY": {
           "type": "custom",
+          "disabled": true,
           "settings": {
             "heading_level": "h2",
             "title": "The Stoic Games: A Unique Challenge Combining Physical Discipline and Mental Resilience",
@@ -91,20 +110,8 @@
             "title": "Building Foundations",
             "copy": "<p>At Gym King, we believe that fitness and well-being are the foundations of personal growth. That’s why we’ve launched our official gym partnership initiative dedicated to supporting gyms and fitness communities worldwide.</p>",
             "url": "shopify://pages/building-foundations",
-            "cta": "Learn more",
+            "cta": "learn more",
             "image": "shopify://shop_images/building-foundations--1-hero-desktop.gif"
-          }
-        },
-        "custom_JQwxcf": {
-          "type": "custom",
-          "disabled": true,
-          "settings": {
-            "heading_level": "h2",
-            "title": "GKW X CoppaFeel!",
-            "copy": "<p>Gym King are proud supporters of CoppaFeel!, supporting their mission to raise breast cancer awareness and get every 18-24 year old checking their chest.</p>",
-            "url": "shopify://pages/coppafeel",
-            "cta": "Learn More",
-            "image": "shopify://shop_images/CoppafeelLandingPageHeaderDesktop-ezgif.com-video-to-gif-converter.gif"
           }
         },
         "custom_pJiF7B": {
@@ -121,9 +128,10 @@
         }
       },
       "block_order": [
+        "custom_JQwxcf",
+        "article_FGLMYT",
         "custom_i3NHtY",
         "custom_BbJahq",
-        "custom_JQwxcf",
         "custom_pJiF7B"
       ],
       "name": "Featured Articles Carousel",
@@ -139,24 +147,6 @@
             "title": "Ross Edgely",
             "cta": "read more",
             "link_url": "shopify://metaobjects/ambassadors/ross-edgley"
-          }
-        },
-        "icon_Bd489C": {
-          "type": "icon",
-          "settings": {
-            "icon_image": "shopify://shop_images/Q3_24_MAISIE_CAMP0837.png",
-            "title": "Maisie Smith",
-            "cta": "read more",
-            "link_url": "shopify://metaobjects/ambassadors/maisie-smith"
-          }
-        },
-        "icon_hT63FG": {
-          "type": "icon",
-          "settings": {
-            "icon_image": "shopify://shop_images/IMG_7684_92e2c3e7-e595-4593-bc18-87d339e5deeb.jpg",
-            "title": "Luke Powell",
-            "cta": "read more",
-            "link_url": "shopify://metaobjects/ambassadors/luke-powell"
           }
         },
         "icon_7htDbM": {
@@ -180,8 +170,6 @@
       },
       "block_order": [
         "icon_rjgktU",
-        "icon_Bd489C",
-        "icon_hT63FG",
         "icon_7htDbM",
         "icon_tEMKpV"
       ],
@@ -199,7 +187,7 @@
       "type": "blog-article-grid",
       "name": "Article Grid",
       "settings": {
-        "title": "Latest Content",
+        "title": "Gym King Newsroom",
         "heading_level": "2",
         "blog": "posts",
         "limit": 6

@@ -210,10 +210,10 @@ class CartAPI {
   updateCheckoutTotal(value) {
     let totalPoint = document.querySelectorAll(".cart-total");
     if (value === 0) {
-      totalPoint.forEach(el => el.parentElement.remove());
+      totalPoint.forEach((el) => el.parentElement.remove());
       Cart.getLineItems();
     } else {
-      totalPoint.forEach(el => el.innerHTML = Cart.formatMoney(value));
+      totalPoint.forEach((el) => (el.innerHTML = Cart.formatMoney(value)));
     }
   }
 
@@ -223,7 +223,7 @@ class CartAPI {
    * Includes debouncing to prevent rate limiting (429 errors)
    */
   async getLineItems() {
-    const requestKey = 'getLineItems';
+    const requestKey = "getLineItems";
 
     // Cancel any pending request
     if (this._pendingRequests.has(requestKey)) {
@@ -430,20 +430,23 @@ class SideMenuGenderSelector {
     const gender = button.dataset.gender;
     const targetMenu = document.getElementById(`${gender}_gender-menu`);
 
-    document.querySelectorAll('.side_menu-header-item').forEach((el) => {
-      el.setAttribute('aria-pressed', false);
+    document.querySelectorAll(".side_menu-header-item").forEach((el) => {
+      el.setAttribute("aria-pressed", false);
     });
-    document.querySelectorAll('.side_menu-menu').forEach((el) => {
-      el.setAttribute('aria-expanded', false);
+    document.querySelectorAll(".side_menu-menu").forEach((el) => {
+      el.setAttribute("aria-expanded", false);
     });
 
-
-    button.setAttribute('aria-pressed', true);
-    targetMenu.setAttribute('aria-expanded', true);
+    button.setAttribute("aria-pressed", true);
+    targetMenu.setAttribute("aria-expanded", true);
     const menuOffset = { kids: 200, womens: 100 }[gender] || 0;
     document.querySelector(".side_menu-slider").style.left = `-${menuOffset}%`;
 
-    localStorage.setItem("GK::gender--menu", gender);
+    try {
+      localStorage.setItem("GK::gender--menu", gender);
+    } catch {
+      /* private browsing */
+    }
 
     const siblings = [...button.parentElement.children];
     siblings.forEach((el) => el.classList.toggle("active", el === button));
@@ -452,10 +455,15 @@ class SideMenuGenderSelector {
   }
 
   _restoreLastSelection() {
-    const lastGender = localStorage.getItem("GK::gender--menu");
+    let lastGender = null;
+    try {
+      lastGender = localStorage.getItem("GK::gender--menu");
+    } catch {
+      /* private browsing */
+    }
     if (lastGender) {
       const match = this.header.querySelector(`[data-gender="${lastGender}"]`);
-      match.click();
+      match?.click();
     }
   }
 }
@@ -515,7 +523,6 @@ class DesktopNavDropdown {
 document.addEventListener("DOMContentLoaded", () => {
   new DesktopNavDropdown();
 });
-
 
 // ===================
 // DRAWER MENU SUB MENU CONTROLS
@@ -675,7 +682,6 @@ if (!customElements.get("predictive-search")) {
         );
       }
 
-
       _onInputChange = () => {
         this.searchTerm = this.inputField.value.trim();
         if (this.searchTerm.length == 0) this._resetResults();
@@ -697,7 +703,7 @@ if (!customElements.get("predictive-search")) {
           return response.text();
         });
 
-        const minDisplayPromise = new Promise(resolve => setTimeout(resolve, 1000));
+        const minDisplayPromise = new Promise((resolve) => setTimeout(resolve, 1000));
 
         Promise.all([fetchPromise, minDisplayPromise])
           .then(([text]) => {
@@ -785,7 +791,6 @@ if (!customElements.get("predictive-search")) {
     },
   );
 }
-
 
 // ===================
 // Product Modal Manager
@@ -920,8 +925,7 @@ class ProductModalManager {
     const buttonsData = buttonsDataSource.innerHTML;
     const buttons = document.createElement("div");
     buttons.className = "mqatb-btns";
-    buttons.innerHTML = `Quick Add: ${buttonsData}`
-
+    buttons.innerHTML = `Quick Add: ${buttonsData}`;
 
     // add content to the modal
     const modalContent = document.createElement("div");
@@ -1182,7 +1186,7 @@ class ComponentLoader {
         // has already been registered under a different tag name.
         if (err && err.name === "NotSupportedError") {
           // Define a thin subclass so the constructor is unique.
-          const Wrapper = class extends Ctor { };
+          const Wrapper = class extends Ctor {};
           // Re-check in case another racing define happened while we handled the error
           if (!customElements.get(this.selector)) {
             customElements.define(this.selector, Wrapper);
@@ -1221,7 +1225,6 @@ function initDynamicComponents() {
 // and viewport proximity — no need to defer the loader registration itself.
 initDynamicComponents();
 
-
 // ===================
 // CART LINE ITEMS
 // ===================
@@ -1235,11 +1238,12 @@ if (!customElements.get("line-item")) {
   customElements.define(
     "line-item",
     class LineItem extends HTMLElement {
-
       constructor() {
         super();
-        this.plusIcon = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='Icon Icon--plus  '><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M12 5l0 14'></path><path d='M5 12l14 0'></path></svg > "
-        this.minusIcon = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='Icon Icon--minus  '><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M5 12l14 0'></path></svg > "
+        this.plusIcon =
+          "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='Icon Icon--plus  '><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M12 5l0 14'></path><path d='M5 12l14 0'></path></svg > ";
+        this.minusIcon =
+          "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='Icon Icon--minus  '><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path d='M5 12l14 0'></path></svg > ";
       }
 
       connectedCallback() {
@@ -1290,7 +1294,7 @@ if (!customElements.get("line-item")) {
         // Handle +/- buttons
         selector.querySelectorAll("[data-new-qty]").forEach((btn) => {
           btn.addEventListener("click", () => {
-            btn.innerHTML = "<div class='loader' style='--height: 10px;'></div>"
+            btn.innerHTML = "<div class='loader' style='--height: 10px;'></div>";
             const newQty = parseInt(btn.dataset.newQty, 10);
             if (!isNaN(newQty)) {
               Cart.updateLineItem(this.lineItemKey, newQty).then(() => {
@@ -1307,7 +1311,7 @@ if (!customElements.get("line-item")) {
 
                 // update the cart total
                 Cart.updateCheckoutTotal(Cart.cart.total_price, Cart.cart.currency);
-                btn.innerHTML = btn.classList.contains('quantity-minus') ? this.minusIcon : this.plusIcon
+                btn.innerHTML = btn.classList.contains("quantity-minus") ? this.minusIcon : this.plusIcon;
               });
             }
           });
@@ -1470,13 +1474,13 @@ if (!customElements.get("cart-upsells")) {
     "cart-upsells",
     class CartUpsells extends HTMLElement {
       connectedCallback() {
-        this.header = this.querySelector('.cart-upsells h2');
-        this.carousel = this.querySelector('.cart-upsells--carousel');
-        this.icon = this.querySelector('.cart-upsells h2 svg');
+        this.header = this.querySelector(".cart-upsells h2");
+        this.carousel = this.querySelector(".cart-upsells--carousel");
+        this.icon = this.querySelector(".cart-upsells h2 svg");
 
         if (this.header && this.carousel && this.icon) {
-          this.autoOpenOnLargeScreens()
-          this.header.addEventListener('click', () => this.toggleUpsells());
+          this.autoOpenOnLargeScreens();
+          this.header.addEventListener("click", () => this.toggleUpsells());
         }
       }
 
@@ -1484,18 +1488,18 @@ if (!customElements.get("cart-upsells")) {
        * Toggle the visibility of the upsell carousel
        */
       toggleUpsells() {
-        this.carousel.classList.toggle('active');
-        this.icon.classList.toggle('active');
+        this.carousel.classList.toggle("active");
+        this.icon.classList.toggle("active");
       }
 
       showUpsells() {
-        this.carousel.classList.add('active');
-        this.icon.classList.add('active');
+        this.carousel.classList.add("active");
+        this.icon.classList.add("active");
       }
 
       hideUpsells() {
-        this.carousel.classList.remove('active');
-        this.icon.classList.remove('active');
+        this.carousel.classList.remove("active");
+        this.icon.classList.remove("active");
       }
 
       /**
@@ -1679,7 +1683,6 @@ shortcuts.registerShortcut("/", () => {
   document.querySelector("#header_search-icon")?.click();
 });
 
-
 shortcuts.registerShortcut("alt+c", () => {
   document.querySelector("#header_cart-icon")?.click();
 });
@@ -1769,9 +1772,9 @@ class EntryAnimationObserver {
           if (entry.isIntersecting) {
             const el = entry.target;
             // Add the animation class
-            el.classList.add('has-animated');
+            el.classList.add("has-animated");
             // Remove the prep class (optional, but clean)
-            el.classList.remove('is-animating');
+            el.classList.remove("is-animating");
             // We only want to animate once, so stop observing
             obs.unobserve(el);
           }
@@ -1779,9 +1782,9 @@ class EntryAnimationObserver {
       },
       {
         root: null,
-        rootMargin: '0px 0px -100px 0px', // trigger slightly before it comes fully into view
+        rootMargin: "0px 0px -100px 0px", // trigger slightly before it comes fully into view
         threshold: 0,
-      }
+      },
     );
 
     // 2. Prep existing elements on the page
@@ -1792,7 +1795,8 @@ class EntryAnimationObserver {
       let newElements = [];
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === 1) { // ELEMENT_NODE
+          if (node.nodeType === 1) {
+            // ELEMENT_NODE
             if (node.matches(this.selector)) {
               newElements.push(node);
             }
@@ -1826,21 +1830,21 @@ class EntryAnimationObserver {
       const rect = el.getBoundingClientRect();
       if (rect.top > window.innerHeight) {
         // Only if it's below the fold do we apply the initial hidden state
-        el.classList.add('is-animating');
+        el.classList.add("is-animating");
         // And observe it for when it scrolls into view
         this.observer.observe(el);
       } else {
         // If it's already in viewport on load, just let it be visible naturally
         // No animation needed, prevents FOIT
-        el.classList.add('has-animated');
+        el.classList.add("has-animated");
       }
     });
   }
 }
 
 // Initialize on DOM load or immediately if already loaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
     window.entryAnimations = new EntryAnimationObserver();
   });
 } else {

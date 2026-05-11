@@ -1,4 +1,4 @@
-/* global  */
+/* global AbortController  */
 
 import RecentlyViewed from "./RecentlyViewed.js";
 
@@ -20,6 +20,7 @@ export default class PersonalRecommendations extends HTMLElement {
   }
 
   connectedCallback() {
+    this._abortController = new AbortController();
     try {
       this.vRecents = new RecentlyViewed();
       this.recentlyViewed = this.vRecents.getProductList();
@@ -31,8 +32,14 @@ export default class PersonalRecommendations extends HTMLElement {
     // this._fallback(this.otherGender);
   }
 
+  disconnectedCallback() {
+    this._abortController?.abort();
+    this._abortController = null;
+  }
+
   async init() {
-    await Promise.allSettled([this._initRecommendations(this.preferredGender || "womens"), this._initRecommendations(this.otherGender || "mens")]);
+    await this._initRecommendations(this.preferredGender || "womens");
+    await this._initRecommendations(this.otherGender || "mens");
   }
 
   _initRecommendations = async (gender) => {
@@ -48,7 +55,7 @@ export default class PersonalRecommendations extends HTMLElement {
       const productID = product.productId;
       try {
         const root = window.Shopify?.routes?.root ?? "/";
-        const response = await fetch(`${root}recommendations/products?sections=product-dynamic-cards&product_id=${productID}&limit=10&intent=related`);
+        const response = await fetch(`${root}recommendations/products?sections=product-dynamic-cards&product_id=${productID}&limit=10&intent=related`, { signal: this._abortController?.signal });
 
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -81,6 +88,7 @@ export default class PersonalRecommendations extends HTMLElement {
           carousel.innerHTML = doc.querySelector("body").innerHTML;
         }
       } catch (error) {
+        if (error.name === "AbortError") return;
         console.error("personal recs :: failed:", error);
         this._fallback(gender);
       }

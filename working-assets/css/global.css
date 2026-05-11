@@ -1435,6 +1435,9 @@ ul.sub_menu-items {
   height: max-content;
   padding: 10px 20px;
 }
+#cartDrawer .cart_items-list {
+  padding: 0 20px 10px;
+}
 
 .cart_items-ctl {
   flex-wrap: wrap;
@@ -1466,6 +1469,10 @@ ul.sub_menu-items {
 }
 .cart_items-item .qatb-btns:has(> :only-child) {
   display: none;
+}
+
+li.cart_items-item:first-child {
+  margin-top: 1rem;
 }
 
 span.cart_items-ctl-title {

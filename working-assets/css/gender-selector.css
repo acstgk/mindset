@@ -1,50 +1,54 @@
-  .section-gender-switch {
-    margin: 15px auto;
-    width: 100%;
-    padding: 15px 5vw;
-    display: flex;
-    gap: 15px;
-    background: var(--c-white);
-    justify-content: center;
-    align-items: center;
-    position: sticky;
-    top: 50px;
-    z-index: 2;
-    border-bottom: 1px solid var(--c-light-grey);
+.section-gender-switch {
+  margin: 15px auto;
+  width: 100%;
+  padding: 15px 5vw;
+  display: flex;
+  gap: 15px;
+  background: var(--c-white);
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 50px;
+  z-index: 2;
+  border-bottom: 1px solid var(--c-light-grey);
 
-    & .gender-btn {
-      font-size: var(--txt-h1);
-      font-family: var(--emphasis-heading-font-family);
-      color: var(--c-grey);
-      transition: color 0.2s ease;
-      
-      &:hover {
-        color: var(--c-dark-grey);
-      }
+  & .gender-btn {
+    font-size: var(--txt-h1);
+    font-family: var(--emphasis-heading-font-family);
+    color: var(--c-grey);
+    transition: color 0.2s ease;
 
-      &.active {
-        color: var(--c-black);
-      }
+    &:hover {
+      color: var(--c-dark-grey);
+    }
+
+    &.active {
+      color: var(--c-black);
     }
   }
-
-  .gender-wrapper {
-    display: grid;
-    overflow: hidden;
-    place-items: center;
-
-    &>div,
-    &>personal-recommendations,
-    &>productcard-carousel {
-      grid-area: 1 / 1;
-    }
-
-& .loader {
-  margin-top: 10rem;
-  align-self: flex-start;
 }
+
+.gender-wrapper {
+  display: grid;
+  overflow: hidden;
+  place-items: center;
+
+  & > div,
+  & > personal-recommendations,
+  & > productcard-carousel {
+    grid-area: 1 / 1;
   }
 
-  .gender-loader {
-    z-index: 1;
+  & .loader {
+    margin-top: 10rem;
+    align-self: flex-start;
   }
+}
+
+.gender-loader {
+  z-index: 1;
+}
+
+.gender-recommendations-carousel:not(.active) {
+  content-visibility: hidden;
+}

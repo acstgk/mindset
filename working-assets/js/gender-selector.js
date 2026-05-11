@@ -14,13 +14,16 @@ class GenderSelector {
   }
 
   _initFromStorage() {
-    const storedGender = localStorage.getItem("GK::gender--content");
+    let storedGender = null;
+    try {
+      storedGender = localStorage.getItem("GK::gender--content");
+    } catch {
+      /* private browsing */
+    }
     let matchButton = null;
 
     if (storedGender) {
-      matchButton = Array.from(this.genderButtons).find(
-        (btn) => btn.dataset.gender === storedGender
-      );
+      matchButton = Array.from(this.genderButtons).find((btn) => btn.dataset.gender === storedGender);
     }
 
     if (!matchButton) {
@@ -34,7 +37,11 @@ class GenderSelector {
 
   _handleGenderClick(button) {
     const gender = button.dataset.gender;
-    localStorage.setItem("GK::gender--content", gender);
+    try {
+      localStorage.setItem("GK::gender--content", gender);
+    } catch {
+      /* private browsing */
+    }
 
     // Remove active from all buttons and update aria-pressed
     this.genderButtons.forEach((btn) => {
@@ -49,9 +56,7 @@ class GenderSelector {
 
     // Hide all gender-specific elements
     const targetClass = `.${gender}-gender-filter`;
-    const genderFilters = document.querySelectorAll(
-      "[class*='-gender-filter']"
-    );
+    const genderFilters = document.querySelectorAll("[class*='-gender-filter']");
     genderFilters.forEach((el) => {
       if (!el.classList.contains(targetClass)) {
         el.classList.remove("active");
