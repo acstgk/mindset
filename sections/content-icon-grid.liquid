@@ -23,9 +23,9 @@
       <{{ element_type }} {{ has_link }} class="img-overlay" style="width:{{ section.settings.icon_size }};margin: 0 auto; {% if section.settings.icon_shape == 'circle' %}border-radius: 50%;{% endif %}">
         {% if block.settings.icon_image != blank %}
           {% if section.settings.image_fit == 'cover' %}
-            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1, aspect-ratio: {{ section.settings.aspect_ratio }} -}}
+            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1, aspect-ratio: section.settings.aspect_ratio -}}
           {% else %}
-            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1, aspect-ratio: {{ section.settings.aspect_ratio }}, style: 'object-fit:contain;' -}}
+            {{- block.settings.icon_image | image_url: width: 400 | image_tag: class: 'icons-grid--image', zIndex: -1, aspect-ratio: section.settings.aspect_ratio, style: 'object-fit:contain;' -}}
           {% endif %}
         {% else %}
           <img src="https://placehold.co/100?text=IMAGE&font=oswald" alt="" height="100" width="100" aspect-ratio="{{ section.settings.aspect_ratio }}">

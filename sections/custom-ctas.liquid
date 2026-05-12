@@ -1,3 +1,7 @@
+{% if section.settings.title %}
+  <{{ section.settings.heading_size }}>{{ section.settings.title }}</{{ section.settings.heading_size }}>
+{% endif %}
+
 <div
   class="cta-wrapper"
   style="text-align: center; padding: 30px 20px;display: flex;gap: 10px;justify-content: center;flex-flow:wrap;"
@@ -9,7 +13,7 @@
   {% endfor %}
 </div>
 
-{% if section.settings.btn_color %}
+{% if block.settings.btn_color %}
   <style>
     .Button-container {
       background: #1b1b1b;
@@ -27,6 +31,37 @@
 {
   "name": "CTA Button",
   "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        { "label": "H1", "value": "h1" },
+        { "label": "H2", "value": "h2" },
+        { "label": "H3", "value": "h3" },
+        { "label": "H4", "value": "h4" }
+      ],
+      "default": "h2",
+      "visible_if": "{{ section.settings.title != ''}}"
+    },
+    {
+      "type": "select",
+      "id": "heading_style",
+      "label": "Heading Style",
+      "options": [
+        { "value": "", "label": "Normal" },
+        { "label": "Emphasis", "value": "emphasis" },
+        { "label": "Baskerville", "value": "baskerville" },
+        { "label": "Signature", "value": "signature" }
+      ],
+      "default": "emphasis",
+      "visible_if": "{{ section.settings.title != ''}}"
+    },
     {
       "type": "select",
       "id": "size",
@@ -71,7 +106,7 @@
     {
       "name": "Custom CTA Buttons",
       "category": "Content",
-       "blocks": {
+      "blocks": {
         "button_zNnHKn": {
           "type": "button",
           "settings": {
@@ -89,10 +124,7 @@
           }
         }
       },
-      "block_order": [
-        "button_zNnHKn",
-        "button_GawFDY"
-      ],
+      "block_order": ["button_zNnHKn", "button_GawFDY"]
     }
   ]
 }
