@@ -101,7 +101,15 @@
           }
         }
       },
-      "block_order": ["icon_xkrE9L", "icon_y4ybhL", "icon_gULnq3", "icon_DaxY6e", "icon_MfAQQc", "icon_izzY8k", "icon_KHrFdA"],
+      "block_order": [
+        "icon_xkrE9L",
+        "icon_y4ybhL",
+        "icon_gULnq3",
+        "icon_DaxY6e",
+        "icon_MfAQQc",
+        "icon_izzY8k",
+        "icon_KHrFdA"
+      ],
       "custom_css": [],
       "name": "Icon Grid",
       "settings": {
@@ -125,7 +133,9 @@
           }
         }
       },
-      "block_order": ["rtf_hFPkbn"],
+      "block_order": [
+        "rtf_hFPkbn"
+      ],
       "name": "Editorial Content Block",
       "settings": {
         "title": "",
@@ -157,7 +167,7 @@
             "content_placement": "overlay",
             "heading_size": "h2",
             "heading_style": "emphasis",
-            "text": "",
+            "text": "<p>Save 20% when you buy two or more items.</p>",
             "bg_color": "#f7f7f7",
             "txt_color": "#ffffff",
             "cta_text": "Bundle & Save",
@@ -241,7 +251,7 @@
             "content_placement": "overlay",
             "heading_size": "h1",
             "heading_style": "emphasis",
-            "text": "",
+            "text": "<p><strong>Like father like son. </strong>Our best selling styles now available for your little man. </p>",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
             "cta_text": "Shop Now",
@@ -258,7 +268,13 @@
           "settings": {}
         }
       },
-      "block_order": ["grid_item_eqne78", "grid_item_dgHGCG", "grid_item_qGk4gY", "grid_item_8BTpkM", "spacer_WVM8GE"],
+      "block_order": [
+        "grid_item_eqne78",
+        "grid_item_dgHGCG",
+        "grid_item_qGk4gY",
+        "grid_item_8BTpkM",
+        "spacer_WVM8GE"
+      ],
       "name": "Content Mosaic",
       "settings": {
         "title": "",
@@ -273,7 +289,7 @@
           "type": "button",
           "settings": {
             "btn_text": "3-4 Years Old",
-            "button_link": "",
+            "button_link": "/collections/kidswear?filter.v.option.size=3-4",
             "btn_color": false
           }
         },
@@ -281,7 +297,7 @@
           "type": "button",
           "settings": {
             "btn_text": "5-6 Years Old",
-            "button_link": "",
+            "button_link": "/collections/kidswear?filter.v.option.size=5-6",
             "btn_color": false
           }
         },
@@ -289,7 +305,7 @@
           "type": "button",
           "settings": {
             "btn_text": "7-8 Years Old",
-            "button_link": "",
+            "button_link": "/collections/kidswear?filter.v.option.size=7-8",
             "btn_color": false
           }
         },
@@ -297,7 +313,7 @@
           "type": "button",
           "settings": {
             "btn_text": "9-10 Years Old",
-            "button_link": "",
+            "button_link": "/collections/kidswear?filter.v.option.size=9-10",
             "btn_color": false
           }
         },
@@ -305,7 +321,7 @@
           "type": "button",
           "settings": {
             "btn_text": "11-12 Years Old",
-            "button_link": "",
+            "button_link": "/collections/kidswear?filter.v.option.size=11-12",
             "btn_color": false
           }
         },
@@ -313,7 +329,7 @@
           "type": "button",
           "settings": {
             "btn_text": "13-14 Years Old",
-            "button_link": "",
+            "button_link": "/collections/kidswear?filter.v.option.size=13-14",
             "btn_color": false
           }
         },
@@ -321,13 +337,26 @@
           "type": "button",
           "settings": {
             "btn_text": "15 Years Old",
-            "button_link": "",
+            "button_link": "/collections/kidswear?filter.v.option.size=15",
             "btn_color": false
           }
         }
       },
-      "block_order": ["button_wyM3Ax", "button_tNRLzN", "button_RBymt3", "button_CXrnXU", "button_RhNLqb", "button_U9GW7r", "button_xmm3Mp"],
-      "custom_css": ["{max-width: 900px; margin: 0 auto;}", ".button {flex: 1 1 fit-content;}", ".cta-wrapper {margin-top: 0;}", "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"],
+      "block_order": [
+        "button_wyM3Ax",
+        "button_tNRLzN",
+        "button_RBymt3",
+        "button_CXrnXU",
+        "button_RhNLqb",
+        "button_U9GW7r",
+        "button_xmm3Mp"
+      ],
+      "custom_css": [
+        "{max-width: 900px; margin: 0 auto;}",
+        ".button {flex: 1 1 fit-content;}",
+        ".cta-wrapper {margin-top: 0;}",
+        "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"
+      ],
       "name": "Custom CTA Buttons",
       "settings": {
         "title": "Shop by Size",
@@ -356,7 +385,10 @@
           }
         }
       },
-      "block_order": ["button_tzQWkq", "button_AegCg8"],
+      "block_order": [
+        "button_tzQWkq",
+        "button_AegCg8"
+      ],
       "disabled": true,
       "name": "Custom CTA Buttons",
       "settings": {
@@ -386,5 +418,13 @@
       }
     }
   },
-  "order": ["static_hero_tV68kr", "content_icon_grid_AtnxkF", "content_rich_text_y4cRwV", "content_mosaic_VjHWx4", "custom_ctas_MikHNn", "custom_ctas_cQAwDn", "product_collection_carousel_BrUBzq"]
+  "order": [
+    "static_hero_tV68kr",
+    "content_icon_grid_AtnxkF",
+    "content_rich_text_y4cRwV",
+    "content_mosaic_VjHWx4",
+    "custom_ctas_MikHNn",
+    "custom_ctas_cQAwDn",
+    "product_collection_carousel_BrUBzq"
+  ]
 }
