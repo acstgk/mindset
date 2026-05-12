@@ -101,15 +101,7 @@
           }
         }
       },
-      "block_order": [
-        "icon_xkrE9L",
-        "icon_y4ybhL",
-        "icon_gULnq3",
-        "icon_DaxY6e",
-        "icon_MfAQQc",
-        "icon_izzY8k",
-        "icon_KHrFdA"
-      ],
+      "block_order": ["icon_xkrE9L", "icon_y4ybhL", "icon_gULnq3", "icon_DaxY6e", "icon_MfAQQc", "icon_izzY8k", "icon_KHrFdA"],
       "custom_css": [],
       "name": "Icon Grid",
       "settings": {
@@ -133,9 +125,7 @@
           }
         }
       },
-      "block_order": [
-        "rtf_hFPkbn"
-      ],
+      "block_order": ["rtf_hFPkbn"],
       "name": "Editorial Content Block",
       "settings": {
         "title": "",
@@ -146,77 +136,6 @@
         "full_width": false,
         "alignment": "right",
         "grid_style": "standard"
-      }
-    },
-    "content_icon_grid_AtnxkF": {
-      "type": "content-icon-grid",
-      "blocks": {
-        "icon_MfAQQc": {
-          "type": "icon",
-          "settings": {
-            "title": "Icon Title",
-            "cta": "read more",
-            "link_url": ""
-          }
-        },
-        "icon_DaxY6e": {
-          "type": "icon",
-          "settings": {
-            "title": "Icon Title",
-            "cta": "read more",
-            "link_url": ""
-          }
-        },
-        "icon_cKUqeg": {
-          "type": "icon",
-          "settings": {
-            "title": "Icon Title",
-            "cta": "read more",
-            "link_url": ""
-          }
-        },
-        "icon_izzY8k": {
-          "type": "icon",
-          "settings": {
-            "title": "Icon Title",
-            "cta": "read more",
-            "link_url": ""
-          }
-        },
-        "icon_gULnq3": {
-          "type": "icon",
-          "settings": {
-            "title": "Icon Title",
-            "cta": "read more",
-            "link_url": ""
-          }
-        },
-        "icon_xkrE9L": {
-          "type": "icon",
-          "settings": {
-            "title": "Icon Title",
-            "cta": "read more",
-            "link_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "icon_MfAQQc",
-        "icon_DaxY6e",
-        "icon_cKUqeg",
-        "icon_izzY8k",
-        "icon_gULnq3",
-        "icon_xkrE9L"
-      ],
-      "name": "Icon Grid",
-      "settings": {
-        "heading_level": "2",
-        "title": "",
-        "init_splide": true,
-        "icon_size": "50%",
-        "image_fit": "cover",
-        "aspect_ratio": 1,
-        "icon_shape": "circle"
       }
     },
     "content_mosaic_VjHWx4": {
@@ -339,13 +258,7 @@
           "settings": {}
         }
       },
-      "block_order": [
-        "grid_item_eqne78",
-        "grid_item_dgHGCG",
-        "grid_item_qGk4gY",
-        "grid_item_8BTpkM",
-        "spacer_WVM8GE"
-      ],
+      "block_order": ["grid_item_eqne78", "grid_item_dgHGCG", "grid_item_qGk4gY", "grid_item_8BTpkM", "spacer_WVM8GE"],
       "name": "Content Mosaic",
       "settings": {
         "title": "",
@@ -413,42 +326,14 @@
           }
         }
       },
-      "block_order": [
-<<<<<<< HEAD
-        "rtf_hFPkbn"
-      ],
-      "name": "Editorial Content Block",
-      "settings": {
-        "title": "",
-        "heading_style": "",
-        "v_padding": 50,
-        "is_accent": false,
-        "bg_color": "",
-        "full_width": false,
-        "alignment": "right",
-        "grid_style": "standard"
-=======
-        "button_wyM3Ax",
-        "button_tNRLzN",
-        "button_RBymt3",
-        "button_CXrnXU",
-        "button_RhNLqb",
-        "button_U9GW7r",
-        "button_xmm3Mp"
-      ],
-      "custom_css": [
-        "{max-width: 900px; margin: 0 auto;}",
-        ".button {flex: 1 1 fit-content;}",
-        ".cta-wrapper {margin-top: 0;}",
-        "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"
-      ],
+      "block_order": ["button_wyM3Ax", "button_tNRLzN", "button_RBymt3", "button_CXrnXU", "button_RhNLqb", "button_U9GW7r", "button_xmm3Mp"],
+      "custom_css": ["{max-width: 900px; margin: 0 auto;}", ".button {flex: 1 1 fit-content;}", ".cta-wrapper {margin-top: 0;}", "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"],
       "name": "Custom CTA Buttons",
       "settings": {
         "title": "Shop by Size",
         "heading_size": "h2",
         "heading_style": "",
         "size": ""
->>>>>>> kids-landing
       }
     },
     "custom_ctas_cQAwDn": {
@@ -471,16 +356,7 @@
           }
         }
       },
-      "block_order": [
-        "button_tzQWkq",
-        "button_AegCg8"
-      ],
-<<<<<<< HEAD
-      "name": "Custom CTA Buttons",
-      "settings": {
-        "size": ""
-      }
-=======
+      "block_order": ["button_tzQWkq", "button_AegCg8"],
       "disabled": true,
       "name": "Custom CTA Buttons",
       "settings": {
@@ -508,24 +384,7 @@
         "collection_3": "",
         "product_count_3": 6
       }
->>>>>>> kids-landing
     }
   },
-  "order": [
-    "static_hero_tV68kr",
-<<<<<<< HEAD
-    "section_value_props_EdAxRY",
-    "content_icon_grid_AtnxkF",
-    "content_mosaic_VjHWx4",
-    "content_rich_text_y4cRwV",
-    "custom_ctas_cQAwDn"
-=======
-    "content_icon_grid_AtnxkF",
-    "content_rich_text_y4cRwV",
-    "content_mosaic_VjHWx4",
-    "custom_ctas_MikHNn",
-    "custom_ctas_cQAwDn",
-    "product_collection_carousel_BrUBzq"
->>>>>>> kids-landing
-  ]
+  "order": ["static_hero_tV68kr", "content_icon_grid_AtnxkF", "content_rich_text_y4cRwV", "content_mosaic_VjHWx4", "custom_ctas_MikHNn", "custom_ctas_cQAwDn", "product_collection_carousel_BrUBzq"]
 }
