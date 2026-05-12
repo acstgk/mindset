@@ -180,7 +180,8 @@
         "init_splide": true,
         "icon_size": "100%",
         "image_fit": "cover",
-        "aspect_ratio": 1
+        "aspect_ratio": 1,
+        "icon_shape": "square"
       }
     },
     "blog_article_grid_KhXhCC": {
@@ -365,9 +366,10 @@
         "heading_level": "2",
         "title": "Our Partner Training Facilities",
         "init_splide": true,
-        "icon_size": "65%",
+        "icon_size": "50%",
         "image_fit": "contain",
-        "aspect_ratio": 2.4
+        "aspect_ratio": 2.4,
+        "icon_shape": "square"
       }
     },
     "content_rich_text_xHFFe9": {
@@ -459,6 +461,9 @@
       ],
       "name": "Best of pages",
       "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis",
         "size": ""
       }
     }

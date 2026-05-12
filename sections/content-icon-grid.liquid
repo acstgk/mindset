@@ -54,7 +54,7 @@
       interval: 4500,
       speed: 1000,
       pauseOnHover: true,
-      gap: '1rem',
+      gap: '0',
       focus: 'center',
     });
   });
@@ -96,11 +96,22 @@
       "id": "icon_size",
       "label": "Icon Size",
       "options": [
-        { "value": "50%", "label": "Small" },
-        { "value": "65%", "label": "Medium" },
+        { "value": "60%", "label": "Small" },
+        { "value": "75%", "label": "Medium" },
         { "value": "100%", "label": "Large" }
       ],
-      "default": "65%"
+      "default": "75%"
+    },
+    {
+      "type": "select",
+      "id": "slide_spacing",
+      "label": "Icon Spacing",
+      "options": [
+        { "value": "0", "label": "Tight" },
+        { "value": "0.5rem", "label": "Regular" },
+        { "value": "1rem", "label": "Loose" }
+      ],
+      "default": "0.5rem"
     },
     {
       "type": "select",

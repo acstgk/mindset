@@ -14,7 +14,8 @@
       "custom_css": [
         "a.button.button-primary.inline-flex:first-child {--btn-bg: var(--c-boys);}",
         "a.button.button-primary.inline-flex {--btn-bg: var(--c-girls); --btn-color: oklch(from var(--btn-bg) calc(l - 0.6) c h / 1);}",
-        "@media screen and (min-width: 768.02px) {.static-hero--heading:has(+ .static-hero--content) {align-items: flex-start; } .align-center .static-hero--content {margin: 0 auto auto 0; }}"
+        "@media screen and (min-width: 768.02px) {.static-hero--heading:has(+ .static-hero--content) {align-items: flex-start; } .align-center .static-hero--content {margin: 0 auto auto 0; }}",
+        ".static-hero--heading {margin-bottom: 5rem;}"
       ],
       "name": "Static Hero",
       "settings": {
@@ -32,11 +33,6 @@
         "link_url2": "/collections/kidswear/girls",
         "text_align": "center"
       }
-    },
-    "section_value_props_EdAxRY": {
-      "type": "section-value-props",
-      "name": "Value Proposition Bar",
-      "settings": {}
     },
     "content_icon_grid_AtnxkF": {
       "type": "content-icon-grid",
@@ -114,15 +110,17 @@
         "icon_izzY8k",
         "icon_KHrFdA"
       ],
+      "custom_css": [],
       "name": "Icon Grid",
       "settings": {
         "heading_level": "2",
         "title": "",
         "init_splide": true,
         "icon_size": "65%",
+        "slide_spacing": "0.25rem",
         "image_fit": "cover",
         "aspect_ratio": 1,
-        "icon_shape": "square"
+        "icon_shape": "circle"
       }
     },
     "content_rich_text_y4cRwV": {
@@ -225,7 +223,7 @@
             "content_placement": "overlay",
             "heading_size": "h1",
             "heading_style": "emphasis",
-            "text": "",
+            "text": "<p><strong>Twinning is winning</strong> with these adorable and on trend styles for both mum and your mini.</p>",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
             "cta_text": "Shop Now",
@@ -355,8 +353,9 @@
       ],
       "custom_css": [
         "{max-width: 900px; margin: 0 auto;}",
-        ".button {flex: 0 1 fit-content;}",
-        ".cta-wrapper {margin-top: 0;}"
+        ".button {flex: 1 1 fit-content;}",
+        ".cta-wrapper {margin-top: 0;}",
+        "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"
       ],
       "name": "Custom CTA Buttons",
       "settings": {
@@ -421,7 +420,6 @@
   },
   "order": [
     "static_hero_tV68kr",
-    "section_value_props_EdAxRY",
     "content_icon_grid_AtnxkF",
     "content_rich_text_y4cRwV",
     "content_mosaic_VjHWx4",
