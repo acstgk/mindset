@@ -12,15 +12,14 @@
     "static_hero_tV68kr": {
       "type": "static-hero",
       "custom_css": [
-        "a.button.button-primary.inline-flex:first-child {--btn-bg: var(--c-boys);}",
-        "a.button.button-primary.inline-flex {--btn-bg: var(--c-girls); --btn-color: oklch(from var(--btn-bg) calc(l - 0.6) c h / 1);}",
+        "a.button.button-primary.inline-flex {--btn-bg: var(--c-white); --btn-color: var(--c-black);}",
         "@media screen and (min-width: 768.02px) {.static-hero--heading:has(+ .static-hero--content) {align-items: flex-start; } .align-center .static-hero--content {margin: 0 auto auto 0; }}",
         ".static-hero--heading {margin-bottom: 5rem;}"
       ],
       "name": "Static Hero",
       "settings": {
         "isFullheight": false,
-        "image": "shopify://shop_images/FIRST_EVER_KIDS_SHOOT_25-0_5.webp",
+        "image": "shopify://shop_images/FIRST_EVER_KIDS_SHOOT_25-0_5_78fc9fb3-284a-4716-bc80-80592cc2becf.jpg",
         "img_overlay": 85,
         "title": "Welcome to GK KIDS",
         "heading": "",
@@ -154,11 +153,11 @@
         "grid_item_eqne78": {
           "type": "grid-item",
           "settings": {
-            "title": "Pro Logo Twin Sets",
+            "title": "Boys Twin Sets",
             "flag": "",
             "grid_column_span": "4",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/FIRST_EVER_KIDS_SHOOT_25-0_3.webp",
+            "img": "shopify://shop_images/Capture_45.webp",
             "img_alt": "",
             "overlay_link": "shopify://products/pro-logo-bundle-kids-1",
             "product": "",
@@ -166,13 +165,13 @@
             "img_transition": "normal",
             "content_placement": "overlay",
             "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "<p>Save 20% when you buy two or more items.</p>",
+            "heading_style": "",
+            "text": "<p>Save 20% when you buy two or more selected items.</p>",
             "bg_color": "#f7f7f7",
             "txt_color": "#ffffff",
             "cta_text": "Bundle & Save",
             "cta_url": "shopify://products/pro-logo-bundle-kids-1",
-            "btn_color": "#4bc3e6",
+            "btn_color": "#1b1b1b",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -186,15 +185,15 @@
             "flag": "",
             "grid_column_span": "2",
             "grid_row_span": "2",
-            "img": "shopify://shop_images/fd_kids-closeup.webp",
+            "img": "shopify://shop_images/IMG_3753.jpg",
             "img_alt": "",
             "overlay_link": "shopify://collections/kids-fight-division",
-            "product": "gk-sport-logo-tee-white",
+            "product": "",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "overlay",
             "heading_size": "h2",
-            "heading_style": "emphasis",
+            "heading_style": "",
             "text": "",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
@@ -214,21 +213,21 @@
             "flag": "",
             "grid_column_span": "2",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/RIB_KNIT_SWEATSHIRT_365_LEGGING_RIB_KNIT_SWEATSHIRT_KNOCKOUT_LEGGING_-_CANDY_PINK_PEACH_BLUSH_DARK_CHERRY_GSS-BOGI0_GLG-EOFW8_WSS-EOFPX_WLG-BOFUV_177_copy.webp",
+            "img": "shopify://shop_images/SCRIPT_MINDSET_HOOD_KNOCKOUT_LEGGING_SCRIPT_FLEECE_HOOD_SCRIPT_JERSEY_LEGGING_-_DARK_CHERRY_WHD-EOFN3_WLG-BOFUV_GHD-EOFVP_GLG-BOGJR_193.webp",
             "img_alt": "",
             "overlay_link": "shopify://collections/mini-me-girls",
             "product": "",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "overlay",
-            "heading_size": "h1",
-            "heading_style": "emphasis",
+            "heading_size": "h2",
+            "heading_style": "",
             "text": "<p><strong>Twinning is winning</strong> with these adorable and on trend styles for both mum and your mini.</p>",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
             "cta_text": "Shop Now",
             "cta_url": "shopify://collections/mini-me-girls",
-            "btn_color": "#ff98ca",
+            "btn_color": "#1b1b1b",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -249,8 +248,8 @@
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "overlay",
-            "heading_size": "h1",
-            "heading_style": "emphasis",
+            "heading_size": "h2",
+            "heading_style": "",
             "text": "<p><strong>Like father like son. </strong>Our best selling styles now available for your little man. </p>",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
@@ -262,24 +261,19 @@
             "cta_url2": "",
             "btn_color2": "#eeeeee"
           }
-        },
-        "spacer_WVM8GE": {
-          "type": "spacer",
-          "settings": {}
         }
       },
       "block_order": [
         "grid_item_eqne78",
         "grid_item_dgHGCG",
         "grid_item_qGk4gY",
-        "grid_item_8BTpkM",
-        "spacer_WVM8GE"
+        "grid_item_8BTpkM"
       ],
       "name": "Content Mosaic",
       "settings": {
         "title": "",
         "heading_size": "h2",
-        "heading_style": "emphasis"
+        "heading_style": ""
       }
     },
     "custom_ctas_MikHNn": {
@@ -352,7 +346,7 @@
         "button_xmm3Mp"
       ],
       "custom_css": [
-        "{max-width: 900px; margin: 0 auto;}",
+        "{max-width: 900px; margin: 4rem auto;}",
         ".button {flex: 1 1 fit-content;}",
         ".cta-wrapper {margin-top: 0;}",
         "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"
@@ -365,48 +359,18 @@
         "size": ""
       }
     },
-    "custom_ctas_cQAwDn": {
-      "type": "custom-ctas",
-      "blocks": {
-        "button_tzQWkq": {
-          "type": "button",
-          "settings": {
-            "btn_text": "Shop Boys",
-            "button_link": "/collections/kidswear/boys",
-            "btn_color": false
-          }
-        },
-        "button_AegCg8": {
-          "type": "button",
-          "settings": {
-            "btn_text": "Shop Girls",
-            "button_link": "/collections/kidswear/girls",
-            "btn_color": true
-          }
-        }
-      },
-      "block_order": [
-        "button_tzQWkq",
-        "button_AegCg8"
-      ],
-      "disabled": true,
-      "name": "Custom CTA Buttons",
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "heading_style": "emphasis",
-        "size": ""
-      }
-    },
     "product_collection_carousel_BrUBzq": {
       "type": "product-collection-carousel",
+      "custom_css": [
+        "{padding: 2rem 0; background: var(--c-off-white);}"
+      ],
       "name": "Product Card Carousel",
       "settings": {
         "carousel_title": "Best Sellers",
         "heading_style": "",
         "product_list": [],
         "collection": "kidswear",
-        "product_count": 6,
+        "product_count": 10,
         "show_womens": false,
         "product_list_2": [],
         "collection_2": "",
@@ -416,6 +380,41 @@
         "collection_3": "",
         "product_count_3": 6
       }
+    },
+    "custom_ctas_cQAwDn": {
+      "type": "custom-ctas",
+      "blocks": {
+        "button_tzQWkq": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop All Kidswear",
+            "button_link": "shopify://collections/kidswear",
+            "btn_color": false
+          }
+        },
+        "button_AegCg8": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Shop Kids Sale",
+            "button_link": "shopify://collections/kids-sale",
+            "btn_color": true
+          }
+        }
+      },
+      "block_order": [
+        "button_tzQWkq",
+        "button_AegCg8"
+      ],
+      "custom_css": [
+        "{padding: 1rem 0 2rem; background: var(--c-off-white);}"
+      ],
+      "name": "Custom CTA Buttons",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis",
+        "size": ""
+      }
     }
   },
   "order": [
@@ -424,7 +423,7 @@
     "content_rich_text_y4cRwV",
     "content_mosaic_VjHWx4",
     "custom_ctas_MikHNn",
-    "custom_ctas_cQAwDn",
-    "product_collection_carousel_BrUBzq"
+    "product_collection_carousel_BrUBzq",
+    "custom_ctas_cQAwDn"
   ]
 }
