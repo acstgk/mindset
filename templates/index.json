@@ -12,6 +12,29 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_kghbFi": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Rebellion - Mobile Banner_2c4b9104-2c80-451e-b68a-72ec52c82aa2.mp4",
+            "desktop_video": "shopify://files/videos/Rebellion - Desktop Banner_0fedcade-4980-4efc-8035-1214f60b21bd.mp4",
+            "overlay_url": "",
+            "lockup_width": 200,
+            "title": "",
+            "title_font": "",
+            "subtitle": "",
+            "subtitle_font": "",
+            "subtitle_first": false,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/mens-new",
+            "cta2": "",
+            "url2": "",
+            "target_gender": "mens"
+          }
+        },
         "image_hkkRfY": {
           "type": "image",
           "settings": {
@@ -30,10 +53,10 @@
             "content_alignment": "center",
             "v_align_desk": "bottom-desk",
             "v_align_mob": "bottom-mob",
-            "cta1": "Shop Mens",
-            "url1": "shopify://collections/mens-new",
-            "cta2": "Shop Womens",
-            "url2": "shopify://collections/womens-new",
+            "cta1": "Shop Womens",
+            "url1": "shopify://collections/womens",
+            "cta2": "Shop Mens",
+            "url2": "/collections/heritage-collection/mens",
             "target_gender": ""
           }
         },
@@ -62,6 +85,7 @@
         },
         "image_eT8DWX": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Signature Summer - Mens - Mobile Banner V2_6f61119a-4691-4178-b92e-d93ec1f98ab5.mp4",
             "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner.png",
@@ -135,6 +159,7 @@
         }
       },
       "block_order": [
+        "image_kghbFi",
         "image_hkkRfY",
         "image_6BmG7G",
         "image_eT8DWX",
