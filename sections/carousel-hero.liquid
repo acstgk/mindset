@@ -115,7 +115,9 @@
           {% if block.settings.lockup_img %}
             {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
             {% assign lockup_width = 'width:min(90vw, ' | append: block.settings.lockup_width | append: 'px)' %}
-            {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in', style: lockup_width }}
+            {% assign lockup_style = 'object-fit:' | append: block.settings.lockup_fit | append: ';' | append: lockup_width %}
+            {% assign alt_text = block.settings.alt_text | default: block.settings.lockup_img.alt %}
+            {{ block.settings.lockup_img | image_url: width: 500 | image_tag: class: 'hero_slide-lockup fade-in', style: lockup_style, alt: alt_text }}
           {% endif %}
 
           {% if block.settings.subtitle != '' and block.settings.subtitle_first %}
@@ -219,14 +221,32 @@
           "info": "Try to use an image with a transparent background"
         },
         {
+          "type": "inline_richtext",
+          "id": "alt_text",
+          "label": "Image Alt Text",
+          "info": "required if there is text in the image for accessibility",
+          "visible_if": "{{  block.settings.lockup_img != blank }}"
+        },
+        {
           "type": "range",
           "id": "lockup_width",
           "label": "Lockup Image Width",
           "min": 50,
-          "max": 200,
+          "max": 400,
           "step": 5,
           "default": 200,
           "info": "Moves the hotspot along the horizontal axis.",
+          "visible_if": "{{  block.settings.lockup_img != blank }}"
+        },
+        {
+          "type": "select",
+          "id": "lockup_fit",
+          "label": "Lockup Image Fit",
+          "options": [
+            { "value": "contain", "label": "Show entire image" },
+            { "value": "cover", "label": "Zoom to fill" }
+          ],
+          "default": "contain",
           "visible_if": "{{  block.settings.lockup_img != blank }}"
         },
         {
@@ -280,7 +300,7 @@
           "id": "customHTML",
           "label": "Custom HTML"
         },
-                {
+        {
           "type": "header",
           "content": "Sldie Content Alignment"
         },

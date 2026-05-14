@@ -227,7 +227,6 @@ input[type="range"] {
 
 .splide__slide img {
   object-position: top;
-  min-height: 100%;
 }
 
 .splide__pagination {
