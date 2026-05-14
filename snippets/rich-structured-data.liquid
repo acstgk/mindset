@@ -1,5 +1,4 @@
 {%- if request.page_type == 'product' -%}
-
   {%- assign gtin_option = 'gtin' -%}
   {%- if product.selected_or_first_available_variant.barcode != blank -%}
     {%- assign is_barcode_available = true -%}
@@ -294,20 +293,14 @@
     "@id": "https://thegymking.com/#organization",
     "name": "The Gym King",
     "url": "https://thegymking.com/",
-    "logo": "https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_logo_BLACK_LINEAR.png?v=1721730919",
-    "sameAs":  [
-      "https://www.facebook.com/gymking/",
-      "https://www.instagram.com/gymking/",
-      "https://www.youtube.com/@gymking2015/",
-      "https://www.tiktok.com/@thegymking/"
-    ],
-    "contactPoint": [
-      {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "email": "customerservice@gymking.com"
-      }
-    ]
+    "logo": "https://cdn.shopify.com/s/files/1/1659/8997/files/Gym_King_logo_BLACK_LINEAR.png",
+    "sameAs": ["https://www.facebook.com/gymking/", "https://www.instagram.com/gymking/", "https://www.youtube.com/@gymking2015/", "https://www.tiktok.com/@thegymking/"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "customerservice@gymking.com",
+      "availableLanguage": "en"
+    }
   }
 </script>
 
