@@ -5,7 +5,6 @@
     {% render 'dead-end' %}
     <br>
     {% render 'bnpl-microcopy' %}
-
   </div>
 {% else %}
   {% assign cart_items = '' %}
@@ -92,33 +91,33 @@
                     data-images="{% for image in product.images %}{%unless forloop.index == 2 %}{{ image | image_url: width: 700 }}{% unless forloop.last %},{% endunless %}{% endunless %}{% endfor %}"
                   >
                     {% render 'icon', icon: 'plus' -%}
-                     {%- assign product_title = product.title | replace: '–', '-' -%}
-                    {{- product_title | replace: "Gym King", "" | split: ' - ' | first}} - {{ product.price | money_without_trailing_zeros -}}
-                    <div class="visually-hidden product_card-info">
-                      {% render 'product-title' with product as product %}
-                      {% render 'product-price' with product as product %}
-                    </div>
-                    <div class="datb visually-hidden">
-                      <div class="qatb-btns">
-                        {% for variant in product.variants %}
-                          <a
-                            href="{{ routes.cart_add_url }}?id={{ variant.id }}&quantity=1"
-                            id="qatb-btn--{{ variant.id }}"
-                            class="{%if variant.inventory_quantity != 0 and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% endif %}"
-                            data-v-id="{{ variant.id }}"
-                          >
-                           {% render 'variant-title', title: variant.title, product: product %}
-                          </a>
-                        {% endfor %}
-                      </div>
-                    </div>
+                    {%- assign product_title = product.title | replace: '–', '-' -%}
+                    {{- product_title | replace: 'Gym King', '' | split: ' - ' | first }} - {{ product.price | money_without_trailing_zeros -}}
                   </a>
+                  <div class="visually-hidden product_card-info" data-target="mqatb-{{product.id}}">
+                    {% render 'product-title' with product as product %}
+                    {% render 'product-price' with product as product %}
+                  </div>
+                  <div class="datb visually-hidden" data-target="mqatb-{{product.id}}">
+                    <div class="qatb-btns">
+                      {% for variant in product.variants %}
+                        <button
+                          type="button"
+                          id="qatb-btn--{{ variant.id }}"
+                          class="{%if variant.inventory_quantity != 0 and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% endif %}"
+                          data-v-id="{{ variant.id }}"
+                        >
+                          {% render 'variant-title', title: variant.title, product: product %}
+                        </button>
+                      {% endfor %}
+                    </div>
+                  </div>
                 {% endunless %}
               {% endfor %}
             </div>
           {% endif %}
           {% comment %} YOTPO POINTS INFO {% endcomment %}
-           {% comment %} <div class="yotpo-widget-instance" data-yotpo-instance-id="1268248" data-yotpo-product-id="{{item.product.id}}" data-yotpo-variant-id="{{ item.product.selected_or_first_available_variant.id }}" data-yotpo-product-variants="{{ item.product.variants | json | url_encode }}" data-yotpo-product-collections="{{item.product.collections | json | url_encode}}" data-yotpo-product-tags="{{ item.product.tags | json | url_encode }}" data-yotpo-product-type="{{ item.product.type | json | url_encode }}" data-yotpo-quantity-selector="input.input-{{ item.product_id }}"></div> {% endcomment %}
+          {% comment %} <div class="yotpo-widget-instance" data-yotpo-instance-id="1268248" data-yotpo-product-id="{{item.product.id}}" data-yotpo-variant-id="{{ item.product.selected_or_first_available_variant.id }}" data-yotpo-product-variants="{{ item.product.variants | json | url_encode }}" data-yotpo-product-collections="{{item.product.collections | json | url_encode}}" data-yotpo-product-tags="{{ item.product.tags | json | url_encode }}" data-yotpo-product-type="{{ item.product.type | json | url_encode }}" data-yotpo-quantity-selector="input.input-{{ item.product_id }}"></div> {% endcomment %}
         </line-item>
       </li>
     {% endfor %}

@@ -911,8 +911,11 @@ class ProductModalManager {
       }
     }
 
-    // Copy the product details - check trigger first (for .cart_items-ctl-button), then sourceElement
-    const productInfoSource = trigger.querySelector(".product_card-info") || this.sourceElement.querySelector(".product_card-info");
+    // Copy the product details - check trigger first, then by data-target match, then sourceElement
+    const targetId = trigger.dataset.target;
+    const productInfoSource = trigger.querySelector(".product_card-info")
+      || (targetId && this.sourceElement.querySelector(`.product_card-info[data-target="${targetId}"]`))
+      || this.sourceElement.querySelector(".product_card-info");
     const productInfo = productInfoSource.innerHTML;
     const info = document.createElement("div");
     info.className = "mqatb-info";
@@ -920,8 +923,10 @@ class ProductModalManager {
     // Remove any cart control buttons that may have been copied from line items
     info.querySelectorAll(".cart_items-ctl-button").forEach((el) => el.remove());
 
-    // Copy add to bag buttons - check trigger first, then sourceElement
-    const buttonsDataSource = trigger.querySelector(".datb") || this.sourceElement.querySelector(".datb");
+    // Copy add to bag buttons - check trigger first, then by data-target match, then sourceElement
+    const buttonsDataSource = trigger.querySelector(".datb")
+      || (targetId && this.sourceElement.querySelector(`.datb[data-target="${targetId}"]`))
+      || this.sourceElement.querySelector(".datb");
     const buttonsData = buttonsDataSource.innerHTML;
     const buttons = document.createElement("div");
     buttons.className = "mqatb-btns";
