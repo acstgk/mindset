@@ -290,7 +290,7 @@
         "html_PAtRna"
       ],
       "custom_css": [
-        ".button {flex: 1 1 min(50%, 175px);}",
+        ".button {flex: 1 1 min(50%, 12rem);}",
         ".cta-wrapper {margin-top: 0; width: 100%;}",
         "h3 {margin: 0 0 -1rem 0;}",
         "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}",
