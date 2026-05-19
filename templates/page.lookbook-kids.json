@@ -276,6 +276,38 @@
         "heading_style": ""
       }
     },
+    "content_rich_text_GYbCm7": {
+      "type": "content-rich-text",
+      "blocks": {
+        "html_PAtRna": {
+          "type": "html",
+          "settings": {
+            "custom_html": "<div class=\"sizes-group--wrapper\">\n<div class=\"sizes-group\">\n<h3>Boys</h3>\n<div class=\"cta-wrapper\" style=\"text-align: center; padding: 30px 20px;display: flex;gap: 10px;justify-content: center;flex-flow:wrap;\">\n\n    <a href=\"/collections/kidswear/boys?filter.v.option.size=3-4\" class=\" button button-primary\">\n      3-4 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/boys?filter.v.option.size=5-6\" class=\" button button-primary\">\n      5-6 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/boys?filter.v.option.size=7-8\" class=\" button button-primary\">\n      7-8 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/boys?filter.v.option.size=9-10\" class=\" button button-primary\">\n      9-10 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/boys?filter.v.option.size=11-12\" class=\" button button-primary\">\n      11-12 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/boys?filter.v.option.size=13-14\" class=\" button button-primary\">\n      13-14 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/boys?filter.v.option.size=15\" class=\" button button-primary\">\n      15 Years Old\n    </a>\n\n</div>\n</div>\n\n<div class=\"sizes-group\">\n<h3>Girls</h3>\n<div class=\"cta-wrapper\" style=\"text-align: center; padding: 30px 20px;display: flex;gap: 10px;justify-content: center;flex-flow:wrap;\">\n\n    <a href=\"/collections/kidswear/girls?filter.v.option.size=3-4\" class=\" button button-primary\">\n      3-4 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/girls?filter.v.option.size=5-6\" class=\" button button-primary\">\n      5-6 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/girls?filter.v.option.size=7-8\" class=\" button button-primary\">\n      7-8 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/girls?filter.v.option.size=9-10\" class=\" button button-primary\">\n      9-10 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/girls?filter.v.option.size=11-12\" class=\" button button-primary\">\n      11-12 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/girls?filter.v.option.size=13-14\" class=\" button button-primary\">\n      13-14 Years Old\n    </a>\n\n    <a href=\"/collections/kidswear/girls?filter.v.option.size=15\" class=\" button button-primary\">\n      15 Years Old\n    </a>\n\n</div>\n</div>\n</div>"
+          }
+        }
+      },
+      "block_order": [
+        "html_PAtRna"
+      ],
+      "custom_css": [
+        ".button {flex: 1 1 min(50%, 175px);}",
+        ".cta-wrapper {margin-top: 0; width: 100%;}",
+        "h3 {margin: 0 0 -1rem 0;}",
+        "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}",
+        ".sizes-group--wrapper {display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "Shop By Size",
+        "heading_style": "",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "center",
+        "grid_style": "standard"
+      }
+    },
     "custom_ctas_MikHNn": {
       "type": "custom-ctas",
       "blocks": {
@@ -345,6 +377,7 @@
         "button_U9GW7r",
         "button_xmm3Mp"
       ],
+      "disabled": true,
       "custom_css": [
         "{max-width: 900px; margin: 4rem auto;}",
         ".button {flex: 1 1 fit-content;}",
@@ -422,6 +455,7 @@
     "content_icon_grid_AtnxkF",
     "content_rich_text_y4cRwV",
     "content_mosaic_VjHWx4",
+    "content_rich_text_GYbCm7",
     "custom_ctas_MikHNn",
     "product_collection_carousel_BrUBzq",
     "custom_ctas_cQAwDn"
