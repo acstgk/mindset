@@ -1,0 +1,19 @@
+{% assign description = product.description %}
+{% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
+{% assign description_elements = description | split: '||' %}
+{% assign sizing_info = description_elements | where: 'Model' %}
+{% if sizing_info.first.size > 5 %}
+  <div class="accent-bg model-sizing">{{ description_elements | where: 'Model' }}</div>
+{% endif %}
+
+{% style %}
+  .model-sizing {
+    margin-top: 0;
+  }
+
+  .model-sizing p {
+    margin: 0;
+    padding: 0;
+    font-size: var(--txt-sm);
+  }
+{% endstyle %}

@@ -132,16 +132,7 @@
     {% render 'product-title' with product as 'product', heading: 'h1' %}
     {% render 'product-price' with product as 'product' %}
     {% unless product.type == 'Tracksuit Set' %}
-      <div
-        class="yotpo-widget-instance"
-        data-yotpo-instance-id="1268248"
-        data-yotpo-product-id="{{product.id}}"
-        data-yotpo-variant-id="{{ product.selected_or_first_available_variant.id }}"
-        data-yotpo-product-variants="{{ product.variants | json | url_encode }}"
-        data-yotpo-product-collections="{{product.collections | json | url_encode}}"
-        data-yotpo-product-tags="{{ product.tags | json | url_encode }}"
-        data-yotpo-product-type="{{ product.type | json | url_encode }}"
-      ></div>
+      <div class="yotpo-widget-instance" data-yotpo-instance-id="1008278" data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="{{template.name}}"></div>
     {% endunless %}
   </div>
 
@@ -193,12 +184,6 @@
               {% render 'icon' with 'ruler' as icon %}
             </a>
           </div>
-          <div
-            class="yotpo-widget-instance"
-            data-yotpo-instance-id="1008278"
-            data-yotpo-product-id="{{part.id}}"
-            data-yotpo-section-id="{{template.name}}"
-          ></div>
           <ul class="atc_form-sizes">
             {% for variant in part.variants %}
               {% if variant.price > 0 %}
@@ -321,7 +306,7 @@
     {% if section.settings.show_yotpo_points and product.available and is_set == blank %}
       <div
         class="yotpo-widget-instance"
-        data-yotpo-instance-id="1268248"
+        data-yotpo-instance-id="1330035"
         data-yotpo-product-id="{{product.id}}"
         data-yotpo-variant-id="{{ product.selected_or_first_available_variant.id }}"
         data-yotpo-product-variants="{{ product.variants | json | url_encode }}"
@@ -329,6 +314,8 @@
         data-yotpo-product-tags="{{ product.tags | json | url_encode }}"
         data-yotpo-product-type="{{ product.type | json | url_encode }}"
       ></div>
+    {% else %}
+      {% render 'model-sizing' %}
     {% endif %}
   </form>
 
