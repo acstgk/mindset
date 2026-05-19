@@ -71,7 +71,7 @@ export default class ProductRecommendations extends HTMLElement {
     //create the header element and add to the dom
     const heading = document.createElement("h2");
     heading.classList.add("h1");
-    heading.textContent = "You might also like";
+    heading.textContent = "People also bought";
     this.parentNode.insertBefore(heading, this);
     const loader = document.createElement("div");
     loader.classList.add("loader");
@@ -79,9 +79,7 @@ export default class ProductRecommendations extends HTMLElement {
 
     (async () => {
       try {
-        const response = await fetch(
-          `${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${this.productID}&limit=12&intent=related`
-        );
+        const response = await fetch(`${window.Shopify.routes.root}recommendations/products?sections=product-dynamic-cards&product_id=${this.productID}&limit=12&intent=related`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
