@@ -3,11 +3,12 @@
     {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color icon--klarna' }}
     {{ 'afterpay' | payment_type_svg_tag: class: 'icon icon--full-color icon--clearpay' }}
     {{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color icon--paypal' }}
-    <span>Buy now, pay later in interest free instalments.</span>
+    <div>
+      <b>Buy now, pay later</b> in interest free instalments.
+      <small>
+        UK Residency and 18+ terms apply.
+        <a href="/pages/bnpl">Learn more</a>
+      </small>
+    </div>
   </div>
-
-  <small>
-     These are unregulated credit products. Late payment fees may apply. UK Residency and 18+ terms apply.
-    <a href="/pages/bnpl">Learn more</a>
-  </small>
 </bnpl-options>
