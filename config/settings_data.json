@@ -250,18 +250,18 @@
           "custom_settings": "{\"show_price_on_login\": \"false\", \"show_vendor\": \"false\", \"cart_counter\": \".cart-count-bubble span:first-of-type\", \"custom_filters\": \"facet-filters-form, .facet-filters__sort\", \"custom_delay\": \"500\", \"remove_all_wishlist\": \"false\",\"hide_cart_btn\": \"false\"}"
         }
       },
+      "11348531219507317188": {
+        "type": "shopify://apps/eb-easy-bundle-builder/blocks/app-embed/05b1325c-6303-4da5-8e2f-b13ab2a50e1a",
+        "disabled": false,
+        "settings": {}
+      },
       "8962992520437913685": {
         "type": "shopify://apps/yotpo-loyalty-rewards/blocks/loader-app-embed-block/2f9660df-5018-4e02-9868-ee1fb88d6ccd",
         "disabled": false,
         "settings": {
           "inject_modules_loader": true,
-          "inject_sdk_loader": false
+          "inject_sdk_loader": true
         }
-      },
-      "11348531219507317188": {
-        "type": "shopify://apps/eb-easy-bundle-builder/blocks/app-embed/05b1325c-6303-4da5-8e2f-b13ab2a50e1a",
-        "disabled": false,
-        "settings": {}
       }
     }
   }

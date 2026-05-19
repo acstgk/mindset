@@ -134,10 +134,13 @@
     {% unless product.type == 'Tracksuit Set' %}
       <div
         class="yotpo-widget-instance"
-        data-yotpo-instance-id="1008278"
+        data-yotpo-instance-id="1268248"
         data-yotpo-product-id="{{product.id}}"
-        data-yotpo-cart-product-id="{{product.id}}"
-        data-yotpo-section-id="{{template.name}}"
+        data-yotpo-variant-id="{{ product.selected_or_first_available_variant.id }}"
+        data-yotpo-product-variants="{{ product.variants | json | url_encode }}"
+        data-yotpo-product-collections="{{product.collections | json | url_encode}}"
+        data-yotpo-product-tags="{{ product.tags | json | url_encode }}"
+        data-yotpo-product-type="{{ product.type | json | url_encode }}"
       ></div>
     {% endunless %}
   </div>
