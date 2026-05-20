@@ -180,11 +180,8 @@
         "image_JhPCiY"
       ],
       "custom_css": [
-        "@media screen and (max-width: 768px) {.h1 {font-size: var(--txt-h1); }}",
         ".h3 {font-size: var(--txt-h4);}",
-        ".h1 {font-size: calc(var(--txt-xl) * 0.85); margin-right: -0.3ch;}",
-        "em {width: 100%; display: inline-block;}",
-        ".hero_slide-ctas .button {font-size: calc(var(--txt-p) * 0.85);}"
+        "em {width: 100%; display: inline-block;}"
       ],
       "settings": {}
     },

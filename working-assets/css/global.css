@@ -1960,7 +1960,7 @@ video {
 .hero_slide-content h1,
 .hero_slide-content p {
   color: white;
-  font-size: var(--txt-xxl);
+  font-size: calc(var(--txt-xxl) * 0.85);
   margin-block: 0.33rem;
   line-height: 1;
   text-shadow: 0 0 15px color-mix(in lab, var(--c-black), transparent 70%);
