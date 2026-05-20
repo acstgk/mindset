@@ -12,6 +12,32 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_9DFwkJ": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "mobile_video": "shopify://files/videos/Bank Hol - Mobile Banner Womens V2.mp4",
+            "desktop_video": "shopify://files/videos/Bank Hol - Desktop Banner Womens V2.mp4",
+            "overlay_url": "",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "30% Off",
+            "title_font": "baskerville",
+            "subtitle": "Bank Holiday Offer",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "<div class=\"styled\">SITEWIDE</div>",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "",
+            "url1": "",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
+          }
+        },
         "image_kghbFi": {
           "type": "image",
           "disabled": true,
@@ -117,71 +143,19 @@
             "url2": "",
             "target_gender": "mens"
           }
-        },
-        "image_DKDKPi": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "mobile_video": "shopify://files/videos/30% Off Bank Hol - Womens Mobile Banner 2_42c7db96-7bf3-469a-a438-aba68f36a415.mp4",
-            "desktop_video": "shopify://files/videos/30% Off Bank Hol - Womens Desktop Banner 2.mp4",
-            "overlay_url": "/collections/bank-holiday-sale/womens",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Get 30% Off",
-            "title_font": "baskerville",
-            "subtitle": "Bank Holiday Sitewide Offer",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "middle-desk",
-            "v_align_mob": "middle-mob",
-            "cta1": "Shop Now",
-            "url1": "/collections/bank-holiday-sale/womens",
-            "cta2": "",
-            "url2": "",
-            "target_gender": "womens"
-          }
-        },
-        "image_JhPCiY": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "mobile_video": "shopify://files/videos/30% Off Bank Hol - Mens Mobile Banner_ad42ecb4-6290-46b7-be59-597215cf84f9.mp4",
-            "desktop_video": "shopify://files/videos/30% Off Bank Hol - Mens Desktop Banner_faf13ac6-1ddc-429c-a70d-bc6ceb90fb0b.mp4",
-            "overlay_url": "/collections/bank-holiday-sale/mens",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Get 30% Off",
-            "title_font": "",
-            "subtitle": "Bank Holiday Sitewide Offer",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "middle-desk",
-            "v_align_mob": "middle-mob",
-            "cta1": "Shop Now",
-            "url1": "/collections/bank-holiday-sale/mens",
-            "cta2": "",
-            "url2": "",
-            "target_gender": "mens"
-          }
         }
       },
       "block_order": [
+        "image_9DFwkJ",
         "image_kghbFi",
         "image_hkkRfY",
         "image_6BmG7G",
-        "image_eT8DWX",
-        "image_DKDKPi",
-        "image_JhPCiY"
+        "image_eT8DWX"
       ],
       "custom_css": [
         ".h3 {font-size: var(--txt-h4);}",
-        "em {width: 100%; display: inline-block;}"
+        "em {width: 100%; display: inline-block;}",
+        ".styled {background: var(--c-white); color: var(--c-black); padding: 1ch 0.2lh; letter-spacing: var(--letter-spacing); width: fit-content; margin: 0 auto;}"
       ],
       "settings": {}
     },

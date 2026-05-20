@@ -145,11 +145,14 @@
 
           {% if block.settings.customHTML %}
             {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
-            {{ block.settings.customHTML }}
+            <div class="fade-in" style="--fade-delay: {{ fade_in_count }}s;">
+              {{ block.settings.customHTML }}
+            </div>
           {% endif %}
         </div>
 
         {% unless block.settings.cta1 == '' %}
+          {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
           <div class="hero_slide-ctas fade-in" style="--fade-delay: {{ fade_in_count }}s;">
             <a href="{{ block.settings.url1 }}" class="button button-inverted"
               ><span>{{ block.settings.cta1 }} </span>{% render 'icon', icon: 'arrow' -%}
