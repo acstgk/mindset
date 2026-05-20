@@ -16,7 +16,7 @@
         "extended-returns-title": "EXTENDED CHRISTMAS RETURNS",
         "extended-returns-text": "<p>All purchases made between Monday 27th October and 22nd December are eligible for our extended Christmas Returns period, you will have until Wednesday 31st January to return your items.</p>",
         "show_description": true,
-        "show_yotpo_points": false
+        "show_yotpo_points": true
       }
     },
     "complete-the-look": {
