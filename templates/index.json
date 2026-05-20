@@ -29,9 +29,9 @@
             "subtitle_first": true,
             "customHTML": "<div class=\"styled\">SITEWIDE</div>",
             "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "",
+            "v_align_desk": "middle-desk",
+            "v_align_mob": "middle-mob",
+            "cta1": "Shop Now",
             "url1": "",
             "cta2": "",
             "url2": "",
@@ -155,7 +155,7 @@
       "custom_css": [
         ".h3 {font-size: var(--txt-h4);}",
         "em {width: 100%; display: inline-block;}",
-        ".styled {background: var(--c-white); color: var(--c-black); padding: 1ch 0.2lh; letter-spacing: var(--letter-spacing); width: fit-content; margin: 0 auto;}"
+        ".styled {background: var(--c-white); color: var(--c-black); padding: 0.2lh 1ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto; font-weight: bold;}"
       ],
       "settings": {}
     },
