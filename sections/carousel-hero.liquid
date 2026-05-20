@@ -143,7 +143,7 @@
             </p>
           {% endif %}
 
-          {% if block.settings.customHTML %}
+          {% if block.settings.customHTML != '' %}
             {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
             <div class="fade-in" style="--fade-delay: {{ fade_in_count }}s;">
               {{ block.settings.customHTML }}
