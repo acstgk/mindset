@@ -623,10 +623,10 @@
             "flag": "",
             "grid_column_span": "2",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/Q424ENIGMA_REBELLIONPROCAMP6405_7da29add-1995-4b2a-86ec-e515970bf69d.jpg",
+            "img": "shopify://shop_images/HERITAGECRESTJERSEYTEE_HERITAGECRESTLOOPBACKSHORT-CREAMINDIGOBLUESST-BOGAWSHR-BOGB0_6.png",
             "img_alt": "",
             "overlay_link": "",
-            "product": "",
+            "product": "gym-king-heritage-crest-jersey-tee-cream-indigo-blue",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "hidden",
@@ -644,17 +644,17 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_bJADEL": {
+        "grid_item_Txf4k8": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/rebellion-darkside-3.webp",
+            "img": "shopify://shop_images/Day3-22_866.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-rebellion-oblivion-jersey-tee-white",
+            "product": "gym-king-heritage-crest-loopback-hood-indigo-blue",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "hidden",
@@ -675,11 +675,11 @@
         "grid_item_aQNqki": {
           "type": "grid-item",
           "settings": {
-            "title": "Rebellion Darkside",
+            "title": "Heritage",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "2",
-            "img": "shopify://shop_images/Q4_25_REBELLION1044.jpg",
+            "img": "shopify://shop_images/Day_3_-_25_845_1.jpg",
             "img_alt": "",
             "overlay_link": "",
             "product": "",
@@ -688,11 +688,11 @@
             "content_placement": "overlay",
             "heading_size": "h1",
             "heading_style": "emphasis",
-            "text": "<p>Hybrid performance and lifestyle menswear collection designed for everyday utility as well as physical performance.</p>",
+            "text": "<p>Reimagining Gym King’s roots combining nostalgic sport influences with elevated fabrics, refined silhouettes and premium detailing. </p>",
             "bg_color": "#29282b",
             "txt_color": "#eeeeee",
             "cta_text": "Shop Now",
-            "cta_url": "shopify://collections/rebellion-darkside",
+            "cta_url": "shopify://collections/heritage-collection",
             "btn_color": "#5a565f",
             "cta_position": "left",
             "cta_text2": "",
@@ -700,21 +700,21 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_8Qm4f4": {
+        "grid_item_bJADEL": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/darkside-parka-cropped.jpg",
+            "img": "shopify://shop_images/Day_3_-_25_844.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-rebellion-storm-mid-length-parka-black",
+            "product": "gym-king-heritage-crest-loopback-short-indigo-blue",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "hidden",
-            "heading_size": "h1",
+            "heading_size": "h2",
             "heading_style": "emphasis",
             "text": "",
             "bg_color": "#f6f6f6",
@@ -728,21 +728,21 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_Txf4k8": {
+        "grid_item_8Qm4f4": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
             "flag": "",
             "grid_column_span": "2",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/9_253_3eb4a7cc-4934-4893-b63a-5ef368af8d77.jpg",
+            "img": "shopify://shop_images/HERITAGECRESTLOOPBACKSWEATSHIRT_HERITAGECRESTLOOPBACKSHORT-CREAMINDIGOBLUESWT-BOGXOSHR-BOGB0_6.png",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-rebellion-darkside-full-zip-track-top-black",
+            "product": "gym-king-heritage-crest-loopback-sweatshirt-cream-indigo-blue",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "hidden",
-            "heading_size": "h2",
+            "heading_size": "h1",
             "heading_style": "emphasis",
             "text": "",
             "bg_color": "#f6f6f6",
@@ -764,14 +764,13 @@
       "block_order": [
         "spacer_HE3N3A",
         "grid_item_a6yVMV",
-        "grid_item_bJADEL",
-        "grid_item_aQNqki",
-        "grid_item_8Qm4f4",
         "grid_item_Txf4k8",
+        "grid_item_aQNqki",
+        "grid_item_bJADEL",
+        "grid_item_8Qm4f4",
         "spacer_pTagxP"
       ],
-      "disabled": true,
-      "name": "Rebelion Darkside",
+      "name": "Heritage",
       "settings": {
         "title": "",
         "heading_size": "h2",

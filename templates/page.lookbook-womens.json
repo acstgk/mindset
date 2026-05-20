@@ -346,6 +346,176 @@
       "name": "As Seen In",
       "settings": {}
     },
+    "content_mosaic_JwKcp7": {
+      "type": "content-mosaic",
+      "blocks": {
+        "spacer_UhnRz6": {
+          "type": "spacer",
+          "settings": {}
+        },
+        "grid_item_8tTnYg": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "2",
+            "video": "shopify://files/videos/GK - Heritage Polaroid Reel WSS-BOHFK WSR-BOHAV SST-BOGAW SHR-BOGB0 WSS-BOG7M WSR-BOG8L WVS-BOHIC WCJ-BOG7S WTB-BOG7Z WCJ-BOG7T WSR-BOG7X WVS-BOG8Q.mp4",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_CqE6K6": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Heritage",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/Day_3_-_11_927.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-heritage-v-neck-knitted-crew-cream",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "50",
+            "heading_size": "h1",
+            "heading_style": "baskerville",
+            "text": "<p>The Heritage Collection reimagines Gym King’s athleisure roots through a refined, modern lens, combining nostalgic sport influences with elevated fabrics, cleaner silhouettes and premium detailing. </p>",
+            "bg_color": "#f8f8f8",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/heritage-collection",
+            "btn_color": "#1f253f",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_qqD6DG": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/HERITAGETRACKJACKET_KNOCKOUTKEYHOLETANK_HERITAGETRACKSHORTS-CREAMCLASSICTEALWCJ-BOG7TWVS-BOG8QWSR-BOG7X16.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-heritage-track-shorts-cream",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_mLrQfE": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/HERITAGEV-NECKKNITTEDCREW_KNOCKOUTSHORT-CREAMINDIGOBLUEWSS-BOG7MWSR-BOG8L6.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-knockout-short-indigo-blue",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_q3N7w3": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/HERITAGELSPOLOSWEATSHIRT_HERITAGELOOPBACKSHORT-CREAMINDIGOBLUEWSS-BOHFKWSR-BOHAV2.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-heritage-loopback-rugby-shirt-cream-indigo-blue",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h1",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "spacer_fEQjLU": {
+          "type": "spacer",
+          "disabled": true,
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "spacer_UhnRz6",
+        "grid_item_8tTnYg",
+        "grid_item_CqE6K6",
+        "grid_item_qqD6DG",
+        "grid_item_mLrQfE",
+        "grid_item_q3N7w3",
+        "spacer_fEQjLU"
+      ],
+      "custom_css": [],
+      "name": "Heritage Collection",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis"
+      }
+    },
     "content_mosaic_VjHWx4": {
       "type": "content-mosaic",
       "blocks": {
@@ -402,7 +572,7 @@
             "txt_color": "#1b1b1b",
             "cta_text": "Shop Now",
             "cta_url": "",
-            "btn_color": "#1b1b1b",
+            "btn_color": "#1f253f",
             "cta_position": "left",
             "cta_text2": "",
             "cta_url2": "",
@@ -1033,6 +1203,7 @@
     "content_rich_text_dfcbat",
     "content_mosaic_4xHKx9",
     "as_seen_in_Mp7zfK",
+    "content_mosaic_JwKcp7",
     "content_mosaic_VjHWx4",
     "product_collection_carousel_VxiMbj",
     "content_mosaic_a6hTMr",
