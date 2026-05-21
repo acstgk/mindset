@@ -16,8 +16,8 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "mobile_video": "shopify://files/videos/Bank Hol - Mobile Banner Womens V2.mp4",
-            "desktop_video": "shopify://files/videos/Bank Hol - Desktop Banner Womens V2.mp4",
+            "mobile_video": "shopify://files/videos/Bank Hol - Mobile Banner Womens V1 LAUNCH.mp4",
+            "desktop_video": "shopify://files/videos/Bank Hol - Desktop Banner Womens V1 LAUNCH.mp4",
             "overlay_url": "",
             "alt_text": "",
             "lockup_width": 200,
@@ -32,10 +32,36 @@
             "v_align_desk": "middle-desk",
             "v_align_mob": "middle-mob",
             "cta1": "Shop Now",
-            "url1": "",
+            "url1": "/collections/bank-holiday-sale/womens",
             "cta2": "",
             "url2": "",
-            "target_gender": ""
+            "target_gender": "womens"
+          }
+        },
+        "image_aAAMma": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "mobile_video": "shopify://files/videos/Mens Web Banner Mobile V1 7s.mp4",
+            "desktop_video": "shopify://files/videos/Web Banner male v1.mp4",
+            "overlay_url": "",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "30% Off",
+            "title_font": "",
+            "subtitle": "Bank Holiday Offer",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "<div class=\"styled\">SITEWIDE</div>",
+            "content_alignment": "center",
+            "v_align_desk": "middle-desk",
+            "v_align_mob": "middle-mob",
+            "cta1": "Shop Now",
+            "url1": "/collections/bank-holiday-sale/mens",
+            "cta2": "",
+            "url2": "",
+            "target_gender": "mens"
           }
         },
         "image_kghbFi": {
@@ -147,6 +173,7 @@
       },
       "block_order": [
         "image_9DFwkJ",
+        "image_aAAMma",
         "image_kghbFi",
         "image_hkkRfY",
         "image_6BmG7G",
@@ -155,7 +182,8 @@
       "custom_css": [
         ".h3 {font-size: var(--txt-h4);}",
         "em {width: 100%; display: inline-block;}",
-        ".styled {background: var(--c-white); color: var(--c-black); padding: 0.2lh 1ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto; font-weight: bold;}"
+        ".styled {background: var(--c-white); color: var(--c-black); padding: 0.2lh 1ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto; font-weight: bold;}",
+        " /* .hero_slide:nth-child(2) .h1 {font-size: var(--txt-xxl);} */"
       ],
       "settings": {}
     },
