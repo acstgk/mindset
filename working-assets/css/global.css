@@ -1139,7 +1139,7 @@ header#shopify-section-header-main:has(.header_menu-item:hover) {
 
 .side_menu-visual-links {
   width: 100%;
-  padding: 15px;
+  padding: 3rem 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
@@ -1222,6 +1222,7 @@ ul.sub_menu-items {
     color: var(--c-dark-grey);
     display: block;
     transition: scale 0.15s var(--bezier);
+    border: none;
 
     &:hover {
       color: color-mix(in lab, var(--c-dark-grey), white 30%);
@@ -1347,69 +1348,54 @@ ul.sub_menu-items {
       }
     }
   }
+
+  & .accordian-header {
+    font-weight: 400;
+    height: 2rem;
+    border-bottom: 1px solid var(--c-off-white);
+    padding: 1.2lh 0 1.5lh;
+  }
+
+  & .accordian-content {
+    padding: 0 !important;
+    margin: 0;
+    border-bottom: 1px solid var(--c-off-white);
+  }
 }
 
-.side_menu-sub-menu {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 100%;
+.accordian-items .side_menu-sub-menu {
   background-color: white;
-  opacity: 0;
-  pointer-events: none;
-  transition:
-    transform 0.2s ease,
-    opacity 0.25s ease;
+  overflow: hidden;
+  height: 0;
+  padding: 0;
+  transition: height 0.2s var(--bezier);
 
-  &.link-3 {
-    left: 300%;
-  }
+  & ul {
+    padding: 0 0 0 0.5rem;
+    margin: 0;
+    flex-flow: column nowrap;
 
-  &.link-2 {
-    left: 200%;
-  }
-
-  &.link-1 {
-    left: 100%;
-  }
-
-  & .sub-menu_title {
-    margin: 0 20px;
-    padding: 15px 0 10px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid var(--c-light-grey);
-    position: sticky;
-    top: 0;
-    background: var(--c-white);
-    z-index: 1;
-
-    &::after {
-      content: none;
-    }
-
-    & svg {
-      height: 1.2em;
-      margin-right: 10px;
-      position: relative;
-      pointer-events: painted;
-
-      &::after {
-        display: block;
-        content: "";
-        width: 50px;
-        height: 100%;
-        top: 0;
-        left: 0;
-        position: absolute;
-      }
+    & li a {
+      display: block;
+      min-height: 24px;
+      font-size: var(--txt-h4);
+      padding: 10px 0;
+      border: 0;
+      font-weight: 400;
     }
   }
+}
 
-  & ul li a {
-    font-weight: var(--text-font-weight);
-  }
+.accordian-items .accordian-header.active + .side_menu-sub-menu {
+  height: fit-content;
+}
+
+.accordian-items .accordian-header svg {
+  transition: transform 0.2s var(--bezier);
+}
+
+.accordian-items .accordian-header.active svg {
+  transform: rotate(-135deg);
 }
 
 .side_menu-slider {

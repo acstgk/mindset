@@ -1,12 +1,14 @@
 <div class="sub_menu">
-  <b class="sub-menu_title">
-    {% if back %}
-      {% render 'icon' with 'arrow', class: "rotate180 sub_menu-close" %}
-      {{ menu.title }}
-    {% else %}
-      {{ menu.title | split: '-' | last }}
-    {% endif %}
-  </b>
+  {% unless accordion %}
+    <b class="sub-menu_title">
+      {% if back %}
+        {% render 'icon' with 'arrow', class: "rotate180 sub_menu-close" %}
+        {{ menu.title }}
+      {% else %}
+        {{ menu.title | split: '-' | last }}
+      {% endif %}
+    </b>
+  {% endunless %}
 
   <ul class="sub_menu-items">
     {% for link in menu.links %}
