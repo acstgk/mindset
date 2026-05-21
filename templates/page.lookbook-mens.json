@@ -66,10 +66,10 @@
             "flag": "best",
             "grid_column_span": "4",
             "grid_row_span": "2",
-            "img": "shopify://shop_images/FUNDAMENTAL_FLEECE_HOOD_FUNDAMENTAL_FLEECE_JOGGER_-_FOREST_GREEN_HDE-A2ACF_TSB-A2ACI_57904866-c9a1-4dec-9844-2f75fb444daa.jpg",
+            "img": "shopify://shop_images/FUNDAMENTAL_HOOD_FUNDAMENTAL_JOGGER_-_FOSSIL_STONE_HDE-BOG4E_TSB-BOG4H_1_copy.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "",
+            "product": "gym-king-fundamental-hood-tracksuit-fossil-stone",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "50",
@@ -94,10 +94,10 @@
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/FUNDAMENTAL_HOOD_FUNDAMENTAL_JOGGER_-_BLACK_WHITE_HDE-A2ACF_TSB-BOEY3_10.jpg",
+            "img": "shopify://shop_images/FUNDAMENTALHOOD_FUNDAMENTALJOGGER-FOSSILSTONEHDE-BOG4ETSB-BOG4H6.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-fundamental-fleece-hood-black",
+            "product": "gym-king-fundamental-hood-fossil-stone",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "hidden",
@@ -115,17 +115,17 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_fp6Ckt": {
+        "grid_item_FY6Tj8": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/FUNDAMENTAL_HOOD_FUNDAMENTAL_JOGGER_-_BLACK_WHITE_HDE-A2ACF_TSB-BOEY3_4.jpg",
+            "img": "shopify://shop_images/Capture_258.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-fundamental-fleece-jogger-black",
+            "product": "gym-king-fundamental-fleece-short-grey-marl",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "hidden",
@@ -171,17 +171,17 @@
             "btn_color2": "#eeeeee"
           }
         },
-        "grid_item_FY6Tj8": {
+        "grid_item_fp6Ckt": {
           "type": "grid-item",
           "settings": {
             "title": "Item Title",
             "flag": "",
             "grid_column_span": "1",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/FUNDAMENTAL_LINEAR_FLEECE_HOOD_FUNDAMENTAL_LINEAR_STRAIGHT_LEG_JOGGER_HDE-BNVRG_TSB-EOFG4_04.webp",
+            "img": "shopify://shop_images/FUNDAMENTAL_HOOD_FUNDAMENTAL_JOGGER_-_BLACK_WHITE_HDE-A2ACF_TSB-BOEY3_4.jpg",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-fundamental-linear-straight-leg-jogger-black",
+            "product": "gym-king-fundamental-fleece-jogger-black",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "hidden",
@@ -295,9 +295,9 @@
       "block_order": [
         "grid_item_HttinP",
         "grid_item_bLzy8f",
-        "grid_item_fp6Ckt",
-        "grid_item_fNzbHq",
         "grid_item_FY6Tj8",
+        "grid_item_fNzbHq",
+        "grid_item_fp6Ckt",
         "spacer_NTgzLG",
         "grid_item_pjrnWd",
         "grid_item_e3qjVp",
