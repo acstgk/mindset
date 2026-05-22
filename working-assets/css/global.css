@@ -1027,7 +1027,7 @@ content-accordian {
   }
 
   &.active {
-    border-bottom: 1px solid var(--c-light-grey);
+    border-bottom: 1px solid var(--c-off-white);
     & + .accordian-content {
       height: fit-content;
       padding-block: 15px;
@@ -1352,7 +1352,6 @@ ul.sub_menu-items {
   & .accordian-header {
     font-weight: 400;
     height: 2rem;
-    border-bottom: 1px solid var(--c-off-white);
     padding: 1.2lh 0 1.5lh;
   }
 
