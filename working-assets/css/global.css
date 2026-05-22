@@ -1371,7 +1371,7 @@ ul.sub_menu-items {
   transition: height 0.2s var(--bezier);
 
   & ul {
-    padding: 0 0 0 0.5rem;
+    padding: 0 0 1rem 0.5rem;
     margin: 0;
     flex-flow: column nowrap;
 
