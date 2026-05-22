@@ -1866,10 +1866,10 @@ hero-carousel {
 }
 
 .hero_slide-video,
-.hero_slide-image,
 .hero_slide-image {
   pointer-events: none;
   z-index: -3;
+  filter: brightness(0.85);
 }
 
 .hero_slide-overlay {
