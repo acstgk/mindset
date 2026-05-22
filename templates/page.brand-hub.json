@@ -179,8 +179,10 @@
         "title": "Our Ambassadors",
         "init_splide": true,
         "icon_size": "100%",
+        "slide_spacing": "0.5rem",
         "image_fit": "cover",
-        "aspect_ratio": 1
+        "aspect_ratio": 1,
+        "icon_shape": "square"
       }
     },
     "blog_article_grid_KhXhCC": {
@@ -367,8 +369,10 @@
         "title": "Our Partner Training Facilities",
         "init_splide": true,
         "icon_size": "65%",
+        "slide_spacing": "0.5rem",
         "image_fit": "contain",
-        "aspect_ratio": 2.4
+        "aspect_ratio": 2.4,
+        "icon_shape": "square"
       }
     },
     "content_rich_text_xHFFe9": {
@@ -434,6 +438,23 @@
         "grid_style": "standard"
       }
     },
+    "section_split_banner_k8yFfF": {
+      "type": "section-split-banner",
+      "name": "Split Banner",
+      "settings": {
+        "img1": "shopify://shop_images/ENERGISE_TEE_ENERGISE_SHORT_-_BLACK_SST-BOFRQ_SHR-BOFRV_24.jpg",
+        "title_mens": "Best of Mens",
+        "url1": "shopify://pages/best-of-gym-king-mens",
+        "img2": "shopify://shop_images/KNOCKOUT_KEY_HOLE_TANK_KNOCKOUT_SKORT_-_CLASSIC_TEAL_WVS-BOG8Q_WSR-BOG8T_90.jpg",
+        "title_womens": "Best of GK Womens",
+        "url2": "shopify://pages/best-of-gym-king-womens",
+        "image_style": "",
+        "gap": 10,
+        "hide_second": false,
+        "full_width": false,
+        "flex_wrap": true
+      }
+    },
     "custom_ctas_QCLdk8": {
       "type": "custom-ctas",
       "blocks": {
@@ -458,8 +479,12 @@
         "button_fAFttp",
         "button_bygtqN"
       ],
+      "disabled": true,
       "name": "Best of pages",
       "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis",
         "size": ""
       }
     }
@@ -478,6 +503,7 @@
     "content_rich_text_xHFFe9",
     "spacer_e3wMjb",
     "content_rich_text_MPch8w",
+    "section_split_banner_k8yFfF",
     "custom_ctas_QCLdk8"
   ]
 }

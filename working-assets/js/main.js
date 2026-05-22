@@ -807,6 +807,8 @@ class ProductModalManager {
    */
   constructor(sourceElement) {
     this.sourceElement = sourceElement; // Reference to parent element
+    this._activeModal = null; // Track currently open modal
+    this._showTimeoutId = null; // Timeout ID for delayed show
     this._touchStartY = null; // Track touch start position for swipe
     this._touchStartListener = null; // Touch event listener reference
     this._touchEndListener = null; // Touch event listener reference
@@ -823,13 +825,24 @@ class ProductModalManager {
     const modalID = trigger.dataset.target;
     let modalEl = document.getElementById(modalID);
 
+    // Close previously open modal before opening another
+    if (this._activeModal) {
+      this._activeModal.classList.add("keep-overlay");
+      this.closeModal({ target: this._activeModal });
+    }
+
     if (!modalEl) {
       modalEl = this.buildModal(trigger);
       document.body.appendChild(modalEl);
       bindQATBButtons(modalEl);
     }
 
-    setTimeout(() => {
+    this._activeModal = modalEl;
+    clearTimeout(this._showTimeoutId);
+
+    this._showTimeoutId = setTimeout(() => {
+      if (this._activeModal !== modalEl) return;
+
       modalEl.classList.add("active");
       isOverlay ? modalEl.classList.add("keep-overlay") : "";
       modalEl.setAttribute("aria-hidden", "false");
@@ -869,6 +882,8 @@ class ProductModalManager {
         modalEl.addEventListener("touchstart", this._touchStartListener);
         modalEl.addEventListener("touchend", this._touchEndListener);
       }
+
+      this._showTimeoutId = null;
     }, 200);
   }
 
@@ -980,11 +995,18 @@ class ProductModalManager {
       modal.removeEventListener("touchend", this._touchEndListener);
       this._touchEndListener = null;
     }
+    clearTimeout(this._showTimeoutId);
+    this._showTimeoutId = null;
+
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
 
     !keepOverlay ? document.querySelector("page-overlay").closeThis() : "";
     modal.classList.remove("keep-overlay");
+
+    if (this._activeModal === modal) {
+      this._activeModal = null;
+    }
   }
 }
 

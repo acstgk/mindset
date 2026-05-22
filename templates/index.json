@@ -14,11 +14,10 @@
       "blocks": {
         "image_9DFwkJ": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Bank Hol - Mobile Banner Womens V1 LAUNCH.mp4",
             "desktop_video": "shopify://files/videos/Bank Hol - Desktop Banner Womens V1 LAUNCH.mp4",
-            "overlay_url": "",
+            "overlay_url": "/collections/bank-holiday-sale/womens",
             "alt_text": "",
             "lockup_width": 200,
             "lockup_fit": "contain",
@@ -40,11 +39,10 @@
         },
         "image_aAAMma": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Mens Web Banner Mobile V1 7s.mp4",
             "desktop_video": "shopify://files/videos/Web Banner male v1.mp4",
-            "overlay_url": "",
+            "overlay_url": "/collections/bank-holiday-sale/mens",
             "alt_text": "",
             "lockup_width": 200,
             "lockup_fit": "contain",
@@ -120,6 +118,7 @@
         },
         "image_6BmG7G": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Signature Summer - Womens - Mobile Banner V2_11ad0ed4-056c-48f0-a372-aaf40c7f3a31.mp4",
             "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner V2_1.mp4",
@@ -145,6 +144,7 @@
         },
         "image_eT8DWX": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Signature Summer - Mens - Mobile Banner V2_6f61119a-4691-4178-b92e-d93ec1f98ab5.mp4",
             "mobile_poster": "shopify://shop_images/Spring_Essentials_-_Mobile_Banner.png",
@@ -182,8 +182,8 @@
       "custom_css": [
         ".h3 {font-size: var(--txt-h4);}",
         "em {width: 100%; display: inline-block;}",
-        ".styled {background: var(--c-white); color: var(--c-black); padding: 0.2lh 1ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto; font-weight: bold;}",
-        " /* .hero_slide:nth-child(2) .h1 {font-size: var(--txt-xxl);} */"
+        ".styled {background: var(--c-white); color: var(--c-black); padding: 0.2lh 1ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto; font-weight: bold; font-size: calc(var(--txt-p) * 0.75)}",
+        ".hero_slide:nth-child(2) .h1 {font-size: var(--txt-xxl);}"
       ],
       "settings": {}
     },
