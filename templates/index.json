@@ -182,7 +182,7 @@
       "custom_css": [
         ".h3 {font-size: var(--txt-h4);}",
         "em {width: 100%; display: inline-block;}",
-        ".styled {background: var(--c-white); color: var(--c-black); padding: 0.2lh 1ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto; font-weight: bold; font-size: calc(var(--txt-p) * 0.75)}",
+        ".styled {background: var(--c-white); color: var(--c-black); padding: 0.5lh 1ch 0.5lh 1.2ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto; font-weight: bold; font-size: calc(var(--txt-p) * 0.75); text-box-trim: trim-both; text-box-edge: cap alphabetic; text-align: center;}",
         ".hero_slide:nth-child(2) .h1 {font-size: var(--txt-xxl);}"
       ],
       "settings": {}
