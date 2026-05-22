@@ -1869,7 +1869,7 @@ hero-carousel {
 .hero_slide-image {
   pointer-events: none;
   z-index: -3;
-  filter: brightness(0.85);
+  filter: brightness(0.875);
 }
 
 .hero_slide-overlay {
