@@ -92,7 +92,7 @@
   {% comment %} images and interactions {% endcomment %}
   <div class="product_card-media {% if product.available == false %}oos-overlay{% endif %}">
     {% if show_timer or settings['decal-check'] %}
-      <div class="product_card-decal">
+      <div class="product_card-decal {% unless settings['decal-check'] %}countdown_decal{% endunless %}">
         {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: sizes: sizes, widths: widths, loading: 'lazy' }}
       </div>
     {% else %}
@@ -123,9 +123,7 @@
     {% render 'product-title', product: product %}
     {% render 'product-price', product: product %}
     {% if show_timer %}
-      <div class="countdown-wrapper">
-        <countdown-timer data-countdown="{{ countdown_settings | strip_newlines | escape }}"></countdown-timer>
-      </div>
+      <countdown-timer class="countdown-wrapper" data-countdown='{{ countdown_settings | strip_newlines }}'></countdown-timer>
     {% endif %}
   </div>
 

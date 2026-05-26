@@ -129,7 +129,9 @@ input[type="range"] {
 }
 
 countdown-timer,
-countdown-timer.error {
+countdown-timer.error,
+.countdown_decal,
+.splide.is-initialized .splide__decal.countdown_decal {
   display: none;
 }
 

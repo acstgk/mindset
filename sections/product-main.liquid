@@ -68,7 +68,7 @@
     <div class="loader"></div>
     <pdp-carousel>
       {% if show_timer or settings['decal-check'] %}
-        <div class="splide__decal countdown_decal">
+        <div class="splide__decal {% unless settings['decal-check'] %}countdown_decal{% endunless %}">
           {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: loading: 'lazy' }}
         </div>
       {% else %}
@@ -322,9 +322,7 @@
   </form>
 
   {% if show_timer %}
-    <div class="error countdown-wrapper accent-bg">
-      <countdown-timer data-countdown="{{ countdown_settings | strip_newlines | escape }}"></countdown-timer>
-    </div>
+    <countdown-timer class='error countdown-wrapper accent-bg' data-countdown='{{ countdown_settings | strip_newlines }}'></countdown-timer>
   {% endif %}
 
   <div class="product_details-confidence-blocks">

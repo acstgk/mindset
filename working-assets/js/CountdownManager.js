@@ -30,7 +30,6 @@ class CountdownManager {
     clearInterval(this.interval);
     window.dispatchEvent(new CustomEvent("countdown:ended"));
     this.subscribers.forEach((el) => {
-
       el.remove();
     });
   }
@@ -59,6 +58,11 @@ class CountdownManager {
       this.subscribers.forEach((el) => {
         el.innerHTML = text;
         el.style.display = "inline-block";
+
+        const parent = el.closest("product-card") || el.closest(".section--product_main");
+        if (parent) {
+          parent.querySelector(".countdown_decal").style.display = "inline-block";
+        }
       });
       return diff;
     }
