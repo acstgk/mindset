@@ -128,6 +128,11 @@ input[type="range"] {
   padding: 0;
 }
 
+countdown-timer,
+countdown-timer.error {
+  display: none;
+}
+
 .product_card-decal {
   right: 0;
   position: absolute;

@@ -2,7 +2,7 @@
 class CountdownManager {
   static instances = new Map();
 
-  static getInstance(name = 'default') {
+  static getInstance(name = "default") {
     if (!this.instances.has(name)) {
       this.instances.set(name, new CountdownManager());
     }
@@ -30,12 +30,8 @@ class CountdownManager {
     clearInterval(this.interval);
     window.dispatchEvent(new CustomEvent("countdown:ended"));
     this.subscribers.forEach((el) => {
-      const parent = el.parentElement;
-      if (parent.classList.contains("splide__slide")) {
-        el.closest(".splide").splide.remove(`#${parent.id}`); // Remove from Splide if applicable
-      } else {
-        parent.remove();
-      }
+
+      el.remove();
     });
   }
 
@@ -60,7 +56,10 @@ class CountdownManager {
       totalTime += `${seconds}S`;
 
       text = `${this.copy} <b> ${totalTime}</b>`;
-      this.subscribers.forEach((el) => (el.innerHTML = text));
+      this.subscribers.forEach((el) => {
+        el.innerHTML = text;
+        el.style.display = "inline-block";
+      });
       return diff;
     }
   }
@@ -76,4 +75,4 @@ class CountdownManager {
 
 // Export both the class and a default instance
 export { CountdownManager };
-export default CountdownManager.getInstance('default'); // Default shared instance
+export default CountdownManager.getInstance("default"); // Default shared instance
