@@ -34,6 +34,11 @@ if (!customElements.get("pdp-carousel")) {
           this._splideMainInit();
           this._addEventListeners();
           this.appendChild(this.zoomBtn);
+          this._countdownHandler = () => {
+            const decal = this.querySelector(".countdown_decal");
+            if (decal) decal.remove();
+          };
+          window.addEventListener("countdown:ended", this._countdownHandler);
         });
       }
 
