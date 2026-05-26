@@ -92,7 +92,9 @@
   {% comment %} images and interactions {% endcomment %}
   <div class="product_card-media {% if product.available == false %}oos-overlay{% endif %}">
     {% if show_timer or settings['decal-check'] %}
-      {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: sizes: sizes, widths: widths, loading: 'lazy', class: 'product_card-decal' }}
+      <div class="product_card-decal">
+        {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: sizes: sizes, widths: widths, loading: 'lazy' }}
+      </div>
     {% else %}
       {% render 'evergreen-decal', product: product, class: 'product_card-decal' %}
     {% endif %}

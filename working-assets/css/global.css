@@ -128,18 +128,23 @@ input[type="range"] {
   padding: 0;
 }
 
+.product_card-decal {
+  right: 0;
+  position: absolute;
+  bottom: 0.5em;
+  width: max(50%, 7rem);
+  z-index: 2;
+}
+
 .evergreen-decal {
   background: var(--c-black);
   color: var(--c-white);
-  right: 0;
-  bottom: 2.5em;
-  position: absolute;
-  width: max-content;
-  min-width: min(8rem, 30%);
   font-size: var(--txt-h4);
-  z-index: 2;
   text-align: center;
   border-radius: 200px 0 0 200px;
+  bottom: 2.5em;
+  width: max-content;
+  min-width: min(8rem, 30%);
   /* oversize the border radius for a circular arc that is always 50% of element height  */
   box-shadow: 0 0 2rem -0.5rem rgb(125 125 125 / 0.5);
 
@@ -177,6 +182,11 @@ input[type="range"] {
   right: 0;
   bottom: 10%;
   z-index: 1;
+
+  &.countdown_decal {
+    width: max(40%, 6rem);
+    bottom: 7%;
+  }
 
   & > div {
     padding: 2rem 2rem 2rem 3rem;
@@ -1869,7 +1879,6 @@ hero-carousel {
 .hero_slide-image {
   pointer-events: none;
   z-index: -3;
-  filter: brightness(0.875);
 }
 
 .hero_slide-overlay {

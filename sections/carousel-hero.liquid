@@ -1,5 +1,6 @@
 <hero-carousel>
   {%- for block in section.blocks -%}
+    {% assign brightness = 'filter: brightness(' | append: block.settings.media_brightness | append: '%);' %}
     <div
       class="hero_slide  splide__slide {{ block.settings.title | handle }}-{{ forloop.index }}"
       data-gender="{{ block.settings.target_gender }}"
@@ -46,7 +47,7 @@
           muted="muted"
           class="hero_slide-video mob-only"
           poster="{{ poster_image }}"
-          style="{{ aspect_ratio }}"
+          style="{{ brightness }}{{ aspect_ratio }}"
           fetchpriority="{{ fetchpriority }}"
         >
           <source data-src-lazy="{{ video_src.url }}" type="video/mp4">
@@ -54,7 +55,11 @@
 
       {% else %}
         {% if block.settings.mobile_poster %}
-          {{ block.settings.mobile_poster | image_url: width: 1600 | image_tag: widths: '480, 640, 800, 960, 1200, 1600', sizes: '100vw', class: 'hero_slide-image mob-only', loading: preload, fetchpriority: fetchpriority }}
+          {{
+            block.settings.mobile_poster
+            | image_url: width: 1600
+            | image_tag: widths: '480, 640, 800, 960, 1200, 1600', sizes: '100vw', class: 'hero_slide-image mob-only', loading: preload, fetchpriority: fetchpriority, style: brightness
+          }}
         {% else %}
           <img src="https://placehold.co/650x1300?text=IMAGE&font=oswald" alt="placeholder image" height="1300" width="650" class="hero_slide-image mob-only">
         {% endif %}
@@ -90,14 +95,18 @@
           muted="muted"
           class="hero_slide-video mob-hide"
           poster="{{ poster_image }}"
-          style="{{ aspect_ratio }}"
+          style="{{ brightness }} {{ aspect_ratio }}"
           fetchpriority="{{ fetchpriority }}"
         >
           <source data-src-lazy="{{ video_src.url }}" type="video/mp4">
         </video>
       {% else %}
         {% if block.settings.desktop_poster %}
-          {{ block.settings.desktop_poster | image_url: width: 2560 | image_tag: widths: '960, 1280, 1600, 1920, 2240, 2560', sizes: '100vw', class: 'hero_slide-image mob-hide', loading: preload, fetchpriority: fetchpriority }}
+          {{
+            block.settings.desktop_poster
+            | image_url: width: 2560
+            | image_tag: widths: '960, 1280, 1600, 1920, 2240, 2560', sizes: '100vw', class: 'hero_slide-image mob-hide', loading: preload, fetchpriority: fetchpriority, style: brightness
+          }}
         {% else %}
           <img src="https://placehold.co/1400x800?text=IMAGE&font=oswald" alt="placeholder image" height="800" width="1400" class="hero_slide-image mob-hide">
         {% endif %}
@@ -207,6 +216,16 @@
           "type": "image_picker",
           "id": "desktop_poster",
           "label": "Desktop Cover Image"
+        },
+        {
+          "type": "range",
+          "id": "media_brightness",
+          "label": "Media Brightness",
+          "min": 50,
+          "max": 100,
+          "step": 2.5,
+          "default": 87.5,
+          "unit": "%"
         },
         {
           "type": "url",

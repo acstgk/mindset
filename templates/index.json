@@ -12,24 +12,24 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
-        "image_9DFwkJ": {
+        "image_8VepA6": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/Bank Hol - Mobile Banner Womens V1 LAUNCH.mp4",
-            "desktop_video": "shopify://files/videos/Bank Hol - Desktop Banner Womens V1 LAUNCH.mp4",
-            "overlay_url": "/collections/bank-holiday-sale/womens",
+            "mobile_video": "shopify://files/videos/Womens Web Banner V2 Mobile .mp4",
+            "desktop_video": "shopify://files/videos/Web Banner V2 24 HOUR OFFERS.mp4",
+            "overlay_url": "",
             "alt_text": "",
             "lockup_width": 200,
             "lockup_fit": "contain",
-            "title": "30% Off",
+            "title": "24 Hour Offers",
             "title_font": "baskerville",
-            "subtitle": "Bank Holiday Offer",
+            "subtitle": "Bank Holiday",
             "subtitle_font": "",
             "subtitle_first": true,
-            "customHTML": "<div class=\"styled\">SITEWIDE</div>",
+            "customHTML": "<p class=\"h3 fade-in\" style=\"font-size:var(--txt-sm);letter-spacing:0.25ch\">New Discounts Everyday</p>",
             "content_alignment": "center",
-            "v_align_desk": "middle-desk",
-            "v_align_mob": "middle-mob",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
             "cta1": "Shop Now",
             "url1": "/collections/bank-holiday-sale/womens",
             "cta2": "",
@@ -37,24 +37,24 @@
             "target_gender": "womens"
           }
         },
-        "image_aAAMma": {
+        "image_eeLCmm": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/Mens Web Banner Mobile V1 7s.mp4",
-            "desktop_video": "shopify://files/videos/Web Banner male v1.mp4",
-            "overlay_url": "/collections/bank-holiday-sale/mens",
+            "mobile_video": "shopify://files/videos/Mens Web Banner Mobile V2 7s.mp4",
+            "desktop_video": "shopify://files/videos/Web Banner male v2.mp4",
+            "overlay_url": "",
             "alt_text": "",
             "lockup_width": 200,
             "lockup_fit": "contain",
-            "title": "30% Off",
+            "title": "24 Hours Offers",
             "title_font": "",
-            "subtitle": "Bank Holiday Offer",
+            "subtitle": "Bank Holiday",
             "subtitle_font": "",
             "subtitle_first": true,
-            "customHTML": "<div class=\"styled\">SITEWIDE</div>",
+            "customHTML": "<p class=\"h3 fade-in\" style=\"font-size:var(--txt-sm);letter-spacing:0.25ch\">New Discounts Everyday</p>",
             "content_alignment": "center",
-            "v_align_desk": "middle-desk",
-            "v_align_mob": "middle-mob",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
             "cta1": "Shop Now",
             "url1": "/collections/bank-holiday-sale/mens",
             "cta2": "",
@@ -172,8 +172,8 @@
         }
       },
       "block_order": [
-        "image_9DFwkJ",
-        "image_aAAMma",
+        "image_8VepA6",
+        "image_eeLCmm",
         "image_kghbFi",
         "image_hkkRfY",
         "image_6BmG7G",
@@ -182,7 +182,7 @@
       "custom_css": [
         ".h3 {font-size: var(--txt-h4);}",
         "em {width: 100%; display: inline-block;}",
-        ".styled {background: var(--c-white); color: var(--c-black); padding: 0.2lh 1ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto; font-weight: bold; font-size: calc(var(--txt-p) * 0.75)}",
+        ".styled {background: var(--c-white); color: var(--c-black); padding: 0.5lh 1ch 0.5lh 1.2ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto; font-weight: bold; font-size: calc(var(--txt-p) * 0.75); text-box-trim: trim-both; text-box-edge: cap alphabetic; text-align: center;}",
         ".hero_slide:nth-child(2) .h1 {font-size: var(--txt-xxl);}"
       ],
       "settings": {}

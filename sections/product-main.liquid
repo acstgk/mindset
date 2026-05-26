@@ -68,7 +68,9 @@
     <div class="loader"></div>
     <pdp-carousel>
       {% if show_timer or settings['decal-check'] %}
-        {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: loading: 'lazy', class: 'splide__decal' }}
+        <div class="splide__decal countdown_decal">
+          {{ settings['countdown-decal'] | image_url: width: 950 | image_tag: loading: 'lazy' }}
+        </div>
       {% else %}
         {% render 'evergreen-decal', product: product, class: 'splide__decal' %}
       {% endif %}
