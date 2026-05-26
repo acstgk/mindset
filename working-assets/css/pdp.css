@@ -435,9 +435,9 @@ pdp-carousel {
   }
 }
 
-.countdown-wrapper {
+#product-details .countdown-wrapper {
   text-align: center;
-  margin-top: 0;
+  margin: 0.25em 0 0;
   width: 100%;
 }
 
@@ -560,7 +560,7 @@ pdp-carousel {
     margin-bottom: -0.5rem;
     height: 100%;
     transition: filter 0.15s var(--bezier);
-    filter: brightness(1)
+    filter: brightness(1);
   }
 
   &.active {

@@ -137,6 +137,9 @@
       <div class="yotpo-widget-instance" data-yotpo-instance-id="1008278" data-yotpo-product-id="{{product.id}}" data-yotpo-cart-product-id="{{item.product.id}}" data-yotpo-section-id="{{template.name}}"></div>
     {% endunless %}
   </div>
+  {% if show_timer %}
+    <countdown-timer class="error countdown-wrapper accent-bg" data-countdown="{{ countdown_settings | strip_newlines | escape }}"></countdown-timer>
+  {% endif %}
 
   {% render 'bnpl' with product_price as price %}
 
@@ -320,10 +323,6 @@
       {% render 'model-sizing' %}
     {% endif %}
   </form>
-
-  {% if show_timer %}
-    <countdown-timer class='error countdown-wrapper accent-bg' data-countdown='{{ countdown_settings | strip_newlines }}'></countdown-timer>
-  {% endif %}
 
   <div class="product_details-confidence-blocks">
     <div class="confidence_blocks-block accent-bg">
