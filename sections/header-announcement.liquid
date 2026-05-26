@@ -11,7 +11,6 @@
       <div class="announcement_track splide__track">
         <div class="announcement_list splide__list">
           {% for block in section.blocks %}
-
             {%- assign hide_announcement = false -%}
             {%- if localization.country.iso_code != 'GB' and block.settings.country_restriction == 'domestic_only' -%}
               {%- assign hide_announcement = true -%}
@@ -20,23 +19,23 @@
             {%- endif -%}
 
             {% unless hide_announcement %}
-            <div class="splide__slide">
-              <a
-                href="{{ block.settings.link1 | escape }}"
-                class="announcement_content"
-                data-block-id="{{ block.id }}"
-                {{ block.shopify_attributes }}
-              >
-                <b class="announcement_content-title">{{ block.settings.title | escape }} </b>
-                {% if block.settings.enable_countdown %}
-                  <countdown-timer class="announcement_content-text" data-countdown='{{ countdown_settings | strip_newlines  }}'></countdown-timer>
-                {% else %}
-                  <span class="announcement_content-text">
-                    {{ block.settings.subcontent1 | escape }}
-                  </span>
-                {% endif %}
-              </a>
-            </div>
+              <div class="splide__slide">
+                <a
+                  href="{{ block.settings.link1 | escape }}"
+                  class="announcement_content"
+                  data-block-id="{{ block.id }}"
+                  {{ block.shopify_attributes }}
+                >
+                  <b class="announcement_content-title">{{ block.settings.title | escape }} </b>
+                  {% if block.settings.enable_countdown %}
+                    <countdown-timer class="announcement_content-text" data-countdown='{{ countdown_settings | strip_newlines }}'></countdown-timer>
+                  {% else %}
+                    <span class="announcement_content-text">
+                      {{ block.settings.subcontent1 | escape }}
+                    </span>
+                  {% endif %}
+                </a>
+              </div>
             {% endunless %}
           {% endfor %}
         </div>
