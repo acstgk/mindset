@@ -1585,6 +1585,11 @@ free-delivery {
       rotate: 45deg;
     }
   }
+
+  & countdown-timer {
+    font-size: var(--txt-sm);
+  }
+
   & .evergreen-decal {
     display: none;
   }
