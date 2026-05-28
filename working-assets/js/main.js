@@ -840,6 +840,11 @@ class ProductModalManager {
     this._activeModal = modalEl;
     clearTimeout(this._showTimeoutId);
 
+    // Blur slide-drawer behind modal
+    this._blurStyle = document.createElement("style");
+    this._blurStyle.textContent = "slide-drawer { filter: blur(2px); transition: translate 0.15s ease-out, opacity 0.16s ease-out, filter 0.4s ease; }";
+    document.head.appendChild(this._blurStyle);
+
     this._showTimeoutId = setTimeout(() => {
       if (this._activeModal !== modalEl) return;
 
@@ -928,9 +933,8 @@ class ProductModalManager {
 
     // Copy the product details - check trigger first, then by data-target match, then sourceElement
     const targetId = trigger.dataset.target;
-    const productInfoSource = trigger.querySelector(".product_card-info")
-      || (targetId && this.sourceElement.querySelector(`.product_card-info[data-target="${targetId}"]`))
-      || this.sourceElement.querySelector(".product_card-info");
+    const productInfoSource =
+      trigger.querySelector(".product_card-info") || (targetId && this.sourceElement.querySelector(`.product_card-info[data-target="${targetId}"]`)) || this.sourceElement.querySelector(".product_card-info");
     const productInfo = productInfoSource.innerHTML;
     const info = document.createElement("div");
     info.className = "mqatb-info";
@@ -939,9 +943,7 @@ class ProductModalManager {
     info.querySelectorAll(".cart_items-ctl-button").forEach((el) => el.remove());
 
     // Copy add to bag buttons - check trigger first, then by data-target match, then sourceElement
-    const buttonsDataSource = trigger.querySelector(".datb")
-      || (targetId && this.sourceElement.querySelector(`.datb[data-target="${targetId}"]`))
-      || this.sourceElement.querySelector(".datb");
+    const buttonsDataSource = trigger.querySelector(".datb") || (targetId && this.sourceElement.querySelector(`.datb[data-target="${targetId}"]`)) || this.sourceElement.querySelector(".datb");
     const buttonsData = buttonsDataSource.innerHTML;
     const buttons = document.createElement("div");
     buttons.className = "mqatb-btns";
@@ -986,6 +988,11 @@ class ProductModalManager {
   closeModal(event) {
     const modal = event.target.closest(".mqatb-modal");
     const keepOverlay = modal.classList.contains("keep-overlay");
+    // Remove blur style
+    if (this._blurStyle) {
+      this._blurStyle.remove();
+      this._blurStyle = null;
+    }
     // Remove touch listeners if present
     if (this._touchStartListener) {
       modal.removeEventListener("touchstart", this._touchStartListener);
