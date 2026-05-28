@@ -9,9 +9,9 @@
  */
 {
   "current": {
-    "countdown-date": "05/27/26 12:00 PM",
+    "countdown-date": "05/29/26 12:00 PM",
     "countdown-product-check": true,
-    "countdown-tag": "BHDAY1",
+    "countdown-tag": "BHDAY3",
     "countdown-decal": "shopify://shop_images/Bank_Hol_24_Hours_Decal_0d57a58e-2176-49d7-ad53-478feccc2696.png",
     "decal-check": false,
     "img-mens-content": "shopify://shop_images/In_Content_Banners_-_Mens.png",
@@ -99,7 +99,7 @@
           "announcement_slider_H9aD6J": {
             "type": "announcement_slider",
             "settings": {
-              "title": "Bank Holiday 24 hour Offers",
+              "title": "24 Hour Offers - Last Day",
               "subcontent1": "More Info",
               "link1": "/collections/bank-holiday-sale",
               "enable_countdown": true,
