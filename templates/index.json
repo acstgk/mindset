@@ -12,6 +12,60 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_MKCQdr": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "mobile_video": "shopify://files/videos/Bank Hol - Mobile Banner Womens V3.mp4",
+            "desktop_video": "shopify://files/videos/Bank Hol - Desktop Banner Womens V3 PAYDAY.mp4",
+            "media_brightness": 87.5,
+            "overlay_url": "",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "30% OFF",
+            "title_font": "baskerville",
+            "subtitle": "Payday Exclusive",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "<div class=\"styled\">SITEWIDE</div>",
+            "content_alignment": "center",
+            "v_align_desk": "middle-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Now",
+            "url1": "/collections/bank-holiday-sale/womens",
+            "cta2": "",
+            "url2": "",
+            "target_gender": "womens"
+          }
+        },
+        "image_r4rCJi": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "mobile_video": "shopify://files/videos/Mens Web Banner Mobile V3 7s.mp4",
+            "desktop_video": "shopify://files/videos/Web Banner male v3.mp4",
+            "media_brightness": 87.5,
+            "overlay_url": "",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "30% OFF",
+            "title_font": "",
+            "subtitle": "Payday Exclusive",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "<div class=\"styled\">SITEWIDE</div>",
+            "content_alignment": "center",
+            "v_align_desk": "middle-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Now",
+            "url1": "/collections/bank-holiday-sale/mens",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
+          }
+        },
         "image_8VepA6": {
           "type": "image",
           "settings": {
@@ -48,7 +102,7 @@
             "alt_text": "",
             "lockup_width": 200,
             "lockup_fit": "contain",
-            "title": "24 Hours Offers",
+            "title": "24 Hour Offers",
             "title_font": "",
             "subtitle": "Bank Holiday",
             "subtitle_font": "",
@@ -178,6 +232,8 @@
         }
       },
       "block_order": [
+        "image_MKCQdr",
+        "image_r4rCJi",
         "image_8VepA6",
         "image_eeLCmm",
         "image_kghbFi",
