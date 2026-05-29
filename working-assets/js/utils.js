@@ -24,7 +24,11 @@ export function bindQATBButtons(root) {
           targetButton.innerHTML = targetSize;
           const prodID = root.id;
           const modal = document.getElementById(prodID);
-          modal ? modal.classList.remove("active") : "";
+          if (modal) {
+            modal.classList.remove("active");
+            const blurStyle = document.querySelector("[data-blur-style]");
+            if (blurStyle) blurStyle.remove();
+          }
         })
         .catch((error) => {
           targetButton.innerHTML = targetSize;

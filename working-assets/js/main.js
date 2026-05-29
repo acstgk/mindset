@@ -841,9 +841,11 @@ class ProductModalManager {
     clearTimeout(this._showTimeoutId);
 
     // Blur slide-drawer behind modal
-    this._blurStyle = document.createElement("style");
-    this._blurStyle.textContent = "slide-drawer { filter: blur(2px); transition: translate 0.15s ease-out, opacity 0.16s ease-out, filter 0.4s ease; }";
-    document.head.appendChild(this._blurStyle);
+    const blurStyle = document.createElement("style");
+    blurStyle.dataset.blurStyle = "";
+    blurStyle.textContent = "slide-drawer { filter: blur(2px); }";
+    document.head.appendChild(blurStyle);
+    this._blurStyle = blurStyle;
 
     this._showTimeoutId = setTimeout(() => {
       if (this._activeModal !== modalEl) return;
@@ -989,10 +991,9 @@ class ProductModalManager {
     const modal = event.target.closest(".mqatb-modal");
     const keepOverlay = modal.classList.contains("keep-overlay");
     // Remove blur style
-    if (this._blurStyle) {
-      this._blurStyle.remove();
-      this._blurStyle = null;
-    }
+    const blurStyle = document.querySelector("[data-blur-style]");
+    if (blurStyle) blurStyle.remove();
+    this._blurStyle = null;
     // Remove touch listeners if present
     if (this._touchStartListener) {
       modal.removeEventListener("touchstart", this._touchStartListener);
