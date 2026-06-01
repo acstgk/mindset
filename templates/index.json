@@ -14,12 +14,11 @@
       "blocks": {
         "image_MKCQdr": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Bank Hol - Mobile Banner Womens V3.mp4",
             "desktop_video": "shopify://files/videos/Bank Hol - Desktop Banner Womens V3 PAYDAY.mp4",
             "media_brightness": 87.5,
-            "overlay_url": "",
+            "overlay_url": "/collections/bank-holiday-sale/womens",
             "alt_text": "",
             "lockup_width": 200,
             "lockup_fit": "contain",
@@ -41,12 +40,11 @@
         },
         "image_r4rCJi": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Mens Web Banner Mobile V3 7s.mp4",
             "desktop_video": "shopify://files/videos/Web Banner male v3.mp4",
             "media_brightness": 87.5,
-            "overlay_url": "",
+            "overlay_url": "/collections/bank-holiday-sale/mens",
             "alt_text": "",
             "lockup_width": 200,
             "lockup_fit": "contain",
@@ -68,6 +66,7 @@
         },
         "image_8VepA6": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Womens Web Banner V2 Mobile .mp4",
             "desktop_video": "shopify://files/videos/Web Banner V2 24 HOUR OFFERS.mp4",
@@ -94,6 +93,7 @@
         },
         "image_eeLCmm": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Mens Web Banner Mobile V2 7s.mp4",
             "desktop_video": "shopify://files/videos/Web Banner male v2.mp4",
@@ -148,6 +148,7 @@
         },
         "image_hkkRfY": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Heritage - Mobile Banner V2.mp4",
             "mobile_poster": "shopify://shop_images/HERITAGE_MOBILE_BANNER_NO_COPY.png",
