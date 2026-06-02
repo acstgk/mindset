@@ -1454,8 +1454,15 @@ ul.sub_menu-items {
 #cartDrawer .cart_items-list {
   padding: 0 20px 10px;
 }
-
+.cart_items-ctl-wrapper {
+  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+}
 .cart_items-ctl {
+  scroll-snap-align: start;
   flex-wrap: wrap;
   gap: 0 7.5px;
   grid-row: 3 / 4;
@@ -1463,16 +1470,30 @@ ul.sub_menu-items {
   display: none;
   overflow: hidden;
 
+  & .accent-bg {
+    display: grid;
+    grid-template-columns: 85px 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 0 1rem;
+    margin: 0.25rem 0 0.5rem;
+    flex: 1 0 85%;
+    scroll-snap-align: start;
+  }
+
   & .button {
-    flex: 1 0 300px;
-    font-size: var(--txt-sm);
-    text-transform: none;
     font-weight: 400;
-    padding: 0.6rem;
-    margin-top: 7.5px;
+    font-size: var(--txt-sm);
+  }
+}
+
+.cart_item-ctl-details {
+  height: 100%;
+  place-content: center;
+
+  & .Title {
+    flex-direction: column;
     justify-content: flex-start;
-    background-color: var(--c-off-white);
-    border-color: transparent;
+    align-items: flex-start;
   }
 }
 
@@ -1497,7 +1518,7 @@ span.cart_items-ctl-title {
   margin: 0.5em 0 -0.2em 0.1em;
   display: none;
 
-  &:has(+ a) {
+  &:has(+ *) {
     display: block;
   }
 }
