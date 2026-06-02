@@ -6,7 +6,9 @@
 
   <div id="side-cart" class="active">
     {% render 'cart-items' %}
-    {% render 'cart-upsells' %}
+    {% unless section.settings.merge_upsells %}
+      {% render 'cart-upsells' %}
+    {% endunless %}
     {% if cart.item_count > 0 %}
       <div class="side_menu-footer cart-footer">
         {% render 'free-delivery-information' %}
@@ -57,6 +59,12 @@
         { "value": "delivery", "label": "Delivery ETA" }
       ],
       "default": "none"
+    },
+    {
+      "type": "checkbox",
+      "id": "merge_upsells",
+      "label": "Merge Upsells",
+      "default": false
     }
   ]
 }
