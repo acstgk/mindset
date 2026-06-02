@@ -42,10 +42,10 @@
 
   <div id="side-cart" class="active">
     {% if section.settings.merge_upsells %}
-      {% render 'cart-items', upsell_collection: upsell_collection %}
+      {% render 'cart-items', upsell_collection: upsell_collection, merge_upsells: section.settings.merge_upsells %}
     {% else %}
       {% render 'cart-items' %}
-      {% render 'cart-upsells' %}
+      {% render 'cart-upsells', merge_upsells: section.settings.merge_upsells %}
     {% endif %}
     {% if cart.item_count > 0 %}
       <div class="side_menu-footer cart-footer">

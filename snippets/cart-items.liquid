@@ -77,7 +77,8 @@
           </div>
 
           <div class="cart_item-total">{{ item.final_line_price | money_without_trailing_zeros }}</div>
-          {% if item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.type %}
+
+          {% if merge_upsells or item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.type %}
             {% render 'cart-items-ctl' with products: item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.value, cart_items: cart_items, upsell_collection: upsell_collection %}
           {% endif %}
           {% comment %} YOTPO POINTS INFO {% endcomment %}
