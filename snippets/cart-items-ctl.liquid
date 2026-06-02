@@ -43,5 +43,51 @@
         </div>
       {% endunless %}
     {% endfor %}
+    {% if upsell_collection != null %}
+      {% for product in upsell_collection.products %}
+        {% if product.available %}
+          {% unless cart_items contains product.id %}
+            <div class="accent-bg">
+              <div class="cart_item-image">
+                {{ product.featured_image | image_url: width: 400 | image_tag }}
+              </div>
+              <div class="cart_item-ctl-details">
+                {% render 'product-title' with product as product %}
+                {% render 'product-price' with product as product %}
+              </div>
+              <a
+                href="{{ product.url }}"
+                class="button button-primary button-full cart_items-ctl-button"
+                data-product-id="{{ product.id }}"
+                data-target="mqatb-{{product.id}}"
+                data-product-title="{{ product.title }}"
+                data-images="{% for image in product.images %}{%unless forloop.index == 2 %}{{ image | image_url: width: 700 }}{% unless forloop.last %},{% endunless %}{% endunless %}{% endfor %}"
+              >
+                {% render 'icon', icon: 'plus' -%}
+                Add
+              </a>
+            </div>
+            <div class="visually-hidden product_card-info" data-target="mqatb-{{product.id}}">
+              {% render 'product-title' with product as product %}
+              {% render 'product-price' with product as product %}
+            </div>
+            <div class="datb visually-hidden" data-target="mqatb-{{product.id}}">
+              <div class="qatb-btns">
+                {% for variant in product.variants %}
+                  <button
+                    type="button"
+                    id="qatb-btn--{{ variant.id }}"
+                    class="{%if variant.inventory_quantity != 0 and variant.price > 0  %}qatb-btn{% else %}qatb-btn--oos{% endif %}"
+                    data-v-id="{{ variant.id }}"
+                  >
+                    {% render 'variant-title', title: variant.title, product: product %}
+                  </button>
+                {% endfor %}
+              </div>
+            </div>
+          {% endunless %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   </div>
 </div>

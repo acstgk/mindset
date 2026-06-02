@@ -1483,6 +1483,15 @@ ul.sub_menu-items {
   & .button {
     font-weight: 400;
     font-size: var(--txt-sm);
+    max-height: 2rem;
+  }
+
+  & .Price--wrapper {
+    flex-wrap: wrap;
+  }
+  & .Price--saving.flag {
+    width: 100%;
+    text-align: center;
   }
 }
 

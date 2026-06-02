@@ -78,7 +78,7 @@
 
           <div class="cart_item-total">{{ item.final_line_price | money_without_trailing_zeros }}</div>
           {% if item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.type %}
-            {% render 'cart-items-ctl' with products: item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.value, cart_items: cart_items %}
+            {% render 'cart-items-ctl' with products: item.product.metafields['shopify--discovery--product_recommendation'].complementary_products.value, cart_items: cart_items, upsell_collection: upsell_collection %}
           {% endif %}
           {% comment %} YOTPO POINTS INFO {% endcomment %}
           {% comment %} <div class="yotpo-widget-instance" data-yotpo-instance-id="1268248" data-yotpo-product-id="{{item.product.id}}" data-yotpo-variant-id="{{ item.product.selected_or_first_available_variant.id }}" data-yotpo-product-variants="{{ item.product.variants | json | url_encode }}" data-yotpo-product-collections="{{item.product.collections | json | url_encode}}" data-yotpo-product-tags="{{ item.product.tags | json | url_encode }}" data-yotpo-product-type="{{ item.product.type | json | url_encode }}" data-yotpo-quantity-selector="input.input-{{ item.product_id }}"></div> {% endcomment %}
