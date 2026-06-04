@@ -1,6 +1,7 @@
 /* global IntersectionObserver Cart MutationObserver URL history URLSearchParams */
 import { SplideUtil } from "./SplideUtil.js";
 import { CountdownManager } from "./CountdownManager.js";
+import { debounce } from "./utils.js";
 import Panzoom from "./panzoom.js";
 import RecentlyViewed from "./RecentlyViewed.js";
 
@@ -385,6 +386,24 @@ if (!customElements.get("enhanced-atc")) {
         this._setObserver();
         this._watchSizeSelection();
         this.actualForm.addEventListener("change", this._watchSizeSelection);
+        this._debouncedFetchPrice = debounce((variantId, fetchURL) => {
+          const livePrice = document.querySelector("#product-summary .Price--wrapper");
+          const cached = this._priceCache.get(variantId);
+          if (cached) {
+            if (livePrice) livePrice.innerHTML = cached;
+            return;
+          }
+          fetch(fetchURL)
+            .then((r) => r.text())
+            .then((html) => {
+              const doc = new DOMParser().parseFromString(html, "text/html");
+              const incomingPrice = doc.querySelector(".Price--wrapper");
+              if (livePrice && incomingPrice) {
+                this._priceCache.set(variantId, incomingPrice.innerHTML);
+                livePrice.innerHTML = incomingPrice.innerHTML;
+              }
+            });
+        }, 400);
       }
 
       _autoSelectOption = () => {
@@ -498,18 +517,8 @@ if (!customElements.get("enhanced-atc")) {
             if (this._priceCache.has(variantId)) {
               if (livePrice) livePrice.innerHTML = this._priceCache.get(variantId);
             } else {
-              const fetchURL = window.location.href + "&section_id=product-price";
-              fetch(fetchURL)
-                .then((response) => response.text())
-                .then((html) => {
-                  const parser = new DOMParser();
-                  const doc = parser.parseFromString(html, "text/html");
-                  const incomingPrice = doc.querySelector(".Price--wrapper");
-                  if (livePrice && incomingPrice) {
-                    this._priceCache.set(variantId, incomingPrice.innerHTML);
-                    livePrice.innerHTML = incomingPrice.innerHTML;
-                  }
-                });
+              const fetchURL = url.toString() + "&section_id=product-price";
+              this._debouncedFetchPrice(variantId, fetchURL);
             }
           }
         }
