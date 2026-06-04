@@ -44,7 +44,7 @@
           "settings": {
             "mobile_video": "shopify://files/videos/Mobile Banner - Mens Roam V1.mp4",
             "desktop_video": "shopify://files/videos/Desktop Banner - Mens Roam V2.mp4",
-            "media_brightness": 87.5,
+            "media_brightness": 100,
             "overlay_url": "shopify://collections/mens-new",
             "alt_text": "",
             "lockup_width": 200,
