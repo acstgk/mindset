@@ -42,10 +42,6 @@
   {% assign in_cart = in_cart | append: product.product_id | append: ',' %}
 {% endfor %}
 
-<script>
-  console.log("test:: ", {{in_cart}})
-</script>
-
 <cart-upsells>
   <div class="cart-upsells">
     <h2 class="h4 emphasis">You might like {% render 'icon', icon: 'plus', class: 'inline-flex' %}</h2>
