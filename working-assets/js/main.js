@@ -51,12 +51,14 @@ class CartAPI {
    * @param {string} eventName - Event name (cart:updated, cart:loaded, cart:itemsAdded, etc.)
    */
   dispatchCartUpdate(eventName = "cart:updated") {
+    this.cart.item_count > 0
+      ? this.cartIcon.classList.add("cart-not-empty")
+      : this.cartIcon.classList.remove("cart-not-empty");
     const event = new CustomEvent(eventName, {
       bubbles: true, // Allow event to bubble up the DOM
       detail: { cart: this.cart },
     });
     document.dispatchEvent(event);
-    console.log(`Custom event '${eventName}' dispatched`);
   }
 
   /**
@@ -72,7 +74,6 @@ class CartAPI {
       const data = await res.json();
       console.log("Cart JSON data:", data);
       this.cart = data;
-      this.cart.item_count > 0 ? this.cartIcon.classList.add("cart-not-empty") : this.cartIcon.classList.remove("cart-not-empty");
       this.dispatchCartUpdate("cart:loaded"); // Notify UI components
     } catch (error) {
       console.error("Error loading cart.js:", error);
@@ -113,9 +114,9 @@ class CartAPI {
         return Promise.reject(errorData);
       }
 
-      const data = await res.json();
-      this._cartStateFromResponse(data, "cart:itemsAdded");
-      return data;
+      await this.loadCart();
+      this.dispatchCartUpdate("cart:itemsAdded");
+      return;
     } catch (error) {
       console.error("Network or unexpected error during addItems:", error);
       return Promise.reject(error);
@@ -298,9 +299,6 @@ class CartAPI {
    */
   _cartStateFromResponse(data, specificEvent) {
     this.cart = data;
-    this.cart.item_count > 0
-      ? this.cartIcon.classList.add("cart-not-empty")
-      : this.cartIcon.classList.remove("cart-not-empty");
     requestAnimationFrame(() => {
       this.dispatchCartUpdate("cart:loaded");
       if (specificEvent) this.dispatchCartUpdate(specificEvent);
