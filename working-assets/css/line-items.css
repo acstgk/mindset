@@ -167,6 +167,7 @@ input.qty-input {
 }
 
 .cart_item--discount {
+  margin: 0.1lh 0 -0.2lh;
   color: var(--c-sale);
   font-size: var(--txt-sm);
   line-height: 1;
