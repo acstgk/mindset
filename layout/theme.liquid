@@ -74,15 +74,18 @@
     {% endif %}
 
     {% assign updated_url = canonical_url %}
+    {{ canonical_url | slice: -17, 17 }}
 
     {% if canonical_url contains 'sale' and canonical_url contains 'collections' %}
     {% else %}
       {% assign ending = canonical_url | slice: -5, 5 %}
-      {% if ending == '/mens' %}
+      {% assign full-ending = canonical_url | slice: -17, 17 %}
+      {% if ending == '/mens' and full-ending != '/collections/mens' %}
         {% assign updated_url = canonical_url | remove: '/mens' %}
       {% endif %}
       {% assign ending = canonical_url | slice: -7, 7 %}
-      {% if ending == '/womens' %}
+      {% assign full-ending = canonical_url | slice: -19, 19 %}
+      {% if ending == '/womens' and full-ending != '/collections/womens' %}
         {% assign updated_url = canonical_url | remove: '/womens' %}
       {% endif %}
     {% endif %}
