@@ -1377,6 +1377,7 @@ if (!customElements.get("line-item")) {
         const removeBtn = selector.querySelector(".quantity-zero");
         if (removeBtn) {
           removeBtn.addEventListener("click", () => {
+            removeBtn.innerHTML = '<div class="loader" style="--height:0.8em;"></div>';
             Cart.removeItem(this.lineItemKey).then(() => {
               this.removeItemEl();
             });
