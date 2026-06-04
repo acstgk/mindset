@@ -114,7 +114,7 @@ class CartAPI {
       }
 
       const data = await res.json();
-      await this.loadCart();
+      this._cartStateFromResponse(data);
       this.dispatchCartUpdate("cart:itemsAdded");
       return data;
     } catch (error) {
@@ -138,7 +138,7 @@ class CartAPI {
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
 
       const data = await res.json();
-      await this.loadCart(); // Reload cart data and dispatch update
+      this._cartStateFromResponse(data);
       this.dispatchCartUpdate("cart:itemRemoved");
       return data;
     } catch (error) {
@@ -161,7 +161,7 @@ class CartAPI {
       });
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
       const data = await res.json();
-      await this.loadCart(); // Reload cart data and dispatch update
+      this._cartStateFromResponse(data);
       this.dispatchCartUpdate("cart:lineItemUpdated");
       return data;
     } catch (error) {
@@ -182,7 +182,7 @@ class CartAPI {
       });
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
       const data = await res.json();
-      await this.loadCart(); // Reload cart data and dispatch update
+      this._cartStateFromResponse(data);
       this.dispatchCartUpdate("cart:cleared");
       return data;
     } catch (error) {
@@ -288,6 +288,19 @@ class CartAPI {
       console.error("Failed to fetch drawer-cart section:", error);
       throw error; // Re-throw to allow caller to handle
     }
+  }
+
+  /**
+   * Sync cart state from API response directly, avoiding redundant
+   * GET /cart.js. POST /cart/add.js, /cart/change.js, /cart/clear.js
+   * all return the full cart JSON in their response.
+   */
+  _cartStateFromResponse(data) {
+    this.cart = data;
+    this.cart.item_count > 0
+      ? this.cartIcon.classList.add("cart-not-empty")
+      : this.cartIcon.classList.remove("cart-not-empty");
+    this.dispatchCartUpdate("cart:loaded");
   }
 }
 
