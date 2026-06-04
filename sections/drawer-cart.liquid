@@ -2,36 +2,19 @@
 {% if section.settings.merge_upsells %}
   {% comment %} Check whether the cart is mixed of a straight gender {% endcomment %}
   {% assign latest_gender = cart.items[0].vendor | downcase | default: '' %}
-  {% assign mixed_cart = false %}
-  {% for item in cart.items offset: 1 %}
-    {% if item.vendor != cart.items[0].vendor %}
-      {% assign mixed_cart = true %}
-      {% break %}
-    {% endif %}
-  {% endfor %}
 
-  {% comment %} which collection do we need to display? {% endcomment %}
-  {% if mixed_cart %}
-    {% case latest_gender %}
-      {% when 'womens', 'mens', 'accessories' %}
-        {% assign upsell_collection = collections['unisex-basket-collection'] %}
-      {% else %}
-        {% assign upsell_collection = collections['kids-basket-collection'] %}
-    {% endcase %}
-  {% else %}
-    {% case latest_gender %}
-      {% when 'womens' %}
-        {% assign upsell_collection = collections['womens-basket-collection'] %}
-      {% when 'mens' %}
-        {% assign upsell_collection = collections['mens-basket-collection'] %}
-      {% when 'boys' %}
-        {% assign upsell_collection = collections['boys-basket-collection'] %}
-      {% when 'girls' %}
-        {% assign upsell_collection = collections['girls-basket-collection'] %}
-      {% else %}
-        {% assign upsell_collection = collections['unisex-basket-collection'] %}
-    {% endcase %}
-  {% endif %}
+  {% case latest_gender %}
+    {% when 'womens' %}
+      {% assign upsell_collection = collections['womens-basket-collection'] %}
+    {% when 'mens' %}
+      {% assign upsell_collection = collections['mens-basket-collection'] %}
+    {% when 'boys' %}
+      {% assign upsell_collection = collections['boys-basket-collection'] %}
+    {% when 'girls' %}
+      {% assign upsell_collection = collections['girls-basket-collection'] %}
+    {% else %}
+      {% assign upsell_collection = collections['unisex-basket-collection'] %}
+  {% endcase %}
 {% endif %}
 
 <slide-drawer aria-hidden="true" id="cartDrawer" data-side="right">
