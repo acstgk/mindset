@@ -265,14 +265,19 @@ class CartAPI {
       const existingSideCart = document.querySelector("#side-cart");
 
       if (newSideCart && existingSideCart) {
-        // Ensure first list item animates in
+        // Mark new items for entrance animation
         const firstListItem = newSideCart.querySelector("li");
         if (firstListItem) {
           firstListItem.classList.add("fade-in", "no-height");
         }
 
-        // Replace only the side-cart contents
         existingSideCart.innerHTML = newSideCart.innerHTML;
+
+        // Trigger entrance animation after content swap
+        requestAnimationFrame(() => {
+          const animatedItems = existingSideCart.querySelectorAll(".fade-in");
+          animatedItems.forEach((item) => item.classList.add("active"));
+        });
 
         // Activate empty state/content if present within side-cart
         const emptyContent = existingSideCart.querySelector("div.cart_items-list");
@@ -1611,13 +1616,13 @@ new iWishCustom(); // make sure you instantiate with ()
 
 function openCartDrawerIfNotOnCartPage() {
   if (theme.pageType != "cart") {
-    Cart.getLineItems().then(() => {
-      const drawer = document.getElementById("cartDrawer");
-      const cartSection = drawer.querySelector("#side_menu-cart");
-      const isActive = cartSection.classList.contains("active");
-      isActive ? "" : cartSection.click();
-      if (drawer) drawer.open();
-    });
+    const drawer = document.getElementById("cartDrawer");
+    if (!drawer) return;
+    const cartSection = drawer.querySelector("#side_menu-cart");
+    const isActive = cartSection?.classList.contains("active");
+    if (!isActive) cartSection?.click();
+    drawer.open();
+    Cart.getLineItems().catch(() => {}); // background content refresh
   }
 }
 
