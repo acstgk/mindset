@@ -37,15 +37,29 @@
   {% assign in_range = true %}
 {% endif %}
 
+{% assign in_cart = '' %}
+{% for product in cart.items %}
+  {% assign in_cart = in_cart | append: product.product_id | append: ',' %}
+{% endfor %}
+
+<script>
+  console.log("test:: ", {{in_cart}})
+</script>
+
 <cart-upsells>
   <div class="cart-upsells">
     <h2 class="h4 emphasis">You might like {% render 'icon', icon: 'plus', class: 'inline-flex' %}</h2>
 
     <div class="cart-upsells--carousel" data-collection="{{ upsell_collection.title | handle }}">
       {% for product in upsell_collection.products %}
-        {% if forloop.last and in_range and product.available %}
+        {% if in_cart contains product.id %}
+          {% assign hide = true %}
+        {% else %}
+          {% assign hide = false %}
+        {% endif %}
+        {% if forloop.last and in_range and product.available and hide == false %}
           {% render 'product-card', product: product, modal: true, class: 'first-item' %}
-        {% elsif product.available %}
+        {% elsif product.available and hide == false %}
           {% render 'product-card', product: product, modal: true %}
         {% endif %}
       {% endfor %}
