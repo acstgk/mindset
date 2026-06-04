@@ -365,6 +365,7 @@ if (!customElements.get("enhanced-atc")) {
       constructor() {
         super();
         this.isButtonVisible = true;
+        this._priceCache = new Map();
       }
 
       connectedCallback() {
@@ -493,16 +494,23 @@ if (!customElements.get("enhanced-atc")) {
             history.replaceState({}, "", url);
 
             //now we have an updated url we can update the price.
-            const fetchURL = window.location.href + "&section_id=product-price";
-            fetch(fetchURL)
-              .then((response) => response.text())
-              .then((html) => {
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, "text/html");
-                const livePrice = document.querySelector("#product-summary .Price--wrapper");
-                const incomingPrice = doc.querySelector(".Price--wrapper");
-                if (livePrice && incomingPrice) livePrice.innerHTML = incomingPrice.innerHTML;
-              });
+            const livePrice = document.querySelector("#product-summary .Price--wrapper");
+            if (this._priceCache.has(variantId)) {
+              if (livePrice) livePrice.innerHTML = this._priceCache.get(variantId);
+            } else {
+              const fetchURL = window.location.href + "&section_id=product-price";
+              fetch(fetchURL)
+                .then((response) => response.text())
+                .then((html) => {
+                  const parser = new DOMParser();
+                  const doc = parser.parseFromString(html, "text/html");
+                  const incomingPrice = doc.querySelector(".Price--wrapper");
+                  if (livePrice && incomingPrice) {
+                    this._priceCache.set(variantId, incomingPrice.innerHTML);
+                    livePrice.innerHTML = incomingPrice.innerHTML;
+                  }
+                });
+            }
           }
         }
       };
