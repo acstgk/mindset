@@ -139,9 +139,9 @@
           {% unless block.settings.title == '' %}
             {% assign fade_in_count = fade_in_count | plus: fade_in_delay %}
             {% if forloop.first %}
-              <h1 class="h1 fade-in {{ block.settings.title_font }}" style="--fade-delay: {{ fade_in_count }}s;">{{ block.settings.title }}</h1>
+              <h1 class="h1 fade-in {{ block.settings.title_font }}" style="--fade-delay: {{ fade_in_count }}s; --size-factor: {{ block.settings.heading_size | times: 0.85 | divided_by: 100 }};">{{ block.settings.title }}</h1>
             {% else %}
-              <h2 class="h1 fade-in {{ block.settings.title_font }}" style="--fade-delay: {{ fade_in_count }}s;">{{ block.settings.title }}</h2>
+              <h2 class="h1 fade-in {{ block.settings.title_font }}" style="--fade-delay: {{ fade_in_count }}s; --size-factor: {{ block.settings.heading_size | times: 0.85 | divided_by: 100 }};">{{ block.settings.title }}</h2>
             {% endif %}
           {% endunless %}
 
@@ -290,6 +290,17 @@
               "value": "baskerville"
             }
           ]
+        },
+        {
+          "type": "range",
+          "id": "heading_size",
+          "label": "Heading Size",
+          "info": "multiplies the base font size by this factor",
+          "min": 50,
+          "max": 150,
+          "step": 5,
+          "default": 100,
+          "unit": "%"
         },
         {
           "type": "text",

@@ -1980,8 +1980,9 @@ video {
 .hero_slide-content h2,
 .hero_slide-content h1,
 .hero_slide-content p {
+  --size-factor: 0.85;
   color: white;
-  font-size: calc(var(--txt-xl) * 0.85);
+  font-size: calc(var(--txt-xl) * var(--size-factor));
   margin-block: 0.33rem;
   line-height: 1;
   text-shadow: 0 0 15px color-mix(in lab, var(--c-black), transparent 70%);
