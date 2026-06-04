@@ -1,4 +1,4 @@
-/* global IntersectionObserver history sessionStorage, URL URLSearchParams FormData */
+/* global IntersectionObserver history sessionStorage, URL URLSearchParams FormData, AbortController */
 
 ;
 import { SplideUtil } from "./SplideUtil.js";
@@ -188,24 +188,10 @@ class EnhancedFilters {
     this.filterTitles = this.form.querySelectorAll(".filter_item-title");
     this.filterLabels = this.form.querySelectorAll(".filter_value-label");
     this.filterCheckboxes = this.form.querySelectorAll(".filter_value-checkbox");
+    this._requestSeq = 0;
+    this._abortController = null;
     this.form.addEventListener("change", this.applyFilters);
   }
-
-  /**
-   * Handles the filter change event and updates the product grid accordingly.
-   *
-   * Steps performed:
-   * 1. Prevents default form change behavior (safety).
-   * 2. Collects current form data and constructs the new URL with updated search parameters.
-   * 3. Sends a fetch request to retrieve the updated product list based on filters.
-   * 4. Temporarily hides pagination and shows a loader while fetching.
-   * 5. Parses the fetched HTML and replaces the current product grid and pagination controls.
-   * 6. Updates the browser URL to reflect current filter state.
-   * 7. Re-initializes infinite scroll observation on the new pagination element.
-   * 8. Updates filter titles, labels, and disabled states based on new results.
-   *
-   * @param {Event} event - The change event triggered by filter inputs.
-   */
 
   async applyFilters(event) {
     event.preventDefault();
@@ -215,11 +201,15 @@ class EnhancedFilters {
       accordianItem.querySelector(".accordian-header .filter_item-title .loader") ? "" : accordianItem.querySelector(".accordian-header .filter_item-title").insertAdjacentHTML("beforeend", "<div class='loader mob-only' style='--height: 10px;'></div>")
     }
 
+    // Queue: increment sequence, abort any in-flight request
+    const requestId = ++this._requestSeq;
+    if (this._abortController) this._abortController.abort();
+    this._abortController = new AbortController();
+
     const formData = new FormData(this.form);
     const method = this.form.method.toUpperCase() || "GET";
     const url = new URL(this.form.action || window.location.href);
 
-    // clear and replace the existing search params
     url.search = "";
     url.search = new URLSearchParams(formData).toString();
 
@@ -231,6 +221,7 @@ class EnhancedFilters {
     }
 
     try {
+      // --- Read phase: capture all DOM refs before writes ---
       const currentGrid = document.querySelector("infinite-scroll");
       const currentPaginationNext = document.getElementById("pagination-next");
       const currentPaginationPrev = document.getElementById("pagination-prev");
@@ -245,93 +236,95 @@ class EnhancedFilters {
       currentGrid.style.minHeight = "100vh";
       currentGrid.innerHTML = `<div class="loader"style="z-index: 1;grid-column: 1 / -1;"></div>`;
 
-      const response = await fetch(fetchUrl, { method });
+      const response = await fetch(fetchUrl, { method, signal: this._abortController.signal });
       if (!response.ok) {
         throw new Error(`Fetch failed: ${response.status}`);
       }
 
       const html = await response.text();
+
+      // Discard stale response if a newer filter request supersedes this one
+      if (requestId !== this._requestSeq) return;
+
       const parser = new DOMParser();
       const doc = parser.parseFromString(html, "text/html");
 
-      // Update URL in browser immediately after parsing
       window.history.replaceState(null, "", fetchUrl);
 
-      // Replace product grid
-      const newGrid = doc.querySelector("infinite-scroll");
+      // --- Defer heavy DOM mutations to rAF ---
+      requestAnimationFrame(() => {
+        if (requestId !== this._requestSeq) return;
 
-      if (newGrid && currentGrid) {
-        currentGrid.innerHTML = newGrid.innerHTML;
-        currentGrid.dataset.nextPage = newGrid.dataset.nextPage;
-        currentGrid.style.minHeight = "auto";
-      }
-
-      // Replace pagination if needed
-      const newPaginationPrev = doc.getElementById("pagination-prev");
-      if (newPaginationPrev && currentPaginationPrev) {
-        currentPaginationPrev.replaceWith(newPaginationPrev);
-      } else if (newPaginationPrev && !currentPaginationPrev) {
-        document.insertBefore(document.querySelector("infinite-scroll"), newPaginationPrev);
-      } else if (!newPaginationPrev && currentPaginationPrev) {
-        currentPaginationPrev.remove();
-      }
-
-      const newPaginationNext = doc.getElementById("pagination-next");
-      if (newPaginationNext && currentPaginationNext) {
-        currentPaginationNext.replaceWith(newPaginationNext);
-      }
-
-      // Update InfiniteScroll's nextPageUrl to match new filters
-      const derivedNextFromDoc = newGrid?.dataset?.nextPage || newPaginationNext?.dataset?.nextPage || newPaginationNext?.querySelector?.("#infinite-trigger")?.getAttribute?.("href");
-
-      // After replacing #pagination-next, re-observe it in InfiniteScroll
-      const infiniteScroll = document.querySelector("infinite-scroll");
-      if (infiniteScroll && typeof infiniteScroll._observeLoadTrigger === "function") {
-        // Detach any existing observer tied to the old pagination element
-        if (infiniteScroll.observer) {
-          infiniteScroll.observer.disconnect();
-          infiniteScroll.observer = null;
+        const newGrid = doc.querySelector("infinite-scroll");
+        if (newGrid && currentGrid) {
+          currentGrid.innerHTML = newGrid.innerHTML;
+          currentGrid.dataset.nextPage = newGrid.dataset.nextPage;
+          currentGrid.style.minHeight = "auto";
         }
-        infiniteScroll.loadTrigger = document.getElementById("pagination-next");
-        infiniteScroll.loadTriggerActive = infiniteScroll.loadTrigger?.querySelector("#infinite-trigger");
-        if (derivedNextFromDoc) {
-          infiniteScroll.nextPageUrl = derivedNextFromDoc;
-        } else if (infiniteScroll.loadTriggerActive) {
-          // Fallback to reading from the current DOM
-          const fallbackNext = infiniteScroll.loadTriggerActive.dataset?.nextPage || infiniteScroll.loadTrigger?.dataset?.nextPage || infiniteScroll.loadTriggerActive.getAttribute("href");
-          if (fallbackNext) infiniteScroll.nextPageUrl = fallbackNext;
-        }
-        infiniteScroll._observeLoadTrigger();
-      }
 
-      // Update filter titles and values
-      const newFilterGroups = doc.querySelectorAll(".accordian-items");
-      const currentFilterGroups = this.form.querySelectorAll(".accordian-items");
-      const newTotalCount = doc.querySelector(".product-count").innerText;
-
-      currentTotalCount.forEach((el) => {
-        el.innerText = newTotalCount;
-      });
-
-      currentFilterGroups.forEach((oldGroup, index) => {
-        const newGroup = newFilterGroups[index];
-        if (newGroup) {
-          // Update header
-          const oldHeader = oldGroup.querySelector(".filter_item-title");
-          const newHeader = newGroup.querySelector(".filter_item-title");
-          if (oldHeader && newHeader) {
-            oldHeader.innerHTML = newHeader.innerHTML;
-            oldHeader.dataset.activeCount = newHeader.dataset.activeCount;
+        const newPaginationPrev = doc.getElementById("pagination-prev");
+        if (newPaginationPrev && currentPaginationPrev) {
+          currentPaginationPrev.replaceWith(newPaginationPrev);
+        } else if (newPaginationPrev && !currentPaginationPrev) {
+          const gridEl = document.querySelector("infinite-scroll");
+          if (gridEl && gridEl.parentNode) {
+            gridEl.parentNode.insertBefore(newPaginationPrev, gridEl.nextSibling);
           }
-          // Update values container (ul, labels, inputs)
-          const oldValues = oldGroup.querySelector(".filter_item-values");
-          const newValues = newGroup.querySelector(".filter_item-values");
-          if (oldValues && newValues) {
-            oldValues.innerHTML = newValues.innerHTML;
-          }
+        } else if (!newPaginationPrev && currentPaginationPrev) {
+          currentPaginationPrev.remove();
         }
+
+        const newPaginationNext = doc.getElementById("pagination-next");
+        if (newPaginationNext && currentPaginationNext) {
+          currentPaginationNext.replaceWith(newPaginationNext);
+        }
+
+        const derivedNextFromDoc = newGrid?.dataset?.nextPage || newPaginationNext?.dataset?.nextPage || newPaginationNext?.querySelector?.("#infinite-trigger")?.getAttribute?.("href");
+
+        const infiniteScrollEl = document.querySelector("infinite-scroll");
+        if (infiniteScrollEl && typeof infiniteScrollEl._observeLoadTrigger === "function") {
+          if (infiniteScrollEl.observer) {
+            infiniteScrollEl.observer.disconnect();
+            infiniteScrollEl.observer = null;
+          }
+          infiniteScrollEl.loadTrigger = document.getElementById("pagination-next");
+          infiniteScrollEl.loadTriggerActive = infiniteScrollEl.loadTrigger?.querySelector("#infinite-trigger");
+          if (derivedNextFromDoc) {
+            infiniteScrollEl.nextPageUrl = derivedNextFromDoc;
+          } else if (infiniteScrollEl.loadTriggerActive) {
+            const fallbackNext = infiniteScrollEl.loadTriggerActive.dataset?.nextPage || infiniteScrollEl.loadTrigger?.dataset?.nextPage || infiniteScrollEl.loadTriggerActive.getAttribute("href");
+            if (fallbackNext) infiniteScrollEl.nextPageUrl = fallbackNext;
+          }
+          infiniteScrollEl._observeLoadTrigger();
+        }
+
+        const newFilterGroups = doc.querySelectorAll(".accordian-items");
+        const currentFilterGroups = this.form.querySelectorAll(".accordian-items");
+        const newTotalCount = doc.querySelector(".product-count").innerText;
+
+        currentTotalCount.forEach((el) => {
+          el.innerText = newTotalCount;
+        });
+
+        currentFilterGroups.forEach((oldGroup, index) => {
+          const newGroup = newFilterGroups[index];
+          if (newGroup) {
+            const oldHeader = oldGroup.querySelector(".filter_item-title");
+            const newHeader = newGroup.querySelector(".filter_item-title");
+            if (oldHeader && newHeader) {
+              oldHeader.innerHTML = newHeader.innerHTML;
+              oldHeader.dataset.activeCount = newHeader.dataset.activeCount;
+            }
+            const oldValues = oldGroup.querySelector(".filter_item-values");
+            const newValues = newGroup.querySelector(".filter_item-values");
+            if (oldValues && newValues) {
+              oldValues.innerHTML = newValues.innerHTML;
+            }
+          }
+        });
       });
     } catch (error) {
+      if (error.name === 'AbortError') return;
       console.error("Error fetching filtered results:", error);
     }
   }
