@@ -83,7 +83,7 @@
       {% endif %}
       {% assign ending = canonical_url | slice: -7, 7 %}
       {% if ending == '/womens' %}
-        {% assign updated_url = canonical_url | remove: '/mens' %}
+        {% assign updated_url = canonical_url | remove: '/womens' %}
       {% endif %}
     {% endif %}
 
