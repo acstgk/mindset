@@ -114,8 +114,7 @@ class CartAPI {
       }
 
       const data = await res.json();
-      this._cartStateFromResponse(data);
-      this.dispatchCartUpdate("cart:itemsAdded");
+      this._cartStateFromResponse(data, "cart:itemsAdded");
       return data;
     } catch (error) {
       console.error("Network or unexpected error during addItems:", error);
@@ -138,8 +137,7 @@ class CartAPI {
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
 
       const data = await res.json();
-      this._cartStateFromResponse(data);
-      this.dispatchCartUpdate("cart:itemRemoved");
+      this._cartStateFromResponse(data, "cart:itemRemoved");
       return data;
     } catch (error) {
       console.error("Error removing item:", error);
@@ -161,8 +159,7 @@ class CartAPI {
       });
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
       const data = await res.json();
-      this._cartStateFromResponse(data);
-      this.dispatchCartUpdate("cart:lineItemUpdated");
+      this._cartStateFromResponse(data, "cart:lineItemUpdated");
       return data;
     } catch (error) {
       console.error("Error updating item:", error);
@@ -182,8 +179,7 @@ class CartAPI {
       });
       if (!res.ok) throw new Error(`HTTP error! Status: ${res.status}`);
       const data = await res.json();
-      this._cartStateFromResponse(data);
-      this.dispatchCartUpdate("cart:cleared");
+      this._cartStateFromResponse(data, "cart:cleared");
       return data;
     } catch (error) {
       console.error("Error clearing cart:", error);
@@ -295,12 +291,15 @@ class CartAPI {
    * GET /cart.js. POST /cart/add.js, /cart/change.js, /cart/clear.js
    * all return the full cart JSON in their response.
    */
-  _cartStateFromResponse(data) {
+  _cartStateFromResponse(data, specificEvent) {
     this.cart = data;
     this.cart.item_count > 0
       ? this.cartIcon.classList.add("cart-not-empty")
       : this.cartIcon.classList.remove("cart-not-empty");
-    this.dispatchCartUpdate("cart:loaded");
+    requestAnimationFrame(() => {
+      this.dispatchCartUpdate("cart:loaded");
+      if (specificEvent) this.dispatchCartUpdate(specificEvent);
+    });
   }
 }
 
