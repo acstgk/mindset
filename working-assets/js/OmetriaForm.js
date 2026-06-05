@@ -50,11 +50,11 @@ if (!customElements.get("ometria-form")) {
               this.formSubtitle?.remove();
               this.form.remove();
               if (this.formTitle) {
-                this.formTitle.innerHTML = window.successTitle;
+                this.formTitle.textContent = window.successTitle;
               } else {
                 this.innerHTML = "<div><h3 class='emphasis' style='margin:0;'>Success!</h3><p class='center'>Thank you for subscribing to our newsletter.</p></div>"
               }
-              this.formCopy && (this.formCopy.innerHTML = window.successText);
+              this.formCopy && (this.formCopy.textContent = window.successText);
               this.onwardLinks?.classList.add("active");
             }
           } catch (error) {
@@ -97,7 +97,7 @@ if (!customElements.get("ometria-form")) {
       _handleSubmit(result) {
         if (result.ok) {
           this.formSubtitle?.remove();
-          this.formCopy && (this.formCopy.innerHTML = window.successText);
+          this.formCopy && (this.formCopy.textContent = window.successText);
         } else {
           const error = document.createElement("p");
           error.className = "warning";
