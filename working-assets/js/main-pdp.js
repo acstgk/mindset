@@ -550,11 +550,15 @@ if (!customElements.get("enhanced-atc")) {
         if (items.length > 0) {
           Cart.addItems(items);
         }
-        window.addEventListener("cart:itemsAdded", () => {
-          setTimeout(() => {
-            this.atcButton.innerHTML = atcButtonContent;
-          }, 300);
-        }, { once: true });
+        window.addEventListener(
+          "cart:itemsAdded",
+          () => {
+            setTimeout(() => {
+              this.atcButton.innerHTML = atcButtonContent;
+            }, 300);
+          },
+          { once: true },
+        );
       };
 
       // set the intersection observer to allow the dynamic add to cart button.
@@ -707,7 +711,7 @@ if (!customElements.get("dispatch-timer")) {
         }
 
         // If it's Friday, use earlier cutoff time
-        if (this.useSaturdayDelivery && dispatchTime.getDay() === 5 && dispatchTime.getHours < this.cutoffFriHours) {
+        if (this.useSaturdayDelivery && dispatchTime.getDay() === 5 && dispatchTime.getHours() < this.cutoffFriHours) {
           dispatchTime.setHours(this.cutoffFriHours, this.cutoffMins, 0, 0);
         }
 
