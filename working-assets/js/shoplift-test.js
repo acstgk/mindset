@@ -5,7 +5,7 @@ function shopliftTest() {
     if (active) {
       console.log("SHOPLIFT:: Active");
       style.textContent = `
-        .cart_items-ctl { display: none !important; height: 0, width: 0;}
+        .cart_items-ctl { display: none !important; height: 0; width: 0;}
     `;
       document.head.appendChild(style);
     }
