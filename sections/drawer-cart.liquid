@@ -10,7 +10,7 @@
     {% if cart.item_count > 0 %}
       <div class="side_menu-footer cart-footer">
         {% render 'free-delivery-information' %}
-        <a href="{{ routes.checkout_url }}" class="checkout-button button button-primary"
+        <a href="/checkout" class="checkout-button button button-primary"
           >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
         </a>
         {% case section.settings.microcopy %}
