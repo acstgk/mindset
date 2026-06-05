@@ -17,7 +17,7 @@
           "settings": {
             "mobile_video": "shopify://files/videos/30 Off Twin Sets - Mobile Banner_0ffae13a-c3ae-40e4-a8f5-419ebdc7dfa0.mp4",
             "desktop_video": "shopify://files/videos/30 Off Twin Sets - Desktop Banner_922070d6-5793-4561-84a9-7355fbc9799b.mp4",
-            "media_brightness": 100,
+            "media_brightness": 125,
             "overlay_url": "shopify://collections/twin-sets",
             "alt_text": "",
             "lockup_width": 200,
