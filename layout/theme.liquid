@@ -74,7 +74,6 @@
     {% endif %}
 
     {% assign updated_url = canonical_url %}
-    {{ canonical_url | slice: -17, 17 }}
 
     {% if canonical_url contains 'sale' and canonical_url contains 'collections' %}
     {% else %}
