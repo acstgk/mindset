@@ -21,7 +21,7 @@
     {% assign copy = 'step-content' | append: i %}
 
     <div id="step{{ i }}">
-      {%- if section.settings[stepimg] -%}{{ section.settings[stepimg] | image_url: width: 75 | image_tag }}{%- endif -%}
+      {%- if section.settings[stepimg] -%}{{ section.settings[stepimg] | image_url: width: 75 | image_tag: loading: 'lazy' }}{%- endif -%}
       <h3>{{ section.settings[title] }}</h3>
       <p>{{ section.settings[copy] }}</p>
     </div>

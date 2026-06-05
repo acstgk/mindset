@@ -5,9 +5,9 @@
   <p>{{ section.settings.text }}</p>
 </div>
 <div class="focus-images">
-  {{ product.media[section.settings.image_1] | image_url: width: '400px' | image_tag: class: 'split__image' }}
-  {{ product.media[section.settings.image_2] | image_url: width: '400px' | image_tag: class: 'split__image' }}
-  {{ product.media[section.settings.image_3] | image_url: width: '400px' | image_tag: class: 'split__image' }}
+  {{ product.media[section.settings.image_1] | image_url: width: '400px' | image_tag: loading: 'lazy', class: 'split__image' }}
+  {{ product.media[section.settings.image_2] | image_url: width: '400px' | image_tag: loading: 'lazy', class: 'split__image' }}
+  {{ product.media[section.settings.image_3] | image_url: width: '400px' | image_tag: loading: 'lazy', class: 'split__image' }}
 </div>
 
 <a href="{{ product.url }}" class="button button-primary" style="--btn-color:{{ section.settings.background_color }};--btn-bg:{{ section.settings.text_color }}">Shop Now</a>

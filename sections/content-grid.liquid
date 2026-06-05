@@ -11,7 +11,7 @@
           {% endif %}
           {% assign fit_type = 'object-fit:' | append: block.settings.image_style | append: ';aspect-ratio:' | append: aspect_ratio | append: ';overflow:hidden;' %}
           <div class="media-wrapper" style="padding:{{ block.settings.image_padding }}rem;">
-            {{ block.settings.image | image_url: width: 600 | image_tag: style: fit_type }}
+            {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', style: fit_type }}
             {% if block.settings.video %}
               <custom-video-controls>
                 {% if block.settings.image %}

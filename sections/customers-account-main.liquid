@@ -171,7 +171,7 @@
               {% for item in order.line_items %}
                 <div class="customer-order--product">
                   {% render 'product-title', product: item.product %}
-                  {{ item.product.featured_image | image_url: width: 500 | image_tag }}
+                  {{ item.product.featured_image | image_url: width: 500 | image_tag: loading: 'lazy' }}
                   {% assign product_title = item.product.title | remove: "Gym King" | url_encode %}
                   {% assign review_url = "https://landing-pages.yotpo.com/base/#/review?account_logo=https:%2F%2Fcdn-yotpo-images-production.yotpo.com%2FAccount%2F586366%2F745263746%2Flogo.png%3F1756211481&appkey=mGo5FhszPmLGubCDUdVsQHN2xMih5fT47CPV6sbj&b2c_store_logo_url=https:%2F%2Fcdn-yotpo-images-production.yotpo.com%2FAccount%2F586366%2F745263746%2Flogo.png%3F1756211481&display_name=&email=&email_type=review_request_link_product&font_color=051146&form_id=105473&header_color=EBF7FE&mandatories=&page_title=Please%20write%20a%20review&product_title="
                     | append: product_title

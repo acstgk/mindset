@@ -51,7 +51,7 @@
     {% render 'socials' %}
     <span>@GYMKING</span>
     {% if section.settings['footer-logo'] %}
-      {{ section.settings['footer-logo'] | image_url: width: 300 | image_tag: class: 'footer-logo' }}
+      {{ section.settings['footer-logo'] | image_url: width: 300 | image_tag: loading: 'lazy', class: 'footer-logo' }}
     {% endif %}
   </div>
 

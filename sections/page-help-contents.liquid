@@ -3,7 +3,7 @@
 <div class="contents-grid">
   {% for block in section.blocks %}
     <a rel="canonical" href="{{ block.settings.url }}" class="contents-grid--card accent-bg">
-      {{ block.settings.image | image_url: width: '75px' | image_tag }}
+      {{ block.settings.image | image_url: width: '75px' | image_tag: loading: 'lazy' }}
       <h2 class="h4">{{ block.settings.heading }}</h2>
     </a>
   {% endfor %}

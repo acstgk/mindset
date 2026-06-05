@@ -15,7 +15,7 @@
           {% if block.settings.video %}
             {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true }}
           {% elsif block.settings.img %}
-            {{ block.settings.img | image_url: width: '1200' | image_tag: width: '1200', alt: block.settings.img_alt, class: block.settings.img_transition }}
+            {{ block.settings.img | image_url: width: '1200' | image_tag: loading: 'lazy', width: '1200', alt: block.settings.img_alt, class: block.settings.img_transition }}
           {% else %}
             <img src="https://placehold.co/400?text=IMAGE&font=oswald" alt="" height="400" width="400" class="{{ block.settings.img_transition  }}">
           {% endif %}

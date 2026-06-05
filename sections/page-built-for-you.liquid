@@ -100,7 +100,7 @@
       {% for block in section.blocks %}
         <div class="trending-color-card {{ block.settings.gender -}}-gender-filter fade-in">
           {% if block.settings.image %}
-            {{ block.settings.image | image_url: width: 1270 | image_tag }}
+            {{ block.settings.image | image_url: width: 1270 | image_tag: loading: 'lazy' }}
           {% endif %}
           <div class="trending-color-card--content">
             <h4 class="h3 emphasis left" style="margin: 0">{{ block.settings.title }}</h4>

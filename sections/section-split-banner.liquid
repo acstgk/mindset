@@ -21,7 +21,7 @@
 
   <div class="img-overlay {{ wrap }}" style="aspect-ratio:{{ aspect_ratio }}">
     {% if section.settings.img1 != blank %}
-    {{ section.settings.img1 | image_url: width: 1, height: 1 | image_tag: width: 1, alt: 'background color' }}
+    {{ section.settings.img1 | image_url: width: 1, height: 1 | image_tag: loading: 'lazy', width: 1, alt: 'background color' }}
     {{ section.settings.img1 | image_url: width: '1400px' | image_tag: loading: 'lazy', sizes: '50vw', widths: '190, 390, 540, 780, 960, 1280, 1920' }}
     {% else %}
       <img src="https://placehold.co/800x400?text=IMAGE+1&font=oswald" alt="" height="400" width="800">
@@ -34,7 +34,7 @@
   {% unless section.settings.hide_second %}
     <div class="img-overlay {{ wrap }}" style="aspect-ratio:{{ aspect_ratio }}">
       {% if section.settings.img2 != blank %}
-      {{ section.settings.img2 | image_url: width: 1, height: 1 | image_tag: width: 1, alt: 'background color' }}
+      {{ section.settings.img2 | image_url: width: 1, height: 1 | image_tag: loading: 'lazy', width: 1, alt: 'background color' }}
       {{ section.settings.img2 | image_url: width: '1240px' | image_tag: loading: 'lazy', sizes: '50vw', widths: '190, 390, 540, 780, 960, 1280, 1920' }}
       {% else %}
         <img src="https://placehold.co/800x400?text=IMAGE+2&font=oswald" alt="" height="400" width="800">
