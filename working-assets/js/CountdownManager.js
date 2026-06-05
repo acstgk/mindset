@@ -56,12 +56,14 @@ class CountdownManager {
 
       text = `${this.copy} <b> ${totalTime}</b>`;
       this.subscribers.forEach((el) => {
+        if (!el || !el.isConnected) return;
         el.innerHTML = text;
         el.style.display = "inline-block";
 
         const parent = el.closest("product-card") || el.closest(".section--product_main");
         if (parent) {
-          parent.querySelector(".countdown_decal").style.display = "inline-block";
+          const decal = parent.querySelector(".countdown_decal");
+          if (decal) decal.style.display = "inline-block";
         }
       });
       return diff;
