@@ -10,8 +10,9 @@ import { debounce } from "./utils.js";
 
 // Remember and reset grid size
 function gridSize() {
-  const gridSize = localStorage.getItem("GK::grid-size");
   const grid = document.querySelector("infinite-scroll.max-width");
+  if (!grid) return;
+  const gridSize = localStorage.getItem("GK::grid-size");
   if (!gridSize) {
     grid.style.opacity = 1;
     grid.style.marginTop = "0";
@@ -234,7 +235,11 @@ class EnhancedFilters {
         window.scrollTo({ top: productTypes.offsetTop, behavior: "smooth" });
       }
       currentGrid.style.minHeight = "100vh";
-      currentGrid.innerHTML = `<div class="loader"style="z-index: 1;grid-column: 1 / -1;"></div>`;
+      currentGrid.replaceChildren();
+      const loader = document.createElement("div");
+      loader.className = "loader";
+      loader.style.cssText = "z-index: 1; grid-column: 1 / -1;";
+      currentGrid.appendChild(loader);
 
       const response = await fetch(fetchUrl, { method, signal: this._abortController.signal });
       if (!response.ok) {
@@ -257,7 +262,7 @@ class EnhancedFilters {
 
         const newGrid = doc.querySelector("infinite-scroll");
         if (newGrid && currentGrid) {
-          currentGrid.innerHTML = newGrid.innerHTML;
+          currentGrid.replaceChildren(...newGrid.childNodes);
           currentGrid.dataset.nextPage = newGrid.dataset.nextPage;
           currentGrid.style.minHeight = "auto";
         }
