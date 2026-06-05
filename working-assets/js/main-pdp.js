@@ -384,8 +384,6 @@ if (!customElements.get("enhanced-atc")) {
         this._autoSelectOption();
         this._handleStickyButton();
         this._setObserver();
-        this._watchSizeSelection();
-        this.actualForm.addEventListener("change", this._watchSizeSelection);
         this._debouncedFetchPrice = debounce((variantId, fetchURL) => {
           const livePrice = document.querySelector("#product-summary .Price--wrapper");
           const cached = this._priceCache.get(variantId);
@@ -404,6 +402,8 @@ if (!customElements.get("enhanced-atc")) {
               }
             });
         }, 400);
+        this._watchSizeSelection();
+        this.actualForm.addEventListener("change", this._watchSizeSelection);
       }
 
       _autoSelectOption = () => {
