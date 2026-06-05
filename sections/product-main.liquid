@@ -6,9 +6,9 @@
 {% if product.metafields.custom.product_set %}
   {% assign product_price = 0 %}
   {% assign product_compare_price = 0 %}
-  {% for product in product.metafields.custom.product_set.value %}
-    {% assign product_price = product_price | plus: product.selected_or_first_available_variant.price %}
-    {% assign product_compare_price = product_compare_price | plus: product.selected_or_first_available_variant.compare_at_price %}
+  {% for set_product in product.metafields.custom.product_set.value %}
+    {% assign product_price = product_price | plus: set_product.selected_or_first_available_variant.price %}
+    {% assign product_compare_price = product_compare_price | plus: set_product.selected_or_first_available_variant.compare_at_price %}
   {% endfor %}
 {% else %}
   {% assign product_price = product.selected_or_first_available_variant.price %}
