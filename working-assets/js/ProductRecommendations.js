@@ -16,12 +16,6 @@ export default class ProductRecommendations extends HTMLElement {
     this.productID = this.dataset.productId;
     this.productStyle = this.dataset.style;
     this._getRecommendations();
-
-    if (!customElements.get("product-carousel")) {
-      import("./ProductCarousel.js").then((module) => {
-        customElements.define("product-carousel", module.default);
-      });
-    }
   }
 
   disconnectedCallback() {
