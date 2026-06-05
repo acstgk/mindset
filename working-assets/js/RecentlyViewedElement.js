@@ -21,9 +21,11 @@ export default class RecentlyViewedElement extends HTMLElement {
 
   connectedCallback() {
     this.hasRendered = false;
-    this.innerHTML = `<div class="loader"></div>`;
-    this.loader = this.querySelector(".loader");
-    this.insertBefore(this.list, this.loader);
+    if (!this.firstChild) {
+      this.innerHTML = `<div class="loader"></div>`;
+      this.loader = this.querySelector(".loader");
+      this.insertBefore(this.list, this.loader);
+    }
     this._handleClicks();
     this._renderProducts = this._renderProducts.bind(this);
   }
