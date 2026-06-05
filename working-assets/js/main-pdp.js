@@ -822,19 +822,35 @@ if (!customElements.get("thumbnail-carousel")) {
       constructor() {
         super();
         this.splide = null;
-        this._onResize = this._onResize.bind(this);
+        this._rafOnResize = () => {
+          if (this._resizeRaf) return;
+          this._resizeRaf = requestAnimationFrame(() => {
+            this._resizeRaf = null;
+            this._onResize();
+          });
+        };
+        this._rafUpdateHeight = () => {
+          if (this._heightRaf) return;
+          this._heightRaf = requestAnimationFrame(() => {
+            this._heightRaf = null;
+            const track = this.querySelector(".splide__track");
+            if (track) {
+              track.style.height = this._calculateHeight();
+            }
+          });
+        };
       }
 
       connectedCallback() {
         requestAnimationFrame(() => {
           this._maybeInitSplide();
         });
-        window.addEventListener("resize", this._onResize);
+        window.addEventListener("resize", this._rafOnResize);
       }
 
       disconnectedCallback() {
         this._destroySplide();
-        window.removeEventListener("resize", this._onResize);
+        window.removeEventListener("resize", this._rafOnResize);
       }
 
       _onResize() {
@@ -857,13 +873,11 @@ if (!customElements.get("thumbnail-carousel")) {
       };
 
       _updateHeight = () => {
-        requestAnimationFrame(() => {
-          const track = this.querySelector(".splide__track");
+        const track = this.querySelector(".splide__track");
 
-          if (track) {
-            track.style.height = this._calculateHeight();
-          }
-        });
+        if (track) {
+          track.style.height = this._calculateHeight();
+        }
       };
 
       _initSplide = () => {
@@ -900,12 +914,12 @@ if (!customElements.get("thumbnail-carousel")) {
           // If main carousel is already mounted and we’re adding thumbs later, sync dynamically
           document.querySelector("pdp-carousel").splide.sync(this.splide);
         }
-        window.addEventListener("resize", this._updateHeight);
+        window.addEventListener("resize", this._rafUpdateHeight);
       };
 
       _destroySplide() {
         if (this.splide) {
-          window.removeEventListener("resize", this._updateHeight);
+          window.removeEventListener("resize", this._rafUpdateHeight);
           this.splide.destroy();
           this.splide = null;
           this.classList.remove("splide");
