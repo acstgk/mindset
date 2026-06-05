@@ -10,6 +10,10 @@ if (!customElements.get("address-form")) {
         this.closeButton.addEventListener("click", this._closeThis);
       }
 
+      disconnectedCallback() {
+        this.openButton?.removeEventListener("click", this._openThis);
+      }
+
       _openThis = () => {
         this.classList.toggle("active");
         this.openButton.style.display = "none"

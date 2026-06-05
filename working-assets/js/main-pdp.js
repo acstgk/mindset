@@ -27,6 +27,8 @@ if (!customElements.get("pdp-carousel")) {
         this.zoomBtn.innerHTML = `  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=""><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M7 10l6 0" /><path d="M10 7l0 6" /><path d="M21 21l-6 -6" /></svg>`;
         this.zoomBtn.addEventListener("click", () => this._zoom());
         this.zoomEl = document.querySelector(".pdp-zoom-wrapper");
+        this._handleZoomNext = () => this._next("next");
+        this._handleZoomPrev = () => this._next("prev");
         window.innerWidth < 769 ? (this.style.maxHeight = `${this.availableHeight}px`) : "";
       }
 
@@ -92,8 +94,8 @@ if (!customElements.get("pdp-carousel")) {
         const zoomNext = document.querySelector(".pdp-zoom-next-btn");
         const zoomPrev = document.querySelector(".pdp-zoom-prev-btn");
         zoomClose.addEventListener("click", this._unzoom);
-        zoomNext.addEventListener("click", () => this._next("next"));
-        zoomPrev.addEventListener("click", () => this._next("prev"));
+        zoomNext.addEventListener("click", this._handleZoomNext);
+        zoomPrev.addEventListener("click", this._handleZoomPrev);
       };
 
       // ====================================
@@ -230,6 +232,17 @@ if (!customElements.get("pdp-carousel")) {
           img.remove();
         });
       };
+
+      disconnectedCallback() {
+        this.splide?.destroy();
+        window.removeEventListener("countdown:ended", this._countdownHandler);
+        const zoomClose = document.querySelector(".pdp-zoom-close-btn");
+        const zoomNext = document.querySelector(".pdp-zoom-next-btn");
+        const zoomPrev = document.querySelector(".pdp-zoom-prev-btn");
+        zoomClose?.removeEventListener("click", this._unzoom);
+        zoomNext?.removeEventListener("click", this._handleZoomNext);
+        zoomPrev?.removeEventListener("click", this._handleZoomPrev);
+      }
     },
 
     //   // create and display the panzoom zoom overlay element
@@ -594,6 +607,10 @@ if (!customElements.get("freedelivery-info")) {
     class DeliveryInfo extends HTMLElement {
       connectedCallback() {
         document.addEventListener("delivery:statusUpdated", this.updateInfo);
+      }
+
+      disconnectedCallback() {
+        document.removeEventListener("delivery:statusUpdated", this.updateInfo);
       }
 
       updateInfo = (event) => {

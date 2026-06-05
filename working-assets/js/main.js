@@ -692,12 +692,17 @@ if (!customElements.get("predictive-search")) {
         this.searchButton.addEventListener("click", this._handleOpenClose);
         this.searchButtonMobile.addEventListener("click", this._handleOpenClose);
         this.closeButton.addEventListener("click", this._handleOpenClose);
-        this.inputField.addEventListener(
-          "input",
-          debounce((event) => {
-            this._onInputChange(event);
-          }),
-        );
+        this._inputHandler = debounce((event) => {
+          this._onInputChange(event);
+        });
+        this.inputField.addEventListener("input", this._inputHandler);
+      }
+
+      disconnectedCallback() {
+        this.searchButton?.removeEventListener("click", this._handleOpenClose);
+        this.searchButtonMobile?.removeEventListener("click", this._handleOpenClose);
+        this.closeButton?.removeEventListener("click", this._handleOpenClose);
+        this.inputField?.removeEventListener("input", this._inputHandler);
       }
 
       _onInputChange = () => {
@@ -1461,6 +1466,10 @@ if (!customElements.get("free-delivery")) {
         this.deliveryStatus = this.dataset.deliveryStatus === "true"; // force a boolean value
 
         document.addEventListener("cart:loaded", this.updateProgress);
+      }
+
+      disconnectedCallback() {
+        document.removeEventListener("cart:loaded", this.updateProgress);
       }
 
       updateProgress = (event) => {

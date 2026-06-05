@@ -520,6 +520,11 @@ if (!customElements.get("infinite-scroll")) {
         this._observeLoadTrigger();
       }
 
+      disconnectedCallback() {
+        this.observer?.disconnect();
+        this.removeEventListener("click", this._onProductCardClick);
+      }
+
       _observeLoadTrigger = () => {
         if (!this.loadTrigger || !this.loadTriggerActive) return;
 

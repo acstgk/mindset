@@ -72,6 +72,10 @@ export default class HeroCarousel extends HTMLElement {
     this.splide.mount();
   }
 
+  disconnectedCallback() {
+    this.splide?.destroy();
+  }
+
   loadAndPlayVideo(slide) {
     if (!slide) return;
 
