@@ -218,7 +218,7 @@
                 <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
                   {% render 'variant-title', title: variant.title %}
                   {% unless variant.available %}
-                    <div href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  part | json | escape }}">{% render 'icon', icon: 'mail' %}</div>
+                    <button class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  part | json | escape }}">{% render 'icon', icon: 'mail' %}</button>
                   {% endunless %}
                 </label>
               </li>
@@ -260,7 +260,7 @@
               <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
                 {% render 'variant-title', title: variant.title %}
                 {% unless variant.available %}
-                  <div href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  product | json | escape }}">{% render 'icon', icon: 'mail' %}</div>
+                  <button href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  product | json | escape }}">{% render 'icon', icon: 'mail' %}</button>
                 {% endunless %}
               </label>
             </li>
