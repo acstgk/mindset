@@ -27,6 +27,9 @@ export class SplideUtil {
       } else if (child.nodeType === Node.ELEMENT_NODE && child.classList.contains("splide__decal")) {
         track.appendChild(child);
       } else {
+        if (child.nodeType === Node.ELEMENT_NODE) {
+          console.warn(`SplideUtil: unexpected child <${child.tagName.toLowerCase()}> removed`);
+        }
         child.remove();
       }
     }
