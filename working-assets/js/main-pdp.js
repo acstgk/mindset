@@ -541,7 +541,7 @@ if (!customElements.get("enhanced-atc")) {
           setTimeout(() => {
             this.atcButton.innerHTML = atcButtonContent;
           }, 300);
-        });
+        }, { once: true });
       };
 
       // set the intersection observer to allow the dynamic add to cart button.
