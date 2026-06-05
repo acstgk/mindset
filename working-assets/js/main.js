@@ -51,9 +51,7 @@ class CartAPI {
    * @param {string} eventName - Event name (cart:updated, cart:loaded, cart:itemsAdded, etc.)
    */
   dispatchCartUpdate(eventName = "cart:updated") {
-    this.cart.item_count > 0
-      ? this.cartIcon.classList.add("cart-not-empty")
-      : this.cartIcon.classList.remove("cart-not-empty");
+    this.cartIcon?.classList.toggle("cart-not-empty", this.cart.item_count > 0);
     const event = new CustomEvent(eventName, {
       bubbles: true, // Allow event to bubble up the DOM
       detail: { cart: this.cart },
@@ -355,7 +353,7 @@ if (!customElements.get("slide-drawer")) {
       }
 
       open() {
-        this.searchElement.close(); //close the searchbar only if open
+        this.searchElement?.close(); //close the searchbar only if open
         document.body.classList.add("no-scroll");
         this.setAttribute("aria-hidden", "false");
         this.addEventListener("touchstart", this._onTouchStart, {
@@ -409,6 +407,7 @@ document.querySelectorAll(".drawer-button").forEach((btn) => {
   btn.addEventListener("click", (event) => {
     const target = event.target.closest(".drawer-button").getAttribute("data-target");
     const drawer = document.getElementById(target);
+    if (!drawer) return;
 
     if (!(theme.pageType === "cart" && target === "cartDrawer")) {
       event.preventDefault();
@@ -466,7 +465,7 @@ class SideMenuGenderSelector {
     const siblings = [...button.parentElement.children];
     siblings.forEach((el) => el.classList.toggle("active", el === button));
 
-    menuController.resetMenus();
+    menuController?.resetMenus();
   }
 
   _restoreLastSelection() {
@@ -610,7 +609,7 @@ class SubMenuController {
 
 // Initialize the sub-menu controller for the navigation drawer
 const drawer = document.getElementById("navDrawer");
-const menuController = new SubMenuController(drawer);
+const menuController = drawer ? new SubMenuController(drawer) : null;
 
 // ===================
 // PAGE OVERLAY CLASS
@@ -636,7 +635,7 @@ if (!customElements.get("page-overlay")) {
         // close any mobile qatb modals
         this._closeLoop(".modal");
         //close the searchbar
-        document.querySelector("predictive-search").close();
+        document.querySelector("predictive-search")?.close();
       }
 
       _closeLoop(query) {
@@ -683,12 +682,16 @@ if (!customElements.get("predictive-search")) {
 
       connectedCallback() {
         this.searchButton = document.getElementById("header_search-icon");
-        this.searchButton.addEventListener("click", this._handleOpenClose);
         this.searchButtonMobile = document.getElementById("header_search-icon-mobile");
-        this.searchButtonMobile.addEventListener("click", this._handleOpenClose);
         this.closeButton = this.querySelector(".search_form-close");
-        this.closeButton.addEventListener("click", this._handleOpenClose);
         this.inputField = this.querySelector(".search_form-terms-input");
+        if (!this.searchButton || !this.searchButtonMobile || !this.closeButton || !this.inputField) {
+          console.warn("PredictiveSearch: missing required elements");
+          return;
+        }
+        this.searchButton.addEventListener("click", this._handleOpenClose);
+        this.searchButtonMobile.addEventListener("click", this._handleOpenClose);
+        this.closeButton.addEventListener("click", this._handleOpenClose);
         this.inputField.addEventListener(
           "input",
           debounce((event) => {
@@ -781,26 +784,26 @@ if (!customElements.get("predictive-search")) {
         event.preventDefault();
         this.setAttribute("aria-hidden", this.isOpen);
         if (this.isOpen) {
-          this.inputField.blur();
-          this.pageOverlay.closeThis();
+          this.inputField?.blur();
+          this.pageOverlay?.closeThis();
           setTimeout(() => {
-            this.pageHeader.style.zIndex = 5;
+            if (this.pageHeader) this.pageHeader.style.zIndex = 5;
             this.style.visibility = "hidden";
           }, 150);
         } else {
-          this.pageOverlay.openThis();
+          this.pageOverlay?.openThis();
           this.style.visibility = "visible";
-          this.pageHeader.style.zIndex = 11;
-          this.inputField.focus();
+          if (this.pageHeader) this.pageHeader.style.zIndex = 11;
+          this.inputField?.focus();
         }
 
-        this.isOpen = !this.isOpen; // update the isOpen status for next click
+        this.isOpen = !this.isOpen;
       };
 
       close = () => {
         this.setAttribute("aria-hidden", "true");
         this.style.visibility = "hidden";
-        this.pageHeader.style.zIndex = 5;
+        if (this.pageHeader) this.pageHeader.style.zIndex = 5;
         this.isOpen = false;
       };
     },
@@ -868,7 +871,7 @@ class ProductModalManager {
       modalEl.classList.add("active");
       isOverlay ? modalEl.classList.add("keep-overlay") : "";
       modalEl.setAttribute("aria-hidden", "false");
-      document.querySelector("page-overlay").openThis();
+      document.querySelector("page-overlay")?.openThis();
 
       // Touch swipe-to-close support for mobile devices
       if ("ontouchstart" in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0)) {
@@ -1024,7 +1027,7 @@ class ProductModalManager {
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
 
-    !keepOverlay ? document.querySelector("page-overlay").closeThis() : "";
+    if (!keepOverlay) document.querySelector("page-overlay")?.closeThis();
     modal.classList.remove("keep-overlay");
 
     if (this._activeModal === modal) {
@@ -1665,7 +1668,8 @@ if (recentlyViewed.hasRecentlyViewed() && !document.querySelector("recently-view
       const el = document.querySelector("recently-viewed");
       if (el && typeof el._renderProducts === "function") {
         el._renderProducts();
-        document.querySelector("#recently-viewed-section").style.display = "grid";
+        const rvSection = document.querySelector("#recently-viewed-section");
+        if (rvSection) rvSection.style.display = "grid";
       }
     });
   });
@@ -1739,7 +1743,7 @@ shortcuts.registerShortcut("alt+c", () => {
 });
 
 shortcuts.registerShortcut("escape", () => {
-  document.querySelector("page-overlay").closeAllOverlays();
+  document.querySelector("page-overlay")?.closeAllOverlays();
 });
 
 shortcuts.registerShortcut("alt+h", () => {
@@ -1754,7 +1758,7 @@ shortcuts.registerShortcut("enter", () => {
   const cartDrawer = document.getElementById("cartDrawer");
   const cartPageCheckoutBtn = document.getElementById("main-cart--button");
 
-  if (cartPageCheckoutBtn || cartDrawer.getAttribute("aria-hidden") == false) {
+  if (cartPageCheckoutBtn || cartDrawer?.getAttribute("aria-hidden") == "false") {
     window.location.href = "/checkout";
   }
 });
