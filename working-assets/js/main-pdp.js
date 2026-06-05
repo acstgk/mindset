@@ -546,7 +546,9 @@ if (!customElements.get("enhanced-atc")) {
 
       // set the intersection observer to allow the dynamic add to cart button.
       _setObserver = () => {
-        const observer = new IntersectionObserver(
+        if (this._observer) this._observer.disconnect();
+
+        this._observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               this.isButtonVisible = entry.isIntersecting;
@@ -560,8 +562,15 @@ if (!customElements.get("enhanced-atc")) {
           },
         );
 
-        observer.observe(this.atcButtonPosition);
+        this._observer.observe(this.atcButtonPosition);
       };
+
+      disconnectedCallback() {
+        if (this._observer) {
+          this._observer.disconnect();
+          this._observer = null;
+        }
+      }
 
       // the method called by an intersection event on the add to cart original position
       _handleStickyButton = () => {
