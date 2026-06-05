@@ -56,30 +56,35 @@ export default class RecentlyViewedElement extends HTMLElement {
   async _renderProducts() {
     this.list.innerHTML = `<li class="nothing-viewed">No recently viewed products available to display.</li>`;
 
+    let cartlist = document.querySelectorAll("line-item");
+    let cartitems = [];
+    cartlist.forEach((cartitem) => {
+      cartitems.push(cartitem.dataset.productId);
+    });
+
+    const fetchable = this.flattenedData.filter(
+      (item) => !cartitems.includes(String(item.productId))
+    );
+
+    const results = await Promise.allSettled(
+      fetchable.map(async (item) => {
+        const url = `https://${Shopify.shop}${item.productUrl}.js`;
+        const res = await fetch(url);
+        if (res.status === 404) return null;
+        if (!res.ok) {
+          console.warn(`Failed to fetch ${item.productName}: ${res.status}`);
+          return null;
+        }
+        const data = await res.json();
+        return data;
+      })
+    );
+
     let renderedItems = 0;
-    for (let i = 0; i < this.flattenedData.length; i++) {
+    for (const result of results) {
       if (renderedItems == 5) break;
-      const item = this.flattenedData[i];
-      const productDataUrl = `https://${Shopify.shop}${item.productUrl}.js`;
-
-      let cartlist = document.querySelectorAll("line-item");
-      let cartitems = [];
-      cartlist.forEach((cartitem) => {
-        cartitems.push(cartitem.dataset.productId);
-      });
-
-      if (!cartitems.includes(String(item.productId))) {
-        try {
-          const response = await fetch(productDataUrl);
-          if (response.status === 404) {
-            continue;
-          }
-
-          if (!response.ok) {
-            console.warn(`Failed to fetch ${item.productName}: ${response.status}`);
-            continue;
-          }
-          const productData = await response.json();
+      if (result.status !== "fulfilled" || !result.value) continue;
+      const productData = result.value;
 
           // define the data points we will need to create the cards:
           const title = productData.title.replace("Gym King ", "");
@@ -169,10 +174,6 @@ export default class RecentlyViewedElement extends HTMLElement {
           this.list.appendChild(li); // add the element to the DOM
 
           renderedItems += 1;
-        } catch (err) {
-          console.error(`Failed to fetch product data for ${item.productName}:`, err);
-        }
-      }
     }
 
     this.loader.remove();

@@ -7,12 +7,16 @@ slide-drawer .cart_items-list {
 }
 
 .cart_items-list .nothing-viewed {
-  display: none;
-  padding: 2rem 0.5rem;
-  text-align: center;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  border-color: transparent;
 
   &.active:not(:has(+ li)) {
+    text-align: center;
     display: block;
+    height: auto;
+    padding: 2rem 0.5rem;
   }
 }
 
