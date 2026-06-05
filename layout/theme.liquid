@@ -143,7 +143,7 @@
   </head>
 
   <body class="{%- if template.directory -%}template-{{ template.directory | handle }}{%- endif -%} template-{{ template.name | handle }}">
-    <a class="visually-hidden" href="#main" alt="skip to content">{{ 'header.navigation.skip_to_content' | t }}</a>
+    <a class="visually-hidden" href="#main" aria-label="skip to content">{{ 'header.navigation.skip_to_content' | t }}</a>
     <page-overlay aria-disabled></page-overlay>
 
     {% section 'header-main' %}
