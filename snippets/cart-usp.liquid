@@ -1,6 +1,6 @@
 <div class="usp">
   <div class="img">
-    {{ about_img | image_url: width: '700' | image_tag }}
+    {{ about_img | image_url: width: '700' | image_tag: loading: 'lazy' }}
   </div>
   <div class="rtf">
     {% assign primary_button_href = button_href | default: '/pages/about-us' %}

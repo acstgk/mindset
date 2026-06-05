@@ -1,6 +1,6 @@
 <article class="article-card">
   <a href="{{ article.url }}" class="article-card--image">
-    {{ article.image | image_url: width: 400 | image_tag: class: 'image-grow' }}
+    {{ article.image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'image-grow' }}
     {%- if article.metafields.article.event_location.value -%}
       <div class="event-meta event-location">{{ article.metafields.article.event_location.value }}</div>
     {%- endif -%}

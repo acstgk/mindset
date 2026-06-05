@@ -138,7 +138,7 @@ export default class RecentlyViewedElement extends HTMLElement {
           li.className = "cart_items-item";
           li.innerHTML = `
                 <line-item>
-                  <div class="cart_item-image"><img src="${image}&width=85" alt="${title}"></div>
+                  <div class="cart_item-image"><img src="${image}&width=85" alt="${title}" loading="lazy"></div>
                   <div class="cart_item-header">
                     <div class="cart_item-info">
                       <h3><a class="Title" href="${url}"><span class="title">${splitTitle}</span><span class="color">${splitColor}</span></a></h3>

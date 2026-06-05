@@ -14,7 +14,7 @@
     {% for item in cart.items %}
       <li class="cart_items-item">
         <line-item data-key="{{ item.key }}" data-product-id="{{item.product.id}}" data-index="{{ forloop.index0 }}">
-          <div class="cart_item-image">{{ item.product.featured_image | image_url: width: 400 | image_tag }}</div>
+          <div class="cart_item-image">{{ item.product.featured_image | image_url: width: 400 | image_tag: loading: 'lazy' }}</div>
           <header class="cart_item-header">
             <div class="cart_item-info">
               <h3>{% render 'product-title' with item.product as product %}</h3>
