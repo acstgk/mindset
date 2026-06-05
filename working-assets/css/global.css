@@ -299,9 +299,11 @@ productcard-carousel .splide__arrows {
   left: calc(0px - max(1.25rem, 12px));
   width: calc(100% + 2.5rem);
   justify-content: space-between;
+  pointer-events: none;
 }
 
 productcard-carousel .splide__arrow {
+  pointer-events: auto;
   width: max(2.5rem, 24px);
   height: max(2.5rem, 24px);
   display: grid;
