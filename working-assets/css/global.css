@@ -441,13 +441,22 @@ page-overlay {
   inset: 0;
   max-width: 100svw;
   max-height: 100svh;
-  backdrop-filter: brightness(0.75) blur(2px);
+  background: rgba(0,0,0,0.5);
   z-index: 10;
   opacity: 0;
   pointer-events: none;
   transition:
     opacity 0.15s,
     visibility 0.15s;
+}
+
+@supports (backdrop-filter: blur(2px)) {
+  @media screen and (min-width: 768.02px) {
+    page-overlay {
+      backdrop-filter: brightness(0.75) blur(2px);
+      background: rgba(0,0,0,0.25);
+    }
+  }
 }
 
 body.no-scroll page-overlay {
