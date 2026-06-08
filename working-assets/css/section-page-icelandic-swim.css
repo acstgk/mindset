@@ -246,7 +246,7 @@ div#two-block [data-block] {
     padding-top: 60px;
   }
 
-  .flex-content .Rte {
+  .flex-content .rtf {
     flex: 1;
     max-width: 35%;
     text-wrap: balance;
