@@ -2,11 +2,16 @@
 
 {% for block in section.blocks %}
   {%- assign hide_announcement = false -%}
-  {%- if localization.country.iso_code != 'GB' and block.settings.country_restriction == 'domestic_only' -%}
-    {%- assign hide_announcement = true -%}
-  {%- elsif localization.country.iso_code == 'GB' and block.settings.country_restriction == 'international_only' -%}
-    {%- assign hide_announcement = true -%}
-  {%- endif -%}
+  {%- case block.settings.country_restriction -%}
+    {%- when 'domestic_only' -%}
+      {%- if localization.country.iso_code != 'GB' -%}
+        {%- assign hide_announcement = true -%}
+      {%- endif -%}
+    {%- when 'international_only' -%}
+      {%- if localization.country.iso_code == 'GB' -%}
+        {%- assign hide_announcement = true -%}
+      {%- endif -%}
+  {%- endcase -%}
 
   {% unless hide_announcement %}
     {% if block.settings.block_link %}

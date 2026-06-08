@@ -12,11 +12,20 @@
         <div class="announcement_list splide__list">
           {% for block in section.blocks %}
             {%- assign hide_announcement = false -%}
-            {%- if localization.country.iso_code != 'GB' and block.settings.country_restriction == 'domestic_only' -%}
-              {%- assign hide_announcement = true -%}
-            {%- elsif localization.country.iso_code == 'GB' and block.settings.country_restriction == 'international_only' -%}
-              {%- assign hide_announcement = true -%}
-            {%- endif -%}
+            {%- case block.settings.country_restriction -%}
+              {%- when 'domestic_only' -%}
+                {%- if localization.country.iso_code != 'GB' -%}
+                  {%- assign hide_announcement = true -%}
+                {%- endif -%}
+              {%- when 'eu_only' -%}
+                {%- if localization.country.iso_code == 'GB' or localization.country.continent != 'Europe' -%}
+                  {%- assign hide_announcement = true -%}
+                {%- endif -%}
+              {%- when 'international_only' -%}
+                {%- if localization.country.iso_code == 'GB' -%}
+                  {%- assign hide_announcement = true -%}
+                {%- endif -%}
+            {%- endcase -%}
 
             {% unless hide_announcement %}
               <div class="splide__slide">
@@ -28,7 +37,7 @@
                 >
                   <b class="announcement_content-title">{{ block.settings.title | escape }} </b>
                   {% if block.settings.enable_countdown %}
-                    <countdown-timer class="announcement_content-text" data-countdown='{{ countdown_settings | strip_newlines }}'></countdown-timer>
+                    <countdown-timer class="announcement_content-text" data-countdown="{{ countdown_settings | strip_newlines }}"></countdown-timer>
                   {% else %}
                     <span class="announcement_content-text">
                       {{ block.settings.subcontent1 | escape }}
@@ -121,8 +130,12 @@
               "label": "Domestic Only"
             },
             {
+              "value": "eu_only",
+              "label": "EU Only"
+            },
+            {
               "value": "international_only",
-              "label": "International Only"
+              "label": "All International"
             }
           ]
         }

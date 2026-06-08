@@ -106,6 +106,16 @@
               "country_restriction": "international_only"
             }
           },
+          "announcement_slider_8GNAEy": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "FREE European Shipping",
+              "subcontent1": "On Orders over €100 EUR",
+              "link1": "",
+              "enable_countdown": false,
+              "country_restriction": "eu_only"
+            }
+          },
           "announcement_slider_CxdCHz": {
             "type": "announcement_slider",
             "disabled": true,
@@ -151,6 +161,7 @@
         },
         "block_order": [
           "announcement_slider_KeM9Hq",
+          "announcement_slider_8GNAEy",
           "announcement_slider_CxdCHz",
           "announcement_slider_ij8XhU",
           "announcement_slider_Qw6CQD",
