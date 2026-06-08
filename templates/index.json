@@ -17,7 +17,7 @@
           "settings": {
             "mobile_video": "shopify://files/videos/30 Off Twin Sets - Mobile Banner_0ffae13a-c3ae-40e4-a8f5-419ebdc7dfa0.mp4",
             "desktop_video": "shopify://files/videos/30 Off Twin Sets - Desktop Banner_922070d6-5793-4561-84a9-7355fbc9799b.mp4",
-            "media_brightness": 125,
+            "media_brightness": 100,
             "overlay_url": "shopify://collections/twin-sets",
             "alt_text": "",
             "lockup_width": 200,
@@ -182,18 +182,8 @@
           }
         }
       },
-      "block_order": [
-        "image_3RaHDG",
-        "image_6BmG7G",
-        "image_gNci3a",
-        "image_bemean",
-        "image_hkkRfY",
-        "image_eT8DWX"
-      ],
-      "custom_css": [
-        ".h3 {font-size: var(--txt-h4);}",
-        "em {width: 100%; display: inline-block;}"
-      ],
+      "block_order": ["image_3RaHDG", "image_6BmG7G", "image_gNci3a", "image_bemean", "image_hkkRfY", "image_eT8DWX"],
+      "custom_css": [".h3 {font-size: var(--txt-h4);}", "em {width: 100%; display: inline-block;}"],
       "settings": {}
     },
     "section_value_props_FBFJKV": {
@@ -249,12 +239,7 @@
           }
         }
       },
-      "block_order": [
-        "subtle_text_block_4hemRj",
-        "subtle_text_block_fbX7Vw",
-        "subtle_text_block_7LKcb6",
-        "subtle_text_block_f3eyqD"
-      ],
+      "block_order": ["subtle_text_block_4hemRj", "subtle_text_block_fbX7Vw", "subtle_text_block_7LKcb6", "subtle_text_block_f3eyqD"],
       "name": "Value Proposition Bar",
       "settings": {}
     },
@@ -443,19 +428,8 @@
           }
         }
       },
-      "block_order": [
-        "card_niNhVm",
-        "card_7f8xbx",
-        "card_mg8qYw",
-        "card_KR4jd4",
-        "card_jaEGg6",
-        "card_JEAxxg",
-        "card_QqTzmg",
-        "card_AJxV9n"
-      ],
-      "custom_css": [
-        "{margin-bottom: 0; background: var(--c-off-white); padding-top: 2rem;}"
-      ],
+      "block_order": ["card_niNhVm", "card_7f8xbx", "card_mg8qYw", "card_KR4jd4", "card_jaEGg6", "card_JEAxxg", "card_QqTzmg", "card_AJxV9n"],
+      "custom_css": ["{margin-bottom: 0; background: var(--c-off-white); padding-top: 2rem;}"],
       "name": "Trending Collections",
       "settings": {
         "title": "Trending Collections",
