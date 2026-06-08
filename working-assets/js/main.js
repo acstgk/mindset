@@ -625,21 +625,19 @@ if (!customElements.get("page-overlay")) {
     class PageOverlay extends HTMLElement {
       connectedCallback() {
         this.addEventListener("click", this.closeAllOverlays.bind(this));
+        this._drawers = document.querySelectorAll("slide-drawer");
+        this._modals = document.querySelectorAll(".modal");
+        this._search = document.querySelector("predictive-search");
       }
 
       closeAllOverlays() {
-        // allow scrolling
         this.closeThis();
-        // close any open drawers
-        this._closeLoop("slide-drawer");
-        // close any mobile qatb modals
-        this._closeLoop(".modal");
-        //close the searchbar
-        document.querySelector("predictive-search")?.close();
+        this._closeLoop(this._drawers);
+        this._closeLoop(this._modals);
+        this._search?.close();
       }
 
-      _closeLoop(query) {
-        const els = document.querySelectorAll(query);
+      _closeLoop(els) {
         els.forEach((el) => {
           if (el.getAttribute("aria-hidden") == "false") {
             el.classList.remove("active");
