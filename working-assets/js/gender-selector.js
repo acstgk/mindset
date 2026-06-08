@@ -1,6 +1,7 @@
 class GenderSelector {
   constructor() {
     this.genderButtons = document.querySelectorAll(".gender-btn");
+    this.genderFilterElements = document.querySelectorAll("[class*='-gender-filter']");
     this.noGenderElements = document.querySelectorAll(".no-gender-filter");
     this.loaderElements = document.querySelectorAll(".gender-loader");
     this._bindEvents();
@@ -32,7 +33,7 @@ class GenderSelector {
 
     if (matchButton) matchButton.click();
     this.noGenderElements.forEach((el) => (el.style.display = "none"));
-    document.querySelectorAll(".gender-loader").forEach((el) => el.remove());
+    this.loaderElements.forEach((el) => el.remove());
   }
 
   _handleGenderClick(button) {
@@ -43,35 +44,22 @@ class GenderSelector {
       /* private browsing */
     }
 
-    // Remove active from all buttons and update aria-pressed
+    // Update buttons from cache
     this.genderButtons.forEach((btn) => {
-      btn.classList.remove("active");
-      btn.setAttribute("aria-pressed", "false");
-      btn.setAttribute("aria-expanded", "false");
-    });
-    // Add active to current button
-    button.classList.add("active");
-    button.setAttribute("aria-pressed", "true");
-    button.setAttribute("aria-expanded", "true");
-
-    // Hide all gender-specific elements
-    const targetClass = `.${gender}-gender-filter`;
-    const genderFilters = document.querySelectorAll("[class*='-gender-filter']");
-    genderFilters.forEach((el) => {
-      if (!el.classList.contains(targetClass)) {
-        el.classList.remove("active");
-        el.setAttribute("aria-hidden", "true");
-      }
+      const isActive = btn === button;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", String(isActive));
+      btn.setAttribute("aria-expanded", String(isActive));
     });
 
-    // Show only matching gender elements
-    const matchingElements = document.querySelectorAll(targetClass);
-    matchingElements.forEach((el) => {
-      el.classList.add("active");
-      el.setAttribute("aria-hidden", "false");
+    // Toggle gender-filter elements from cache (read once, write once)
+    const targetClass = `${gender}-gender-filter`;
+    this.genderFilterElements.forEach((el) => {
+      const isMatch = el.classList.contains(targetClass);
+      el.classList.toggle("active", isMatch);
+      el.setAttribute("aria-hidden", String(!isMatch));
     });
 
-    // Hide no-gender-filter elements
     this.noGenderElements.forEach((el) => (el.style.display = "none"));
   }
 }

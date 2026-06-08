@@ -429,6 +429,10 @@ class SideMenuGenderSelector {
     this.header = document.querySelector(headerSelector);
     if (!this.header) return;
 
+    this.menuHeaderItems = document.querySelectorAll(".side_menu-header-item");
+    this.menuMenus = document.querySelectorAll(".side_menu-menu");
+    this.slider = document.querySelector(".side_menu-slider");
+
     this._bindEvents();
     this._restoreLastSelection();
   }
@@ -444,17 +448,17 @@ class SideMenuGenderSelector {
     const gender = button.dataset.gender;
     const targetMenu = document.getElementById(`${gender}_gender-menu`);
 
-    document.querySelectorAll(".side_menu-header-item").forEach((el) => {
+    this.menuHeaderItems.forEach((el) => {
       el.setAttribute("aria-pressed", false);
     });
-    document.querySelectorAll(".side_menu-menu").forEach((el) => {
+    this.menuMenus.forEach((el) => {
       el.setAttribute("aria-expanded", false);
     });
 
     button.setAttribute("aria-pressed", true);
     targetMenu.setAttribute("aria-expanded", true);
     const menuOffset = { kids: 200, womens: 100 }[gender] || 0;
-    document.querySelector(".side_menu-slider").style.left = `-${menuOffset}%`;
+    this.slider.style.left = `-${menuOffset}%`;
 
     try {
       localStorage.setItem("GK::gender--menu", gender);
