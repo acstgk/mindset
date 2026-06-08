@@ -30,7 +30,7 @@
     content: attr(cover);
     display: grid;
     transform-origin: left;
-    transition: all 0.25s var(--bezier);
+    transition: transform 0.25s var(--bezier);
     background-color: var(--c-black);
     color: #F6DA9E;
     mask-image: radial-gradient(circle at 100% center, transparent 15px, #1b1b1b 16px);

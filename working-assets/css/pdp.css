@@ -288,7 +288,7 @@ input.pdp-zoom-range {
   height: 125px;
   position: absolute;
   right: 2em;
-  transition: all 0.1s;
+  transition: opacity 0.1s;
   background-color: white;
   margin: 0;
 }
