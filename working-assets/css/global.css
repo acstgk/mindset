@@ -441,7 +441,7 @@ page-overlay {
   inset: 0;
   max-width: 100svw;
   max-height: 100svh;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 10;
   opacity: 0;
   pointer-events: none;
@@ -454,7 +454,7 @@ page-overlay {
   @media screen and (min-width: 768.02px) {
     page-overlay {
       backdrop-filter: brightness(0.75) blur(2px);
-      background: rgba(0,0,0,0.25);
+      background: rgba(0, 0, 0, 0.25);
     }
   }
 }
@@ -510,12 +510,17 @@ body.no-scroll page-overlay {
   transform: translateY(-100%);
   padding: 0;
   margin: 0;
-  transition: all 0.4s var(--bezier);
+  transition:
+    height 0.4s var(--bezier),
+    transform 0.4s var(--bezier);
 }
 
 .splide__slide.is-active .fade-in,
 .fade-in.active {
-  transition: all 0.4s var(--bezier);
+  transition:
+    height 0.4s var(--bezier),
+    opacity 0.4s var(--bezier),
+    transform 0.4s var(--bezier);
   height: auto;
   opacity: 1;
   transform: translateY(0);
@@ -2938,7 +2943,11 @@ form {
       padding: 5px;
       background-color: var(--c-white);
       translate: 0 0;
-      transition: all 0.15s var(--bezier);
+      transition:
+        opacity 0.15s var(--bezier),
+        translate 0.15s var(--bezier),
+        top 0.15s var(--bezier),
+        left 0.15s var(--bezier);
       opacity: 0;
       pointer-events: none;
     }
