@@ -12,63 +12,35 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
-        "image_bemean": {
+        "image_3RaHDG": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/NBB - Mobile Banner.mp4",
-            "desktop_video": "shopify://files/videos/NBB - Desktop Banner.mp4",
-            "media_brightness": 92.5,
-            "overlay_url": "shopify://collections/all-mens-t-shirts",
+            "mobile_video": "shopify://files/videos/30 Off Twin Sets - Mobile Banner_0ffae13a-c3ae-40e4-a8f5-419ebdc7dfa0.mp4",
+            "desktop_video": "shopify://files/videos/30 Off Twin Sets - Desktop Banner_922070d6-5793-4561-84a9-7355fbc9799b.mp4",
+            "media_brightness": 125,
+            "overlay_url": "shopify://collections/twin-sets",
             "alt_text": "",
             "lockup_width": 200,
             "lockup_fit": "contain",
-            "title": "Nothing Beats Belief",
+            "title": "Twin Sets",
             "title_font": "",
-            "subtitle": "Gymking",
+            "heading_size": 150,
+            "subtitle": "Summer Styling",
             "subtitle_font": "",
             "subtitle_first": true,
             "customHTML": "",
             "content_alignment": "center",
             "v_align_desk": "bottom-desk",
             "v_align_mob": "bottom-mob",
-            "cta1": "Shop now",
-            "url1": "shopify://collections/all-mens-t-shirts",
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/twin-sets",
             "cta2": "",
             "url2": "",
-            "target_gender": "mens"
-          }
-        },
-        "image_hkkRfY": {
-          "type": "image",
-          "settings": {
-            "mobile_video": "shopify://files/videos/Heritage - Mobile Banner V2.mp4",
-            "mobile_poster": "shopify://shop_images/HERITAGE_MOBILE_BANNER_NO_COPY.png",
-            "desktop_video": "shopify://files/videos/Heritage - Desktop Banner.mp4",
-            "desktop_poster": "shopify://shop_images/HERITAGE_DESKTOP_BANNER_NO_COPY.png",
-            "media_brightness": 87.5,
-            "overlay_url": "",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Heritage Collection",
-            "title_font": "",
-            "subtitle": "New Arrivals",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Womens",
-            "url1": "shopify://collections/womens",
-            "cta2": "Shop Mens",
-            "url2": "/collections/heritage-collection/mens",
             "target_gender": ""
           }
         },
         "image_6BmG7G": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Signature Summer - Womens - Mobile Banner V2_11ad0ed4-056c-48f0-a372-aaf40c7f3a31.mp4",
             "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner V2_1.mp4",
@@ -79,6 +51,7 @@
             "lockup_fit": "contain",
             "title": "Signature <em>Summer</em>",
             "title_font": "baskerville",
+            "heading_size": 100,
             "subtitle": "new collection",
             "subtitle_font": "",
             "subtitle_first": true,
@@ -91,6 +64,91 @@
             "cta2": "",
             "url2": "",
             "target_gender": "womens"
+          }
+        },
+        "image_gNci3a": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Mobile Banner - Mens Roam V1.mp4",
+            "desktop_video": "shopify://files/videos/Desktop Banner - Mens Roam V2.mp4",
+            "media_brightness": 100,
+            "overlay_url": "shopify://collections/mens-new",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "Summer Styles",
+            "title_font": "",
+            "heading_size": 100,
+            "subtitle": "New In",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/mens-new",
+            "cta2": "",
+            "url2": "",
+            "target_gender": "mens"
+          }
+        },
+        "image_bemean": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "mobile_video": "shopify://files/videos/NBB - Mobile Banner.mp4",
+            "desktop_video": "shopify://files/videos/NBB - Desktop Banner.mp4",
+            "media_brightness": 92.5,
+            "overlay_url": "shopify://collections/all-mens-t-shirts",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "Nothing Beats Belief",
+            "title_font": "",
+            "heading_size": 100,
+            "subtitle": "Gymking",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop now",
+            "url1": "shopify://collections/all-mens-t-shirts",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
+          }
+        },
+        "image_hkkRfY": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "mobile_video": "shopify://files/videos/Heritage - Mobile Banner V2.mp4",
+            "mobile_poster": "shopify://shop_images/HERITAGE_MOBILE_BANNER_NO_COPY.png",
+            "desktop_video": "shopify://files/videos/Heritage - Desktop Banner.mp4",
+            "desktop_poster": "shopify://shop_images/HERITAGE_DESKTOP_BANNER_NO_COPY.png",
+            "media_brightness": 87.5,
+            "overlay_url": "",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "Heritage Collection",
+            "title_font": "",
+            "heading_size": 50,
+            "subtitle": "New Arrivals",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Womens",
+            "url1": "shopify://collections/womens",
+            "cta2": "Shop Mens",
+            "url2": "/collections/heritage-collection/mens",
+            "target_gender": ""
           }
         },
         "image_eT8DWX": {
@@ -108,6 +166,7 @@
             "lockup_fit": "contain",
             "title": "Signature Summer",
             "title_font": "",
+            "heading_size": 85,
             "subtitle": "New Collection",
             "subtitle_font": "",
             "subtitle_first": true,
@@ -124,15 +183,16 @@
         }
       },
       "block_order": [
+        "image_3RaHDG",
+        "image_6BmG7G",
+        "image_gNci3a",
         "image_bemean",
         "image_hkkRfY",
-        "image_6BmG7G",
         "image_eT8DWX"
       ],
       "custom_css": [
         ".h3 {font-size: var(--txt-h4);}",
-        "em {width: 100%; display: inline-block;}",
-        ".hero_slide:first-child .h3 {background: var(--c-white); color: var(--c-black); padding: 0.5lh 1ch 0.5lh 1.2ch; letter-spacing: 0.65ch; width: fit-content; margin: 0 auto 0.5rem; font-weight: bold; font-size: calc(var(--txt-p) * 0.85); text-box-trim: trim-both; text-box-edge: cap alphabetic; text-align: center; font-family: var(--baskerville-font-family);}"
+        "em {width: 100%; display: inline-block;}"
       ],
       "settings": {}
     },
