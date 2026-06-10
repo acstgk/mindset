@@ -19,7 +19,9 @@
                 {%- endif -%}
               {%- when 'eu_only' -%}
                 {%- if localization.country.iso_code == 'GB' or localization.country.continent != 'Europe' -%}
-                  {%- assign hide_announcement = true -%}
+                  {% if localization.country.currency.iso_code != 'EUR' -%}
+                    {%- assign hide_announcement = true -%}
+                  {% endif %}
                 {%- endif -%}
               {%- when 'international_only' -%}
                 {%- if localization.country.iso_code == 'GB' -%}
