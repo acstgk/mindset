@@ -728,10 +728,8 @@ if (!customElements.get("predictive-search")) {
           return response.text();
         });
 
-        const minDisplayPromise = new Promise((resolve) => setTimeout(resolve, 1000));
-
-        Promise.all([fetchPromise, minDisplayPromise])
-          .then(([text]) => {
+        fetchPromise
+          .then((text) => {
             this._resetResults();
             const resultsMarkup = new DOMParser().parseFromString(text, "text/html").querySelector("#shopify-section-predictive-search-results").innerHTML;
             // If countdown timers are present, ensure the custom element is defined (guarded)
