@@ -1859,27 +1859,28 @@ class EntryAnimationObserver {
     // 2. Prep existing elements on the page
     this.prepElements(document.querySelectorAll(this.selector));
 
-    // 3. Set up MutationObserver to catch dynamically injected elements (like from infinite-scroll)
+    // 3. Set up MutationObserver to catch dynamically injected sections
+    // Disconnect once footer is present — all page sections are rendered
+    if (document.getElementById("shopify-section-footer")) return;
+
     this.mutationObserver = new MutationObserver((mutations) => {
       let newElements = [];
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeType === 1) {
-            // ELEMENT_NODE
-            if (node.matches(this.selector)) {
-              newElements.push(node);
-            }
-            // Also check children of added nodes
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (node.nodeType !== 1) continue;
+          if (node.matches(this.selector)) {
+            newElements.push(node);
+          } else {
             const children = node.querySelectorAll(this.selector);
-            if (children.length > 0) {
-              newElements.push(...children);
-            }
+            if (children.length) newElements.push(...children);
           }
-        });
-      });
+        }
+      }
 
-      if (newElements.length > 0) {
-        this.prepElements(newElements);
+      if (newElements.length) this.prepElements(newElements);
+      if (document.getElementById("shopify-section-footer")) {
+        this.mutationObserver.disconnect();
+        this.mutationObserver = null;
       }
     });
 
