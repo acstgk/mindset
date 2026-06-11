@@ -102,19 +102,29 @@ class CartAPI {
       const res = await fetch("/cart/add.js", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items: normalizedItems }),
+        body: JSON.stringify({
+          items: normalizedItems,
+          sections: ["drawer-cart"],
+          sections_url: window.location.pathname,
+        }),
       });
 
       if (!res.ok) {
         const errorData = await res.json();
         console.error("Shopify Add to Cart Error:", errorData);
-        // could dispatch an error event here
         return Promise.reject(errorData);
       }
 
-      await this.loadCart();
+      const data = await res.json();
+
+      if (data.sections && data.sections["drawer-cart"]) {
+        this._renderSideCart(data.sections["drawer-cart"]);
+      }
+
+      this.cart = data;
       this.dispatchCartUpdate("cart:itemsAdded");
-      return;
+      this.dispatchCartUpdate("cart:loaded");
+      return data;
     } catch (error) {
       console.error("Network or unexpected error during addItems:", error);
       return Promise.reject(error);
@@ -258,32 +268,7 @@ class CartAPI {
       const data = await res.json();
       const html = data["drawer-cart"];
 
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, "text/html");
-      const newSideCart = doc.querySelector("#side-cart");
-      const existingSideCart = document.querySelector("#side-cart");
-
-      if (newSideCart && existingSideCart) {
-        // Mark new items for entrance animation
-        const firstListItem = newSideCart.querySelector("li");
-        if (firstListItem) {
-          firstListItem.classList.add("fade-in", "no-height");
-        }
-
-        existingSideCart.innerHTML = newSideCart.innerHTML;
-
-        // Trigger entrance animation after content swap
-        requestAnimationFrame(() => {
-          const animatedItems = existingSideCart.querySelectorAll(".fade-in");
-          animatedItems.forEach((item) => item.classList.add("active"));
-        });
-
-        // Activate empty state/content if present within side-cart
-        const emptyContent = existingSideCart.querySelector("div.cart_items-list");
-        if (emptyContent) {
-          emptyContent.classList.add("active");
-        }
-      }
+      this._renderSideCart(html);
     } catch (error) {
       console.error("Failed to fetch drawer-cart section:", error);
       throw error; // Re-throw to allow caller to handle
@@ -300,6 +285,27 @@ class CartAPI {
     requestAnimationFrame(() => {
       this.dispatchCartUpdate("cart:loaded");
       if (specificEvent) this.dispatchCartUpdate(specificEvent);
+    });
+  }
+
+  _renderSideCart(html) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+    const newSideCart = doc.querySelector("#side-cart");
+    const existingSideCart = document.querySelector("#side-cart");
+    if (!newSideCart || !existingSideCart) return;
+
+    const firstListItem = newSideCart.querySelector("li");
+    if (firstListItem) {
+      firstListItem.classList.add("fade-in", "no-height");
+    }
+
+    existingSideCart.innerHTML = newSideCart.innerHTML;
+
+    requestAnimationFrame(() => {
+      existingSideCart.querySelectorAll(".fade-in").forEach((item) => item.classList.add("active"));
+      const emptyContent = existingSideCart.querySelector("div.cart_items-list");
+      if (emptyContent) emptyContent.classList.add("active");
     });
   }
 }
@@ -1632,7 +1638,6 @@ function openCartDrawerIfNotOnCartPage() {
     const isActive = cartSection?.classList.contains("active");
     if (!isActive) cartSection?.click();
     drawer.open();
-    Cart.getLineItems().catch(() => {}); // background content refresh
   }
 }
 
