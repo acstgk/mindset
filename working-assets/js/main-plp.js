@@ -222,18 +222,18 @@ class EnhancedFilters {
     }
 
     try {
-      // --- Read phase: capture all DOM refs before writes ---
       const currentGrid = document.querySelector("infinite-scroll");
       const currentPaginationNext = document.getElementById("pagination-next");
       const currentPaginationPrev = document.getElementById("pagination-prev");
       const currentTotalCount = document.querySelectorAll(".product-count");
 
-      if (currentPaginationNext) currentPaginationNext.style.display = "none";
-      if (currentPaginationPrev) currentPaginationPrev.style.display = "none";
       const productTypes = document.querySelector("product-types");
       if (productTypes && productTypes.getBoundingClientRect().top < 0) {
         window.scrollTo({ top: productTypes.offsetTop, behavior: "smooth" });
       }
+
+      if (currentPaginationNext) currentPaginationNext.style.display = "none";
+      if (currentPaginationPrev) currentPaginationPrev.style.display = "none";
       currentGrid.style.minHeight = "100vh";
       currentGrid.replaceChildren();
       const loader = document.createElement("div");
@@ -248,7 +248,6 @@ class EnhancedFilters {
 
       const html = await response.text();
 
-      // Discard stale response if a newer filter request supersedes this one
       if (requestId !== this._requestSeq) return;
 
       const parser = new DOMParser();
@@ -256,13 +255,16 @@ class EnhancedFilters {
 
       window.history.replaceState(null, "", fetchUrl);
 
-      // --- Defer heavy DOM mutations to rAF ---
       requestAnimationFrame(() => {
         if (requestId !== this._requestSeq) return;
 
+        const fragment = doc.createDocumentFragment();
         const newGrid = doc.querySelector("infinite-scroll");
         if (newGrid && currentGrid) {
-          currentGrid.replaceChildren(...newGrid.childNodes);
+          while (newGrid.firstChild) {
+            fragment.appendChild(newGrid.firstChild);
+          }
+          currentGrid.replaceChildren(fragment);
           currentGrid.dataset.nextPage = newGrid.dataset.nextPage;
           currentGrid.style.minHeight = "auto";
         }
@@ -303,28 +305,28 @@ class EnhancedFilters {
           infiniteScrollEl._observeLoadTrigger();
         }
 
+        const newTotalCountEl = doc.querySelector(".product-count");
+        const newTotalCount = newTotalCountEl ? newTotalCountEl.textContent : "";
+        currentTotalCount.forEach((el) => {
+          el.textContent = newTotalCount;
+        });
+
         const newFilterGroups = doc.querySelectorAll(".accordian-items");
         const currentFilterGroups = this.form.querySelectorAll(".accordian-items");
-        const newTotalCount = doc.querySelector(".product-count").innerText;
-
-        currentTotalCount.forEach((el) => {
-          el.innerText = newTotalCount;
-        });
 
         currentFilterGroups.forEach((oldGroup, index) => {
           const newGroup = newFilterGroups[index];
-          if (newGroup) {
-            const oldHeader = oldGroup.querySelector(".filter_item-title");
-            const newHeader = newGroup.querySelector(".filter_item-title");
-            if (oldHeader && newHeader) {
-              oldHeader.innerHTML = newHeader.innerHTML;
-              oldHeader.dataset.activeCount = newHeader.dataset.activeCount;
-            }
-            const oldValues = oldGroup.querySelector(".filter_item-values");
-            const newValues = newGroup.querySelector(".filter_item-values");
-            if (oldValues && newValues) {
-              oldValues.innerHTML = newValues.innerHTML;
-            }
+          if (!newGroup) return;
+          const oldHeader = oldGroup.querySelector(".filter_item-title");
+          const newHeader = newGroup.querySelector(".filter_item-title");
+          if (oldHeader && newHeader) {
+            oldHeader.replaceChildren(...newHeader.childNodes);
+            oldHeader.dataset.activeCount = newHeader.dataset.activeCount;
+          }
+          const oldValues = oldGroup.querySelector(".filter_item-values");
+          const newValues = newGroup.querySelector(".filter_item-values");
+          if (oldValues && newValues) {
+            oldValues.replaceChildren(...newValues.childNodes);
           }
         });
       });
