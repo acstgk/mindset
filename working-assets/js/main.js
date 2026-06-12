@@ -829,6 +829,7 @@ class ProductModalManager {
     this._touchStartY = null; // Track touch start position for swipe
     this._touchStartListener = null; // Touch event listener reference
     this._touchEndListener = null; // Touch event listener reference
+    this._pageOverlay = document.querySelector("page-overlay"); // cached overlay ref
   }
 
   /**
@@ -851,18 +852,25 @@ class ProductModalManager {
     if (!modalEl) {
       modalEl = this.buildModal(trigger);
       document.body.appendChild(modalEl);
-      requestAnimationFrame(() => bindQATBButtons(modalEl));
+      requestAnimationFrame(() => {
+        bindQATBButtons(modalEl);
+        modalEl.querySelectorAll("[data-mqatb-src]").forEach(img => {
+          img.src = img.dataset.mqatbSrc;
+          delete img.dataset.mqatbSrc;
+        });
+      });
     }
 
     this._activeModal = modalEl;
     clearTimeout(this._showTimeoutId);
 
-    // Blur slide-drawer behind modal
-    const blurStyle = document.createElement("style");
-    blurStyle.dataset.blurStyle = "";
-    blurStyle.textContent = "slide-drawer { filter: blur(2px); }";
-    document.head.appendChild(blurStyle);
-    this._blurStyle = blurStyle;
+    // Blur slide-drawer behind modal — cache style element, create once
+    if (!this._blurStyle) {
+      this._blurStyle = document.createElement("style");
+      this._blurStyle.dataset.blurStyle = "";
+      this._blurStyle.textContent = "slide-drawer { filter: blur(2px); }";
+    }
+    document.head.appendChild(this._blurStyle);
 
     this._showTimeoutId = setTimeout(() => {
       if (this._activeModal !== modalEl) return;
@@ -935,7 +943,7 @@ class ProductModalManager {
     for (let i = 0, len = loopEnd; i < len; i++) {
       if (imgURLs[i].length > 0) {
         const img = document.createElement("img");
-        img.src = imgURLs[i];
+        img.dataset.mqatbSrc = imgURLs[i];
         img.draggable = false;
         img.alt = `${productTitle} - image ${i + 1}`;
         images.appendChild(img);
@@ -1002,11 +1010,10 @@ class ProductModalManager {
    */
   closeModal(event) {
     const modal = event.target.closest(".mqatb-modal");
+    if (modal.getAttribute("aria-hidden") === "true") return;
     const keepOverlay = modal.classList.contains("keep-overlay");
-    // Remove blur style
-    const blurStyle = document.querySelector("[data-blur-style]");
-    if (blurStyle) blurStyle.remove();
-    this._blurStyle = null;
+    // Remove blur style — use cached reference, no querySelector
+    if (this._blurStyle) this._blurStyle.remove();
     // Remove touch listeners if present
     if (this._touchStartListener) {
       modal.removeEventListener("touchstart", this._touchStartListener);
@@ -1022,7 +1029,7 @@ class ProductModalManager {
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
 
-    if (!keepOverlay) document.querySelector("page-overlay")?.closeThis();
+    if (!keepOverlay) this._pageOverlay?.closeThis();
     modal.classList.remove("keep-overlay");
 
     if (this._activeModal === modal) {
