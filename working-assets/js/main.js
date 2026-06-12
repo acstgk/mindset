@@ -851,7 +851,7 @@ class ProductModalManager {
     if (!modalEl) {
       modalEl = this.buildModal(trigger);
       document.body.appendChild(modalEl);
-      bindQATBButtons(modalEl);
+      requestAnimationFrame(() => bindQATBButtons(modalEl));
     }
 
     this._activeModal = modalEl;
@@ -950,23 +950,19 @@ class ProductModalManager {
       }
     }
 
-    // Copy the product details - check trigger first, then by data-target match, then sourceElement
+    // Clone product details from existing DOM — no HTML parse
     const targetId = trigger.dataset.target;
     const productInfoSource =
       trigger.querySelector(".product_card-info") || (targetId && this.sourceElement.querySelector(`.product_card-info[data-target="${targetId}"]`)) || this.sourceElement.querySelector(".product_card-info");
-    const productInfo = productInfoSource.innerHTML;
-    const info = document.createElement("div");
+    const info = productInfoSource.cloneNode(true);
     info.className = "mqatb-info";
-    info.innerHTML = productInfo;
-    // Remove any cart control buttons that may have been copied from line items
     info.querySelectorAll(".cart_items-ctl-button").forEach((el) => el.remove());
 
-    // Copy add to bag buttons - check trigger first, then by data-target match, then sourceElement
+    // Clone buttons from existing DOM
     const buttonsDataSource = trigger.querySelector(".datb") || (targetId && this.sourceElement.querySelector(`.datb[data-target="${targetId}"]`)) || this.sourceElement.querySelector(".datb");
-    const buttonsData = buttonsDataSource.innerHTML;
-    const buttons = document.createElement("div");
+    const buttons = buttonsDataSource.cloneNode(true);
     buttons.className = "mqatb-btns";
-    buttons.innerHTML = `Quick Add: ${buttonsData}`;
+    buttons.prepend("Quick Add: ");
 
     // add content to the modal
     const modalContent = document.createElement("div");
