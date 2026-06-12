@@ -473,6 +473,7 @@ if (!customElements.get("enhanced-atc")) {
       // overrides the default submit event and calls the correct function based on size selection
       _submitDispatcher = (event) => {
         event.preventDefault();
+        event.stopPropagation();
         this._currentSubmitHandler(event);
       };
 
