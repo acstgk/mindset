@@ -136,7 +136,6 @@
 
     {% if template.name contains 'product' %}
       <link rel="preload" href="{{ 'pdp.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-      <link rel="preload" href="https://www.googletagmanager.com/gtag/js?id=AW-10926300122" as="script">
       <noscript><link rel="stylesheet" href="{{ 'pdp.min.css' | asset_url }}"></noscript>
     {% elsif template.name contains 'collection' or template.name contains 'search' %}
       <link rel="preload" href="{{ 'plp.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">

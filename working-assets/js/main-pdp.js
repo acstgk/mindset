@@ -416,7 +416,10 @@ if (!customElements.get("enhanced-atc")) {
             });
         }, 400);
         this._watchSizeSelection();
-        this.actualForm.addEventListener("change", this._watchSizeSelection);
+        this.actualForm.addEventListener("change", (e) => {
+          e.stopPropagation();
+          this._watchSizeSelection();
+        });
       }
 
       _autoSelectOption = () => {
@@ -485,56 +488,68 @@ if (!customElements.get("enhanced-atc")) {
 
       // watch the size selection block/s call to update the local storage and update the submission function if all blocks/products have a size selected.
       _watchSizeSelection = () => {
-        const selectedSizes = Array.from(this.allGroups).map((group) => {
-          const checked = group.querySelector('input[type="radio"]:checked');
+        const groups = this.allGroups;
+        const count = groups.length;
+        let allSelected = true;
+        const selected = [];
+
+        for (let i = 0; i < count; i++) {
+          const checked = groups[i].querySelector('input[type="radio"]:checked');
+          if (checked) {
+            selected.push(checked.dataset.size || checked.getAttribute("data-size") || checked.value);
+          } else {
+            allSelected = false;
+          }
+        }
+
+        if (allSelected) {
+          this.atcButton.innerHTML = `<b>Add to Bag</b>${this.totalRadio > 1 ? ` <span>${selected.join(", ")}</span>` : ""}`;
+          this._currentSubmitHandler = this._addToCart;
+        } else {
+          this.atcButton.innerText = count > 1 ? "Select Sizes" : "Select Size";
+        }
+
+        // Defer non-critical work (storage, URL, price) past next paint
+        requestAnimationFrame(() => this._deferredVariantWork());
+      };
+
+      _deferredVariantWork = () => {
+        const groups = this.allGroups;
+        for (let i = 0; i < groups.length; i++) {
+          const checked = groups[i].querySelector('input[type="radio"]:checked');
           const size = checked?.dataset?.size;
           if (size) {
             this._setStorage(window.myCurrentProduct.vendor, window.myCurrentProduct.type, size);
           }
-          return checked ? checked.dataset.size || checked.getAttribute("data-size") || checked.value : null;
-        });
-
-        const allSelected = selectedSizes.every(Boolean);
-        const selectedSizesStr = selectedSizes.filter(Boolean).join(", ");
-
-        if (allSelected) {
-          const sizeCopy = this.totalRadio > 1 ? `<span>${selectedSizesStr}</span>` : "";
-          this.atcButton.innerHTML = `<b>Add to Bag</b> ${sizeCopy}`;
-          this._currentSubmitHandler = this._addToCart;
         }
 
-        // if this isn't a group (tracksuit) product page than update urgency flag, variant url and price.
-        if (this.allGroups.length == 1) {
-          //chech the availability and update the urgency flag, displaying if required.
-          const availableQty = this.querySelector('input[type="radio"]:checked')?.dataset.availableQty;
-          if (availableQty < 10 && availableQty > 0) {
-            let warningLevel;
-            availableQty == 1 ? (this.quantityWarningEl.textContent = `Hurry! Last one in this size`) : (this.quantityWarningEl.textContent = `Popular! Only ${availableQty} left in this size`);
-            availableQty == 1 ? (warningLevel = "error") : (warningLevel = "warning");
-            this.quantityWarningEl.classList.remove("warning", "error");
-            this.quantityWarningEl.classList.add("warning-active", warningLevel);
-          } else {
-            this.quantityWarningEl.classList.remove("warning-active", "warning", "error");
-          }
+        if (groups.length > 1) return;
 
-          // update the current url to include the variant for this selected size allowing better history traversal.
-          const url = new URL(window.location.href);
-          const checkedInput = this.allGroups[0].querySelector('input[type="radio"]:checked');
+        const checkedInput = groups[0].querySelector('input[type="radio"]:checked');
+        if (!checkedInput) return;
 
-          if (checkedInput) {
-            const variantId = checkedInput.value;
-            url.searchParams.set("variant", variantId);
-            history.replaceState({}, "", url);
+        // Urgency warning
+        const qty = +checkedInput.dataset.availableQty;
+        const warnEl = this.quantityWarningEl;
+        if (qty > 0 && qty < 10) {
+          warnEl.textContent = qty === 1 ? "Hurry! Last one in this size" : `Popular! Only ${qty} left in this size`;
+          warnEl.classList.remove("warning", "error");
+          warnEl.classList.add("warning-active", qty === 1 ? "error" : "warning");
+        } else {
+          warnEl.classList.remove("warning-active", "warning", "error");
+        }
 
-            //now we have an updated url we can update the price.
-            const livePrice = document.querySelector("#product-summary .Price--wrapper");
-            if (this._priceCache.has(variantId)) {
-              if (livePrice) livePrice.innerHTML = this._priceCache.get(variantId);
-            } else {
-              const fetchURL = url.toString() + "&section_id=product-price";
-              this._debouncedFetchPrice(variantId, fetchURL);
-            }
-          }
+        // URL + price
+        const variantId = checkedInput.value;
+        const url = new URL(window.location.href);
+        url.searchParams.set("variant", variantId);
+        history.replaceState({}, "", url);
+
+        const livePrice = document.querySelector("#product-summary .Price--wrapper");
+        if (this._priceCache.has(variantId)) {
+          if (livePrice) livePrice.innerHTML = this._priceCache.get(variantId);
+        } else {
+          this._debouncedFetchPrice(variantId, url.toString() + "&section_id=product-price");
         }
       };
 
