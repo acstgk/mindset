@@ -102,11 +102,7 @@ class CartAPI {
       const res = await fetch("/cart/add.js", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: normalizedItems,
-          sections: ["drawer-cart"],
-          sections_url: window.location.pathname,
-        }),
+        body: JSON.stringify({ items: normalizedItems }),
       });
 
       if (!res.ok) {
@@ -115,16 +111,8 @@ class CartAPI {
         return Promise.reject(errorData);
       }
 
-      const data = await res.json();
-
-      if (data.sections && data.sections["drawer-cart"]) {
-        this._renderSideCart(data.sections["drawer-cart"]);
-      }
-
-      this.cart = data;
+      await this.loadCart();
       this.dispatchCartUpdate("cart:itemsAdded");
-      this.dispatchCartUpdate("cart:loaded");
-      return data;
     } catch (error) {
       console.error("Network or unexpected error during addItems:", error);
       return Promise.reject(error);
@@ -1638,6 +1626,7 @@ function openCartDrawerIfNotOnCartPage() {
     const isActive = cartSection?.classList.contains("active");
     if (!isActive) cartSection?.click();
     drawer.open();
+    Cart.getLineItems().catch(() => {});
   }
 }
 
