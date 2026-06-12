@@ -692,10 +692,12 @@ if (!customElements.get("predictive-search")) {
           this._onInputChange(event);
         });
         this.inputField.addEventListener("input", this._inputHandler);
+        this.addEventListener("transitionend", this._onTransitionEnd);
       }
 
       disconnectedCallback() {
         this.searchButton?.removeEventListener("click", this._handleOpenClose);
+        this.removeEventListener("transitionend", this._onTransitionEnd);
         this.searchButtonMobile?.removeEventListener("click", this._handleOpenClose);
         this.closeButton?.removeEventListener("click", this._handleOpenClose);
         this.inputField?.removeEventListener("input", this._inputHandler);
@@ -781,25 +783,39 @@ if (!customElements.get("predictive-search")) {
 
       _handleOpenClose = (event) => {
         event.preventDefault();
-        this.setAttribute("aria-hidden", this.isOpen);
-        if (this.isOpen) {
-          this.inputField?.blur();
+        this.isOpen = !this.isOpen;
+        this.setAttribute("aria-hidden", String(!this.isOpen));
+
+        if (!this.isOpen) {
+          this._resetResults();
+          event.stopPropagation();
           this.pageOverlay?.closeThis();
-          setTimeout(() => {
-            if (this.pageHeader) this.pageHeader.style.zIndex = 5;
-            this.style.visibility = "hidden";
-          }, 150);
+          requestAnimationFrame(() => this.inputField?.blur());
+          clearTimeout(this._closeFallback);
+          this._closeFallback = setTimeout(() => {
+            if (this.getAttribute("aria-hidden") === "true") {
+              this.style.visibility = "hidden";
+              if (this.pageHeader) this.pageHeader.style.zIndex = 5;
+            }
+          }, 250);
         } else {
-          this.pageOverlay?.openThis();
           this.style.visibility = "visible";
           if (this.pageHeader) this.pageHeader.style.zIndex = 11;
+          this.pageOverlay?.openThis();
           this.inputField?.focus();
         }
+      };
 
-        this.isOpen = !this.isOpen;
+      _onTransitionEnd = (event) => {
+        if (event.propertyName !== "opacity") return;
+        if (this.getAttribute("aria-hidden") === "true") {
+          this.style.visibility = "hidden";
+          if (this.pageHeader) this.pageHeader.style.zIndex = 5;
+        }
       };
 
       close = () => {
+        this._resetResults();
         this.setAttribute("aria-hidden", "true");
         this.style.visibility = "hidden";
         if (this.pageHeader) this.pageHeader.style.zIndex = 5;

@@ -794,13 +794,15 @@ predictive-search {
   visibility: hidden;
   background-color: var(--c-white);
   z-index: -1;
+  contain: content;
+  will-change: transform, opacity;
   transition:
-    top 0.2s var(--bezier),
+    transform 0.2s var(--bezier),
     opacity 0.2s ease;
 
   &[aria-hidden="false"] {
     opacity: 1;
-    top: 50px;
+    transform: translateY(51px);
   }
 
   &:focus {
