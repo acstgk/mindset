@@ -43,7 +43,6 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, 'script', 'dataLayer', 'GTM-PT4PRKB'); {% endcomment %}
     </script>
-    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PT4PRKB"></script>
 
     <meta name="facebook-domain-verification" content="n2q1ogzkqnirqe5g5ut48t1wjvzjlr">
     <meta charset="utf-8">
@@ -100,8 +99,6 @@
 
     {% render 'css-variables' %}
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="stylesheet" href="{{ 'critical.min.css' | asset_url }}">
     <link rel="preload" href="{{ 'splide-core.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="{{ 'global.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -115,23 +112,31 @@
     <script>
       window.thirdPartyInitialized = false;
 
-      window.initThirdParty = function () {
+      window.initTracking = function () {
         if (window.thirdPartyInitialized) return;
         window.thirdPartyInitialized = true;
+
+        var gtm = document.createElement('script');
+        gtm.async = true;
+        gtm.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-PT4PRKB';
+        document.head.appendChild(gtm);
+
         document.dispatchEvent(new CustomEvent('third-party:init'));
       };
 
-      // Initialize 3rd party scripts on first user interaction for better TTI
-      const initThirdPartyOnInteraction = () => {
-        window.initThirdParty();
-        ['scroll', 'mouseover', 'touchstart', 'keydown'].forEach((event) => {
-          window.removeEventListener(event, initThirdPartyOnInteraction);
+      if ('PerformanceObserver' in window) {
+        var lcpObserver = new PerformanceObserver(function(list) {
+          var entries = list.getEntries();
+          if (entries.length > 0) {
+            window.initTracking();
+            lcpObserver.disconnect();
+          }
         });
-      };
-
-      ['scroll', 'mouseover', 'touchstart', 'keydown'].forEach((event) => {
-        window.addEventListener(event, initThirdPartyOnInteraction, { passive: true });
-      });
+        lcpObserver.observe({type: 'largest-contentful-paint', buffered: true});
+        setTimeout(window.initTracking, 10000);
+      } else {
+        window.addEventListener('load', window.initTracking);
+      }
     </script>
 
     {% if template.name contains 'product' %}
