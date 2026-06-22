@@ -34,10 +34,16 @@
           {% endfor %}
           {% for i in (1..2) %}
             {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
-            <li>
-              <a class="side_menu-sub-menu-button" data-sub-menu="{{ settings[sub_menu].handle }}" aria-label="open sub menu" role="button" rel="nofollow">
-                <span>{{ settings[sub_menu].title | split: '-' | last }}</span>{% render 'icon', icon: 'arrow' -%}
-              </a>
+            <li class="accordian-items">
+              <div class="side_menu-sub-menu-button accordian-header" data-sub-menu="{{ settings[sub_menu].handle }}" aria-label="open sub menu" role="button" rel="nofollow">
+                {{- settings[sub_menu].title | split: '-' | last -}}
+                <span>
+                  {%- render 'icon', icon: 'plus' -%}
+                </span>
+              </div>
+              <div class="side_menu-sub-menu accordian-content" data-sub-menu="{{ settings[sub_menu].handle }}">
+                {% render 'menu-sub-menu' with settings[sub_menu] as menu, accordion: true %}
+              </div>
             </li>
           {% endfor %}
         </ul>
@@ -54,13 +60,6 @@
             </div>
           {% endfor %}
         </div>
-
-        {% for i in (1..2) %}
-          {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
-          <div class="side_menu-sub-menu link-{{ menu }}" data-sub-menu="{{ settings[sub_menu].handle }}">
-            {% render 'menu-sub-menu' with settings[sub_menu] as menu, back: true %}
-          </div>
-        {% endfor %}
         {% render 'menu-quick-links' with gender as gender %}
       </div>
     {% endfor %}

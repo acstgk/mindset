@@ -463,7 +463,7 @@ class SideMenuGenderSelector {
     const siblings = [...button.parentElement.children];
     siblings.forEach((el) => el.classList.toggle("active", el === button));
 
-    menuController?.resetMenus();
+    DrawerAccordion.resetAll();
   }
 
   _restoreLastSelection() {
@@ -537,77 +537,53 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ===================
-// DRAWER MENU SUB MENU CONTROLS
+// DRAWER MENU ACCORDION
 // ===================
 /**
- * SubMenuController - Manages nested sub-menus in the mobile drawer
- * Tracks open menus and applies slide-in animations
+ * DrawerAccordion - Accordion toggle for drawer sub-menus
+ * Single-open: closing all others when one opens
  * @class
  */
-class SubMenuController {
-  constructor(drawerElement) {
-    this.drawer = drawerElement;
-    this.activeMenus = new Set();
+class DrawerAccordion {
+  static init() {
+    document.getElementById("navDrawer")?.addEventListener("click", (e) => {
+      const header = e.target.closest(".accordian-header");
+      if (!header) return;
 
-    this.subMenuButtons = this.drawer.querySelectorAll(".side_menu-sub-menu-button");
-    this.subMenus = this.drawer.querySelectorAll(".side_menu-sub-menu");
+      const item = header.closest(".accordian-items");
+      if (!item) return;
 
-    this._bindEvents();
-  }
+      const content = item.querySelector(".accordian-content");
+      if (!content) return;
 
-  _bindEvents() {
-    this.subMenuButtons.forEach((button) => {
-      const targetHandle = button.dataset.subMenu;
-      button.addEventListener("click", () => this.openSubMenu(targetHandle));
-    });
+      const isOpen = header.classList.contains("active");
 
-    this.subMenus.forEach((menu) => {
-      const closeBtn = menu.querySelector(".sub_menu-close");
-      if (closeBtn) {
-        closeBtn.addEventListener("click", () => this.closeSubMenu(menu.dataset.subMenu));
+      DrawerAccordion.resetAll();
+
+      if (!isOpen) {
+        header.classList.add("active");
+        header.setAttribute("aria-expanded", "true");
+        content.setAttribute("aria-hidden", "false");
       }
     });
   }
 
-  openSubMenu(handle) {
-    const menu = this._getMenuByHandle(handle);
-    if (menu) {
-      menu.style.transform = "translateX(-100%)";
-      menu.style.opacity = "1";
-      menu.style.pointerEvents = "auto";
-      this.activeMenus.add(menu);
-    }
-  }
+  static resetAll() {
+    const drawer = document.getElementById("navDrawer");
+    if (!drawer) return;
 
-  closeSubMenu(handle) {
-    const menu = this._getMenuByHandle(handle);
-    if (menu) {
-      this._closeActions(menu);
-      this.activeMenus.delete(menu);
-    }
-  }
-
-  resetMenus() {
-    this.activeMenus.forEach((menu) => {
-      this._closeActions(menu);
+    drawer.querySelectorAll(".accordian-header").forEach((h) => {
+      h.classList.remove("active");
+      h.setAttribute("aria-expanded", "false");
     });
-    this.activeMenus.clear();
-  }
 
-  _getMenuByHandle(handle) {
-    return this.drawer.querySelector(`.side_menu-sub-menu[data-sub-menu="${handle}"]`);
-  }
-
-  _closeActions(menu) {
-    menu.style.transform = "translateX(0)";
-    menu.style.opacity = "0";
-    menu.style.pointerEvents = "none";
+    drawer.querySelectorAll(".accordian-content").forEach((c) => {
+      c.setAttribute("aria-hidden", "true");
+    });
   }
 }
 
-// Initialize the sub-menu controller for the navigation drawer
-const drawer = document.getElementById("navDrawer");
-const menuController = drawer ? new SubMenuController(drawer) : null;
+document.addEventListener("DOMContentLoaded", () => DrawerAccordion.init());
 
 // ===================
 // PAGE OVERLAY CLASS
@@ -870,7 +846,7 @@ class ProductModalManager {
       document.body.appendChild(modalEl);
       requestAnimationFrame(() => {
         bindQATBButtons(modalEl);
-        modalEl.querySelectorAll("[data-mqatb-src]").forEach(img => {
+        modalEl.querySelectorAll("[data-mqatb-src]").forEach((img) => {
           img.src = img.dataset.mqatbSrc;
           delete img.dataset.mqatbSrc;
         });
