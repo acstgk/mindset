@@ -564,6 +564,7 @@ class DrawerAccordion {
         header.classList.add("active");
         header.setAttribute("aria-expanded", "true");
         content.setAttribute("aria-hidden", "false");
+        header.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   }
