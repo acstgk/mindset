@@ -12,12 +12,12 @@
     "static_hero_tV68kr": {
       "type": "static-hero",
       "custom_css": [
-        "@media screen and (max-width: 768px) {.static-hero--image {object-position: 40% !important; }}"
+        "@media screen and (max-width: 768px) {.static-hero--image {object-position: 42.55% !important; }}"
       ],
       "name": "Static Hero",
       "settings": {
         "isFullheight": false,
-        "image": "shopify://shop_images/banner-mens-bestofgk.webp",
+        "image": "shopify://shop_images/GK_SS25_Day1-2663.jpg",
         "img_overlay": 90,
         "title": "The Best of Gym King",
         "heading": "Our most in demand styles",
@@ -28,7 +28,7 @@
         "second_cta": false,
         "cta_text2": "",
         "link_url2": "",
-        "text_align": "start"
+        "text_align": "end"
       }
     },
     "content_rich_text_zyYh4q": {

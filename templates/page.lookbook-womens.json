@@ -12,7 +12,7 @@
     "hero": {
       "type": "static-hero",
       "custom_css": [
-        "h2 {letter-spacing: normal; font-family: var(--signature-text-font-family); text-transform: lowercase; font-weight: 400; font-size: var(--txt-h1);}"
+        "/* h2 {letter-spacing: normal; font-family: var(--signature-text-font-family); text-transform: lowercase; font-weight: 400; font-size: var(--txt-h1);} */"
       ],
       "settings": {
         "isFullheight": false,
@@ -1065,7 +1065,7 @@
             "img_transition": "normal",
             "content_placement": "overlay",
             "heading_size": "h4",
-            "heading_style": "signature",
+            "heading_style": "baskerville",
             "text": "",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
@@ -1093,7 +1093,7 @@
             "img_transition": "normal",
             "content_placement": "overlay",
             "heading_size": "h4",
-            "heading_style": "signature",
+            "heading_style": "baskerville",
             "text": "",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
@@ -1121,7 +1121,7 @@
             "img_transition": "normal",
             "content_placement": "overlay",
             "heading_size": "h4",
-            "heading_style": "signature",
+            "heading_style": "baskerville",
             "text": "",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
@@ -1149,7 +1149,7 @@
             "img_transition": "normal",
             "content_placement": "overlay",
             "heading_size": "h4",
-            "heading_style": "signature",
+            "heading_style": "baskerville",
             "text": "",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
@@ -1184,9 +1184,7 @@
     },
     "usp_block_uQ3YpN": {
       "type": "usp-block",
-      "custom_css": [
-        "h3 {font-family: var(--signature-text-font-family); text-transform: none; font-weight: 400; font-size: var(--txt-h2);}"
-      ],
+      "custom_css": [],
       "settings": {
         "heading": "why gym king?",
         "about_img": "shopify://shop_images/Q2_WOMENS_FLATLAYS_6.jpg",

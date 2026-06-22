@@ -12,13 +12,39 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_YnL99Q": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Summer Solstice - Mobile Banner_b01722e8-72ba-4c59-9867-c1b64456e839.mp4",
+            "desktop_video": "shopify://files/videos/Summer Solstice - Desktop Banner_45b9c229-e726-4a8a-a741-d161967b6ddb.mp4",
+            "media_brightness": 87.5,
+            "overlay_url": "shopify://collections/up-to-40-off-summer-essentials",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "Summer Essentials",
+            "title_font": "",
+            "heading_size": 100,
+            "subtitle": "Up to 40% off",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "middle-desk",
+            "v_align_mob": "middle-mob",
+            "cta1": "Shop Mens",
+            "url1": "/collections/up-to-40-off-summer-essentials/mens",
+            "cta2": "Shop Womens",
+            "url2": "/collections/up-to-40-off-summer-essentials/womens",
+            "target_gender": ""
+          }
+        },
         "image_3RaHDG": {
           "type": "image",
           "settings": {
             "mobile_video": "shopify://files/videos/30 Off Twin Sets - Mobile Banner_0ffae13a-c3ae-40e4-a8f5-419ebdc7dfa0.mp4",
             "desktop_video": "shopify://files/videos/30 Off Twin Sets - Desktop Banner_922070d6-5793-4561-84a9-7355fbc9799b.mp4",
             "media_brightness": 125,
-
             "overlay_url": "shopify://collections/twin-sets",
             "alt_text": "",
             "lockup_width": 200,
@@ -69,6 +95,7 @@
         },
         "image_gNci3a": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Mobile Banner - Mens Roam V1.mp4",
             "desktop_video": "shopify://files/videos/Desktop Banner - Mens Roam V2.mp4",
@@ -183,8 +210,19 @@
           }
         }
       },
-      "block_order": ["image_3RaHDG", "image_6BmG7G", "image_gNci3a", "image_bemean", "image_hkkRfY", "image_eT8DWX"],
-      "custom_css": [".h3 {font-size: var(--txt-h4);}", "em {width: 100%; display: inline-block;}"],
+      "block_order": [
+        "image_YnL99Q",
+        "image_3RaHDG",
+        "image_6BmG7G",
+        "image_gNci3a",
+        "image_bemean",
+        "image_hkkRfY",
+        "image_eT8DWX"
+      ],
+      "custom_css": [
+        ".h3 {font-size: var(--txt-h4);}",
+        "em {width: 100%; display: inline-block;}"
+      ],
       "settings": {}
     },
     "section_value_props_FBFJKV": {
@@ -240,7 +278,12 @@
           }
         }
       },
-      "block_order": ["subtle_text_block_4hemRj", "subtle_text_block_fbX7Vw", "subtle_text_block_7LKcb6", "subtle_text_block_f3eyqD"],
+      "block_order": [
+        "subtle_text_block_4hemRj",
+        "subtle_text_block_fbX7Vw",
+        "subtle_text_block_7LKcb6",
+        "subtle_text_block_f3eyqD"
+      ],
       "name": "Value Proposition Bar",
       "settings": {}
     },
@@ -429,8 +472,19 @@
           }
         }
       },
-      "block_order": ["card_niNhVm", "card_7f8xbx", "card_mg8qYw", "card_KR4jd4", "card_jaEGg6", "card_JEAxxg", "card_QqTzmg", "card_AJxV9n"],
-      "custom_css": ["{margin-bottom: 0; background: var(--c-off-white); padding-top: 2rem;}"],
+      "block_order": [
+        "card_niNhVm",
+        "card_7f8xbx",
+        "card_mg8qYw",
+        "card_KR4jd4",
+        "card_jaEGg6",
+        "card_JEAxxg",
+        "card_QqTzmg",
+        "card_AJxV9n"
+      ],
+      "custom_css": [
+        "{margin-bottom: 0; background: var(--c-off-white); padding-top: 2rem;}"
+      ],
       "name": "Trending Collections",
       "settings": {
         "title": "Trending Collections",
