@@ -502,6 +502,10 @@ if (!customElements.get("enhanced-atc")) {
           }
         }
 
+        const key = allSelected ? selected.join(",") : "";
+        if (key === this._lastSelectionKey) return;
+        this._lastSelectionKey = key;
+
         if (allSelected) {
           this.atcButton.innerHTML = `<b>Add to Bag</b>${this.totalRadio > 1 ? ` <span>${selected.join(", ")}</span>` : ""}`;
           this._currentSubmitHandler = this._addToCart;

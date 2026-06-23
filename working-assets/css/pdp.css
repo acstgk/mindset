@@ -34,6 +34,7 @@ form#atc_form {
     border: 1px var(--c-black) solid;
     width: 100%;
     padding-inline: 0;
+    touch-action: manipulation;
 
     &::after {
       background-color: var(--c-off-white);
