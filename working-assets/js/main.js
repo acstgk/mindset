@@ -347,30 +347,32 @@ if (!customElements.get("slide-drawer")) {
       }
 
       open() {
-        this.searchElement?.close(); //close the searchbar only if open
-        document.body.classList.add("no-scroll");
-        this.setAttribute("aria-hidden", "false");
+        this.searchElement?.close();
         this.addEventListener("touchstart", this._onTouchStart, {
           passive: true,
         });
         this.addEventListener("touchend", this._onTouchEnd, { passive: true });
 
-        setTimeout(() => {
-          const lastCartItem = this.querySelectorAll(".fade-in");
-          if (lastCartItem) {
-            lastCartItem.forEach((item) => {
-              item.classList.add("active");
-            });
-          }
-        }, 5);
+        requestAnimationFrame(() => {
+          document.body.classList.add("no-scroll");
+          this.setAttribute("aria-hidden", "false");
+
+          requestAnimationFrame(() => {
+            const lastCartItem = this.querySelectorAll(".fade-in");
+            if (lastCartItem) {
+              lastCartItem.forEach((item) => {
+                item.classList.add("active");
+              });
+            }
+          });
+        });
       }
 
       close() {
         document.body.classList.remove("no-scroll");
-        // Blur any focused descendant before hiding from assistive technology.
-        // Browsers block aria-hidden if a focused element is inside the subtree.
-        const focused = this.querySelector(":focus");
-        if (focused) focused.blur();
+        if (this.contains(document.activeElement)) {
+          document.activeElement.blur();
+        }
         this.setAttribute("aria-hidden", "true");
         this.removeEventListener("touchstart", this._onTouchStart);
         this.removeEventListener("touchend", this._onTouchEnd);
