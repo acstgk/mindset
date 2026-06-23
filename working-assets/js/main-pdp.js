@@ -507,10 +507,14 @@ if (!customElements.get("enhanced-atc")) {
         this._lastSelectionKey = key;
 
         if (allSelected) {
-          this.atcButton.innerHTML = `<b>Add to Bag</b>${this.totalRadio > 1 ? ` <span>${selected.join(", ")}</span>` : ""}`;
+          const html = `<b>Add to Bag</b>${this.totalRadio > 1 ? ` <span>${selected.join(", ")}</span>` : ""}`;
+          this.atcButton.innerHTML = html;
+          this._buttonContent = html;
           this._currentSubmitHandler = this._addToCart;
         } else {
-          this.atcButton.innerText = count > 1 ? "Select Sizes" : "Select Size";
+          const text = count > 1 ? "Select Sizes" : "Select Size";
+          this.atcButton.innerText = text;
+          this._buttonContent = text;
         }
 
         // Defer non-critical work (storage, URL, price) past next paint
@@ -559,14 +563,15 @@ if (!customElements.get("enhanced-atc")) {
 
       // the add to cart submission method for when all products have selected sizes
       _addToCart = () => {
-        const atcButtonContent = this.atcButton.innerHTML;
-        this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;backdrop-filter: invert(1)"></div>`;
         const selectedRadios = this.querySelectorAll('.atc_form-sizes input[type="radio"]:checked');
         const items = Array.from(selectedRadios).map((radio) => ({
           id: radio.value,
           quantity: 1,
           selling_plan: radio.dataset.subscriptionId || "",
         }));
+
+        this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;backdrop-filter: invert(1)"></div>`;
+
         if (items.length > 0) {
           Cart.addItems(items);
         }
@@ -574,7 +579,7 @@ if (!customElements.get("enhanced-atc")) {
           "cart:itemsAdded",
           () => {
             setTimeout(() => {
-              this.atcButton.innerHTML = atcButtonContent;
+              this.atcButton.innerHTML = this._buttonContent;
             }, 300);
           },
           { once: true },
