@@ -14,7 +14,8 @@
       "custom_css": [
         "a.button.button-primary.inline-flex {--btn-bg: var(--c-white); --btn-color: var(--c-black);}",
         "@media screen and (min-width: 768.02px) {.static-hero--heading:has(+ .static-hero--content) {align-items: flex-start; } .align-center .static-hero--content {margin: 0 auto auto 0; }}",
-        ".static-hero--heading {margin-bottom: 5rem;}"
+        ".static-hero--heading {margin-bottom: 5rem;}",
+        "img {}"
       ],
       "name": "Static Hero",
       "settings": {
