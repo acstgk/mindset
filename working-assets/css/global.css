@@ -532,6 +532,10 @@ body.mqatb-blur slide-drawer {
 
 .no-height {
   height: 0;
+
+  &.active {
+    height: 100%;
+  }
 }
 
 .loader {
