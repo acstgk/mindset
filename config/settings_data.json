@@ -96,16 +96,6 @@
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
-          "announcement_slider_Hm4fMj": {
-            "type": "announcement_slider",
-            "settings": {
-              "title": "UP TO 40% OFF",
-              "subcontent1": "SUMMER ESSENTIALS",
-              "link1": "https://thegymking.com/collections/up-to-40-off-summer-essentials",
-              "enable_countdown": false,
-              "country_restriction": "none"
-            }
-          },
           "announcement_slider_KeM9Hq": {
             "type": "announcement_slider",
             "settings": {
@@ -170,7 +160,6 @@
           }
         },
         "block_order": [
-          "announcement_slider_Hm4fMj",
           "announcement_slider_KeM9Hq",
           "announcement_slider_8GNAEy",
           "announcement_slider_CxdCHz",

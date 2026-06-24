@@ -12,58 +12,31 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
-        "image_YnL99Q": {
+        "image_XAjH4H": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/Summer Solstice - Mobile Banner_b01722e8-72ba-4c59-9867-c1b64456e839.mp4",
-            "desktop_video": "shopify://files/videos/Summer Solstice - Desktop Banner_45b9c229-e726-4a8a-a741-d161967b6ddb.mp4",
-            "media_brightness": 87.5,
-            "overlay_url": "shopify://collections/up-to-40-off-summer-essentials",
+            "mobile_video": "shopify://files/videos/Mens College - Mobile Banner.mp4",
+            "desktop_video": "shopify://files/videos/Mens College - Desktop Banner.mp4",
+            "media_brightness": 110,
+            "overlay_url": "shopify://collections/mens-new",
             "alt_text": "",
             "lockup_width": 200,
             "lockup_fit": "contain",
-            "title": "Summer Essentials",
+            "title": "New Arrivals",
             "title_font": "",
             "heading_size": 100,
-            "subtitle": "Up to 40% off",
+            "subtitle": "",
             "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "middle-desk",
-            "v_align_mob": "middle-mob",
-            "cta1": "Shop Mens",
-            "url1": "/collections/up-to-40-off-summer-essentials/mens",
-            "cta2": "Shop Womens",
-            "url2": "/collections/up-to-40-off-summer-essentials/womens",
-            "target_gender": ""
-          }
-        },
-        "image_3RaHDG": {
-          "type": "image",
-          "settings": {
-            "mobile_video": "shopify://files/videos/30 Off Twin Sets - Mobile Banner_0ffae13a-c3ae-40e4-a8f5-419ebdc7dfa0.mp4",
-            "desktop_video": "shopify://files/videos/30 Off Twin Sets - Desktop Banner_922070d6-5793-4561-84a9-7355fbc9799b.mp4",
-            "media_brightness": 125,
-            "overlay_url": "shopify://collections/twin-sets",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Twin Sets",
-            "title_font": "",
-            "heading_size": 150,
-            "subtitle": "Summer Styling",
-            "subtitle_font": "",
-            "subtitle_first": true,
+            "subtitle_first": false,
             "customHTML": "",
             "content_alignment": "center",
             "v_align_desk": "bottom-desk",
             "v_align_mob": "bottom-mob",
-            "cta1": "Shop Now",
-            "url1": "shopify://collections/twin-sets",
+            "cta1": "shop Now",
+            "url1": "shopify://collections/mens-new",
             "cta2": "",
             "url2": "",
-            "target_gender": ""
+            "target_gender": "mens"
           }
         },
         "image_6BmG7G": {
@@ -91,6 +64,33 @@
             "cta2": "",
             "url2": "",
             "target_gender": "womens"
+          }
+        },
+        "image_3RaHDG": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/30 Off Twin Sets - Mobile Banner_0ffae13a-c3ae-40e4-a8f5-419ebdc7dfa0.mp4",
+            "desktop_video": "shopify://files/videos/30 Off Twin Sets - Desktop Banner_922070d6-5793-4561-84a9-7355fbc9799b.mp4",
+            "media_brightness": 125,
+            "overlay_url": "shopify://collections/twin-sets",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "Twin Sets",
+            "title_font": "",
+            "heading_size": 150,
+            "subtitle": "Summer Styling",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/twin-sets",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
           }
         },
         "image_gNci3a": {
@@ -211,9 +211,9 @@
         }
       },
       "block_order": [
-        "image_YnL99Q",
-        "image_3RaHDG",
+        "image_XAjH4H",
         "image_6BmG7G",
+        "image_3RaHDG",
         "image_gNci3a",
         "image_bemean",
         "image_hkkRfY",
