@@ -814,31 +814,39 @@ if (!customElements.get("predictive-search")) {
  * @class
  */
 class ProductModalManager {
-  /**
-   * @param {HTMLElement} sourceElement - The parent element (ProductCard or LineItem)
-   */
   constructor(sourceElement) {
-    this.sourceElement = sourceElement; // Reference to parent element
-    this._activeModal = null; // Track currently open modal
-    this._showTimeoutId = null; // Timeout ID for delayed show
-    this._touchStartY = null; // Track touch start position for swipe
-    this._touchStartListener = null; // Touch event listener reference
-    this._touchEndListener = null; // Touch event listener reference
-    this._pageOverlay = document.querySelector("page-overlay"); // cached overlay ref
+    this.sourceElement = sourceElement;
+    this._activeModal = null;
+    this._touchStartY = null;
+    this._isTouchDevice = "ontouchstart" in window || navigator.maxTouchPoints > 0;
+    this._pageOverlay = document.querySelector("page-overlay");
+    this._touchHandler = this._handleTouchStart.bind(this);
+    this._touchEndHandler = this._handleTouchEnd.bind(this);
   }
 
-  /**
-   * Opens or creates a product modal
-   * Adds touch swipe-to-close functionality for mobile
-   * @param {Event} event - Click event from trigger button
-   */
+  _handleTouchStart(e) {
+    if (e.touches && e.touches.length > 0) {
+      this._touchStartY = e.touches[0].clientY;
+    }
+  }
+
+  _handleTouchEnd(e) {
+    if (typeof this._touchStartY !== "number") return;
+    if (e.changedTouches && e.changedTouches.length > 0) {
+      const deltaY = e.changedTouches[0].clientY - this._touchStartY;
+      if (deltaY > 50) {
+        this.closeModal({ target: e.currentTarget });
+      }
+    }
+    this._touchStartY = null;
+  }
+
   openModal(event) {
     const isOverlay = document.body.classList.contains("no-scroll");
     const trigger = event.currentTarget || event.target;
     const modalID = trigger.dataset.target;
     let modalEl = document.getElementById(modalID);
 
-    // Close previously open modal before opening another
     if (this._activeModal) {
       this._activeModal.classList.add("keep-overlay");
       this.closeModal({ target: this._activeModal });
@@ -847,91 +855,42 @@ class ProductModalManager {
     if (!modalEl) {
       modalEl = this.buildModal(trigger);
       document.body.appendChild(modalEl);
-      requestAnimationFrame(() => {
-        bindQATBButtons(modalEl);
-        modalEl.querySelectorAll("[data-mqatb-src]").forEach((img) => {
-          img.src = img.dataset.mqatbSrc;
-          delete img.dataset.mqatbSrc;
-        });
-      });
     }
 
     this._activeModal = modalEl;
-    clearTimeout(this._showTimeoutId);
 
-    // Blur slide-drawer behind modal — cache style element, create once
-    if (!this._blurStyle) {
-      this._blurStyle = document.createElement("style");
-      this._blurStyle.dataset.blurStyle = "";
-      this._blurStyle.textContent = "slide-drawer { filter: blur(2px); }";
+    document.body.classList.add("mqatb-blur");
+    modalEl.classList.add("active");
+    if (isOverlay) modalEl.classList.add("keep-overlay");
+    modalEl.setAttribute("aria-hidden", "false");
+    this._pageOverlay.openThis();
+
+    if (this._isTouchDevice) {
+      modalEl.removeEventListener("touchstart", this._touchHandler);
+      modalEl.removeEventListener("touchend", this._touchEndHandler);
+      modalEl.addEventListener("touchstart", this._touchHandler);
+      modalEl.addEventListener("touchend", this._touchEndHandler);
     }
-    document.head.appendChild(this._blurStyle);
 
-    this._showTimeoutId = setTimeout(() => {
-      if (this._activeModal !== modalEl) return;
-
-      modalEl.classList.add("active");
-      isOverlay ? modalEl.classList.add("keep-overlay") : "";
-      modalEl.setAttribute("aria-hidden", "false");
-      document.querySelector("page-overlay")?.openThis();
-
-      // Touch swipe-to-close support for mobile devices
-      if ("ontouchstart" in window || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0)) {
-        // Remove any previous listeners if present
-        if (this._touchStartListener) {
-          modalEl.removeEventListener("touchstart", this._touchStartListener);
-          this._touchStartListener = null;
-        }
-        if (this._touchEndListener) {
-          modalEl.removeEventListener("touchend", this._touchEndListener);
-          this._touchEndListener = null;
-        }
-        // Handler for touchstart: record startY
-        this._touchStartListener = (touchEvent) => {
-          if (touchEvent.touches && touchEvent.touches.length > 0) {
-            this._touchStartY = touchEvent.touches[0].clientY;
-          }
-        };
-        // Handler for touchend: check swipe down
-        this._touchEndListener = (touchEvent) => {
-          if (typeof this._touchStartY !== "number") return;
-          if (touchEvent.changedTouches && touchEvent.changedTouches.length > 0) {
-            const endY = touchEvent.changedTouches[0].clientY;
-            const deltaY = endY - this._touchStartY;
-            if (deltaY > 50) {
-              // Swipe down detected; close modal
-              // Synthetic event with target as modalEl
-              this.closeModal({ target: modalEl });
-            }
-          }
-          this._touchStartY = null;
-        };
-        modalEl.addEventListener("touchstart", this._touchStartListener);
-        modalEl.addEventListener("touchend", this._touchEndListener);
-      }
-
-      this._showTimeoutId = null;
-    }, 200);
+    requestAnimationFrame(() => {
+      bindQATBButtons(modalEl);
+      modalEl.querySelectorAll("[data-mqatb-src]").forEach((img) => {
+        img.src = img.dataset.mqatbSrc;
+        delete img.dataset.mqatbSrc;
+      });
+    });
   }
 
-  /**
-   * Builds the modal DOM structure
-   * Creates image gallery, product info, and add-to-bag buttons
-   * @param {HTMLElement} trigger - Button element that triggered the modal
-   * @returns {HTMLElement} Complete modal element ready to append to DOM
-   */
   buildModal(trigger) {
     const imgURLs = trigger.dataset.images.split(",");
     const modalID = trigger.dataset.target;
     const productTitle = trigger.dataset.productTitle;
 
-    //create the modal
     const modal = document.createElement("div");
     modal.className = "fade-in mqatb-modal modal";
     modal.id = modalID;
     modal.setAttribute("aria-hidden", "true");
 
-    // create the image container and render the images
     const images = document.createElement("div");
     images.className = "mqatb-images";
     const loopEnd = imgURLs.length < 6 ? imgURLs.length : 6;
@@ -941,19 +900,11 @@ class ProductModalManager {
         img.dataset.mqatbSrc = imgURLs[i];
         img.draggable = false;
         img.alt = `${productTitle} - image ${i + 1}`;
+        img.loading = "lazy";
         images.appendChild(img);
-        if (i < 2) {
-          img.loading = "eager";
-          if (i == 0) {
-            img.fetchPriority = "high";
-          }
-        } else {
-          img.loading = "lazy";
-        }
       }
     }
 
-    // Clone product details from existing DOM — no HTML parse
     const targetId = trigger.dataset.target;
     const productInfoSource =
       trigger.querySelector(".product_card-info") || (targetId && this.sourceElement.querySelector(`.product_card-info[data-target="${targetId}"]`)) || this.sourceElement.querySelector(".product_card-info");
@@ -961,20 +912,17 @@ class ProductModalManager {
     info.className = "mqatb-info";
     info.querySelectorAll(".cart_items-ctl-button").forEach((el) => el.remove());
 
-    // Clone buttons from existing DOM
     const buttonsDataSource = trigger.querySelector(".datb") || (targetId && this.sourceElement.querySelector(`.datb[data-target="${targetId}"]`)) || this.sourceElement.querySelector(".datb");
     const buttons = buttonsDataSource.cloneNode(true);
     buttons.className = "mqatb-btns";
     buttons.prepend("Quick Add: ");
 
-    // add content to the modal
     const modalContent = document.createElement("div");
     modal.appendChild(images);
     modalContent.appendChild(info);
     modalContent.appendChild(buttons);
     modal.appendChild(modalContent);
 
-    //create the close button and add close functionality
     const close = document.createElement("div");
     close.className = "round-btn mqatb-close";
     const closeIcon = `
@@ -994,47 +942,31 @@ class ProductModalManager {
     modal.appendChild(close);
     close.addEventListener("click", (event) => this.closeModal(event));
 
-    //return the modal for rendering to dom
     return modal;
   }
 
-  /**
-   * Closes the modal and cleans up event listeners
-   * Optionally keeps page overlay open if modal was stacked
-   * @param {Event} event - Click event from close button or swipe
-   */
   closeModal(event) {
     const modal = event.target.closest(".mqatb-modal");
     if (modal.getAttribute("aria-hidden") === "true") return;
     const keepOverlay = modal.classList.contains("keep-overlay");
-    // Remove blur style — use cached reference, no querySelector
-    if (this._blurStyle) this._blurStyle.remove();
-    // Remove touch listeners if present
-    if (this._touchStartListener) {
-      modal.removeEventListener("touchstart", this._touchStartListener);
-      this._touchStartListener = null;
-    }
-    if (this._touchEndListener) {
-      modal.removeEventListener("touchend", this._touchEndListener);
-      this._touchEndListener = null;
-    }
-    clearTimeout(this._showTimeoutId);
-    this._showTimeoutId = null;
 
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
 
-    if (!keepOverlay) this._pageOverlay?.closeThis();
+    document.body.classList.remove("mqatb-blur");
+    if (!keepOverlay) this._pageOverlay.closeThis();
     modal.classList.remove("keep-overlay");
+
+    if (this._isTouchDevice) {
+      modal.removeEventListener("touchstart", this._touchHandler);
+      modal.removeEventListener("touchend", this._touchEndHandler);
+    }
 
     if (this._activeModal === modal) {
       this._activeModal = null;
     }
   }
 }
-
-// Make ProductModalManager globally accessible
-window.ProductModalManager = ProductModalManager;
 
 // ===================
 // Product Cards

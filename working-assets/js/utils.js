@@ -3,41 +3,41 @@
 
 /**
  * Binds Quick Add To Bag buttons within a container
+ * Uses event delegation for performance
  * @param {HTMLElement} root - Container element with .qatb-btn buttons
  */
 export function bindQATBButtons(root) {
-  const qatbButtons = root.querySelectorAll(".qatb-btn") || [];
-  qatbButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      const targetButton = e.currentTarget;
-      const targetSize = targetButton.innerText;
+  if (root.dataset.qatbBound) return;
+  root.dataset.qatbBound = "true";
 
-      const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
-      errors.forEach((error) => error.remove());
+  root.addEventListener("click", (e) => {
+    const targetButton = e.target.closest(".qatb-btn");
+    if (!targetButton) return;
+    e.preventDefault();
 
-      targetButton.innerHTML = `<div class="loader"></div>`;
+    const targetSize = targetButton.innerText;
 
-      // Assumes Cart API is globally available
-      window.Cart.addItems(targetButton.dataset.vId)
-        .then(() => {
-          targetButton.innerHTML = targetSize;
-          const prodID = root.id;
-          const modal = document.getElementById(prodID);
-          if (modal) {
-            modal.classList.remove("active");
-            const blurStyle = document.querySelector("[data-blur-style]");
-            if (blurStyle) blurStyle.remove();
-          }
-        })
-        .catch((error) => {
-          targetButton.innerHTML = targetSize;
-          const errorBox = document.createElement("div");
-          errorBox.className = "cart-error warning";
-          errorBox.textContent = error.description || "Sorry, something went wrong.";
-          targetButton.closest(".qatb-btns").before(errorBox);
-        });
-    });
+    const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
+    errors.forEach((error) => error.remove());
+
+    targetButton.innerHTML = `<div class="loader"></div>`;
+
+    window.Cart.addItems(targetButton.dataset.vId)
+      .then(() => {
+        targetButton.innerHTML = targetSize;
+        const modal = document.getElementById(root.id);
+        if (modal) {
+          modal.classList.remove("active");
+          document.body.classList.remove("mqatb-blur");
+        }
+      })
+      .catch((error) => {
+        targetButton.innerHTML = targetSize;
+        const errorBox = document.createElement("div");
+        errorBox.className = "cart-error warning";
+        errorBox.textContent = error.description || "Sorry, something went wrong.";
+        targetButton.closest(".qatb-btns").before(errorBox);
+      });
   });
 }
 

@@ -518,14 +518,16 @@ body.no-scroll page-overlay {
 .splide__slide.is-active .fade-in,
 .fade-in.active {
   transition:
-    height 0.4s var(--bezier),
-    opacity 0.4s var(--bezier),
-    transform 0.4s var(--bezier);
-  height: auto;
+    opacity 0.25s var(--bezier),
+    transform 0.25s var(--bezier);
   opacity: 1;
   transform: translateY(0);
   pointer-events: all;
   visibility: visible;
+}
+
+body.mqatb-blur slide-drawer {
+  filter: blur(2px);
 }
 
 .no-height {
@@ -2689,6 +2691,7 @@ product-card {
   z-index: 16;
   background: var(--c-white);
   box-shadow: 0 0 0.5rem var(--c-shadow);
+  will-change: transform, opacity;
 
   & .mqatb-images {
     width: 100vw;
