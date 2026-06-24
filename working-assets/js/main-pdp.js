@@ -84,6 +84,13 @@ if (!customElements.get("pdp-carousel")) {
           // Remove all spinners after Splide creates them
           this.querySelectorAll(".splide__spinner").forEach((spinner) => spinner.remove());
           document.dispatchEvent(new CustomEvent("splide:ready"));
+
+          // Remove standalone LCP hero image now that Splide is visible
+          const hero = this.parentElement?.querySelector(".pdp-hero-image");
+          if (hero) {
+            hero.classList.add("is-hidden");
+            hero.addEventListener("transitionend", () => hero.remove(), { once: true });
+          }
         });
 
         this.splide.mount();

@@ -99,6 +99,9 @@
 
     {% render 'css-variables' %}
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    {% if template contains 'product' and product.images.first %}
+      <link rel="preload" as="image" href="{{ product.images.first | image_url: width: 600 }}" fetchpriority="high">
+    {% endif %}
     <link rel="stylesheet" href="{{ 'critical.min.css' | asset_url }}">
     <link rel="preload" href="{{ 'splide-core.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="{{ 'global.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">

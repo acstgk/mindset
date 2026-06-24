@@ -173,6 +173,25 @@ form#atc_form {
   }
 }
 
+.pdp-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  z-index: 1;
+  background: var(--c-white);
+  transition:
+    opacity 0.2s ease-out,
+    visibility 0.2s ease-out;
+}
+.pdp-hero-image.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .pdp-zoom-wrapper {
   position: fixed;
   inset: 0 0 0 0;
