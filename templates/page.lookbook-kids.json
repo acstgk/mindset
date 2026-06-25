@@ -11,8 +11,9 @@
   "sections": {
     "static_hero_tV68kr": {
       "type": "static-hero",
+      "disabled": true,
       "custom_css": [
-        "a.button.button-primary.inline-flex {--btn-bg: var(--c-white); --btn-color: var(--c-black);}",
+        "a.button.button-primary.inline-flex {--btn-bg: var(--c-white); --btn-color: var(--c-black); border: 1px solid grey;}",
         "@media screen and (min-width: 768.02px) {.static-hero--heading:has(+ .static-hero--content) {align-items: flex-start; } .align-center .static-hero--content {margin: 0 auto auto 0; }}",
         ".static-hero--heading {margin-bottom: 5rem;}",
         "img {}"
@@ -33,6 +34,42 @@
         "link_url2": "/collections/kidswear/girls",
         "text_align": "center"
       }
+    },
+    "carousel_hero_Ve8P9L": {
+      "type": "carousel-hero",
+      "blocks": {
+        "image_UWhPXm": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Kids Landing Page Banner Mobile.mp4",
+            "desktop_video": "shopify://files/videos/Kids Landing Page Banner_1.mp4",
+            "media_brightness": 95,
+            "overlay_url": "",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "Welcome to GK Kids",
+            "title_font": "",
+            "heading_size": 135,
+            "subtitle": "",
+            "subtitle_font": "",
+            "subtitle_first": false,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Boys",
+            "url1": "/collections/kidswear/boys",
+            "cta2": "Shop Girls",
+            "url2": "/collections/kidswear/girls",
+            "target_gender": ""
+          }
+        }
+      },
+      "block_order": ["image_UWhPXm"],
+      "custom_css": [".hero_slide-ctas .button {min-width: 130px;}"],
+      "name": "Hero Slideshow",
+      "settings": {}
     },
     "content_icon_grid_AtnxkF": {
       "type": "content-icon-grid",
@@ -101,25 +138,15 @@
           }
         }
       },
-      "block_order": [
-        "icon_xkrE9L",
-        "icon_y4ybhL",
-        "icon_gULnq3",
-        "icon_DaxY6e",
-        "icon_MfAQQc",
-        "icon_izzY8k",
-        "icon_KHrFdA"
-      ],
-      "custom_css": [
-        "{margin-top: 2rem;}"
-      ],
+      "block_order": ["icon_xkrE9L", "icon_y4ybhL", "icon_gULnq3", "icon_DaxY6e", "icon_MfAQQc", "icon_izzY8k", "icon_KHrFdA"],
+      "custom_css": ["{margin-top: 2rem;}"],
       "name": "Icon Grid",
       "settings": {
         "heading_level": "2",
         "title": "",
         "init_splide": true,
-        "icon_size": "65%",
-        "slide_spacing": "0.25rem",
+        "icon_size": "75%",
+        "slide_spacing": "0.5rem",
         "image_fit": "cover",
         "aspect_ratio": 1,
         "icon_shape": "circle"
@@ -135,9 +162,7 @@
           }
         }
       },
-      "block_order": [
-        "rtf_hFPkbn"
-      ],
+      "block_order": ["rtf_hFPkbn"],
       "name": "Editorial Content Block",
       "settings": {
         "title": "",
@@ -266,12 +291,8 @@
           }
         }
       },
-      "block_order": [
-        "grid_item_eqne78",
-        "grid_item_dgHGCG",
-        "grid_item_qGk4gY",
-        "grid_item_8BTpkM"
-      ],
+      "block_order": ["grid_item_eqne78", "grid_item_dgHGCG", "grid_item_qGk4gY", "grid_item_8BTpkM"],
+      "custom_css": ["p {text-transform: uppercase; text-shadow: 0 0 0.2rem rgb(0 0 0 / 0.2), 0 0 1.2rem black;}", "h2 {text-shadow: 0 0 1.2em rgb(0 0 0 / 0.8);}"],
       "name": "Content Mosaic",
       "settings": {
         "title": "",
@@ -289,9 +310,7 @@
           }
         }
       },
-      "block_order": [
-        "html_PAtRna"
-      ],
+      "block_order": ["html_PAtRna"],
       "custom_css": [
         ".button {flex: 1 1 min(50%, 12rem);}",
         ".cta-wrapper {margin-top: 0; width: 100%;}",
@@ -371,22 +390,9 @@
           }
         }
       },
-      "block_order": [
-        "button_wyM3Ax",
-        "button_tNRLzN",
-        "button_RBymt3",
-        "button_CXrnXU",
-        "button_RhNLqb",
-        "button_U9GW7r",
-        "button_xmm3Mp"
-      ],
+      "block_order": ["button_wyM3Ax", "button_tNRLzN", "button_RBymt3", "button_CXrnXU", "button_RhNLqb", "button_U9GW7r", "button_xmm3Mp"],
       "disabled": true,
-      "custom_css": [
-        "{max-width: 900px; margin: 4rem auto;}",
-        ".button {flex: 1 1 fit-content;}",
-        ".cta-wrapper {margin-top: 0;}",
-        "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"
-      ],
+      "custom_css": ["{max-width: 900px; margin: 4rem auto;}", ".button {flex: 1 1 fit-content;}", ".cta-wrapper {margin-top: 0;}", "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"],
       "name": "Custom CTA Buttons",
       "settings": {
         "title": "Shop by Size",
@@ -397,9 +403,7 @@
     },
     "product_collection_carousel_BrUBzq": {
       "type": "product-collection-carousel",
-      "custom_css": [
-        "{padding: 2rem 0; background: var(--c-off-white);}"
-      ],
+      "custom_css": ["{padding: 2rem 0; background: var(--c-off-white);}"],
       "name": "Product Card Carousel",
       "settings": {
         "carousel_title": "Best Sellers",
@@ -437,13 +441,8 @@
           }
         }
       },
-      "block_order": [
-        "button_tzQWkq",
-        "button_AegCg8"
-      ],
-      "custom_css": [
-        "{padding: 1rem 0 2rem; background: var(--c-off-white);}"
-      ],
+      "block_order": ["button_tzQWkq", "button_AegCg8"],
+      "custom_css": ["{padding: 1rem 0 2rem; background: var(--c-off-white);}"],
       "name": "Custom CTA Buttons",
       "settings": {
         "title": "",
@@ -455,6 +454,7 @@
   },
   "order": [
     "static_hero_tV68kr",
+    "carousel_hero_Ve8P9L",
     "content_icon_grid_AtnxkF",
     "content_rich_text_y4cRwV",
     "content_mosaic_VjHWx4",
