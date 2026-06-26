@@ -120,10 +120,15 @@
   </div>
 
   <div class="product_card-info">
-    {% render 'product-title', product: product %}
+    <div class="product_card-title-wrap">
+      {% render 'product-title', product: product %}
+      {% if settings.star_rating %}
+        <div class="yotpo-widget-instance" data-yotpo-instance-id="1008278" data-yotpo-product-id="{{product.id}}" data-yotpo-section-id="{{template.name}}"></div>
+      {% endif %}
+    </div>
     {% render 'product-price', product: product %}
     {% if show_timer %}
-      <countdown-timer class="countdown-wrapper" data-countdown='{{ countdown_settings | strip_newlines }}'></countdown-timer>
+      <countdown-timer class="countdown-wrapper" data-countdown="{{ countdown_settings | strip_newlines }}"></countdown-timer>
     {% endif %}
   </div>
 

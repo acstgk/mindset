@@ -843,6 +843,17 @@
         "label": "Default Meta Description",
         "info": "shown if page meta description is missing for",
         "default": "Discover gym clothes, loungewear, and activewear designed for both performance and lifestyle. From premium tracksuits, fleece, and borg layers to high-performance gym wear and athleisure staples, every piece is built to move with you, whether you’re training hard, unwinding in comfort, or taking on the everyday. Rooted in resilience, ambition, and community, this is more than just workout clothing; it’s a mindset."
+      }
+    ]
+  },
+  {
+    "name": "Product Cards",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "star_rating",
+        "label": "Show Yopto Star Rating?",
+        "default": false
       },
       {
         "type": "header",

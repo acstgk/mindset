@@ -2431,6 +2431,12 @@ product-card {
     order: -1;
   }
 
+  & .product_card-title-wrap {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
   & .product_card-media {
     aspect-ratio: 35 / 50;
     position: relative;
