@@ -2435,6 +2435,7 @@ product-card {
     display: flex;
     justify-content: space-between;
     flex-wrap: nowrap;
+    gap: 1.5ch;
   }
 
   & .product_card-media {
