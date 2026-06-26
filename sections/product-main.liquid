@@ -102,7 +102,6 @@
               data-count="{{ product.images.size | minus: 1 }}"
               {% if forloop.first %}
                 data-image-index="1"
-                fetchpriority="high"
                 loading="eager"
                 src="{{ base_url }}3000"
                 srcset="{{ img_widths }}"
