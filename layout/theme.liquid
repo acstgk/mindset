@@ -128,14 +128,14 @@
       };
 
       if ('PerformanceObserver' in window) {
-        var lcpObserver = new PerformanceObserver(function(list) {
+        var lcpObserver = new PerformanceObserver(function (list) {
           var entries = list.getEntries();
           if (entries.length > 0) {
             window.initTracking();
             lcpObserver.disconnect();
           }
         });
-        lcpObserver.observe({type: 'largest-contentful-paint', buffered: true});
+        lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
         setTimeout(window.initTracking, 10000);
       } else {
         window.addEventListener('load', window.initTracking);
@@ -179,6 +179,8 @@
 
     <link rel="prefetch" href="{{ 'splide.min.js' | asset_url }}" as="script" crossorigin="anonymous">
     <link rel="prefetch" href="{{ 'HeroCarousel.js' | asset_url }}" as="script" crossorigin="anonymous">
+    <link rel="modulepreload" href="{{ 'main.js' | asset_url }}">
+    <link rel="modulepreload" href="{{ 'ContentAccordian.js' | asset_url }}">
     <script type="module" src="{{ 'main.js' | asset_url }}" defer></script>
     {% if template contains 'product' %}
       <script type="module" src="{{ 'main-pdp.js' | asset_url }}" defer></script>

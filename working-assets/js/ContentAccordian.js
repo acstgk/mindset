@@ -51,30 +51,25 @@ export default class ContentAccordian extends HTMLElement {
   _handleHeaderClick(event) {
     const header = event.currentTarget;
     const content = header.nextElementSibling;
-
     if (!content || !content.classList.contains("accordian-content")) return;
 
-    const isOpen = header.classList.contains("active");
+    if (header.classList.contains("active")) {
+      header.classList.remove("active");
+      header.setAttribute("aria-expanded", "false");
+      content.setAttribute("aria-hidden", "true");
+      return;
+    }
 
     this.headers.forEach((h) => {
       h.classList.remove("active");
       h.setAttribute("aria-expanded", "false");
     });
-
     this.contents.forEach((c) => {
       c.setAttribute("aria-hidden", "true");
     });
 
-    if (!isOpen) {
-      header.classList.add("active");
-
-      header.setAttribute("aria-expanded", "true");
-      content.setAttribute("aria-hidden", "false");
-      // setTimeout(() => {
-      //   header.scrollIntoView({
-      //     behavior: "smooth",
-      //   })
-      // }, 200)
-    }
+    header.classList.add("active");
+    header.setAttribute("aria-expanded", "true");
+    content.setAttribute("aria-hidden", "false");
   }
 }

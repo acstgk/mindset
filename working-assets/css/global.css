@@ -1079,7 +1079,7 @@ content-accordian {
   &.active {
     border-bottom: 1px solid var(--c-off-white);
     & + .accordian-content {
-      height: fit-content;
+      max-height: 5000px;
       padding-block: 15px;
     }
 
@@ -1091,12 +1091,12 @@ content-accordian {
 
 .accordian-content {
   overflow: auto hidden;
-  height: 0;
+  max-height: 0;
   flex-flow: column;
   margin: 0;
   margin-left: 15px;
   padding: 0;
-  transition: height 0.2s var(--bezier);
+  transition: max-height 0.35s var(--bezier);
 
   & a {
     height: 24px;
@@ -1415,9 +1415,9 @@ ul.sub_menu-items {
 .accordian-items .side_menu-sub-menu {
   background-color: white;
   overflow: hidden;
-  height: 0;
+  max-height: 0;
   padding: 0;
-  transition: height 0.2s var(--bezier);
+  transition: max-height 0.35s var(--bezier);
 
   & ul {
     padding: 0 0 1rem 0.5rem;
@@ -1436,7 +1436,7 @@ ul.sub_menu-items {
 }
 
 .accordian-items .accordian-header.active + .side_menu-sub-menu {
-  height: fit-content;
+  max-height: 5000px;
 }
 
 .accordian-items .accordian-header svg {
