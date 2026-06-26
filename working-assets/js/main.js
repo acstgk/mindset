@@ -12,7 +12,7 @@
  * - ComponentLoader: Dynamic component loading system
  */
 
-/* global requestIdleCallback MutationObserver IntersectionObserver, Shopify, theme, clearTimeout sessionStorage location URL iWish navigator */
+/* global setInterval, clearInterval, requestIdleCallback, MutationObserver, IntersectionObserver, Shopify, theme, clearTimeout, sessionStorage, location, URL, iWish, navigator */
 import Splide from "./splide.min.js";
 window.Splide = Splide;
 
@@ -1838,4 +1838,64 @@ if (document.readyState === "loading") {
   });
 } else {
   window.entryAnimations = new EntryAnimationObserver();
+}
+
+// ===================
+// Yotpo Widget Initializer
+// ===================
+/**
+ * YotpoWidgetObserver - MutationObserver that re-initializes Yotpo star rating
+ * widgets when product-card elements are dynamically added to the DOM.
+ * Calls window.yotpoWidgetsContainer.initWidgets() after new product cards appear.
+ */
+class YotpoWidgetObserver {
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    // If Yotpo isn't loaded yet, wait for it
+    if (!window.yotpoWidgetsContainer) {
+      const checkExist = setInterval(() => {
+        if (window.yotpoWidgetsContainer) {
+          clearInterval(checkExist);
+          this.observe();
+        }
+      }, 200);
+      // Safety: stop checking after 15s
+      setTimeout(() => clearInterval(checkExist), 15000);
+      return;
+    }
+    this.observe();
+  }
+
+  observe() {
+    this.observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        for (const node of mutation.addedNodes) {
+          if (!(node instanceof HTMLElement)) continue;
+          if (node.matches("product-card") || node.matches("[class*='product-card']") || node.querySelector("product-card")) {
+            window.yotpoWidgetsContainer.initWidgets();
+            return;
+          }
+        }
+      }
+    });
+
+    this.observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  }
+}
+
+// Initialize Yotpo widget observer when DOM is ready
+if (window.theme?.starRating) {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      new YotpoWidgetObserver();
+    });
+  } else {
+    new YotpoWidgetObserver();
+  }
 }
