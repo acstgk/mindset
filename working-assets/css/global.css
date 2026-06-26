@@ -2392,6 +2392,7 @@ img.footer-logo {
       }
 
       & .accordian-content {
+        max-height: none;
         height: fit-content;
         margin: 0;
         gap: 10px;
