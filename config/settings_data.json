@@ -96,6 +96,16 @@
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
+          "announcement_slider_PKjnNW": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "Mid Season Sale",
+              "subcontent1": "Up to 50% Off",
+              "link1": "shopify://collections/sale",
+              "enable_countdown": false,
+              "country_restriction": "none"
+            }
+          },
           "announcement_slider_KeM9Hq": {
             "type": "announcement_slider",
             "settings": {
@@ -160,6 +170,7 @@
           }
         },
         "block_order": [
+          "announcement_slider_PKjnNW",
           "announcement_slider_KeM9Hq",
           "announcement_slider_8GNAEy",
           "announcement_slider_CxdCHz",
