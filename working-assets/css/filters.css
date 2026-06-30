@@ -487,4 +487,16 @@ filters-menu-bar {
       margin-left: 3ch;
     }
   }
+
+  .accordian-header:not(.active) + .accordian-content {
+    max-height: 0;
+    overflow: hidden;
+    padding-block: 0;
+  }
+
+  .accordian-header.active + .accordian-content {
+    max-height: 33vh;
+    overflow-y: auto;
+    padding-block: 15px;
+  }
 }
