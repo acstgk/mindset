@@ -164,7 +164,7 @@
       ],
       "custom_css": [
         "em {width: 100%; display: inline-block;}",
-        ".h1 {letter-spacing: var(--letter-spacing)}"
+        ".h1 {letter-spacing: var(--letter-spacing);}"
       ],
       "settings": {}
     },
@@ -200,7 +200,7 @@
           "type": "subtle-text-block",
           "settings": {
             "title": "SALE | up to 70% OFF",
-            "block_link": "shopify://collections/spring-sale",
+            "block_link": "shopify://collections/sale",
             "link_target": "_self",
             "bg_colour": "#f8f8f8",
             "txt_colour": "#1b1b1b",

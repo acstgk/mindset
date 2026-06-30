@@ -43,7 +43,7 @@
           "settings": {
             "mobile_video": "shopify://files/videos/Kids Landing Page Banner Mobile.mp4",
             "desktop_video": "shopify://files/videos/Kids Landing Page Banner_1.mp4",
-            "media_brightness": 95,
+            "media_brightness": 110,
             "overlay_url": "",
             "alt_text": "",
             "lockup_width": 200,
@@ -66,8 +66,12 @@
           }
         }
       },
-      "block_order": ["image_UWhPXm"],
-      "custom_css": [".hero_slide-ctas .button {min-width: 130px;}"],
+      "block_order": [
+        "image_UWhPXm"
+      ],
+      "custom_css": [
+        ".hero_slide-ctas .button {min-width: 130px;}"
+      ],
       "name": "Hero Slideshow",
       "settings": {}
     },
@@ -138,8 +142,18 @@
           }
         }
       },
-      "block_order": ["icon_xkrE9L", "icon_y4ybhL", "icon_gULnq3", "icon_DaxY6e", "icon_MfAQQc", "icon_izzY8k", "icon_KHrFdA"],
-      "custom_css": ["{margin-top: 2rem;}"],
+      "block_order": [
+        "icon_xkrE9L",
+        "icon_y4ybhL",
+        "icon_gULnq3",
+        "icon_DaxY6e",
+        "icon_MfAQQc",
+        "icon_izzY8k",
+        "icon_KHrFdA"
+      ],
+      "custom_css": [
+        "{margin-top: 2rem;}"
+      ],
       "name": "Icon Grid",
       "settings": {
         "heading_level": "2",
@@ -162,7 +176,9 @@
           }
         }
       },
-      "block_order": ["rtf_hFPkbn"],
+      "block_order": [
+        "rtf_hFPkbn"
+      ],
       "name": "Editorial Content Block",
       "settings": {
         "title": "",
@@ -291,8 +307,16 @@
           }
         }
       },
-      "block_order": ["grid_item_eqne78", "grid_item_dgHGCG", "grid_item_qGk4gY", "grid_item_8BTpkM"],
-      "custom_css": ["p {text-transform: uppercase; text-shadow: 0 0 0.2rem rgb(0 0 0 / 0.2), 0 0 1.2rem black;}", "h2 {text-shadow: 0 0 1.2em rgb(0 0 0 / 0.8);}"],
+      "block_order": [
+        "grid_item_eqne78",
+        "grid_item_dgHGCG",
+        "grid_item_qGk4gY",
+        "grid_item_8BTpkM"
+      ],
+      "custom_css": [
+        "p {text-transform: uppercase; text-shadow: 0 0 0.2rem rgb(0 0 0 / 0.2), 0 0 1.2rem black;}",
+        "h2 {text-shadow: 0 0 1.2em rgb(0 0 0 / 0.8);}"
+      ],
       "name": "Content Mosaic",
       "settings": {
         "title": "",
@@ -310,7 +334,9 @@
           }
         }
       },
-      "block_order": ["html_PAtRna"],
+      "block_order": [
+        "html_PAtRna"
+      ],
       "custom_css": [
         ".button {flex: 1 1 min(50%, 12rem);}",
         ".cta-wrapper {margin-top: 0; width: 100%;}",
@@ -390,9 +416,22 @@
           }
         }
       },
-      "block_order": ["button_wyM3Ax", "button_tNRLzN", "button_RBymt3", "button_CXrnXU", "button_RhNLqb", "button_U9GW7r", "button_xmm3Mp"],
+      "block_order": [
+        "button_wyM3Ax",
+        "button_tNRLzN",
+        "button_RBymt3",
+        "button_CXrnXU",
+        "button_RhNLqb",
+        "button_U9GW7r",
+        "button_xmm3Mp"
+      ],
       "disabled": true,
-      "custom_css": ["{max-width: 900px; margin: 4rem auto;}", ".button {flex: 1 1 fit-content;}", ".cta-wrapper {margin-top: 0;}", "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"],
+      "custom_css": [
+        "{max-width: 900px; margin: 4rem auto;}",
+        ".button {flex: 1 1 fit-content;}",
+        ".cta-wrapper {margin-top: 0;}",
+        "@media screen and(max-width: 768px) {.button {flex: 1 1 100%; }}"
+      ],
       "name": "Custom CTA Buttons",
       "settings": {
         "title": "Shop by Size",
@@ -403,7 +442,9 @@
     },
     "product_collection_carousel_BrUBzq": {
       "type": "product-collection-carousel",
-      "custom_css": ["{padding: 2rem 0; background: var(--c-off-white);}"],
+      "custom_css": [
+        "{padding: 2rem 0; background: var(--c-off-white);}"
+      ],
       "name": "Product Card Carousel",
       "settings": {
         "carousel_title": "Best Sellers",
@@ -441,8 +482,13 @@
           }
         }
       },
-      "block_order": ["button_tzQWkq", "button_AegCg8"],
-      "custom_css": ["{padding: 1rem 0 2rem; background: var(--c-off-white);}"],
+      "block_order": [
+        "button_tzQWkq",
+        "button_AegCg8"
+      ],
+      "custom_css": [
+        "{padding: 1rem 0 2rem; background: var(--c-off-white);}"
+      ],
       "name": "Custom CTA Buttons",
       "settings": {
         "title": "",
