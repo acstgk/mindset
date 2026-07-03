@@ -89,7 +89,7 @@
           "settings": {
             "title": "How do I redeem my points?",
             "htmlContent": "",
-            "content": "<p>You can apply your points at checkout:</p><ul><li><strong>100 points </strong>= £5   (no minimum spend)</li><li><strong>200 points </strong>= £10   (minimum spend of £40)</li><li><strong>300 points</strong> = £15   (minimum spend of £60)</li><li><strong>400 points</strong> = £20   (minimum spend of £80)</li></ul>"
+            "content": "<p>You can apply your points at checkout:</p><ul><li><strong>100 points </strong>= £5   (no minimum spend)</li><li><strong>200 points </strong>= £10   (minimum spend of £40)</li><li><strong>300 points</strong> = £15   (minimum spend of £60)</li><li><strong>400 points</strong> = £20   (minimum spend of £80)<br/><br/><em>Please note: only one discount amount can be used per order.</em></li></ul>"
           }
         },
         "card_XWRtMT": {
@@ -151,7 +151,8 @@
         "card_DkEe7M"
       ],
       "settings": {
-        "openFirst": false
+        "openFirst": false,
+        "showTitle": true
       }
     }
   },
