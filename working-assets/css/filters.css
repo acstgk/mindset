@@ -7,7 +7,6 @@ filters-menu-bar {
   border-block: 1px solid var(--c-light-grey);
   z-index: 15;
 
-
   &.accent-bg {
     padding: 0;
   }
@@ -23,11 +22,11 @@ filters-menu-bar {
   & slide-drawer {
     padding: 15px;
 
-    & .filterby-container>span {
+    & .filterby-container > span {
       font-family: var(--emphasis-heading-font-family);
       font-size: var(--txt-h2);
       text-transform: uppercase;
-      transition: color .4s ease;
+      transition: color 0.4s ease;
     }
   }
 
@@ -57,22 +56,24 @@ filters-menu-bar {
     padding: 0.2em 0.6em;
     margin: 0 auto 0 0;
   }
-
 }
 
 .no-scroll filters-menu-bar.accent-bg {
-  background-color: #BFBFBF;
-  border-color: #BFBFBF;
+  background-color: #bfbfbf;
+  border-color: #bfbfbf;
 }
-
-.no-scroll filters-menu-bar.accent-bg .mobile-filter-button,
-.no-scroll filters-menu-bar.accent-bg .column-controls {
-  filter: blur(2px);
+@supports (backdrop-filter: blur(2px)) {
+  @media screen and (min-width: 768.02px) {
+    .no-scroll filters-menu-bar.accent-bg .mobile-filter-button,
+    .no-scroll filters-menu-bar.accent-bg .column-controls {
+      filter: blur(2px);
+    }
+  }
 }
 .column-controls {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
   flex: 0 0 auto;
 
   & svg {
@@ -100,7 +101,7 @@ filters-menu-bar {
     }
   }
 
-    &[data-grid="grid"] .grid-control--down {
+  &[data-grid="grid"] .grid-control--down {
     cursor: default;
 
     & svg {
@@ -121,7 +122,6 @@ filters-menu-bar {
   margin: 0 auto;
 }
 
-
 #toSlider,
 #fromSlider {
   border: 0;
@@ -131,7 +131,7 @@ filters-menu-bar {
   -moz-appearance: none;
   appearance: none;
   height: 2px;
-  background-color: #C6C6C6;
+  background-color: #c6c6c6;
   pointer-events: none;
   top: 50%;
   transform: translateY(-50%);
@@ -174,7 +174,7 @@ filters-menu-bar {
   }
 
   &::-webkit-slider-thumb:active {
-    scale: 0.9
+    scale: 0.9;
   }
 }
 
@@ -201,7 +201,6 @@ filters-menu-bar {
   left: calc(50%);
 }
 
-
 .price-mid {
   text-align: center;
 }
@@ -215,10 +214,9 @@ filters-menu-bar {
   justify-content: space-around;
   margin-bottom: 1em;
 
-  &>div {
+  & > div {
     text-align: center;
   }
-
 }
 
 .price-input {
@@ -258,18 +256,15 @@ filters-menu-bar {
     flex-direction: row;
     gap: 0.5em;
   }
-
 }
-
 
 #filter-form {
   .filter_item-availability {
     display: none;
   }
 
-        & .filter_item:has(.item-size:not([data-active-count="0"])) {
-
-    &~.filter_item-availability {
+  & .filter_item:has(.item-size:not([data-active-count="0"])) {
+    & ~ .filter_item-availability {
       display: block;
     }
   }
@@ -278,15 +273,15 @@ filters-menu-bar {
 .filter_item-name {
   & i {
     font-weight: 400;
-    font-size: var(--txt-sm)
+    font-size: var(--txt-sm);
   }
-& .pluralize {
-  display: inline
-}
+  & .pluralize {
+    display: inline;
+  }
 }
 .filter_value-label {
   display: flex;
-  gap: .5em;
+  gap: 0.5em;
   align-items: center;
 
   & .swatch {
@@ -296,18 +291,17 @@ filters-menu-bar {
     border: 1px solid var(--c-dark-grey);
     transition: rotate 0.15s var(--bezier);
   }
-
 }
 
-.filter_value-checkbox>* {
+.filter_value-checkbox > * {
   cursor: pointer;
 }
 
-.filter_value-checkbox>input:checked+label>.swatch {
+.filter_value-checkbox > input:checked + label > .swatch {
   rotate: 45deg;
 }
 
-.filter_value-checkbox input:has(+label>.swatch) {
+.filter_value-checkbox input:has(+ label > .swatch) {
   display: none;
 }
 
@@ -334,7 +328,7 @@ filters-menu-bar {
 
 @media screen and (900px < width < 1000px) {
   .column-controls span {
-    display: none
+    display: none;
   }
 }
 
@@ -348,13 +342,12 @@ filters-menu-bar {
     gap: 1em;
   }
 
-.filter_item-name .pluralize {
-  displaY: none;
-}
+  .filter_item-name .pluralize {
+    display: none;
+  }
   .sortby-container label {
     display: block;
   }
-
 
   .sortby-container {
     border-left: 1px solid var(--c-light-grey);
@@ -367,7 +360,7 @@ filters-menu-bar {
     min-height: 0;
   }
 
-                                filters-menu-bar content-accordian {
+  filters-menu-bar content-accordian {
     font-size: var(--txt-p);
     display: flex;
     flex-grow: 1;
@@ -426,7 +419,7 @@ filters-menu-bar {
         align-items: center;
         gap: 0.5em;
 
-        & .filterby-container>span {
+        & .filterby-container > span {
           font-family: var(--text-font-family);
           font-size: var(--txt-p);
           text-transform: none;
@@ -435,14 +428,14 @@ filters-menu-bar {
     }
   }
 
-        #productFilters {
-          overflow-y: visible;
+  #productFilters {
+    overflow-y: visible;
 
-            & small {
-              display: none;
-            }
-        }
-  #productFilters[aria-hidden="false"]~.mobile-filter-button {
+    & small {
+      display: none;
+    }
+  }
+  #productFilters[aria-hidden="false"] ~ .mobile-filter-button {
     filter: blur(2px);
   }
 
@@ -460,13 +453,13 @@ filters-menu-bar {
       padding: 1em;
       min-width: 200px;
       max-width: max-content;
-        width: 95vw;
+      width: 95vw;
       background: var(--c-white);
       display: none;
       border: 1px solid var(--c-grey);
-& ul {
-    margin-top: 1.25rem;
-  }
+      & ul {
+        margin-top: 1.25rem;
+      }
     }
 
     &:hover {

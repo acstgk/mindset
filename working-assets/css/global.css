@@ -456,6 +456,10 @@ page-overlay {
       backdrop-filter: brightness(0.75) blur(2px);
       background: rgba(0, 0, 0, 0.25);
     }
+
+    body.mqatb-blur slide-drawer {
+      filter: blur(2px);
+    }
   }
 }
 
@@ -524,10 +528,6 @@ body.no-scroll page-overlay {
   transform: translateY(0);
   pointer-events: all;
   visibility: visible;
-}
-
-body.mqatb-blur slide-drawer {
-  filter: blur(2px);
 }
 
 .no-height {
