@@ -1444,7 +1444,7 @@ ul.sub_menu-items {
 }
 
 .accordian-items .accordian-header.active svg {
-  transform: rotate(-135deg);
+  transform: rotate(0deg);
 }
 
 .side_menu-slider {
