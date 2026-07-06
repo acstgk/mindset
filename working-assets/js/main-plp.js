@@ -311,7 +311,7 @@ class EnhancedFilters {
           el.textContent = newTotalCount;
         });
 
-        const newFilterGroups = doc.querySelectorAll(".accordian-items");
+        const newFilterGroups = doc.querySelector("#filter-form")?.querySelectorAll(".accordian-items") || [];
         const currentFilterGroups = this.form.querySelectorAll(".accordian-items");
 
         currentFilterGroups.forEach((oldGroup, index) => {
@@ -321,7 +321,11 @@ class EnhancedFilters {
           const newHeader = newGroup.querySelector(".filter_item-title");
           if (oldHeader && newHeader) {
             oldHeader.replaceChildren(...newHeader.childNodes);
-            oldHeader.dataset.activeCount = newHeader.dataset.activeCount;
+          }
+          const oldHeaderEl = oldGroup.querySelector(".accordian-header");
+          const newHeaderEl = newGroup.querySelector(".accordian-header");
+          if (oldHeaderEl && newHeaderEl) {
+            oldHeaderEl.dataset.activeCount = newHeaderEl.dataset.activeCount;
           }
           const oldValues = oldGroup.querySelector(".filter_item-values");
           const newValues = newGroup.querySelector(".filter_item-values");
