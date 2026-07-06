@@ -953,9 +953,13 @@ class ProductModalManager {
     modal.classList.remove("active");
     modal.setAttribute("aria-hidden", "true");
 
-    document.body.classList.remove("mqatb-blur");
-    if (!keepOverlay) this._pageOverlay.closeThis();
-    modal.classList.remove("keep-overlay");
+    requestAnimationFrame(() => {
+      console.log("removing mqatb-blur", document.body);
+      document.body.classList.remove("mqatb-blur");
+      console.log("removed mqatb-blur", document.body);
+      if (!keepOverlay) this._pageOverlay.closeThis();
+      modal.classList.remove("keep-overlay");
+    });
 
     if (this._isTouchDevice) {
       modal.removeEventListener("touchstart", this._touchHandler);

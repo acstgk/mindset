@@ -2915,7 +2915,7 @@ form {
     font-family: var(--text-font-family);
 
     &::placeholder {
-      color: var(--c-grey);
+      color: var(--c--grey);
       font-style: italic;
       letter-spacing: 0.1ch;
     }
