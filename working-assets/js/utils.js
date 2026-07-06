@@ -17,7 +17,7 @@ export function bindQATBButtons(root) {
 
     const targetSize = targetButton.innerText;
 
-    const errors = targetButton.closest(".qatb-btns, .mqatb-btns").parentElement.querySelectorAll(".cart-error");
+    const errors = targetButton.closest(".qatb-btns").parentElement.querySelectorAll(".cart-error");
     errors.forEach((error) => error.remove());
 
     targetButton.innerHTML = `<div class="loader"></div>`;
@@ -25,10 +25,10 @@ export function bindQATBButtons(root) {
     window.Cart.addItems(targetButton.dataset.vId)
       .then(() => {
         targetButton.innerHTML = targetSize;
-        const modal = document.getElementById(root.id);
+        const modal = targetButton.closest(".mqatb-modal");
         if (modal) {
-          modal.classList.remove("active");
-          document.body.classList.remove("mqatb-blur");
+          const closeBtn = modal.querySelector(".mqatb-close");
+          if (closeBtn) closeBtn.click();
         }
       })
       .catch((error) => {
@@ -36,7 +36,7 @@ export function bindQATBButtons(root) {
         const errorBox = document.createElement("div");
         errorBox.className = "cart-error warning";
         errorBox.textContent = error.description || "Sorry, something went wrong.";
-        targetButton.closest(".qatb-btns, .mqatb-btns").before(errorBox);
+        targetButton.closest(".qatb-btns").before(errorBox);
       });
   });
 }
