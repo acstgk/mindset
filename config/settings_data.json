@@ -18,7 +18,7 @@
     "url-m-plp-content": "https://thegymking.com/collections/twin-sets",
     "videom-plp-content": "",
     "img-mens-content-2": "shopify://shop_images/PLP_-_Mens.png",
-    "url-m-plp-content-2": "https://thegymking.com/collections/mens-new",
+    "url-m-plp-content-2": "shopify://collections/mens-new",
     "videom-plp-content-2": "",
     "img-mens-content-3": "shopify://shop_images/In_Content_Banners_-_Mens.png",
     "url-m-plp-content-3": "shopify://collections/twin-sets",
@@ -100,7 +100,7 @@
             "type": "announcement_slider",
             "settings": {
               "title": "Mid Season Sale",
-              "subcontent1": "Up to 50% Off",
+              "subcontent1": "Up to 60% Off",
               "link1": "shopify://collections/sale",
               "enable_countdown": false,
               "country_restriction": "none"
