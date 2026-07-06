@@ -28,6 +28,7 @@ export function bindQATBButtons(root) {
         const modal = targetButton.closest(".mqatb-modal");
         if (modal) {
           const closeBtn = modal.querySelector(".mqatb-close");
+          document.body.classList.remove("mqatb-blur");
           if (closeBtn) closeBtn.click();
         }
       })
