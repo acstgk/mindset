@@ -58,6 +58,12 @@ filters-menu-bar {
   }
 }
 
+@media screen and (min-width: 768.02px) {
+  filters-menu-bar {
+    z-index: 9;
+  }
+}
+
 .no-scroll filters-menu-bar.accent-bg {
   background-color: #bfbfbf;
   border-color: #bfbfbf;
