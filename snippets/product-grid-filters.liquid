@@ -102,7 +102,7 @@
                               </li>
                             {%- endfor -%}
                           </ul>
-                          <input type="submit" value="Apply" class="filter-apply button button-secondary">
+                          <button type="button" class="filter-apply button button-secondary">Apply</button>
                         </div>
                       {%- when 'price_range' -%}
                         <div id="filter-{{ filter.label | handle }}" class="filter_item-values accordian-content no-animation filter_item-price-range">
@@ -186,8 +186,8 @@
                           {% if template.name == 'search' %}
                             <input hidden value="{{ search.terms }}" name="q">
                           {% endif %}
-                          <input hidden value="1" name="page">
-                          <input type="submit" value="Apply" class="filter-apply button button-secondary">
+                           <input hidden value="1" name="page">
+                          <button type="button" class="filter-apply button button-secondary">Apply</button>
                         </div>
                     {%- endcase -%}
                   </div>

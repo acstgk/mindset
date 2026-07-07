@@ -1,4 +1,4 @@
-/* global IntersectionObserver history sessionStorage, URL URLSearchParams FormData, AbortController */
+/* global IntersectionObserver history sessionStorage, URL URLSearchParams FormData, AbortController, Event */
 
 ;
 import { SplideUtil } from "./SplideUtil.js";
@@ -98,6 +98,12 @@ class PriceRangeControl {
     this.toSlider.oninput = () => this.#controlToSlider();
     this.fromInput.oninput = () => this.#controlFromInput();
     this.toInput.oninput = () => this.#controlToInput();
+    this.fromInput.addEventListener("blur", () => this.#triggerFilterChange());
+    this.toInput.addEventListener("blur", () => this.#triggerFilterChange());
+  }
+
+  #triggerFilterChange() {
+    document.getElementById("filter-form")?.dispatchEvent(new Event("change"));
   }
 
   #controlFromInput() {
@@ -192,6 +198,16 @@ class EnhancedFilters {
     this._requestSeq = 0;
     this._abortController = null;
     this.form.addEventListener("change", this.applyFilters);
+    this.form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      this.applyFilters(e);
+    });
+    this.form.querySelectorAll(".filter-apply").forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        this.applyFilters(e);
+      });
+    });
   }
 
   async applyFilters(event) {
