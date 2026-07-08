@@ -1,4 +1,169 @@
 /* GLOBAL  */
+
+/* MOVED FROM CRITICAL.CSS — not needed for above-the-fold paint */
+
+@media screen and (width > 750px) {
+  #attentive_creative {
+    bottom: 40px !important;
+    rotate: 0deg;
+    right: 5px !important;
+  }
+}
+
+hr {
+  background-color: var(--c-light-grey);
+  border: 0;
+  height: 1px;
+  margin: 1.5em 0;
+}
+
+blockquote {
+  font-size: var(--txt-h2);
+  position: relative;
+  border-block: 1px solid var(--c-light-grey);
+  display: block;
+  margin: 0.6em 0 0.6em;
+  padding: 1.2rem 0 2.4rem 1.8rem;
+  letter-spacing: 0.1ch;
+
+  &::before {
+    position: absolute;
+    content: "\201C";
+    font-size: var(--txt-xxl);
+    left: 1.8rem;
+    top: 1.2rem;
+    transform: translate(-70%, -10%);
+    line-height: 1;
+    margin: 0;
+    opacity: 0.5;
+  }
+
+  &::after {
+    content: attr(data-quote-attribution);
+    position: absolute;
+    right: 1rem;
+    bottom: 1.8rem;
+    transform: translateY(100%);
+    font-style: italic;
+    font-family: var(--text-font-family);
+    font-size: var(--txt-p);
+    text-transform: none;
+  }
+}
+
+.success,
+.warning,
+.error,
+.info,
+.flag {
+  --colour: var(--c-black);
+  --bg-colour: var(--colour);
+  padding: 0.4rem 0.75rem;
+  display: inline-block;
+  place-content: center;
+  border-radius: var(--radius);
+  backdrop-filter: blur(0.5rem) contrast(0.5) brightness(1.5);
+  color: var(--colour);
+  background-color: oklch(from var(--bg-colour) calc(l + 1.2) c h / 0.4);
+  border: 1px solid oklch(from var(--bg-colour) calc(l + 0.2) c h / 0.5);
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+
+@supports (margin-block: 1lh) {
+  .success,
+  .warning,
+  .error,
+  .info,
+  .flag {
+    padding: 0.5lh 1ch;
+  }
+}
+
+.success {
+  --colour: var(--c-success);
+}
+
+.error {
+  --colour: var(--c-error);
+}
+
+.warning {
+  --colour: var(--c-warning);
+}
+
+.info {
+  --colour: var(--c-info);
+}
+
+.header_menu-item:has(.header_menu-dropdown:hover) > a,
+.header_menu-item > a:hover,
+.header_menu-item .gender-btn.active {
+  &::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 50px;
+    cursor: default;
+  }
+
+  &::before {
+    transform: scaleX(1);
+  }
+}
+
+.header_icon {
+  &.wishlisted:after,
+  &.cart-not-empty:after {
+    transform: scale(1);
+  }
+
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+.header_menu-dropdown {
+  list-style: none;
+  max-height: calc(100vh - 50px);
+  z-index: -1;
+  position: fixed;
+  top: 49px;
+  width: min(100vw, 1800px);
+  margin: 0 auto;
+}
+
+predictive-search {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 50px;
+  max-height: calc(95dvh - 50px);
+  overflow: hidden;
+  background-color: var(--c-white);
+  contain: content;
+  will-change: transform, opacity;
+  transition:
+    transform 0.2s var(--bezier),
+    opacity 0.2s ease;
+
+  &[aria-hidden="false"] {
+    opacity: 1;
+    transform: translateY(51px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+iframe#attentive_creative {
+  bottom: 45px !important;
+}
+
 @view-transition {
   navigation: auto;
 }

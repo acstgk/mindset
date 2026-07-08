@@ -83,13 +83,7 @@ main {
   min-height: 65vh;
 }
 
-@media screen and (width > 750px) {
-  #attentive_creative {
-    bottom: 40px !important;
-    rotate: 0deg;
-    right: 5px !important;
-  }
-}
+
 
 /* IMAGE */
 
@@ -108,8 +102,7 @@ img {
 /* TEXT */
 
 h1,
-.h1,
-blockquote {
+.h1 {
   font-size: var(--txt-h1);
   text-transform: uppercase;
   font-family: var(--emphasis-heading-font-family);
@@ -228,46 +221,7 @@ a,
 } */
 }
 
-hr {
-  background-color: var(--c-light-grey);
-  border: 0;
-  height: 1px;
-  margin: 1.5em 0;
-}
 
-blockquote {
-  font-size: var(--txt-h2);
-  position: relative;
-  border-block: 1px solid var(--c-light-grey);
-  display: block;
-  margin: 0.6em 0 0.6em;
-  padding: 1.2rem 0 2.4rem 1.8rem;
-  letter-spacing: 0.1ch;
-
-  &::before {
-    position: absolute;
-    content: "“";
-    font-size: var(--txt-xxl);
-    left: 1.8rem;
-    top: 1.2rem;
-    transform: translate(-70%, -10%);
-    line-height: 1;
-    margin: 0;
-    opacity: 0.5;
-  }
-
-  &::after {
-    content: attr(data-quote-attribution);
-    position: absolute;
-    right: 1rem;
-    bottom: 1.8rem;
-    transform: translateY(100%);
-    font-style: italic;
-    font-family: var(--text-font-family);
-    font-size: var(--txt-p);
-    text-transform: none;
-  }
-}
 
 .uppercase {
   text-transform: uppercase;
@@ -285,51 +239,6 @@ blockquote {
 
 .no-block-margin {
   margin-block: 0;
-}
-
-.success,
-.warning,
-.error,
-.info,
-.flag {
-  --colour: var(--c-black);
-  --bg-colour: var(--colour);
-  padding: 0.4rem 0.75rem;
-  display: inline-block;
-  place-content: center;
-  border-radius: var(--radius);
-  backdrop-filter: blur(0.5rem) contrast(0.5) brightness(1.5);
-  color: var(--colour);
-  background-color: oklch(from var(--bg-colour) calc(l + 1.2) c h / 0.4);
-  border: 1px solid oklch(from var(--bg-colour) calc(l + 0.2) c h / 0.5);
-  text-box-trim: trim-both;
-  text-box-edge: cap alphabetic;
-}
-
-@supports (margin-block: 1lh) {
-  .success,
-  .warning,
-  .error,
-  .info,
-  .flag {
-    padding: 0.5lh 1ch;
-  }
-}
-
-.success {
-  --colour: var(--c-success);
-}
-
-.error {
-  --colour: var(--c-error);
-}
-
-.warning {
-  --colour: var(--c-warning);
-}
-
-.info {
-  --colour: var(--c-info);
 }
 
 .emphasis {
@@ -670,24 +579,6 @@ ul.header_desktop-menu {
   }
 }
 
-.header_menu-item:has(.header_menu-dropdown:hover) > a,
-.header_menu-item > a:hover,
-.header_menu-item .gender-btn.active {
-  &::after {
-    content: "";
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50vw;
-    height: 50px;
-    cursor: default;
-  }
-
-  &::before {
-    transform: scaleX(1);
-  }
-}
 
 /* ORIGINAL MEGA NAV LOCATION */
 
@@ -734,14 +625,6 @@ ul.header_desktop-menu {
     width: 8px;
   }
 
-  &.wishlisted:after,
-  &.cart-not-empty:after {
-    transform: scale(1);
-  }
-
-  &:hover {
-    scale: 1.1;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -758,14 +641,7 @@ ul.header_desktop-menu {
 .header_menu-dropdown {
   overflow: hidden;
   visibility: hidden;
-  list-style: none;
   height: 0;
-  max-height: calc(100vh - 50px);
-  z-index: -1;
-  position: fixed;
-  top: 49px;
-  width: min(100vw, 1800px);
-  margin: 0 auto;
 }
 
 /* SEARCH  */
@@ -782,32 +658,11 @@ input {
 }
 
 predictive-search {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
   position: absolute;
-  min-height: 50px;
-  max-height: calc(95dvh - 50px);
-  overflow: hidden;
   top: -1px;
   opacity: 0;
   visibility: hidden;
-  background-color: var(--c-white);
   z-index: -1;
-  contain: content;
-  will-change: transform, opacity;
-  transition:
-    transform 0.2s var(--bezier),
-    opacity 0.2s ease;
-
-  &[aria-hidden="false"] {
-    opacity: 1;
-    transform: translateY(51px);
-  }
-
-  &:focus {
-    outline: none;
-  }
 }
 
 #search_form,
@@ -944,6 +799,4 @@ predictive-search {
   font-size: 10px;
 }
 
-iframe#attentive_creative {
-  bottom: 45px !important;
-}
+
