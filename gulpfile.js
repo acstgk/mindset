@@ -14,9 +14,11 @@ import postcssPresetEnv from "postcss-preset-env";
 // Define source and destination paths
 const paths = {
   scripts: "working-assets/js/**/*.js",
-  css: "working-assets/css/**/*.css",
+  css: ["working-assets/css/**/*.css", "!working-assets/css/critical.css"],
+  criticalCSS: "working-assets/css/critical.css",
   destJS: "assets/",
   destCSS: "assets/",
+  destSnippets: "snippets/",
 };
 
 // Lint JavaScript using ESLint
@@ -77,14 +79,45 @@ function processCSS() {
     .pipe(gulp.dest(paths.destCSS));
 }
 
+// Critical CSS — minify to Liquid snippet for inline via {% render %}
+function processCriticalCSS() {
+  return gulp
+    .src(paths.criticalCSS)
+    .pipe(postcss([postcssNested()]))
+    .pipe(
+      postcss([
+        autoprefixer({ cascade: false }),
+        postcssPresetEnv({
+          stage: 2,
+          browsers: ["Safari >= 13", "iOS >= 13", "> 0.5%", "not dead"],
+        }),
+        cssnano({
+          preset: ["default", { calc: false }],
+        }),
+      ]),
+    )
+    .on("error", function (err) {
+      console.error(err.toString());
+      this.emit("end");
+    })
+    .pipe(cleanCSS())
+    .on("error", function (err) {
+      console.error(err.toString());
+      this.emit("end");
+    })
+    .pipe(rename({ extname: ".css.liquid" }))
+    .pipe(gulp.dest(paths.destSnippets));
+}
+
 // Watch files and re-run tasks on change
 function watchFiles() {
   gulp.watch(paths.scripts, gulp.series(lintJS, processModules));
   gulp.watch(paths.css, processCSS);
+  gulp.watch(paths.criticalCSS, processCriticalCSS);
 }
 
 // Build task
-const build = gulp.parallel(gulp.series(lintJS, processModules), processCSS);
+const build = gulp.parallel(gulp.series(lintJS, processModules), processCSS, processCriticalCSS);
 
 // Default task
 export default gulp.series(build, watchFiles);
