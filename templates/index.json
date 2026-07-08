@@ -12,64 +12,6 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
-        "image_F4fmwA": {
-          "type": "image",
-          "settings": {
-            "mobile_video": "shopify://files/videos/Mid Season Sale - Mobile Banner Womens.mp4",
-            "mobile_poster": "shopify://shop_images/midsummer-womens-mobile.jpg",
-            "desktop_video": "shopify://files/videos/Mid Season Sale - Desktop Banner Womens.mp4",
-            "desktop_poster": "shopify://shop_images/midsummer-womens-desktop.jpg",
-            "media_brightness": 100,
-            "overlay_url": "/collections/sale/womens",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Up to 60% Off",
-            "title_font": "",
-            "heading_size": 140,
-            "subtitle": "Mid Season Sale",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Now",
-            "url1": "/collections/sale/womens",
-            "cta2": "",
-            "url2": "",
-            "target_gender": "womens"
-          }
-        },
-        "image_VbNngw": {
-          "type": "image",
-          "settings": {
-            "mobile_video": "shopify://files/videos/Mid Season Sale - Mobile Banner Mens.mp4",
-            "mobile_poster": "shopify://shop_images/midsummer-mens-mobile.jpg",
-            "desktop_video": "shopify://files/videos/Mid Season Sale - Desktop Banner Mens_4cbaab9f-d341-42a5-8bc4-3223329545c6.mp4",
-            "desktop_poster": "shopify://shop_images/midsummer-mens-desktop.jpg",
-            "media_brightness": 95,
-            "overlay_url": "/collections/sale/mens",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Up to 60% Off",
-            "title_font": "",
-            "heading_size": 140,
-            "subtitle": "Mid Season Sale",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Now",
-            "url1": "/collections/sale/mens",
-            "cta2": "",
-            "url2": "",
-            "target_gender": "mens"
-          }
-        },
         "image_KhLw9c": {
           "type": "image",
           "disabled": true,
@@ -160,7 +102,6 @@
         },
         "image_6BmG7G": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Signature Summer - Womens - Mobile Banner V2_11ad0ed4-056c-48f0-a372-aaf40c7f3a31.mp4",
             "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner V2_1.mp4",
@@ -188,7 +129,6 @@
         },
         "image_3RaHDG": {
           "type": "image",
-          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/30 Off Twin Sets - Mobile Banner_0ffae13a-c3ae-40e4-a8f5-419ebdc7dfa0.mp4",
             "desktop_video": "shopify://files/videos/30 Off Twin Sets - Desktop Banner_922070d6-5793-4561-84a9-7355fbc9799b.mp4",
@@ -216,8 +156,6 @@
         }
       },
       "block_order": [
-        "image_F4fmwA",
-        "image_VbNngw",
         "image_KhLw9c",
         "image_pi8iLM",
         "image_Qxq3bj",
