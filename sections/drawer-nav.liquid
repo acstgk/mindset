@@ -37,8 +37,8 @@
             <li class="accordian-items">
               <div class="side_menu-sub-menu-button accordian-header" data-sub-menu="{{ settings[sub_menu].handle }}" aria-label="open sub menu" role="button" rel="nofollow">
                 {{- settings[sub_menu].title | split: '-' | last -}}
-                <span>
-                  {%- render 'icon', icon: 'plus' -%}
+                <span class="rotate135">
+                  {%- render 'icon', icon: 'plus', class: 'rotate135' -%}
                 </span>
               </div>
               <div class="side_menu-sub-menu accordian-content" data-sub-menu="{{ settings[sub_menu].handle }}">
