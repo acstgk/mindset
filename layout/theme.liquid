@@ -98,6 +98,8 @@
     {%- endif -%}
 
     {% render 'css-variables' %}
+    <link rel="preload" as="font" type="font/woff2" href="{{ 'font-regular.woff2' | asset_url }}" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="{{ 'font-condensed.woff2' | asset_url }}" crossorigin>
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
     {% if template contains 'product' and product.images.first %}
       <link rel="preload" as="image" href="{{ product.images.first | image_url: width: 600 }}" fetchpriority="high">
