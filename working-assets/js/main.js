@@ -770,7 +770,7 @@ if (!customElements.get("predictive-search")) {
           this._resetResults();
           event.stopPropagation();
           this.pageOverlay?.closeThis();
-          this.filterbar.style.zIndex = 15;
+          if (this.filterbar) this.filterbar.style.zIndex = 15;
           requestAnimationFrame(() => this.inputField?.blur());
           clearTimeout(this._closeFallback);
           this._closeFallback = setTimeout(() => {
@@ -781,7 +781,7 @@ if (!customElements.get("predictive-search")) {
           }, 250);
         } else {
           this.style.visibility = "visible";
-          this.filterbar.style.zIndex = 10;
+          if (this.filterbar) this.filterbar.style.zIndex = 10;
           if (this.pageHeader) this.pageHeader.style.zIndex = 11;
           this.pageOverlay?.openThis();
           this.inputField?.focus();
