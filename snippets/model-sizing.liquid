@@ -1,5 +1,5 @@
 {% assign description = product.description %}
-{% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
+{% assign description = description | remove: ' class="p1"' | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
 {% assign description_elements = description | split: '||' %}
 {% assign sizing_info = description_elements | where: 'Model' %}
 {% if sizing_info.first.size > 5 %}
