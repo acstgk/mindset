@@ -199,7 +199,7 @@
         {% comment %} Sort By Options {% endcomment %}
         <div class="sortby-container inline-flex">
           <label for="sort_by" style="color:var(--c-dark-grey);flex:1 0 auto">Sort by:</label>
-          <select name="sort_by" id="SortBy" onchange="gtag('event', 'sort_changed', {value: this.value})">
+          <select name="sort_by" id="SortBy" onchange="gtag('event', 'sort_changed', {sort_name: this.value})">
             {%- for option in group.sort_options -%}
               {% unless option.name contains 'Date' %}
                 <option
