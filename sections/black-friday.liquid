@@ -20,9 +20,9 @@
   <countdown-timer data-countdown='{"end": {{ section.settings.countdown-date | json  }}, "copy": ""}'> </countdown-timer>
 </div>
 {% endif %}
-
+{% if section.settings.form_hidden %}
 <button class="button button-inverted button-full" id="open_form">Get Notified</button>
-
+{% endif %}
 {% render 'ometria-form', formId: section.settings.formId, signupSource: section.settings.signupSource %}
 
 <div class="Button-container">
