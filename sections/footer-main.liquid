@@ -1,5 +1,5 @@
 
-{% if section.settings.show_signup and template.name != 'collection' and template.directory!= 'customers' and customer.accepts_marketing == false%}
+{% if section.settings.show_signup and template.name != 'collection' and template.name != 'index' and template.directory!= 'customers' and customer.accepts_marketing == false%}
   <div class="max-width footer-signup">
     <div class="form-header">
       <h2 class="emphasis left" style="margin-top:0;">{{ section.settings.signup_title }}</h2>
