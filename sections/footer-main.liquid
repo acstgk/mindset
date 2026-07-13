@@ -1,5 +1,6 @@
 
-{% if section.settings.show_signup and template.name != 'collection' and template.name != 'index' and template.directory!= 'customers' and customer.accepts_marketing == false%}
+{% if section.settings.show_signup and template.name != 'collection' and template.name != 'index' and template.directory != 'customers' %}
+{% unless customer and customer.accepts_marketing == false %}
   <div class="max-width footer-signup">
     <div class="form-header">
       <h2 class="emphasis left" style="margin-top:0;">{{ section.settings.signup_title }}</h2>
@@ -44,6 +45,7 @@
     </ometria-form>
     <small>By submitting your email address, you agree to receive marketing emails from Gym King. We may use information collected about you on our site to suggest other products and offers based on your profile and in accordance with our <a href="/pages/privacy">Privacy Policy</a>. You can unsubscribe at any time. View our <a href="/pages/terms-and-conditions">Terms & Conditions</a> for more information on the processing of your data and your privacy rights.</small>
   </div>
+  {% endunless %}
 {% endif %}
 
 <div class="footer-container max-width">
