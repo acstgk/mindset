@@ -41,6 +41,33 @@
             "target_gender": ""
           }
         },
+        "image_zPxK87": {
+          "type": "image",
+          "settings": {
+            "mobile_poster": "shopify://shop_images/Men_s_New_Gymwear_Mobile_Banner.png",
+            "desktop_poster": "shopify://shop_images/Men_s_New_Gymwear_Desktop_Banner.png",
+            "media_brightness": 97.5,
+            "overlay_url": "shopify://collections/mens-gym-clothes",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "Gymwear",
+            "title_font": "",
+            "heading_size": 130,
+            "subtitle": "New In",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/mens-gym-clothes",
+            "cta2": "",
+            "url2": "",
+            "target_gender": "mens"
+          }
+        },
         "image_pi8iLM": {
           "type": "image",
           "disabled": true,
@@ -157,6 +184,7 @@
       },
       "block_order": [
         "image_KhLw9c",
+        "image_zPxK87",
         "image_pi8iLM",
         "image_Qxq3bj",
         "image_6BmG7G",
@@ -277,18 +305,18 @@
         "img4m": "shopify://shop_images/SHORTS_dae9e409-1702-440a-ab64-26553bebbc5e.jpg",
         "bold4m": "Shorts",
         "url4m": "shopify://collections/all-mens-shorts",
-        "img1w": "shopify://shop_images/COORDS.jpg",
+        "img1w": "shopify://shop_images/365_BOYFRIEND_TEE_365_5_INCH_SHORT_-_MUTED_MAUVE_WST-BOH6G_WSR-BOGY5_1.jpg",
         "bold1w": "Co-Ords",
         "url1w": "shopify://collections/co-ords-sets",
         "img2w": "shopify://shop_images/LEGGINGS_1af7cce2-0a92-45b5-a348-b8416fa43a74.jpg",
         "bold2w": "Leggings",
         "url2w": "shopify://collections/all-womens-leggings",
-        "img3w": "shopify://shop_images/HOODIES_537d9ffa-d6d7-4658-acdb-28babfef8b7f.jpg",
-        "bold3w": "Hoodies",
-        "url3w": "shopify://collections/womens-sweatshirts-hoodies",
-        "img4w": "shopify://shop_images/LEGGING_236733f3-c57b-4e3a-ad0e-8d7f57332b21.jpg",
-        "bold4w": "Gymwear",
-        "url4w": "shopify://collections/womens-gym-clothes"
+        "img3w": "shopify://shop_images/365_HALTER_NECK_365_STRAIGHT_LEG_YOGA_PANT_-_WHITE_MUTED_MAUVE_WVS-BOGY1_WLG-BOJBC_1.jpg",
+        "bold3w": "Gymwear",
+        "url3w": "https://thegymking.com/collections/womens-gym-clothes",
+        "img4w": "shopify://shop_images/SHORTS_460997fa-1adf-452e-8011-7c6a879a8b0b.jpg",
+        "bold4w": "Shorts",
+        "url4w": "https://thegymking.com/collections/all-womens-shorts"
       }
     },
     "gender_categories_BCJVMn": {
