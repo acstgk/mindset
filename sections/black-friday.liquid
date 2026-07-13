@@ -6,12 +6,15 @@
   <div class="box">
     <h1 class="glitch u-h1">Black Friday</h1>
   </div>
+<h2 class="u-h2">Coming Soon</h2>
 </div>
 
-<h2 class="u-h2">Coming Soon</h2>
+
+{%if section.settings.countdown-enabled %}
 <div class="countdown-container">
   <countdown-timer data-countdown='{"end": {{ section.settings.countdown-date | json  }}, "copy": ""}'> </countdown-timer>
 </div>
+{% endif %}
 
 <button class="button button-inverted button-full" id="open_form">Get Notified</button>
 
@@ -23,10 +26,12 @@
   <a href="{{ routes.root_url }}" class="secondary-link"> Back to thegymking.com </a>
 </div>
 
+{% if section.settings.form_hidden %}
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const openButton = document.getElementById('open_form');
     const form = document.querySelector('ometria-form');
+
     if (!openButton || !form) return;
 
     openButton.addEventListener('click', () => {
@@ -35,6 +40,19 @@
     });
   });
 </script>
+  {% else %}
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+   const form = document.querySelector('ometria-form');
+   form.classList.add('active');
+  }
+</script>
+
+<style>
+ometria-form {
+  height: auto !important;
+</style>
+  {% endif %}
 
 {% schema %}
 {
@@ -46,6 +64,12 @@
       "type": "header",
       "content": "Countdown Timer",
       "info": "Set the date and time for the countdown timer to end"
+    },
+    {
+      "type": "checkbox",
+      "id": "countdown-enabled",
+      "label": "Enable Countdown Timer",
+      "default": false
     },
     {
       "type": "text",
@@ -70,6 +94,12 @@
       "type": "header",
       "content": "Form Settings",
       "info": "These two settings must be completed as they will affect the data passed to ometria"
+    },
+    {
+      "type": "checkbox",
+      "id": "form_hidden",
+      "label": "Hide Form",
+      "default": false
     },
     {
       "type": "text",
