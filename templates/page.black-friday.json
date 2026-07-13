@@ -16,9 +16,12 @@
       ],
       "settings": {
         "logo": "shopify://shop_images/gymking-logo-white.png",
+        "copy": "<h5><strong>You're early, but don't fret there’s plenty more deals to find.</strong></h5><p>While you might have missed out on our last drop of Black Friday gym clothes, tracksuits, and leggings you’ve still landed in the right place to be notified <em>first  </em>for Black Friday 2026. </p><p>This is set to be out biggest Black Friday yet, with special Black Friday gym legging deals, exclusive Black Friday tracksuit set prices, and so much more.</p><p>In the meantime, check out latest <a href=\"/collections/womens-new\" title=\"Women's New\">womenswear</a> and <a href=\"/collections/mens-new\" title=\"Men's New\">menswear</a> drops, or find our best deals in our <a href=\"/collections/sale\" title=\"SALE\">current sales list</a>.</p>",
+        "countdown-enabled": false,
         "countdown-date": "11/01/26 00:01 AM",
         "collectionName": "Sale",
         "collectionURL": "",
+        "form_hidden": false,
         "formId": "ad1254b0165617d1cf8a0d4e4dcfc2e6",
         "signupSource": "Black Friday 2026"
       }
