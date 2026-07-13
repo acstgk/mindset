@@ -7,6 +7,11 @@
     <h1 class="glitch u-h1">Black Friday</h1>
   </div>
 <h2 class="u-h2">Coming Soon</h2>
+{% if section.settings.copy %}
+<div class="rtf" style="margin-top: 2rem;"
+{{ section.settings.copy }}
+</div>
+{% endif %}
 </div>
 
 
@@ -60,6 +65,11 @@ ometria-form {
   "class": "section--black-friday-splash",
   "settings": [
     { "type": "image_picker", "id": "logo", "label": "Logo Image" },
+    {
+      "type": "richtext",
+      "id": "copy",
+      "label": "Intro Paragraph"
+    },
     {
       "type": "header",
       "content": "Countdown Timer",
