@@ -18,7 +18,7 @@
 </script>
 
 {% if section.settings.showTitle %}
-  <h1>{{ page.title }}</h1>
+  <h1>{%if section.settings.title %}{{ section.settings.title }}{% else %}{{ page.title }}{% endif %}</h1>
 {% endif %}
 
 <content-accordian>
@@ -60,7 +60,13 @@
       "id": "showTitle",
       "label": "Show Title?",
       "default": true
-    }
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "visible_if": "{{ section.settings.showTitle }}"
+    },
   ],
   "max_blocks": 20,
   "blocks": [

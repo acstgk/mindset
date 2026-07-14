@@ -19,7 +19,7 @@
             "desktop_poster": "shopify://shop_images/Image_-_Our_Mindset_2_1db31100-4cd3-472b-8ba4-05e28b0cd03f.png",
             "media_brightness": 87.5,
             "overlay_url": "",
-            "lockup_img": "shopify://shop_images/Stoic_Games_UPDATE_STOIC_GAMES_GOLD_FULL.png",
+            "lockup_img": "shopify://shop_images/Stoic_Games_Logo_V2_1.png",
             "alt_text": "",
             "lockup_width": 150,
             "lockup_fit": "contain",
@@ -29,7 +29,7 @@
             "subtitle": "",
             "subtitle_font": "",
             "subtitle_first": false,
-            "customHTML": "<h3 style=\"color:white;text-align:left;\">One Challenge. A true test of grit and resilience</h3>\n<p style=\"margin:1rem 0 0 0;line-height:1.8 \">\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--calendar \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M16 2a1 1 0 0 1 .993 .883l.007 .117v1h1a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h1v-1a1 1 0 0 1 1.993 -.117l.007 .117v1h6v-1a1 1 0 0 1 1 -1m3 7h-14v9.625c0 .705 .386 1.286 .883 1.366l.117 .009h12c.513 0 .936 -.53 .993 -1.215l.007 -.16z\"></path><path d=\"M8 14h2v2h-2z\"></path>\n    </svg> Sunday 6th September 2026 <br>\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--map-pin \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z\"></path>\n    </svg>\n   <b>Farm Fitness</b>, High Cross Ln, Little Canfield, Dunmow, Essex  <a href=\"https://www.google.com/maps/dir/?api=1&amp;destination=Little+Canfield,+Dunmow+CM6+1TD\" target=\"_blank\">CM6 1TD</a>\n        </p>",
+            "customHTML": "<h3 style=\"color:white;text-align:left;font-family:' octin',var(--emphasis-heading-font-family);font-weight:400;letter-spacing:0.2ch;margin: 0;font-size:var(--txt-h2)\">One Challenge. A true test of grit and resilience</h3>\n<p style=\"margin:1rem 0 0 0;line-height:1.8 \">\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--calendar \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M16 2a1 1 0 0 1 .993 .883l.007 .117v1h1a3 3 0 0 1 2.995 2.824l.005 .176v12a3 3 0 0 1 -2.824 2.995l-.176 .005h-12a3 3 0 0 1 -2.995 -2.824l-.005 -.176v-12a3 3 0 0 1 2.824 -2.995l.176 -.005h1v-1a1 1 0 0 1 1.993 -.117l.007 .117v1h6v-1a1 1 0 0 1 1 -1m3 7h-14v9.625c0 .705 .386 1.286 .883 1.366l.117 .009h12c.513 0 .936 -.53 .993 -1.215l.007 -.16z\"></path><path d=\"M8 14h2v2h-2z\"></path>\n    </svg> Sunday 6th September 2026 <br>\n          \n    <svg xmlns=\"http://www.w3.org/2000/svg\" viewbox=\"0 0 24 24\" fill=\"currentColor\" class=\"Icon Icon--map-pin \">\n      <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"></path><path d=\"M18.364 4.636a9 9 0 0 1 .203 12.519l-.203 .21l-4.243 4.242a3 3 0 0 1 -4.097 .135l-.144 -.135l-4.244 -4.243a9 9 0 0 1 12.728 -12.728zm-6.364 3.364a3 3 0 1 0 0 6a3 3 0 0 0 0 -6z\"></path>\n    </svg>\n   <b>Farm Fitness</b>, High Cross Ln, Little Canfield, Dunmow, Essex  <a href=\"https://www.google.com/maps/dir/?api=1&amp;destination=Little+Canfield,+Dunmow+CM6+1TD\" target=\"_blank\">CM6 1TD</a>\n        </p>",
             "content_alignment": "left",
             "v_align_desk": "bottom-desk",
             "v_align_mob": "bottom-mob",
@@ -50,7 +50,7 @@
         ".hero_slide-image {grid-area: 1 / 1;}",
         "h1,.hero_slide-content p {text-align: left; letter-spacing: normal;}",
         "p a {color: white; text-decoration: underline;}",
-        "h1 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1);}",
+        "h1 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-xl); font-weight: 700;}",
         ".hero_slide-content {position: static; justify-content: center;}"
       ],
       "name": "Hero Slideshow",
@@ -150,7 +150,7 @@
         "html_NbjLTC": {
           "type": "html",
           "settings": {
-            "custom_html": "<div class=\"stations-list\">\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 01</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\">\n            <img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_DEADLIFT.svg?v=1766063285\" alt=\"Deadlift Icon\" loading=\"lazy\">\n          </div>\n          <div class=\"txt\">Deadlift</div>\n          <div class=\"metric\">Weight in kg</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 02</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_PUSH_UP.svg?v=1766063285\" alt=\"Push Ups Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Push Ups</div>\n          <div class=\"metric\">Total reps</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 03</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_SKI.svg?v=1766063285\" alt=\"Ski ERG Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Ski Erg</div>\n          <div class=\"metric\">Calories</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 04</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_BIKE.svg?v=1766063285\" alt=\"Bike Erg Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Bike Erg</div>\n          <div class=\"metric\">Calories</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 05</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_ROW.svg?v=1766063285\" alt=\"Rowing\" loading=\"lazy\"></div>\n          <div class=\"txt\">Rower Erg</div>\n          <div class=\"metric\">Calories</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 06</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_RUN.svg?v=1766063285\" alt=\"Run Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Curved Run</div>\n          <div class=\"metric\">Calories</div>\n        </div>\n      </div>\n      <div class=\"station-list--item\">\n        <div class=\"station-list--item-number\">step 07</div>\n        <div class=\"station-list--item-content\">\n          <div class=\"icon\"><img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/STOIC_ICONS_WALL_BALL.svg?v=1766063285\" alt=\"Wall Ball Icon\" loading=\"lazy\"></div>\n          <div class=\"txt\">Wall Balls</div>\n          <div class=\"metric\">Total reps</div>\n        </div>\n      </div>\n    </div>\n<style>\n\n.stations-list {\n  display: flex;\n  flex-flow: row wrap;\n  gap: 30px;\n  justify-content: space-around;\n  margin: 60px auto;\n}\n\n.station-list--item {\n  flex: 1 0 min(475px, 100%);\n  font-family: Octin, Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;\n  line-height: 1;\n}\n\n.station-list--item-number {\n    align-content: center;\n    background-color: #bab3ad;\n    border-radius: 20px;\n    color: #fff;\n    display: grid;\n    height: 20px;\n    justify-content: center;\n    margin: 0 auto;\n    padding: 1rem;\n    place-content: center;\n    position: relative;\n    text-align: center;\n    width: max-content;\n    z-index: 1;\n}\n.station-list--item-content {\n    align-items: center;\n    background-color: #414042;\n    border-radius: 80px;\n    color: #fff;\n    display: flex;\n    height: 80px;\n    justify-content: space-between;\n    margin: -10px auto 0;\n    padding: 10px 30px;\n    width: min(100%,600px);\n}\n.station-list--item-content img {\n    height: 40px;\n    -o-object-fit: contain;\n    object-fit: contain;\n    width: 40px;\n}\n.station-list--item-content .txt {\n    font-size: var(--txt-h3);\n}\n\n.station-list--item-content .metric {\n    font-size: var(--txt-sm);\n}\n</style>"
+            "custom_html": "<div class=\"stations-list\">\n\n  <div class=\"station-list--item\">\n        <div class=\"icon\">\n          <img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/stoic-deadlift.png?v=1783940459\" alt=\"Deadlift Icon\" loading=\"lazy\">\n        </div>\n        <div class=\"station-list--item-content\">\n          <div class=\"station\">station 01.</div>\n          <div class=\"txt\">Deadlift</div>\n          <div class=\"metric\">\n            <b>Format:</b> Every minute add 10kg<br><b>Result:</b> Your                                 max. deadlift in kg = points won\n          </div>\n        </div>\n      </div>\n  <div class=\"station-list--item\">\n        <div class=\"icon\">\n          <img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/stoic-press__up.png?v=1783940459\" alt=\"Press Up\" loading=\"lazy\">\n        </div>\n        <div class=\"station-list--item-content\">\n          <div class=\"station\">station 02.</div>\n          <div class=\"txt\">Press Up</div>\n          <div class=\"metric\">\n            <b>Format:</b> 1 repetition every 3 seconds<br><b>Result:</b> Your total reps (unbroken) = points won\n          </div>\n        </div>\n      </div>\n  <div class=\"station-list--item\">\n        <div class=\"icon\">\n          <img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/stoic-bleep_test.png?v=1783940459\" alt=\"Deadlift Icon\" loading=\"lazy\">\n        </div>\n        <div class=\"station-list--item-content\">\n          <div class=\"station\">station 3.</div>\n          <div class=\"txt\">Bleep Test</div>\n          <div class=\"metric\">\n            <b>Format:</b> 20 metre track | 21 levels | 247 shuttles<br><b>Result:</b> Your total number of shuttles = points won\n          </div>\n        </div>\n      </div>\n  <div class=\"station-list--item\">\n        <div class=\"icon\">\n          <img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/stoic-dead_hang.png?v=1783940459\" alt=\"Deadlift Icon\" loading=\"lazy\">\n        </div>\n        <div class=\"station-list--item-content\">\n          <div class=\"station\">station 04.</div>\n          <div class=\"txt\">Dead Hang</div>\n          <div class=\"metric\">\n            <b>Format:</b> Hang for as long as possible  <br><b>Result:</b> Your time in seconds = points won\n          </div>\n        </div>\n      </div>\n  <div class=\"station-list--item\">\n        <div class=\"icon\">\n          <img src=\"https://cdn.shopify.com/s/files/1/1659/8997/files/stoic-the_stoic_stone.png?v=1783940459\" alt=\"Deadlift Icon\" loading=\"lazy\">\n        </div>\n        <div class=\"station-list--item-content\">\n          <div class=\"station\">station 05.</div>\n          <div class=\"txt\">The Stoic Stone</div>\n          <div class=\"metric\">\n            <b>Format:</b> Carry the stoic stone as far possible  <br><b>Result:</b> Your distance in metres = points won\n          </div>\n        </div>\n      </div>\n    </div>\n<style>\n.stations-list {\n  display: flex;\n  flex-flow: row wrap;\ngap: 2rem 0;\n  justify-content: space-around;\n  margin: 60px auto;\n}\n\n.station-list--item {\nbackground: #0E0E0E;\n    color: #F4F4F4;\n    display: flex;\n    flex-direction: row;\n    padding: 1.5rem 1.75rem 1.5rem 0.5rem;\n    gap: 0.5rem;\n    width: min(624px, 90vw);\n    padding-right: 4rem;\n    justify-content: flex-start;\n}\n\n.station-list--item .icon {\n  width: 35%;\n  height: 100%;\n  flex: 30% 0 0;\n  display: grid;\n  place-items: center;\n}\n .station-list--item .icon img {\n    height: auto;\n    width: min(50%, 70px);\n    height: min(100%, 95px);\nobject-fit: contain;\n  }\n}\n\n.station-list--item-content {\n  flex: 75% 0 0;\n  margin-right: 4rem;\n  display: grid;\n  place-content: center;\n}\n\n.station-list--item-content .station {\n  letter-spacing: 0.5ch;\n  text-transform: uppercase;\n  font-size: var(--txt-p);\nfont-family: \"Octin\", var(--emphasis-heading-font-family);\n}\n.station-list--item-content .txt {\n  font-size: var(--txt-h2);\n  margin: 0.5rem 0;\n  text-transform: uppercase;\nfont-family: \"Octin\", var(--emphasis-heading-font-family) !important;\nfont-weight: 700;\n}\n\n.station-list--item-content .metric {\n  font-size: var(--txt-sm);\nfont-family: \"Octin\", var(--emphasis-heading-font-family);\n}\n</style>"
           }
         },
         "rtf_UaFdgD": {
@@ -168,7 +168,7 @@
       "custom_css": [
         "h2 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1);}"
       ],
-      "name": "What's On",
+      "name": "The Circuit",
       "settings": {
         "title": "",
         "heading_style": "",
@@ -286,6 +286,7 @@
         "html_HGCjih",
         "cta_ykbzDw"
       ],
+      "disabled": true,
       "custom_css": [
         ".two-col {column-gap: 2rem; column-width: 300px; margin: 0 auto; width: min(1200px, 85vw);}",
         ".two-col span {margin-bottom: 2rem; page-break-inside: avoid; break-inside: avoid; display: inline-block; padding-left: min(5rem, 7vw); width: 100%;}",
@@ -310,13 +311,14 @@
         "rtf_CVd8LC": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<h1></h1><h3>FAQ's</h3><p><strong>Q: Where is the event going to be held?</strong><br/>A: Farm Fitness, High Cross Lane,<br/>Little Canfield, Dunmow, CM6 1TD<br/><a href=\"https://www.google.com/maps/dir/?api=1&destination=Denton+Working+Men%27s+Club+%26+Institute%2C+3+Fredrick+St%2C+Denton%2C+Manchester%2C+M34+3JB\" target=\"_blank\" title=\"Directions to Farm Fitness\">Get Directions</a></p><p><strong>Q:</strong> <strong>Where can I park?<br/></strong>A: Free parking is available on site.</p><p><strong>Q: What score do I need to achieve Elite status?</strong><br/>A: To achieve Elite status at the Stoic Games, competitors must reach the following score thresholds:</p><ul><li>Men: 1,000 points</li><li>Women: 750 points</li></ul><p><strong>Q: How are the stations split throughout the day?</strong><br/>A: All participants will complete Stations 1–4 during the morning session, which runs from 8:00am to approximately 1:30pm.</p><p>Once everyone has finished, there will be a break while scores are calculated. This is a great opportunity to relax, refuel, and prepare for the final event.</p><p>Competitors will then be assigned a new afternoon wave for Station 5 – The Stoic Stone, which will take place between 2:30pm and 6:00pm.</p><p>Please be prepared to be on site for most of the day, as your afternoon start time will depend on your assigned wave.</p><p><strong>Q: Will there be a warm-up area?<br/></strong>A: Yes. There will be a dedicated warm-up area available for all participants before they compete. Please allow yourself enough time to warm up properly before your event.</p><p><strong>Q: What if I can't lift the minimum weight on the Stoic Stone?<br/></strong>A: If you're unable to lift the minimum required weight for the Stoic Stone, the station will be recorded as a failed lift, and no points will be awarded for that station.</p><p><strong>Q: When will I find out my first<br/>wave time?<br/></strong>A: Your first wave time will be emailed to you ahead of the event. Please make sure you arrive on site at least 1 hour before your allocated wave start time to allow enough time for registration, preparation, and warm-up.</p><p>All competitors must be fully registered 15 minutes before their wave start time. If you miss the start of your allocated wave, you will not be able to move into another wave or compete later in the day.</p><p>Please plan your journey accordingly and arrive with plenty of time to get ready for competition.</p><p><strong>Q: Will I receive a medal?<br/></strong>A: Yes. All participants will receive a medal irrespective of final points achieved in the competition.</p><p>Competitors who reach Elite status will be recognised with an additional trophy award.</p><p><strong>Q: Will there be food and drink<br/>available?<br/></strong>A: Yes. There will be a selection of food and drink vendors available on site for both participants and spectators to enjoy throughout the event.</p><p>Please note that most vendors will be card payment only, so we recommend bringing a suitable payment method with you.</p><p><strong>Q: What if I’m injured or can no<br/>longer attend?<br/></strong>A: Tickets are non-refundable and cannot be transferred to another person. We recommend considering your availability and ability to participate before purchasing, as tickets cannot be cancelled, exchanged, or reassigned.</p><p><strong>Q: How does the points system work?<br/></strong>A: Each discipline contributes points towards the 1,000-point or 750 point threshold.</p><ul><li>Deadlift: Your max, deadlift in KG - Points won</li><li>Press ups: Your total reps (unbroken) - Points won</li><li>Bleep test: Your total number of shuttles - Points won</li><li>Deadhang: Your time in seconds - Points won</li><li>Stoic Stone: Your distance in metres - Points won</li></ul><p><strong>Q: Do I need prior experience?</strong><br/>A: Having a good level of fitness is advised, however the Games are designed for athletes of all levels.</p><p><strong>Q: Can I attend just to watch?</strong><br/>A: Absolutely. Tickets are required for participation; spectators are welcome to attend.</p><p><strong>Q: How do I redeem my voucher code for Gym King?</strong><br/>A: Your unique code will be included with your ticket confirmation.</p><p><strong>Q: Can we use straps or belts for deadlifts?</strong><br/>A: Yes - both straps and belts are allowed for the deadlift.</p><p><strong>Q: How long is each station, and how much rest is there between stations?</strong><br/>A: With a 60 second transition time between each station.</p><ul><li>Deadlift: Until the last person in your wave finishes.</li><li>Press ups: Until the last person in your wave finishes.</li><li>Bleep test: Until the last person in your wave finishes or the bleep test finishes on maximum level at 22 minutes.</li><li>Dead hang: 5 minutes maximum. </li><li>Stoic stone: Until the last person in your wave finishes.</li></ul><p><strong>Q: Will Ross be there on the day?<br/></strong>A: Yes - Ross will be there to meet everyone.</p><h3>Safety</h3><p>All participants must complete a waiver prior to entry. Safety and wellbeing are our priorities, and signing the waiver is required for participation in any physical activities.</p>"
+            "richtext_content": "<h1></h1><h3>FAQ's</h3><p><strong>Q: Where is the event going to be held?</strong><br/>A: Farm Fitness, High Cross Lane,<br/>Little Canfield, Dunmow, CM6 1TD<br/><a href=\"https://www.google.com/maps/dir/?api=1&destination=Denton+Working+Men%27s+Club+%26+Institute%2C+3+Fredrick+St%2C+Denton%2C+Manchester%2C+M34+3JB\" target=\"_blank\" title=\"Directions to Farm Fitness\">Get Directions</a></p><p><strong>Q:</strong> <strong>Where can I park?<br/></strong>A: Free parking is available on site.</p><p><strong>Q: What score do I need to achieve Elite status?</strong><br/>A: To achieve Elite status at the Stoic Games, competitors must reach the following score thresholds:</p><ul><li>Men: 1,000 points</li><li>Women: 750 points</li></ul><p><strong>Q: How are the stations split throughout the day?</strong><br/>A: All participants will complete Stations 1–4 during the morning session, which runs from 8:00am to approximately 1:30pm.</p><p>Once everyone has finished, there will be a break while scores are calculated. This is a great opportunity to relax, refuel, and prepare for the final event.</p><p>Competitors will then be assigned a new afternoon wave for Station 5 – The Stoic Stone, which will take place between 2:30pm and 6:00pm.</p><p>Please be prepared to be on site for most of the day, as your afternoon start time will depend on your assigned wave.</p><p><strong>Q: Will there be a warm-up area?<br/></strong>A: Yes. There will be a dedicated warm-up area available for all participants before they compete. Please allow yourself enough time to warm up properly before your event.</p><p><strong>Q: What if I can't lift the minimum weight on the Stoic Stone?<br/></strong>A: If you're unable to lift the minimum required weight for the Stoic Stone, the station will be recorded as a failed lift, and no points will be awarded for that station.</p><p><strong>Q: When will I find out my first<br/>wave time?<br/></strong>A: Your first wave time will be emailed to you ahead of the event. Please make sure you arrive on site at least 1 hour before your allocated wave start time to allow enough time for registration, preparation, and warm-up.</p><p>All competitors must be fully registered 15 minutes before their wave start time. If you miss the start of your allocated wave, you will not be able to move into another wave or compete later in the day.</p><p>Please plan your journey accordingly and arrive with plenty of time to get ready for competition.</p><p><strong>Q: Will I receive a medal?<br/></strong>A: Yes. All participants will receive a medal irrespective of final points achieved in the competition. <br/>Competitors who reach Elite status will be recognised with an additional trophy award.</p><p><strong>Q: Will there be food and drink<br/>available?<br/></strong>A: Yes. There will be a selection of food and drink vendors available on site for both participants and spectators to enjoy throughout the event.<br/><br/><em>Please note that most vendors will be card payment only, so we recommend bringing a suitable payment method with you.</em></p><p><strong>Q: What if I’m injured or can no<br/>longer attend?<br/></strong>A: Tickets are non-refundable and cannot be transferred to another person. We recommend considering your availability and ability to participate before purchasing, as tickets cannot be cancelled, exchanged, or reassigned.</p><p><strong>Q: How does the points system work?<br/></strong>A: Each discipline contributes points towards the 1,000-point or 750 point threshold.</p><ul><li>Deadlift: Your max, deadlift in KG - Points won</li><li>Press ups: Your total reps (unbroken) - Points won</li><li>Bleep test: Your total number of shuttles - Points won</li><li>Deadhang: Your time in seconds - Points won</li><li>Stoic Stone: Your distance in metres - Points won</li></ul><p><strong>Q: Do I need prior experience?</strong><br/>A: Having a good level of fitness is advised, however the Games are designed for athletes of all levels.</p><p><strong>Q: Can I attend just to watch?</strong><br/>A: Absolutely. Tickets are required for participation; spectators are welcome to attend.</p><p><strong>Q: How do I redeem my voucher code for Gym King?</strong><br/>A: Your unique code will be included with your ticket confirmation.</p><p><strong>Q: Can we use straps or belts for deadlifts?</strong><br/>A: Yes - both straps and belts are allowed for the deadlift.</p><p><strong>Q: How long is each station, and how much rest is there between stations?</strong><br/>A: With a 60 second transition time between each station.</p><ul><li>Deadlift: Until the last person in your wave finishes.</li><li>Press ups: Until the last person in your wave finishes.</li><li>Bleep test: Until the last person in your wave finishes or the bleep test finishes on maximum level at 22 minutes.</li><li>Dead hang: 5 minutes maximum. </li><li>Stoic stone: Until the last person in your wave finishes.</li></ul><p><strong>Q: Will Ross be there on the day?<br/></strong>A: Yes - Ross will be there to meet everyone.</p><h3>Safety</h3><p>All participants must complete a waiver prior to entry. Safety and wellbeing are our priorities, and signing the waiver is required for participation in any physical activities.</p>"
           }
         }
       },
       "block_order": [
         "rtf_CVd8LC"
       ],
+      "disabled": true,
       "custom_css": [
         "h3 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1);}",
         "h3 {font-size: var(--txt-h2); letter-spacing: 2px;}"
@@ -327,10 +329,180 @@
         "heading_style": "emphasis",
         "v_padding": 50,
         "is_accent": true,
-        "bg_color": "#e7e7e7",
+        "bg_color": "",
         "full_width": false,
         "alignment": "right",
         "grid_style": "standard"
+      }
+    },
+    "content_accordian_f9BF7G": {
+      "type": "content-accordian",
+      "blocks": {
+        "card_EXP8G6": {
+          "type": "card",
+          "settings": {
+            "title": "Where is the event held?",
+            "htmlContent": "",
+            "content": "<p><strong>Farm Fitness, </strong><br/>High Cross Lane, <br/>Little Canfield, Dunmow, <br/><strong>CM6 1TD</strong></p>"
+          }
+        },
+        "card_wEpATr": {
+          "type": "card",
+          "settings": {
+            "title": "What score do I need to achieve Elite status?",
+            "htmlContent": "",
+            "content": "<p>To achieve Elite status at the Stoic Games, competitors must reach the following score thresholds:</p><ul><li>Men: 1,000 points</li><li>Women: 750 points</li></ul>"
+          }
+        },
+        "card_fPDd3x": {
+          "type": "card",
+          "settings": {
+            "title": "How are the stations split throughout the day?",
+            "htmlContent": "",
+            "content": "<p>All participants will complete Stations 1–4 during the morning session, which runs from 8:00am to approximately 1:30pm.</p><p>Once everyone has finished, there will be a break while scores are calculated. This is a great opportunity to relax, refuel, and prepare for the final event.</p><p>Competitors will then be assigned a new afternoon wave for Station 5 – The Stoic Stone, which will take place between 2:30pm and 6:00pm.</p><p>Please be prepared to be on site for most of the day, as your afternoon start time will depend on your assigned wave.</p>"
+          }
+        },
+        "card_CKyKNB": {
+          "type": "card",
+          "settings": {
+            "title": "Will there be a warm-up area?",
+            "htmlContent": "",
+            "content": "<p>Yes. There will be a dedicated warm-up area available for all participants before they compete. Please allow yourself enough time to warm up properly before your event.</p>"
+          }
+        },
+        "card_QrL9az": {
+          "type": "card",
+          "settings": {
+            "title": "What if I can't lift the minimum weight on the Stoic Stone?",
+            "htmlContent": "",
+            "content": "<p>If you're unable to lift the minimum required weight for the Stoic Stone, the station will be recorded as a failed lift, and no points will be awarded for that station.</p>"
+          }
+        },
+        "card_dHCfDQ": {
+          "type": "card",
+          "settings": {
+            "title": "When will I find out my first wave time?",
+            "htmlContent": "",
+            "content": "<p>Your first wave time will be emailed to you ahead of the event. Please make sure you arrive on site at least 1 hour before your allocated wave start time to allow enough time for registration, preparation, and warm-up.</p><p>All competitors must be fully registered 15 minutes before their wave start time. If you miss the start of your allocated wave, you will not be able to move into another wave or compete later in the day.</p><p>Please plan your journey accordingly and arrive with plenty of time to get ready for competition.</p>"
+          }
+        },
+        "card_fgrDKg": {
+          "type": "card",
+          "settings": {
+            "title": "Will I receive a medal?",
+            "htmlContent": "",
+            "content": "<p>Yes. All participants will receive a medal irrespective of final points achieved in the competition.</p><p>Competitors who reach Elite status will be recognised with an additional trophy award.</p>"
+          }
+        },
+        "card_HFgzep": {
+          "type": "card",
+          "settings": {
+            "title": "Will there be food and drink available?",
+            "htmlContent": "",
+            "content": "<p>Yes. There will be a selection of food and drink vendors available on site for both participants and spectators to enjoy throughout the event.</p><p><em>Please note: most vendors will be card payment only, so we recommend bringing a suitable payment method with you.</em></p>"
+          }
+        },
+        "card_pDRi4q": {
+          "type": "card",
+          "settings": {
+            "title": "What if I’m injured or can nolonger attend?",
+            "htmlContent": "",
+            "content": "<p>Tickets are non-refundable and cannot be transferred to another person. We recommend considering your availability and ability to participate before purchasing, as tickets cannot be cancelled, exchanged, or reassigned.</p>"
+          }
+        },
+        "card_t3YQcc": {
+          "type": "card",
+          "settings": {
+            "title": "Where can I park?",
+            "htmlContent": "",
+            "content": "<p>Free parking is available on site at Farm Fitness,High Cross Lane, Little Canfield, Dunmow, CM6 1TD.</p>"
+          }
+        },
+        "card_pbX39k": {
+          "type": "card",
+          "settings": {
+            "title": "How does the points system work?",
+            "htmlContent": "",
+            "content": "<p>Each discipline contributes points towards the 1,000-point or 750 point threshold.</p><ul><li>Deadlift: Your max, deadlift in KG - Points won</li><li>Press ups: Your total reps (unbroken) - Points won</li><li>Bleep test: Your total number of shuttles - Points won</li><li>Deadhang: Your time in seconds - Points won</li><li>Stoic Stone: Your distance in metres - Points won</li></ul>"
+          }
+        },
+        "card_zVEQyj": {
+          "type": "card",
+          "settings": {
+            "title": "Do I need prior experience?",
+            "htmlContent": "",
+            "content": "<p>Having a good level of fitness is advised, however the Games are designed for athletes of all levels.</p>"
+          }
+        },
+        "card_Q7paU3": {
+          "type": "card",
+          "settings": {
+            "title": "Can I attend just to watch?",
+            "htmlContent": "",
+            "content": "<p>Absolutely. Tickets are required for participation; spectators are welcome to attend.</p>"
+          }
+        },
+        "card_bxtwPn": {
+          "type": "card",
+          "settings": {
+            "title": "How do I redeem my voucher code for Gym King?",
+            "htmlContent": "",
+            "content": "<p>Your unique code will be included with your ticket confirmation.</p>"
+          }
+        },
+        "card_ap6BEP": {
+          "type": "card",
+          "settings": {
+            "title": "Can we use straps or belts for deadlifts?",
+            "htmlContent": "",
+            "content": "<p>Yes - both straps and belts are allowed for the deadlift.</p>"
+          }
+        },
+        "card_WeApQ9": {
+          "type": "card",
+          "settings": {
+            "title": "How long is each station, and how much rest is there between stations?",
+            "htmlContent": "",
+            "content": "<p>With a 60 second transition time between each station.</p><ul><li>Deadlift: Until the last person in your wave finishes.</li><li>Press ups: Until the last person in your wave finishes.</li><li>Bleep test: Until the last person in your wave finishes or the bleep test finishes on maximum level at 22 minutes.</li><li>Dead hang: 5 minutes maximum. </li><li>Stoic stone: Until the last person in your wave finishes.</li></ul>"
+          }
+        },
+        "card_PYm8iH": {
+          "type": "card",
+          "settings": {
+            "title": "Will Ross be there on the day?",
+            "htmlContent": "",
+            "content": "<p>Yes - Ross will be there to meet everyone.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "card_EXP8G6",
+        "card_wEpATr",
+        "card_fPDd3x",
+        "card_CKyKNB",
+        "card_QrL9az",
+        "card_dHCfDQ",
+        "card_fgrDKg",
+        "card_HFgzep",
+        "card_pDRi4q",
+        "card_t3YQcc",
+        "card_pbX39k",
+        "card_zVEQyj",
+        "card_Q7paU3",
+        "card_bxtwPn",
+        "card_ap6BEP",
+        "card_WeApQ9",
+        "card_PYm8iH"
+      ],
+      "custom_css": [
+        "h1 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-weight: 700;}",
+        " {width: min(80ch, 90vw) !important;}"
+      ],
+      "name": "Accordian",
+      "settings": {
+        "openFirst": true,
+        "showTitle": true,
+        "title": "FAQ's"
       }
     },
     "product_collection_carousel_G7wFRt": {
@@ -362,6 +534,7 @@
     "content_rich_text_YKF3LG",
     "content_rich_text_6eBLMj",
     "content_rich_text_aDF4Ai",
+    "content_accordian_f9BF7G",
     "product_collection_carousel_G7wFRt"
   ]
 }
