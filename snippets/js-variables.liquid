@@ -19,6 +19,7 @@
         starRating: {{ settings.star_rating | json }},
         productImageSize: {{ settings.product_image_size | json }},
         country: {{ localization.country.iso_code | json }},
+        moneyISO: {{ localization.country.currency.iso_code | json }},
         moneyFormat: {{ shop.money_format | json }},
       };
 

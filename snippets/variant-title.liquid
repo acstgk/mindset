@@ -1,6 +1,6 @@
 {% assign mapped_title = title | replace: 'One Size', 'Add to Bag' | replace: ".00", "" %}
 
-{% if localization.market.handle != 'gb' and localization.market.handle != 'ie' %}
+{% if localization.country.currency.iso_code  != 'GBP' or localization.market.handle != 'ie' %}
   {% assign mapping = "" %}
 
   {% comment %} {% if product.tags contains 'Women' or product.tags contains 'Womens' or product.tags contains 'women' or product.tags contains 'womens' %}
@@ -17,7 +17,7 @@
   {% for item in mapping_items %}
     {% assign parts = item | split: ":" %}
     {% if parts[0] == title %}
-      {% if localization.country.continent == 'Europe' %}
+      {% if localization.country.continent == 'Europe' and  localization.country.currency.iso_code == "EUR" %}
         {% assign mapped_title = parts[1] %}
         {% assign region = "EU" %}
     {% elsif localization.country.continent == 'North America' %}
@@ -30,4 +30,3 @@
 {% endif %}
 
 {{-region-}}{{- mapped_title -}}
-
