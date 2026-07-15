@@ -1906,3 +1906,71 @@ if (window.theme?.starRating) {
     new YotpoWidgetObserver();
   }
 }
+
+// ===================
+// NAV CLICK TRACKING
+// ===================
+/**
+ * Event delegation for GA4 navigation click tracking.
+ * Captures clicks on desktop header nav and mobile drawer nav,
+ * pushes a nav_click event to gtag() with custom dimensions.
+ */
+(function initNavTracking() {
+  var HEADER = ".header_desktop-menu";
+  var DRAWER = ".side_menu-menu";
+  var QUICK_LINKS = ".quick_links";
+  var VISUAL_LINKS = ".menu_visual-links, .side_menu-visual-links";
+  var SUB_ITEMS = ".dropdown_col-links, .sub_menu-items, .gender-btn > li > a";
+  var ACCORDION = ".accordian-header";
+
+  function getGender(drawerMenu) {
+    return (drawerMenu.id || "").replace("_gender-menu", "");
+  }
+
+  function getDropdownParent(link) {
+    var dropdown = link.closest(".header_menu-dropdown, .side_menu-sub-menu");
+    if (!dropdown) return "";
+    var trigger = dropdown.previousElementSibling || dropdown.closest("li")?.querySelector("a");
+    return trigger ? trigger.textContent.trim() : "";
+  }
+
+  function getType(link) {
+    if (link.closest(ACCORDION)) return "accordion";
+    if (link.closest(QUICK_LINKS)) return "quick_link";
+    if (link.closest(VISUAL_LINKS)) return "visual_link";
+    if (link.closest(SUB_ITEMS)) return "sub_link";
+    return "top_level";
+  }
+
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest("a[href]");
+    if (!link) return;
+
+    var inDesktop = link.closest(HEADER);
+    var inDrawer = link.closest(DRAWER);
+    if (!inDesktop && !inDrawer) return;
+
+    var device = inDesktop ? "desktop" : "mobile";
+    var type = getType(link);
+    var gender = inDrawer ? getGender(inDrawer) : "";
+    var position = inDesktop ? "header" : "drawer";
+    var parent = inDesktop ? getDropdownParent(link) : "";
+
+    if (!parent && inDrawer) {
+      var subBtn = link.closest(".side_menu-sub-menu")?.previousElementSibling;
+      if (subBtn) parent = subBtn.textContent.trim();
+    }
+
+    var params = {
+      nav_item: link.textContent.trim(),
+      nav_type: type,
+      nav_device: device,
+      nav_gender: gender,
+      nav_destination: link.href,
+      nav_position: position,
+    };
+    if (parent) params.nav_parent = parent;
+
+    window.gtag("event", "nav_click", params);
+  });
+})();
