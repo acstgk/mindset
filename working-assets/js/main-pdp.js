@@ -467,7 +467,7 @@ if (!customElements.get("enhanced-atc")) {
           let type = window.myCurrentProduct.type.replace(/\s+/g, "-").toLowerCase();
 
           const storedSizes = JSON.parse(localStorage.getItem(this.storedSizesItem));
-          const size = storedSizes[gender][type];
+          const size = storedSizes?.[gender]?.[type];
 
           if (size) {
             const target = document.querySelector(`[data-id="${type}-${size}"]`);
