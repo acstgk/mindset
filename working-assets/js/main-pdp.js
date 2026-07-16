@@ -456,6 +456,7 @@ if (!customElements.get("enhanced-atc")) {
           Girls: {},
         };
         key = key.replace(/\s+/g, "-").toLowerCase();
+        if (!storedSizes[gender]) storedSizes[gender] = {};
         storedSizes[gender][key] = value;
         localStorage.setItem(this.storedSizesItem, JSON.stringify(storedSizes));
       };
