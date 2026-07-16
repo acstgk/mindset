@@ -240,7 +240,7 @@
         {% endfor %}
 
       {% else %}
-        <ul class="atc_form-sizes {% if product.variants_count == 1 %}visually-hidden{% endif %}">
+        <ul class="atc_form-sizes {% if product.variants_count == 1 %}visually-hidden{% endif %}" {% if product.type == "Ticket"%}style="grid-template-columns: 1fr"{%endif%}>
           {% for variant in product.variants %}
             {% if variant.price > 0 %}
               {% assign oos = false %}
