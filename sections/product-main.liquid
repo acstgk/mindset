@@ -335,18 +335,21 @@
       {% render 'model-sizing' %}
     {% endif %}
   </form>
-
   <div class="product_details-confidence-blocks">
+    {% assign requires_shipping = product.selected_or_first_available_variant.requires_shipping %}
+  {% if requires_shipping %}
     <div class="confidence_blocks-block accent-bg">
       <div class="window">{% render 'icon', icon: 'truck', class: 'ani-drive' %}</div>
       {% render 'dispatch-timer' %}
     </div>
+    {% endif %}
 
     <div class="confidence_blocks-block accent-bg">
       {% render 'icon', icon: 'star', class: 'ani-spin' %}
       <a href="https://uk.trustpilot.com/review/thegymking.com?stars=5" target="_blank">36,000+ 5 star reviews.</a>
     </div>
-    {% if localization.country.iso_code == 'GB' %}
+
+    {% if localization.country.iso_code == 'GB' and requires_shipping %}
       <div class="confidence_blocks-block accent-bg">
         {% render 'icon', icon: 'parcel', class: 'ani-bounce' %}
         <freedelivery-info>

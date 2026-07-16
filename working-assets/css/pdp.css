@@ -399,7 +399,7 @@ pdp-carousel {
 
 #product-details {
   scroll-margin-top: 50px;
-  max-width: 90vw;
+  width: min(90vw, 100%);
   margin: 1rem auto;
 
   & #product-summary {
