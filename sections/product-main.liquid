@@ -271,9 +271,9 @@
               >
               <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
                 {% render 'variant-title', title: variant.title %}
-                {% unless variant.available %}
+                {% if variant.available == false and product.type != "Ticket" %}
                   <button href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  product | json | escape }}">{% render 'icon', icon: 'mail' %}</button>
-                {% endunless %}
+                {% endif %}
               </label>
             </li>
           {% endfor %}
