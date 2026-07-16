@@ -286,7 +286,7 @@
         {% endif %}
 
         <div class="atc_form-header" style="border-top: none;">Lengths:</div>
-        <ul class="alternative-sizing-options " style="display: flex;">
+        <ul class="alternative-sizing-options " style="display: flex;margin-bottom: 0.5rem">
           <li>
             <a
               href="{%- if is_petite -%}{{ product.metafields.custom.alt_sizing.value.url }}{% else %}#{%- endif -%}"
@@ -306,6 +306,7 @@
             </a>
           </li>
         </ul>
+        <small><i>Petite length is designed for those 5'3" and under.</i></small>
       {% endif %}
 
       {% comment %}  Quantity Selector  {% endcomment %}
