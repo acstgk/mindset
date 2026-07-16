@@ -279,7 +279,7 @@
           {% endfor %}
         </ul>
         {% if product.metafields.product.features.value contains 'Muscle Fit' %}
-          <small class="flag info">{% render 'icon', icon: 'info' %} This product is muscle fit, size up for a relaxed fit.</small>
+          <small class="flag info full-width" style="margin-bottom: 0">{% render 'icon', icon: 'info' %} This product is muscle fit, size up for a relaxed fit.</small>
         {% endif %}
       {% endif %}
 
@@ -309,7 +309,7 @@
             </a>
           </li>
         </ul>
-        <small><i>Petite length is designed for those 5'3" and under.</i></small>
+        <small class="flag info" style="margin-top: 0">{% render 'icon', icon: 'info' %} Petite length is designed for those 5'3" and under.</small>
       {% endif %}
 
       {% comment %}  Quantity Selector  {% endcomment %}
