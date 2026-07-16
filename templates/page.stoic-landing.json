@@ -59,8 +59,15 @@
     "content_rich_text_CH3TDW": {
       "type": "content-rich-text",
       "blocks": {
+        "rtf_M6waCC": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p><strong>Forget racing the clock.</strong> The Last Stoic Standing is about pushing beyond your physical and mental limits. It's a test of resilience, determination and grit—to discover who keeps going when everyone else has stopped. Created by  <strong>Gym King</strong> and <strong>Ross Edgley</strong>, The Last Stoic Standing is the ultimate test of physical resilience, mental composure and relentless determination.</p><p>Inspired by the principles of Stoicism, this isn't simply a fitness event—it's a battle against fatigue, discomfort and the voice telling you to quit.</p><p>“The concept is simple: 5 stations. The contestant with the most points, wins. this is a one of a kind strength and resilience event. each station will continue until the last stoic is standing. Have you got what it takes to be crowned the last the stoic standing? click on the link for more details and get your ticket lets go!”</p>"
+          }
+        },
         "quote_mCzfgD": {
           "type": "quote",
+          "disabled": true,
           "settings": {
             "quote_text": "Train only the body and you risk strength without mindset. Train only the mind and you risk wisdom without strength.",
             "quote_author": "Ross Edgley"
@@ -68,9 +75,9 @@
         }
       },
       "block_order": [
+        "rtf_M6waCC",
         "quote_mCzfgD"
       ],
-      "disabled": true,
       "custom_css": [
         "blockquote {max-width: 45rem; margin: 0 auto;}"
       ],
@@ -78,9 +85,9 @@
       "settings": {
         "title": "",
         "heading_style": "",
-        "v_padding": 25,
-        "is_accent": false,
-        "bg_color": "",
+        "v_padding": 0,
+        "is_accent": true,
+        "bg_color": "#F4F4F4",
         "full_width": false,
         "alignment": "right",
         "grid_style": "standard"
@@ -113,6 +120,7 @@
       "block_order": [
         "grid_item_bY6xkG"
       ],
+      "disabled": true,
       "custom_css": [
         ".content-grid--media-cell {width: 100%;}",
         ".content-grid--media-cell img {max-height: 30rem;}"
