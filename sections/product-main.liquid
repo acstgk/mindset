@@ -278,6 +278,9 @@
             </li>
           {% endfor %}
         </ul>
+        {% if product.metafields.product.features.value contains 'Muscle Fit' %}
+          <small class="flag info">{% render 'icon', icon: 'info' %} This product is muscle fit, size up for a relaxed fit.</small>
+        {% endif %}
       {% endif %}
 
       {% if product.metafields.custom.alt_sizing and product.metafields.custom.alt_sizing.value.available %}

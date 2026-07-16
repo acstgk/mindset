@@ -2,6 +2,16 @@ form#atc_form {
   margin-bottom: 0.75rem;
   width: 100%;
 
+   & .flag {
+     margin: 0.5rem 0 -0.5rem;
+
+   & .Icon {
+    position: relative;
+        top: .25rem;
+        height: 1.1rem;
+   }
+  }
+
   & hr {
     margin: 0.75rem 0;
   }
@@ -20,6 +30,8 @@ form#atc_form {
     gap: 0.5em;
     justify-content: start;
     margin-top: 1rem;
+
+
 
     &:last-of-type {
       margin-bottom: 0;
