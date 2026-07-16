@@ -215,6 +215,7 @@
                   data-available-qty="{{ variant.inventory_quantity | minus: settings.product_buffer }}"
                   data-size="{{ variant.title }}"
                   data-id="{{- part.type | handle -}}{{- variant.title -}}"
+                  data-price-varies="{{ part.price_varies }}"
                   {% if variant.selling_plan_allocations.size > 0 %}
                     data-subscription-id="{{ variant.selling_plan_allocations.first.selling_plan.id }}"
                   {% endif %}
@@ -248,14 +249,15 @@
               {% assign oos = true %}
             {% endif %}
             <li>
-              <input
-                type="radio"
-                name="id"
-                value="{{ variant.id }}"
-                id="variant-{{ variant.id }}"
-                data-available-qty="{{ variant.inventory_quantity | minus: settings.product_buffer }}"
-                data-size="{{ variant.title }}"
-                data-id="{{- product.type | handle -}}-{{- variant.title -}}"
+                <input
+                  type="radio"
+                  name="id"
+                  value="{{ variant.id }}"
+                  id="variant-{{ variant.id }}"
+                  data-available-qty="{{ variant.inventory_quantity | minus: settings.product_buffer }}"
+                  data-size="{{ variant.title }}"
+                  data-id="{{- product.type | handle -}}-{{- variant.title -}}"
+                  data-price-varies="{{ product.price_varies }}"
                 {% if variant.selling_plan_allocations.size > 0 %}
                   data-subscription-id="{{ variant.selling_plan_allocations.first.selling_plan.id }}"
                 {% endif %}

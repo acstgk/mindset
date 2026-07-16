@@ -555,17 +555,18 @@ if (!customElements.get("enhanced-atc")) {
           warnEl.classList.remove("warning-active", "warning", "error");
         }
 
-        // URL + price
         const variantId = checkedInput.value;
         const url = new URL(window.location.href);
         url.searchParams.set("variant", variantId);
         history.replaceState({}, "", url);
 
-        const livePrice = document.querySelector("#product-summary .Price--wrapper");
-        if (this._priceCache.has(variantId)) {
-          if (livePrice) livePrice.innerHTML = this._priceCache.get(variantId);
-        } else {
-          this._debouncedFetchPrice(variantId, url.toString() + "&section_id=product-price");
+        if (checkedInput.dataset.priceVaries === "true") {
+          const livePrice = document.querySelector("#product-summary .Price--wrapper");
+          if (this._priceCache.has(variantId)) {
+            if (livePrice) livePrice.innerHTML = this._priceCache.get(variantId);
+          } else {
+            this._debouncedFetchPrice(variantId, url.toString() + "&section_id=product-price");
+          }
         }
       };
 
