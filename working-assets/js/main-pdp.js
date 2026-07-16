@@ -565,6 +565,7 @@ if (!customElements.get("enhanced-atc")) {
           if (this._priceCache.has(variantId)) {
             if (livePrice) livePrice.innerHTML = this._priceCache.get(variantId);
           } else {
+            if (livePrice) livePrice.innerHTML = '<div class="loader" style="--height:0.65em;margin-left:1rem;"></div>';
             this._debouncedFetchPrice(variantId, url.toString() + "&section_id=product-price");
           }
         }
