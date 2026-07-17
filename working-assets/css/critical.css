@@ -241,6 +241,10 @@ a,
   margin-block: 0;
 }
 
+.no-margin {
+  margin: 0 !important;
+}
+
 .emphasis {
   font-family: var(--emphasis-heading-font-family) !important;
   text-transform: uppercase;
@@ -798,5 +802,3 @@ predictive-search {
   text-transform: uppercase;
   font-size: 10px;
 }
-
-

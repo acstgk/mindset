@@ -3,18 +3,45 @@
   <div class="tech-specs--list">
     {% for feature in product.metafields.product.features.value %}
       {% assign image_name = feature | handle | append: '.svg' | prepend: 'feature-' %}
-      {% assign image_tag =  images[image_name] | image_url: width: 24 | image_tag  %}
+      {% assign image_tag = images[image_name] | image_url: width: 24 | image_tag %}
 
       {% if image_tag != blank %}
         <div class="tech-specs--item {{feature | handle }}">
           {{ image_tag -}}
           <small>{{ feature }}</small>
         </div>
-      {% comment %} {% else %}
-        <div class="tech-specs--item {{feature | handle }}">
-          <img src="https://placehold.co/62?text=IMAGE&font=oswald" alt="" height="62" width="62"><small>{{ feature }}</small>
-        </div> {% endcomment %}
+        {% comment %}
+          {% else %}
+          <div class="tech-specs--item {{feature | handle }}">
+            <img src="https://placehold.co/62?text=IMAGE&font=oswald" alt="" height="62" width="62"><small>{{ feature }}</small>
+          </div>
+        {% endcomment %}
       {% endif %}
+    {% endfor %}
+
+    <!-- fabric composition -->
+    {% if product.metafields.custom.fabric_comp.value != blank %}
+      <div class="tech-specs--item fabric-composition accent-bg no-margin">
+        <img src="{{ 'feature-Fabric-Comp.svg' | file_url }}" alt="fabric composition icon" height="24" width="24">
+        {% assign comp_components = product.metafields.custom.fabric_comp.value | split: '/' %}
+        <small style="text-align:left;">
+
+          {{ comp_components | join: '<hr style="margin: 0.25em 0" />' }}
+
+        </small>
+      </div>
+    {% endif %}
+
+    <!-- washing care instructions -->
+    {% for instruction in product.metafields.custom.care_instuctions.value %}
+      <div class="tech-specs--item care-instructions accent-bg no-margin">
+        {% if instruction.icon != blank %}
+        <img src="{{ instruction.icon | file_url }}" alt="{{ instruction.instruction }} Icon" height="24" width="24">
+        {% else %}
+        <img src="{{ 'feature-Machine-Washable.svg' | file_url }}" alt="Washing Care Instructions Icon" height="24" width="24">
+        {% endif %}
+        <small>{{ instruction.instruction }}</small>
+      </div>
     {% endfor %}
   </div>
 </div>
