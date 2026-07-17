@@ -34,7 +34,7 @@
             "v_align_desk": "bottom-desk",
             "v_align_mob": "bottom-mob",
             "cta1": "Buy your Ticket",
-            "url1": "shopify://collections/stoic",
+            "url1": "shopify://products/the-stoic-games-2026",
             "cta2": "",
             "url2": "",
             "target_gender": ""
@@ -62,7 +62,7 @@
         "rtf_M6waCC": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<p><strong>Forget racing the clock.</strong> The Last Stoic Standing is about pushing beyond your physical and mental limits. It's a test of resilience, determination and grit—to discover who keeps going when everyone else has stopped. Created by  <strong>Gym King</strong> and <strong>Ross Edgley</strong>, The Last Stoic Standing is the ultimate test of physical resilience, mental composure and relentless determination.</p><p>Inspired by the principles of Stoicism, this isn't simply a fitness event—it's a battle against fatigue, discomfort and the voice telling you to quit.</p><p>“The concept is simple: 5 stations. The contestant with the most points, wins. this is a one of a kind strength and resilience event. each station will continue until the last stoic is standing. Have you got what it takes to be crowned the last the stoic standing? click on the link for more details and get your ticket lets go!”</p>"
+            "richtext_content": "<p><strong>Forget racing the clock.</strong> The Last Stoic Standing is about pushing beyond your physical and mental limits. It's a test of resilience, determination and grit—to discover who keeps going when everyone else has stopped. Created by  <strong>Gym King</strong> and <strong>Ross Edgley</strong>, The Last Stoic Standing is the ultimate test of physical resilience, mental composure and relentless determination.</p><p>Inspired by the principles of Stoicism, this isn't simply a fitness event—it's a battle against fatigue, discomfort and the voice telling you to quit.</p>"
           }
         },
         "quote_mCzfgD": {
@@ -87,7 +87,7 @@
         "heading_style": "",
         "v_padding": 0,
         "is_accent": true,
-        "bg_color": "#F4F4F4",
+        "bg_color": "#f4f4f4",
         "full_width": false,
         "alignment": "right",
         "grid_style": "standard"
@@ -139,7 +139,7 @@
         "rtf_c9TyYA": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<h2>The Circuit</h2><p>Participants give maximum effort to accumulate points across seven disciplines, with five minutes allocated to each.</p>"
+            "richtext_content": "<h2>The Circuit</h2><p>The concept is simple: 5 stations. The contestant with the most points, wins. this is a one of a kind strength and resilience event. each station will continue until the last stoic is standing. Have you got what it takes to take the ultimate fitness test?</p>"
           }
         },
         "html_NbjLTC": {
@@ -151,7 +151,7 @@
         "rtf_UaFdgD": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<p>Score as many points as possible within each discipline e.g. <br/>120KG deadlift = 120 points. <br/>50 press ups = 50 points. <br/>100 calories burnt = 100 points.</p><p><strong>Note:</strong> Reaching the 1,000 Club is a sign of elite all-round capacity, only 1 in 200 people have achieved elite status in trials.</p>"
+            "richtext_content": "<p><strong>Note:</strong> Reaching the 1,000 and 750 Club is a sign of elite all-round capacity, only 1 in 200 people have achieved elite status in trials.</p>"
           }
         }
       },
@@ -218,14 +218,14 @@
         "rtf_YpDPHe": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<h1></h1><h2>Pricing</h2><h3>What's included with your ticket</h3><p>Your ticket grants:</p><ul><li><strong>Entry to </strong><em><strong>The Stoic Games</strong></em></li><li><strong>Access to the Recovery Zone</strong> with physios, compression boots, muscle guns, and vibrating foam rollers</li><li><strong>30% OFF discount code</strong> for use on Gym King clothing, including the upcoming Stoic 2.0 Collection</li><li><strong>Custom trophy</strong> for participants who achieve 1000 points</li><li><strong>Goody bag</strong> including limited edition Stoic Games finisher medal, finisher tote bag, neutonic, and other goodies.</li></ul>"
+            "richtext_content": "<h1></h1><h2>Pricing</h2><h3>What's included with your ticket</h3><p><a href=\"/products/the-stoic-games-2026\" title=\"The Stoic Games 2026 Ticket\"><strong>Standard Entry:</strong></a> £70 </p><p>Your ticket grants:</p><ul><li><strong>Entry to </strong><em><strong>The Stoic Games</strong></em></li><li><strong>Access to the Recovery Zone</strong> with physios, compression boots and ice baths.</li><li><strong>30% OFF discount code</strong> for use on Gym King clothing, including the upcoming Stoic merch collection.</li><li><strong>Custom trophy</strong> for participants who achieve 1000 points for Men and 750 points for Women.</li><li><strong>Goody bag</strong> including limited edition Stoic Games finisher medal, finisher tote bag, Neutonic, and other goodies.</li></ul>"
           }
         },
         "cta_eppknc": {
           "type": "cta",
           "settings": {
             "btn_text": "Buy Now",
-            "button_link": "https://www.eventbrite.co.uk/e/the-stoic-games-tickets-1978280646668?aff=oddtdtcreator",
+            "button_link": "shopify://products/the-stoic-games-2026",
             "btn_color": false,
             "microcopy": ""
           }
@@ -237,7 +237,8 @@
       ],
       "custom_css": [
         "h2,h3 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1); margin: 0;}",
-        "h3 {font-size: var(--txt-h3); letter-spacing: 2px; margin-bottom: 2rem;}"
+        "h3 {font-size: var(--txt-h3); letter-spacing: 2px; margin-bottom: 2rem;}",
+        "p a {color: var(--c-black);}"
       ],
       "name": "Pricing",
       "settings": {
@@ -354,7 +355,7 @@
           "settings": {
             "title": "How are the stations split throughout the day?",
             "htmlContent": "",
-            "content": "<p>All participants will complete Stations 1–4 during the morning session, which runs from 8:00am to approximately 1:30pm.</p><p>Once everyone has finished, there will be a break while scores are calculated. This is a great opportunity to relax, refuel, and prepare for the final event.</p><p>Competitors will then be assigned a new afternoon wave for Station 5 – The Stoic Stone, which will take place between 2:30pm and 6:00pm.</p><p>Please be prepared to be on site for most of the day, as your afternoon start time will depend on your assigned wave.</p>"
+            "content": "<p>Men's singles will begin will from 8:30am and the last wave will finish approximately 2pm. <br/>Women's singles will begin from approximately 1:30pm to 3:20pm.</p><p>During the day there is a break of waves and Ross will be joined with guests for an exclusive Q&A with a host of confirmed athletes including the Stoltman Brothers.</p><p>Once everyone has finished, there will be a break while scores are calculated.</p><p>The podium presentation for the top scorers will take place around approximately 3:30pm</p>"
           }
         },
         "card_CKyKNB": {
@@ -370,7 +371,7 @@
           "settings": {
             "title": "What if I can't lift the minimum weight on the Stoic Stone?",
             "htmlContent": "",
-            "content": "<p>If you're unable to lift the minimum required weight for the Stoic Stone, the station will be recorded as a failed lift, and no points will be awarded for that station.</p>"
+            "content": "<p>If you're unable to lift the minimum required weight for the Stoic Stone, (40KG Women's and 70KG Men's) the station will be recorded as a failed lift, and no points will be awarded for that station.</p>"
           }
         },
         "card_dHCfDQ": {
@@ -400,7 +401,7 @@
         "card_pDRi4q": {
           "type": "card",
           "settings": {
-            "title": "What if I’m injured or can nolonger attend?",
+            "title": "What if I’m injured or can no longer attend?",
             "htmlContent": "",
             "content": "<p>Tickets are non-refundable and cannot be transferred to another person. We recommend considering your availability and ability to participate before purchasing, as tickets cannot be cancelled, exchanged, or reassigned.</p>"
           }
