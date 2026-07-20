@@ -1,9 +1,23 @@
-{% assign description = product.description %}
-{% assign description = description | remove: ' class="p1"' | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
-{% assign description_elements = description | split: '||' %}
-{% assign sizing_info = description_elements | where: 'Model' %}
-{% if sizing_info.first.size > 5 %}
-  <div class="accent-bg model-sizing">{{ description_elements | where: 'Model' }}</div>
+{% assign size_content = '' %}
+
+{% if product.metafields.custom.model_height and product.metafields.custom.model_size %}
+  {% for size in product.metafields.custom.model_size.value %}
+    {% assign sizes = sizes | append: size | append: ' ' %}
+    {% if forloop.first == false and forloop.last == false %}
+      {% assign sizes = sizes | append: '& ' %}
+    {% endif %}
+  {% endfor %}
+  {% assign size_content = 'Model is wearing size: ' | append: sizes| append: "<br> Model's height: " | append: product.metafields.custom.model_height %}
+{% else %}
+  {% assign description = product.description %}
+  {% assign description = description | remove: ' class="p1"' | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' | replace: 'model', 'Model' %}
+  {% assign description_elements = description | split: '||' %}
+  {% assign sizing_info = description_elements | where: 'Model' %}
+  {% assign size_content = description_elements | where: 'Model' %}
+{% endif %}
+
+{% if size_content != '' %}
+  <div class="accent-bg model-sizing">{{ size_content }}</div>
 {% endif %}
 
 {% style %}
