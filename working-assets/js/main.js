@@ -1968,8 +1968,8 @@ if (window.theme?.starRating) {
       nav_gender: gender,
       nav_destination: link.href,
       nav_position: position,
+      nav_parent: parent || "",
     };
-    if (parent) params.nav_parent = parent;
 
     window.gtag("event", "nav_click", params);
   });
