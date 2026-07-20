@@ -25,16 +25,14 @@
         <img src="{{ 'feature-Fabric-Comp.svg' | file_url }}" alt="fabric composition icon" height="24" width="24">
         {% assign comp_components = product.metafields.custom.fabric_comp.value | split: '/' %}
         <small style="text-align:left;">
-
-          {{ comp_components | join: '<hr style="margin: 0.25em 0" />' }}
-
+          {{ comp_components | join: '<br>' }}
         </small>
       </div>
     {% endif %}
 
     <!-- washing care instructions -->
     {% for instruction in product.metafields.custom.care_instuctions.value %}
-      <div class="tech-specs--item care-instructions accent-bg no-margin">
+      <div class="tech-specs--item fabric-composition care-instructions accent-bg no-margin">
         {% if instruction.icon != blank %}
         <img src="{{ instruction.icon | file_url }}" alt="{{ instruction.instruction }} Icon" height="24" width="24">
         {% else %}
@@ -43,5 +41,6 @@
         <small>{{ instruction.instruction }}</small>
       </div>
     {% endfor %}
+
   </div>
 </div>
