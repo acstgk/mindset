@@ -591,6 +591,7 @@ if (!customElements.get("enhanced-atc")) {
             setTimeout(() => {
               this.atcButton.innerHTML = this._buttonContent;
             }, 300);
+            document.querySelectorAll(".seen-in").forEach((el) => el.remove());
           },
           { once: true },
         );
