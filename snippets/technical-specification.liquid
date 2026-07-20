@@ -25,6 +25,7 @@
         <img src="{{ 'feature-Fabric-Comp.svg' | file_url }}" alt="fabric composition icon" height="24" width="24">
         {% assign comp_components = product.metafields.custom.fabric_comp.value | split: '/' %}
         <small style="text-align:left;">
+          <b>Fabric Composition</b>
           {{ comp_components | join: '<br>' }}
         </small>
       </div>
@@ -38,7 +39,8 @@
         {% else %}
         <img src="{{ 'feature-Machine-Washable.svg' | file_url }}" alt="Washing Care Instructions Icon" height="24" width="24">
         {% endif %}
-        <small>{{ instruction.instruction }}</small>
+        <small>
+         <b> Care Instructions</b>{{ instruction.instruction }}</small>
       </div>
     {% endfor %}
 
