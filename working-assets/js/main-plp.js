@@ -649,3 +649,42 @@ if (!customElements.get("infinite-scroll")) {
     },
   );
 }
+
+// ===================
+// PLP INSERT CLICK TRACKING
+// ===================
+/**
+ * Event delegation for GA4 PLP banner insert click tracking.
+ * Captures clicks on .product-grid-insert elements and pushes
+ * a plp_insert_click event to gtag() with custom dimensions.
+ */
+(function initPlpInsertTracking() {
+  document.addEventListener("click", function (e) {
+    var insert = e.target.closest(".product-grid-insert");
+    if (!insert) return;
+
+    var link = insert.querySelector("a[href]");
+    if (!link) return;
+
+    var position = parseInt(insert.dataset.position, 10) || 0;
+    var tier = insert.dataset.tier || "";
+    var label = insert.dataset.label || link.getAttribute("aria-label") || "";
+    var gender = link.dataset.gender || "";
+    var destination = link.href || "";
+
+    var pathParts = window.location.pathname.split("/");
+    var collection = "";
+    if (pathParts[1] === "collections" && pathParts[2]) {
+      collection = pathParts[2];
+    }
+
+    window.gtag("event", "plp_insert_click", {
+      plp_insert_gender: gender,
+      plp_insert_tier: tier,
+      plp_insert_destination: destination,
+      plp_insert_label: label,
+      plp_insert_position: position,
+      plp_insert_collection: collection,
+    });
+  });
+})();
