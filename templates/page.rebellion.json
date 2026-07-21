@@ -21,7 +21,7 @@
         "rtf_Jgx7jt": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<h1>The Stoic Collection</h1><h2>Darkside</h2>"
+            "richtext_content": "<h1>The Rebellion Collection</h1><h2>Darkside</h2>"
           }
         }
       },
@@ -131,6 +131,14 @@
         "flex_wrap": false
       }
     },
+    "spacer_B6Wpkf": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 50,
+        "mobile": 20
+      }
+    },
     "product_collection_carousel_7TMJN4": {
       "type": "product-collection-carousel",
       "custom_css": [
@@ -172,6 +180,9 @@
       ],
       "name": "Custom CTA Buttons",
       "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis",
         "size": ""
       }
     },
@@ -217,14 +228,6 @@
       }
     },
     "spacer_EGGzaM": {
-      "type": "spacer",
-      "name": "Content Spacer",
-      "settings": {
-        "desktop": 50,
-        "mobile": 20
-      }
-    },
-    "spacer_B6Wpkf": {
       "type": "spacer",
       "name": "Content Spacer",
       "settings": {
