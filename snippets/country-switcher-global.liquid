@@ -27,10 +27,11 @@
         this.elements.button.focus();
       }
 
-      onItemClick(event) {
+      async onItemClick(event) {
         event.preventDefault();
         const form = this.querySelector('form');
         this.elements.input.value = event.currentTarget.dataset.value;
+        try { await Cart.clearAll(); } catch (e) { console.error('Cart clear failed on country change:', e); }
         if (form) form.submit();
       }
 
