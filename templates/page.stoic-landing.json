@@ -153,12 +153,22 @@
           "settings": {
             "richtext_content": "<p><strong>Note:</strong> Reaching the 1,000 and 750 Club is a sign of elite all-round capacity, only 1 in 200 people have achieved elite status in trials.</p>"
           }
+        },
+        "cta_F4aMC4": {
+          "type": "cta",
+          "settings": {
+            "btn_text": "Download the Training Plan",
+            "button_link": "https://cdn.shopify.com/s/files/1/1659/8997/files/Stoic_Games_-_Workout_Plan.pdf?v=1784640818",
+            "btn_color": true,
+            "microcopy": "This free 6-week training programme has been designed to prepare you for every event you'll face on competition day."
+          }
         }
       },
       "block_order": [
         "rtf_c9TyYA",
         "html_NbjLTC",
-        "rtf_UaFdgD"
+        "rtf_UaFdgD",
+        "cta_F4aMC4"
       ],
       "custom_css": [
         "h2 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1);}"

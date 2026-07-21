@@ -73,6 +73,17 @@
     "blog_featured_articles_YgN7Qn": {
       "type": "blog-featured-articles",
       "blocks": {
+        "custom_i3NHtY": {
+          "type": "custom",
+          "settings": {
+            "heading_level": "h2",
+            "title": "The Last Stoic Standing: The Ultimate Test of Strength and Resilience",
+            "copy": "<p>On Sunday 6th September 2026, Gym King and world-renowned endurance athlete Ross Edgley will bring The Last Stoic Standing to Farm Fitness in Essex.<br/><br/>An entirely new strength and resilience competition designed to test physical capacity, mental composure and relentless determination.</p>",
+            "url": "shopify://pages/stoic",
+            "cta": "learn more",
+            "image": "shopify://shop_images/stoic-games.png"
+          }
+        },
         "custom_JQwxcf": {
           "type": "custom",
           "settings": {
@@ -89,18 +100,6 @@
           "settings": {
             "heading_level": "h2",
             "article": "posts/behind-the-campaign-signature-summer-in-greece-portugal"
-          }
-        },
-        "custom_i3NHtY": {
-          "type": "custom",
-          "disabled": true,
-          "settings": {
-            "heading_level": "h2",
-            "title": "The Stoic Games: A Unique Challenge Combining Physical Discipline and Mental Resilience",
-            "copy": "<p>Gym King, in collaboration with British author, ultra marathon athlete, and sea swimmer, Ross Edgley, proudly presents The Stoic Games, a first-of-its-kind athletic and philosophical challenge.</p>",
-            "url": "shopify://pages/stoic",
-            "cta": "Read more",
-            "image": "shopify://shop_images/STOIC_GAMES_-_DESKTOP_BANNER_6aecd09c-6c17-4570-aff3-0485c397cdd6.png"
           }
         },
         "custom_BbJahq": {
@@ -128,9 +127,9 @@
         }
       },
       "block_order": [
+        "custom_i3NHtY",
         "custom_JQwxcf",
         "article_FGLMYT",
-        "custom_i3NHtY",
         "custom_BbJahq",
         "custom_pJiF7B"
       ],
