@@ -1,6 +1,8 @@
 {% assign description = product.description %}
 {% assign description = description | remove: 'data-mce-fragment="1"' | replace: ' >', '>' | replace: '<h4>', '||<h4>' | replace: '<p>', '||<p>' | replace: '<ul>', '||<ul>' %}
 {% assign description_elements = description | split: '||' %}
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
 
 <content-accordian class="max-width pdp-tabs">
   {% comment %} description {% endcomment %}
@@ -28,7 +30,7 @@
       <div class="rtf accordian-content no-animation" id="accordian-content-2">
         <p class="accent-bg" style="padding: 15px 18px;">
           <strong
-            ><a href="{{ localization.language.root_url }}products/unlimited-uk-delivery" target="_blank">Unlimited UK Delivery </a>- £10 per year<br>
+            ><a href="{{ root }}products/unlimited-uk-delivery" target="_blank">Unlimited UK Delivery </a>- £10 per year<br>
             3-5 days</strong
           ><br>
           Unlimited Standard UK delivery with no minimum order value for 12 months.
@@ -76,7 +78,7 @@
             5+ working days</strong
           >
         </p>
-        <p>Estimated time and price varies by country, visit our <a href="{{ localization.language.root_url }}pages/help-centre-delivery-and-orders">Delivery FAQ page</a> for more information.</p>
+        <p>Estimated time and price varies by country, visit our <a href="{{ root }}pages/help-centre-delivery-and-orders">Delivery FAQ page</a> for more information.</p>
         <hr>
         {% if show_extended %}
           <div class="accent-bg" style="padding: 15px 18px;">
@@ -94,7 +96,7 @@
           <strong>Easy 30 Day International Returns - price varies by country</strong><br>
           Easily arrange your paid return postage via our <a href="https://web.global-e.com/Returns/Portal" target="_blank">Intenational returns portal</a>.
         </p>
-        <p>Visit our <a href="{{ localization.language.root_url }}pages/help-centre-returns">Returns FAQ page</a> for more information</p>
+        <p>Visit our <a href="{{ root }}pages/help-centre-returns">Returns FAQ page</a> for more information</p>
       </div>
     </div>
   {% endif %}
