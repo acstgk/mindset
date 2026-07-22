@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="{{ 'customer.min.css' | asset_url }}">
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 {%- assign tracking_numbers = '' -%}
 {%- assign tracking_urls = '' -%}
 {%- assign tracking_companies = '' -%}
@@ -178,9 +181,9 @@
       <h3 class="emphasis">Need help?</h3>
       <p>Our team is here to help you with anything you need. Whether you have questions about this order or need assistance with something else, we're just a message away.</p>
       <div class="button-grid">
-        <a href="/pages/contact-us" class="button button-primary">Contact Us</a>
+        <a href="{{ root }}pages/contact-us" class="button button-primary">Contact Us</a>
         {% if order.fulfillment_status_label == 'Fulfilled' %}
-          <a href="/pages/returns" class="button button-secondary">Start a Return</a>
+          <a href="{{ root }}pages/returns" class="button button-secondary">Start a Return</a>
         {% elsif tracking_urls.first %}
           <a href="{{ tracking_urls.first }}" class="button button-secondary">Track Your Order</a>
         {% endif %}

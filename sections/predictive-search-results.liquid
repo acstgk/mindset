@@ -1,3 +1,6 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 {%- if predictive_search.performed -%}
   {%- if predictive_search.resources.queries.size > 0 -%}
     <div class="predictive_search-terms max-width">
@@ -110,13 +113,13 @@
           <h4 class="predictive_search-heading">Useful Links</h4>
           <ul role="listbox">
             <li role="option">
-              <a href="/pages/help-centre"> Help Centre </a>
+              <a href="{{ root }}pages/help-centre"> Help Centre </a>
             </li>
             <li role="option">
-              <a href="/pages/size-guide"> Size Guide </a>
+              <a href="{{ root }}pages/size-guide"> Size Guide </a>
             </li>
             <li role="option">
-              <a href="/pages/about-us"> About Gym King </a>
+              <a href="{{ root }}pages/about-us"> About Gym King </a>
             </li>
           </ul>
         </div>

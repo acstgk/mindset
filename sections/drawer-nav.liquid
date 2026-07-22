@@ -1,3 +1,6 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 {% assign keywordvar = settings['highlighted-keyword'] | downcase %}
 {% assign keywordvaralt = settings['highlighted-keyword-alt'] | downcase %}
 
@@ -72,7 +75,7 @@
     <div class="side_menu-account-links">
       {% if customer %}
         <a href="{{ routes.account_logout_url }}" class="BrandMenuItem"> Log Out </a>
-        <a href="/apps/iwish"> Wishlist </a>
+        <a href="{{ root }}apps/iwish"> Wishlist </a>
         <a href="{{ routes.account_url }}"> Account </a>
       {% else %}
         <a href="{{  routes.account_register_url }}" class="BrandMenuItem"> Create Account </a>

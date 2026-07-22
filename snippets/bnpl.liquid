@@ -1,3 +1,6 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 {% if localization.country.iso_code == 'GB' %}
   <bnpl-options>
     <div class="bnpl-placement">
@@ -9,7 +12,7 @@
         {% else %}
           pay in 30 days with Klarna. <br>
         {% endif %}
-        <a href="/pages/klarna-terms-conditions" class="klarna-link">Discover Klarna</a>
+        <a href="{{ root }}pages/klarna-terms-conditions" class="klarna-link">Discover Klarna</a>
       </span>
     </div>
     <div class="bnpl-placement">
@@ -17,7 +20,7 @@
       <span>
         or make 4 interest-free payments of <strong>{{ price | divided_by: 4 | money_without_trailing_zeros }}</strong>.
         <br>
-        <a href="/pages/clearpay-terms-conditions" class="clearpay-link">Discover ClearPay </a>
+        <a href="{{ root }}pages/clearpay-terms-conditions" class="clearpay-link">Discover ClearPay </a>
       </span>
     </div>
   </bnpl-options>

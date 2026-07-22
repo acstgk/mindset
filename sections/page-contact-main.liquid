@@ -1,3 +1,6 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 <h1>{{ page.title }}</h1>
 <div class="contact-wrapper">
   <div class="column-1 rtf">
@@ -101,7 +104,7 @@
     <hr>
     <p>For fast answers reaad our FAQ's or visit our support centre</p>
     <div class="buttons-group">
-      <a href="/pages/help-centre" class="inline-flex button button-primary">FAQ's</a>
+      <a href="{{ root }}pages/help-centre" class="inline-flex button button-primary">FAQ's</a>
       <a href="http://support.thegymking.com/support/home" class="inline-flex button button-primary">Support Center {% render 'icon', icon: 'external' %}</a>
     </div>
     <p>Looking for information on your latest order?</p>

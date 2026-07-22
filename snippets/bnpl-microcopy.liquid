@@ -1,8 +1,11 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 <div class="bnpl-icons">
   {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color ge-hide-display-none ge-hide' }}
   <span class="ge-hide-display-none ge-hide"
     >Buy now, Pay later<br>
-    <small><a href="/pages/klarna-terms-conditions">18+ - T&C's apply</a></small></span
+    <small><a href="{{ root }}pages/klarna-terms-conditions">18+ - T&C's apply</a></small></span
   >
 </div>
 

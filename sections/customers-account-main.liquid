@@ -1,3 +1,6 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 <link rel="stylesheet" href="{{ 'customer.min.css' | asset_url }}">
 
 <header>
@@ -16,7 +19,7 @@
 
 <ul class="account-links">
   <li>
-    <a class="button button-primary" href="/pages/about-us?view=built-for-you">{% render 'icon', icon: 'edit' %} Built for You</a>
+    <a class="button button-primary" href="{{ root }}pages/about-us?view=built-for-you">{% render 'icon', icon: 'edit' %} Built for You</a>
   </li>
   <li>
     <a class="button button-secondary" href="{{  collections['all'].url }}">Go Shopping {% render 'icon', icon: 'arrow' %}</a>
@@ -25,7 +28,7 @@
     <a class="button button-secondary" href="#order-history">{% render 'icon', icon: 'truck' %}Your Orders</a>
   </li>
   <li>
-    <a class="button button-secondary" href="/apps/iwish">
+    <a class="button button-secondary" href="{{ root }}apps/iwish">
       <span>{% render 'icon', icon: 'heart' %}</span>Your Wishlist
     </a>
   </li>
@@ -35,17 +38,17 @@
   {% if localization.country.iso_code == 'GB' %}
     <li>
       {% if customer.tags contains 'Active Subscriber' %}
-        <a class="button button-secondary" href="/tools/recurring/login">{% render 'icon', icon: 'giftcard' %}Your Unlimited Shipping Subscription</a>
+        <a class="button button-secondary" href="{{ root }}tools/recurring/login">{% render 'icon', icon: 'giftcard' %}Your Unlimited Shipping Subscription</a>
       {% else %}
-        <a class="button button-secondary" href="/products/unlimited-uk-delivery">{% render 'icon', icon: 'giftcard' %}Get Unlimited UK Shipping </a>
+        <a class="button button-secondary" href="{{ root }}products/unlimited-uk-delivery">{% render 'icon', icon: 'giftcard' %}Get Unlimited UK Shipping </a>
       {% endif %}
     </li>
   {% endif %}
   <li>
-    <a class="button button-secondary" href="/pages/rewards">{% render 'icon', icon: 'crown' %}Loyalty Club</a>
+    <a class="button button-secondary" href="{{ root }}pages/rewards">{% render 'icon', icon: 'crown' %}Loyalty Club</a>
   </li>
   <li>
-    <a class="button button-secondary" href="/pages/refer-a-friend">{% render 'icon', icon: 'handshake' %}Refer a Friend</a>
+    <a class="button button-secondary" href="{{ root }}pages/refer-a-friend">{% render 'icon', icon: 'handshake' %}Refer a Friend</a>
   </li>
   <li>
     <a class="button button-secondary" href="https://www.surveymonkey.com/r/8R6N2NP" target="_blank">{% render 'icon', icon: 'feedback' %}Leave Feedback </a>
@@ -252,7 +255,7 @@
 <br>
 <hr>
 <div class="yotpo-widget-instance" data-yotpo-instance-id="1153784"></div>
-<a href="/pages/rewards" class="button button-primary" style="margin: 20px auto;margin: 20px auto;display: block;max-width: min(500px, 100%);"> Find out more about our Loyalty Club </a>
+<a href="{{ root }}pages/rewards" class="button button-primary" style="margin: 20px auto;margin: 20px auto;display: block;max-width: min(500px, 100%);"> Find out more about our Loyalty Club </a>
 <a href="{{ routes.account_logout_url }}" class="inline-flex button button-secondary" style="margin-top: 3rem;gap:1.5ch">
   {% render 'icon', icon: 'logout' %}
   {{- 'customer.account.logout' | t -}}

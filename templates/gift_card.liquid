@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="{{ 'giftcard.min.css' | asset_url }}">
 
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 {% assign code_length = gift_card.code.size | divided_by: 4 %}
 {% assign code_length = code_length | minus: 1 %}
 {% assign spaced = '' %}
@@ -40,10 +43,10 @@
   </div>
   <div class="gift-card--buttons max-width">
     <button onClick="window.print()" class="button button-secondary">Print</button>
-    <a href="/discount/{{ gift_card.code }}" class="button button-primary ">Spend Now {% render 'icon', icon: 'arrow' %}</a>
+    <a href="{{ root }}discount/{{ gift_card.code }}" class="button button-primary ">Spend Now {% render 'icon', icon: 'arrow' %}</a>
   </div>
   <div id="qr-code"></div>
-  <a href="/" class="center footer-link">thegymking.com</a>
+  <a href="{{ root }}" class="center footer-link">thegymking.com</a>
 </div>
 
 {% comment %} {{ 'vendor/qrcode.js' | shopify_asset_url | script_tag }} {% endcomment %}
