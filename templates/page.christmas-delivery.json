@@ -36,7 +36,7 @@
           "settings": {
             "title": "Returns",
             "htmlContent": "",
-            "content": "<p>We have also extended our returns policy for Christmas. Returns for any purchases made before the 24th December 2024 will be accepted until 31st January 2025.</p><p>Please see our <a href=\"https://thegymking.com/pages/help-centre-returns\">returns page</a> for more information.</p>"
+            "content": "<p>We have also extended our returns policy for Christmas. Returns for any purchases made before the 24th December 2024 will be accepted until 31st January 2025.</p><p>Please see our <a href=\"/pages/help-centre-returns\">returns page</a> for more information.</p>"
           }
         }
       },

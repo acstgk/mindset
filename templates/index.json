@@ -313,10 +313,10 @@
         "url2w": "shopify://collections/all-womens-leggings",
         "img3w": "shopify://shop_images/365_HALTER_NECK_365_STRAIGHT_LEG_YOGA_PANT_-_WHITE_MUTED_MAUVE_WVS-BOGY1_WLG-BOJBC_1.jpg",
         "bold3w": "Gymwear",
-        "url3w": "https://thegymking.com/collections/womens-gym-clothes",
+        "url3w": "/collections/womens-gym-clothes",
         "img4w": "shopify://shop_images/SHORTS_460997fa-1adf-452e-8011-7c6a879a8b0b.jpg",
         "bold4w": "Shorts",
-        "url4w": "https://thegymking.com/collections/all-womens-shorts"
+        "url4w": "/collections/all-womens-shorts"
       }
     },
     "gender_categories_BCJVMn": {

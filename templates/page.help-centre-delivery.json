@@ -41,7 +41,7 @@
           "settings": {
             "title": "What is my order number?",
             "htmlContent": "",
-            "content": "<p>Your order number (for example #WEB1231267) can be found on your order confirmation email or on your <a href=\"https://thegymking.com/account\" title=\"https://thegymking.com/account\">Gym King account page</a>.</p>"
+            "content": "<p>Your order number (for example #WEB1231267) can be found on your order confirmation email or on your <a href=\"/account\" title=\"/account\">Gym King account page</a>.</p>"
           }
         },
         "card_WnTkdH": {

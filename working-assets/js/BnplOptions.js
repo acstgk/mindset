@@ -9,8 +9,8 @@ export default class BnplOptions extends HTMLElement {
     this.klarnaLink.addEventListener("click", (event) => this._openmodal("klarna", event));
     this.clearpayLink.addEventListener("click", (event) => this._openmodal("clearpay", event));
 
-    this.clearpayURL = "https://thegymking.com/pages/clearpay-terms-conditions";
-    this.klarnaURL = "https://thegymking.com/pages/klarna-terms-conditions";
+    this.clearpayURL = "/pages/clearpay-terms-conditions";
+    this.klarnaURL = "/pages/klarna-terms-conditions";
   }
 
   async _openmodal(option, event) {

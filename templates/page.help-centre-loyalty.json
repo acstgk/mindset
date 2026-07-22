@@ -105,7 +105,7 @@
           "settings": {
             "title": "Can I earn points by referring a friend?",
             "htmlContent": "",
-            "content": "<p>Yes, it's simple - Share your unique referral link (found on the <a href=\"https://thegymking.com/pages/rewards\">Rewards Page</a>) with a friend to gift them 100 points, and you’ll earn 100 points when they sign up and complete their first purchase.</p><p>You can refer as many times as you'd like.</p>"
+            "content": "<p>Yes, it's simple - Share your unique referral link (found on the <a href=\"/pages/rewards\">Rewards Page</a>) with a friend to gift them 100 points, and you’ll earn 100 points when they sign up and complete their first purchase.</p><p>You can refer as many times as you'd like.</p>"
           }
         },
         "card_tmEBaR": {
@@ -121,7 +121,7 @@
           "settings": {
             "title": "I've redeemed some points but can't remember the code",
             "htmlContent": "",
-            "content": "<p>No problem! Just head to the <a href=\"https://thegymking.com/pages/rewards\">Rewards Page</a> and click on the ‘Rewards History’ button - your redeemed code will be listed there.</p>"
+            "content": "<p>No problem! Just head to the <a href=\"/pages/rewards\">Rewards Page</a> and click on the ‘Rewards History’ button - your redeemed code will be listed there.</p>"
           }
         },
         "card_DkEe7M": {

@@ -90,7 +90,7 @@
           "settings": {
             "title": "When will my items be delivered if I use Klarna?",
             "htmlContent": "",
-            "content": "<p>Klarna orders are delivered within our standard delivery timeframes like any normal order from Gym King. Visit our Delivery page <a href=\"https://thegymking.com/pages/delivery-returns/\">here</a> for more information.</p>"
+            "content": "<p>Klarna orders are delivered within our standard delivery timeframes like any normal order from Gym King. Visit our Delivery page <a href=\"/pages/delivery-returns/\">here</a> for more information.</p>"
           }
         },
         "card_pprwUg": {
@@ -98,7 +98,7 @@
           "settings": {
             "title": "How do I return an item purchased with Klarna?",
             "htmlContent": "",
-            "content": "<p>Klarna returns will follow our usual standard returns process. Please see <a href=\"https://thegymking.com.com/pages/delivery-returns\">here</a> for more information. Your total balance will be updated once the return has been processed and any remaining payments are automatically adjusted from the last instalment. Any payments already made will be refunded back to the original payment method. Do you have more questions about Klarna returns? Click <a href=\"https://www.klarna.com/uk/customer-service/csc/returns/\">here.</a></p>"
+            "content": "<p>Klarna returns will follow our usual standard returns process. Please see <a href=\".com/pages/delivery-returns\">here</a> for more information. Your total balance will be updated once the return has been processed and any remaining payments are automatically adjusted from the last instalment. Any payments already made will be refunded back to the original payment method. Do you have more questions about Klarna returns? Click <a href=\"https://www.klarna.com/uk/customer-service/csc/returns/\">here.</a></p>"
           }
         },
         "card_KGkgPV": {
@@ -122,7 +122,7 @@
           "settings": {
             "title": "Payment FAQ's",
             "htmlContent": "",
-            "content": "<ul><li><a href=\"https://thegymking.com/pages/3-interest-free-instalments\">Pay later in the 3 interest-free instalments</a></li><li><a href=\"https://thegymking.com/pages/30-day-pay-later-faqs\">Pay later in 30 days</a></li></ul><p> Klarna's Pay in 3 / Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status. Late fees may apply. <a href=\"https://www.klarna.com/uk/terms-and-conditions/\">Ts&Cs apply.</a></p>"
+            "content": "<ul><li><a href=\"/pages/3-interest-free-instalments\">Pay later in the 3 interest-free instalments</a></li><li><a href=\"/pages/30-day-pay-later-faqs\">Pay later in 30 days</a></li></ul><p> Klarna's Pay in 3 / Pay in 30 days are unregulated credit agreements. Borrowing more than you can afford or paying late may negatively impact your financial status and ability to obtain credit. 18+, UK residents only. Subject to status. Late fees may apply. <a href=\"https://www.klarna.com/uk/terms-and-conditions/\">Ts&Cs apply.</a></p>"
           }
         }
       },

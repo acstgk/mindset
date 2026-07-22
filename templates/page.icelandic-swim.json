@@ -40,7 +40,7 @@
           "type": "card",
           "settings": {
             "title": "Shop The Mindset Collection",
-            "description": "<p><a href=\"https://thegymking.com/search?type=product&q=mindset\" title=\"Mindset Collection\">Shop now</a></p>",
+            "description": "<p><a href=\"/search?type=product&q=mindset\" title=\"Mindset Collection\">Shop now</a></p>",
             "image": "shopify://shop_images/Ross_Iceland_Day_2-8.jpg"
           }
         }
