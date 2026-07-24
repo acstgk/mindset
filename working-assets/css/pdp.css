@@ -560,6 +560,19 @@ pdp-carousel {
   & .accordian-content {
     margin: 0 10px;
   }
+
+  & .accordian-item.show-desc-false {
+    @media screen and (width >=768px) {
+      & .accordian-header {
+        border-bottom: 1px solid var(--c-off-white);
+      }
+
+      & .accordian-content {
+        max-height: 5000px;
+        padding-block: 15px;
+      }
+    }
+  }
 }
 
 .colour-selection,
