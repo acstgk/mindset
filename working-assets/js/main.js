@@ -610,6 +610,7 @@ if (!customElements.get("page-overlay")) {
       closeAllOverlays() {
         this.closeThis();
         this._closeLoop(this._drawers);
+         this._modals = document.querySelectorAll(".modal");
         this._closeLoop(this._modals);
         this._search?.close();
       }
