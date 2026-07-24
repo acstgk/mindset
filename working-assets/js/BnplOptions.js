@@ -30,7 +30,7 @@ export default class BnplOptions extends HTMLElement {
     const htmlText = await response.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlText, "text/html");
-    const content = doc.querySelector(".PageContent");
+    const content = doc.querySelector("main");
 
     return content;
   }
@@ -65,7 +65,7 @@ export default class BnplOptions extends HTMLElement {
     // finally fetch the data
     const targetUrl = option === "klarna" ? this.klarnaURL : this.clearpayURL;
     const content = await this._getContent(targetUrl);
-    contentEl.innerHTML = content.innerHTML;
+    contentEl.innerHTML = content ? content.innerHTML : "";
   }
 
   _showModal(targetModal) {
