@@ -9,15 +9,24 @@ export default class BnplOptions extends HTMLElement {
     this.productPriceDisplay = window.product.productPrice;
     this.productPriceValue = window.product.productPriceRaw;
     this.infoLink.addEventListener("click", (event) => this._openmodal(event));
+    this.querySelectorAll('[data-bnpl]').forEach(btn => {
+      btn.addEventListener("click", (event) => this._openmodal(event, btn.dataset.bnpl));
+    });
   }
 
-  async _openmodal(event) {
+  async _openmodal(event, provider) {
     event.preventDefault();
-    document.querySelector('bnplModal') ? this._showModal(document.querySelector('bnplModal')) : this._createModal();
+    const existingModal = document.querySelector('.bnpl-modal');
+    if (existingModal) {
+      this._activateAccordionTab(existingModal, provider);
+      this._showModal(existingModal);
+    } else {
+      this._createModal(provider);
+    }
     document.body.classList.add("no-scroll");
   }
 
-  async _createModal() {
+  async _createModal(provider) {
     //create the modal element
     const modal = document.createElement("div");
     modal.className = "bnpl-modal modal fade-in";
@@ -97,6 +106,9 @@ export default class BnplOptions extends HTMLElement {
 
     //add the modal to the DOM
     document.body.appendChild(modal);
+    if (provider) {
+      this._activateAccordionTab(modal, provider);
+    }
     this._showModal(modal);
 
     // inject custom css
@@ -143,6 +155,24 @@ export default class BnplOptions extends HTMLElement {
       }
     `;
     modal.appendChild(styleEl);
+  }
+
+  _activateAccordionTab(modal, provider) {
+    const accordian = modal.querySelector('content-accordian');
+    if (!accordian) return;
+    const headers = accordian.querySelectorAll('.accordian-header');
+    const contents = accordian.querySelectorAll('.accordian-content');
+    const providerMap = { klarna: 0, clearpay: 1, paypal: 2 };
+    const index = providerMap[provider];
+    if (index === undefined || index >= headers.length) return;
+    headers.forEach((h, i) => {
+      const isActive = i === index;
+      h.classList.toggle('active', isActive);
+      h.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+    });
+    contents.forEach((c, i) => {
+      c.setAttribute('aria-hidden', i === index ? 'false' : 'true');
+    });
   }
 
   splitPayments(total, parts) {

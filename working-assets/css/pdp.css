@@ -719,6 +719,18 @@ bnpl-options {
   gap: 0.2em;
   color: var(--c-grey);
 }
+.bnpl-placement button {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
 .bnpl-placement a {
   text-decoration: underline;
 }
