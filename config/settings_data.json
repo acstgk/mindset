@@ -98,6 +98,17 @@
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
+          "announcement_slider_Bn3qa3": {
+            "type": "announcement_slider",
+            "disabled": true,
+            "settings": {
+              "title": "24 Hour Offers - Day 1",
+              "subcontent1": "More Info",
+              "link1": "",
+              "enable_countdown": true,
+              "country_restriction": "none"
+            }
+          },
           "announcement_slider_NVbm3Y": {
             "type": "announcement_slider",
             "settings": {
@@ -172,6 +183,7 @@
           }
         },
         "block_order": [
+          "announcement_slider_Bn3qa3",
           "announcement_slider_NVbm3Y",
           "announcement_slider_KeM9Hq",
           "announcement_slider_8GNAEy",
