@@ -98,6 +98,16 @@
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
+          "announcement_slider_NVbm3Y": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "up to 70% Off",
+              "subcontent1": "Summer sale",
+              "link1": "shopify://collections/sale",
+              "enable_countdown": false,
+              "country_restriction": "none"
+            }
+          },
           "announcement_slider_KeM9Hq": {
             "type": "announcement_slider",
             "settings": {
@@ -162,6 +172,7 @@
           }
         },
         "block_order": [
+          "announcement_slider_NVbm3Y",
           "announcement_slider_KeM9Hq",
           "announcement_slider_8GNAEy",
           "announcement_slider_CxdCHz",
