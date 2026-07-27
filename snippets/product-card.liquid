@@ -128,7 +128,7 @@
     </div>
     {% render 'product-price', product: product %}
     {% if show_timer %}
-      <countdown-timer class="countdown-wrapper" data-countdown="{{ countdown_settings | strip_newlines }}"></countdown-timer>
+      <countdown-timer class="countdown-wrapper" data-countdown="{{ countdown_settings | strip_newlines | escape }}"></countdown-timer>
     {% endif %}
   </div>
 

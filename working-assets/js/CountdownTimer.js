@@ -11,7 +11,12 @@ const countdownManager = CountdownManager.getInstance("sharedSaleEnd");
 
 export default class CountdownTimer extends HTMLElement {
   connectedCallback() {
-    const countdownData = JSON.parse(this.dataset.countdown || "{}");
+    let countdownData;
+    try {
+      countdownData = JSON.parse(this.dataset.countdown || "{}");
+    } catch {
+      countdownData = {};
+    }
     countdownManager.configure(countdownData.end, countdownData.copy);
     countdownManager.register(this);
   }
