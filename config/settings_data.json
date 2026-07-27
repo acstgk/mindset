@@ -9,10 +9,10 @@
  */
 {
   "current": {
-    "countdown-date": "05/29/26 12:00 PM",
-    "countdown-product-check": false,
-    "countdown-tag": "BHDAY3",
-    "countdown-decal": "shopify://shop_images/Bank_Hol_24_Hours_Decal_0d57a58e-2176-49d7-ad53-478feccc2696.png",
+    "countdown-date": "07/28/26 11:59 AM",
+    "countdown-product-check": true,
+    "countdown-tag": "SS26-D1",
+    "countdown-decal": "shopify://shop_images/24_Hours_Decal.png",
     "decal-check": false,
     "img-mens-content": "shopify://shop_images/PLP_BANNER_-_Mens.png",
     "url-m-plp-content": "/collections/sale/mens",
@@ -100,22 +100,11 @@
         "blocks": {
           "announcement_slider_Bn3qa3": {
             "type": "announcement_slider",
-            "disabled": true,
             "settings": {
               "title": "24 Hour Offers - Day 1",
               "subcontent1": "More Info",
               "link1": "",
               "enable_countdown": true,
-              "country_restriction": "none"
-            }
-          },
-          "announcement_slider_NVbm3Y": {
-            "type": "announcement_slider",
-            "settings": {
-              "title": "up to 70% Off",
-              "subcontent1": "Summer sale",
-              "link1": "shopify://collections/sale",
-              "enable_countdown": false,
               "country_restriction": "none"
             }
           },
@@ -184,7 +173,6 @@
         },
         "block_order": [
           "announcement_slider_Bn3qa3",
-          "announcement_slider_NVbm3Y",
           "announcement_slider_KeM9Hq",
           "announcement_slider_8GNAEy",
           "announcement_slider_CxdCHz",
