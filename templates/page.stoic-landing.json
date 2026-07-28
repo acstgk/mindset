@@ -472,6 +472,22 @@
             "content": "<p>With a 60 second transition time between each station.</p><ul><li>Deadlift: Until the last person in your wave finishes.</li><li>Press ups: Until the last person in your wave finishes.</li><li>Bleep test: Until the last person in your wave finishes or the bleep test finishes on maximum level at 22 minutes.</li><li>Dead hang: 5 minutes maximum. </li><li>Stoic stone: Until the last person in your wave finishes.</li></ul>"
           }
         },
+        "card_rUicUa": {
+          "type": "card",
+          "settings": {
+            "title": "What weight and shape is the Stoic Stone?",
+            "htmlContent": "",
+            "content": "<p>Men's 70kg and Women's 40kg - Hussafell stone/shield shape. </p>"
+          }
+        },
+        "card_nxyjnW": {
+          "type": "card",
+          "settings": {
+            "title": "What is the deadlift starting weight?",
+            "htmlContent": "You will receive an email requesting you to submit your deadlift PB, you will then be grouped with participants of similar ability. Your wave will be confirmed prior to the event.",
+            "content": ""
+          }
+        },
         "card_PYm8iH": {
           "type": "card",
           "settings": {
@@ -498,6 +514,8 @@
         "card_bxtwPn",
         "card_ap6BEP",
         "card_WeApQ9",
+        "card_rUicUa",
+        "card_nxyjnW",
         "card_PYm8iH"
       ],
       "custom_css": [
