@@ -574,16 +574,18 @@ if (!customElements.get("enhanced-atc")) {
       // the add to cart submission method for when all products have selected sizes
       _addToCart = () => {
         const selectedRadios = this.querySelectorAll('.atc_form-sizes input[type="radio"]:checked');
-        const items = Array.from(selectedRadios).map((radio) => ({
-          id: radio.value,
-          quantity: 1,
-          selling_plan: radio.dataset.subscriptionId || "",
-        }));
+        const items = Array.from(selectedRadios).map((radio) => {
+          const item = { id: radio.value, quantity: 1 };
+          if (radio.dataset.subscriptionId) item.selling_plan = radio.dataset.subscriptionId;
+          return item;
+        });
 
         this.atcButton.innerHTML = `<div class="loader" style="--height:1em;z-index:1;backdrop-filter: invert(1)"></div>`;
 
         if (items.length > 0) {
-          Cart.addItems(items);
+          Cart.addItems(items).catch(() => {
+            this.atcButton.innerHTML = this._buttonContent;
+          });
         }
         window.addEventListener(
           "cart:itemsAdded",

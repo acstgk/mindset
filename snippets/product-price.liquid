@@ -42,7 +42,7 @@
       {% assign markdown = true %}
       <span class="Price Price--compareAt">
         {% if cart.currency.symbol == '$' %}
-          {{- compare_at_price | money_with_currency | remove: ".00" -}}
+          {{- compare_at_price | money_with_currency | remove: '.00' -}}
         {% else %}
           {{- compare_at_price | money_without_trailing_zeros -}}
         {% endif %}
@@ -61,17 +61,21 @@
   >
     {% if product.price_varies %}from{% endif %}
     {%- if product.available or compare_at_price == 0 or compare_at_price == null -%}
-       {% if cart.currency.symbol == '$' %}
-          {{- price | money_with_currency  | remove: ".00" -}}
-        {% else %}
-          {{- price | money_without_trailing_zeros -}}
-        {% endif %}
+      {% if price == 0 %}
+        FREE
+      {% elsif cart.currency.symbol == '$' %}
+        {{- price | money_with_currency | remove: '.00' -}}
+      {% else %}
+        {{- price | money_without_trailing_zeros -}}
+      {% endif %}
     {% else %}
-       {% if cart.currency.symbol == '$' %}
-          {{- compare_at_price | money_with_currency | remove: ".00" -}}
-        {% else %}
-          {{- compare_at_price | money_without_trailing_zeros -}}
-        {% endif %}
+      {% if price == 0 %}
+        FREE
+      {% elsif cart.currency.symbol == '$' %}
+        {{- compare_at_price | money_with_currency | remove: '.00' -}}
+      {% else %}
+        {{- compare_at_price | money_without_trailing_zeros -}}
+      {% endif %}
     {%- endif -%}
   </span>
 
