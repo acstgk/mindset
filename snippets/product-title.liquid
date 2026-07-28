@@ -16,14 +16,14 @@
 
 {%- if product.title contains '-' or product.title contains '–' %}
   {%- assign product_title = product.title | replace: '–', '-' | split: '-' -%}
-  <a class="Title" {% if request.path != product.url and product.available %}href="{{ product.url }}"{% else %}disabled{% endif %}>
+  <a class="Title" {% if request.path != product.url and product.available %}href="{{ root }}{{ product.url }}"{% else %}disabled{% endif %}>
     <{{ element_type }} class="title">
       {{- product.title | remove: 'Gym King ' | remove: product_title.last | remove_last: '-' | strip -}}
     </{{ element_type }}>
     <span class="colour">{{ product_title.last }}</span>
   </a>
 {%- else -%}
-  <a class="Title" {% if request.path != product.url %}href="{{ product.url }}"{% endif %}>
+  <a class="Title" {% if request.path != product.url %}href="{{ root }}{{ product.url }}"{% endif %}>
     <span class="title">{{ product.title | remove: 'Gym King ' | strip }}</span>
   </a>
 {%- endif -%}

@@ -35,7 +35,7 @@
               <div class="hotspot--link link-{{ vert_class }} link-{{ horiz_class }}">
                 {% render 'product-title', product: product %}
                 {% render 'product-price', product: product %}
-                <a href="{{ product.url }}" class="inline-flex"> Shop now {% render 'icon', icon: 'arrow' %} </a>
+                <a href="{{ root }}{{ product.url }}" class="inline-flex"> Shop now {% render 'icon', icon: 'arrow' %} </a>
               </div>
             </div>
           {% endif %}
