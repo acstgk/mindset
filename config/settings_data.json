@@ -9,9 +9,9 @@
  */
 {
   "current": {
-    "countdown-date": "07/28/26 12:00 PM",
+    "countdown-date": "07/29/26 12:00 PM",
     "countdown-product-check": true,
-    "countdown-tag": "SS26-D1",
+    "countdown-tag": "SS26-D2",
     "countdown-decal": "shopify://shop_images/24_Hours_Decal.png",
     "decal-check": false,
     "img-mens-content": "shopify://shop_images/PLP_BANNER_-_Mens.png",
@@ -101,7 +101,7 @@
           "announcement_slider_Bn3qa3": {
             "type": "announcement_slider",
             "settings": {
-              "title": "24 Hour Offers - Day 1",
+              "title": "24 Hour Offers - Day 2",
               "subcontent1": "More Info",
               "link1": "",
               "enable_countdown": true,
