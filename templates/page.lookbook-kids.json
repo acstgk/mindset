@@ -38,8 +38,36 @@
     "carousel_hero_Ve8P9L": {
       "type": "carousel-hero",
       "blocks": {
+        "image_NGMBMr": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Kids Landing Page Banner Mobile.mp4",
+            "desktop_video": "shopify://files/videos/Kids Landing Page Banner_1.mp4",
+            "media_brightness": 97.5,
+            "overlay_url": "shopify://collections/kids-sale",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "Summer Sale",
+            "title_font": "",
+            "heading_size": 125,
+            "subtitle": "Up to 70% Off",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Boys",
+            "url1": "/collections/kids-sale/boys",
+            "cta2": "Shop Girls",
+            "url2": "/collections/kids-sale/girls",
+            "target_gender": ""
+          }
+        },
         "image_UWhPXm": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Kids Landing Page Banner Mobile.mp4",
             "desktop_video": "shopify://files/videos/Kids Landing Page Banner_1.mp4",
@@ -67,6 +95,7 @@
         }
       },
       "block_order": [
+        "image_NGMBMr",
         "image_UWhPXm"
       ],
       "custom_css": [
