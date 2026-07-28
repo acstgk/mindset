@@ -1,3 +1,6 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 {% assign locale_uk = false %}
 {% if request.locale.iso_code == 'en' %}
   {% assign locale_uk = true %}
@@ -13,7 +16,7 @@
     <div class="cart-title">
       <h1>Your Bag</h1>
       {% unless cart_empty %}
-        <a href="/checkout" class="checkout-button button button-primary" id="main-cart--button"
+        <a href="{{ root }}checkout" class="checkout-button button button-primary" id="main-cart--button"
           >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
         </a>
         <p class="info">
@@ -39,7 +42,7 @@
         {% if locale_uk %}
           {% render 'free-delivery-information' %}
         {% endif %}
-        <a href="/checkout" class="checkout-button button button-primary"
+        <a href="{{ root }}checkout" class="checkout-button button button-primary"
           >Checkout - <span class="cart-total">{{ cart.total_price | money_without_trailing_zeros -}}</span>
         </a>
         {% render 'payment-icons' %}

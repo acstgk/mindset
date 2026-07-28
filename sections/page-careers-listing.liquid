@@ -1,3 +1,6 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 <div class="Container">
   <header class="PageHeader">
     <div class="SectionHeader SectionHeader--center">
@@ -54,7 +57,7 @@
       {{ metaobject.hours | metafield_tag }}
     {% endif %}
     <div class="buttons">
-      <a href="/pages/careers" style="font-size: 15px;" class="button button-inverted">
+      <a href="{{ root }}pages/careers" style="font-size: 15px;" class="button button-inverted">
         {% render 'icon', icon: 'arrow', class: 'rotate180' %}
         <span>Back to Careers Page</span>
       </a>

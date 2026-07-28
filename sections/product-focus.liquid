@@ -10,7 +10,7 @@
   {{ product.media[section.settings.image_3] | image_url: width: '400px' | image_tag: loading: 'lazy', class: 'split__image' }}
 </div>
 
-<a href="{{ product.url }}" class="button button-primary" style="--btn-color:{{ section.settings.background_color }};--btn-bg:{{ section.settings.text_color }}">Shop Now</a>
+<a href="{{ root }}{{ product.url }}" class="button button-primary" style="--btn-color:{{ section.settings.background_color }};--btn-bg:{{ section.settings.text_color }}">Shop Now</a>
 <style>
   #shopify-section-{{ section.id }} {
     background-color: {{ section.settings.background_color }};

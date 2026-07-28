@@ -128,7 +128,7 @@
     "name": {{ product.title | json }},
     "description": {{ product.description | strip_html | json }},
     "category": {{ product.type | json }},
-    "url": "{{ product.url }}",
+    "url": "{{ root }}{{ product.url }}",
     "sku": {{ product.selected_or_first_available_variant.sku | json }},
     "image": {
       "@type": "ImageObject",

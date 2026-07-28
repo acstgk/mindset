@@ -1,3 +1,6 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 {%- if predictive_search.performed -%}
   {%- if predictive_search.resources.queries.size > 0 -%}
     <div class="predictive_search-terms max-width">
@@ -47,7 +50,7 @@
               {%- for collection in predictive_search.resources.collections -%}
                 {% if collection.products_count > 5 and collection.metafields.collection.hidden != 'Hide' %}
                   <li role="option">
-                    <a href="{{ collection.url }}">
+                    <a href="{{ root }}{{ collection.url }}">
                       {{ collection.title | highlight: predictive_search.terms -}}
                       <small>
                         <i>({{ collection.all_products_count }} products)</i></small
@@ -67,7 +70,7 @@
             {%- for page in predictive_search.resources.pages limit: 5 -%}
               {% if page.metafields.custom.display_type != 'Hide' %}
                 <li role="option">
-                  <a href="{{ page.url }}">
+                  <a href="{{ root }}{{ page.url }}">
                     {{ page.title | highlight: predictive_search.terms }}
                   </a>
                 </li>
@@ -95,7 +98,7 @@
                 {% assign article_age = this_year | minus: last_date %}
                 {% if article_age < 3 %}
                   <li role="option">
-                    <a href="{{ article.url }}">
+                    <a href="{{ root }}{{ article.url }}">
                       {{ article.title | truncate: 35 | highlight: predictive_search.terms }}
                     </a>
                   </li>
@@ -110,13 +113,13 @@
           <h4 class="predictive_search-heading">Useful Links</h4>
           <ul role="listbox">
             <li role="option">
-              <a href="/pages/help-centre"> Help Centre </a>
+              <a href="{{ root }}pages/help-centre"> Help Centre </a>
             </li>
             <li role="option">
-              <a href="/pages/size-guide"> Size Guide </a>
+              <a href="{{ root }}pages/size-guide"> Size Guide </a>
             </li>
             <li role="option">
-              <a href="/pages/about-us"> About Gym King </a>
+              <a href="{{ root }}pages/about-us"> About Gym King </a>
             </li>
           </ul>
         </div>

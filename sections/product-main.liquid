@@ -1,3 +1,6 @@
+{% assign root = routes.root_url %}
+{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
 {% comment %} set images sizes  {% endcomment %}
 {% assign is_set = product.metafields.custom.product_set %}
 {% assign widths = '400,600,800,1200,1920,2400,3000' | split: ',' %}
@@ -168,7 +171,7 @@
 
           {% unless product.gift_card? %}
             <a
-              href="/pages/size-guide"
+              href="{{ root }}pages/size-guide"
               target="_blank"
               class="drawer-button"
               data-target="sizeDrawer-{{ product.id }}"
@@ -189,7 +192,7 @@
               <h4 class="h5 part_title">{{ part.title | remove: 'Gym King' }}</h4>
             </a>
             <a
-              href="/pages/size-guide"
+              href="{{ root }}pages/size-guide"
               target="_blank"
               class="drawer-button"
               data-target="sizeDrawer-{{ part.id }}"
