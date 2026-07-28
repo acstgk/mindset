@@ -50,7 +50,7 @@
               {%- for collection in predictive_search.resources.collections -%}
                 {% if collection.products_count > 5 and collection.metafields.collection.hidden != 'Hide' %}
                   <li role="option">
-                    <a href="{{ collection.url }}">
+                    <a href="{{ root }}{{ collection.url }}">
                       {{ collection.title | highlight: predictive_search.terms -}}
                       <small>
                         <i>({{ collection.all_products_count }} products)</i></small
@@ -70,7 +70,7 @@
             {%- for page in predictive_search.resources.pages limit: 5 -%}
               {% if page.metafields.custom.display_type != 'Hide' %}
                 <li role="option">
-                  <a href="{{ page.url }}">
+                  <a href="{{ root }}{{ page.url }}">
                     {{ page.title | highlight: predictive_search.terms }}
                   </a>
                 </li>
@@ -98,7 +98,7 @@
                 {% assign article_age = this_year | minus: last_date %}
                 {% if article_age < 3 %}
                   <li role="option">
-                    <a href="{{ article.url }}">
+                    <a href="{{ root }}{{ article.url }}">
                       {{ article.title | truncate: 35 | highlight: predictive_search.terms }}
                     </a>
                   </li>
