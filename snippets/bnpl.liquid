@@ -1,7 +1,7 @@
 {% assign root = routes.root_url %}
 {% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
 
-{% if localization.country.iso_code == 'GB' and price > 0©%}
+{% if localization.country.iso_code == 'GB' and price > 0%}
   <bnpl-options>
     <div class="bnpl-placement">
       {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color' }}
