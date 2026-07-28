@@ -1,27 +1,20 @@
-{% assign root = routes.root_url %}
-{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
-
-{% if localization.country.iso_code == 'GB' %}
-  <bnpl-options>
-    <div class="bnpl-placement">
-      {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color' }}
-      <span>
-        {% if price >= 3000 %}
-          or make 3 interest-free payments of <strong>{{ price | divided_by: 3 | money_without_trailing_zeros }}</strong>.
-          <br>
-        {% else %}
-          pay in 30 days with Klarna. <br>
-        {% endif %}
-        <a href="{{ root }}pages/klarna-terms-conditions" class="klarna-link">Discover Klarna</a>
-      </span>
+<bnpl-options class=" ge-hide-display-none ge-hide">
+  <div class="bnpl-placement">
+    <button type="button" data-bnpl="klarna" aria-label="Klarna">
+      {{ 'klarna' | payment_type_svg_tag: class: 'icon icon--full-color icon--klarna' }}
+    </button>
+    <button type="button" data-bnpl="clearpay" aria-label="Clearpay">
+      {{ 'afterpay' | payment_type_svg_tag: class: 'icon icon--full-color icon--clearpay' }}
+    </button>
+    <button type="button" data-bnpl="paypal" aria-label="PayPal">
+      {{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color icon--paypal' }}
+    </button>
+    <div>
+      <b>Buy now, pay later</b> in interest free instalments.
+      <small>
+        UK Residency and 18+ terms apply.
+        <a href="/pages/bnpl">Learn more</a>
+      </small>
     </div>
-    <div class="bnpl-placement">
-      {{ 'afterpay' | payment_type_svg_tag: class: 'icon icon--full-color' }}
-      <span>
-        or make 4 interest-free payments of <strong>{{ price | divided_by: 4 | money_without_trailing_zeros }}</strong>.
-        <br>
-        <a href="{{ root }}pages/clearpay-terms-conditions" class="clearpay-link">Discover ClearPay </a>
-      </span>
-    </div>
-  </bnpl-options>
-{% endif %}
+  </div>
+</bnpl-options>

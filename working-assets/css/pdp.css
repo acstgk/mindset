@@ -697,22 +697,41 @@ form .quantity-warning {
 
 bnpl-options {
   display: flex;
-  flex-flow: column;
+  align-items: center;
+    flex-direction: column;
   gap: 0.5em;
-  margin-block: 1em;
-  padding: 0.75em 0 0.25em 0;
+  margin-block: 0.75em 0;
+  padding: 0 0 0.25em 0;
+& svg {
+    flex: 0 0 auto;
+  }
 }
 
-.bnpl-placement,
-.bnpl-placement a {
-  font-size: var(--txt-sm) !important;
+.bnpl-placement {
+  font-size: var(--txt-sm);
   display: flex;
-  gap: 1em;
+    gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.bnpl-placement+small {
+  gap: 0.2em;
+  color: var(--c-grey);
+}
+.bnpl-placement button {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
   align-items: center;
 }
-
 .bnpl-placement a {
-  gap: 0.2em;
   text-decoration: underline;
 }
 
@@ -721,18 +740,30 @@ bnpl-options {
   background-color: var(--c-white);
   inset: 0;
   margin: auto;
-  width: min(100vw, 1400px);
-  max-height: min(100vh, 950px);
+  width: fit-content;
+    max-width: 90vw;
+    height: fit-content;
+    max-height: 100vh;
   z-index: 11;
-  padding: 4rem 1rem 2rem;
+  padding: 0 1rem 1rem;
   overflow: hidden;
+  &.fade-in.active {
+      height: fit-content;
+      width: fit-content;
+      max-width: 95vw;
+    }
 }
 
 .bnpl-modal .bnpl-modal--content {
-  overflow-y: auto;
   position: static;
-  max-height: calc(100vh - 6rem);
   padding: 0.5rem;
+  display: grid;
+    place-content: center;
+
+    & .accordian-header {
+padding: 1rem;
+margin: 0.1rem 0;
+    }
 }
 
 button.modal-close {
@@ -754,15 +785,12 @@ button.modal-close :hover svg {
 }
 @media screen and (width >=768px) {
   .bnpl-modal {
-    width: var(--max-width);
     max-height: min(90vh, 950px);
-    padding: 4rem 3rem 3rem;
   }
 
-  .bnpl-modal .bnpl-modal--content {
-    max-height: calc(90vh - 7rem);
-    height: 100%;
-  }
+.bnpl-modal .bnpl-modal--content {
+  height: 100%;
+}
 
   pdp-carousel {
     max-height: fit-content !important;
@@ -791,6 +819,7 @@ button.modal-close :hover svg {
 
     & bnpl-options {
       margin-block: 0.5em;
+ padding: 0.75rem 0 .25em;
     }
 
     & .Title {
