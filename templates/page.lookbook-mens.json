@@ -203,32 +203,32 @@
           "type": "spacer",
           "settings": {}
         },
-        "grid_item_pjrnWd": {
+        "grid_item_6JNirK": {
           "type": "grid-item",
           "settings": {
-            "title": "Nothing Beats Belief",
+            "title": "Fight Divison",
             "flag": "",
             "grid_column_span": "2",
             "grid_row_span": "2",
-            "img": "shopify://shop_images/Capture_31.webp",
+            "img": "shopify://shop_images/20250613_FD_HIGH_RES-63.webp",
             "img_alt": "",
             "overlay_link": "",
-            "product": "",
+            "product": "gym-king-combat-long-sleeve-rash-guard-black",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "overlay",
             "heading_size": "h2",
             "heading_style": "emphasis",
-            "text": "",
+            "text": "<p>Built by fighters, for fighters.</p>",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
-            "cta_text": "Buy Now",
-            "cta_url": "shopify://collections/nothing-beats-belief",
-            "btn_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/fight-division-collection",
+            "btn_color": "#7e7e7e",
             "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
+            "cta_text2": "Learn More",
+            "cta_url2": "shopify://pages/fight-division",
+            "btn_color2": "#040708"
           }
         },
         "grid_item_e3qjVp": {
@@ -259,32 +259,32 @@
             "btn_color2": "#040708"
           }
         },
-        "grid_item_6JNirK": {
+        "grid_item_pjrnWd": {
           "type": "grid-item",
           "settings": {
-            "title": "Fight Divison",
+            "title": "Nothing Beats Belief",
             "flag": "",
             "grid_column_span": "2",
             "grid_row_span": "1",
-            "img": "shopify://shop_images/2._FD_Desktop_Cover_d68161c2-9ed3-4943-857b-ada94e4bc735.png",
+            "img": "shopify://shop_images/Capture_31.webp",
             "img_alt": "",
             "overlay_link": "",
-            "product": "gym-king-combat-long-sleeve-rash-guard-black",
+            "product": "",
             "always_show": false,
             "img_transition": "normal",
             "content_placement": "overlay",
             "heading_size": "h2",
             "heading_style": "emphasis",
-            "text": "<p>Built by fighters, for fighters.</p>",
+            "text": "",
             "bg_color": "#f6f6f6",
             "txt_color": "#ffffff",
-            "cta_text": "Shop Now",
-            "cta_url": "shopify://collections/fight-division-collection",
-            "btn_color": "#7e7e7e",
+            "cta_text": "Buy Now",
+            "cta_url": "shopify://collections/nothing-beats-belief",
+            "btn_color": "#1b1b1b",
             "cta_position": "left",
-            "cta_text2": "Learn More",
-            "cta_url2": "shopify://pages/fight-division",
-            "btn_color2": "#040708"
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
           }
         },
         "spacer_HrA4FQ": {
@@ -299,9 +299,9 @@
         "grid_item_fNzbHq",
         "grid_item_fp6Ckt",
         "spacer_NTgzLG",
-        "grid_item_pjrnWd",
-        "grid_item_e3qjVp",
         "grid_item_6JNirK",
+        "grid_item_e3qjVp",
+        "grid_item_pjrnWd",
         "spacer_HrA4FQ"
       ],
       "name": "Content Mosaic",
