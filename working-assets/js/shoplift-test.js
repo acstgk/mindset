@@ -1,6 +1,7 @@
 function shopliftTest() {
-  const hypothesisID = "019e8270-204a-74ac-92de-82e21cffdd21"; //the shopplift test ID
+  const hypothesisID = "019fb32a-1eb5-79b2-a56b-f179fe6a66fc";
   const style = document.createElement("style");
+  if (!window.shoplift) return;
   window.shoplift.isHypothesisActive(hypothesisID).then((active) => {
     if (active && window.theme.pageType == "index") {
       console.log("SHOPLIFT:: Active");
@@ -18,4 +19,4 @@ function shopliftTest() {
   });
 }
 
-shopliftTest();
+document.addEventListener("DOMContentLoaded", () => shopliftTest());
