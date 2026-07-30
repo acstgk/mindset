@@ -1,5 +1,8 @@
 {% assign root = routes.root_url %}
-{% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+{% if root == '/' %}
+{%assign root = "" %}
+{%else %}{% assign root = root | append: '/' %}
+{% endif %}
 
 {%- if predictive_search.performed -%}
   {%- if predictive_search.resources.queries.size > 0 -%}
@@ -98,7 +101,7 @@
                 {% assign article_age = this_year | minus: last_date %}
                 {% if article_age < 3 %}
                   <li role="option">
-                    <a href="{{ root }}{{ article.url }}">
+                    <a href="{{root}}{{ article.url }}">
                       {{ article.title | truncate: 35 | highlight: predictive_search.terms }}
                     </a>
                   </li>
