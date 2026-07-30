@@ -5,10 +5,12 @@
 export default class BnplOptions extends HTMLElement {
   connectedCallback() {
     this.bnplURL = "https://thegymking.com/pages/bnpl";
-    this.infoLink = this.querySelector("a")
-    this.productPriceDisplay = window.product.productPrice;
-    this.productPriceValue = window.product.productPriceRaw;
-    this.infoLink.addEventListener("click", (event) => this._openmodal(event));
+    const infoLink = this.querySelector("a");
+    this.productPriceDisplay = window.product?.productPrice;
+    this.productPriceValue = window.product?.productPriceRaw;
+    if (infoLink) {
+      infoLink.addEventListener("click", (event) => this._openmodal(event));
+    }
     this.querySelectorAll('[data-bnpl]').forEach(btn => {
       btn.addEventListener("click", (event) => this._openmodal(event, btn.dataset.bnpl));
     });
