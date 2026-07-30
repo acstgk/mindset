@@ -2604,6 +2604,20 @@ product-card {
     gap: 1.5ch;
   }
 
+  & .card-rating {
+    font-size: var(--txt-sm);
+    color: var(--c-grey);
+    align-items: flex-start;
+    padding-top: 0.5rem;
+    gap: 0.2rem;
+
+    & .Icon.Icon--star {
+      height: 0.9rem;
+      margin-top: 0rem;
+      fill: var(--c-grey);
+    }
+  }
+
   & .product_card-media {
     aspect-ratio: 35 / 50;
     position: relative;

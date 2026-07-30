@@ -120,10 +120,18 @@
   </div>
 
   <div class="product_card-info">
+
     <div class="product_card-title-wrap">
       {% render 'product-title', product: product %}
       {% if settings.star_rating %}
-        <div class="yotpo-widget-instance" data-yotpo-instance-id="1008278" data-yotpo-product-id="{{product.id}}" data-yotpo-section-id="collection"></div>
+        {% if product.metafields.reviews.rating.type %}
+        <div class="inline-flex card-rating">
+          {% render 'icon', icon: 'star' %}
+         <span>{{ product.metafields.reviews.rating.value }}</span>
+        </div>
+        {% else %}
+            <div class="yotpo-widget-instance" data-yotpo-instance-id="1008278" data-yotpo-product-id="{{product.id}}" data-yotpo-section-id="collection"></div>
+        {% endif %}
       {% endif %}
     </div>
     {% render 'product-price', product: product %}
