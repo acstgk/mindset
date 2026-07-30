@@ -3,7 +3,7 @@
   <head>
     <!-- Start of Shoplift scripts -->
     {% render 'shoplift' %}
-    {% comment %} <script type="text/javascript" src="{{ 'shoplift-test.js' | asset_url }}"></script> {% endcomment %}
+<script type="text/javascript" src="{{ 'shoplift-test.js' | asset_url }}"></script>
     <!-- End of Shoplift scripts -->
 
     <script>
@@ -156,6 +156,18 @@
       <noscript><link rel="stylesheet" href="{{ 'plp.min.css' | asset_url }}"></noscript>
     {% endif %}
     {% render 'speculation-rules' %}
+
+    {% if request.page_type == "index" %}
+    <style>
+    .yotpo-widget-spotlight-cta {
+      width: min(1400px, 100%);
+      margin: 0 auto;
+    }
+    #shopify-section-template--28979726614911__1785416516408442e1 {
+      display: none;
+    }
+    </style>
+    {% endif %}
   </head>
 
   <body class="{%- if template.directory -%}template-{{ template.directory | handle }}{%- endif -%} template-{{ template.name | handle }}">
@@ -279,6 +291,8 @@
         }
       </style>
     {% endif %}
+
+
 
     {% render 'globale-js' %}
     {%- render 'country-switcher-global' -%}
