@@ -9,6 +9,32 @@
  */
 {
   "sections": {
+    "17854181664835405e": {
+      "type": "apps",
+      "blocks": {
+        "yotpo_loyalty_rewards_spotlight_cta_app_block_PP3nLG": {
+          "type": "shopify://apps/yotpo-loyalty-rewards/blocks/spotlight-cta-app-block/2f9660df-5018-4e02-9868-ee1fb88d6ccd",
+          "settings": {
+            "preview_as": "logged_in",
+            "signed_in_text": "<p>Hey ##customer_name##, you have ##points_balance## points!</p>",
+            "signed_in_cta_text": "See your rewards",
+            "logged_out_text": "<p>Sign in to see your rewards</p>",
+            "logged_out_cta_text": "Sign in",
+            "non_loyalty_member_text": "One more step to start earning rewards",
+            "custom_login_url": "",
+            "background_color": "transparent",
+            "text_color": "#000000D9",
+            "font": "inter_n4",
+            "text_size": "small",
+            "exclude_pages": "/pages/\n/products/\n/collections/\n/blogs/"
+          }
+        }
+      },
+      "block_order": [
+        "yotpo_loyalty_rewards_spotlight_cta_app_block_PP3nLG"
+      ],
+      "settings": {}
+    },
     "hero": {
       "type": "carousel-hero",
       "blocks": {
@@ -434,6 +460,7 @@
     }
   },
   "order": [
+    "17854181664835405e",
     "hero",
     "section_value_props_FBFJKV",
     "section_split_banner_CHJbCm",

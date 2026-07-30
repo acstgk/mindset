@@ -1,7 +1,7 @@
 function shopliftTest() {
   const hypothesisID = "019fb32a-1eb5-79b2-a56b-f179fe6a66fc";
   const style = document.createElement("style");
-  if (!window.shoplift) return;
+
   window.shoplift.isHypothesisActive(hypothesisID).then((active) => {
     if (active && window.theme.pageType == "index") {
       console.log("SHOPLIFT:: Active");
@@ -10,7 +10,7 @@ function shopliftTest() {
             display: none;
         }
 
-        #shopify-section-template--28979726614911__1785416516408442e1 {
+        #shopify-section-template--29714902286719__17854181664835405e {
           display: block;
       }
     `;
