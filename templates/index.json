@@ -244,6 +244,27 @@
         "flex_wrap": true
       }
     },
+    "blog_featured_articles": {
+      "type": "blog-featured-articles",
+      "blocks": {
+        "custom_i3NHtY": {
+          "type": "custom",
+          "settings": {
+            "heading_level": "h2",
+            "title": "The Last Stoic Standing: The Ultimate Test of Strength and Resilience",
+            "copy": "<p>On Sunday 6th September 2026, Gym King and world-renowned endurance athlete Ross Edgley will bring The Last Stoic Standing to Farm Fitness in Essex.<br/><br/>An entirely new strength and resilience competition designed to test physical capacity, mental composure and relentless determination.</p>",
+            "url": "shopify://pages/stoic",
+            "cta": "learn more",
+            "image": "shopify://shop_images/stoic-games.png"
+          }
+        },
+      },
+      "block_order": [
+        "custom_i3NHtY"
+      ],
+      "name": "Featured Articles Carousel",
+      "settings": {}
+    },
     "as_seen_in_Q7HTU7": {
       "type": "as-seen-in",
       "name": "As Seen In",
