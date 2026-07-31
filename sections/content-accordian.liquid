@@ -1,41 +1,47 @@
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {% for block in section.blocks %}
-    {
-      "@type": "Question",
-      "name": {{ block.settings.title | json }},
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": {{ block.settings.htmlContent | append: block.settings.content | strip_html | json }}
-      }
-    }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for block in section.blocks %}
+      {
+        "@type": "Question",
+        "name": {{ block.settings.title | json }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ block.settings.htmlContent | append: block.settings.content | strip_html | json }}
+        }
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
 </script>
 
 {% if section.settings.showTitle %}
-  <h1>{%if section.settings.title %}{{ section.settings.title }}{% else %}{{ page.title }}{% endif %}</h1>
+  <h1>
+    {% if section.settings.title %}{{ section.settings.title }}{% else %}{{ page.title }}{% endif %}
+  </h1>
 {% endif %}
 
 <content-accordian>
-  {% for block in section.blocks %}
-    <div class="accordian-items">
+  <div class="accordian-items">
+    {% for block in section.blocks %}
       <div class="accordian-header accent-bg {% if forloop.first and section.settings.openFirst %}active{% endif %}" aria-controls="accordian-content-{{ forloop.index }}">{{ block.settings.title }}</div>
-      <div class="accordian-content no-animation rtf" id="accordian-content-{{ forloop.index }}" >
+      <div class="accordian-content no-animation rtf" id="accordian-content-{{ forloop.index }}">
         {{ block.settings.htmlContent }}
         {{ block.settings.content }}
       </div>
-    </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </content-accordian>
 
 <style>
   .accordian-content p:first-child {
     margin-top: 1rem;
+  }
+  .accordian-header.accent-bg {
+    margin: 0.2rem;
+    padding: 0 1rem;
   }
 </style>
 
@@ -61,7 +67,7 @@
       "id": "title",
       "label": "Section Title",
       "visible_if": "{{ section.settings.showTitle }}"
-    },
+    }
   ],
   "max_blocks": 20,
   "blocks": [
