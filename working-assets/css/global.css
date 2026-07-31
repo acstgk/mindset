@@ -1245,7 +1245,7 @@ content-accordian {
     border-bottom: 1px solid var(--c-off-white);
     & + .accordian-content {
       max-height: 5000px;
-      padding-block: 15px;
+      padding-block: 15px 20px;
     }
 
     & svg {
