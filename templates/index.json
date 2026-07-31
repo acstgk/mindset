@@ -22,8 +22,8 @@
             "logged_out_cta_text": "Sign in",
             "non_loyalty_member_text": "One more step to start earning rewards",
             "custom_login_url": "",
-            "background_color": "transparent",
-            "text_color": "#000000D9",
+            "background_color": "rgba(0,0,0,0)",
+            "text_color": "#000000d9",
             "font": "inter_n4",
             "text_size": "small",
             "exclude_pages": "/pages/\n/products/\n/collections/\n/blogs/"
@@ -244,6 +244,14 @@
         "flex_wrap": true
       }
     },
+    "spacer_tQP6BE": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 60,
+        "mobile": 20
+      }
+    },
     "blog_featured_articles": {
       "type": "blog-featured-articles",
       "blocks": {
@@ -252,18 +260,29 @@
           "settings": {
             "heading_level": "h2",
             "title": "The Last Stoic Standing: The Ultimate Test of Strength and Resilience",
-            "copy": "<p>On Sunday 6th September 2026, Gym King and world-renowned endurance athlete Ross Edgley will bring The Last Stoic Standing to Farm Fitness in Essex.<br/><br/>An entirely new strength and resilience competition designed to test physical capacity, mental composure and relentless determination.</p>",
+            "copy": "<p>On <strong>Sunday 6th September 2026</strong>, Gym King and world-renowned endurance athlete Ross Edgley will bring The Last Stoic Standing to <strong>Farm Fitness in Essex.</strong><br/><br/>An entirely new strength and resilience competition designed to test physical capacity, mental composure and relentless determination.</p>",
             "url": "shopify://pages/stoic",
             "cta": "learn more",
             "image": "shopify://shop_images/stoic-games.png"
           }
-        },
+        }
       },
       "block_order": [
         "custom_i3NHtY"
       ],
+      "custom_css": [
+        ".img-overlay {display: block !important;}"
+      ],
       "name": "Featured Articles Carousel",
       "settings": {}
+    },
+    "spacer_k6Uicn": {
+      "type": "spacer",
+      "name": "Content Spacer",
+      "settings": {
+        "desktop": 70,
+        "mobile": 20
+      }
     },
     "as_seen_in_Q7HTU7": {
       "type": "as-seen-in",
@@ -485,6 +504,9 @@
     "hero",
     "section_value_props_FBFJKV",
     "section_split_banner_CHJbCm",
+    "spacer_tQP6BE",
+    "blog_featured_articles",
+    "spacer_k6Uicn",
     "as_seen_in_Q7HTU7",
     "gender_selector_iPE3Hb",
     "gender_categories_9Tkx7m",
