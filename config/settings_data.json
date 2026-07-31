@@ -10,8 +10,8 @@
 {
   "current": {
     "countdown-date": "07/31/26 12:00 PM",
-    "countdown-product-check": true,
-    "countdown-tag": "SS26-D4",
+    "countdown-product-check": false,
+    "countdown-tag": "",
     "countdown-decal": "shopify://shop_images/24_Hours_Decal.png",
     "decal-check": false,
     "img-mens-content": "shopify://shop_images/PLP_BANNER_-_Mens.png",
@@ -98,13 +98,13 @@
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
-          "announcement_slider_Bn3qa3": {
+          "announcement_slider_hpCPCN": {
             "type": "announcement_slider",
             "settings": {
-              "title": "Offers extended for 24 hours",
-              "subcontent1": "More Info",
-              "link1": "",
-              "enable_countdown": true,
+              "title": "up to 70% off",
+              "subcontent1": "Summer Sale",
+              "link1": "shopify://collections/sale",
+              "enable_countdown": false,
               "country_restriction": "none"
             }
           },
@@ -172,7 +172,7 @@
           }
         },
         "block_order": [
-          "announcement_slider_Bn3qa3",
+          "announcement_slider_hpCPCN",
           "announcement_slider_KeM9Hq",
           "announcement_slider_8GNAEy",
           "announcement_slider_CxdCHz",

@@ -38,8 +38,63 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_iyKkAM": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Summer Sale - Mobile Womens V2_2a23619a-06db-4e51-8b89-a64c7a077409.mp4",
+            "desktop_video": "shopify://files/videos/Summer Sale - Desktop Womens V2_714aa998-7f9f-4d07-8192-cea319222e5f.mp4",
+            "media_brightness": 87.5,
+            "overlay_url": "/collections/sale/womens",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "70% Off",
+            "title_font": "",
+            "heading_size": 150,
+            "subtitle": "up to",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "<span style=\"text-transform: uppercase;color:white;letter-spacing:.7ch;font-size: var(--txt-h3)\">Summer Sale</span>",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop womens",
+            "url1": "/collections/sale/womens",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
+          }
+        },
+        "image_etqmMU": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Summer Sale - Mobile Mens V2_2d9e052c-ef79-4872-a340-8a3a39ceb020.mp4",
+            "desktop_video": "shopify://files/videos/Summer Sale - Desktop Mens V2_12780e65-5356-41d3-97e5-1b5e0e3915e8.mp4",
+            "media_brightness": 87.5,
+            "overlay_url": "/collections/sale/mens",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "70% Off",
+            "title_font": "",
+            "heading_size": 150,
+            "subtitle": "Up to",
+            "subtitle_font": "",
+            "subtitle_first": true,
+            "customHTML": "<span style=\"text-transform: uppercase;color:white;letter-spacing:.7ch;font-size: var(--txt-h3)\">Summer Sale</span>",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Mens",
+            "url1": "/collections/sale/mens",
+            "cta2": "",
+            "url2": "",
+            "target_gender": ""
+          }
+        },
         "image_rNb94A": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Summer Sale - Mobile Banner 24 HR OFFERS.mp4",
             "desktop_video": "shopify://files/videos/Summer Sale - Desktop Banner 24 HR OFFERS V2.mp4",
@@ -153,6 +208,8 @@
         }
       },
       "block_order": [
+        "image_iyKkAM",
+        "image_etqmMU",
         "image_rNb94A",
         "image_KhLw9c",
         "image_6BmG7G",
