@@ -10,18 +10,22 @@
       {% endif %}
     {% endfor %}
     {% if product.vendor == 'Accessories' %}
-      {% assign type_link = '/collections/vendors?q=Accessories&sort_by=price-descending' %}
+      {% assign type_link = 'collections/vendors?q=Accessories&sort_by=price-descending' %}
       {% assign category = 'Accessories' %}
       {% assign last_letter = 's' %}
     {% else %}
       {% assign last_letter = product.type | slice: -1 %}
-      {% assign type_link = '/collections/types?q=' | append: product.type | append: '&filter.p.vendor=' | append: product.vendor | append: '&sort_by=featured' %}
+      {% assign type_link = 'collections/types?q=' | append: product.type | append: '&filter.p.vendor=' | append: product.vendor | append: '&sort_by=featured' %}
       {% assign category = product.type %}
       {%- unless last_letter == 's' %}
         {% assign category = category | append: 's' %}
       {% endunless %}
     {% endif %}
-    <a href="{{ type_link }}" class="button button-primary">
+
+    {% assign root = routes.root_url %}
+    {% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+
+    <a href="{{root}}{{ type_link }}" class="button button-primary">
       All {{ category -}}
       {% render 'icon' with 'arrow' as icon -%}
     </a>
