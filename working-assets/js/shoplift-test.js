@@ -6,13 +6,7 @@ function shopliftTest() {
     if (active && window.theme.pageType == "index") {
       console.log("SHOPLIFT:: Active");
       style.textContent = `
-        .yotpo-widget-loyalty-floater-widget.yotpo-widget-override-css {
-            display: none;
-        }
 
-        #shopify-section-template--29714902286719__17854181664835405e {
-          display: block;
-      }
     `;
       document.head.appendChild(style);
     }
