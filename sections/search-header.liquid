@@ -2,7 +2,7 @@
 
 <h1 class="center">search</h1>
 
-{% unless search.results_count == 0 and search.performed %}
+{% unless search.results_count == 0 or search.performed == false %}
   <form id="search_page-form" class="max-width" action="{{ routes.search_url }}">
     <p>{{ copy }}</p>
     <input type="hidden" name="type" value="product">

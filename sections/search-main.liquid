@@ -23,10 +23,12 @@
       </div>
     {% endif %}
   {%- endpaginate -%}
-{% else %}
+{% elsif search.performed %}
   <h2 class="center emphasis h3">Zero Results found for "{{ search.terms }}"</h2>
   <p class="center">Try a different search query below.</p>
   {% render 'dead-end' %}
+  {% else %}
+   {% render 'dead-end' %}
 {% endif %}
 
 {% schema %}
