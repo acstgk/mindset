@@ -594,10 +594,10 @@
       "type": "product-collection-carousel",
       "name": "Product Card Carousel",
       "settings": {
-        "carousel_title": "Current Best Sellers",
+        "carousel_title": "Explore New Arrivals",
         "heading_style": "emphasis",
         "product_list": [],
-        "collection": "mens-bestsellers",
+        "collection": "mens-new",
         "product_count": 6,
         "show_womens": false,
         "product_list_2": [],

@@ -495,6 +495,14 @@
             "htmlContent": "",
             "content": "<p>Yes - Ross will be there to meet everyone.</p>"
           }
+        },
+        "card_NYpA6t": {
+          "type": "card",
+          "settings": {
+            "title": "Are children allowed as spectators?",
+            "htmlContent": "",
+            "content": "<p>Yes, but they must supervised by an adult at all times.</p>"
+          }
         }
       },
       "block_order": [
@@ -516,7 +524,8 @@
         "card_WeApQ9",
         "card_rUicUa",
         "card_nxyjnW",
-        "card_PYm8iH"
+        "card_PYm8iH",
+        "card_NYpA6t"
       ],
       "custom_css": [
         "h1 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-weight: 700;}",

@@ -10,7 +10,7 @@ function shopliftTest() {
             display: none;
         }
 
-        #shopify-section-template--28979726614911__17854181664835405e {
+        #shopify-section-template--29714902286719__17854181664835405e {
           display: block;
       }
     `;

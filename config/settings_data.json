@@ -101,7 +101,7 @@
           "announcement_slider_hpCPCN": {
             "type": "announcement_slider",
             "settings": {
-              "title": "up to 70% off",
+              "title": "up to 70% Off",
               "subcontent1": "Summer Sale",
               "link1": "shopify://collections/sale",
               "enable_countdown": false,
@@ -194,7 +194,7 @@
       "drawer-cart": {
         "type": "drawer-cart",
         "settings": {
-          "microcopy": "bnpl",
+          "microcopy": "payments",
           "merge_upsells": true
         }
       },
