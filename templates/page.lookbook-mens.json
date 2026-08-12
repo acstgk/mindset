@@ -212,6 +212,9 @@
         "grid_item_fp6Ckt",
         "spacer_HrA4FQ"
       ],
+      "custom_css": [
+        "p {margin-left: 0;}"
+      ],
       "name": "Content Mosaic",
       "settings": {
         "title": "",
@@ -230,7 +233,7 @@
         "rtf_azHhUU": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<p>Men's tracksuits for all seasons — on-the-go, gym, or rest. Classic to on-trend styles. Fleece for comfort, lightweight woven for high-intensity days. </p><p>Looking for more? Check out our range of <a href=\"/collections/mens-tracksuit-tops\" title=\"/collections/mens-tracksuit-tops\"><span style=\"text-decoration:underline\">tracksuit tops</span></a> and <a href=\"/collections/mens-tracksuit-bottoms\" title=\"/collections/mens-tracksuit-bottoms\"><span style=\"text-decoration:underline\">bottoms</span></a>, pair them together or mix and match to create a look that is just yours!</p>"
+            "richtext_content": "<p>Men's tracksuits for all seasons. Whether you are on the go, heading to the gym, or having some well-deserved rest, you'll find a tracksuit to fit your style. Classic to on-trend styles in fleece for comfort, durable poly blends, or in lightweight woven styles for those high-intensity days. </p><p>Looking for more? Check out our range of <a href=\"/collections/mens-tracksuit-tops\" title=\"/collections/mens-tracksuit-tops\"><span style=\"text-decoration:underline\">tracksuit tops</span></a> and <a href=\"/collections/mens-tracksuit-bottoms\" title=\"/collections/mens-tracksuit-bottoms\"><span style=\"text-decoration:underline\">bottoms</span></a>, pair them together or mix and match to create a look that is just yours!</p>"
           }
         }
       },
@@ -302,7 +305,7 @@
             "image": "shopify://shop_images/STAMINAWOVENJACKET_STAMINAPERFORMANCEPANT_STAMINAPERFORMANCETEE-BLACKTST-BOEZ8TSB-BOEZZSST-BOEZA.png",
             "img_style": "natural",
             "image_style": "cover",
-            "rtf": "<h2>The Woven Tracksuit</h2><p>The perfect gym tracksuit. Designed in a lightweight, breathable woven fabric built to move with you through those high-intensity days.</p><p>On the image of the tracksuit, the below call out features can be mentioned like on the women’s leggings:<br/></p><ul><li>Lightweight Woven Fabric </li><li>Breathable Panelling </li></ul>",
+            "rtf": "<h2>The Woven Tracksuit</h2><p>The perfect gym tracksuit. Designed in a lightweight, breathable woven fabric built to move with you through those high-intensity days.</p><p>On the image of the tracksuit, the below call out features can be mentioned like on the women’s leggings:<br/></p><ul><li>Lightweight Woven Fabric </li><li>Breathable Panelling </li><li>Tapered Leg Fit</li></ul>",
             "txt_color": "",
             "text_align": "left",
             "use_html": false,
