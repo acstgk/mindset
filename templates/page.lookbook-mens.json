@@ -224,6 +224,135 @@
       "name": "As Seen In",
       "settings": {}
     },
+    "content_rich_text_itJbYW": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_azHhUU": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<p>Men's tracksuits for all seasons — on-the-go, gym, or rest. Classic to on-trend styles. Fleece for comfort, lightweight woven for high-intensity days. </p><p>Looking for more? Check out our range of <a href=\"/collections/mens-tracksuit-tops\" title=\"/collections/mens-tracksuit-tops\"><span style=\"text-decoration:underline\">tracksuit tops</span></a> and <a href=\"/collections/mens-tracksuit-bottoms\" title=\"/collections/mens-tracksuit-bottoms\"><span style=\"text-decoration:underline\">bottoms</span></a>, pair them together or mix and match to create a look that is just yours!</p>"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_azHhUU"
+      ],
+      "custom_css": [
+        "h2 {font-family: var(--emphasis-heading-font-family); font-size: var(--txt-h1); letter-spacing: var(--letter-spacing);}"
+      ],
+      "name": "Editorial Content Block",
+      "settings": {
+        "title": "Gym King Tracksuits",
+        "heading_style": "",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
+    "content_grid_txEUw9": {
+      "type": "content-grid",
+      "blocks": {
+        "grid_item_t37JEj": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "0",
+            "image": "shopify://shop_images/blackset3_b8057c11-8057-4a52-814c-0f710412df5f.png",
+            "img_style": "natural",
+            "image_style": "cover",
+            "rtf": "<h2>The Fleece Tracksuit</h2><p>The perfect everyday tracksuit designed in a soft brushed fleece fabric for ultra-comfort, whether you're on the go, heading to the gym, or having some well-deserved rest.</p><p>On the image of the tracksuit, the below call out features can be mentioned like on the women’s leggings:</p><ul><li>Drawstring hood </li><li>Brushed Fleece Fabric </li><li>Ribbed cuffs and hem </li></ul>",
+            "txt_color": "",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": true,
+            "cta_text": "Find your tracksuit",
+            "cta_url": "shopify://collections/mens-tracksuits"
+          }
+        },
+        "grid_item_PcRGVB": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "-1",
+            "image": "shopify://shop_images/COREPIPEDFULLZIPFUNNEL_COREPIPEDSTRAIGHTLEGJOGGER-NAVYTST-BOFLTTSB-BOFLY_277.png",
+            "img_style": "natural",
+            "image_style": "cover",
+            "rtf": "<h2>The Poly Tracksuit</h2><p>The perfect statement tracksuit. Designed in a durable polyester fabric with branding throughout, for a sharp look whether you're training or travelling light.</p><ul><li>Lightweight and Durable Polyester Fabric </li><li>Elasticated Waistband</li><li>Performance Tracksuit </li></ul>",
+            "txt_color": "",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": true,
+            "cta_text": "Find your Tracksuit",
+            "cta_url": "shopify://collections/mens-tracksuits"
+          }
+        },
+        "grid_item_7MExVG": {
+          "type": "grid-item",
+          "settings": {
+            "grid_order": "0",
+            "image": "shopify://shop_images/STAMINAWOVENJACKET_STAMINAPERFORMANCEPANT_STAMINAPERFORMANCETEE-BLACKTST-BOEZ8TSB-BOEZZSST-BOEZA.png",
+            "img_style": "natural",
+            "image_style": "cover",
+            "rtf": "<h2>The Woven Tracksuit</h2><p>The perfect gym tracksuit. Designed in a lightweight, breathable woven fabric built to move with you through those high-intensity days.</p><p>On the image of the tracksuit, the below call out features can be mentioned like on the women’s leggings:<br/></p><ul><li>Lightweight Woven Fabric </li><li>Breathable Panelling </li></ul>",
+            "txt_color": "",
+            "text_align": "left",
+            "use_html": false,
+            "html": "<p>Add custom HTML content here.</p>",
+            "show_quote": false,
+            "quote_text": "This is a sample quote.",
+            "quote_author": "Author Name",
+            "show_button": true,
+            "cta_text": "Find your Tracksuit",
+            "cta_url": "shopify://collections/mens-tracksuits"
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_t37JEj",
+        "grid_item_PcRGVB",
+        "grid_item_7MExVG"
+      ],
+      "custom_css": [
+        ".carousel {width: var(--max-width);}",
+        "h2 {margin-left: 0; font-family: var(--emphasis-heading-font-family); letter-spacing: var(--letter-spacing);}",
+        "p + ul {margin-top: -1rem; margin-bottom: 1rem;}"
+      ],
+      "name": "Content Grid",
+      "settings": {
+        "is_accent": true,
+        "bg_color": "#F6F6F6",
+        "full_width": false,
+        "grid_style": "carousel"
+      }
+    },
+    "product_collection_carousel_i7qaKh": {
+      "type": "product-collection-carousel",
+      "name": "Product Card Carousel",
+      "settings": {
+        "carousel_title": "",
+        "heading_style": "",
+        "product_list": [],
+        "collection": "mens-tracksuits",
+        "product_count": 6,
+        "show_womens": false,
+        "product_list_2": [],
+        "collection_2": "",
+        "product_count_2": 6,
+        "show_kids": false,
+        "product_list_3": [],
+        "collection_3": "",
+        "product_count_3": 6
+      }
+    },
     "content_mosaic_VjHWx4": {
       "type": "content-mosaic",
       "blocks": {
@@ -362,159 +491,6 @@
         "title": "",
         "heading_size": "h2",
         "heading_style": "emphasis"
-      }
-    },
-    "content_mosaic_rCTVPU": {
-      "type": "content-mosaic",
-      "blocks": {
-        "grid_item_a6iTBM": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Debossed Camo",
-            "flag": "best",
-            "grid_column_span": "2",
-            "grid_row_span": "2",
-            "img": "shopify://shop_images/DEBOSSED_CAMO_TEE_SHORT_-_BLACK_SST-A2B0F_SHR-A2B0H.webp",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "",
-            "always_show": false,
-            "img_transition": "normal",
-            "content_placement": "50",
-            "heading_size": "h1",
-            "heading_style": "emphasis",
-            "text": "<p>Bestselling gymwear collection. Muscle fit styles designed using sweat wicking for breathability.</p><p>Featuring camo all over print detail and reflective branding.<br/><br/>★★★★★<br/><strong>\"Best fitting t-shirt Gym King have ever done!\"</strong><em><br/></em>- Jake L.</p>",
-            "bg_color": "#f8f8f8",
-            "txt_color": "#0c0c13",
-            "cta_text": "Shop Now",
-            "cta_url": "shopify://collections/debossed-camo",
-            "btn_color": "#1b1a1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_bT7449": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Item Title",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/DEBOSSEDCAMOTEE_DEBOSSEDCAMOSHORT-OLIVESST-BOEYOSHR-BOEYQ12.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-debossed-camo-tee-olive",
-            "always_show": false,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop Now",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_npkCQC": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Item Title",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/dcshortblk.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-debossed-short-5-black",
-            "always_show": false,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h1",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop Now",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_AcNyUF": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Item Title",
-            "flag": "",
-            "grid_column_span": "2",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/DEBOSSEDCAMOQTRZIPFUNNEL_DEBOSSEDCAMOSHORT-RUSTICTAUPEQZP-BOFR0SHR-BOFQY4.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-debossed-camo-1-4-zip-funnel-rustic-taupe",
-            "always_show": false,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop Now",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "spacer_aTKgrr": {
-          "type": "spacer",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "grid_item_a6iTBM",
-        "grid_item_bT7449",
-        "grid_item_npkCQC",
-        "grid_item_AcNyUF",
-        "spacer_aTKgrr"
-      ],
-      "name": "Debossed Camo",
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "heading_style": "emphasis"
-      }
-    },
-    "product_collection_carousel_7CVb8L": {
-      "type": "product-collection-carousel",
-      "name": "Product Card Carousel",
-      "settings": {
-        "carousel_title": "Explore New Arrivals",
-        "heading_style": "emphasis",
-        "product_list": [],
-        "collection": "mens-new",
-        "product_count": 6,
-        "show_womens": false,
-        "product_list_2": [],
-        "collection_2": "",
-        "product_count_2": 6,
-        "show_kids": false,
-        "product_list_3": [],
-        "collection_3": "",
-        "product_count_3": 6
       }
     },
     "content_mosaic_a6hTMr": {
@@ -685,6 +661,25 @@
         "heading_style": "emphasis"
       }
     },
+    "product_collection_carousel_7CVb8L": {
+      "type": "product-collection-carousel",
+      "name": "Product Card Carousel",
+      "settings": {
+        "carousel_title": "Explore New Arrivals",
+        "heading_style": "emphasis",
+        "product_list": [],
+        "collection": "mens-new",
+        "product_count": 6,
+        "show_womens": false,
+        "product_list_2": [],
+        "collection_2": "",
+        "product_count_2": 6,
+        "show_kids": false,
+        "product_list_3": [],
+        "collection_3": "",
+        "product_count_3": 6
+      }
+    },
     "content_mosaic_limited": {
       "type": "content-mosaic",
       "blocks": {
@@ -784,6 +779,141 @@
         "spacer_VY7PYH"
       ],
       "name": "Content Mosaic Limited",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis"
+      }
+    },
+    "content_mosaic_rCTVPU": {
+      "type": "content-mosaic",
+      "blocks": {
+        "grid_item_a6iTBM": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Debossed Camo",
+            "flag": "best",
+            "grid_column_span": "2",
+            "grid_row_span": "2",
+            "img": "shopify://shop_images/DEBOSSED_CAMO_TEE_SHORT_-_BLACK_SST-A2B0F_SHR-A2B0H.webp",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "50",
+            "heading_size": "h1",
+            "heading_style": "emphasis",
+            "text": "<p>Bestselling gymwear collection. Muscle fit styles designed using sweat wicking for breathability.</p><p>Featuring camo all over print detail and reflective branding.<br/><br/>★★★★★<br/><strong>\"Best fitting t-shirt Gym King have ever done!\"</strong><em><br/></em>- Jake L.</p>",
+            "bg_color": "#f8f8f8",
+            "txt_color": "#0c0c13",
+            "cta_text": "Shop Now",
+            "cta_url": "shopify://collections/debossed-camo",
+            "btn_color": "#1b1a1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_bT7449": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/DEBOSSEDCAMOTEE_DEBOSSEDCAMOSHORT-OLIVESST-BOEYOSHR-BOEYQ12.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-debossed-camo-tee-olive",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_npkCQC": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "1",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/dcshortblk.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-debossed-short-5-black",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h1",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "grid_item_AcNyUF": {
+          "type": "grid-item",
+          "settings": {
+            "title": "Item Title",
+            "flag": "",
+            "grid_column_span": "2",
+            "grid_row_span": "1",
+            "img": "shopify://shop_images/DEBOSSEDCAMOQTRZIPFUNNEL_DEBOSSEDCAMOSHORT-RUSTICTAUPEQZP-BOFR0SHR-BOFQY4.jpg",
+            "img_alt": "",
+            "overlay_link": "",
+            "product": "gym-king-debossed-camo-1-4-zip-funnel-rustic-taupe",
+            "always_show": false,
+            "img_transition": "normal",
+            "content_placement": "hidden",
+            "heading_size": "h2",
+            "heading_style": "emphasis",
+            "text": "",
+            "bg_color": "#f6f6f6",
+            "txt_color": "#1b1b1b",
+            "cta_text": "Shop Now",
+            "cta_url": "",
+            "btn_color": "#1b1b1b",
+            "cta_position": "left",
+            "cta_text2": "",
+            "cta_url2": "",
+            "btn_color2": "#eeeeee"
+          }
+        },
+        "spacer_aTKgrr": {
+          "type": "spacer",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "grid_item_a6iTBM",
+        "grid_item_bT7449",
+        "grid_item_npkCQC",
+        "grid_item_AcNyUF",
+        "spacer_aTKgrr"
+      ],
+      "disabled": true,
+      "name": "Debossed Camo",
       "settings": {
         "title": "",
         "heading_size": "h2",
@@ -1076,336 +1206,21 @@
         "second_button_content": "Shop Best Sellers",
         "second_button_href": "shopify://collections/mens-bestsellers"
       }
-    },
-    "content_mosaic_tracksuits": {
-      "type": "content-mosaic",
-      "blocks": {
-        "spacer_MCkhyV": {
-          "type": "spacer",
-          "disabled": true,
-          "settings": {}
-        },
-        "grid_item_Txf4k8": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Meet 365 Legging",
-            "flag": "",
-            "grid_column_span": "2",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/Leggings_Paid_Ad_-_1080x1080_V5.png",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "",
-            "always_show": false,
-            "img_transition": "normal",
-            "content_placement": "50",
-            "heading_size": "h2",
-            "heading_style": "baskerville",
-            "text": "<p>The perfect everyday legging designed in a buttery soft flattering fabric with minimal branding.</p>",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#2a2a2a",
-            "cta_text": "Shop 365",
-            "cta_url": "",
-            "btn_color": "#2a2a2a",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_Jz6RYL": {
-          "type": "grid-item",
-          "settings": {
-            "title": "Meet Sculpt Legging",
-            "flag": "",
-            "grid_column_span": "2",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/Leggings_Paid_Ad_-_1080x1080_V3.png",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "",
-            "always_show": false,
-            "img_transition": "normal",
-            "content_placement": "50",
-            "heading_size": "h2",
-            "heading_style": "baskerville",
-            "text": "<p>The perfect gym legging. Designed in a compressive seamless fabric featuring a bum scrunch detail to enhance your glutes.</p>",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#2a2a2a",
-            "cta_text": "Shop Sculpt",
-            "cta_url": "",
-            "btn_color": "#2a2a2a",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_J3QJfU": {
-          "type": "grid-item",
-          "disabled": true,
-          "settings": {
-            "title": "Poise Legging",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/Leggings_Paid_Ad_-_1080x1080_V10.png",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-poise-seamless-legging-iridescent-mocha",
-            "always_show": false,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop Now",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_z9NnKi": {
-          "type": "grid-item",
-          "disabled": true,
-          "settings": {
-            "title": "Power",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/Leggings_Paid_Ad_-_1080x1080_V6.png",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-power-lightweight-seamless-legging-deep-purple",
-            "always_show": false,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop Now",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_jXzPNT": {
-          "type": "grid-item",
-          "disabled": true,
-          "settings": {
-            "title": "Knockout",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/Leggings_Paid_Ad_-_1080x1080_V8.png",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-knockout-legging-dark-cherry",
-            "always_show": false,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h2",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop Now",
-            "cta_url": "",
-            "btn_color": "#1b1b1b",
-            "cta_position": "left",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_pntjpj": {
-          "type": "grid-item",
-          "disabled": true,
-          "settings": {
-            "title": "",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/POWER_LIGHTWEIGHT_SEAMLESS_FUNNEL_POWER_LIGHTWEIGHT_SEAMLESS_TANK_POWER_LIGHTWEIGHT_SEAMLESS_LEGGING_-_DEEP_PURPLE_DUSY_PURPLE_WCJ-BOFTW_WVS-BOFTT_WLG-BOFU3_54.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "",
-            "always_show": false,
-            "img_transition": "img-mask",
-            "content_placement": "overlay",
-            "heading_size": "h3",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "Shop All Leggings",
-            "cta_url": "shopify://collections/all-womens-leggings",
-            "btn_color": "#2b2b2b",
-            "cta_position": "center",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_mmUMan": {
-          "type": "grid-item",
-          "settings": {
-            "title": "",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/SCULPT_SEAMLESS_SCRUNCH_BRA_SCULPT_SEAMLESS_LEGGING_-_BLACK_WBT-BOFTC_WLG-A2AYV_2.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-sport-core-3-6-5-legging-black",
-            "always_show": true,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h3",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "",
-            "cta_url": "shopify://collections/all-womens-leggings",
-            "btn_color": "#2b2b2b",
-            "cta_position": "center",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_DHtLeX": {
-          "type": "grid-item",
-          "settings": {
-            "title": "",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/365_HALTER_NECK_TANK_365_CAPRI_LEGGING_-_BLACK_WVS-EOFCZ_WLG-BOGOI_3_4ec2d539-d9c6-478b-a505-ba6c58a5f15e.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-365-capri-legging-black",
-            "always_show": true,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h3",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "",
-            "cta_url": "shopify://collections/all-womens-leggings",
-            "btn_color": "#2b2b2b",
-            "cta_position": "center",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_rHdmN3": {
-          "type": "grid-item",
-          "settings": {
-            "title": "",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/365_SQUARE_NECK_TANK_365_FLARED_YOGA_LEGGING_-_REGULAR_-_BLACK_WVS-ANVR2_WTB-BNVFB_1.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-365-flared-trousers-black",
-            "always_show": true,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h3",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "",
-            "cta_url": "shopify://collections/all-womens-leggings",
-            "btn_color": "#2b2b2b",
-            "cta_position": "center",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        },
-        "grid_item_HbRdMN": {
-          "type": "grid-item",
-          "settings": {
-            "title": "",
-            "flag": "",
-            "grid_column_span": "1",
-            "grid_row_span": "1",
-            "img": "shopify://shop_images/365_CAP_SLEEVE_TEE_365_STRAIGHT_LEG_YOGA_PANT_-_GREEN_SMOKE_BLACK_WTT-BNVF9_WLG-BOGF7_1.jpg",
-            "img_alt": "",
-            "overlay_link": "",
-            "product": "gym-king-365-straight-leg-yoga-pant-black",
-            "always_show": true,
-            "img_transition": "normal",
-            "content_placement": "hidden",
-            "heading_size": "h3",
-            "heading_style": "emphasis",
-            "text": "",
-            "bg_color": "#f6f6f6",
-            "txt_color": "#1b1b1b",
-            "cta_text": "",
-            "cta_url": "shopify://collections/all-womens-leggings",
-            "btn_color": "#2b2b2b",
-            "cta_position": "center",
-            "cta_text2": "",
-            "cta_url2": "",
-            "btn_color2": "#eeeeee"
-          }
-        }
-      },
-      "block_order": [
-        "spacer_MCkhyV",
-        "grid_item_Txf4k8",
-        "grid_item_Jz6RYL",
-        "grid_item_J3QJfU",
-        "grid_item_z9NnKi",
-        "grid_item_jXzPNT",
-        "grid_item_pntjpj",
-        "grid_item_mmUMan",
-        "grid_item_DHtLeX",
-        "grid_item_rHdmN3",
-        "grid_item_HbRdMN"
-      ],
-      "custom_css": [
-        "h3 {margin: 2rem;}",
-        " {margin-top: 3rem;}"
-      ],
-      "name": "Content Mosaic",
-      "settings": {
-        "title": "GKW Leggings",
-        "heading_size": "h2",
-        "heading_style": "baskerville"
-      }
-    },
+    }
   },
   "order": [
     "static_hero_tV68kr",
     "content_rich_text_zyYh4q",
     "content_mosaic_4xHKx9",
     "as_seen_in_Mp7zfK",
+    "content_rich_text_itJbYW",
+    "content_grid_txEUw9",
+    "product_collection_carousel_i7qaKh",
     "content_mosaic_VjHWx4",
-    "content_mosaic_tracksuits",
-    "content_mosaic_rCTVPU",
-    "product_collection_carousel_7CVb8L",
     "content_mosaic_a6hTMr",
+    "product_collection_carousel_7CVb8L",
     "content_mosaic_limited",
+    "content_mosaic_rCTVPU",
     "content_mosaic_DMiMJE",
     "content_mosaic_fCNPNq",
     "usp_block_uQ3YpN"
