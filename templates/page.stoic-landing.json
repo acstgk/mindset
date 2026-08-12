@@ -185,6 +185,41 @@
         "grid_style": "standard"
       }
     },
+    "content_rich_text_AqDezW": {
+      "type": "content-rich-text",
+      "blocks": {
+        "rtf_Uikd7W": {
+          "type": "rtf",
+          "settings": {
+            "richtext_content": "<h2>Event Map</h2>"
+          }
+        },
+        "images_yB7FQD": {
+          "type": "images",
+          "settings": {
+            "image_1": "shopify://shop_images/The_Stoic_Games_-_Graphic_Map_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "rtf_Uikd7W",
+        "images_yB7FQD"
+      ],
+      "custom_css": [
+        "h2 {font-family: \"Octin\", var(--emphasis-heading-font-family); font-size: var(--txt-h1);}"
+      ],
+      "name": "The Circuit",
+      "settings": {
+        "title": "",
+        "heading_style": "",
+        "v_padding": 50,
+        "is_accent": false,
+        "bg_color": "",
+        "full_width": false,
+        "alignment": "right",
+        "grid_style": "standard"
+      }
+    },
     "content_rich_text_ehhpYF": {
       "type": "content-rich-text",
       "blocks": {
@@ -563,6 +598,7 @@
     "content_rich_text_CH3TDW",
     "content_grid_g7fpcU",
     "content_rich_text_RfJRPr",
+    "content_rich_text_AqDezW",
     "content_rich_text_ehhpYF",
     "content_rich_text_YKF3LG",
     "content_rich_text_6eBLMj",
