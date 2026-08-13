@@ -1359,7 +1359,7 @@ header#shopify-section-header-main:has(.header_menu-item:hover) {
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 
-  & a {
+  & span {
     color: var(--c-black);
     font-weight: 700;
   }

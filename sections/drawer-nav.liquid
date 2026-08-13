@@ -54,13 +54,13 @@
 
         <div class="side_menu-visual-links">
           {% for i in (1..2) %}
-            <div class="">
+            <a  href="{{ settings[url] }}" alt="{% if settings[txt] != '' %}{{ settings[txt] }}{% else %}{{ settings[img].alt }}{% endif %}">
               {% assign img = 'nav-img-' | append: i | append: '-' | append: gender %}
               {% assign url = 'nav-url-' | append: i | append: '-' | append: gender %}
               {% assign txt = 'nav-txt-' | append: i | append: '-' | append: gender %}
               <img src="{{ settings[img] | image_url: width: 500 }}" alt="{{ settings[img].alt }}" height="500" width="500" loading="lazy">
-              <a href="{{ settings[url] }}">{{ settings[txt] }}</a>
-            </div>
+              <span>{{ settings[txt] }}</span>
+            </a>
           {% endfor %}
         </div>
         {% render 'menu-quick-links' with gender as gender %}
