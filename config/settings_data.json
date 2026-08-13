@@ -101,8 +101,8 @@
           "announcement_slider_hpCPCN": {
             "type": "announcement_slider",
             "settings": {
-              "title": "up to 70% Off",
-              "subcontent1": "Summer Sale",
+              "title": "Extra 10% Off Sale with code: SUMMER10",
+              "subcontent1": "up to 70% off Summer Sale",
               "link1": "shopify://collections/sale",
               "enable_countdown": false,
               "country_restriction": "none"

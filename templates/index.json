@@ -54,14 +54,16 @@
             "subtitle": "SUMMER SALE",
             "subtitle_font": "",
             "subtitle_first": true,
-            "customHTML": "",
+            "customHTML": "<div style=\"background:var(--c-black);color:var(--c-white);padding: .6rem 1rem .5rem;width: max-content;margin:0 auto;text-align:center;text-transform:uppercase;letter-spacing:var(--letter-spacing);\">Extra 10% with code <b>SUMMER10</b>\n</div>",
             "content_alignment": "center",
             "v_align_desk": "bottom-desk",
             "v_align_mob": "bottom-mob",
             "cta1": "Shop womens",
             "url1": "/collections/sale/womens",
-            "cta2": "SHOP MENS",
-            "url2": "https://thegymking.com/collections/sale/mens",
+            "cta2": "Shop Mens",
+            "url2": "/collections/sale/mens",
+            "cta3": "Shop Kids",
+            "url3": "shopify://collections/kids-sale",
             "target_gender": ""
           }
         },
@@ -90,6 +92,8 @@
             "url1": "/collections/sale/mens",
             "cta2": "",
             "url2": "",
+            "cta3": "",
+            "url3": "",
             "target_gender": ""
           }
         },
@@ -118,6 +122,8 @@
             "url1": "/collections/sale/mens",
             "cta2": "Shop Womens",
             "url2": "/collections/sale/womens",
+            "cta3": "",
+            "url3": "",
             "target_gender": ""
           }
         },
@@ -148,6 +154,8 @@
             "url1": "shopify://collections/womens-new",
             "cta2": "",
             "url2": "",
+            "cta3": "",
+            "url3": "",
             "target_gender": ""
           }
         },
@@ -176,6 +184,8 @@
             "url1": "/collections/signature/womens",
             "cta2": "",
             "url2": "",
+            "cta3": "",
+            "url3": "",
             "target_gender": "womens"
           }
         },
@@ -204,6 +214,8 @@
             "url1": "shopify://collections/twin-sets",
             "cta2": "",
             "url2": "",
+            "cta3": "",
+            "url3": "",
             "target_gender": ""
           }
         }
