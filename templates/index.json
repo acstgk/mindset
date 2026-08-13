@@ -43,7 +43,7 @@
           "settings": {
             "mobile_video": "shopify://files/videos/Mobile Banner.mp4",
             "desktop_video": "shopify://files/videos/Desktop Banner.mp4",
-            "media_brightness": 87.5,
+            "media_brightness": 100,
             "overlay_url": "/collections/sale/womens",
             "alt_text": "",
             "lockup_width": 200,
