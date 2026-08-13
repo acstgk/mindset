@@ -31,23 +31,23 @@
         {% when 0 -%}
           {%- assign banner_location = 11 %}
         {% when 2 -%}
-          {%- assign banner_location = 13 %}
-        {% when 1 -%}
           {%- assign banner_location = 7 %}
+        {% when 1 -%}
+          {%- assign banner_location = 5 %}
       {% endcase %}
 
       {%- comment -%} If we've reached the insertion point, calculate the banner keys {%- endcomment -%}
       {% if position_count == banner_location %}
-        {% if collection.metafields.custom.banners.value.count > 0 %}
+        {% assign custom_banner_count = collection.metafields.custom.banners.value.count %}
+        {% if page <= custom_banner_count %}
           <article class="product-grid-insert" data-position="{{ position_count }}" data-tier="{{ tier }}" data-label="{{ settings[img_key].alt }}">
             {% for banner in collection.metafields.custom.banners.value %}
-              {% assign banner_num = page | modulo: collection.metafields.custom.banners.value.count %}
-              {% if forloop.index == banner_num %}
+              {% if forloop.index == page %}
                 <a href="{{ banner.link }}" style="aspect-ratio: 1.43333;display: block;">
                   {% if banner.video %}
                     {% if banner.image %}
-                    {% assign poster = banner.image | image_url: width: '850px' %}
-                      {{ banner.video.value | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'none', poster: poster, style: "object-fit: cover;"  }}
+                      {% assign poster = banner.image | image_url: width: '850px' %}
+                      {{ banner.video.value | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'none', poster: poster, style: 'object-fit: cover;' }}
                     {% else %}
                       {{ banner.video.value | video_tag: autoplay: true, loop: true, muted: true, controls: false, playsinline: true, preload: 'none' }}
                     {% endif %}
@@ -56,22 +56,24 @@
                   {% endif %}
                 </a>
                 {% if banner.title or banner.subtitle or banner.cta and banner.link %}
-                <div class="product-grid-insert_content">
-
-                {% if banner.title or banner.subtitle %}
-                  <div class="product-grid-insert_title">
-                    {% if banner.title %}
-                      <span class="title">{{ banner.title }}</span>
+                  <div class="product-grid-insert_content">
+                    {% if banner.title or banner.subtitle %}
+                      <div class="product-grid-insert_title">
+                        {% if banner.title %}
+                          <span class="title">{{ banner.title }}</span>
+                        {% endif %}
+                        {% if banner.subtitle %}
+                          <span class="colour">{{ banner.subtitle }}</span>
+                        {% endif %}
+                      </div>
                     {% endif %}
-                    {% if banner.subtitle %}
-                      <span class="colour">{{ banner.subtitle }}</span>
+                    {% if banner.link and banner.cta %}
+                      <a href="{{ banner.link }}" class="button button-secondary" style="margin: 0 0 0 auto;display: inline-flex;">
+                        {{- banner.cta }}
+                        {% render 'icon', icon: 'arrow' -%}
+                      </a>
                     {% endif %}
                   </div>
-                {% endif %}
-                {% if banner.link and banner.cta %}
-                  <a href="{{ banner.link }}" class="button button-secondary" style="margin: 0 0 0 auto;display: inline-flex;">{{ banner.cta }} {% render 'icon', icon:'arrow' %}</a>
-                {% endif %}
-                </div>
                 {% endif %}
                 {% break %}
               {% endif %}
