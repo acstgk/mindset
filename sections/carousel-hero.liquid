@@ -171,6 +171,11 @@
                 ><span>{{ block.settings.cta2 }} </span>{% render 'icon', icon: 'arrow' -%}
               </a>
             {% endunless %}
+            {% unless block.settings.cta3 == '' %}
+              <a href="{{ block.settings.url3 }}" class="button button-inverted"
+                ><span>{{ block.settings.cta3 }} </span>{% render 'icon', icon: 'arrow' -%}
+              </a>
+            {% endunless %}
           </div>
         {% endunless %}
       </div>
@@ -394,6 +399,16 @@
           "type": "url",
           "id": "url2",
           "label": "Button 2 URL"
+        },
+        {
+          "type": "text",
+          "id": "cta3",
+          "label": "Button 3 CTA"
+        },
+        {
+          "type": "url",
+          "id": "url3",
+          "label": "Button 3 URL"
         },
         {
           "type": "header",
