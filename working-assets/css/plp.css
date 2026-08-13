@@ -183,6 +183,25 @@ infinite-scroll {
   }
 }
 
+.product-grid-insert_content {
+  display: flex;
+  padding-right: 3px;
+
+  & .product-grid-insert_title {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1em;
+
+    & .title {
+      font-weight: bold;
+      font-size: var(--txt-h4);
+    }
+  }
+  & a.button {
+    font-size: var(--txt-sm);
+  }
+}
+
 @media screen and (width > 700px) {
   .product-grid-insert {
     grid-column: span 2;
