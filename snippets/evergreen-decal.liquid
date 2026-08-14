@@ -7,22 +7,27 @@
   {% assign is_new = true %}
 {% endif %}
 
-{% if product.tags contains 'new' and settings.decal_new and is_new %}
-  {% unless request.path contains 'new' %}
+{% assign page_is_new = false %}
+{% if request.path contains 'new' %}
+  {% assign page_is_new = true %}
+{% endif %}
+
+{% if product.tags contains 'bundle' %}
+  <div class="evergreen-decal {{ class }}">
+    <div><span class="p">Save with</span><span class="emphasis">Bundle</span></div>
+  </div>
+  {% comment %} <img class="{{ class }}" src="https://cdn.shopify.com/s/files/1/1659/8997/files/Decal_Decal_-_Save_with_Bundle.png?v=1761311619" width="960" height="835" alt="Bundle this product and save"> {% endcomment %}
+
+  {% elsif product.tags contains 'new' and settings.decal_new and page_is_new == false  %}
     <div class="evergreen-decal {{ class }}">
       <div><span class="emphasis">New</span></div>
     </div>
-  {% endunless %}
 
 {% elsif product.tags contains 'impactpro' %}
   <div class="evergreen-decal {{ class }}">
     <img src="https://cdn.shopify.com/s/files/1/1659/8997/files/IMPACTpro.svg?v=1773396429" width="330" height="70" alt="ImpactPRO Combat Fabric" loading="lazy">
   </div>
-{% elsif product.tags contains 'bundle' %}
-  <div class="evergreen-decal {{ class }}">
-    <div><span class="p">Save with</span><span class="emphasis">Bundle</span></div>
-  </div>
-  {% comment %} <img class="{{ class }}" src="https://cdn.shopify.com/s/files/1/1659/8997/files/Decal_Decal_-_Save_with_Bundle.png?v=1761311619" width="960" height="835" alt="Bundle this product and save"> {% endcomment %}
+
 {% elsif product.tags contains settings.mini_tag and settings.showMiniDecal %}
   <div class="evergreen-decal {{ class }}">
     <div><span class="emphasis">Mini Me</span><span class="p">Available</span></div>
