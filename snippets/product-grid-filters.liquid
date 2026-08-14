@@ -25,7 +25,12 @@
 
           <content-accordian>
             {%- for filter in group.filters -%}
-              {% if request.path contains '/mens' or request.path contains '/womens' or filter.values.size < 3 %}
+            {% assign request_path = request.path | downcase %}
+            {% assign filter_count = filter.values.size %}
+            {% if request_path contains '/accessories' %}
+              {% assign filter_count = filter_count | minus: 1 %}
+            {% endif %}
+              {% if request_path contains '/mens' or request_path contains '/womens' or request_path contains '/boys' or request_path contains '/girls' or filter_count < 2 %}
                 {% assign is_gendered = true %}
               {% endif %}
               {% if filter.values.size > 1 or filter.type == 'price_range' %}
