@@ -26,7 +26,11 @@
         <ul class="gender-btn" role="navigation">
           {% for link in settings[mobile_menu].links %}
             {% assign link_title = link.title | downcase %}
-            <li {%if link_title == 'bundle & save' or link_title == "sale" or link_title == 'accessories' or link_title == "fight division"%}style="order:1"{%endif%}>
+            <li
+              {% if link_title == 'bundle & save' or link_title == 'sale' or link_title == 'accessories' or link_title == 'fight division' %}
+                style="order:1"
+              {% endif %}
+            >
               <a
                 href="{{ link.url }}"
                 class="{% if link_title == keywordvaralt %} mobile--highlighted--menu-alt {% endif %} {% if link_title == keywordvar %} mobile--highlighted--menu {% endif %}"
@@ -36,26 +40,28 @@
             </li>
           {% endfor %}
 
-          {% for i in (1..2) %}
+          {% for i in (1..3) %}
             {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
-            <li class="accordian-items">
-              <div class="side_menu-sub-menu-button accordian-header" data-sub-menu="{{ settings[sub_menu].handle }}" aria-label="open sub menu" role="button" rel="nofollow">
-                {{- settings[sub_menu].title | split: '-' | last -}}
-                <span class="rotate135">
-                  {%- render 'icon', icon: 'plus', class: 'rotate135' -%}
-                </span>
-              </div>
-              <div class="side_menu-sub-menu accordian-content" data-sub-menu="{{ settings[sub_menu].handle }}">
-                {% render 'menu-sub-menu' with settings[sub_menu] as menu, accordion: true %}
-              </div>
-            </li>
+            {% if settings[sub_menu] %}
+              <li class="accordian-items">
+                <div class="side_menu-sub-menu-button accordian-header" data-sub-menu="{{ settings[sub_menu].handle }}" aria-label="open sub menu" role="button" rel="nofollow">
+                  {{- settings[sub_menu].title | split: '-' | last -}}
+                  <span class="rotate135">
+                    {%- render 'icon', icon: 'plus', class: 'rotate135' -%}
+                  </span>
+                </div>
+                <div class="side_menu-sub-menu accordian-content" data-sub-menu="{{ settings[sub_menu].handle }}">
+                  {% render 'menu-sub-menu' with settings[sub_menu] as menu, accordion: true %}
+                </div>
+              </li>
+            {% endif %}
           {% endfor %}
         </ul>
         {% comment %} {% render 'menu-visual-links' with gender as gender, class: 'side_menu-visual-links' %} {% endcomment %}
 
         <div class="side_menu-visual-links">
           {% for i in (1..2) %}
-            <a  href="{{ settings[url] }}" alt="{% if settings[txt] != '' %}{{ settings[txt] }}{% else %}{{ settings[img].alt }}{% endif %}">
+            <a href="{{ settings[url] }}" alt="{% if settings[txt] != '' %}{{ settings[txt] }}{% else %}{{ settings[img].alt }}{% endif %}">
               {% assign img = 'nav-img-' | append: i | append: '-' | append: gender %}
               {% assign url = 'nav-url-' | append: i | append: '-' | append: gender %}
               {% assign txt = 'nav-txt-' | append: i | append: '-' | append: gender %}
