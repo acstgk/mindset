@@ -26,7 +26,7 @@
         <ul class="gender-btn" role="navigation">
           {% for link in settings[mobile_menu].links %}
             {% assign link_title = link.title | downcase %}
-            <li>
+            <li {%if gender == 'kids' and link_title == "sale" or link_title == 'accessories' or link_title == "fight division"%}style="order:1"{%endif%}>
               <a
                 href="{{ link.url }}"
                 class="{% if link_title == keywordvaralt %} mobile--highlighted--menu-alt {% endif %} {% if link_title == keywordvar %} mobile--highlighted--menu {% endif %}"
@@ -35,6 +35,7 @@
               </a>
             </li>
           {% endfor %}
+
           {% for i in (1..2) %}
             {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
             <li class="accordian-items">
