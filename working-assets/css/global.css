@@ -2271,7 +2271,7 @@ video {
   margin: 2rem auto 0;
 
   & .button {
-    flex: 1 1 max-content;
+    flex: 1 1 clamp(190px, 100%, 250px);
     font-size: var(--txt-sm);
     max-width: 245px;
     box-shadow: 0 0 8px 4px var(--c-shadow);
