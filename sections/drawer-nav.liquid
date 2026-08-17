@@ -27,7 +27,7 @@
           {% for link in settings[mobile_menu].links %}
             {% assign link_title = link.title | downcase %}
             <li
-              {% if link_title == 'bundle & save' or link_title == 'sale' or link_title == 'accessories' or link_title == 'fight division' %}
+              {% if link_title contains 'bundle & save' or link_title == 'sale' or link_title == 'accessories' or link_title == 'fight division' %}
                 style="order:1"
               {% endif %}
             >
