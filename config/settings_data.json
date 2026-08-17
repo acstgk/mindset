@@ -37,7 +37,7 @@
     "url-k-plp-content-2": "/collections/kids-new-in/girls",
     "img-kids-content-3": "shopify://shop_images/PLP_-_Boys.png",
     "url-k-plp-content-3": "/collections/kids-new-in/boys",
-    "highlighted-keyword": "sale",
+    "highlighted-keyword": "",
     "highlighted-button_color": "#1b1a1b",
     "franchise-text-1": "Brand",
     "franchise-url-1": "shopify://pages/brand",
@@ -50,7 +50,6 @@
     "franchise-gender-3": "0",
     "nav-submenu-1-mens": "mens-shop-by-category-content-new",
     "nav-submenu-2-mens": "mens-shop-by-activity",
-    "nav-submenu-3-mens": "mens-gk-collections",
     "nav-mobilemenu-mens": "mens-side-menu",
     "nav-img-1-mens": "shopify://shop_images/NEW_bdc22b84-aa0a-4f44-a0dd-78aad3554f29.jpg",
     "nav-url-1-mens": "shopify://collections/mens-new",
@@ -60,7 +59,6 @@
     "nav-txt-2-mens": "",
     "nav-submenu-1-womens": "womens-shop-by-category-content-new",
     "nav-submenu-2-womens": "womens-shop-by-activity",
-    "nav-submenu-3-womens": "womens-gk-collections",
     "nav-mobilemenu-womens": "womens-side-menu",
     "nav-img-1-womens": "shopify://shop_images/Untitled-4_55bcf027-f000-4f87-8c2e-6432fda92351.jpg",
     "nav-url-1-womens": "shopify://collections/womens-new",
@@ -70,7 +68,6 @@
     "nav-txt-2-womens": "",
     "nav-submenu-1-kids": "kids-shop-by-collection",
     "nav-submenu-2-kids": "kids-shop-by-category",
-    "nav-submenu-3-kids": "kids-shop-by-age",
     "nav-mobilemenu-kids": "kids-side-menu",
     "nav-img-1-kids": "shopify://shop_images/JUNIOR_365_FITTED_TEE_JUNIOR_365_FLEECE_SHORT_-_WHITE_CARNATION_PINK_GST-BOGIQ_GHR-BOGIS_1.jpg",
     "nav-url-1-kids": "/collections/kidswear/girls",
@@ -101,16 +98,6 @@
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
-          "announcement_slider_hpCPCN": {
-            "type": "announcement_slider",
-            "settings": {
-              "title": "Extra 10% Off Sale with code: SUMMER10",
-              "subcontent1": "up to 70% off Summer Sale",
-              "link1": "shopify://collections/sale",
-              "enable_countdown": false,
-              "country_restriction": "none"
-            }
-          },
           "announcement_slider_KeM9Hq": {
             "type": "announcement_slider",
             "settings": {
@@ -175,7 +162,6 @@
           }
         },
         "block_order": [
-          "announcement_slider_hpCPCN",
           "announcement_slider_KeM9Hq",
           "announcement_slider_8GNAEy",
           "announcement_slider_CxdCHz",
