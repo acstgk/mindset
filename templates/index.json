@@ -38,8 +38,38 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_M4MqXy": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/Women's Script Launch Mobile HP Banner_updated (1).mp4",
+            "desktop_video": "shopify://files/videos/Women's Script Launch Desktop HP Banner (1).mp4",
+            "media_brightness": 90,
+            "overlay_url": "shopify://collections/womens-new",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "Script Collection",
+            "title_font": "baskerville",
+            "heading_size": 100,
+            "subtitle": "New Arrivals",
+            "subtitle_font": "signature",
+            "subtitle_first": true,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Now",
+            "url1": "shopify://collections/womens-new",
+            "cta2": "",
+            "url2": "",
+            "cta3": "",
+            "url3": "",
+            "target_gender": ""
+          }
+        },
         "image_iyKkAM": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Mobile Banner.mp4",
             "desktop_video": "shopify://files/videos/Desktop Banner.mp4",
@@ -64,36 +94,6 @@
             "url2": "/collections/signature/mens",
             "cta3": "",
             "url3": "shopify://collections/kids-sale",
-            "target_gender": ""
-          }
-        },
-        "image_etqmMU": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "mobile_video": "shopify://files/videos/Summer Sale - Mobile Mens V2_2d9e052c-ef79-4872-a340-8a3a39ceb020.mp4",
-            "desktop_video": "shopify://files/videos/Summer Sale - Desktop Mens V2_12780e65-5356-41d3-97e5-1b5e0e3915e8.mp4",
-            "media_brightness": 87.5,
-            "overlay_url": "/collections/sale/mens",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "70% Off",
-            "title_font": "",
-            "heading_size": 150,
-            "subtitle": "Up to",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "<span style=\"text-transform: uppercase;color:white;letter-spacing:.7ch;font-size: var(--txt-h3)\">Summer Sale</span>",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Mens",
-            "url1": "/collections/sale/mens",
-            "cta2": "",
-            "url2": "",
-            "cta3": "",
-            "url3": "",
             "target_gender": ""
           }
         },
@@ -221,8 +221,8 @@
         }
       },
       "block_order": [
+        "image_M4MqXy",
         "image_iyKkAM",
-        "image_etqmMU",
         "image_rNb94A",
         "image_KhLw9c",
         "image_6BmG7G",
@@ -230,8 +230,7 @@
       ],
       "custom_css": [
         "em {width: 100%; display: inline-block;}",
-        ".h1 {letter-spacing: var(--letter-spacing);}",
-        ".baskerville {font-style: italic;}"
+        ".h1 {letter-spacing: var(--letter-spacing);}"
       ],
       "settings": {}
     },
