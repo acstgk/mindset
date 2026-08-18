@@ -148,6 +148,33 @@
       }
     </script>
 
+    {% if request.page_type == 'index' %}
+      <script>
+        (function () {
+          function sectionIdFrom(el) {
+            while (el) {
+              var id = el.id || '';
+              if (id.indexOf('shopify-section-') === 0) {
+                return id.replace(/^shopify-section-/i, '');
+              }
+              el = el.parentElement;
+            }
+            return null;
+          }
+
+          document.addEventListener(
+            'click',
+            function (e) {
+              var sectionId = sectionIdFrom(e.target);
+              if (!sectionId) return;
+              gtag('event', 'section_click', { section_id: sectionId });
+            },
+            true
+          );
+        })();
+      </script>
+    {% endif %}
+
     {% if template.name contains 'product' %}
       <link rel="preload" href="{{ 'pdp.min.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
       <noscript><link rel="stylesheet" href="{{ 'pdp.min.css' | asset_url }}"></noscript>
