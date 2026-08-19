@@ -162,15 +162,17 @@
             return null;
           }
 
-          document.addEventListener(
-            'click',
-            function (e) {
-              var sectionId = sectionIdFrom(e.target);
-              if (!sectionId) return;
-              gtag('event', 'section_click', { section_id: sectionId });
-            },
-            true
-          );
+          window.addEventListener('load', function () {
+            document.addEventListener(
+              'click',
+              function (e) {
+                var sectionId = sectionIdFrom(e.target);
+                if (!sectionId) return;
+                gtag('event', 'section_click', { section_id: sectionId });
+              },
+              true
+            );
+          });
         })();
       </script>
     {% endif %}
