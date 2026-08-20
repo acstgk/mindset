@@ -2,23 +2,31 @@
 {% assign this_url = product.url %}
 {% assign alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' %}
 
-{%- assign top_types = 'T-Shirt,Tee,Hood,Jacket,Gilet,Top,Sweatshirt,Vest,Bra,Polo,Tracksuit' | split: ',' -%}
-{%- assign bottom_types = 'Bottoms,Leggings,Skirt,Tracksuit Bottoms' | split: ',' -%}
-{%- assign crop_origin = 'center' -%}
+{% if swatch_type == 'image' %}
+  {%- assign top_types = 'T-Shirt,Tee,Hood,Jacket,Gilet,Top,Sweatshirt,Vest,Bra,Polo,Tracksuit' | split: ',' -%}
+  {%- assign bottom_types = 'Bottoms,Leggings,Skirt,Tracksuit Bottoms' | split: ',' -%}
+  {%- assign crop_origin = 'center' -%}
 
-{%- for type in bottom_types -%}
-  {%- if product.type contains type -%}{%- assign crop_origin = 'bottom' -%}{%- break -%}{%- endif -%}
-{%- endfor -%}
-
-{%- if crop_origin == 'center' -%}
-  {%- for type in top_types -%}
-    {%- if product.type contains type -%}{%- assign crop_origin = 'top' -%}{%- break -%}{%- endif -%}
+  {%- for type in bottom_types -%}
+    {%- if product.type contains type -%}
+      {%- assign crop_origin = 'bottom' -%}
+      {%- break -%}
+    {%- endif -%}
   {%- endfor -%}
-{%- endif -%}
+
+  {%- if crop_origin == 'center' -%}
+    {%- for type in top_types -%}
+      {%- if product.type contains type -%}
+        {%- assign crop_origin = 'top' -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+{% endif %}
 
 {% if style_tag %}
-  <div class="colour-selection">
-    <div class="accordian-header" style="font-weight: 400;">Select a different colour: </div>
+  <div class="colour-selection {% if swatch_type == 'colour' %}colour{% endif %}">
+    <div class="accordian-header" style="font-weight: 400;">Select a different colour:</div>
 
     <div class="colour-grid">
       {% assign found_products = '' %}
@@ -28,31 +36,45 @@
             {% if product.tags contains style_tag %}
               {% unless found_products contains product.id %}
                 {% assign found_products = found_products | append: ' ' | append: product.id %}
-                 {% assign color_name = product.title | replace: '–', '-' | split: '-' | last | strip %}
-                 {% assign letter = color_name | upcase | slice: 0, 1 %}
-                 {% if alphabet contains letter %}
-                   {% assign parts = alphabet | split: letter %}
-                   {% assign position = parts[0].size | plus: 1 %}
-                 {% else %}
-                   {% assign position = 0 %}
-                 {% endif %}
-                <a
-                  style="background: {{ product.metafields.product.colour.value.hex }};order:{{ position }}"
-                  class="colour-swatches pre-render{%- if this_url == product.url %} active{% endif -%}"
-                  href="{% if this_url == product.url %}#{%else%}{{ product.url }}{% endif %}"
-                  pid="{{ product.id }}"
-
-                >
-                  {{ product.featured_image | image_url: width: 400, height: 400, crop: crop_origin | image_tag: loading: 'lazy', width: 400, widths: '100, 150, 200, 300, 400', sizes: '(max-width: 500px) 25vw, (max-width: 1006px) 105px, 8vw', fetchpriority: 'low' }}
-
-
-                  <span class="tooltip">{{ color_name }}</span>
-                  {% comment %}
-                    {% if section.settings.show_color_swatch %}
-                      <div class="colourtype" style="border-top:1px solid white; height: 3px;"></div>
-                    {% endif %}
-                  {% endcomment %}
-                </a>
+                {% assign color_name = product.title | replace: '–', '-' | split: '-' | last | strip %}
+                {% assign letter = color_name | upcase | slice: 0, 1 %}
+                {% if alphabet contains letter %}
+                  {% assign parts = alphabet | split: letter %}
+                  {% assign position = parts[0].size | plus: 1 %}
+                {% else %}
+                  {% assign position = 0 %}
+                {% endif %}
+                {% if swatch_type == 'image' %}
+                  <a
+                    style="background: {{ colourway }};order:{{ position }}"
+                    class="colour-swatches pre-render{%- if this_url == product.url %} active{% endif -%}"
+                    href="{% if this_url == product.url %}#{%else%}{{ product.url }}{% endif %}"
+                    pid="{{ product.id }}"
+                  >
+                    {{
+                      product.featured_image
+                      | image_url: width: 400, height: 400, crop: crop_origin
+                      | image_tag: loading: 'lazy', width: 400, widths: '100, 150, 200, 300, 400', sizes: '(max-width: 500px) 25vw, (max-width: 1006px) 105px, 8vw', fetchpriority: 'low'
+                    }}
+                    <span class="tooltip">{{ color_name }}</span>
+                    {% comment %}
+                      {% if section.settings.show_color_swatch %}
+                        <div class="colourtype" style="border-top:1px solid white; height: 3px;"></div>
+                      {% endif %}
+                    {% endcomment %}
+                  </a>
+                {% else %}
+                  <a
+                    style="order:{{ position }}"
+                    class="colour-swatches colour-swatches_dots {%- if this_url == product.url %} active{% endif -%}"
+                    href="{% if this_url == product.url %}#{%else%}{{ product.url }}{% endif %}"
+                    pid="{{ product.id }}"
+                  >
+                    {% for colour in product.metafields.custom.actual_colourway_s.value %}
+                      <div style="background: {{ colour.hex_code }};"></div>
+                    {% endfor %}
+                  </a>
+                {% endif %}
               {% endunless %}
             {% endif %}
           {% endfor %}
@@ -60,6 +82,5 @@
       {% endfor %}
     </div>
   </div>
-    {% break %}
-
+  {% break %}
 {% endif %}

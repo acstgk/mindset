@@ -1,5 +1,6 @@
 {% assign root = routes.root_url %}
 {% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+{% assign swatch_type = section.settings.swatch_type %}
 
 {% comment %} set images sizes  {% endcomment %}
 {% assign is_set = product.metafields.custom.product_set %}
@@ -143,6 +144,7 @@
 
 {% comment %} START:: Product Details {% endcomment %}
 <aside id="product-details" data-details="{{ product_details | escape }}">
+
   <div id="product-summary">
     {% render 'product-title' with product as 'product', heading: 'h1' %}
     {% render 'product-price' with product as 'product' %}
@@ -155,7 +157,9 @@
   {% endif %}
 
   {% render 'bnpl' with product_price as price %}
-
+  {% if swatch_type == 'colour' %}
+    {% render 'pdp_colour-selection' with swatch_type as swatch_type %}
+  {% endif %}
   <form id="atc_form" method="post" action="{{ routes.cart_add_url }}">
     <enhanced-atc>
       <div class="atc_form-header">
@@ -393,7 +397,9 @@
     {% endif %}
   </div>
 
-  {% render 'pdp_colour-selection' %}
+  {% if swatch_type == 'image' %}
+    {% render 'pdp_colour-selection' with swatch_type as swatch_type %}
+  {% endif %}
   {% if product.metafields.product.features.value %}
     {% render 'technical-specification' %}
   {% endif %}
