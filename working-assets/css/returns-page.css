@@ -33,12 +33,13 @@
 
   & h3 {
     text-transform: none;
-    margin-bottom: 0;
+    margin-bottom: 0;height: 100%;
   }
 
   & a {
-    margin: 1rem 0 1.5rem;
+    margin: 1rem auto 1.5rem;
     color: var(--c-white);
+    font-size: var(--txt-sm);
   }
 }
 
@@ -51,9 +52,22 @@
   }
 }
 
+.returns-info--contact {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin-top: 2rem;
+  & a {
+    margin: 0 auto;
+  }
+}
+
 .portal {
   border-bottom: 1px solid var(--c-light-grey);
   padding-bottom: 1rem;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-template-rows: 1fr 1fr 2fr;
+  padding: 0.5rem 1rem;
 }
 
 .returns-info {

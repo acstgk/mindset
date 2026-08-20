@@ -42,15 +42,21 @@
         <a href="{{ section.settings.url2 }}" class="button button-primary">Start an International Return</a>
       </div>
     {% endif %}
+    {% if section.settings.url3 %}
+      <div class="portal">
+        <h3 class="h4">{{ section.settings.title3 }}</h3>
+        <p>{{ section.settings.text3 }}</p>
+        <a href="{{ section.settings.url3 }}" class="button button-primary">Start a Marketplace Return</a>
+      </div>
+    {% endif %}
+  </div>
   </div>
   <div class="returns-info--contact">
-    <div>
-      <h3 class="h4">{{ section.settings.title3 }}</h3>
-      <p>{{ section.settings.text3 }}</p>
-      {% if section.settings.url3 %}
-        <a href="{{ section.settings.url3 }}" class="button button-primary">Contact Us</a>
+      <h3 class="h4">{{ section.settings.title4 }}</h3>
+      <p>{{ section.settings.text4 }}</p>
+      {% if section.settings.url4 %}
+        <a href="{{ section.settings.url4 }}" class="button button-primary">Contact Us</a>
       {% endif %}
-    </div>
   </div>
 </div>
 
@@ -235,18 +241,35 @@
       "type": "text",
       "id": "title3",
       "label": "Link 3 title",
-      "default": "Need Further Assistance?"
+      "default": "Want to Make an International Return?"
     },
     {
       "type": "text",
       "id": "text3",
       "label": "Link 3 Text",
-      "default": "Our customer service team is here to help."
+      "default": "Return an item you bought from our of our sales partners."
     },
     {
       "type": "url",
       "id": "url3",
       "label": "Link 3 Url"
+    },
+    {
+      "type": "text",
+      "id": "title4",
+      "label": "Link 4 title",
+      "default": "Need Further Assistance?"
+    },
+    {
+      "type": "text",
+      "id": "text4",
+      "label": "Link 4 Text",
+      "default": "Our customer service team is here to help."
+    },
+    {
+      "type": "url",
+      "id": "url4",
+      "label": "Link 4 Url"
     }
   ]
 }
