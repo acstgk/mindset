@@ -30,33 +30,12 @@
                         </li>
                       {% endif %}
                     {% endfor %}
-                    {% assign third_menu = 'nav-submenu-3-' | append: gender %}
-                    {% if settings[third_menu] %}
-                      <li style="border-top: 1px solid var(--c-light-grey);padding-top: 1rem;">
-                        <a href="#">{{ settings[third_menu].title | split: '-' | last }}</a>
-                        <ul
-                          style="
-                            display: flex;
-                            justify-content: flex-start;
-                            align-items: stretch;
-                            margin-top: .75rem;
-                            gap: .5rem;
-                            margin-left: 0.5rem;
-                          "
-                        >
-                          {% for link in settings[third_menu].links %}
-                            <li style="font-weight:400;flex: 0 0 100%;" class="dropdown_col-links">
-                              <a style="padding-block:0;" href="{{ link.url }}">{{ link.title }}</a>
-                            </li>
-                          {% endfor %}
-                        </ul>
-                    {% endif %}
                   </ul>
                   {% render 'menu-quick-links' with gender as gender %}
                 </div>
                 <div class="dropdown_col">
                   <div class="dropdown_sub-menus">
-                    {% for i in (1..2) %}
+                    {% for i in (1..3) %}
                       {% assign sub_menu = 'nav-submenu-' | append: i | append: '-' | append: gender %}
                       {% render 'menu-sub-menu' with settings[sub_menu] as menu %}
                     {% endfor %}
