@@ -23,10 +23,12 @@
           {% comment %} "priceValidUntil": "{{ 'now' | date: '%s' | plus: days_product_price_valid_until | date: '%Y-%m-%d'}}", {% endcomment %}
           {%- if variant.sku != blank -%}
             "sku": {{ variant.sku | json }},
+
           {%- endif -%}
           "color": {{ product.metafields.product.colour.value.name | json }},
-          "url": "{{ product.url }}?variant={{ variant.id }}",
+          "url": "{{ product.url }}?variant={{ variant.id }}"
           {%- if variant.requires_shipping -%}
+            ,
             "hasMerchantReturnPolicy": {
                 "@type": "MerchantReturnPolicy",
                 "applicableCountry": "GB",
