@@ -31,7 +31,7 @@
         "rtf_7bBxeU": {
           "type": "rtf",
           "settings": {
-            "richtext_content": "<h3>Career Highlights</h3><p><strong>2015: Strongman Swimming<br/></strong>Completed a 100-kilometer swim while towing a 100-pound tree, blending strength and endurance in an unprecedented feat of physical and mental toughness.<strong><br/><br/>2016: Guinness World Record for Rope Climbing<br/></strong>Climbed the height of Mount Everest (8,848m) on a rope in just 19 hours, setting a Guinness World Record for rope climbing endurance.<br/><br/><strong>2016: Marathon While Pulling a Car</strong><br/>Ran a full 26.2-mile marathon while pulling a 1.4-ton car, proving his concept of “functional fitness” and redefining the boundaries of strength training.</p><p><strong>2018: First human to swim around the entire coastline of Great Britain</strong><br/>Ross Edgley made history by becoming the first person to swim around the entire coastline of Great Britain, an immense feat of endurance and determination. Over the course of 157 days, Ross swam 1,780 miles, battling unpredictable weather, strong currents, and physical exhaustion. He completed the swim without setting foot on land, a continuous six hours of swimming followed by six hours of rest aboard a support boat. An incredible feat of physical resilience which cemented his status as one of the world’s most remarkable endurance athletes.</p><p><strong>2024: World record holder of the longest non-stop river swim<br/></strong>Another history making record, Ross took on the longest non-stop river swim which took place on the Yukon river in Canada lasting a mammoth 54 hours and 45 minutes, Ross was not allowed to touch land or any boat to complete over 510KM of continuous swimming.</p>"
+            "richtext_content": "<h1>Career Highlights</h1><h3>2015: Strongman Swimming</h3><p>Completed a 100km swim while towing a 100lb tree, combining strength and endurance in a world-first challenge.</p><h3>2016: Guinness World Record - Rope Climbing</h3><p>Climbed 8,848m on a rope - the equivalent height of Mount Everest - in just 19 hours, setting a Guinness World Record.</p><h3>2016: Marathon While Pulling a Car</h3><p>Completed a 26.2-mile marathon while pulling a 1.4-ton car, pushing the limits of strength and endurance.</p><h3>2018: First Person to Swim Around Great Britain</h3><p>Became the first person to swim around the entire coastline of Great Britain. Over 157 days, Ross covered 1,780 miles without setting foot on land.</p><h3>2024: Longest Non-Stop River Swim</h3><p>Set a Guinness World Record by swimming 510km down Canada’s Yukon River in 54 hours and 45 minutes without stopping, sleeping or touching the support boat.</p><h3>2025: First Person to Swim Around Iceland</h3><p>Completed the first swim around the entire coastline of Iceland, covering more than 1,000 miles over 114 days. The expedition saw Ross battle freezing waters, huge waves and extreme weather while collecting vital ocean conservation data.</p>"
           }
         }
       },
@@ -42,11 +42,14 @@
       ],
       "name": "Editorial Content Blocks",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
         "full_width": false,
-        "alignment": "right"
+        "alignment": "right",
+        "grid_style": "standard"
       }
     },
     "content_rich_text_HJ9Lha": {
@@ -65,12 +68,15 @@
       ],
       "name": "Editorial Content Blocks",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": true,
         "bg_color": "",
         "background-image": "shopify://shop_images/Compass_Tank_-_Black_1_15e7ccab-009d-41bd-b4c3-44976dc4cb94_copy.jpg",
         "full_width": true,
-        "alignment": "left"
+        "alignment": "left",
+        "grid_style": "standard"
       }
     },
     "content_rich_text_3b9FCk": {
@@ -88,11 +94,14 @@
       ],
       "name": "Editorial Content Blocks",
       "settings": {
+        "title": "",
+        "heading_style": "",
         "v_padding": 50,
         "is_accent": false,
         "bg_color": "",
         "full_width": false,
-        "alignment": "right"
+        "alignment": "right",
+        "grid_style": "standard"
       }
     }
   },

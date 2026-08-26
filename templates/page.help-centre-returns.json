@@ -55,17 +55,29 @@
             "button_link": "https://web.global-e.com/Returns/Portal",
             "btn_color": true
           }
+        },
+        "button_xmcLmK": {
+          "type": "button",
+          "settings": {
+            "btn_text": "Start a Marketplace Return",
+            "button_link": "",
+            "btn_color": true
+          }
         }
       },
       "block_order": [
         "button_b3Wcqe",
-        "button_QxmPRk"
+        "button_QxmPRk",
+        "button_xmcLmK"
       ],
       "custom_css": [
         "{margin: -1rem 0; display: block;}"
       ],
       "name": "Custom CTA Buttons",
       "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "heading_style": "emphasis",
         "size": ""
       }
     },
@@ -186,7 +198,8 @@
       ],
       "settings": {
         "openFirst": true,
-        "showTitle": false
+        "showTitle": false,
+        "title": ""
       }
     }
   },

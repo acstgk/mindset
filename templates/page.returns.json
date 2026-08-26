@@ -33,11 +33,14 @@
         "url1": "https://thegymking.returns.international/",
         "button_text1": "Start a UK Return",
         "title2": "Want to Make an International Return?",
-        "text2": "Return an item you bought online",
+        "text2": "Return an item you bought online from outside of the UK.",
         "url2": "https://web.global-e.com/Returns/Portal/myn3L",
-        "title3": "Need Further Assistance?",
-        "text3": "Our customer service team is here to help.",
-        "url3": "shopify://pages/contact-us"
+        "title3": "Want to Make an Marketplace Return?",
+        "text3": "Return an item purchased from one of our sales partners.",
+        "url3": "https://marketplacegymking.returns.international/",
+        "title4": "Need Further Assistance?",
+        "text4": "Our customer service team is here to help.",
+        "url4": "shopify://pages/contact-us"
       }
     }
   },
