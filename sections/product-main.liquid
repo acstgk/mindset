@@ -1,5 +1,6 @@
 {% assign root = routes.root_url %}
 {% unless root == '/' %}{% assign root = root | append: '/' %}{% endunless %}
+{% assign swatch_type = section.settings.swatch_type %}
 
 {% comment %} set images sizes  {% endcomment %}
 {% assign is_set = product.metafields.custom.product_set %}
@@ -143,6 +144,7 @@
 
 {% comment %} START:: Product Details {% endcomment %}
 <aside id="product-details" data-details="{{ product_details | escape }}">
+
   <div id="product-summary">
     {% render 'product-title' with product as 'product', heading: 'h1' %}
     {% render 'product-price' with product as 'product' %}
@@ -155,7 +157,9 @@
   {% endif %}
 
   {% render 'bnpl' with product_price as price %}
-
+  {% if swatch_type == 'colour' %}
+    {% render 'pdp_colour-selection' with swatch_type as swatch_type %}
+  {% endif %}
   <form id="atc_form" method="post" action="{{ routes.cart_add_url }}">
     <enhanced-atc>
       <div class="atc_form-header">
@@ -244,7 +248,12 @@
         {% endfor %}
 
       {% else %}
-        <ul class="atc_form-sizes {% if product.variants_count == 1 %}visually-hidden{% endif %}" {% if product.type == "Ticket"%}style="grid-template-columns: 1fr"{%endif%}>
+        <ul
+          class="atc_form-sizes {% if product.variants_count == 1 %}visually-hidden{% endif %}"
+          {% if product.type == 'Ticket' %}
+            style="grid-template-columns: 1fr"
+          {% endif %}
+        >
           {% for variant in product.variants %}
             {% if variant.price > 0 %}
               {% assign oos = false %}
@@ -252,15 +261,15 @@
               {% assign oos = true %}
             {% endif %}
             <li>
-                <input
-                  type="radio"
-                  name="id"
-                  value="{{ variant.id }}"
-                  id="variant-{{ variant.id }}"
-                  data-available-qty="{{ variant.inventory_quantity | minus: settings.product_buffer }}"
-                  data-size="{{ variant.title }}"
-                  data-id="{{- product.type | handle -}}-{{- variant.title -}}"
-                  data-price-varies="{{ product.price_varies }}"
+              <input
+                type="radio"
+                name="id"
+                value="{{ variant.id }}"
+                id="variant-{{ variant.id }}"
+                data-available-qty="{{ variant.inventory_quantity | minus: settings.product_buffer }}"
+                data-size="{{ variant.title }}"
+                data-id="{{- product.type | handle -}}-{{- variant.title -}}"
+                data-price-varies="{{ product.price_varies }}"
                 {% if variant.selling_plan_allocations.size > 0 %}
                   data-subscription-id="{{ variant.selling_plan_allocations.first.selling_plan.id }}"
                 {% endif %}
@@ -274,7 +283,7 @@
               >
               <label class="button button-inverted button_add-to-cart" for="variant-{{ variant.id }}">
                 {% render 'variant-title', title: variant.title %}
-                {% if variant.available == false and product.type != "Ticket" %}
+                {% if variant.available == false and product.type != 'Ticket' %}
                   <button href="#" class="BIS_trigger BIS_overlay" data-variant-id="{{ variant.id }}" data-product-data="{{  product | json | escape }}">{% render 'icon', icon: 'mail' %}</button>
                 {% endif %}
               </label>
@@ -344,11 +353,11 @@
   </form>
   <div class="product_details-confidence-blocks">
     {% assign requires_shipping = product.selected_or_first_available_variant.requires_shipping %}
-  {% if requires_shipping %}
-    <div class="confidence_blocks-block accent-bg">
-      <div class="window">{% render 'icon', icon: 'truck', class: 'ani-drive' %}</div>
-      {% render 'dispatch-timer' %}
-    </div>
+    {% if requires_shipping %}
+      <div class="confidence_blocks-block accent-bg">
+        <div class="window">{% render 'icon', icon: 'truck', class: 'ani-drive' %}</div>
+        {% render 'dispatch-timer' %}
+      </div>
     {% endif %}
 
     <div class="confidence_blocks-block accent-bg">
@@ -388,7 +397,9 @@
     {% endif %}
   </div>
 
-  {% render 'pdp_colour-selection' %}
+  {% if swatch_type == 'image' %}
+    {% render 'pdp_colour-selection' with swatch_type as swatch_type %}
+  {% endif %}
   {% if product.metafields.product.features.value %}
     {% render 'technical-specification' %}
   {% endif %}
@@ -439,7 +450,17 @@
       "default": true,
       "info": "If disabled, the description section will not be expanded on load. (effects mobile only)"
     },
-    { "type": "checkbox", "id": "show_yotpo_points", "label": "Show Yotpo Points", "default": true, "info": "If disabled, the Yotpo Points info will not be displayed below the add to bag button." }
+    { "type": "checkbox", "id": "show_yotpo_points", "label": "Show Yotpo Points", "default": true, "info": "If disabled, the Yotpo Points info will not be displayed below the add to bag button." },
+    {
+      "type": "select",
+      "id": "swatch_type",
+      "label": "Colour Swatch Type",
+      "default": "image",
+      "options": [
+        { "value": "image", "label": "Image" },
+        { "value": "colour", "label": "Dot" }
+      ]
+    }
   ]
 }
 {% endschema %}
