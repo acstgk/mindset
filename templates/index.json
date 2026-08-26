@@ -38,8 +38,38 @@
     "hero": {
       "type": "carousel-hero",
       "blocks": {
+        "image_iKm36D": {
+          "type": "image",
+          "settings": {
+            "mobile_video": "shopify://files/videos/New Season Arrivals (Sept) Launch Website Banner_Mobile.mp4",
+            "desktop_video": "shopify://files/videos/New Season Arrivals (Sept) Launch Website Banner_Desktop.mp4",
+            "media_brightness": 85,
+            "overlay_url": "",
+            "alt_text": "",
+            "lockup_width": 200,
+            "lockup_fit": "contain",
+            "title": "New Season",
+            "title_font": "",
+            "heading_size": 100,
+            "subtitle": "Arrivals",
+            "subtitle_font": "",
+            "subtitle_first": false,
+            "customHTML": "",
+            "content_alignment": "center",
+            "v_align_desk": "bottom-desk",
+            "v_align_mob": "bottom-mob",
+            "cta1": "Shop Womens",
+            "url1": "shopify://collections/womens-new",
+            "cta2": "Shop Mens",
+            "url2": "shopify://collections/mens-new",
+            "cta3": "Shop Kids",
+            "url3": "shopify://collections/kids-new-in",
+            "target_gender": ""
+          }
+        },
         "image_M4MqXy": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "mobile_video": "shopify://files/videos/Women's Script Launch Mobile HP Banner_updated (1).mp4",
             "desktop_video": "shopify://files/videos/Women's Script Launch Desktop HP Banner (1).mp4",
@@ -66,167 +96,11 @@
             "url3": "",
             "target_gender": ""
           }
-        },
-        "image_iyKkAM": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "mobile_video": "shopify://files/videos/Mobile Banner.mp4",
-            "desktop_video": "shopify://files/videos/Desktop Banner.mp4",
-            "media_brightness": 100,
-            "overlay_url": "/collections/sale/womens",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Signature Summer",
-            "title_font": "",
-            "heading_size": 120,
-            "subtitle": "Get your",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop womens",
-            "url1": "/collections/signature/womens",
-            "cta2": "Shop Mens",
-            "url2": "/collections/signature/mens",
-            "cta3": "",
-            "url3": "shopify://collections/kids-sale",
-            "target_gender": ""
-          }
-        },
-        "image_rNb94A": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "mobile_video": "shopify://files/videos/Heritage - Mobile Banner V2.mp4",
-            "desktop_video": "shopify://files/videos/Heritage - Desktop Banner.mp4",
-            "media_brightness": 87.5,
-            "overlay_url": "",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Heritage Collection",
-            "title_font": "",
-            "heading_size": 100,
-            "subtitle": "",
-            "subtitle_font": "",
-            "subtitle_first": false,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Mens",
-            "url1": "/collections/sale/mens",
-            "cta2": "Shop Womens",
-            "url2": "/collections/sale/womens",
-            "cta3": "",
-            "url3": "",
-            "target_gender": ""
-          }
-        },
-        "image_KhLw9c": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "mobile_video": "shopify://files/videos/Womens 365 - Mobile Banner_81e30a69-c0f1-456d-b144-7c8b454352ba.mp4",
-            "mobile_poster": "shopify://shop_images/Womens_365_-_Mobile_Banner.jpg",
-            "desktop_video": "shopify://files/videos/Womens 365 - Desktop Banner_fb5cfcac-53d2-4a5b-88ae-3af2aba723bc.mp4",
-            "desktop_poster": "shopify://shop_images/Womens_365_-_Desktop_Banner.jpg",
-            "media_brightness": 97.5,
-            "overlay_url": "shopify://collections/womens-new",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "365 Collection",
-            "title_font": "",
-            "heading_size": 110,
-            "subtitle": "New in",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Now",
-            "url1": "shopify://collections/womens-new",
-            "cta2": "",
-            "url2": "",
-            "cta3": "",
-            "url3": "",
-            "target_gender": ""
-          }
-        },
-        "image_6BmG7G": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "mobile_video": "shopify://files/videos/Signature Summer - Womens - Mobile Banner V2_11ad0ed4-056c-48f0-a372-aaf40c7f3a31.mp4",
-            "desktop_video": "shopify://files/videos/Signature Summer - Womens - Desktop Banner V2_1.mp4",
-            "media_brightness": 87.5,
-            "overlay_url": "/collections/signature/womens",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Signature <em>Summer</em>",
-            "title_font": "baskerville",
-            "heading_size": 100,
-            "subtitle": "new collection",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Now",
-            "url1": "/collections/signature/womens",
-            "cta2": "",
-            "url2": "",
-            "cta3": "",
-            "url3": "",
-            "target_gender": "womens"
-          }
-        },
-        "image_3RaHDG": {
-          "type": "image",
-          "disabled": true,
-          "settings": {
-            "mobile_video": "shopify://files/videos/30 Off Twin Sets - Mobile Banner_0ffae13a-c3ae-40e4-a8f5-419ebdc7dfa0.mp4",
-            "desktop_video": "shopify://files/videos/30 Off Twin Sets - Desktop Banner_922070d6-5793-4561-84a9-7355fbc9799b.mp4",
-            "media_brightness": 125,
-            "overlay_url": "shopify://collections/twin-sets",
-            "alt_text": "",
-            "lockup_width": 200,
-            "lockup_fit": "contain",
-            "title": "Twin Sets",
-            "title_font": "",
-            "heading_size": 150,
-            "subtitle": "Summer Styling",
-            "subtitle_font": "",
-            "subtitle_first": true,
-            "customHTML": "",
-            "content_alignment": "center",
-            "v_align_desk": "bottom-desk",
-            "v_align_mob": "bottom-mob",
-            "cta1": "Shop Now",
-            "url1": "shopify://collections/twin-sets",
-            "cta2": "",
-            "url2": "",
-            "cta3": "",
-            "url3": "",
-            "target_gender": ""
-          }
         }
       },
       "block_order": [
-        "image_M4MqXy",
-        "image_iyKkAM",
-        "image_rNb94A",
-        "image_KhLw9c",
-        "image_6BmG7G",
-        "image_3RaHDG"
+        "image_iKm36D",
+        "image_M4MqXy"
       ],
       "custom_css": [
         "em {width: 100%; display: inline-block;}",
@@ -315,6 +189,7 @@
     },
     "spacer_tQP6BE": {
       "type": "spacer",
+      "disabled": true,
       "name": "Content Spacer",
       "settings": {
         "desktop": 60,
@@ -339,6 +214,7 @@
       "block_order": [
         "custom_i3NHtY"
       ],
+      "disabled": true,
       "custom_css": [
         ".img-overlay {display: block !important;}"
       ],
@@ -347,6 +223,7 @@
     },
     "spacer_k6Uicn": {
       "type": "spacer",
+      "disabled": true,
       "name": "Content Spacer",
       "settings": {
         "desktop": 70,
