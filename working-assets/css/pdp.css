@@ -601,7 +601,7 @@ pdp-carousel {
   gap: 10px;
   width: 100%;
   &:has( .colour-swatches_dots) {
-    grid-template-columns: repeat(auto-fit, minmax(1.5rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(1.5rem, 1fr));
     margin-bottom: 1rem;
     gap: 1rem;
   }
