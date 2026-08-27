@@ -691,7 +691,7 @@ pdp-carousel {
     }
 
     &.active {
-      outline: var(--c-black) 1px solid;
+      outline: var(--c-black) 2px solid;
       border-color: var(--c-off-white);
     }
 
