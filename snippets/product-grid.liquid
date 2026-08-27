@@ -104,11 +104,14 @@
           {%- endcomment -%}
           {% assign img_key = 'img-' | append: gender_key | append: '-content' %}
           {% assign url_key = 'url-' | append: gender_letter | append: '-plp-content' %}
+          {% assign title_key = 'title-' | append: gender_letter | append: '-plp-content' %}
+
           {% if tier != '' %}
             {% assign temp_img_key = img_key | append: '-' | append: tier %}
             {% if settings[temp_img_key] %}
               {% assign img_key = temp_img_key %}
               {% assign url_key = url_key | append: '-' | append: tier %}
+              {% assign title_key = title_key | append: '-' | append: tier %}
             {% endif %}
           {% endif %}
 
@@ -119,6 +122,7 @@
               <a data-gender="{{ product.vendor }}" href="{{ settings[url_key] }}" class="insert-{{ tier }}{{ gender_key | slice: 0, 1 }}" aria-label="{{ settings[img_key].alt | default: 'Current Offer'}}">
                 {{ settings[img_key] | image_url: width: '850px' | image_tag: width: 850, sizes: '(max-width: 745px) 100vw, (max-width: 1400px) 68vw, 50vw', widths: '240, 360, 480, 720, 850', loading: 'lazy' }}
               </a>
+                <p class="title">{{ settings[title_key] }}</h1>
             </article>
           {% endif %}
         {% endif %}
