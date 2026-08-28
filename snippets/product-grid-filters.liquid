@@ -64,13 +64,40 @@
                             {% else %}
                               {% assign sorted_values = filter.values | sort: 'label' %}
                             {% endif %}
+                            {% comment %} only re-order size facets: alpha S/M/L before numeric before dual ranges {% endcomment %}
+                            {% assign is_size_facets = false %}
+                            {% if filter.param_name contains 'size' %}
+                              {% assign is_size_facets = true %}
+                            {% endif %}
                             {%- for filter_value in sorted_values -%}
-                              {% assign order = '-1' %}
-                              {% assign kids_sizes = '3-45-67-89-1011-1213-1415' %}
+                              {% assign order = '' %}
                               {% assign is_kids = false %}
-                              {% if kids_sizes contains filter_value.label and filter_value.label contains '-' or filter_value.label == '15' %}
-                                {% assign is_kids = true %}
-                                {% assign order = '1' %}
+                              {% if is_size_facets %}
+                                {% assign value_label = filter_value.label %}
+                                {% assign num = value_label | plus: 0 %}
+                                {% capture num_as_text %}{{ num }}{% endcapture %}
+                                {% assign kids_sizes = '3-45-67-89-1011-1213-1415' %}
+                                {% if value_label == '1-2.5' or value_label == '3-4.5' or kids_sizes contains value_label and value_label contains '-' or value_label == '15' %}
+                                  {% assign is_kids = true %}
+                                  {% assign order = 9000 | plus: num %}
+                                {% else %}
+                                  {% assign first_num = value_label | split: '-' | first | plus: 0 %}
+                                  {% if value_label contains '-' and first_num >= 2 and first_num <= 600 %}
+                                    {% assign order = 3000 | plus: first_num %}
+                                  {% elsif num_as_text == value_label and num >= 2 %}
+                                    {% assign order = 2000 | plus: num %}
+                                  {% else %}
+                                    {% assign alpha_sizes = 'XS|XS/S|S|S/M|M|L|L/XL|XL|XL/XXL|XXL|XXXL|3XL|4XL|5XL|O/S|One Size|OS' | split: '|' %}
+                                    {% for alpha in alpha_sizes %}
+                                      {% if value_label == alpha %}
+                                        {% assign order = 1000 | plus: forloop.index0 %}
+                                      {% endif %}
+                                    {% endfor %}
+                                    {% if order == '' %}
+                                      {% assign order = 9900 %}
+                                    {% endif %}
+                                  {% endif %}
+                                {% endif %}
                               {% endif %}
 
                               <li
@@ -78,8 +105,8 @@
                                 {% if filter_value.label == 'hidden' %}
                                   hidden
                                 {% endif %}
-                                {% if filter_value.label contains 'up to 40% off' or is_kids %}
-                                  style="order:{{order}};"
+                                {% if order != '' %}
+                                  style="order:{{ order }};"
                                 {% endif %}
                               >
                                 <input
