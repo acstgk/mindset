@@ -41,8 +41,8 @@
         "image_iKm36D": {
           "type": "image",
           "settings": {
-            "mobile_video": "shopify://files/videos/New Season Arrivals (Sept) Launch Website Banner_Mobile.mp4",
-            "desktop_video": "shopify://files/videos/New Season Arrivals (Sept) Launch Website Banner_Desktop.mp4",
+            "mobile_video": "shopify://files/videos/GK  - Mobile banner changes.mp4",
+            "desktop_video": "shopify://files/videos/GK - Web banner changes.mp4",
             "media_brightness": 85,
             "overlay_url": "",
             "alt_text": "",
@@ -174,16 +174,16 @@
       "type": "section-split-banner",
       "name": "Split Banner",
       "settings": {
-        "img1": "shopify://shop_images/WOMENS_8a86a5b2-c4eb-45cd-8801-22567b9099ac.jpg",
-        "title_mens": "Womens Gymwear",
-        "url1": "shopify://collections/womens-gym-clothes",
+        "img1": "shopify://shop_images/Last_Season_-_1080x1080_V1.png",
+        "title_mens": "",
+        "url1": "shopify://collections/sale",
         "img2": "shopify://shop_images/MENS1_1.jpg",
-        "title_womens": "Mens Gymwear",
+        "title_womens": "Shop Mens Gymwear",
         "url2": "shopify://collections/mens-gym-clothes",
         "image_style": "square",
-        "gap": 0,
+        "gap": 8,
         "hide_second": false,
-        "full_width": true,
+        "full_width": false,
         "flex_wrap": true
       }
     },

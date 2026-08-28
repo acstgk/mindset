@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "countdown-date": "07/31/26 12:00 PM",
+    "countdown-date": "",
     "countdown-product-check": false,
     "countdown-tag": "",
     "countdown-decal": "shopify://shop_images/24_Hours_Decal.png",
@@ -105,6 +105,16 @@
       "header-announcement": {
         "type": "header-announcement",
         "blocks": {
+          "announcement_slider_rTa4zL": {
+            "type": "announcement_slider",
+            "settings": {
+              "title": "Sign up to Loyalty Club for 20% off",
+              "subcontent1": "Sitewide Bank Holiday Offer",
+              "link1": "shopify://pages/rewards",
+              "enable_countdown": false,
+              "country_restriction": "domestic_only"
+            }
+          },
           "announcement_slider_KeM9Hq": {
             "type": "announcement_slider",
             "settings": {
@@ -156,25 +166,15 @@
               "enable_countdown": false,
               "country_restriction": "domestic_only"
             }
-          },
-          "announcement_slider_rTa4zL": {
-            "type": "announcement_slider",
-            "settings": {
-              "title": "15% Off with UNiDAYS",
-              "subcontent1": "Get Your Code",
-              "link1": "shopify://pages/unidays",
-              "enable_countdown": false,
-              "country_restriction": "domestic_only"
-            }
           }
         },
         "block_order": [
+          "announcement_slider_rTa4zL",
           "announcement_slider_KeM9Hq",
           "announcement_slider_8GNAEy",
           "announcement_slider_CxdCHz",
           "announcement_slider_ij8XhU",
-          "announcement_slider_Qw6CQD",
-          "announcement_slider_rTa4zL"
+          "announcement_slider_Qw6CQD"
         ],
         "settings": {
           "enable_bar": true,
