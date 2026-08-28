@@ -25,7 +25,6 @@
             "sku": {{ variant.sku | json }},
 
           {%- endif -%}
-          "color": {{ product.metafields.product.colour.value.name | json }},
           "url": "{{ product.url }}?variant={{ variant.id }}"
           {%- if variant.requires_shipping -%}
             ,
@@ -127,11 +126,23 @@
         "https://www.tiktok.com/@thegymking/"
       ]
     },
+    "audience": {
+      {%assign gender = "Unisex" %}
+    {% case product.vendor %}
+    {%when "Mens" or "Boys"%}
+      {%assign gender = "Male" %}
+    {%when "Womens" or "Girls"%}
+      {%assign gender = "Female" %}
+    {%endcase%}
+        "@type": "PeopleAudience",
+        "suggestedGender": {{ gender | json }}
+      },
     "name": {{ product.title | json }},
     "description": {{ product.description | strip_html | json }},
     "category": {{ product.type | json }},
     "url": "{{ root }}{{ product.url }}",
-    "sku": {{ product.selected_or_first_available_variant.sku | json }},
+    "color": {{ product.metafields.product.colour.value.name | json }},
+    "sku": {{ product.selected_or_first_available_variant.sku | slice: 0, 9 | json }},
     "image": {
       "@type": "ImageObject",
       "url": "https:{{ product.featured_media | image_url: width: 1024 }}",

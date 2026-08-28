@@ -1,4 +1,4 @@
-<div class=collection-heading>
+<div class="collection-heading">
   <div class="no-block-margin">
     <h1>{{ collection.title }}</h1>
     {% if collection.products_count > 0 %}
@@ -13,23 +13,30 @@
 {% if collection.all_types.size > 2 %}
   <product-types class="product_type-bar">
     {%- for filter in collection.filters -%}
-      {% if filter.label == 'Product Type' %}
+      {% assign target_filter = 'Product Type' %}
+      {% if request.path contains '/all-mens-t-shirts' %}
+        {% assign target_filter = 'Features' %}
+      {% endif %}
+      <a>{{ request.path }}</a>
+      {% if filter.label == target_filter %}
         {% assign sorted_values = filter.values | sort: 'count' | reverse %}
         {% for option in sorted_values %}
-          {% if option.count > 0 %}
-            <a
-              class="splide__slide"
-              {% if option.active %}
-                href="{{ collection.url }}"
-                style="font-weight:700"
-              {% else %}
-                href="{{ collection.url }}?{{ option.param_name }}={{ option.label }}"
-                data-param-name="{{ option.param_name }}" data-param-label="{{ option.label }}"
-              {% endif %}
-            >
-              {{ option.label -}}
-              <i>({{ option.count }})</i>
-            </a>
+          {% if target_filter == 'Product Type' or option.label contains 'Fit' %}
+            {% if option.count > 0 %}
+              <a
+                class="splide__slide"
+                {% if option.active %}
+                  href="{{ collection.url }}"
+                  style="font-weight:700"
+                {% else %}
+                  href="{{ collection.url }}?{{ option.param_name }}={{ option.label }}"
+                  data-param-name="{{ option.param_name }}" data-param-label="{{ option.label }}"
+                {% endif %}
+              >
+                {{ option.label -}}
+                <i>({{ option.count }})</i>
+              </a>
+            {% endif %}
           {% endif %}
         {% endfor %}
       {% endif %}
